@@ -25,7 +25,7 @@ public class MapCreator {
         for(int i=0;i<dimension1;i++){
             for(int j=0;j<dimension2;j++){
                 GameField field = new GameField(new Position(i,j));
-                System.out.println(field);
+                System.out.println(field.key);
                 System.out.println(board.getField(i,j));
                 board.add(field);
             }
