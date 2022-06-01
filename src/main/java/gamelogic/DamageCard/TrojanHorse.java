@@ -1,4 +1,4 @@
-package Card.DamageCard;
+package gamelogic.DamageCard;
 
 import Card.Card;
 
