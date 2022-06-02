@@ -20,7 +20,7 @@ public class GameBoard {
                 '}';
     }
 
-    public boolean add(GameField field){
+    public boolean addField(GameField field){
         boardMap.put(field.key,field);
         return true;
     }
@@ -32,7 +32,8 @@ public class GameBoard {
     public ArrayList getRegistry(){
         ArrayList list = new ArrayList();
         boardMap.forEach((key,value)->{
-            list.add(value);
+            if(value.element!=null)
+            list.add(value.element);
         });
         return list;
     }

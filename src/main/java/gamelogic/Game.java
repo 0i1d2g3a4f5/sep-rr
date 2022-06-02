@@ -45,6 +45,8 @@ public class Game {
      *
      * @return
      */
+
+    public GameBoard board;
     /*
     public Player join(ClientHandler client) {
         Player player = new Player(client);
@@ -62,10 +64,10 @@ public class Game {
 
 
 
-    private void setup(){
+    public void setup(){
         //select map
         ModelLoader loader = new ModelLoader();
-        GameBoard board = loader.loadMap("map1.json");
+         board = loader.loadMap("map1.json");
         elementRegistry = board.getRegistry();
         for (Player player :playerList) {
             player.setRobot(new Robot());

@@ -2,17 +2,12 @@ package gamelogic.map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import gamelogic.Direction;
 import gamelogic.Position;
 import gamelogic.game_elements.BoardLaser;
-import gamelogic.game_elements.ConveyorBelt;
-import gamelogic.game_elements.Gear;
-import javafx.util.Pair;
 
 import java.io.*;
 
 import static gamelogic.Direction.*;
-import static java.awt.Color.BLUE;
 
 public class MapCreator {
 
@@ -27,7 +22,7 @@ public class MapCreator {
                 GameField field = new GameField(new Position(i,j));
                 System.out.println(field.key);
                 System.out.println(board.getField(i,j));
-                board.add(field);
+                board.addField(field);
             }
         }
 

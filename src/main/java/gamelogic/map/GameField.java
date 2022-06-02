@@ -74,7 +74,9 @@ public class GameField {
     public void addElement(GameElement element){
 
          this.elementName=element.getElementName();
+
          this.element=element;
+         this.element.setPosition(key);
 
     }
     public void removeElement(){

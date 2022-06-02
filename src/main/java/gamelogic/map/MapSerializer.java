@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import gamelogic.Position;
 import gamelogic.game_elements.*;
-import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,7 +79,7 @@ public class MapSerializer {
             field.element = deserializeElement(sField.gameElementString, sField.elementName);
             field.laserBeam = sField.laserBeam;
             field.checkpoint = sField.checkpoint;
-            board.add(field);
+            board.addField(field);
         }
         System.out.println(board);
         return board;
