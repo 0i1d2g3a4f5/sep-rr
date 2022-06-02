@@ -4,7 +4,6 @@ import gamelogic.Direction;
 import gamelogic.Position;
 import gamelogic.Robot.Robot;
 import gamelogic.game_elements.*;
-import javafx.util.Pair;
 
 import java.io.IOException;
 
@@ -83,6 +82,7 @@ public class GameField {
          this.elementName=ElementName.NO_ELEMENT;
          this.element=null;
     }
+
 
     @Override
     public String toString() {

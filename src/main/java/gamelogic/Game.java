@@ -70,7 +70,7 @@ public class Game {
          board = loader.loadMap("map1.json");
         elementRegistry = board.getRegistry();
         for (Player player :playerList) {
-            player.setRobot(new Robot());
+            player.setRobot(new Robot(new Position(1,1)));
         }
 
         //special cards (Todo)
