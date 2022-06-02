@@ -56,16 +56,16 @@ public class Robot {
         switch (directionFacing){
 
             case NORTH -> {
-                nextPosition = new Position(position.getY()+1, position.getX());
+                nextPosition = new Position(position.getY()+gear, position.getX());
             }
             case SOUTH -> {
-                nextPosition = new Position(position.getY()-1, position.getX());
+                nextPosition = new Position(position.getY()-gear, position.getX());
             }
             case EAST -> {
-                nextPosition = new Position(position.getY(), position.getX()+1);
+                nextPosition = new Position(position.getY(), position.getX()+gear);
             }
             case WEST -> {
-                nextPosition = new Position(position.getY(), position.getX()-1);
+                nextPosition = new Position(position.getY(), position.getX()-gear);
             }
             default -> {
                 return false;
