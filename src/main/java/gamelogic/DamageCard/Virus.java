@@ -1,6 +1,6 @@
 package gamelogic.DamageCard;
 
-import Card.Card;
+import gamelogic.Card.Card;
 
 public class Virus extends Card {
     String CardName = "Virus";

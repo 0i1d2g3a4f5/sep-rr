@@ -31,6 +31,11 @@ public class Position {
         return x;
     }
 
+    @Override
+    public String toString() {
+        return "Pos(" + x + '|' + y + ')';
+    }
+
     public int getY() {
         return y;
     }

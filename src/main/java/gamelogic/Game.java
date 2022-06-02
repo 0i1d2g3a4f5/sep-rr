@@ -15,6 +15,8 @@ public class Game {
     ArrayList elementRegistry;
     private static Game instance;
 
+
+
     boolean continueGame;
 
     public List<Player> playerList = new ArrayList<>();
@@ -30,9 +32,14 @@ public class Game {
         }
         return instance;
     }
+    public static boolean instanceExists(){
+        return instance!=null;
+    }
     private Game() {
     }
-
+    public boolean getContinueGame() {
+        return continueGame;
+    }
     /**
      * players join the game
      *
