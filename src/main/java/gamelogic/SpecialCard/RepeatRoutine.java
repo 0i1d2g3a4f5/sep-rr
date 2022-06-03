@@ -1,10 +1,10 @@
 package gamelogic.SpecialCard;
 
 import gamelogic.Card.Card;
+import gamelogic.Card.CardName;
 
 public class RepeatRoutine extends Card {
-    String CardName = "RepeatRoutine";
-    public String getCardName(){
-        return CardName;
+    public RepeatRoutine(){
+        super(CardName.REPEAT_ROUTINE);
     }
 }

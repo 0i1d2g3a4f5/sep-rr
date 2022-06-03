@@ -1,10 +1,10 @@
 package gamelogic.SpecialCard;
 
 import gamelogic.Card.Card;
+import gamelogic.Card.CardName;
 
 public class SpeedRoutine extends Card {
-    String CardName = "SpeedRoutine";
-    public String getCardName(){
-        return CardName;
+    public SpeedRoutine(){
+        super(CardName.SPEED_ROUTINE);
     }
 }

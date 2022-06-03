@@ -57,6 +57,12 @@ public class Robot {
 
         return move(-1);
     }
+
+    /**
+     *
+     * @param gear is The Direction
+     * @return
+     */
     private boolean move(int gear){
         setNextPosition(gear);
         if(checkNextPosition())
@@ -143,12 +149,7 @@ public class Robot {
     public int getMaxLives(){
         return 3;
     }
-/*
-    public Location getLocation(){
-        return this.state.getRobot().getLocation();
-    }
 
- */
 
 
 }

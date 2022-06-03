@@ -1,10 +1,10 @@
 package gamelogic.SpecialCard;
 
 import gamelogic.Card.Card;
+import gamelogic.Card.CardName;
 
 public class SpamFolder extends Card {
-    String CardName = "SpamFolder";
-    public String getCardName(){
-        return CardName;
+    public SpamFolder(){
+        super(CardName.SPAM_FOLDER);
     }
 }

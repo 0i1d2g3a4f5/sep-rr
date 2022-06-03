@@ -1,13 +1,15 @@
 package gamelogic.Card;
+import static gamelogic.Card.CardName.*;
 
-public class Card {
-    public String CardName;
 
-    public Card(){
-        CardName = "gamelogic/Card";
+public abstract class Card {
+    public CardName cardName;
+
+    public Card(CardName cardName){
+        this.cardName = cardName;
     }
 
-    public String getCardName(){
-        return CardName;
+    public CardName getCardName(){
+        return cardName;
     }
 }
