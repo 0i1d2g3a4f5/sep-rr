@@ -4,7 +4,7 @@ import gamelogic.Card.Card;
 
 import static gamelogic.Card.CardName.*;
 
-public class SpeedRoutine extends Card {
+public class SpeedRoutine extends SpecialCard {
     public SpeedRoutine(){
         super(SPEED_ROUTINE);
     }

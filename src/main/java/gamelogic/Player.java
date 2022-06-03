@@ -3,8 +3,10 @@ package gamelogic;
 
 
 import gamelogic.Card.Card;
+import gamelogic.Card.playableInRegister;
 import gamelogic.robot.Robot;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -20,10 +22,10 @@ public class Player{
     private Card lastPlayedCard;
     private Direction direction;
 
-    Stack<Card> deck;
-    Stack<Card> discardPile;
-    Stack<Card> handCards;
-    Robot robot;
+    private Stack<Card> deck;
+    private Stack<Card> discardPile;
+    private Stack<Card> handCards;
+    private Robot robot;
 
     public void setRobot(Robot robot) {
         this.robot = robot;
@@ -43,6 +45,36 @@ public class Player{
      * @return
      */
 
+
+    private ArrayList<Card> register= new ArrayList<Card>();
+
+    public ArrayList<Card> getRegister() {
+        return register;
+    }
+
+    public boolean addToRegister(Card card){
+        if(checkRegister(card)){
+            register.add( card);
+        }
+        return true;
+    }
+
+    public void clearRegister(){
+        for (Card card:register) {
+            discardPile.add(card);
+            register.remove(card);
+        }
+    }
+
+    private boolean checkRegister(Card card){
+        if(register.size()>=5){
+            return false;
+        } else if(!(card instanceof playableInRegister)){
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     public void addEnergyCube(){
         EnergyCube ++;

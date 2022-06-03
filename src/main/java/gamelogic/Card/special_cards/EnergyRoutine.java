@@ -4,7 +4,7 @@ import gamelogic.Card.Card;
 
 import static gamelogic.Card.CardName.*;
 
-public class EnergyRoutine extends Card {
+public class EnergyRoutine extends SpecialCard {
 
     public EnergyRoutine(){
         super(ENERGY_ROUTINE);

@@ -7,7 +7,7 @@ import static gamelogic.Card.CardName.*;
 
 import java.util.Stack;
 
-public class SpamFolder extends Card {
+public class SpamFolder extends SpecialCard {
     public SpamFolder(){
         super(SPAM_FOLDER);
     }

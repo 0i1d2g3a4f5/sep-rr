@@ -4,7 +4,7 @@ import gamelogic.Card.Card;
 
 import static gamelogic.Card.CardName.*;
 
-public class RepeatRoutine extends Card {
+public class RepeatRoutine extends SpecialCard {
     public RepeatRoutine(){
         super(REPEAT_ROUTINE);
     }

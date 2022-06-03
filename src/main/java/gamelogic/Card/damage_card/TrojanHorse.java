@@ -6,7 +6,7 @@ import gamelogic.Game;
 import gamelogic.Player;
 import static gamelogic.Card.CardName.*;
 
-public class TrojanHorse extends Card {
+public class TrojanHorse extends DamageCard {
 
     public TrojanHorse(){
         super(TROJAN_HORSE);
