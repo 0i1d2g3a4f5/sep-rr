@@ -9,4 +9,6 @@ public class Spam extends Card{
         super(CardName.SPAM);
     }
 
+    public void PlayCard(){}
+
 }

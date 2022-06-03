@@ -1,21 +1,20 @@
 package gamelogic.Robot;
 
 import gamelogic.Direction;
-import gamelogic.Direction.*;
 import gamelogic.Game;
 import gamelogic.Position;
 import gamelogic.map.GameField;
 
 /**
- * @author Qinyi
+ * @author Qinyi, Mark
  * create a robot character for every player
  */
 public class Robot {
 
     Game game;
 
-    Direction directionFacing;
-    Position position;
+    static Direction directionFacing;
+    static Position position;
     private String name;
 
     private boolean isAlive;
@@ -24,14 +23,24 @@ public class Robot {
     private Direction nextDirectionFacing;
 
     /**
-     * update the state and the location of the robot
+     * update the location of the robot
      * @param position
      */
-
-
     public Robot (Position position){
         game =Game.getInstance();
         this.position = position;
+    }
+
+    public static Direction getDirectionFacing(){
+        return directionFacing;
+    }
+
+    public static int getPositionX(){
+        return position.getX();
+    }
+
+    public static int getPositionY(){
+        return position.getY();
     }
 
 
@@ -111,6 +120,11 @@ public class Robot {
 
     }
 
+    /**
+     * set the next Position if a robot meet the gear
+     * @param gear
+     * @return
+     */
     private boolean setNextPosition(int gear) {
         switch (directionFacing){
 

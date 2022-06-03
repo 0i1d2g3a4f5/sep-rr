@@ -11,4 +11,6 @@ public class Worm extends Card {
         super(WORM);
     }
 
+    public void PlayCard(){}
+
 }

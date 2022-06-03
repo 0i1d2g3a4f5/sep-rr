@@ -1,5 +1,4 @@
 package gamelogic.Card;
-import static gamelogic.Card.CardName.*;
 
 
 public abstract class Card {
@@ -12,4 +11,7 @@ public abstract class Card {
     public CardName getCardName(){
         return cardName;
     }
+
+
+    public abstract void PlayCard();
 }

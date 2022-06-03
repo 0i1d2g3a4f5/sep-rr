@@ -11,4 +11,6 @@ public class Virus extends Card {
     public Virus(){
         super(VIRUS);
     }
+
+    public void PlayCard(){}
 }

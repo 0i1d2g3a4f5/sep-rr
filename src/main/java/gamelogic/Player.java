@@ -15,10 +15,13 @@ public class Player{
    // ClientHandler client;
     boolean myTurn = false;
 
+    private int EnergyCube;
+    private Card lastPlayedCard;
+    private Direction direction;
 
-
-    Stack deck;
-    Stack discardPile;
+    Stack<Card> deck;
+    Stack<Card> discardPile;
+    Stack<Card> handCards;
     Robot robot;
 
     public void setRobot(Robot robot) {
@@ -40,6 +43,29 @@ public class Player{
      */
 
 
+    public void addEnergyCube(){
+        EnergyCube ++;
+    }
+    public int getEnergyCube(){
+        return EnergyCube;
+    }
+
+    public  Card getLastPlayedCard(){
+        return lastPlayedCard;
+    }
+
+    public Stack<Card> getDiscardPile() {
+        return discardPile;
+    }
+
+    public Direction getRobotDirection(){
+        direction = Robot.getDirectionFacing();
+        return direction;
+    }
+
+    public Stack<Card> getHandCards(){
+        return handCards;
+    }
 
 
 }
