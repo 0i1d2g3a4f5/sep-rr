@@ -1,11 +1,20 @@
 package gamelogic.Card;
 
 
+import gamelogic.Player;
+
 public abstract class Card {
-    public CardName cardName;
+    protected CardName cardName;
+
+    protected Player player;
+
+    public void setPlayer(Player player){
+        this.player =player;
+    }
 
     public Card(CardName cardName){
         this.cardName = cardName;
+
     }
 
     public CardName getCardName(){

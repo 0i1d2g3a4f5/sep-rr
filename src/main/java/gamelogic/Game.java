@@ -1,12 +1,15 @@
 package gamelogic;
 
 
+import gamelogic.Card.damage_card.*;
+import gamelogic.Card.damage_card.TrojanHorse;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author Mark Ringer
@@ -15,12 +18,28 @@ public class Game {
     ArrayList elementRegistry;
     private static Game instance;
 
+    private Stack<Spam> spamDrawPile;
+    private Stack<TrojanHorse> trojanHorseDrawPile;
+    private Stack<Virus> virusDrawPile;
+    private Stack<Worm> wormDrawPile;
 
 
     boolean continueGame;
 
     public List<Player> playerList = new ArrayList<>();
 
+    public Stack<Spam> getSpamDrawPile(){
+        return spamDrawPile;
+    }
+    public Stack<TrojanHorse> getTrojanHorseDrawPile(){
+        return trojanHorseDrawPile;
+    }
+    public Stack<Virus> getVirusDrawPile(){
+        return virusDrawPile;
+    }
+    public Stack<Worm> getWormDrawPile(){
+        return wormDrawPile;
+    }
 
     public static void deleteInstance(){
         instance=null;
