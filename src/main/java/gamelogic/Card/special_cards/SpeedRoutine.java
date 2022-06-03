@@ -1,10 +1,7 @@
-package gamelogic.Card.SpecialCard;
+package gamelogic.Card.special_cards;
 
 import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
-import gamelogic.Direction;
-import gamelogic.Player;
-import gamelogic.robot.Robot;
+
 import static gamelogic.Card.CardName.*;
 
 public class SpeedRoutine extends Card {

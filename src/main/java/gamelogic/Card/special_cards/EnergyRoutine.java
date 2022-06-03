@@ -1,8 +1,7 @@
-package gamelogic.Card.SpecialCard;
+package gamelogic.Card.special_cards;
 
 import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
-import gamelogic.Player;
+
 import static gamelogic.Card.CardName.*;
 
 public class EnergyRoutine extends Card {

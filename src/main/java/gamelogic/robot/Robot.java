@@ -128,18 +128,12 @@ public class Robot {
     private boolean setNextPosition(int gear) {
         switch (directionFacing){
 
-            case NORTH -> {
-                nextPosition = new Position(position.getY()+gear, position.getX());
-            }
-            case SOUTH -> {
-                nextPosition = new Position(position.getY()-gear, position.getX());
-            }
-            case EAST -> {
-                nextPosition = new Position(position.getY(), position.getX()+gear);
-            }
-            case WEST -> {
-                nextPosition = new Position(position.getY(), position.getX()-gear);
-            }
+            case NORTH -> nextPosition = new Position(position.getY()+gear, position.getX());
+            case SOUTH -> nextPosition = new Position(position.getY()-gear, position.getX());
+            case EAST -> nextPosition = new Position(position.getY(), position.getX()+gear);
+
+            case WEST -> nextPosition = new Position(position.getY(), position.getX()-gear);
+
             default -> {
                 return false;
             }
