@@ -1,7 +1,6 @@
-package gamelogic.Robot;
+package gamelogic.robot;
 
 import gamelogic.Direction;
-import gamelogic.Direction.*;
 import gamelogic.Game;
 import gamelogic.Position;
 import gamelogic.map.GameField;

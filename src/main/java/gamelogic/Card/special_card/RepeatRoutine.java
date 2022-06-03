@@ -1,4 +1,4 @@
-package gamelogic.SpecialCard;
+package gamelogic.Card.special_card;
 
 import gamelogic.Card.Card;
 import gamelogic.Card.CardName;

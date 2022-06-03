@@ -1,7 +1,6 @@
-package gamelogic.Card.DamageCard;
+package gamelogic.Card.damage_card;
 
 import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
 
 import static gamelogic.Card.CardName.*;
 

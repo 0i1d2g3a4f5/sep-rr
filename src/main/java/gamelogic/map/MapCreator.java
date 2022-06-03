@@ -2,12 +2,16 @@ package gamelogic.map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import gamelogic.Color;
 import gamelogic.Position;
 import gamelogic.game_elements.BoardLaser;
+import gamelogic.game_elements.ConveyorBelt;
+
 
 import java.io.*;
 
 import static gamelogic.Direction.*;
+
 
 public class MapCreator {
 
@@ -28,11 +32,11 @@ public class MapCreator {
 
         System.out.println(board.boardMap.get(new Position(0,0)));
         board.getField(4,5).addElement(new BoardLaser(2,NORTH));
-
+        board.getField(2,2).addElement(new ConveyorBelt(Color.BLUE,NORTH));
         /*
         board.boardMap.get(new Position(11,11)).addElement(new BoardLaser(3, NORTH));
         board.boardMap.get(new Position(2,3)).addElement(new Gear(false));
-        board.getField(2,2).addElement(new ConveyorBelt(BLUE,NORTH));
+
 
          */
         //board.changeActiveStatus(new Pair<>(0,0),new Pair<>(4,5),true);

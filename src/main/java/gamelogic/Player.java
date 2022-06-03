@@ -2,7 +2,7 @@ package gamelogic;
 
 
 
-import gamelogic.Robot.Robot;
+import gamelogic.robot.Robot;
 
 import java.util.Stack;
 
