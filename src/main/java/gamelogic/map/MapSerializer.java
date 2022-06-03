@@ -14,10 +14,10 @@ public class MapSerializer {
         Position key;
 
         boolean isActive;
-        boolean wallTop;
-        boolean wallBottom;
-        boolean wallRight;
-        boolean wallLeft;
+        boolean wallNorth;
+        boolean wallSouth;
+        boolean wallEast;
+        boolean wallWest;
         LaserBeam laserBeam;
 
         Checkpoint checkpoint;
@@ -44,10 +44,10 @@ public class MapSerializer {
             SerializableGameField sField = new SerializableGameField();
             sField.isActive = field.isActive;
             sField.key =field.key;
-            sField.wallTop = field.wallNorth;
-            sField.wallBottom = field.wallSouth;
-            sField.wallLeft = field.wallWest;
-            sField.wallRight = field.wallEast;
+            sField.wallNorth = field.isWallNorth();
+            sField.wallSouth = field.isWallSouth();
+            sField.wallWest = field.isWallWest();
+            sField.wallEast = field.isWallEast();
             sField.elementName = field.elementName;
             System.out.print("Key: "+key+" Element: ");
             sField.gameElementString = serializeElement(field.element);
@@ -71,10 +71,10 @@ public class MapSerializer {
             Position key = sField.key;
             GameField field = new GameField(key);
             field.isActive = sField.isActive;
-            field.wallEast = sField.wallRight;
-            field.wallWest = sField.wallLeft;
-            field.wallNorth = sField.wallTop;
-            field.wallSouth = sField.wallBottom;
+            field.setWallEast(sField.wallEast);
+            field.setWallWest(sField.wallWest);
+            field.setWallNorth(sField.wallNorth);
+            field.setWallSouth(sField.wallSouth);
             field.elementName = sField.elementName;
             field.element = deserializeElement(sField.gameElementString, sField.elementName);
             field.laserBeam = sField.laserBeam;

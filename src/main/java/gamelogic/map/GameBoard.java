@@ -28,6 +28,9 @@ public class GameBoard {
     public GameField getField(int i, int j){
         return boardMap.get(new Position(i,j));
     }
+    public GameField getField(Position position){
+        return boardMap.get(position);
+    }
 
     public ArrayList getRegistry(){
         ArrayList list = new ArrayList();

@@ -11,10 +11,20 @@ public class GameField {
     Position key;
 
     boolean isActive=true;
-    boolean wallNorth = false;
-    boolean wallSouth = false;
-    boolean wallEast = false;
-    boolean wallWest = false;
+
+
+
+    private boolean wallNorth = false;
+
+
+    private boolean wallSouth = false;
+
+
+
+    private boolean wallEast = false;
+
+
+    private boolean wallWest = false;
 
     LaserBeam laserBeam;
 
@@ -45,6 +55,37 @@ public class GameField {
          robot = null;
     }
 
+    public boolean isWallNorth() {
+        return wallNorth;
+    }
+
+    public boolean isWallSouth() {
+        return wallSouth;
+    }
+
+    public void setWallSouth(boolean wallSouth) {
+        this.wallSouth = wallSouth;
+    }
+
+
+    public void setWallNorth(boolean wallNorth) {
+        this.wallNorth = wallNorth;
+    }
+    public boolean isWallWest() {
+        return wallWest;
+    }
+
+    public void setWallWest(boolean wallWest) {
+        this.wallWest = wallWest;
+    }
+
+    public boolean isWallEast() {
+        return wallEast;
+    }
+
+    public void setWallEast(boolean wallEast) {
+        this.wallEast = wallEast;
+    }
     public void editWall(Direction direction, boolean active){
          switch (direction){
              case NORTH -> {
