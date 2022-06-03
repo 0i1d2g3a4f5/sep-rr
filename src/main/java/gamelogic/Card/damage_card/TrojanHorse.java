@@ -4,11 +4,12 @@ import gamelogic.Card.Card;
 import gamelogic.Card.CardName;
 import gamelogic.Game;
 import gamelogic.Player;
+import static gamelogic.Card.CardName.*;
 
 public class TrojanHorse extends Card {
 
     public TrojanHorse(){
-        super(CardName.TROJAN_HORSE);
+        super(TROJAN_HORSE);
     }
 
     /**

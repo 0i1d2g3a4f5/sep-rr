@@ -3,10 +3,11 @@ package gamelogic.Card.SpecialCard;
 import gamelogic.Card.Card;
 import gamelogic.Card.CardName;
 import gamelogic.Player;
+import static gamelogic.Card.CardName.*;
 
 public class RepeatRoutine extends Card {
     public RepeatRoutine(){
-        super(CardName.REPEAT_ROUTINE);
+        super(REPEAT_ROUTINE);
     }
 
     /**

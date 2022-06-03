@@ -68,5 +68,9 @@ public class Player{
         return handCards;
     }
 
+    public Robot getRobot(){
+        return robot ;
+    }
+
 
 }

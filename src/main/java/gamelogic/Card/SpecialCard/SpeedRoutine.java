@@ -4,11 +4,12 @@ import gamelogic.Card.Card;
 import gamelogic.Card.CardName;
 import gamelogic.Direction;
 import gamelogic.Player;
-import gamelogic.Robot.Robot;
+import gamelogic.robot.Robot;
+import static gamelogic.Card.CardName.*;
 
 public class SpeedRoutine extends Card {
     public SpeedRoutine(){
-        super(CardName.SPEED_ROUTINE);
+        super(SPEED_ROUTINE);
     }
 
     /**

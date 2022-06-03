@@ -3,12 +3,13 @@ package gamelogic.Card.SpecialCard;
 import gamelogic.Card.Card;
 import gamelogic.Card.CardName;
 import gamelogic.Player;
+import static gamelogic.Card.CardName.*;
 
 import java.util.Stack;
 
 public class SpamFolder extends Card {
     public SpamFolder(){
-        super(CardName.SPAM_FOLDER);
+        super(SPAM_FOLDER);
     }
 
     /**

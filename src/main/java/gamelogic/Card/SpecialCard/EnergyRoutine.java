@@ -3,11 +3,12 @@ package gamelogic.Card.SpecialCard;
 import gamelogic.Card.Card;
 import gamelogic.Card.CardName;
 import gamelogic.Player;
+import static gamelogic.Card.CardName.*;
 
 public class EnergyRoutine extends Card {
 
     public EnergyRoutine(){
-        super(CardName.ENERGY_ROUTINE);
+        super(ENERGY_ROUTINE);
     }
 
     /**
