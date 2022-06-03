@@ -1,4 +1,4 @@
-package gamelogic.Robot;
+package gamelogic.robot;
 
 import gamelogic.Direction;
 import gamelogic.Game;

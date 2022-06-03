@@ -1,12 +1,12 @@
 package gamelogic.game_elements;
 
+import gamelogic.Color;
 import gamelogic.Direction;
 
-import java.awt.*;
+
 import java.io.IOException;
 
-import static java.awt.Color.BLUE;
-import static java.awt.Color.GREEN;
+
 
 public class ConveyorBelt extends GameElement {
     Color color;
@@ -15,7 +15,7 @@ public class ConveyorBelt extends GameElement {
     public ConveyorBelt(Color color,Direction direction){
         elementName= ElementName.CONVEYORBELT;
         this.direction = direction;
-        if(color ==BLUE ||color == GREEN) {
+        if(color ==Color.BLUE ||color == Color.GREEN) {
                 this.color = color;
             }else{
             try {

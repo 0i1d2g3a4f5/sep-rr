@@ -1,7 +1,7 @@
 package gamelogic;
 
 
-import gamelogic.Robot.Robot;
+import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 

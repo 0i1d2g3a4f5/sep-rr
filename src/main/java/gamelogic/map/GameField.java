@@ -2,7 +2,7 @@ package gamelogic.map;
 
 import gamelogic.Direction;
 import gamelogic.Position;
-import gamelogic.Robot.Robot;
+import gamelogic.robot.Robot;
 import gamelogic.game_elements.*;
 
 import java.io.IOException;
