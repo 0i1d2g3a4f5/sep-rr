@@ -3,7 +3,6 @@ package gamelogic.map;
 
 
 import gamelogic.Position;
-import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,10 +40,16 @@ public class GameBoard {
         return list;
     }
 
-    public void changeActiveStatus(Pair<Integer,Integer> leftTop,Pair<Integer,Integer> rightBottom,boolean isActive){
-        for (int i = leftTop.getKey();i<=rightBottom.getKey();i++){
-            for (int j = leftTop.getValue();j<=rightBottom.getValue();j++){
-                boardMap.get(new Pair<>(i,j)).isActive=isActive;
+    /**
+     * @author Ringer
+     * @param leftTop
+     * @param rightBottom
+     * @param isActive
+     */
+    public void changeActiveStatus(Position leftTop,Position rightBottom,boolean isActive){
+        for (int i = leftTop.getY();i<=rightBottom.getY();i++){
+            for (int j = leftTop.getX();j<=rightBottom.getX();j++){
+                getField(i,j).isActive=isActive;
             }
         }
     }

@@ -15,6 +15,10 @@ import static gamelogic.Direction.*;
 
 public class MapCreator {
 
+    /**
+     * @author Ringer
+     * @param args
+     */
     public static void main(String[] args) {
         int dimension1 = 12;
         int dimension2 = 12;

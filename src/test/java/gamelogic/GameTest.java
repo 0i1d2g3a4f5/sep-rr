@@ -62,4 +62,8 @@ class GameTest {
     void tearDown() {
         Game.deleteInstance();
     }
+
+    @Test
+    void join() {
+    }
 }

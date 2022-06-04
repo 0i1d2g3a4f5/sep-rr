@@ -6,6 +6,11 @@ import java.io.*;
 
 public class ModelLoader {
 
+    /**
+     * @author Ringer
+     * @param mapName
+     * @return
+     */
     public GameBoard loadMap(String mapName){
         GameBoard board;
         Gson gson = new Gson();

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public class MapSerializer {
 
+    /**
+     * @author Ringer
+     */
     class SerializableGameField{
         Position key;
 
@@ -24,6 +27,10 @@ public class MapSerializer {
         ElementName elementName;
         String gameElementString;
     }
+
+    /**
+     * @author Ringer
+     */
     class SerializableGameBoard{
         int dimension1;
         int dimension2;
@@ -32,6 +39,11 @@ public class MapSerializer {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     //Gson gson = new Gson();
 
+    /**
+     * @author Ringer
+     * @param board
+     * @return
+     */
     public String serializeBoard(GameBoard board){
 
         SerializableGameBoard sBoard = new SerializableGameBoard();
@@ -58,12 +70,23 @@ public class MapSerializer {
         return gson.toJson(sBoard);
 
     }
+
+    /**
+     * @author Ringer
+     * @param element
+     * @return
+     */
     private String serializeElement(GameElement element){
         System.out.println(element);
         String output = gson.toJson(element);
         return output;
     }
 
+    /**
+     * @author Ringer
+     * @param json
+     * @return
+     */
     public GameBoard deserializeBoard(String json){
         GameBoard board = new GameBoard();
         SerializableGameBoard sBoard = gson.fromJson(json,SerializableGameBoard.class);
@@ -84,6 +107,13 @@ public class MapSerializer {
         System.out.println(board);
         return board;
     }
+
+    /**
+     * @author Ringer
+     * @param json
+     * @param name
+     * @return
+     */
     private GameElement deserializeElement(String json, ElementName name){
         Class classname;
         switch (name){

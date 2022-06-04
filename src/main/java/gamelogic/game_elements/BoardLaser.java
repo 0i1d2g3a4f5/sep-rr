@@ -16,6 +16,11 @@ public class BoardLaser extends GameElement{
                 '}';
     }
 
+    /**
+     * @author Ringer
+     * @param number
+     * @param direction
+     */
     public BoardLaser(int number, Direction direction){
         this.direction = direction;
         if(number>3||number<1){

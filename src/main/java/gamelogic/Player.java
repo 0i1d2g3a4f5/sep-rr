@@ -1,10 +1,9 @@
 package gamelogic;
 
-
-
 import gamelogic.Card.Card;
 import gamelogic.Card.playableInRegister;
 import gamelogic.robot.Robot;
+import server.ClientHandler;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -26,6 +25,17 @@ public class Player{
     private Stack<Card> discardPile;
     private Stack<Card> handCards;
     private Robot robot;
+
+    public ClientHandler getClient() {
+        return client;
+    }
+
+
+    private ClientHandler client;
+
+    public Player(ClientHandler client) {
+        this.client = client;
+    }
 
     public void setRobot(Robot robot) {
         this.robot = robot;

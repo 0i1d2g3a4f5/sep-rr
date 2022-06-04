@@ -6,6 +6,7 @@ import gamelogic.Card.damage_card.TrojanHorse;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
+import server.ClientHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,11 +67,11 @@ public class Game {
      */
 
     public GameBoard board;
-    /*
+
     public Player join(ClientHandler client) {
         Player player = new Player(client);
         for (Player existingPlayer : playerList) {
-            if (existingPlayer.client.getClientID() == client.getClientID()) {
+            if (existingPlayer.getClient().getClientID() == client.getClientID()) {
                 return null;
             }
 
@@ -78,10 +79,6 @@ public class Game {
         playerList.add(player);
         return player;
     }
-
-     */
-
-
 
     public void setup(){
         //select map
