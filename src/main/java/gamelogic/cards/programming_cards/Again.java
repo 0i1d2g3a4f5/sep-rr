@@ -5,7 +5,7 @@ import static gamelogic.cards.CardName.AGAIN;
 public class Again extends ProgrammingCard {
 
     /**
-     * @auther Kafadar
+     * @author Kafadar
      */
 
     public Again() {super(AGAIN);}

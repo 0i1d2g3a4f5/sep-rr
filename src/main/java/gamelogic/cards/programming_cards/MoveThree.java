@@ -5,7 +5,7 @@ import static gamelogic.cards.CardName.MOVE_THREE;
 public class MoveThree extends ProgrammingCard {
 
     /**
-     * @auther Kafadar
+     * @author Kafadar
      */
 
     public MoveThree() {super(MOVE_THREE);}

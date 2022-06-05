@@ -5,7 +5,7 @@ import static gamelogic.cards.CardName.RIGHT_TURN;
 public class RightTurn extends ProgrammingCard {
 
     /**
-     * @auther Kafadar
+     * @author Kafadar
      */
 
     public RightTurn() {super(RIGHT_TURN);}
