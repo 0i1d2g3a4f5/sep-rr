@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class Scrambler extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public Scrambler() {super(CardName.SCRAMBLER);}
 
     @Override

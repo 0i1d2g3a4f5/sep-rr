@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class TrojanNeedler extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public TrojanNeedler() {super(CardName.TROJAN_NEEDLER);}
 
     @Override

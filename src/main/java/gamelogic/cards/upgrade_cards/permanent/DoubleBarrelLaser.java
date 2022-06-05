@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class DoubleBarrelLaser extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public DoubleBarrelLaser() {
             super(CardName.DOUBLE_BARREL_LASER);
     }

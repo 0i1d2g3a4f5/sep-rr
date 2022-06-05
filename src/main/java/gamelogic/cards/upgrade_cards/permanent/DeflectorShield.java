@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class DeflectorShield extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public DeflectorShield() {
         super(CardName.DEFLECTOR_SHIELD);
     }

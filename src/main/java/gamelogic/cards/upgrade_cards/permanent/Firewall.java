@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class Firewall extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public Firewall() {
         super(CardName.FIREWALL);
     }

@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class Teleporter extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public Teleporter() {super(CardName.TELEPORTER);}
 
     @Override

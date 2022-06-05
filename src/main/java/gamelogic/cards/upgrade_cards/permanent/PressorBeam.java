@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class PressorBeam extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public PressorBeam() {
         super(CardName.PRESSOR_BEAM);
     }

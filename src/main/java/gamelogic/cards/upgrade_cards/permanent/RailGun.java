@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class RailGun extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public RailGun() {
         super(CardName.RAIL_GUN);
     }

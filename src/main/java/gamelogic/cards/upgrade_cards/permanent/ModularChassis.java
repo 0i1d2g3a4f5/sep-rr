@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class ModularChassis extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public ModularChassis() {
         super(CardName.MODULAR_CHASSIS);
     }

@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class SideArms extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public SideArms() {super(CardName.SIDE_ARMS);}
 
     @Override

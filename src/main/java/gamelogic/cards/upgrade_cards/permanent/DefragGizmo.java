@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class DefragGizmo extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public DefragGizmo() {
         super(CardName.DEFRAG_GIZMO);
     }

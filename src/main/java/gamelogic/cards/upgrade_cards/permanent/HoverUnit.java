@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class HoverUnit extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public HoverUnit() {
         super(CardName.HOVER_UNIT);
     }

@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class MemoryStick extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public MemoryStick() {
         super(CardName.MEMORY_STICK);
     }

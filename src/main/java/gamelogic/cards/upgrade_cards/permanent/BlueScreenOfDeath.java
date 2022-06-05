@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class BlueScreenOfDeath extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public BlueScreenOfDeath() {
         super(CardName.BLUE_SCREEN);
     }

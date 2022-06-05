@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class CrabLegs extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public CrabLegs() {
         super(CardName.CRAB_LEGS);
     }

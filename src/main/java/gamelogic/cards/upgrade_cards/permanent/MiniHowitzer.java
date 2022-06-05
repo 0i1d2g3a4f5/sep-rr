@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class MiniHowitzer extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public MiniHowitzer() {
         super(CardName.MINI_HOWITZER);
     }

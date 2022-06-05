@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class TractorBeam extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public TractorBeam() {super(CardName.TRACTOR_BEAM);}
 
     @Override

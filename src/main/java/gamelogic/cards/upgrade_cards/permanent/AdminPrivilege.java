@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class AdminPrivilege extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public AdminPrivilege() {
         super(CardName.ADMIN_PRIVILEGE);
     }

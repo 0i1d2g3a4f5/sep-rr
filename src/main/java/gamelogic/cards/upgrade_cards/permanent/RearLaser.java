@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class RearLaser extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public RearLaser() {super(CardName.REAR_LASER);}
 
     @Override

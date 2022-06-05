@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class CacheMemory extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public CacheMemory() {
         super(CardName.CACHE_MEMORY);
     }

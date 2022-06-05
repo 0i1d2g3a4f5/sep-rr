@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class Brakes extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public Brakes() {
         super(CardName.BRAKES);
     }

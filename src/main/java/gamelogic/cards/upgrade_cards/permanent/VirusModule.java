@@ -5,6 +5,10 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 public class VirusModule extends UpgradeCard {
 
+    /**
+     * @author Kafadar
+     */
+
     public VirusModule() {super(CardName.VIRUS_MODULE);}
 
     @Override
