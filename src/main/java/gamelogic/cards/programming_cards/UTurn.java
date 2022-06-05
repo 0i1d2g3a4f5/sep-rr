@@ -4,6 +4,10 @@ import static gamelogic.cards.CardName.U_TURN;
 
 public class UTurn extends ProgrammingCard {
 
+    /**
+     * @auther Kafadar
+     */
+
     public UTurn() {super(U_TURN);}
 
     @Override

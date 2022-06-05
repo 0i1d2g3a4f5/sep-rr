@@ -4,6 +4,10 @@ import static gamelogic.cards.CardName.RIGHT_TURN;
 
 public class RightTurn extends ProgrammingCard {
 
+    /**
+     * @auther Kafadar
+     */
+
     public RightTurn() {super(RIGHT_TURN);}
 
     @Override

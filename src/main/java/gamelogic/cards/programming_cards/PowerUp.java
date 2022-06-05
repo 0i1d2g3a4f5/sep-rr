@@ -4,6 +4,10 @@ import static gamelogic.cards.CardName.POWER_UP;
 
 public class PowerUp extends ProgrammingCard {
 
+    /**
+     * @auther Kafadar
+     */
+
     public PowerUp() {super(POWER_UP);}
 
     @Override

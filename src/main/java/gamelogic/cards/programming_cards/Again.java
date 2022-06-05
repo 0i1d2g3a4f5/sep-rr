@@ -4,6 +4,10 @@ import static gamelogic.cards.CardName.AGAIN;
 
 public class Again extends ProgrammingCard {
 
+    /**
+     * @auther Kafadar
+     */
+
     public Again() {super(AGAIN);}
     public void discard() {
 
