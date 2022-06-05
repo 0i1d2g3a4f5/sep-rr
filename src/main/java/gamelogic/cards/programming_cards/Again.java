@@ -10,6 +10,11 @@ public class Again extends ProgrammingCard {
     }
 
     @Override
+    public void discard() {
+
+    }
+
+    @Override
     public void PlayCard() {
         /*
         Repeat the programming in your previous register.

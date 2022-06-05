@@ -1,10 +1,10 @@
 package gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.UTURN;
+import static gamelogic.cards.CardName.U_TURN;
 
 public class UTurn extends ProgrammingCard {
 
-    public UTurn() {super(UTURN);}
+    public UTurn() {super(U_TURN);}
 
     @Override
     public void discard() {

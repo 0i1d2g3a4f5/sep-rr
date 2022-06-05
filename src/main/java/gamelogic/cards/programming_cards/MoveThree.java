@@ -1,10 +1,10 @@
 package gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.MOVETHREE;
+import static gamelogic.cards.CardName.MOVE_THREE;
 
 public class MoveThree extends ProgrammingCard {
 
-    public MoveThree() {super(MOVETHREE);}
+    public MoveThree() {super(MOVE_THREE);}
 
     @Override
     public void discard() {

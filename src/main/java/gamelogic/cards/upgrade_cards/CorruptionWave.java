@@ -8,7 +8,15 @@ public class CorruptionWave extends UpgradeCard{
     }
 
     @Override
-    public void PlayCard() {
+    public void discard() {
 
+    }
+
+    @Override
+    public void PlayCard() {
+        /*
+        Cost: 4
+        Effect: You may put SPAM damage cards you deal on top of opponents’ decks.
+         */
     }
 }

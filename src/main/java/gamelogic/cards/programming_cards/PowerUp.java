@@ -1,10 +1,10 @@
 package gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.POWERUP;
+import static gamelogic.cards.CardName.POWER_UP;
 
 public class PowerUp extends ProgrammingCard {
 
-    public PowerUp() {super(POWERUP);}
+    public PowerUp() {super(POWER_UP);}
 
     @Override
     public void discard() {

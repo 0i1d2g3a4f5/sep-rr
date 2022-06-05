@@ -1,10 +1,10 @@
 package gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.LEFTTURN;
+import static gamelogic.cards.CardName.LEFT_TURN;
 
 public class LeftTurn extends ProgrammingCard{
 
-    public LeftTurn() {super(LEFTTURN);}
+    public LeftTurn() {super(LEFT_TURN);}
 
     @Override
     public void discard() {

@@ -1,10 +1,10 @@
 package gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.BACKUP;
+import static gamelogic.cards.CardName.BACK_UP;
 
 public class BackUp extends ProgrammingCard {
 
-    public BackUp() {super(BACKUP);}
+    public BackUp() {super(BACK_UP);}
 
     @Override
     public void discard() {
