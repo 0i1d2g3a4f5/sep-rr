@@ -5,6 +5,9 @@ import static gamelogic.cards.CardName.AGAIN;
 public class Again extends ProgrammingCard {
 
     public Again() {super(AGAIN);}
+    public void discard() {
+
+    }
 
     @Override
     public void PlayCard() {

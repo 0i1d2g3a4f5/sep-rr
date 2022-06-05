@@ -98,6 +98,7 @@ public class Player{
     public Stack<Card> getDiscardPile() {
         return discardPile;
     }
+    public Stack<Card> DeckPile(){return deck;}
 
     public Direction getRobotDirection(){
         direction = Robot.getDirectionFacing();

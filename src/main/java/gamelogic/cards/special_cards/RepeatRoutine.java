@@ -6,6 +6,9 @@ public class RepeatRoutine extends SpecialCard {
     public RepeatRoutine(){
         super(REPEAT_ROUTINE);
     }
+    public void discard() {
+
+    }
 
     /**
      * @author Qinyi

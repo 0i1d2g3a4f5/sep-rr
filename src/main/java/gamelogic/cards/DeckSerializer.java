@@ -9,7 +9,7 @@ import gamelogic.cards.special_cards.EnergyRoutine;
 import gamelogic.cards.special_cards.RepeatRoutine;
 import gamelogic.cards.special_cards.SpamFolder;
 import gamelogic.cards.special_cards.SpeedRoutine;
-import gamelogic.cards.upgrade_cards.CorruptionWave;
+import gamelogic.cards.upgrade_cards.permanent.CorruptionWave;
 
 import java.io.IOException;
 import java.util.Stack;

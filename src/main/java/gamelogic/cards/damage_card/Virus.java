@@ -7,6 +7,7 @@ public class Virus extends DamageCard {
     public Virus(){
         super(VIRUS);
     }
+    public void discard(){}
 
     public void PlayCard(){}
 }

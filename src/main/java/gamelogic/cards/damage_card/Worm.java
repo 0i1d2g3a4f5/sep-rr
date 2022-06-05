@@ -7,6 +7,7 @@ public class Worm extends DamageCard {
     public Worm(){
         super(WORM);
     }
+    public void discard(){}
 
     public void PlayCard(){}
 

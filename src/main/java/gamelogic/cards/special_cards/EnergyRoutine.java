@@ -7,6 +7,9 @@ public class EnergyRoutine extends SpecialCard {
     public EnergyRoutine(){
         super(ENERGY_ROUTINE);
     }
+    public void discard() {
+
+    }
 
     /**
      * @author Qinyi

@@ -11,6 +11,9 @@ public class SpamFolder extends SpecialCard {
     public SpamFolder(){
         super(SPAM_FOLDER);
     }
+    public void discard() {
+
+    }
 
     /**
      * @author Qinyi
