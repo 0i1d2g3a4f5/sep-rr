@@ -46,4 +46,8 @@ public enum CardName {
     SPAM_FOLDER,
     REPEAT_ROUTINE,
     ENERGY_ROUTINE,
+    SANDBOX_ROUTINE,
+    WEASEL_ROUTINE,
+    MEMORY_SWAP,
+    SPAM_BLOCKER, CardName;
 }
