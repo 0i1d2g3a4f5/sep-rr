@@ -4,7 +4,7 @@ import gamelogic.cards.CardName;
 
 public class TrojanNeedler extends UpgradeCard{
 
-    public TrojanNeedler() {super(CardName.TROJANNEEDLER);}
+    public TrojanNeedler() {super(CardName.TROJAN_NEEDLER);}
 
     @Override
     public void discard() {

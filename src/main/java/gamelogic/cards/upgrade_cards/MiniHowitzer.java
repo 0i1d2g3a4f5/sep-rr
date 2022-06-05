@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class MiniHowitzer extends UpgradeCard{
 
     public MiniHowitzer() {
-        super(CardName.MINIHOWITZER);
+        super(CardName.MINI_HOWITZER);
     }
 
     @Override

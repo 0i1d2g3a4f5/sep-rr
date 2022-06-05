@@ -4,7 +4,7 @@ import gamelogic.cards.CardName;
 
 public class RearLaser extends UpgradeCard{
 
-    public RearLaser() {super(CardName.REARLASER);}
+    public RearLaser() {super(CardName.REAR_LASER);}
 
     @Override
     public void discard() {

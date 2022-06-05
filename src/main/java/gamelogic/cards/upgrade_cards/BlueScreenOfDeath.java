@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class BlueScreenOfDeath extends UpgradeCard {
 
     public BlueScreenOfDeath() {
-        super(CardName.BLUESCREEN);
+        super(CardName.BLUE_SCREEN);
     }
 
     @Override

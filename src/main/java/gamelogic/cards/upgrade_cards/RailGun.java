@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class RailGun extends UpgradeCard{
 
     public RailGun() {
-        super(CardName.RAILGUN);
+        super(CardName.RAIL_GUN);
     }
 
     @Override

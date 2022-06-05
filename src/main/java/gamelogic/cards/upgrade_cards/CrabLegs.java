@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class CrabLegs extends UpgradeCard {
 
     public CrabLegs() {
-        super(CardName.CRABLEGS);
+        super(CardName.CRAB_LEGS);
     }
 
     @Override

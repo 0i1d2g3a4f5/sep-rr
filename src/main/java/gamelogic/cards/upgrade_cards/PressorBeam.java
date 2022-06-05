@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class PressorBeam extends UpgradeCard{
 
     public PressorBeam() {
-        super(CardName.PRESSORBEAM);
+        super(CardName.PRESSOR_BEAM);
     }
 
     @Override

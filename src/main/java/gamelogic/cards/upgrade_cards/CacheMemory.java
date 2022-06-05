@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class CacheMemory extends UpgradeCard {
 
     public CacheMemory() {
-        super(CardName.CACHEMEMORY);
+        super(CardName.CACHE_MEMORY);
     }
 
     @Override

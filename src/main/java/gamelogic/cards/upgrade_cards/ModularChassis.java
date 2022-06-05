@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class ModularChassis extends UpgradeCard{
 
     public ModularChassis() {
-        super(CardName.MODULARCHASSIS);
+        super(CardName.MODULAR_CHASSIS);
     }
 
     @Override

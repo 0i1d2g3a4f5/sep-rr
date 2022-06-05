@@ -4,7 +4,7 @@ import gamelogic.cards.CardName;
 
 public class TractorBeam extends UpgradeCard{
 
-    public TractorBeam() {super(CardName.TRACTORBEAM);}
+    public TractorBeam() {super(CardName.TRACTOR_BEAM);}
 
     @Override
     public void discard() {

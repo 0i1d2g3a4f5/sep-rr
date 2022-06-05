@@ -4,7 +4,7 @@ import gamelogic.cards.CardName;
 
 public class SideArms extends UpgradeCard{
 
-    public SideArms() {super(CardName.SIDEARMS);}
+    public SideArms() {super(CardName.SIDE_ARMS);}
 
     @Override
     public void discard() {

@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class MemoryStick extends UpgradeCard{
 
     public MemoryStick() {
-        super(CardName.MEMORYSTICK);
+        super(CardName.MEMORY_STICK);
     }
 
     @Override

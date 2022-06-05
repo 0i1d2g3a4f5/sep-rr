@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class HoverUnit extends UpgradeCard{
 
     public HoverUnit() {
-        super(CardName.HOVERUNIT);
+        super(CardName.HOVER_UNIT);
     }
 
     @Override

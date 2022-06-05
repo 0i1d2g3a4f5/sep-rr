@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class DeflectorShield extends UpgradeCard {
 
     public DeflectorShield() {
-        super(CardName.DEFLECTORSHIELD);
+        super(CardName.DEFLECTOR_SHIELD);
     }
 
     @Override

@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class DoubleBarrelLaser extends UpgradeCard {
 
     public DoubleBarrelLaser() {
-            super(CardName.DOUBLEBARRELLASER);
+            super(CardName.DOUBLE_BARREL_LASER);
     }
 
     @Override

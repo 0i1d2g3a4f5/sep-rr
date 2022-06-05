@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class DefragGizmo extends UpgradeCard{
 
     public DefragGizmo() {
-        super(CardName.DEFRAGGIZMO);
+        super(CardName.DEFRAG_GIZMO);
     }
 
     @Override

@@ -4,7 +4,7 @@ import gamelogic.cards.CardName;
 
 public class VirusModule extends UpgradeCard{
 
-    public VirusModule() {super(CardName.VIRUSMODULE);}
+    public VirusModule() {super(CardName.VIRUS_MODULE);}
 
     @Override
     public void discard() {

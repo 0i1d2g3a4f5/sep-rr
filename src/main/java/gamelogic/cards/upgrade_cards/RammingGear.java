@@ -5,7 +5,7 @@ import gamelogic.cards.CardName;
 public class RammingGear extends UpgradeCard{
 
     public RammingGear() {
-        super(CardName.RAMMINGGEAR);
+        super(CardName.RAMMING_GEAR);
     }
 
     @Override
