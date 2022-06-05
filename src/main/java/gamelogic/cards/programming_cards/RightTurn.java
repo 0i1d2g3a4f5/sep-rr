@@ -7,7 +7,13 @@ public class RightTurn extends ProgrammingCard {
     public RightTurn() {super(RIGHTTURN);}
 
     @Override
+    public void discard() {
+
+    }
+
+    @Override
     public void PlayCard() {
         // Turn your robot 90 degrees to the right. The robot remains in its current space.
+        player.getRobot().right();
     }
 }
