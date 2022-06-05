@@ -142,6 +142,14 @@ public class Game {
      * Every player can buy upgrades with EnergyCubes
      */
     private void upgradePhase(){
+        if(upgradeShop.size()== playerList.size()){
+            for (UpgradeCard card:upgradeShop) {
+                card.discard();
+            }
+        }
+        while(upgradeShop.size()< playerList.size()){
+            upgradeShop.add(upgradeWarehouse.pop());
+        }
 
 
 
