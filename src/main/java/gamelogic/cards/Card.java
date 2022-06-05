@@ -1,4 +1,4 @@
-package gamelogic.Card;
+package gamelogic.cards;
 
 
 import gamelogic.Player;

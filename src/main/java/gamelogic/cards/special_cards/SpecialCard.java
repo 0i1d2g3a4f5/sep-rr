@@ -1,8 +1,8 @@
-package gamelogic.Card.special_cards;
+package gamelogic.cards.special_cards;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
-import gamelogic.Card.playableInRegister;
+import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
+import gamelogic.cards.playableInRegister;
 
 public abstract class SpecialCard extends Card implements playableInRegister {
     public SpecialCard(CardName cardName){

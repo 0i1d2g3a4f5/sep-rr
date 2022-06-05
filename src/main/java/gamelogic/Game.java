@@ -1,8 +1,9 @@
 package gamelogic;
 
 
-import gamelogic.Card.damage_card.*;
-import gamelogic.Card.damage_card.TrojanHorse;
+import gamelogic.cards.damage_card.*;
+import gamelogic.cards.damage_card.TrojanHorse;
+import gamelogic.cards.upgrade_cards.UpgradeCard;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
@@ -24,6 +25,9 @@ public class Game {
     private Stack<Virus> virusDrawPile;
     private Stack<Worm> wormDrawPile;
 
+    private Stack<UpgradeCard> upgradeWarehouse;
+
+    private ArrayList<UpgradeCard> upgradeShop;
 
     boolean continueGame;
 
@@ -89,17 +93,18 @@ public class Game {
             player.setRobot(new Robot(new Position(1,1)));
         }
 
-        //special cards (Todo)
+        //TODO special cards
 
-        //setup Damage cards (Todo)
+        //TODO setup Damage cards
 
-        //setup upgrade Cards(Todo)
+        //setup upgradeWarehouse
 
-        //setup Timer and Checkpoint Tokens
 
-        //setup Energy cubes
+        //TODO setup Timer and Checkpoint Tokens
 
-        //place Robot
+        //TODO setup Energy cubes
+
+        //TODO place Robot
 
 
     }
@@ -123,6 +128,7 @@ public class Game {
      * Every player can buy upgrades with EnergyCubes
      */
     private void upgradePhase(){
+
 
     }
 

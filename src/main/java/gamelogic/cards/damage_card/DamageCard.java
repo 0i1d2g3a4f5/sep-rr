@@ -1,8 +1,8 @@
-package gamelogic.Card.damage_card;
+package gamelogic.cards.damage_card;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
-import gamelogic.Card.playableInRegister;
+import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
+import gamelogic.cards.playableInRegister;
 
 public abstract class DamageCard extends Card implements playableInRegister {
     public DamageCard(CardName cardName) {

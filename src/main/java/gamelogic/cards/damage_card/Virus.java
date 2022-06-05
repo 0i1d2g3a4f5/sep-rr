@@ -1,8 +1,6 @@
-package gamelogic.Card.damage_card;
+package gamelogic.cards.damage_card;
 
-import gamelogic.Card.Card;
-
-import static gamelogic.Card.CardName.*;
+import static gamelogic.cards.CardName.*;
 
 public class Virus extends DamageCard {
 

@@ -1,8 +1,8 @@
-package gamelogic.Card.programming_cards;
+package gamelogic.cards.programming_cards;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
-import gamelogic.Card.playableInRegister;
+import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
+import gamelogic.cards.playableInRegister;
 
 public abstract class ProgrammingCard extends Card implements playableInRegister {
     public ProgrammingCard(CardName cardName) {

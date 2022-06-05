@@ -1,10 +1,8 @@
-package gamelogic.Card.damage_card;
+package gamelogic.cards.damage_card;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
 import gamelogic.Game;
-import gamelogic.Player;
-import static gamelogic.Card.CardName.*;
+
+import static gamelogic.cards.CardName.*;
 
 public class TrojanHorse extends DamageCard {
 

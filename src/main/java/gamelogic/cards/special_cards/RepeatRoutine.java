@@ -1,8 +1,6 @@
-package gamelogic.Card.special_cards;
+package gamelogic.cards.special_cards;
 
-import gamelogic.Card.Card;
-
-import static gamelogic.Card.CardName.*;
+import static gamelogic.cards.CardName.*;
 
 public class RepeatRoutine extends SpecialCard {
     public RepeatRoutine(){

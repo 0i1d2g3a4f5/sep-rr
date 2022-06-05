@@ -1,9 +1,9 @@
-package gamelogic.Card.special_cards;
+package gamelogic.cards.special_cards;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.CardName;
+import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
 
-import static gamelogic.Card.CardName.*;
+import static gamelogic.cards.CardName.*;
 
 import java.util.Stack;
 

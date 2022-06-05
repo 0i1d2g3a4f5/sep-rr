@@ -1,7 +1,7 @@
 package gamelogic;
 
-import gamelogic.Card.Card;
-import gamelogic.Card.playableInRegister;
+import gamelogic.cards.Card;
+import gamelogic.cards.playableInRegister;
 import gamelogic.robot.Robot;
 import server.ClientHandler;
 
@@ -54,8 +54,6 @@ public class Player{
     /**
      * @return
      */
-
-
     private ArrayList<Card> register= new ArrayList<Card>();
 
     public ArrayList<Card> getRegister() {
