@@ -1,6 +1,7 @@
 package gamelogic;
 
 
+import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.cards.upgrade_cards.UpgradeCard;
@@ -84,7 +85,13 @@ public class Game {
         return player;
     }
 
+    /**
+     * @author Ringer
+     * Does the setup for a new Game, loads the map and creates the different
+     * card Decks
+     */
     public void setup(){
+        DeckSerializer deckSerializer = new DeckSerializer();
         //select map
         ModelLoader loader = new ModelLoader();
          board = loader.loadMap("map1.json");
@@ -98,6 +105,13 @@ public class Game {
         //TODO setup Damage cards
 
         //setup upgradeWarehouse
+        upgradeWarehouse = deckSerializer.deserializeDeck();
+
+        //setup upgradeShop
+        upgradeShop = new ArrayList<>();
+        for(int i = 0;i< playerList.size();i++){
+            upgradeShop.add(upgradeWarehouse.pop());
+        }
 
 
         //TODO setup Timer and Checkpoint Tokens
@@ -128,6 +142,15 @@ public class Game {
      * Every player can buy upgrades with EnergyCubes
      */
     private void upgradePhase(){
+        if(upgradeShop.size()== playerList.size()){
+            for (UpgradeCard card:upgradeShop) {
+                card.discard();
+            }
+        }
+        while(upgradeShop.size()< playerList.size()){
+            upgradeShop.add(upgradeWarehouse.pop());
+        }
+
 
 
     }

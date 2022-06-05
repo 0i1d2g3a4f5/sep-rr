@@ -21,6 +21,8 @@ public abstract class Card {
         return cardName;
     }
 
+    public abstract void discard();
+
 
     public abstract void PlayCard();
 }

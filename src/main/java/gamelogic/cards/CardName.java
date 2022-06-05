@@ -17,5 +17,6 @@ public enum CardName {
     SPEED_ROUTINE,
     SPAM_FOLDER,
     REPEAT_ROUTINE,
-    ENERGY_ROUTINE;
+    ENERGY_ROUTINE,
+    CORRUPTION_WAVE;
 }

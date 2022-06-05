@@ -9,6 +9,7 @@ import gamelogic.cards.special_cards.EnergyRoutine;
 import gamelogic.cards.special_cards.RepeatRoutine;
 import gamelogic.cards.special_cards.SpamFolder;
 import gamelogic.cards.special_cards.SpeedRoutine;
+import gamelogic.cards.upgrade_cards.CorruptionWave;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -57,9 +58,16 @@ public class DeckSerializer {
         return (Card) gson.fromJson(serializedCardJason,className);
     }
 
-    public Stack<Card> deserializeDeck(){
+    public Stack deserializeDeck(){
+        //Mock
+        Stack<Card> deck = new Stack<>();
+        deck.add(new CorruptionWave());
+        deck.add(new CorruptionWave());
+        deck.add(new CorruptionWave());
+        deck.add(new CorruptionWave());
+        deck.add(new CorruptionWave());
 
-        return null;
+        return deck;
     }
 
     public void serializeCard(){

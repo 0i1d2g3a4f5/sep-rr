@@ -8,6 +8,11 @@ public class Spam extends DamageCard{
         super(SPAM);
     }
 
+    @Override
+    public void discard() {
+
+    }
+
     public void PlayCard(){}
 
 }
