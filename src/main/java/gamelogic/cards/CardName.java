@@ -41,13 +41,22 @@ public enum CardName {
     TROJAN_NEEDLER,
     TELEPORTER,
     VIRUS_MODULE,
-    // Other
+    // Temporary Upgrade Cards
+    BOINK,
+    HACK,
+    ENERGY_ROUTINE,
+    MANUAL_SORT,
+    MEMORY_SWAP,
+    REBOOST,
+    RECHARGE,
+    RECOMPILE,
+    SPAM_FOLDER_ROUTINE,
+    REFRESH,
+    ZOOP,
     SPEED_ROUTINE,
     SPAM_FOLDER,
     REPEAT_ROUTINE,
-    ENERGY_ROUTINE,
     SANDBOX_ROUTINE,
     WEASEL_ROUTINE,
-    MEMORY_SWAP,
     SPAM_BLOCKER, CardName;
 }
