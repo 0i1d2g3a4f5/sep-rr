@@ -10,6 +10,11 @@ public class TrojanHorse extends DamageCard {
         super(TROJAN_HORSE);
     }
 
+    @Override
+    public void discard() {
+
+    }
+
     /**
      * if you discard a TrojanHorse, you will immediately get two Spam cards.
      */
