@@ -1,8 +1,9 @@
-package gamelogic.cards.upgrade_cards;
+package gamelogic.cards.upgrade_cards.permanent;
 
 import gamelogic.cards.CardName;
+import gamelogic.cards.upgrade_cards.UpgradeCard;
 
-public class VirusModule extends UpgradeCard{
+public class VirusModule extends UpgradeCard {
 
     public VirusModule() {super(CardName.VIRUS_MODULE);}
 

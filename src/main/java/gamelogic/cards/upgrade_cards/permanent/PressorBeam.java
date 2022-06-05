@@ -1,8 +1,9 @@
-package gamelogic.cards.upgrade_cards;
+package gamelogic.cards.upgrade_cards.permanent;
 
 import gamelogic.cards.CardName;
+import gamelogic.cards.upgrade_cards.UpgradeCard;
 
-public class PressorBeam extends UpgradeCard{
+public class PressorBeam extends UpgradeCard {
 
     public PressorBeam() {
         super(CardName.PRESSOR_BEAM);

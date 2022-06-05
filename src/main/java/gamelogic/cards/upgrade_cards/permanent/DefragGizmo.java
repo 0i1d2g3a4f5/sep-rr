@@ -1,8 +1,9 @@
-package gamelogic.cards.upgrade_cards;
+package gamelogic.cards.upgrade_cards.permanent;
 
 import gamelogic.cards.CardName;
+import gamelogic.cards.upgrade_cards.UpgradeCard;
 
-public class DefragGizmo extends UpgradeCard{
+public class DefragGizmo extends UpgradeCard {
 
     public DefragGizmo() {
         super(CardName.DEFRAG_GIZMO);
