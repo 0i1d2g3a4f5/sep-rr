@@ -7,12 +7,17 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/gamelogic" />
+      <excludeFolder url="file://$MODULE_DIR$/src/test" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/server" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="gson-2.9.0" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:17.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:17.0.1" level="project" />

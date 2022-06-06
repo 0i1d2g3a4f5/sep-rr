@@ -1,6 +1,5 @@
 package client;
 
-import server.Application;
 
 /**
  * @author Sarp Cagin Erdogan
