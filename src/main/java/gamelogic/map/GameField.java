@@ -26,10 +26,14 @@ public class GameField {
 
     private boolean wallWest = false;
 
+
+
     LaserBeam laserBeam;
 
     Robot robot;
     ElementName elementName = ElementName.NO_ELEMENT;
+
+
 
     Checkpoint checkpoint;
     GameElement element;
@@ -40,6 +44,13 @@ public class GameField {
 
     }
 
+
+    public void setCheckpoint(int checkpointNumber) {
+        this.checkpoint = new Checkpoint(checkpointNumber);
+    }
+    public void setLaserBeam(Direction direction, int numberOfBeams) {
+        this.laserBeam = new LaserBeam(direction,numberOfBeams);
+    }
     public void setRobot(Robot robot) {
         this.robot = robot;
     }

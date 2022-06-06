@@ -1,10 +1,9 @@
 package gamelogic.game_elements;
 
-public class Checkpoint extends GameElement{
+public class Checkpoint{
     public static int numberOfCheckpoints;
     int checkpointNumber;
     public Checkpoint(int checkpointNumber){
-        elementName = ElementName.CHECKPOINT;
         this.checkpointNumber=checkpointNumber;
         numberOfCheckpoints++;
     }
