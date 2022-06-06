@@ -8,7 +8,7 @@ import gamelogic.cards.upgrade_cards.UpgradeCard;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
-import server.ClientHandler;
+import server.Client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,7 @@ public class Game {
 
     public GameBoard board;
 
-    public Player join(ClientHandler client) {
+    public Player join(Client client) {
         Player player = new Player(client);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getClientID() == client.getClientID()) {
