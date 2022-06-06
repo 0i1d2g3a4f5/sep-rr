@@ -13,8 +13,8 @@ public class Robot {
 
     Game game;
 
-    static Direction directionFacing;
-    static Position position;
+    Direction directionFacing;
+    Position position;
     private String name;
 
     private boolean isAlive;
@@ -29,18 +29,6 @@ public class Robot {
     public Robot (Position position){
         game =Game.getInstance();
         this.position = position;
-    }
-
-    public static Direction getDirectionFacing(){
-        return directionFacing;
-    }
-
-    public static int getPositionX(){
-        return position.getX();
-    }
-
-    public static int getPositionY(){
-        return position.getY();
     }
 
 

@@ -18,14 +18,15 @@ public class WeaselRoutine extends SpecialCard {
      * U-Turn
      */
     public void PlayCard(){
+        //player choose a card
         switch (CardName){
-            case LEFTTURN :
+            case LEFT_TURN :
                 player.getRobot().left();
                 break;
-            case RIGHTTURN:
+            case RIGHT_TURN:
                 player.getRobot().right();
                 break;
-            case UTURN:
+            case U_TURN:
                 player.getRobot().uTurn();
                 break;
         }

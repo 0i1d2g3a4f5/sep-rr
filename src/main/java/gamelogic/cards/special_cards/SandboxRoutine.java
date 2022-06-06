@@ -17,29 +17,30 @@ public class SandboxRoutine extends SpecialCard {
      * U-Turn
      */
     public void PlayCard(){
+        //player choose a card
         switch (CardName){
-            case MOVEONE:
+            case MOVE_ONE:
                 player.getRobot().forward();
                 break;
-            case MOVETWO:
-                player.getRobot().forward();
-                player.getRobot().forward();
-                break;
-            case MOVETHREE:
-                player.getRobot().forward();
+            case MOVE_TWO:
                 player.getRobot().forward();
                 player.getRobot().forward();
                 break;
-            case BACKUP:
+            case MOVE_THREE:
+                player.getRobot().forward();
+                player.getRobot().forward();
+                player.getRobot().forward();
+                break;
+            case BACK_UP:
                 player.getRobot().backward();
                 break;
-            case LEFTTURN :
+            case LEFT_TURN :
                 player.getRobot().left();
                 break;
-            case RIGHTTURN:
+            case RIGHT_TURN:
                 player.getRobot().right();
                 break;
-            case UTURN:
+            case U_TURN:
                 player.getRobot().uTurn();
                 break;
         }
