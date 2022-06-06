@@ -21,7 +21,7 @@ public class BoardLaser extends GameElement{
      * @param number
      * @param direction
      */
-    public BoardLaser(int number, Direction direction){
+    public BoardLaser(Direction direction, int number ){
         this.direction = direction;
         if(number>3||number<1){
             try {
