@@ -19,12 +19,12 @@
    <children>
       <ImageView fitHeight="58.0" fitWidth="1200.0" layoutX="1.0" layoutY="18.0">
          <image>
-            <Image url="@bar.jpg" />
+            <Image url="@images/bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="58.0" fitWidth="1200.0" layoutX="1.0" layoutY="612.0">
          <image>
-            <Image url="@bar.jpg" />
+            <Image url="@images/bar.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafafa00" height="675.0" stroke="#9e912f" strokeType="INSIDE" strokeWidth="20.0" width="1200.0" />
@@ -93,12 +93,12 @@
       <Button fx:id="readyButton" disable="true" layoutX="972.0" layoutY="620.0" mnemonicParsing="false" onAction="#readyTrigger" prefHeight="25.0" prefWidth="150.0" text="Ready" />
       <ImageView fx:id="readyNo" fitHeight="25.0" fitWidth="25.0" layoutX="1140.0" layoutY="620.0" visible="false">
          <image>
-            <Image url="@checkdisabled.png" />
+            <Image url="@images/checkdisabled.png" />
          </image>
       </ImageView>
       <ImageView fx:id="readyYes" fitHeight="25.0" fitWidth="25.0" layoutX="1140.0" layoutY="620.0" visible="false">
          <image>
-            <Image url="@checkenabled.png" />
+            <Image url="@images/checkenabled.png" />
          </image>
       </ImageView>
    </children>

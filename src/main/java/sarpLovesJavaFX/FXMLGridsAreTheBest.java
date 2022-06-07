@@ -16,7 +16,7 @@ public class FXMLGridsAreTheBest extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         GridPane gridPane = new GridPane();
-        Image tile = new Image("tile.png");
+        Image tile = new Image("images/tile.png");
         List<Node> board = new ArrayList<>();
         for(int i=0; i<5; i++){
             for(int j=0; j<5; j++){
@@ -26,7 +26,7 @@ public class FXMLGridsAreTheBest extends Application {
             }
         }
         ImageView temp = (ImageView) gridPane.getChildren().get(12);
-        temp.setImage(new Image("checkenabled.png"));
+        temp.setImage(new Image("images/checkenabled.png"));
         Scene scene = new Scene(gridPane);
         stage.setScene(scene);
         stage.show();

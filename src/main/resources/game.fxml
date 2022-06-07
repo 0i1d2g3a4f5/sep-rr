@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="241.0" fitWidth="581.0" layoutX="710.0" layoutY="831.0" preserveRatio="true">
          <image>
-            <Image url="@playerdeck.PNG" />
+            <Image url="@images/playerdeck.png" />
          </image>
       </ImageView>
       <GridPane layoutX="496.0" layoutY="233.0" prefHeight="618.0" prefWidth="990.0">
@@ -25,24 +25,24 @@
          <children>
             <ImageView fitHeight="554.0" fitWidth="903.0" pickOnBounds="true" smooth="false" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <image>
-                  <Image url="@board.PNG" />
+                  <Image url="@images/board.png" />
                </image>
             </ImageView>
          </children>
       </GridPane>
       <ImageView fitHeight="241.0" fitWidth="581.0" layoutX="-75.0" layoutY="414.0" preserveRatio="true" rotate="90.0">
          <image>
-            <Image url="@playerdeck.PNG" />
+            <Image url="@images/playerdeck.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="241.0" fitWidth="581.0" layoutX="1463.0" layoutY="410.0" preserveRatio="true" rotate="-90.0">
          <image>
-            <Image url="@playerdeck.PNG" />
+            <Image url="@images/playerdeck.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="241.0" fitWidth="581.0" layoutX="714.0" layoutY="-9.0" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@playerdeck.PNG" />
+            <Image url="@images/playerdeck.png" />
          </image>
       </ImageView>
    </children>

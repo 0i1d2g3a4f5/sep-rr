@@ -100,11 +100,6 @@ public class Player{
     }
     public Stack<Card> DeckPile(){return deck;}
 
-    public Direction getRobotDirection(){
-        direction = Robot.getDirectionFacing();
-        return direction;
-    }
-
     public Stack<Card> getHandCards(){
         return handCards;
     }
