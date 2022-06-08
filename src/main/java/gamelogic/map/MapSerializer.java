@@ -51,6 +51,7 @@ public class MapSerializer {
         sBoard.dimension2= board.dimension2;
 
         sBoard.list = new ArrayList();
+        /*
         board.boardMap.forEach((key,value)->{
             GameField field = value;
             SerializableGameField sField = new SerializableGameField();
@@ -66,7 +67,10 @@ public class MapSerializer {
             sField.laserBeam = field.laserBeam;
             sField.checkpoint = field.checkpoint;
             sBoard.list.add(sField);
+
+
         });
+        */
         return gson.toJson(sBoard);
 
     }
@@ -88,8 +92,10 @@ public class MapSerializer {
      * @return
      */
     public GameBoard deserializeBoard(String json){
+
         GameBoard board = new GameBoard();
         SerializableGameBoard sBoard = gson.fromJson(json,SerializableGameBoard.class);
+        /*
         for (SerializableGameField sField: sBoard.list) {
             Position key = sField.key;
             GameField field = new GameField(key);
@@ -103,7 +109,11 @@ public class MapSerializer {
             field.laserBeam = sField.laserBeam;
             field.checkpoint = sField.checkpoint;
             board.addField(field);
+
+
         }
+
+         */
         System.out.println(board);
         return board;
     }

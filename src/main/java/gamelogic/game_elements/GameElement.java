@@ -1,12 +1,13 @@
 package gamelogic.game_elements;
 
-import gamelogic.Direction;
 import gamelogic.Position;
 
 public abstract class GameElement {
 
     Position position;
-    ElementName elementName = ElementName.NO_ELEMENT;
+    ElementName type = ElementName.NO_ELEMENT;
+
+    public String isOnBoard;
 
     public Position getPosition() {
         return position;
@@ -20,20 +21,20 @@ public abstract class GameElement {
 
     }
 
-    public ElementName getElementName() {
-        return elementName;
+    public ElementName getType() {
+        return type;
     }
 
     @Override
     public String toString() {
         return "GameElement{" +
                 "position=" + position +
-                ", elementName=" + elementName +
+                ", elementName=" + type +
                 '}';
     }
 
     public GameElement(ElementName elementName ){
-        this.elementName = elementName;
+        this.type = elementName;
 
     }
 

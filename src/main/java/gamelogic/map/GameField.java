@@ -124,7 +124,7 @@ public class GameField {
 
     public void addElement(GameElement element){
 
-         this.elementName=element.getElementName();
+         this.elementName=element.getType();
 
          this.element=element;
          this.element.setPosition(key);
