@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#sendWithEnter" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ChatController">
+   <children>
+      <ImageView fitHeight="58.0" fitWidth="1200.0" layoutX="1.0" layoutY="18.0">
+         <image>
+            <Image url="@images/bar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="1200.0" layoutX="1.0" layoutY="612.0">
+         <image>
+            <Image url="@images/bar.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fafafa00" height="675.0" stroke="#9e912f" strokeType="INSIDE" strokeWidth="20.0" width="1200.0" />
+      <Ellipse fill="#9e912f" layoutX="618.0" layoutY="50.0" radiusX="116.0" radiusY="37.0" stroke="#6b6120" strokeType="INSIDE" />
+      <Text fill="#393411" fontSmoothingType="LCD" layoutX="543.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Robo Rally" wrappingWidth="148.29296875">
+         <font>
+            <Font name="Georgia Italic" size="28.0" />
+         </font>
+      </Text>
+      <Text fill="#4a4315" fontSmoothingType="LCD" layoutX="541.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Robo Rally" wrappingWidth="148.29296875">
+         <font>
+            <Font name="Georgia Italic" size="28.0" />
+         </font>
+      </Text>
+      <TextField fx:id="chatInput" layoutX="33.0" layoutY="539.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="971.0" promptText="Write here" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="25.0" />
+      <Button fx:id="submit" layoutX="1029.0" layoutY="538.0" mnemonicParsing="false" onAction="#sendText" prefHeight="55.0" prefWidth="136.0" style="-fx-background-color: #6f1616#6f1616;" text="send" textFill="#eed8d8" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="25.0">
+         <font>
+            <Font name="Georgia Italic" size="20.0" />
+         </font></Button>
+      <Accordion layoutX="50.0" layoutY="104.0" prefHeight="419.0" prefWidth="550.0" AnchorPane.bottomAnchor="155.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
+        <panes>
+          <TitledPane animated="false" text="Players In Chat">
+               <content>
+                  <ListView fx:id="playersInChat" onMouseClicked="#updateChatSelection" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+          <TitledPane animated="false" expanded="false" text="Players In Lobby">
+               <content>
+                  <ListView fx:id="playersInLobby" onMouseClicked="#updateLobbySelection" prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Button fx:id="joinLobby" layoutX="618.0" layoutY="620.0" mnemonicParsing="false" onAction="#joinLobby" prefHeight="25.0" prefWidth="150.0" text="Join Lobby" AnchorPane.bottomAnchor="30.0" />
+      <Button fx:id="leaveLobby" layoutX="797.0" layoutY="620.0" mnemonicParsing="false" onAction="#leaveLobby" prefHeight="25.0" prefWidth="150.0" text="Leave Lobby" AnchorPane.bottomAnchor="30.0" />
+      <CheckBox fx:id="generalChatSwitch" layoutX="25.0" layoutY="620.0" mnemonicParsing="false" prefHeight="25.0" selected="true" text="Send To General" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="lobbyChatSwitch" layoutX="192.0" layoutY="620.0" mnemonicParsing="false" prefHeight="25.0" text="Send To Lobby" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="privateChatSwitch" layoutX="344.0" layoutY="620.0" mnemonicParsing="false" prefHeight="25.0" text="Send to Chosen Player" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </CheckBox>
+      <TitledPane animated="false" collapsible="false" layoutX="25.0" layoutY="100.0" prefHeight="140.0" prefWidth="550.0" text="General Chat">
+         <content>
+            <TextArea fx:id="generalChatArea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="General Chat Here" />
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutX="25.0" layoutY="240.0" prefHeight="140.0" prefWidth="550.0" text="Lobby Chat">
+         <content>
+            <TextArea fx:id="lobbyChatArea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Lobby Chat Here" />
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" layoutX="25.0" layoutY="380.0" prefHeight="140.0" prefWidth="550.0" text="Private Chat">
+         <content>
+            <TextArea fx:id="privateChatArea" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Private Chat Here" />
+         </content>
+      </TitledPane>
+      <Button fx:id="readyButton" disable="true" layoutX="972.0" layoutY="620.0" mnemonicParsing="false" onAction="#readyTrigger" prefHeight="25.0" prefWidth="150.0" text="Ready" />
+      <ImageView fx:id="readyNo" fitHeight="25.0" fitWidth="25.0" layoutX="1140.0" layoutY="620.0" visible="false">
+         <image>
+            <Image url="@images/checkdisabled.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="readyYes" fitHeight="25.0" fitWidth="25.0" layoutX="1140.0" layoutY="620.0" visible="false">
+         <image>
+            <Image url="@images/checkenabled.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
