@@ -19,7 +19,7 @@ public class Server {
     int currentClients;
     int currentIndex;
     Game game;
-boolean isTerminated;
+    boolean isTerminated;
     Server(Application application){
         this.application=application;
         isTerminated=true;
@@ -45,10 +45,12 @@ boolean isTerminated;
                             System.out.println("Waiting for client connections...");
                             socket = serverSocket.accept();
                             Client client = new Client(application.server, socket, currentIndex);
+                            System.out.println("Client " + currentIndex + " connected.");
                             clientList.add(client);
                             currentIndex++;
                             currentClients++;
                             client.listen();
+                            client.sendProtocolCheck();
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

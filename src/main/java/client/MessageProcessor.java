@@ -1,10 +1,8 @@
 package client;
 
-import messages.Command;
-import messages.CommandMessage;
-import messages.Message;
-
-import java.io.IOException;
+import com.google.gson.JsonObject;
+import newmessages.Message;
+import newmessages.MessageProtocol;
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -13,29 +11,24 @@ public class MessageProcessor {
     MessageProcessor(Client client){
         this.client=client;
     }
-    public void process(Message input) throws IOException {
-        switch (input.getClass().getSimpleName()){
+    void process(JsonObject jsonObject){
+        Message message = new Message(jsonObject);
+        System.out.println("To Process: " + message.toJSON());
+        switch (message.type){
+            case "HelloClient" -> {
+                MessageProtocol messageProtocol = new MessageProtocol(jsonObject);
+                if(messageProtocol.protocol.equals("Version 0.1")){
+                    System.out.println("Correct communication protocol verified.");
+                }
+                else{
+                    System.out.println("Error: False communication protocol.");
+                }
 
-            case "CommandMessage" -> {
-                CommandMessage commandMessage = (CommandMessage) input;
-                System.out.println("server received command message: " + commandMessage.content + " " + commandMessage.getParameter());
-                handleCommand(client, Command.parseCommand(commandMessage.content), commandMessage.getParameter());
             }
-
             default -> {
 
             }
         }
 
-
     }
-    void handleCommand(Client client, Command command, String parameter) throws IOException {
-        switch (command){
-            case ERROR -> {
-            }
-
-            default -> {throw new IllegalStateException("Unexpected value: " + command);}
-        }
-    }
-
 }

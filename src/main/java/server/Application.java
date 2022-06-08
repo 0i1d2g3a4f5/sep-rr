@@ -1,6 +1,8 @@
 package server;
 
+import com.google.gson.JsonObject;
 import javafx.stage.Stage;
+import newmessages.MessageProtocol;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,11 @@ public class Application extends javafx.application.Application {
     Server server;
     @Override
     public void start(Stage stage) throws Exception {
-        Server server = new Server(this);
+        server = new Server(this);
         server.startServerSocket();
         taskHandler = new TaskHandler(this, server);
+
+
 
 
     }

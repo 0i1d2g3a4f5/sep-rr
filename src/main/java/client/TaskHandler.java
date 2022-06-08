@@ -15,6 +15,9 @@ public class TaskHandler {
 
     void handleTask(Task task){
         switch (task.type){
+            case "SwitchToName" -> {
+                application.launchName();
+            }
             case "Example" -> {
 
             }

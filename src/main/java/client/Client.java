@@ -1,27 +1,28 @@
 package client;
 
-import messages.Message;
-import messages.Serializer;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import newmessages.Message;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sarp Cagin Erdogan
  */
-public class Client {
+public class Client extends Thread{
     Application application;
-    MessageProcessor messageProcessor;
-    Serializer serializer;
     String name = "";
     int id;
     Socket socket;
     boolean isTerminated;
+    MessageProcessor messageProcessor;
     Client(Application application){
         this.application=application;
-        this.serializer=new Serializer();
-        this.messageProcessor = new MessageProcessor(this);
+        messageProcessor = new MessageProcessor(this);
     }
     Runnable shutDownActions = new Runnable() {
         @Override
@@ -33,15 +34,23 @@ public class Client {
         Thread shutDown = new Thread(shutDownActions);
         shutDown.setDaemon(true);
         Runtime.getRuntime().addShutdownHook(shutDown);
-        try {
-            socket = new Socket(ip, port);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        isTerminated = false;
-        Thread thread = new Thread(listener);
+        Runnable socketCreation = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    socket = new Socket(ip, port);
+                    socketCreationSuccessful();
+                } catch (UnknownHostException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        Thread thread = new Thread(socketCreation);
         thread.setDaemon(true);
         thread.start();
+
 
 
     }
@@ -50,12 +59,15 @@ public class Client {
         public void run() {
             while(!isTerminated){
                 try {
-                    TimeUnit.MILLISECONDS.sleep(8);
+
+                    TimeUnit.MILLISECONDS.sleep(200);
+                    System.out.println("Listening...");
                     if (socket.getInputStream().available() > 0) {
                         InputStream inputStream = socket.getInputStream();
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
-                        messageProcessor.process(serializer.deserialize(input));
+                        JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
+                        messageProcessor.process(jsonObject);
                     }
                 }
                 catch (InterruptedException | IOException e) {
@@ -65,6 +77,14 @@ public class Client {
             }
         }
     };
+    void socketCreationSuccessful(){
+        isTerminated = false;
+        Thread thread = new Thread(listener);
+        thread.setDaemon(true);
+        thread.start();
+        application.taskList.add(new Task("SwitchToName", ""));
+        application.executeTasks();
+    }
     void listen(){
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
@@ -78,7 +98,7 @@ public class Client {
         try {
             OutputStream outputStream = socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeUTF(serializer.serialize(message));
+            dataOutputStream.writeUTF(message.toJSON().toString());
             dataOutputStream.flush();
         }  catch (IOException e) {
             throw new RuntimeException(e);

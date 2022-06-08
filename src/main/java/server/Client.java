@@ -1,7 +1,9 @@
 package server;
 
-import messages.Message;
-import messages.Serializer;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import newmessages.Message;
+import newmessages.MessageProtocol;
 
 import java.io.*;
 import java.net.Socket;
@@ -12,8 +14,6 @@ import java.util.concurrent.TimeUnit;
  * @author Sarp Cagin Erdogan
  */
 public class Client {
-    MessageProcessor messageProcessor;
-    Serializer serializer;
 
     Server server;
     String name = "";
@@ -26,8 +26,6 @@ public class Client {
         this.server=server;
         this.socket=socket;
         this.id=id;
-        this.serializer=new Serializer();
-        this.messageProcessor = new MessageProcessor(this);
         this.isNamed=false;
         this.isTerminated=false;
     }
@@ -37,14 +35,17 @@ public class Client {
     Runnable listener = new Runnable() {
         @Override
         public void run() {
-            while(!server.isTerminated && !isTerminated){
+            System.out.println("Listener of client " + id + " started.");
+            while(!isTerminated && !server.isTerminated  ){
                 try {
-                    TimeUnit.MILLISECONDS.sleep(8);
+                    TimeUnit.MILLISECONDS.sleep(200);
+                    System.out.println(id + " is listening...");
                     if (socket.getInputStream().available() > 0) {
                         InputStream inputStream = socket.getInputStream();
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
-                        messageProcessor.process(serializer.deserialize(input));
+                        JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
+
                     }
                 }
                 catch (InterruptedException | IOException e) {
@@ -62,6 +63,11 @@ public class Client {
     }
     void disconnect(){
 
+    }
+    void sendProtocolCheck(){
+        MessageProtocol messageProtocol = new MessageProtocol("Version 0.1");
+        System.out.println(messageProtocol.protocol);
+        sendSelf(messageProtocol);
     }
     public void checkName(String string) throws IOException {
         if(!isNamed && string.equals("")){
@@ -89,14 +95,15 @@ public class Client {
         try {
             OutputStream outputStream = client.socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeUTF(serializer.serialize(message));
+            dataOutputStream.writeUTF(message.toJSON().toString());
             dataOutputStream.flush();
+            System.out.println("AAAAAAAAAAAAAAAAAAAAA");
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    void sendSelf(Client client, Message message) {
+    void sendSelf(Message message) {
         sendSingle(this, message);
     }
     void sendAll(Message message) {

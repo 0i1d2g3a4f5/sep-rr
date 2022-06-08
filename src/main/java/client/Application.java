@@ -1,5 +1,6 @@
 package client;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,14 +21,28 @@ public class Application extends javafx.application.Application {
     Stage mainStage;
     @Override
     public void start(Stage stage) throws Exception {
+        taskHandler = new TaskHandler(this, this.client);
+        client = new Client(this);
         mainStage = new Stage();
         mainStage.show();
         mainStage.setFullScreen(true);
         launchStart();
+    }
+    void executeTasks(){
 
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    while (0 < taskList.size()) {
+                        taskHandler.handleTask(taskList.get(0));
+                        taskList.remove(0);
+                    }
+                }
+            });
 
 
     }
+
     void launchStart(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientStart.fxml"));
         try {

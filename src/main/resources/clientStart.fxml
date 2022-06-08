@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane onKeyPressed="#connectEnter" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.StartController">
    <children>
       <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER">
@@ -26,10 +25,15 @@
       </Text>
       <TextField fx:id="ipInput" layoutX="700.0" layoutY="339.0" prefHeight="99.0" prefWidth="559.0" />
       <TextField fx:id="portInput" layoutX="700.0" layoutY="590.0" prefHeight="99.0" prefWidth="559.0" />
-      <Button layoutX="873.0" layoutY="890.0" mnemonicParsing="false" onAction="#connectButton" text="Connect">
+      <Button layoutX="862.0" layoutY="886.0" mnemonicParsing="false" onAction="#connectButton" text="Connect" textAlignment="CENTER">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
+      <Text fx:id="feedBack" layoutX="932.0" layoutY="805.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
