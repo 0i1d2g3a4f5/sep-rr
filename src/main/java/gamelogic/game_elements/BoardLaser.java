@@ -31,7 +31,7 @@ public class BoardLaser extends GameElement{
             }
         }
         this.beamNumber = number;
-        elementName = ElementName.BOARDLASER;
+        type = ElementName.BOARDLASER;
 
     }
 }

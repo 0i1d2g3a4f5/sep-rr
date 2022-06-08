@@ -4,6 +4,6 @@ public class EnergySpace extends GameElement{
 
 
     public EnergySpace(){
-        elementName=ElementName.ENERGYSPACE;
+        type =ElementName.ENERGYSPACE;
     }
 }

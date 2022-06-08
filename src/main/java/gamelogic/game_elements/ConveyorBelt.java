@@ -13,7 +13,7 @@ public class ConveyorBelt extends GameElement {
     Direction direction;
 
     public ConveyorBelt(Color color,Direction direction){
-        elementName= ElementName.CONVEYORBELT;
+        type = ElementName.CONVEYORBELT;
         this.direction = direction;
         if(color ==Color.BLUE ||color == Color.GREEN) {
                 this.color = color;

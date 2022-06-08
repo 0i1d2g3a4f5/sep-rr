@@ -6,6 +6,6 @@ public class PushPanel extends GameElement{
     Direction direction;
     public PushPanel(Direction direction){
         this.direction=direction;
-        elementName=ElementName.PUSHPANEL;
+        type =ElementName.PUSHPANEL;
     }
 }

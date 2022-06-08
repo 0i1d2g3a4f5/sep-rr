@@ -6,11 +6,12 @@ import gamelogic.Position;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GameBoard {
     int dimension1;
     int dimension2;
-    public HashMap<Position,GameField> boardMap = new HashMap();
+    public List<List<List<GameField>>> boardMap;
 
     @Override
     public String toString() {
@@ -18,19 +19,25 @@ public class GameBoard {
                 "boardMap=" + boardMap +
                 '}';
     }
-
+/*
     public boolean addField(GameField field){
         boardMap.put(field.key,field);
         return true;
     }
 
+ */
+
     public GameField getField(int i, int j){
-        return boardMap.get(new Position(i,j));
+        return boardMap.get(i).get(j).get(0);
     }
+    /*
     public GameField getField(Position position){
         return boardMap.get(position);
     }
 
+     */
+
+    /*
     public ArrayList getRegistry(){
         ArrayList list = new ArrayList();
         boardMap.forEach((key,value)->{
@@ -39,6 +46,8 @@ public class GameBoard {
         });
         return list;
     }
+
+     */
 
     /**
      * @author Ringer
