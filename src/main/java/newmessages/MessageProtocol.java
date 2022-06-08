@@ -11,7 +11,7 @@ public class MessageProtocol extends Message{
     public String protocol;
 
     public MessageProtocol(String string){
-        super("");
+        super(string);
         protocol=string;
         type="HelloClient";
         JsonObject jsonObject = new JsonObject();
