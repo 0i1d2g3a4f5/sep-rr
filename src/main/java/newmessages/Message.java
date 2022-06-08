@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 public class Message{
     public String type;
     public JsonObject content;
+
     public Message(JsonObject jsonObject){
         type = jsonObject.get("MessageType").getAsString();
         content = jsonObject.get("MessageBody").getAsJsonObject();

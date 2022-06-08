@@ -15,8 +15,7 @@ public class MessageProtocol extends Message{
         protocol=string;
         type="HelloClient";
         JsonObject jsonObject = new JsonObject();
-        JsonPrimitive jsonPrimitive = new JsonPrimitive(string);
-        jsonObject.add("protocol", jsonPrimitive);
+        jsonObject.add("protocol", new JsonPrimitive(string));
         content=jsonObject;
         System.out.println("Created Protocol Message: " + this);
     }
