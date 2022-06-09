@@ -52,8 +52,26 @@ public class MessageProcessor {
                 System.out.println("Set new Selected map: " + messageSelectedMap.map);
                 //send MessageSelectedMap to every client
             }
+            case "SendChat" -> {
+                MessageSend messageSend = new MessageSend(jsonObject);
+                if(messageSend.to == -1){
+                    System.out.println("Handle message to all");
+                }
+                else {
+                    System.out.println("Handle message to specific client");
+                }
+            }
+            case "PlayCard" -> {
+                MessagePlayCard messagePlayCard = new MessagePlayCard(jsonObject);
+                System.out.println("Handle Played Card");
+                //handle card & send CardPlayed Message to all Clients
+            }
+            case "SetStartingPoint" ->{
+                MessageStartRequest messageStartRequest = new MessageStartRequest(jsonObject);
+                System.out.println("Handle StartingPoint Request");
+            }
             default -> {
-
+            //error Message?
             }
         }
 

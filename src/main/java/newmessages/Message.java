@@ -26,15 +26,15 @@ public class Message{
     public Message(String group, boolean isAI, String protocol) {
 
     }
-    //case Welcome
+    //case Welcome, case Player, case Phase
     public Message(int clientID) {
 
     }
-    //case Protocol, case SelectedMap
+    //case Protocol, case SelectedMap, case Error, case PlayCard
     public Message(String string){
 
     }
-    //case NameRequest
+    //case NameRequest, case MessageSend
     public Message(String name, int figure) {
 
     }
@@ -54,7 +54,22 @@ public class Message{
     public Message(ArrayList<String> availableMaps) {
 
     }
+    //case MessageReceived
+    public Message(String message, int from, boolean isPrivate){
 
+    }
+    //case CardPlayed
+    public Message(int clientID, String card){
+
+    }
+    //case SetStart
+    public Message(int x, int y) {
+
+    }
+    //case StartSet
+    Message(int x, int y, int clientID){
+
+    }
 
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();

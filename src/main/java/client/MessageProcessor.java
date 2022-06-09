@@ -17,7 +17,7 @@ public class MessageProcessor {
         System.out.println("To Process: " + message.toJSON());
         switch (message.type){
             case "HelloClient" -> {
-                //optimalerweise werden in diesem case auch die beresits verbundenen Clients und deren Status übergeben
+                //optimalerweise werden in diesem case auch die bereits verbundenen Clients und deren Status übergeben
                 MessageProtocol messageProtocol = new MessageProtocol(jsonObject);
                 if(messageProtocol.protocol.equals("Version 0.1")){
                     System.out.println("Correct communication protocol verified.");
@@ -51,6 +51,63 @@ public class MessageProcessor {
             case "MapSelected" -> {
                 MessageSelectedMap messageSelectedMap = new MessageSelectedMap(jsonObject);
                 System.out.println("New Selected map: " + messageSelectedMap.map + "was set");
+            }
+            case "ReceivedChat" -> {
+                MessageReceived messageReceived = new MessageReceived(jsonObject);
+                if (messageReceived.isPrivate) {
+                    System.out.println("Handle private Message (private Chat)");
+                }
+                else {
+                    System.out.println("Handle non private Message (LobbyChat)");
+                }
+            }
+            case "Error" -> {
+                MessageError messageError = new MessageError(jsonObject);
+                System.out.println("Handle error message");
+            }
+            case "CardPlayed" -> {
+                MessageCardPlayed messageCardPlayed = new MessageCardPlayed(jsonObject);
+                //check if clientId equals my own ID -> then show other message?
+                if(messageCardPlayed.clientID == client.id) {
+                    System.out.println("\"You played \"" + messageCardPlayed.card);
+                }
+                else {
+                    System.out.println(messageCardPlayed.clientID + "\" played \"" + messageCardPlayed.card);
+                }
+                System.out.println("Handle CardPlayed Message (LobbyChat)");
+            }
+            case "CurrentPlayer" -> {
+                MessagePlayer messagePlayer = new MessagePlayer(jsonObject);
+                if(messagePlayer.clientID == client.id){
+                    System.out.println("Handle own turn");
+                }
+                else {
+                    System.out.println("register other turn");
+                }
+            }
+            case "ActivePhase" -> {
+                MessagePhase messagePhase = new MessagePhase(jsonObject);
+                if(messagePhase.phase == 0){
+                    System.out.println("Handle Aufbauphase");
+                }
+                else if(messagePhase.phase == 1){
+                    System.out.println("Handle upgrade phase");
+                }
+                else if(messagePhase.phase == 2){
+                    System.out.println("Handle programming phase");
+                }
+                else if(messagePhase.phase == 3){
+                    System.out.println("Handle activation phase");
+                }
+            }
+            case "StartingPointTaken" -> {
+                MessageStartSet messageStartSet = new MessageStartSet(jsonObject);
+                if(messageStartSet.clientID == client.id) {
+                    System.out.println("Set StartingPoint & LobbyMessage \"You got StartingPoint ...\" & GUI");
+                }
+                else {
+                    System.out.println("Handle StartSet Message (LobbyChat & GUI)");
+                }
             }
             default -> {
 
