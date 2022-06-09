@@ -3,6 +3,7 @@ package gamelogic.map;
 
 
 import gamelogic.Position;
+import gamelogic.game_elements.GameElement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.List;
 public class GameBoard {
     int dimension1;
     int dimension2;
-    public List<List<List<GameField>>> boardMap;
+    public List<List<List<GameElement>>> boardMap;
 
     @Override
     public String toString() {
@@ -26,10 +27,17 @@ public class GameBoard {
     }
 
  */
+    public boolean addElement(Position position, GameElement gameElement){
+        boardMap.get(position.getX()).get(position.getY()).add(gameElement);
+        return true;
+    }
+    /*
 
     public GameField getField(int i, int j){
         return boardMap.get(i).get(j).get(0);
     }
+
+     */
     /*
     public GameField getField(Position position){
         return boardMap.get(position);
@@ -48,13 +56,13 @@ public class GameBoard {
     }
 
      */
-
+/*
     /**
      * @author Ringer
      * @param leftTop
      * @param rightBottom
      * @param isActive
-     */
+     *//*
     public void changeActiveStatus(Position leftTop,Position rightBottom,boolean isActive){
         for (int i = leftTop.getY();i<=rightBottom.getY();i++){
             for (int j = leftTop.getX();j<=rightBottom.getX();j++){
@@ -62,6 +70,7 @@ public class GameBoard {
             }
         }
     }
+*/
 
 
 
