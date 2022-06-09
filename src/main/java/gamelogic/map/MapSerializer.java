@@ -93,7 +93,7 @@ public class MapSerializer {
      */
     public GameBoard deserializeBoard(String json){
 
-        GameBoard board = new GameBoard();
+        //GameBoard board = new GameBoard(dimension1, dimension2);
         SerializableGameBoard sBoard = gson.fromJson(json,SerializableGameBoard.class);
         /*
         for (SerializableGameField sField: sBoard.list) {
@@ -114,8 +114,8 @@ public class MapSerializer {
         }
 
          */
-        System.out.println(board);
-        return board;
+        //System.out.println(board);
+        return new GameBoard(1,2);
     }
 
     /**
@@ -131,9 +131,9 @@ public class MapSerializer {
             case PUSHPANEL -> classname = PushPanel.class;
             case ENERGYSPACE -> classname = EnergySpace.class;
             case CONVEYORBELT -> classname = ConveyorBelt.class;
-            case BOARDLASER -> classname = BoardLaser.class;
+            case LASER -> classname = Laser.class;
             case PIT -> classname = Pit.class;
-            case NO_ELEMENT -> {
+            case EMPTY -> {
                 return null;
             }
             default -> {

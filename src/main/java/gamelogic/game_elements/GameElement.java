@@ -3,19 +3,27 @@ package gamelogic.game_elements;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import gamelogic.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GameElement {
 
-    public List<String> orientations;
-    ElementName type = ElementName.NO_ELEMENT;
+    public List<String> orientations = new ArrayList<String>();
 
-    public String isOnBoard;
+    public ElementName getType(){
+        return type;
+    }
+
+    ElementName type = ElementName.EMPTY;
+
+    public String isOnBoard = "B1";
 
     public Position position;
 
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public Position getPosition() {
         return position;
@@ -27,11 +35,10 @@ public abstract class GameElement {
 
     public GameElement(){
 
+
     }
 
-    public ElementName getType() {
-        return type;
-    }
+
 
     @Override
     public String toString() {
@@ -46,10 +53,18 @@ public abstract class GameElement {
 
     }
 
+    /**
+     * @author Ringer
+     * transforms the object to a jsonObject
+     * @return
+     */
+
     public JsonObject toJson(){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         JsonObject jsonObject = new JsonObject();
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("type",new JsonPrimitive(type.toString()));
+        jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
+        //jsonObject.add("orientations",gson.toJsonTree(orientations));
         return jsonObject;
     }
 

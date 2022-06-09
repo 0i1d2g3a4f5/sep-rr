@@ -3,7 +3,6 @@ package gamelogic.robot;
 import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.Position;
-import gamelogic.map.GameField;
 
 /**
  * @author Qinyi, Mark
@@ -68,7 +67,9 @@ public class Robot {
         return true;
     }
 
+
     private boolean changePositionOnBoard() {
+        /*
         Game game = Game.getInstance();
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
@@ -77,10 +78,13 @@ public class Robot {
         currentField.removeRobot();
         position = nextPosition;
         nextPosition = null;
+
+         */
         return true;
     }
 
     private boolean checkNextPosition() {
+        /*
         Game game = Game.getInstance();
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
@@ -105,6 +109,9 @@ public class Robot {
                 return false;
             }
         }
+
+         */
+        return true;
 
     }
 
