@@ -2,13 +2,17 @@ package gamelogic.game_elements;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Direction;
 
-public class Checkpoint extends GameElement{
-    public static int numberOfCheckpoints;
-    int count;
-    public Checkpoint(int count){
-        this.count =count;
-        numberOfCheckpoints++;
+import java.util.ArrayList;
+
+public class Wall extends GameElement{
+    public Wall(ArrayList<Direction> orientations){
+        super(ElementName.WALL);
+        for (Direction direction:orientations) {
+            this.orientations.add(direction.toString());
+        }
+
     }
 
     /**
@@ -16,14 +20,14 @@ public class Checkpoint extends GameElement{
      * transforms the object to a jsonObject
      * @return
      */
-@Override
-    public JsonObject toJson(){
 
+    @Override
+    public JsonObject toJson(){
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("count",new JsonPrimitive(count));
+        jsonObject.add("orientations",gson.toJsonTree(orientations));
         return jsonObject;
-    }
 
+    }
 }
