@@ -7,23 +7,23 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessagePlayer extends Message{
+public class MessageRoboReboot extends Message{
 
     public int clientID;
 
-    public MessagePlayer(int clientID) {
+    public MessageRoboReboot(int clientID){
         super(clientID);
         this.clientID = clientID;
-        type = "CurrentPlayer";
+        type = "Reboot";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created Player Message: " + this);
+        System.out.println("Created RoboReboot Message: " + this);
     }
 
-    public MessagePlayer(JsonObject jsonObject) {
+    public MessageRoboReboot(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        System.out.println("Created Player Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created RoboReboot Message: " + this + " from JSON: " + jsonObject);
     }
 }

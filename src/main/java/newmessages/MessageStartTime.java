@@ -19,5 +19,6 @@ public class MessageStartTime extends Message{
 
     public MessageStartTime(JsonObject jsonObject){
         super(jsonObject);
+        System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
     }
 }
