@@ -7,11 +7,11 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageSelectedMap extends Message{
+public class MessageMapSelected extends Message{
 
     public String map;
 
-    MessageSelectedMap(String map) {
+    MessageMapSelected(String map) {
         super(map);
         this.map = map;
         type = "MapSelected";
@@ -21,7 +21,7 @@ public class MessageSelectedMap extends Message{
         System.out.println("Created MapSelected Message: " + this);
     }
 
-    public MessageSelectedMap(JsonObject jsonObject) {
+    public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
         map = content.get("map").getAsString();
         System.out.println("Created MapSelected Message: " + this + " from JSON: " + jsonObject);

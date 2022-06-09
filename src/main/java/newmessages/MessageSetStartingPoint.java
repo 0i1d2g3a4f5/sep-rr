@@ -8,12 +8,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageStartRequest extends Message{
+public class MessageSetStartingPoint extends Message{
 
     public int x;
     public int y;
 
-    public MessageStartRequest(int x, int y) {
+    public MessageSetStartingPoint(int x, int y) {
         super(x, y);
         this.x = x;
         this.y = y;
@@ -25,7 +25,7 @@ public class MessageStartRequest extends Message{
         System.out.println("Created StartRequest Message: " + this);
     }
 
-    public MessageStartRequest(JsonObject jsonObject) {
+    public MessageSetStartingPoint(JsonObject jsonObject) {
         super(jsonObject);
         x = content.get("x").getAsInt();
         y = content.get("y").getAsInt();

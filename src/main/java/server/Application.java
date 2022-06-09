@@ -1,8 +1,6 @@
 package server;
 
-import com.google.gson.JsonObject;
 import javafx.stage.Stage;
-import newmessages.MessageProtocol;
 
 import java.util.ArrayList;
 import java.util.List;

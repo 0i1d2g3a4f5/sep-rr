@@ -1,19 +1,16 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-
-import java.util.ArrayList;
 
 /**
  * @author Isabel Muhm
  */
 
-public class MessageEndTime extends Message{
+public class MessageTimerStarted extends Message{
 
     //public ArrayList<int> players;
 
-    public MessageEndTime(){
+    public MessageTimerStarted(){
         super();
         type = "TimerStarted";
         JsonObject jsonObject = new JsonObject();
@@ -21,7 +18,7 @@ public class MessageEndTime extends Message{
         System.out.println("Created EndTime Message: " + this);
     }
 
-    public MessageEndTime(JsonObject jsonObject){
+    public MessageTimerStarted(JsonObject jsonObject){
         super(jsonObject);
         System.out.println("Created EndTime Message: " + this + " from JSON: " + jsonObject);
     }

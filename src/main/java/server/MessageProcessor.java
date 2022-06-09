@@ -16,7 +16,7 @@ public class MessageProcessor {
         Message message = new Message(jsonObject);
         switch (message.type){
             case "HelloServer" -> {
-                MessageGroupIdentification messageGroupIdentification = new MessageGroupIdentification(jsonObject);
+                MessageHelloServer messageGroupIdentification = new MessageHelloServer(jsonObject);
                 if(messageGroupIdentification.isAI) {
                     System.out.println("Handle AI");
                 }
@@ -30,7 +30,7 @@ public class MessageProcessor {
                         + messageGroupIdentification.protocol);
             }
             case "PlayerValues" -> {
-                MessageValueRequest messageValueRequest = new MessageValueRequest(jsonObject);
+                MessagePlayerValues messageValueRequest = new MessagePlayerValues(jsonObject);
                 System.out.println("Handle Name Request");
             }
             case "Alive" -> {
@@ -38,7 +38,7 @@ public class MessageProcessor {
                 System.out.println("Clients sends to be still connected to server");
             }
             case "SetStatus" -> {
-                MessageSetReady messageSetReady = new MessageSetReady(jsonObject);
+                MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);
                 //player.setReady(messageReady.ready)
                 if(messageSetReady.ready) {
                     System.out.println(client.name + " is ready");
@@ -48,12 +48,12 @@ public class MessageProcessor {
                 }
             }
             case "MapSelected" -> {
-                MessageSelectedMap messageSelectedMap = new MessageSelectedMap(jsonObject);
+                MessageMapSelected messageSelectedMap = new MessageMapSelected(jsonObject);
                 System.out.println("Set new Selected map: " + messageSelectedMap.map);
                 //send MessageSelectedMap to every client
             }
             case "SendChat" -> {
-                MessageSend messageSend = new MessageSend(jsonObject);
+                MessageSendChat messageSend = new MessageSendChat(jsonObject);
                 if(messageSend.to == -1){
                     System.out.println("Handle message to all");
                 }
@@ -67,11 +67,11 @@ public class MessageProcessor {
                 //handle card & send CardPlayed Message to all Clients
             }
             case "SetStartingPoint" ->{
-                MessageStartRequest messageStartRequest = new MessageStartRequest(jsonObject);
+                MessageSetStartingPoint messageStartRequest = new MessageSetStartingPoint(jsonObject);
                 System.out.println("Handle StartingPoint Request");
             }
             case "SelectedCard" -> {
-                MessageSelectCard messageSelectCard = new MessageSelectCard(jsonObject);
+                MessageSelectedCard messageSelectCard = new MessageSelectedCard(jsonObject);
                 if(messageSelectCard.card == null) {
                     System.out.println("clear register");
                 }
@@ -102,7 +102,7 @@ public class MessageProcessor {
             }
             //not sure if this case belongs to server or client
             case "CheckPointReached" -> {
-                MessageCheckPoint messageCheckPoint = new MessageCheckPoint(jsonObject);
+                MessageCheckPointReached messageCheckPoint = new MessageCheckPointReached(jsonObject);
                 System.out.println("Handle CheckPoint " + messageCheckPoint.number +" reach");
             }
             default -> {

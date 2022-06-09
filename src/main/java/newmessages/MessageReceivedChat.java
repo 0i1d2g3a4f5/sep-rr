@@ -7,13 +7,13 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageReceived extends Message{
+public class MessageReceivedChat extends Message{
 
     public String message;
     public int from;
     public boolean isPrivate;
 
-    public MessageReceived(String message, int from, boolean isPrivate) {
+    public MessageReceivedChat(String message, int from, boolean isPrivate) {
         super(message, from, isPrivate);
         this.message = message;
         this.from = from;
@@ -27,7 +27,7 @@ public class MessageReceived extends Message{
         System.out.println("Created Received Message: " + this);
     }
 
-    public MessageReceived(JsonObject jsonObject){
+    public MessageReceivedChat(JsonObject jsonObject){
         super(jsonObject);
         message = content.get("message").getAsString();
         from = content.get("from").getAsInt();

@@ -7,12 +7,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageSend extends Message{
+public class MessageSendChat extends Message{
 
     public String message;
     public int to;
 
-    public MessageSend(String message, int to) {
+    public MessageSendChat(String message, int to) {
         super(message, to);
         this.message = message;
         this.to = to;
@@ -24,7 +24,7 @@ public class MessageSend extends Message{
         System.out.println("Created Send Message: " + this);
     }
 
-    public MessageSend(JsonObject jsonObject) {
+    public MessageSendChat(JsonObject jsonObject) {
         super(jsonObject);
         message = content.get("message").getAsString();
         to = content.get("to").getAsInt();

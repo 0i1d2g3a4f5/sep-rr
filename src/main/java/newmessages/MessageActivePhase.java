@@ -7,11 +7,11 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessagePhase extends Message{
+public class MessageActivePhase extends Message{
 
     public int phase;
 
-    public MessagePhase(int phase){
+    public MessageActivePhase(int phase){
         super(phase);
         this.phase = phase;
         type = "ActivePhase";
@@ -21,7 +21,7 @@ public class MessagePhase extends Message{
         System.out.println("Created Phase Message: " + this);
     }
 
-    public MessagePhase(JsonObject jsonObject) {
+    public MessageActivePhase(JsonObject jsonObject) {
         super(jsonObject);
         phase = content.get("phase").getAsInt();
         System.out.println("Created Phase Message: " + this + " from JSON: " + jsonObject);

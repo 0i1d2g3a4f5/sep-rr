@@ -7,13 +7,13 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageRegister extends Message{
+public class MessageCardSelected extends Message{
 
     public int clientID;
     public int register;
     public boolean filled;
 
-    public MessageRegister(int clientID, int register, boolean filled){
+    public MessageCardSelected(int clientID, int register, boolean filled){
         super(clientID, register, filled);
         this.clientID =clientID;
         this.register = register;
@@ -27,7 +27,7 @@ public class MessageRegister extends Message{
         System.out.println("Created Register Message: " + this);
     }
 
-    public MessageRegister(JsonObject jsonObject){
+    public MessageCardSelected(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         register = content.get("register").getAsInt();

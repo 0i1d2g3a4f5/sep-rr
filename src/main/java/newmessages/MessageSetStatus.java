@@ -7,11 +7,11 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageSetReady extends Message{
+public class MessageSetStatus extends Message{
 
     public boolean ready;
 
-    public MessageSetReady(boolean ready) {
+    public MessageSetStatus(boolean ready) {
         super(ready);
         this.ready = ready;
         type = "SetStatus";
@@ -21,7 +21,7 @@ public class MessageSetReady extends Message{
         System.out.println("Created SetReady Message: " + this);
     }
 
-    public MessageSetReady(JsonObject jsonObject){
+    public MessageSetStatus(JsonObject jsonObject){
         ready = content.get("ready").getAsBoolean();
         System.out.println("Created SetReady Message: " + this + " from JSON: " + jsonObject);
     }

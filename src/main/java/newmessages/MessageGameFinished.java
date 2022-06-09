@@ -7,23 +7,22 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageShuffle extends Message{
+public class MessageGameFinished extends Message{
 
     public int clientID;
 
-    public MessageShuffle(int clientID) {
+    public MessageGameFinished(int clientID){
         super(clientID);
-        this.clientID = clientID;
-        type = "ShuffleCoding";
+        this.clientID =clientID;
+        type = "GameFinished";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created Shuffle Message: " + this);
+        System.out.println("Created Finish Message: " + this);
     }
-
-    public MessageShuffle(JsonObject jsonObject) {
+    public MessageGameFinished(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        System.out.println("Created Shuffle Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created Finished Message: " + this + " from JSON: " + jsonObject);
     }
 }

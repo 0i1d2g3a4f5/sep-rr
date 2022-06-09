@@ -7,11 +7,11 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageRoboReboot extends Message{
+public class MessageReboot extends Message{
 
     public int clientID;
 
-    public MessageRoboReboot(int clientID){
+    public MessageReboot(int clientID){
         super(clientID);
         this.clientID = clientID;
         type = "Reboot";
@@ -21,7 +21,7 @@ public class MessageRoboReboot extends Message{
         System.out.println("Created RoboReboot Message: " + this);
     }
 
-    public MessageRoboReboot(JsonObject jsonObject){
+    public MessageReboot(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         System.out.println("Created RoboReboot Message: " + this + " from JSON: " + jsonObject);

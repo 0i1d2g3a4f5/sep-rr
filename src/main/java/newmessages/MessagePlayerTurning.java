@@ -7,12 +7,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageTurn extends Message{
+public class MessagePlayerTurning extends Message{
 
     public int clientID;
     public String rotation;
 
-    public MessageTurn(int clientID, String rotation){
+    public MessagePlayerTurning(int clientID, String rotation){
         super(clientID, rotation);
         this.clientID = clientID;
         this.rotation = rotation;
@@ -24,7 +24,7 @@ public class MessageTurn extends Message{
         System.out.println("Created Turn Message: " + this);
     }
 
-    public MessageTurn(JsonObject jsonObject) {
+    public MessagePlayerTurning(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         rotation = content.get("rotation").getAsString();

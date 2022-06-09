@@ -7,13 +7,13 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageValueSet extends Message{
+public class MessagePlayerAdded extends Message{
 
     public int clientID;
     public String name;
     public int figure;
 
-    public MessageValueSet(int clientID, String name, int figure) {
+    public MessagePlayerAdded(int clientID, String name, int figure) {
         super(clientID, name, figure);
         this.clientID = clientID;
         this.name = name;
@@ -27,7 +27,7 @@ public class MessageValueSet extends Message{
         System.out.println("Created NameSet Message: " + this);
     }
 
-    public MessageValueSet(JsonObject jsonObject) {
+    public MessagePlayerAdded(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         name = content.get("name").getAsString();

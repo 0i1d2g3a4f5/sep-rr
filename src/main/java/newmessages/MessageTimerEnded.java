@@ -1,15 +1,14 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 
 /**
  * @author Isabel Muhm
  */
 
-public class MessageStartTime extends Message{
+public class MessageTimerEnded extends Message{
 
-    public MessageStartTime(){
+    public MessageTimerEnded(){
         super();
         type = "TimerStarted";
         JsonObject jsonObject = new JsonObject();
@@ -17,7 +16,7 @@ public class MessageStartTime extends Message{
         System.out.println("Created StartTime Message: " + this);
     }
 
-    public MessageStartTime(JsonObject jsonObject){
+    public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
         System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
     }
