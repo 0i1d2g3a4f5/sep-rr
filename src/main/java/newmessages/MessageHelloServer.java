@@ -6,13 +6,13 @@ import com.google.gson.JsonPrimitive;
 /**
  * @author Isabel Muhm
  */
-public class MessageGroupIdentification extends Message {
+public class MessageHelloServer extends Message {
 
     public String group;
     public boolean isAI;
     public String protocol;
 
-    public MessageGroupIdentification(String group, boolean isAI, String protocol) {
+    public MessageHelloServer(String group, boolean isAI, String protocol) {
         super(group, isAI, protocol);
         this.group = group;
         this.isAI = isAI;
@@ -26,7 +26,7 @@ public class MessageGroupIdentification extends Message {
         System.out.println("Created GroupIdentification Message: " + this);
     }
 
-    public MessageGroupIdentification(JsonObject jsonObject) {
+    public MessageHelloServer(JsonObject jsonObject) {
         super(jsonObject);
         group = content.get("group").getAsString();
         isAI = content.get("isAI").getAsBoolean();

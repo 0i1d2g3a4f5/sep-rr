@@ -7,12 +7,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageCheckPoint extends Message{
+public class MessageCheckPointReached extends Message{
 
     public int clientID;
     public int number;
 
-    public MessageCheckPoint(int clientID, int number){
+    public MessageCheckPointReached(int clientID, int number){
         super(clientID,number);
         this.clientID = clientID;
         this.number = number;
@@ -24,7 +24,7 @@ public class MessageCheckPoint extends Message{
         System.out.println("Created CheckPoint Message: " + this);
     }
 
-    public MessageCheckPoint(JsonObject jsonObject){
+    public MessageCheckPointReached(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         number = content.get("number").getAsInt();

@@ -7,12 +7,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageCardPlayed extends Message{
+public class MessagePlayedCard extends Message{
 
     public int clientID;
     public String card;
 
-    public MessageCardPlayed(int clientID, String card){
+    public MessagePlayedCard(int clientID, String card){
         super(clientID, card);
         this.clientID = clientID;
         this.card = card;
@@ -24,7 +24,7 @@ public class MessageCardPlayed extends Message{
         System.out.println("Created CardPlayed Message: " + this);
     }
 
-    public MessageCardPlayed(JsonObject jsonObject){
+    public MessagePlayedCard(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         card = content.get("card").getAsString();

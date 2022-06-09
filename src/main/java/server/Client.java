@@ -3,7 +3,7 @@ package server;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.Message;
-import newmessages.MessageProtocol;
+import newmessages.MessageHelloClient;
 
 import java.io.*;
 import java.net.Socket;
@@ -65,7 +65,7 @@ public class Client {
 
     }
     void sendProtocolCheck(){
-        MessageProtocol messageProtocol = new MessageProtocol("Version 0.1");
+        MessageHelloClient messageProtocol = new MessageHelloClient("Version 0.1");
         System.out.println(messageProtocol.protocol);
         sendSelf(messageProtocol);
     }
@@ -97,7 +97,6 @@ public class Client {
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeUTF(message.toJSON().toString());
             dataOutputStream.flush();
-            System.out.println("AAAAAAAAAAAAAAAAAAAAA");
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -7,13 +7,13 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageStartSet extends Message{
+public class MessageStartingPointTaken extends Message{
 
     public int x;
     public int y;
     public int clientID;
 
-    public MessageStartSet(int x, int y, int clientID){
+    public MessageStartingPointTaken(int x, int y, int clientID){
         super(x,y,clientID);
         this.x = x;
         this.y = y;
@@ -27,7 +27,7 @@ public class MessageStartSet extends Message{
         System.out.println("Created StartSet Message: " + this);
     }
 
-    public MessageStartSet(JsonObject jsonObject) {
+    public MessageStartingPointTaken(JsonObject jsonObject) {
         super(jsonObject);
         x = content.get("x"). getAsInt();
         y = content.get("y"). getAsInt();

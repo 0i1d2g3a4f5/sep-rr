@@ -7,11 +7,11 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessagePlayer extends Message{
+public class MessageCurrentPlayer extends Message{
 
     public int clientID;
 
-    public MessagePlayer(int clientID) {
+    public MessageCurrentPlayer(int clientID) {
         super(clientID);
         this.clientID = clientID;
         type = "CurrentPlayer";
@@ -21,7 +21,7 @@ public class MessagePlayer extends Message{
         System.out.println("Created Player Message: " + this);
     }
 
-    public MessagePlayer(JsonObject jsonObject) {
+    public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         System.out.println("Created Player Message: " + this + " from JSON: " + jsonObject);

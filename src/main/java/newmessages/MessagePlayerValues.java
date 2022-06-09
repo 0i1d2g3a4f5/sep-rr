@@ -8,12 +8,12 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageValueRequest extends Message{
+public class MessagePlayerValues extends Message{
 
     public String name;
     public int figure;
 
-    public MessageValueRequest(String name, int figure) {
+    public MessagePlayerValues(String name, int figure) {
         super(name, figure);
         this.name = name;
         this.figure = figure;
@@ -24,7 +24,7 @@ public class MessageValueRequest extends Message{
         System.out.println("Created SetName Message: " + this);
     }
 
-    public MessageValueRequest(JsonObject jsonObject){
+    public MessagePlayerValues(JsonObject jsonObject){
         super(jsonObject);
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();

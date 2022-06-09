@@ -7,13 +7,13 @@ import com.google.gson.JsonPrimitive;
  * @author Isabel Muhm
  */
 
-public class MessageMove extends Message{
+public class MessageMovement extends Message{
 
     public int clientID;
     public int x;
     public int y;
 
-    public MessageMove(int clientID, int x, int y){
+    public MessageMovement(int clientID, int x, int y){
         super(clientID, x, y);
         this.clientID = clientID;
         this.x = x;
@@ -27,7 +27,7 @@ public class MessageMove extends Message{
         System.out.println("Created Move Message: " + this);
     }
 
-    public MessageMove(JsonObject jsonObject){
+    public MessageMovement(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         x= content.get("x").getAsInt();

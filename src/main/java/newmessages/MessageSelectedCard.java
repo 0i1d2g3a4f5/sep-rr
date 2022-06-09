@@ -3,18 +3,16 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-import java.nio.charset.StandardCharsets;
-
 /**
  * @author Isabel Muhm
  */
 
-public class MessageSelectCard extends Message{
+public class MessageSelectedCard extends Message{
 
     public String card;
     public int register;
 
-    public MessageSelectCard(String card, int register){
+    public MessageSelectedCard(String card, int register){
         super(card, register);
         this.card = card;
         this.register = register;
@@ -26,7 +24,7 @@ public class MessageSelectCard extends Message{
         System.out.println("Created SelectCard Message: " + this);
     }
 
-    public MessageSelectCard(JsonObject jsonObject){
+    public MessageSelectedCard(JsonObject jsonObject){
         super(jsonObject);
         card = content.get("card").getAsString();
         register = content.get("register").getAsInt();
