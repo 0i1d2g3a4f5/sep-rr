@@ -70,6 +70,21 @@ public class MessageProcessor {
                 MessageStartRequest messageStartRequest = new MessageStartRequest(jsonObject);
                 System.out.println("Handle StartingPoint Request");
             }
+            case "SelectedCard" -> {
+                MessageSelectCard messageSelectCard = new MessageSelectCard(jsonObject);
+                if(messageSelectCard.card == null) {
+                    System.out.println("clear register");
+                }
+                else{
+                    System.out.println("fill register " + messageSelectCard.register + " with card: " + messageSelectCard.card);
+                }
+                //count amount of selected cards, if a client has 5 no changes are possible and SelectionFinished Message will be send
+            }
+            //not sure if this case belongs to server or client
+            case "SelectionFinished" -> {
+                MessageSelectionFinished messageSelectionFinished = new MessageSelectionFinished(jsonObject);
+                System.out.println("Dont let player " + messageSelectionFinished.clientID +" select any other cards");
+            }
             default -> {
             //error Message?
             }

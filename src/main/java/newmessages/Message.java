@@ -26,7 +26,7 @@ public class Message{
     public Message(String group, boolean isAI, String protocol) {
 
     }
-    //case Welcome, case Player, case Phase
+    //case Welcome, case Player, case Phase, case Shuffle, case SelectionFinished
     public Message(int clientID) {
 
     }
@@ -62,7 +62,7 @@ public class Message{
     public Message(int clientID, String card){
 
     }
-    //case SetStart
+    //case SetStart, case Quantity, case SelectCard
     public Message(int x, int y) {
 
     }
@@ -70,6 +70,11 @@ public class Message{
     Message(int x, int y, int clientID){
 
     }
+    //case Register
+    Message(int x, int y, boolean filled){
+
+    }
+
 
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();

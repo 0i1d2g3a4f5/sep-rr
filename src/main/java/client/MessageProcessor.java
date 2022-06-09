@@ -109,6 +109,49 @@ public class MessageProcessor {
                     System.out.println("Handle StartSet Message (LobbyChat & GUI)");
                 }
             }
+            case "NotYourCards" -> {
+                MessageQuantity messageQuantity = new MessageQuantity(jsonObject);
+                if(messageQuantity.clientID == client.id){
+                    System.out.println("Handle own quantity");
+                }
+                else {
+                    System.out.println("Handle other quantity");
+                }
+            }
+            case "ShuffleCoding" -> {
+                MessageShuffle messageShuffle = new MessageShuffle(jsonObject);
+                System.out.println("Handle shuffle request");
+            }
+            case "CardSelected" -> {
+                MessageRegister messageRegister = new MessageRegister(jsonObject);
+                //erster fall evtl nicht nötig, da davon ausgegegangen wird das register auf jeden Fall belegt wird und keine Rückmeldung erforderlich ist
+                //wenn dann nur für andere LobbyMessage
+                if(messageRegister.clientID == client.id) {
+                    if(messageRegister.filled){
+                        System.out.println("handle filled register "+  messageRegister.register);
+                    }
+                    else {
+                        System.out.println("handle emptied register");
+                    }
+                }
+                else {
+                    if(messageRegister.filled){
+                        System.out.println("inform about filled register "+  messageRegister.register);
+                    }
+                    else {
+                        System.out.println("inform about emptied register");
+                    }
+                }
+            }
+            //not sure if this case belongs to server or client
+            case "SelectionFinished" -> {
+                MessageSelectionFinished messageSelectionFinished = new MessageSelectionFinished(jsonObject);
+                System.out.println("Dont let player " + messageSelectionFinished.clientID +" select any other cards");
+            }
+            case "TimerStarted" -> {
+                MessageStartTime messageStartTime = new MessageStartTime(jsonObject);
+                System.out.println("Start Timer");
+            }
             default -> {
 
             }
