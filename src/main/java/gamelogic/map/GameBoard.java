@@ -3,9 +3,7 @@ package gamelogic.map;
 
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import gamelogic.Position;
-import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
 
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 public class GameBoard {
     int dimension1;
     int dimension2;
-    public ArrayList<ArrayList<ArrayList<GameElement>>> boardMap;
+    public ArrayList<ArrayList<GameField>> boardMap;
 
     @Override
     public String toString() {
@@ -31,19 +29,25 @@ public class GameBoard {
      * @param element
      * @return
      */
-    public boolean addField(int y, int x,GameElement element){
-        ArrayList<GameElement> field = boardMap.get(x).get(y);
 
-        if(field.size()==1&& field.get(0).getType() == ElementName.EMPTY) field.remove(0);
-        field.add(element);
-        return true;
+
+
+    public boolean addElement(int y, int x,GameElement element){
+        GameField field = boardMap.get(x).get(y);
+
+
+        return field.addElement(element);
     }
 
 
-    public boolean addElement(Position position, GameElement gameElement){
-        boardMap.get(position.getX()).get(position.getY()).add(gameElement);
-        return true;
+    public boolean addElement(Position position, GameElement element){
+        GameField field = boardMap.get(position.getX()).get(position.getY());
+
+
+        return field.addElement(element);
     }
+
+
 
     /**
      * returns a list of all GameElements of the map
@@ -79,11 +83,11 @@ public class GameBoard {
      * @param dimensionX
      */
     GameBoard(int dimensionY, int dimensionX){
-        boardMap = new ArrayList<ArrayList<ArrayList<GameElement>>>();
+        boardMap = new ArrayList<ArrayList<GameField>>();
         for(int x = 0;x<dimensionX;x++){
-            boardMap.add(new ArrayList<ArrayList<GameElement>>());
+            boardMap.add(new ArrayList<GameField>());
             for (int y = 0;y<dimensionY;y++){
-                boardMap.get(x).add(new ArrayList<GameElement>());
+                boardMap.get(x).add(new GameField(y,x));
             }
         }
 
@@ -97,12 +101,12 @@ public class GameBoard {
      */
     public JsonArray toJson(){
         JsonArray jsonArrayLVL1 = new JsonArray();
-        for (ArrayList<ArrayList<GameElement>> listLVL1:boardMap) {
+        for (ArrayList<GameField> listLVL1:boardMap) {
             JsonArray jsonArrayLVL2 = new JsonArray();
-            for (ArrayList<GameElement> listLVL2:listLVL1) {
+            for (GameField gameFieldLVL2:listLVL1) {
                 JsonArray jsonArrayLVL3 = new JsonArray();
 
-                for (GameElement element:listLVL2) {
+                for (GameElement element:gameFieldLVL2.getElements()) {
                     jsonArrayLVL3.add(element.toJson());
                 }
                 jsonArrayLVL2.add(jsonArrayLVL3);
