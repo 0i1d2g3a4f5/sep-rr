@@ -31,13 +31,13 @@ public class MessageProcessor {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
                 System.out.println("Handed over Client ID " + messageWelcome.clientID);
             }
-            case "PLayerAdded" -> {
-                MessageNameSet messageNameSet = new MessageNameSet(jsonObject);
-                System.out.println("Name " + messageNameSet.name + " and figure number " + messageNameSet.figure + " set");
+            case "PlayerAdded" -> {
+                MessageValueSet messageValueSet = new MessageValueSet(jsonObject);
+                System.out.println("Name " + messageValueSet.name + " and figure number " + messageValueSet.figure + " set");
             }
             case "Alive" -> {
-                MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
-                System.out.println("Server ist still connected to client");
+                MessageAlive messageAlive = new MessageAlive(jsonObject);
+                System.out.println("Server sent to be still connected to client");
             }
             case "PlayerStatus" -> {
                 MessageStatus messageStatus = new MessageStatus(jsonObject);
@@ -151,6 +151,87 @@ public class MessageProcessor {
             case "TimerStarted" -> {
                 MessageStartTime messageStartTime = new MessageStartTime(jsonObject);
                 System.out.println("Start Timer");
+            }
+            case "TimerEnded" -> {
+                MessageEndTime messageEndTime = new MessageEndTime(jsonObject);
+                System.out.println("End Timer and handle slow players");
+            }
+            case "Movement" -> {
+                MessageMove messageMove = new MessageMove(jsonObject);
+                if(messageMove.clientID == client.id){
+                    System.out.println("Handle own Movement");
+                }
+                else {
+                    System.out.println("Handle foreign movement");
+                }
+            }
+            case "PlayerTurning" -> {
+                MessageTurn messageTurn = new MessageTurn(jsonObject);
+                if(messageTurn.clientID == client.id){
+                    if(messageTurn.rotation.equals("clockwise")) {
+                        System.out.println("Handle own clockwise Turn");
+                    }
+                    else if(messageTurn.rotation.equals("counterclockwise")) {
+                        System.out.println("Handle own counterclockwise Turn");
+                    }
+                }
+                else {
+                    if(messageTurn.rotation.equals("clockwise")) {
+                        System.out.println("Handle foreign clockwise Turn");
+                    }
+                    else if(messageTurn.rotation.equals("counterclockwise")) {
+                        System.out.println("Handle foreign counterclockwise Turn");
+                    }
+                }
+            }
+            case "Animation" -> {
+                MessageAnimation messageAnimation = new MessageAnimation(jsonObject);
+                if(messageAnimation.type.equals("BlueConveyorBelt")){
+                    System.out.println("Handle BlueConveyorBelt Animation");
+                }
+                else if(messageAnimation.type.equals("GreenConveyorBelt")){
+                    System.out.println("Handle GreenConveyorBelt Animation");
+                }
+                else if(messageAnimation.type.equals("PushPanel")){
+                    System.out.println("Handle PushPanel Animation");
+                }
+                else if(messageAnimation.type.equals("Gear")){
+                    System.out.println("Handle Gear Animation");
+                }
+                else if(messageAnimation.type.equals("CheckPoint")){
+                    System.out.println("Handle CheckPoint Animation");
+                }
+                else if(messageAnimation.type.equals("PlayerShooting")){
+                    System.out.println("Handle PlayerShooting Animation");
+                }
+                else if(messageAnimation.type.equals("WallShooting")){
+                    System.out.println("Handle WallShooting Animation");
+                }
+                else if(messageAnimation.type.equals("EnergySpace")){
+                    System.out.println("Handle EnergySpace Animation");
+                }
+            }
+            case "Reboot" -> {
+                MessageRoboReboot messageRoboReboot = new MessageRoboReboot(jsonObject);
+                if(messageRoboReboot.clientID == client.id){
+                    System.out.println("Handle own reboot (send RebootDirection Message to Server and switch to chosen direction)");
+                }
+                else {
+                    System.out.println("Handle foreign reboot");
+                }
+            }
+            case "Energy" -> {
+                MessageEnergy messageEnergy = new MessageEnergy(jsonObject);
+                System.out.println("Handle Energy from " + messageEnergy.source);
+            }
+            //not sure if this case belongs to server or client
+            case "CheckPointReached" -> {
+                MessageCheckPoint messageCheckPoint = new MessageCheckPoint(jsonObject);
+                System.out.println("Handle CheckPoint " + messageCheckPoint.number + " reach");
+            }
+            case "GameFinished" -> {
+                MessageFinish messageFinish = new MessageFinish(jsonObject);
+                System.out.println("Handle Winner");
             }
             default -> {
 

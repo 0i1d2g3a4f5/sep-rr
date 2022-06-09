@@ -30,12 +30,12 @@ public class MessageProcessor {
                         + messageGroupIdentification.protocol);
             }
             case "PlayerValues" -> {
-                MessageNameRequest messageSetName = new MessageNameRequest(jsonObject);
+                MessageValueRequest messageValueRequest = new MessageValueRequest(jsonObject);
                 System.out.println("Handle Name Request");
             }
             case "Alive" -> {
-                MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
-                System.out.println("Client is still connected to server");
+                MessageAlive messageAlive = new MessageAlive(jsonObject);
+                System.out.println("Clients sends to be still connected to server");
             }
             case "SetStatus" -> {
                 MessageSetReady messageSetReady = new MessageSetReady(jsonObject);
@@ -84,6 +84,26 @@ public class MessageProcessor {
             case "SelectionFinished" -> {
                 MessageSelectionFinished messageSelectionFinished = new MessageSelectionFinished(jsonObject);
                 System.out.println("Dont let player " + messageSelectionFinished.clientID +" select any other cards");
+            }
+            case "RebootDirection" -> {
+                MessageRebootDirection messageRebootDirection = new MessageRebootDirection(jsonObject);
+                if(messageRebootDirection.direction.equals("top")) {
+                    System.out.println("Handle top rotation");
+                }
+                else if(messageRebootDirection.direction.equals("right")) {
+                    System.out.println("Handle right rotation");
+                }
+                else if(messageRebootDirection.direction.equals("bottom")) {
+                    System.out.println("Handle bottom rotation");
+                }
+                else if(messageRebootDirection.direction.equals("left")) {
+                    System.out.println("Handle left rotation");
+                }
+            }
+            //not sure if this case belongs to server or client
+            case "CheckPointReached" -> {
+                MessageCheckPoint messageCheckPoint = new MessageCheckPoint(jsonObject);
+                System.out.println("Handle CheckPoint " + messageCheckPoint.number +" reach");
             }
             default -> {
             //error Message?
