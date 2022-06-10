@@ -10,6 +10,7 @@ import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import server.Client;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -94,7 +95,11 @@ public class Game {
         DeckSerializer deckSerializer = new DeckSerializer();
         //select map
         ModelLoader loader = new ModelLoader();
-         board = loader.loadMap("map1.json");
+        try {
+            board = loader.loadMap("dizzy_highway.json");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         elementRegistry = board.getRegistry();
         for (Player player :playerList) {
             player.setRobot(new Robot(new Position(1,1)));

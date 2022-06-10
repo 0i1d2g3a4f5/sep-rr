@@ -80,9 +80,9 @@ public class MapDeserializer {
      * @param json
      * @return
      */
-    public GameBoard deserializeMap(JsonObject json){
+    public GameBoard deserializeMap(JsonObject json) throws IOException {
 
-        JsonArray arrayLVL1 = gson.fromJson(json,JsonArray.class);
+        JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
         JsonArray arrayLVL2 = null;
         JsonArray arrayLVL3 = null;
 
@@ -92,14 +92,17 @@ public class MapDeserializer {
         int x=0;
         int y=0;
         for (JsonElement elementLVL1:arrayLVL1) {
-            arrayLVL2 = gson.fromJson(elementLVL1,JsonArray.class);
+            arrayLVL2 = elementLVL1.getAsJsonArray();
             for (JsonElement elementLVL2:arrayLVL2) {
-                arrayLVL3 = gson.fromJson(elementLVL2,JsonArray.class);
+                GameField gameField = board.getGameField(y,x);
+                arrayLVL3 = elementLVL2.getAsJsonArray();
                 for (JsonElement elementLVL3:arrayLVL3) {
-                    JsonObject jsonObject = gson.fromJson(elementLVL3,JsonObject.class);
-                    String typeString = String.valueOf(jsonObject.get("type"));
+
+
+                    gameField.addElement(deserializeGameElement(elementLVL3));
                     //board.addElement(elementLVL3.);
                 }
+
                 y++;
             }
             x++;
@@ -109,6 +112,19 @@ public class MapDeserializer {
 
         return board;
     }
+
+    public GameElement deserializeGameElement(JsonElement jsonElement) throws IOException {
+        JsonObject jsonObject = gson.fromJson(jsonElement,JsonObject.class);
+        String typeString = jsonObject.get("type").getAsString();
+        System.out.println(typeString);
+        ElementName name = ElementName.parseElementName(typeString);
+        GameElement element;
+        Class className;
+
+        element = gson.fromJson(jsonObject,Gear.class);
+        return element;
+    }
+
 
     private Pair<Integer,Integer> getDimensions(JsonArray arrayLVL1){
         JsonArray arrayLVL2 = null;

@@ -127,12 +127,15 @@ public class MapCreator {
             throw new RuntimeException(e);
         }
         /*
-        board=serializer.deserializeBoard(json);
+        MapDeserializer deserializer = new MapDeserializer();
+        board=deserializer.deserializeMap(deserializer.gson.fromJson(json,JsonObject.class));
         String after = board.toString();
         System.out.println(before.equals(after));
         System.out.println(before);
         System.out.println(after);
 
          */
+
+
     }
 }

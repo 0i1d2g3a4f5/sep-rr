@@ -53,11 +53,9 @@ public class GameField {
 
 
     public boolean addElement(GameElement element) {
-        if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY) {
+        if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
             elements.remove(0);
-            elements.add(element);
-
-        }
+        elements.add(element);
         return true;
     }
 

@@ -31,7 +31,6 @@ public class GameBoard {
      */
 
 
-
     public boolean addElement(int y, int x,GameElement element){
         GameField field = boardMap.get(x).get(y);
 
@@ -40,6 +39,13 @@ public class GameBoard {
     }
 
 
+    /**
+     * @author Ringer
+     * adds a Element
+     * @param position
+     * @param element
+     * @return
+     */
     public boolean addElement(Position position, GameElement element){
         GameField field = boardMap.get(position.getX()).get(position.getY());
 
@@ -90,6 +96,11 @@ public class GameBoard {
                 boardMap.get(x).add(new GameField(y,x));
             }
         }
+
+    }
+
+    public GameField getGameField(int y, int x){
+        return boardMap.get(x).get(y);
 
     }
 

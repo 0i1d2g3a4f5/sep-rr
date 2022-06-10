@@ -13,7 +13,7 @@ public class ModelLoader {
      * @param mapName
      * @return
      */
-    public GameBoard loadMap(String mapName){
+    public GameBoard loadMap(String mapName) throws IOException {
         GameBoard board;
         Gson gson = new Gson();
         String filePath = mapName;
