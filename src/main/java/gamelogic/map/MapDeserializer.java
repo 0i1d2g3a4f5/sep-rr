@@ -18,7 +18,7 @@ public class MapDeserializer {
      * @author Ringer
      */
 
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
     //Gson gson = new Gson();
 
     /*
@@ -75,75 +75,11 @@ public class MapDeserializer {
 
      */
 
-    /**
-     * @author Ringer
-     * @param json
-     * @return
-     */
-    public GameBoard deserializeMap(JsonObject json) throws IOException {
-
-        JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
-        JsonArray arrayLVL2 = null;
-        JsonArray arrayLVL3 = null;
-
-        Pair<Integer,Integer> dimensions = getDimensions(arrayLVL1);
-        GameBoard board = new GameBoard(dimensions.getKey(),dimensions.getValue());
-
-        int x=0;
-        int y=0;
-        for (JsonElement elementLVL1:arrayLVL1) {
-            arrayLVL2 = elementLVL1.getAsJsonArray();
-            for (JsonElement elementLVL2:arrayLVL2) {
-                GameField gameField = board.getGameField(y,x);
-                arrayLVL3 = elementLVL2.getAsJsonArray();
-                for (JsonElement elementLVL3:arrayLVL3) {
-
-
-                    gameField.addElement(deserializeGameElement(elementLVL3));
-                    //board.addElement(elementLVL3.);
-                }
-
-                y++;
-            }
-            x++;
-        }
 
 
 
-        return board;
-    }
-
-    public GameElement deserializeGameElement(JsonElement jsonElement) throws IOException {
-        JsonObject jsonObject = gson.fromJson(jsonElement,JsonObject.class);
-        String typeString = jsonObject.get("type").getAsString();
-        System.out.println(typeString);
-        ElementName name = ElementName.parseElementName(typeString);
-        GameElement element;
-        Class className;
-
-        element = gson.fromJson(jsonObject,Gear.class);
-        return element;
-    }
 
 
-    private Pair<Integer,Integer> getDimensions(JsonArray arrayLVL1){
-        JsonArray arrayLVL2 = null;
-        JsonArray arrayLVL3 = null;
-        int x=0;
-        int y=0;
-        GameBoard board = new GameBoard(y,x);
-        for (JsonElement elementLVL1:arrayLVL1) {
-            arrayLVL2 = gson.fromJson(elementLVL1,JsonArray.class);
-            for (JsonElement elementLVL2:arrayLVL2) {
-                arrayLVL3 = gson.fromJson(elementLVL2,JsonArray.class);
-
-                y++;
-            }
-            x++;
-        }
-        return new Pair<Integer,Integer>(y,x);
-
-    }
 
     /**
      * @author Ringer

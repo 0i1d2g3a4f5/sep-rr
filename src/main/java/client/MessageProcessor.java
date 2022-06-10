@@ -43,6 +43,7 @@ public class MessageProcessor {
                 MessageValuesAccepted messageValuesAccepted = new MessageValuesAccepted(jsonObject);
                 client.name=messageValuesAccepted.name;
                 client.figure=messageValuesAccepted.figure;
+                client.application.addTask(new Task("A", client.name));
                 client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
             }
             case "Welcome" -> {

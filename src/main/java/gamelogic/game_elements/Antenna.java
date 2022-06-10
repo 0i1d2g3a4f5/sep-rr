@@ -1,8 +1,12 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
+
+import java.io.IOException;
 
 public class Antenna extends GameElement{
     public Antenna(Direction direction){
@@ -17,13 +21,16 @@ public class Antenna extends GameElement{
      * @param jsonObject
      * @return
      */
-    public static Antenna fromJson(JsonObject jsonObject){
-        /*
-        Direction direction = jsonObject.get("orientations").getAsJsonArray().get(0).;
-        Antenna antenna = new Antenna()
+    public static Antenna fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+        Antenna antenna = new Antenna(direction);
+        antenna.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-         */
-        return new Antenna(Direction.NORTH);
+
+
+        return antenna;
     }
     /**
      * @author Ringer
@@ -40,4 +47,12 @@ public class Antenna extends GameElement{
 
     }
 
+    @Override
+    public String toString() {
+        return "Antenna{" +
+                "orientations=" + orientations +
+                ", type=" + type +
+                ", isOnBoard='" + isOnBoard + '\'' +
+                '}';
+    }
 }

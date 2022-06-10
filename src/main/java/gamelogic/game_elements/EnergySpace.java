@@ -1,7 +1,12 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Direction;
+
+import java.io.IOException;
 
 public class EnergySpace extends GameElement{
 
@@ -19,6 +24,15 @@ public class EnergySpace extends GameElement{
     public EnergySpace(int count){
         this.count = count;
         type =ElementName.ENERGYSPACE;
+    }
+
+    public static EnergySpace fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+
+        EnergySpace energySpace = new EnergySpace(jsonObject.get("count").getAsInt());
+        energySpace.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        return energySpace;
     }
 
     /**

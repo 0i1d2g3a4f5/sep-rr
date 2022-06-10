@@ -1,5 +1,7 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Color;
@@ -42,6 +44,32 @@ public class ConveyorBelt extends GameElement {
         else if (color == Color.GREEN) speed =1;
         else throw new IOException("Color not found");
     }
+
+    public static ConveyorBelt fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+        int speed = jsonObject.get("speed").getAsInt();
+        Color color;
+        switch (speed){
+            case 1 ->
+                color = Color.GREEN;
+
+            case 2 ->
+                color = Color.BLUE;
+            default ->
+                throw new IOException("Invalid speed parameter");
+        }
+
+        ConveyorBelt conveyorBelt = new ConveyorBelt(color, direction);
+
+        conveyorBelt.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+
+
+        return conveyorBelt;
+    }
+
     /**
      * @author Ringer
      * transforms the object to a jsonObject

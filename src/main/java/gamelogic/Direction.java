@@ -1,5 +1,7 @@
 package gamelogic;
 
+import java.io.IOException;
+
 /**
  * @author Qinyi
  * to make the direction of the robot's approaching clear
@@ -65,6 +67,23 @@ public enum Direction{
         return directionString;
     }
 
+    public static Direction parseDirection(String directionString) throws IOException {
+        switch (directionString){
+            case "top" -> {
+                return NORTH;
+            }
+            case "bottom" -> {
+                return SOUTH;
+            }
+            case "right" -> {
+                return EAST;
+            }
+            case "left" -> {
+                return WEST;
+            }
+            default -> throw new IOException("Direction not found");
+        }
+    }
     String directionString;
     Direction(String directionString) {
         this.directionString = directionString;

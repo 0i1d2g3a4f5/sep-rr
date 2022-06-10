@@ -23,17 +23,9 @@ public abstract class GameElement {
 
     public String isOnBoard = "B1";
 
-    public Position position;
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
 
     public GameElement(){
 
@@ -41,14 +33,13 @@ public abstract class GameElement {
     }
 
 
-
-
-
     @Override
     public String toString() {
         return "GameElement{" +
-                "position=" + position +
-                ", elementName=" + type +
+                "orientations=" + orientations +
+                ", type=" + type +
+                ", isOnBoard='" + isOnBoard + '\'' +
+                ", gson=" + gson +
                 '}';
     }
     /*
@@ -103,36 +94,48 @@ public abstract class GameElement {
     }
 
     public static GameElement fromJson(JsonObject jsonObject) throws IOException {
-        GameElement gameElement;
-        ElementName type = ElementName.parseElementName(jsonObject.get("type").toString());
-        switch (type){
+        GameElement element;
+
+        switch (ElementName.parseElementName(jsonObject.get("type").getAsString())){
             case ANTENNA -> {
-                //gameElement = new Antenna()
+                element = Antenna.fromJson(jsonObject);
             }
             case LASER -> {
+                element = Laser.fromJson(jsonObject);
             }
             case CHECKPOINT -> {
+                element = Checkpoint.fromJson(jsonObject);
 
             }
             case CONVEYORBELT -> {
+                element = ConveyorBelt.fromJson(jsonObject);
             }
             case ENERGYSPACE -> {
+                element = EnergySpace.fromJson(jsonObject);
             }
             case GEAR -> {
+                element = Gear.fromJson(jsonObject);
             }
             case PUSHPANEL -> {
+                element = PushPanel.fromJson(jsonObject);
             }
             case PIT -> {
+                element = Pit.fromJson(jsonObject);
             }
             case STARTPOINT -> {
+                element = StartPoint.fromJson(jsonObject);
             }
             case WALL -> {
+                element = Wall.fromJson(jsonObject);
             }
             case EMPTY -> {
+                element = Empty.fromJson(jsonObject);
             }
+            default -> throw new IOException("Type not found");
         }
-        return new Antenna(Direction.NORTH);
+        return element;
     }
+
 
     /**
      * @author Ringer

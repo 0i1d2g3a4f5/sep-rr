@@ -1,9 +1,12 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Wall extends GameElement{
@@ -13,6 +16,16 @@ public class Wall extends GameElement{
             this.orientations.add(direction.toString());
         }
 
+    }
+
+    public static Laser fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+        Laser laser = new Laser(direction,jsonObject.get("count").getAsInt());
+        laser.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        return laser;
     }
 
     /**

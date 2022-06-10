@@ -2,16 +2,20 @@ package gamelogic.map;
 
 
 
-import com.google.gson.JsonArray;
+import com.google.gson.*;
 import gamelogic.Position;
 import gamelogic.game_elements.GameElement;
+import javafx.util.Pair;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameBoard {
     int dimension1;
     int dimension2;
     public ArrayList<ArrayList<GameField>> boardMap;
+
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override
     public String toString() {
@@ -102,6 +106,63 @@ public class GameBoard {
     public GameField getGameField(int y, int x){
         return boardMap.get(x).get(y);
 
+    }
+
+    private static Pair<Integer,Integer> getDimensions(JsonArray arrayLVL1){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonArray arrayLVL2 = null;
+        JsonArray arrayLVL3 = null;
+        int x=0;
+        int y=0;
+        GameBoard board = new GameBoard(y,x);
+        for (JsonElement elementLVL1:arrayLVL1) {
+            arrayLVL2 = gson.fromJson(elementLVL1,JsonArray.class);
+            for (JsonElement elementLVL2:arrayLVL2) {
+                arrayLVL3 = gson.fromJson(elementLVL2,JsonArray.class);
+
+                y++;
+            }
+            x++;
+        }
+        return new Pair<Integer,Integer>(y,x);
+
+    }
+
+    public static GameBoard fromJson(JsonObject json) throws IOException {
+
+        Pair<Integer,Integer> dimensions = getDimensions((JsonArray) json.get("gameMap"));
+
+        return buildFromJson(json,dimensions);
+    }
+    public static GameBoard fromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+
+        return buildFromJson(json,dimensions);
+    }
+    public static GameBoard buildFromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
+        JsonArray arrayLVL2 = null;
+        JsonArray arrayLVL3 = null;
+        GameBoard board = new GameBoard(dimensions.getKey(),dimensions.getValue());
+
+        int x=0;
+        int y=0;
+        for (JsonElement elementLVL1:arrayLVL1) {
+            arrayLVL2 = elementLVL1.getAsJsonArray();
+            for (JsonElement elementLVL2:arrayLVL2) {
+                GameField gameField = board.getGameField(y,x);
+                arrayLVL3 = elementLVL2.getAsJsonArray();
+                for (JsonElement elementLVL3:arrayLVL3) {
+                    gameField.addElement(GameElement.fromJson(gson.fromJson(elementLVL3, JsonObject.class)));
+
+                }
+
+                y++;
+            }
+            x++;
+        }
+        return board;
     }
 
     /**
