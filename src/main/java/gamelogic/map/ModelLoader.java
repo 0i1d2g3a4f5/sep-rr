@@ -1,6 +1,8 @@
 package gamelogic.map;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.io.*;
 
@@ -24,20 +26,23 @@ public class ModelLoader {
         }
 
 
-        String json="";
+        String jsonString="";
         String input;
         while (true) {
             try {
                 if (!((input=reader.readLine())!=null)) break;
-                json+=input;
+                jsonString+=input;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+        JsonObject mapJson =  JsonParser.parseString(jsonString).getAsJsonObject();
 
 
-        MapSerializer serializer = new MapSerializer();
-        board =serializer.deserializeBoard(json);
+
+        MapDeserializer deserializer = new MapDeserializer();
+
+        board =deserializer.deserializeMap(mapJson);
         return board;
     }
 

@@ -88,7 +88,7 @@ public class MapCreator {
         String before = board.toString();
         String filePath = "dizzy_highway.json";
         File file;
-        MapSerializer serializer = new MapSerializer();
+        MapDeserializer serializer = new MapDeserializer();
         //System.out.println(board);
         String json="";
         try {
