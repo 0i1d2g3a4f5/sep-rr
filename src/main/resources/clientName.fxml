@@ -1,34 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onKeyPressed="#connectEnter" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ChatController">
+<AnchorPane onKeyPressed="#connectEnter" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.NameController">
    <children>
-      <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER">
+      <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER" AnchorPane.leftAnchor="846.0" AnchorPane.rightAnchor="846.3828125">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Text layoutX="487.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
+      <Text layoutX="486.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="499.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass:" textAlignment="RIGHT">
+      <Text layoutX="503.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass:" textAlignment="RIGHT">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="nameInput" layoutX="700.0" layoutY="339.0" prefHeight="99.0" prefWidth="559.0" />
-      <TextField fx:id="passInput" layoutX="700.0" layoutY="590.0" prefHeight="99.0" prefWidth="559.0" />
-      <Button layoutX="873.0" layoutY="890.0" mnemonicParsing="false" onAction="#startButton" text="Start">
+      <TextField fx:id="nameInput" layoutX="660.0" layoutY="240.0" prefHeight="100.0" prefWidth="600.0" />
+      <TextField fx:id="passInput" layoutX="660.0" layoutY="440.0" prefHeight="100.0" prefWidth="600.0" />
+      <Button layoutX="873.0" layoutY="890.0" mnemonicParsing="false" onAction="#startButton" text="Start" AnchorPane.leftAnchor="900.0">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
+      <Text layoutX="203.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Figure:" textAlignment="RIGHT" AnchorPane.bottomAnchor="350.0" AnchorPane.topAnchor="682.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="feedBack" layoutX="660.0" layoutY="833.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="600.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <GridPane fx:id="checkGrid" layoutX="360.0" layoutY="700.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.bottomAnchor="325.0">
+        <columnConstraints>
+          <ColumnConstraints fillWidth="false" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="check1" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose1" prefHeight="100.0" prefWidth="100.0" text="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check2" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#choose2" prefHeight="100.0" prefWidth="100.0" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check3" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose3" prefHeight="100.0" prefWidth="100.0" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check4" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose4" prefHeight="100.0" prefWidth="100.0" text="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check5" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose5" prefHeight="100.0" prefWidth="100.0" text="5" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="check6" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose6" prefHeight="100.0" prefWidth="100.0" text="6" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

@@ -6,6 +6,7 @@ import gamelogic.robot.Robot;
 import gamelogic.game_elements.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GameField {
     Position key;
@@ -13,50 +14,32 @@ public class GameField {
     boolean isActive=true;
 
 
-
-    private boolean wallNorth = false;
-
-
-    private boolean wallSouth = false;
-
-
-
-    private boolean wallEast = false;
-
-
-    private boolean wallWest = false;
-
-
-
-    LaserBeam laserBeam;
-
     Robot robot;
-    ElementName elementName = ElementName.NO_ELEMENT;
 
+    ArrayList<GameElement> elements = new ArrayList<>();
 
-
-    Checkpoint checkpoint;
-    GameElement element;
 
 
      public GameField(Position key) {
+         elements.add(new Empty());
          this.key = key;
 
     }
 
+    public GameField(int y, int x) {
+        elements.add(new Empty());
+        this.key = new Position(y,x);
 
-    public void setCheckpoint(int checkpointNumber) {
-        this.checkpoint = new Checkpoint(checkpointNumber);
     }
-    public void setLaserBeam(Direction direction, int numberOfBeams) {
-        this.laserBeam = new LaserBeam(direction,numberOfBeams);
-    }
+
+
+
     public void setRobot(Robot robot) {
         this.robot = robot;
     }
 
-    public GameElement getElement() {
-        return element;
+    public ArrayList<GameElement> getElements() {
+        return elements;
     }
 
     public Robot getRobot() {
@@ -66,89 +49,15 @@ public class GameField {
          robot = null;
     }
 
-    public boolean isWallNorth() {
-        return wallNorth;
+
+
+
+    public boolean addElement(GameElement element) {
+        if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
+            elements.remove(0);
+        elements.add(element);
+        return true;
     }
-
-    public boolean isWallSouth() {
-        return wallSouth;
-    }
-
-    public void setWallSouth(boolean wallSouth) {
-        this.wallSouth = wallSouth;
-    }
-
-
-    public void setWallNorth(boolean wallNorth) {
-        this.wallNorth = wallNorth;
-    }
-    public boolean isWallWest() {
-        return wallWest;
-    }
-
-    public void setWallWest(boolean wallWest) {
-        this.wallWest = wallWest;
-    }
-
-    public boolean isWallEast() {
-        return wallEast;
-    }
-
-    public void setWallEast(boolean wallEast) {
-        this.wallEast = wallEast;
-    }
-    public void editWall(Direction direction, boolean active){
-         switch (direction){
-             case NORTH -> {
-                 wallNorth = active;
-             }
-             case SOUTH -> {
-                 wallSouth = active;
-             }
-             case WEST -> {
-                 wallWest = active;
-             }
-             case EAST -> {
-                 wallEast = active;
-             }
-             default -> {
-                 try {
-                     throw new IOException();
-                 } catch (IOException e) {
-                     throw new RuntimeException(e);
-                 }
-             }
-         }
-    }
-
-
-    public void addElement(GameElement element){
-
-         this.elementName=element.getType();
-
-         this.element=element;
-         this.element.setPosition(key);
-
-    }
-    public void removeElement(){
-         this.elementName=ElementName.NO_ELEMENT;
-         this.element=null;
-    }
-
-
-    @Override
-    public String toString() {
-        return "GameField{" +
-                "key=" + key +
-                ", wallTop=" + wallNorth +
-                ", wallBottom=" + wallSouth +
-                ", wallRight=" + wallEast +
-                ", wallLeft=" + wallWest +
-                ", elementName=" + elementName +
-                '}';
-    }
-
-
 
     public Position getKey() {
         return key;

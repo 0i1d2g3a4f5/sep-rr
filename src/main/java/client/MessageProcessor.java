@@ -14,33 +14,51 @@ public class MessageProcessor {
     }
     void process(JsonObject jsonObject){
         Message message = new Message(jsonObject);
-        System.out.println("To Process: " + message.toJSON());
         switch (message.type){
             case "HelloClient" -> {
-                //optimalerweise werden in diesem case auch die bereits verbundenen Clients und deren Status übergeben
-                MessageProtocol messageProtocol = new MessageProtocol(jsonObject);
+                MessageHelloClient messageProtocol = new MessageHelloClient(jsonObject);
                 if(messageProtocol.protocol.equals("Version 0.1")){
                     System.out.println("Correct communication protocol verified.");
+                    client.sendSelf(new MessageHelloServer(client.group, false, "Version 0.1"));
+                    client.application.addTask(new Task("SwitchToName",""));
                 }
                 else{
                     System.out.println("Error: False communication protocol.");
+                    client.sendSelf(new MessageHelloServer(client.group, false, "Version 0.1"));
+                    //SHUTDOWN
                 }
 
             }
+            case "NameUnavailable" -> {
+                MessageNameUnavailable messageNameUnavailable = new MessageNameUnavailable(jsonObject);
+                client.application.addTask(new Task("NameUnavailable", messageNameUnavailable.name));
+
+            }
+            case "FigureUnavailable" -> {
+                MessageFigureUnavailable messageFigureUnavailable = new MessageFigureUnavailable(jsonObject);
+                client.application.addTask(new Task("NameUnavailable", String.valueOf(messageFigureUnavailable.figure)));
+
+            }
+            case "ValuesAccepted" -> {
+                MessageValuesAccepted messageValuesAccepted = new MessageValuesAccepted(jsonObject);
+                client.name=messageValuesAccepted.name;
+                client.figure=messageValuesAccepted.figure;
+                client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
+            }
             case "Welcome" -> {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
-                System.out.println("Handed over Client ID " + messageWelcome.clientID);
+                client.id=messageWelcome.clientID;
             }
-            case "PLayerAdded" -> {
-                MessageNameSet messageNameSet = new MessageNameSet(jsonObject);
-                System.out.println("Name " + messageNameSet.name + " and figure number " + messageNameSet.figure + " set");
+            case "PlayerAdded" -> {
+                MessagePlayerAdded messageValueSet = new MessagePlayerAdded(jsonObject);
+                System.out.println("Name " + messageValueSet.name + " and figure number " + messageValueSet.figure + " set");
             }
             case "Alive" -> {
-                MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
-                System.out.println("Server ist still connected to client");
+                System.out.println("---");
+                client.sendSelf(new MessageAlive());
             }
             case "PlayerStatus" -> {
-                MessageStatus messageStatus = new MessageStatus(jsonObject);
+                MessagePlayerStatus messageStatus = new MessagePlayerStatus(jsonObject);
                 if(messageStatus.ready) {
                     System.out.println("Player with clientID " + messageStatus.clientID + " is ready");
                 }
@@ -49,11 +67,11 @@ public class MessageProcessor {
                 }
             }
             case "MapSelected" -> {
-                MessageSelectedMap messageSelectedMap = new MessageSelectedMap(jsonObject);
+                MessageMapSelected messageSelectedMap = new MessageMapSelected(jsonObject);
                 System.out.println("New Selected map: " + messageSelectedMap.map + "was set");
             }
             case "ReceivedChat" -> {
-                MessageReceived messageReceived = new MessageReceived(jsonObject);
+                MessageReceivedChat messageReceived = new MessageReceivedChat(jsonObject);
                 if (messageReceived.isPrivate) {
                     System.out.println("Handle private Message (private Chat)");
                 }
@@ -66,7 +84,7 @@ public class MessageProcessor {
                 System.out.println("Handle error message");
             }
             case "CardPlayed" -> {
-                MessageCardPlayed messageCardPlayed = new MessageCardPlayed(jsonObject);
+                MessagePlayedCard messageCardPlayed = new MessagePlayedCard(jsonObject);
                 //check if clientId equals my own ID -> then show other message?
                 if(messageCardPlayed.clientID == client.id) {
                     System.out.println("\"You played \"" + messageCardPlayed.card);
@@ -77,7 +95,7 @@ public class MessageProcessor {
                 System.out.println("Handle CardPlayed Message (LobbyChat)");
             }
             case "CurrentPlayer" -> {
-                MessagePlayer messagePlayer = new MessagePlayer(jsonObject);
+                MessageCurrentPlayer messagePlayer = new MessageCurrentPlayer(jsonObject);
                 if(messagePlayer.clientID == client.id){
                     System.out.println("Handle own turn");
                 }
@@ -86,7 +104,7 @@ public class MessageProcessor {
                 }
             }
             case "ActivePhase" -> {
-                MessagePhase messagePhase = new MessagePhase(jsonObject);
+                MessageActivePhase messagePhase = new MessageActivePhase(jsonObject);
                 if(messagePhase.phase == 0){
                     System.out.println("Handle Aufbauphase");
                 }
@@ -101,7 +119,7 @@ public class MessageProcessor {
                 }
             }
             case "StartingPointTaken" -> {
-                MessageStartSet messageStartSet = new MessageStartSet(jsonObject);
+                MessageStartingPointTaken messageStartSet = new MessageStartingPointTaken(jsonObject);
                 if(messageStartSet.clientID == client.id) {
                     System.out.println("Set StartingPoint & LobbyMessage \"You got StartingPoint ...\" & GUI");
                 }
@@ -110,7 +128,7 @@ public class MessageProcessor {
                 }
             }
             case "NotYourCards" -> {
-                MessageQuantity messageQuantity = new MessageQuantity(jsonObject);
+                MessageNotYourCards messageQuantity = new MessageNotYourCards(jsonObject);
                 if(messageQuantity.clientID == client.id){
                     System.out.println("Handle own quantity");
                 }
@@ -119,11 +137,11 @@ public class MessageProcessor {
                 }
             }
             case "ShuffleCoding" -> {
-                MessageShuffle messageShuffle = new MessageShuffle(jsonObject);
+                MessageShuffleCoding messageShuffle = new MessageShuffleCoding(jsonObject);
                 System.out.println("Handle shuffle request");
             }
             case "CardSelected" -> {
-                MessageRegister messageRegister = new MessageRegister(jsonObject);
+                MessageCardSelected messageRegister = new MessageCardSelected(jsonObject);
                 //erster fall evtl nicht nötig, da davon ausgegegangen wird das register auf jeden Fall belegt wird und keine Rückmeldung erforderlich ist
                 //wenn dann nur für andere LobbyMessage
                 if(messageRegister.clientID == client.id) {
@@ -149,8 +167,89 @@ public class MessageProcessor {
                 System.out.println("Dont let player " + messageSelectionFinished.clientID +" select any other cards");
             }
             case "TimerStarted" -> {
-                MessageStartTime messageStartTime = new MessageStartTime(jsonObject);
+                MessageTimerEnded messageStartTime = new MessageTimerEnded(jsonObject);
                 System.out.println("Start Timer");
+            }
+            case "TimerEnded" -> {
+                MessageTimerStarted messageEndTime = new MessageTimerStarted(jsonObject);
+                System.out.println("End Timer and handle slow players");
+            }
+            case "Movement" -> {
+                MessageMovement messageMove = new MessageMovement(jsonObject);
+                if(messageMove.clientID == client.id){
+                    System.out.println("Handle own Movement");
+                }
+                else {
+                    System.out.println("Handle foreign movement");
+                }
+            }
+            case "PlayerTurning" -> {
+                MessagePlayerTurning messageTurn = new MessagePlayerTurning(jsonObject);
+                if(messageTurn.clientID == client.id){
+                    if(messageTurn.rotation.equals("clockwise")) {
+                        System.out.println("Handle own clockwise Turn");
+                    }
+                    else if(messageTurn.rotation.equals("counterclockwise")) {
+                        System.out.println("Handle own counterclockwise Turn");
+                    }
+                }
+                else {
+                    if(messageTurn.rotation.equals("clockwise")) {
+                        System.out.println("Handle foreign clockwise Turn");
+                    }
+                    else if(messageTurn.rotation.equals("counterclockwise")) {
+                        System.out.println("Handle foreign counterclockwise Turn");
+                    }
+                }
+            }
+            case "Animation" -> {
+                MessageAnimation messageAnimation = new MessageAnimation(jsonObject);
+                if(messageAnimation.type.equals("BlueConveyorBelt")){
+                    System.out.println("Handle BlueConveyorBelt Animation");
+                }
+                else if(messageAnimation.type.equals("GreenConveyorBelt")){
+                    System.out.println("Handle GreenConveyorBelt Animation");
+                }
+                else if(messageAnimation.type.equals("PushPanel")){
+                    System.out.println("Handle PushPanel Animation");
+                }
+                else if(messageAnimation.type.equals("Gear")){
+                    System.out.println("Handle Gear Animation");
+                }
+                else if(messageAnimation.type.equals("CheckPoint")){
+                    System.out.println("Handle CheckPoint Animation");
+                }
+                else if(messageAnimation.type.equals("PlayerShooting")){
+                    System.out.println("Handle PlayerShooting Animation");
+                }
+                else if(messageAnimation.type.equals("WallShooting")){
+                    System.out.println("Handle WallShooting Animation");
+                }
+                else if(messageAnimation.type.equals("EnergySpace")){
+                    System.out.println("Handle EnergySpace Animation");
+                }
+            }
+            case "Reboot" -> {
+                MessageReboot messageRoboReboot = new MessageReboot(jsonObject);
+                if(messageRoboReboot.clientID == client.id){
+                    System.out.println("Handle own reboot (send RebootDirection Message to Server and switch to chosen direction)");
+                }
+                else {
+                    System.out.println("Handle foreign reboot");
+                }
+            }
+            case "Energy" -> {
+                MessageEnergy messageEnergy = new MessageEnergy(jsonObject);
+                System.out.println("Handle Energy from " + messageEnergy.source);
+            }
+            //not sure if this case belongs to server or client
+            case "CheckPointReached" -> {
+                MessageCheckPointReached messageCheckPoint = new MessageCheckPointReached(jsonObject);
+                System.out.println("Handle CheckPoint " + messageCheckPoint.number + " reach");
+            }
+            case "GameFinished" -> {
+                MessageGameFinished messageFinish = new MessageGameFinished(jsonObject);
+                System.out.println("Handle Winner");
             }
             default -> {
 

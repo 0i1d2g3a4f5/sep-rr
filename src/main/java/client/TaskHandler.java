@@ -18,8 +18,14 @@ public class TaskHandler {
             case "SwitchToName" -> {
                 application.launchName();
             }
-            case "Example" -> {
-
+            case "FailedSocket" -> {
+                application.startController.failedReset();
+            }
+            case "NameUnavailable" -> {
+                application.nameController.setFeedback("Name \""+task.task+"\" is unavailable.");
+            }
+            case "FigureUnavailable" -> {
+                application.nameController.setFeedback("Figure \""+task.task+"\" is unavailable.");
             }
             default -> {
 

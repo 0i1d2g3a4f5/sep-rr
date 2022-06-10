@@ -2,8 +2,8 @@ package server;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import newmessages.Message;
-import newmessages.MessageProtocol;
+import javafx.util.Pair;
+import newmessages.*;
 
 import java.io.*;
 import java.net.Socket;
@@ -14,20 +14,25 @@ import java.util.concurrent.TimeUnit;
  * @author Sarp Cagin Erdogan
  */
 public class Client {
+    MessageProcessor messageProcessor;
+    int figure = 7;
 
     Server server;
-    String name = "";
+    String name;
     int id;
     String listName;
     String lobbyName;
     Socket socket;
-    boolean isTerminated, isNamed;
+    String group;
+    boolean isTerminated, isNamed, isAI;
     Client(Server server, Socket socket, int id){
+
         this.server=server;
         this.socket=socket;
         this.id=id;
         this.isNamed=false;
         this.isTerminated=false;
+        this.messageProcessor=new MessageProcessor(this);
     }
     public int getClientID(){
         return this.id;
@@ -36,15 +41,22 @@ public class Client {
         @Override
         public void run() {
             System.out.println("Listener of client " + id + " started.");
+            int counter = 0;
             while(!isTerminated && !server.isTerminated  ){
                 try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                    System.out.println(id + " is listening...");
+                    TimeUnit.MILLISECONDS.sleep(100);
+                    counter++;
+                    if(counter>=50){
+                        sendSelf(new MessageAlive());
+                        counter=0;
+                    }
                     if (socket.getInputStream().available() > 0) {
                         InputStream inputStream = socket.getInputStream();
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
+                        //System.out.println(id + " RECEIVED: " + input);
+                        messageProcessor.process(jsonObject);
 
                     }
                 }
@@ -65,31 +77,42 @@ public class Client {
 
     }
     void sendProtocolCheck(){
-        MessageProtocol messageProtocol = new MessageProtocol("Version 0.1");
-        System.out.println(messageProtocol.protocol);
+        MessageHelloClient messageProtocol = new MessageHelloClient("Version 0.1");
         sendSelf(messageProtocol);
     }
-    public void checkName(String string) throws IOException {
-        if(!isNamed && string.equals("")){
-            System.out.println("HANDLE BLANK");
+    public void checkName(String string, int figure){
+        boolean available=true;
+        for(Client client : server.clientList){
+            if(!client.equals(this) && client.isNamed && client.name==string){
+                available=false;
+                sendSelf(new MessageNameUnavailable(string));
+                break;
+            }
         }
-        else if(!isNamed){
-            boolean available = true;
-            int ownerid=0;
-            for(Client client : server.clientList){
-                if(client.isNamed && client.name.equals(string)){
-                    ownerid = client.id;
-                    available=false;
-                }
-            }
-            if(available){
-                System.out.println("HANDLE AVAILABLE");
-            }
-            else{
-                System.out.println("HANDLE UNAVAILABLE");
-            }
+        if(available){
+            checkFigure(string, figure);
         }
 
+    }
+    public void checkFigure(String string, int figure){
+        boolean available=true;
+        for(Client client : server.clientList){
+            if(!client.equals(this) && client.isNamed && client.figure==figure){
+                available=false;
+                sendSelf(new MessageFigureUnavailable(figure));
+                break;
+            }
+        }
+        if(available){
+            this.figure=figure;
+            this.name=string;
+            isNamed=true;
+            sendSelf(new MessageValuesAccepted(name, figure));
+            MessagePlayerAdded message = new MessagePlayerAdded(id, string, figure);
+            sendAll(message);
+            System.out.println("PLAYER ADDED :: " + message.toJSON());
+
+        }
     }
     void sendSingle(Client client, Message message){
         try {
@@ -97,7 +120,7 @@ public class Client {
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeUTF(message.toJSON().toString());
             dataOutputStream.flush();
-            System.out.println("AAAAAAAAAAAAAAAAAAAAA");
+            //System.out.println("SENT: " + message.toJSON().toString());
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }

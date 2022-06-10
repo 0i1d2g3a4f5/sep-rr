@@ -18,6 +18,7 @@ public class Application extends javafx.application.Application {
     List<Task> taskList = new ArrayList<>();
     Client client;
     StartController startController;
+    NameController nameController;
     Stage mainStage;
     @Override
     public void start(Stage stage) throws Exception {
@@ -42,6 +43,10 @@ public class Application extends javafx.application.Application {
 
 
     }
+    void addTask(Task task){
+        this.taskList.add(task);
+        executeTasks();
+    }
 
     void launchStart(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientStart.fxml"));
@@ -56,9 +61,19 @@ public class Application extends javafx.application.Application {
         }
 
     }
-    void launchName() {
-        mainStage.setScene(new Scene(new Group(), 1920, 1080));
-        mainStage.setFullScreen(true);
+    void launchName(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientName.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+            nameController=fxmlLoader.getController();
+            nameController.application=this;
+            mainStage.setScene(scene);
+            mainStage.setFullScreen(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        nameController.initialize();
+
     }
 
 

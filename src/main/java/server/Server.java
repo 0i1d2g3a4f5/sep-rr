@@ -1,18 +1,22 @@
 package server;
 
 import gamelogic.Game;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 /**
  * @author Sarp Cagin Erdogan
  */
 public class Server {
     List<Client> clientList = new ArrayList<>();
     List<Client> clientInLobbyList = new ArrayList<>();
+    HashMap<String, Pair<Integer, String>> idAndHashFromName = new HashMap<>();
     Application application;
     ServerSocket serverSocket;
     int maxClients;
@@ -58,6 +62,12 @@ public class Server {
             }
         }
     };
+    void printList(){
+        for(String name : idAndHashFromName.keySet()){
+            Pair<Integer, String> pair = (Pair<Integer, String>) (idAndHashFromName.get(name));
+            System.out.println("ID: " + pair.getKey() + "\nName: " + name + "\nHash: " + pair.getValue());
+        }
+    }
 
     void startServerSocket(){
         Thread shutDown = new Thread(shutDownActions);
@@ -85,6 +95,8 @@ public class Server {
         thread.setDaemon(true);
         thread.start();
     }
+
+
 
 
 }

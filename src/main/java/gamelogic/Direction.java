@@ -5,7 +5,7 @@ package gamelogic;
  * to make the direction of the robot's approaching clear
  */
 public enum Direction{
-    NORTH{
+    NORTH("top"){
         public Direction left(){
             return WEST;
         }
@@ -19,7 +19,7 @@ public enum Direction{
         }
     },
 
-    SOUTH{
+    SOUTH("bottom"){
         public Direction left(){
             return EAST;
         }
@@ -33,7 +33,7 @@ public enum Direction{
         }
     },
 
-    EAST{
+    EAST("right"){
         public Direction left(){
             return NORTH;
         }
@@ -46,7 +46,7 @@ public enum Direction{
             return WEST;
         }
     },
-    WEST{
+    WEST("left"){
         public Direction left(){
             return SOUTH;
         }
@@ -59,6 +59,16 @@ public enum Direction{
             return EAST;
         }
     };
+
+    @Override
+    public String toString() {
+        return directionString;
+    }
+
+    String directionString;
+    Direction(String directionString) {
+        this.directionString = directionString;
+    }
 
     public abstract Direction left();
     public abstract Direction right();
