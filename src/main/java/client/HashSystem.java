@@ -29,8 +29,6 @@ public class HashSystem {
         }
         if(!created){
             file= new File(filePath);
-            System.out.println("Assigned existing file.");
-            System.out.println("Saved old hashes.");
         }
         try {
             fileReader = new FileReader(file);
@@ -60,7 +58,7 @@ public class HashSystem {
     public int createSingleHash(int index){
         int random = (int)(Math.random()*Math.pow(2, 16));
         hashes.add(index, random);
-        System.out.println("Hash at " + index + " is: " + random);
+        //System.out.println("Hash at " + index + " is: " + random);
         return random;
     }
     public void writeHash(int hash){

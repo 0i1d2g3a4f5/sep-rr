@@ -40,7 +40,7 @@ public class Client {
     Runnable listener = new Runnable() {
         @Override
         public void run() {
-            System.out.println("Listener of client " + id + " started.");
+            //System.out.println("Listener of client " + id + " started.");
             int counter = 0;
             while(!isTerminated && !server.isTerminated  ){
                 try {

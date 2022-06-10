@@ -31,20 +31,23 @@ public class MessageProcessor {
             }
             case "NameUnavailable" -> {
                 MessageNameUnavailable messageNameUnavailable = new MessageNameUnavailable(jsonObject);
-                client.application.addTask(new Task("NameUnavailable", messageNameUnavailable.name));
+                client.application.nameController.activeTrue();
+                client.application.addTask(new Task("NameUnavailable", "Name \"" + messageNameUnavailable.name + "\" is unavailable."));
 
             }
             case "FigureUnavailable" -> {
                 MessageFigureUnavailable messageFigureUnavailable = new MessageFigureUnavailable(jsonObject);
-                client.application.addTask(new Task("NameUnavailable", String.valueOf(messageFigureUnavailable.figure)));
+                client.application.nameController.activeTrue();
+                client.application.addTask(new Task("NameUnavailable", "Figure \"" + String.valueOf(messageFigureUnavailable.figure) + "\" is unavailable."));
 
             }
             case "ValuesAccepted" -> {
                 MessageValuesAccepted messageValuesAccepted = new MessageValuesAccepted(jsonObject);
                 client.name=messageValuesAccepted.name;
                 client.figure=messageValuesAccepted.figure;
-                client.application.addTask(new Task("A", client.name));
+                client.application.addTask(new Task("ValuesAccepted", "Name \"" + client.name + "\' and figure \"" + client.figure + "\" set."));
                 client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
+                System.out.println("SENT");
             }
             case "Welcome" -> {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
@@ -52,10 +55,10 @@ public class MessageProcessor {
             }
             case "PlayerAdded" -> {
                 MessagePlayerAdded messageValueSet = new MessagePlayerAdded(jsonObject);
-                System.out.println("Name " + messageValueSet.name + " and figure number " + messageValueSet.figure + " set");
+                //System.out.println("Name " + messageValueSet.name + " and figure number " + messageValueSet.figure + " set");
             }
             case "Alive" -> {
-                System.out.println("---");
+                //System.out.println("---");
                 client.sendSelf(new MessageAlive());
             }
             case "PlayerStatus" -> {
