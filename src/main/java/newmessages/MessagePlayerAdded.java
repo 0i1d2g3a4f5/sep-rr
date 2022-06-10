@@ -24,7 +24,7 @@ public class MessagePlayerAdded extends Message{
         jsonObject.add("name", new JsonPrimitive(name));
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
-        System.out.println("Created NameSet Message: " + this);
+        //System.out.println("Created PlayerAdded Message: " + this);
     }
 
     public MessagePlayerAdded(JsonObject jsonObject) {

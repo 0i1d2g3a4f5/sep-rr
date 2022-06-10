@@ -34,6 +34,9 @@ public class Message{
     public Message(String string){
 
     }
+    public Message(String string1, String string2){
+
+    }
     //case NameRequest, case MessageSend
     public Message(String name, int figure) {
 
@@ -83,7 +86,7 @@ public class Message{
         JsonObject result = new JsonObject();
         result.add("MessageType", JsonParser.parseString(type));
         result.add("MessageBody", content);
-        System.out.println("JSON Object of the message: " + this + " is: " + result);
+        //System.out.println("JSON Object of the message: " + this + " is: " + result);
         return result;
     }
 

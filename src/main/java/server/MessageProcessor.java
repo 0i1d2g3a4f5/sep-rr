@@ -1,7 +1,10 @@
 package server;
 
 import com.google.gson.JsonObject;
+import javafx.util.Pair;
 import newmessages.*;
+
+import java.io.IOException;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -17,25 +20,31 @@ public class MessageProcessor {
         switch (message.type){
             case "HelloServer" -> {
                 MessageHelloServer messageGroupIdentification = new MessageHelloServer(jsonObject);
-                if(messageGroupIdentification.isAI) {
-                    System.out.println("Handle AI");
-                }
-                else {
-                    System.out.println("Handle non AI");
-                }
+
                 if(!messageGroupIdentification.protocol.equals("Version 0.1")){
-                    System.out.println("Handle false protocol Version");
+                    System.out.println("Client " + client.id + " has the false communication protocol.");
+                    //KICK OUT
                 }
-                System.out.println("Client from group " + messageGroupIdentification.group + "connected to group with protocol version "
-                        + messageGroupIdentification.protocol);
+                else{
+                    client.isAI=messageGroupIdentification.isAI;
+                    client.group=messageGroupIdentification.group;
+                    client.sendSelf(new MessageWelcome(client.id));
+                }
+
+            }
+            case "HashedCode" -> {
+                MessageHashedCode messageHashedCode = new MessageHashedCode(jsonObject);
+                client.server.idAndHashFromName.put(client.name, new Pair<>(client.id, messageHashedCode.hashedCode));
+                client.server.printList();
             }
             case "PlayerValues" -> {
                 MessagePlayerValues messageValueRequest = new MessagePlayerValues(jsonObject);
-                System.out.println("Handle Name Request");
+                client.checkName(messageValueRequest.name, messageValueRequest.figure);
+
+
             }
             case "Alive" -> {
-                MessageAlive messageAlive = new MessageAlive(jsonObject);
-                System.out.println("Clients sends to be still connected to server");
+                System.out.println("---");
             }
             case "SetStatus" -> {
                 MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);

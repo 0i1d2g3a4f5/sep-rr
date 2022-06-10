@@ -15,12 +15,12 @@ public class MessageHelloClient extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("protocol", new JsonPrimitive(string));
         content=jsonObject;
-        System.out.println("Created Protocol Message: " + this);
+        //System.out.println("Created Protocol Message: " + this);
     }
     public MessageHelloClient(JsonObject jsonObject){
         super(jsonObject);
         protocol=content.get("protocol").getAsString();
-        System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
     }
 
 }

@@ -14,30 +14,48 @@ public class MessageProcessor {
     }
     void process(JsonObject jsonObject){
         Message message = new Message(jsonObject);
-        System.out.println("To Process: " + message.toJSON());
         switch (message.type){
             case "HelloClient" -> {
-                //optimalerweise werden in diesem case auch die bereits verbundenen Clients und deren Status übergeben
                 MessageHelloClient messageProtocol = new MessageHelloClient(jsonObject);
                 if(messageProtocol.protocol.equals("Version 0.1")){
                     System.out.println("Correct communication protocol verified.");
+                    client.sendSelf(new MessageHelloServer(client.group, false, "Version 0.1"));
+                    client.application.addTask(new Task("SwitchToName",""));
                 }
                 else{
                     System.out.println("Error: False communication protocol.");
+                    client.sendSelf(new MessageHelloServer(client.group, false, "Version 0.1"));
+                    //SHUTDOWN
                 }
 
             }
+            case "NameUnavailable" -> {
+                MessageNameUnavailable messageNameUnavailable = new MessageNameUnavailable(jsonObject);
+                client.application.addTask(new Task("NameUnavailable", messageNameUnavailable.name));
+
+            }
+            case "FigureUnavailable" -> {
+                MessageFigureUnavailable messageFigureUnavailable = new MessageFigureUnavailable(jsonObject);
+                client.application.addTask(new Task("NameUnavailable", String.valueOf(messageFigureUnavailable.figure)));
+
+            }
+            case "ValuesAccepted" -> {
+                MessageValuesAccepted messageValuesAccepted = new MessageValuesAccepted(jsonObject);
+                client.name=messageValuesAccepted.name;
+                client.figure=messageValuesAccepted.figure;
+                client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
+            }
             case "Welcome" -> {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
-                System.out.println("Handed over Client ID " + messageWelcome.clientID);
+                client.id=messageWelcome.clientID;
             }
             case "PlayerAdded" -> {
                 MessagePlayerAdded messageValueSet = new MessagePlayerAdded(jsonObject);
                 System.out.println("Name " + messageValueSet.name + " and figure number " + messageValueSet.figure + " set");
             }
             case "Alive" -> {
-                MessageAlive messageAlive = new MessageAlive(jsonObject);
-                System.out.println("Server sent to be still connected to client");
+                System.out.println("---");
+                client.sendSelf(new MessageAlive());
             }
             case "PlayerStatus" -> {
                 MessagePlayerStatus messageStatus = new MessagePlayerStatus(jsonObject);

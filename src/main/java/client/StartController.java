@@ -6,6 +6,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
+
+import java.util.Locale;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -19,39 +22,49 @@ public class StartController {
     private TextField ipInput;
 
     @FXML
+    private TextField groupInput;
+
+    @FXML
     private TextField portInput;
 
     @FXML
     void connectButton(ActionEvent event) {
-        if(!ipInput.getText().trim().equals("") && !portInput.getText().trim().equals("")) {
             checkIfNumber();
-        }
     }
 
     @FXML
     void connectEnter(KeyEvent event) {
         if(event.getCode()== KeyCode.ENTER){
-            if(!ipInput.getText().trim().equals("") && !portInput.getText().trim().equals("")) {
                 checkIfNumber();
-            }
         }
 
     }
     void checkIfNumber(){
-        int i=0;
+        if(groupInput.getText().trim()==""){
+            feedBack.setText("Enter a group name.");
+        }
+        else if(ipInput.getText().trim()==""){
+            feedBack.setText("Enter an IP Address.");
+        }
+        else if(portInput.getText().trim()==""){
+            feedBack.setText("Enter a port number.");
+        }
+        else{
+            int i = 0;
+            try {
+                i = Integer.parseInt(portInput.getText().trim());
+                connect(ipInput.getText().trim(), i);
 
-        try {
-            i = Integer.parseInt(portInput.getText().trim());
-            connect(ipInput.getText().trim(), i);
-
-        } catch(NumberFormatException e){
-            portInput.setText("WRITE NUMBER PLS :(");
+            } catch (NumberFormatException e) {
+                feedBack.setText("Input is an invalid port number.");
+            }
         }
 
 
     }
     void connect(String ip, int port){
         application.client.startClient(ip, port);
+        application.client.group=groupInput.getText().trim();
     }
     void failedReset(){
         ipInput.setText("");

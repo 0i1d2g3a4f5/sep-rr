@@ -8,32 +8,38 @@
 
 <AnchorPane onKeyPressed="#connectEnter" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.StartController">
    <children>
-      <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER">
+      <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER" AnchorPane.leftAnchor="845.0">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Text layoutX="409.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:">
+      <Text layoutX="422.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="468.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port: " textAlignment="RIGHT">
+      <Text layoutX="461.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port: " textAlignment="RIGHT" AnchorPane.topAnchor="663.15234375">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="ipInput" layoutX="700.0" layoutY="339.0" prefHeight="99.0" prefWidth="559.0" />
-      <TextField fx:id="portInput" layoutX="700.0" layoutY="590.0" prefHeight="99.0" prefWidth="559.0" />
-      <Button layoutX="862.0" layoutY="886.0" mnemonicParsing="false" onAction="#connectButton" text="Connect" textAlignment="CENTER">
+      <TextField fx:id="ipInput" layoutX="660.0" layoutY="391.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.topAnchor="440.0" />
+      <TextField fx:id="portInput" layoutX="660.0" layoutY="590.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.topAnchor="640.0" />
+      <Button layoutX="862.0" layoutY="886.0" mnemonicParsing="false" onAction="#connectButton" text="Connect" textAlignment="CENTER" AnchorPane.leftAnchor="870.0" AnchorPane.rightAnchor="870.0">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Text fx:id="feedBack" layoutX="932.0" layoutY="805.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+      <Text fx:id="feedBack" layoutX="680.0" layoutY="812.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
+      <Text layoutX="409.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Name:">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="groupInput" layoutX="660.0" layoutY="229.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.topAnchor="240.0" />
    </children>
 </AnchorPane>
