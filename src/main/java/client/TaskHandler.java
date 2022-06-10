@@ -22,10 +22,13 @@ public class TaskHandler {
                 application.startController.failedReset();
             }
             case "NameUnavailable" -> {
-                application.nameController.setFeedback("Name \""+task.task+"\" is unavailable.");
+                application.nameController.setFeedback(task.task);
             }
             case "FigureUnavailable" -> {
-                application.nameController.setFeedback("Figure \""+task.task+"\" is unavailable.");
+                application.nameController.setFeedback(task.task);
+            }
+            case "ValuesAccepted" -> {
+                application.nameController.setFeedback(task.task);
             }
             default -> {
 

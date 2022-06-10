@@ -44,7 +44,7 @@ public class MessageProcessor {
 
             }
             case "Alive" -> {
-                System.out.println("---");
+                //System.out.println("---");
             }
             case "SetStatus" -> {
                 MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);

@@ -30,7 +30,6 @@ public class Server {
         maxClients=10;
         currentClients=0;
         currentIndex=1;
-        System.out.println("Server object created.");
     }
     Runnable shutDownActions = new Runnable() {
         @Override
@@ -46,10 +45,10 @@ public class Server {
                     if(currentClients<maxClients){
 
                             Socket socket = null;
-                            System.out.println("Waiting for client connections...");
+                            //System.out.println("Waiting for client connections...");
                             socket = serverSocket.accept();
                             Client client = new Client(application.server, socket, currentIndex);
-                            System.out.println("Client " + currentIndex + " connected.");
+                            //System.out.println("Client " + currentIndex + " connected.");
                             clientList.add(client);
                             currentIndex++;
                             currentClients++;
@@ -65,7 +64,7 @@ public class Server {
     void printList(){
         for(String name : idAndHashFromName.keySet()){
             Pair<Integer, String> pair = (Pair<Integer, String>) (idAndHashFromName.get(name));
-            System.out.println("ID: " + pair.getKey() + "\nName: " + name + "\nHash: " + pair.getValue());
+            System.out.println("Name: \"" + name + "\", ID: \"" + pair.getKey() + "\", Hash: " + pair.getValue());
         }
     }
 
@@ -73,13 +72,11 @@ public class Server {
         Thread shutDown = new Thread(shutDownActions);
         shutDown.setDaemon(true);
         Runtime.getRuntime().addShutdownHook(shutDown);
-        System.out.println("Shutdownhook added.");
 
         isTerminated=false;
 
         try {
             serverSocket = new ServerSocket(1234);
-            System.out.println("Server socket opened.");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

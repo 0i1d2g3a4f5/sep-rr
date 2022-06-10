@@ -75,7 +75,7 @@ public class Client extends Thread{
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
-                        System.out.println("RECEIVED: " + input);
+                        //System.out.println("RECEIVED: " + input);
                         messageProcessor.process(jsonObject);
                     }
                 }
