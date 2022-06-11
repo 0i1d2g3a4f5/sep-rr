@@ -7,6 +7,7 @@ import gamelogic.game_elements.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GameField {
     Position key;
@@ -61,5 +62,18 @@ public class GameField {
 
     public Position getKey() {
         return key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameField gameField = (GameField) o;
+        return isActive == gameField.isActive && key.equals(gameField.key) && Objects.equals(robot, gameField.robot) && elements.equals(gameField.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(key, isActive, robot, elements);
     }
 }

@@ -10,6 +10,7 @@ import gamelogic.Position;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class GameElement {
 
@@ -164,4 +165,16 @@ public abstract class GameElement {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GameElement)) return false;
+        GameElement element = (GameElement) o;
+        return orientations.equals(element.orientations) && getType() == element.getType() && isOnBoard.equals(element.isOnBoard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orientations, getType(), isOnBoard);
+    }
 }

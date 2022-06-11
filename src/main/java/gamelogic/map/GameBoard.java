@@ -9,6 +9,7 @@ import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GameBoard {
     int dimensionY;
@@ -26,10 +27,15 @@ public class GameBoard {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+
+
     @Override
     public String toString() {
         return "GameBoard{" +
-                "boardMap=" + boardMap +
+                "dimensionY=" + dimensionY +
+                ", dimensionX=" + dimensionX +
+                ", boardMap=" + boardMap +
+                ", gson=" + gson +
                 '}';
     }
 
@@ -227,6 +233,19 @@ public class GameBoard {
         }
         jsonMap.add("gameMap",jsonArrayLVL1);
         return jsonMap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameBoard gameBoard = (GameBoard) o;
+        return dimensionY == gameBoard.dimensionY && dimensionX == gameBoard.dimensionX && boardMap.equals(gameBoard.boardMap);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dimensionY, dimensionX, boardMap);
     }
 
 
