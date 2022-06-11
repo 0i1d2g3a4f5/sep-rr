@@ -3,6 +3,11 @@ package gamelogic.robot;
 import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.Position;
+import gamelogic.game_elements.ElementName;
+import gamelogic.game_elements.Wall;
+import gamelogic.map.GameField;
+
+import static gamelogic.Direction.*;
 
 /**
  * @author Qinyi, Mark
@@ -61,7 +66,8 @@ public class Robot {
      */
     private boolean move(int gear){
         setNextPosition(gear);
-        if(checkNextPosition())
+        Direction targetDirection = gear ==1 ? directionFacing : directionFacing.opposite();
+        if(checkNextPosition(targetDirection))
             changePositionOnBoard();
 
         return true;
@@ -69,7 +75,7 @@ public class Robot {
 
 
     private boolean changePositionOnBoard() {
-        /*
+
         Game game = Game.getInstance();
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
@@ -79,40 +85,20 @@ public class Robot {
         position = nextPosition;
         nextPosition = null;
 
-         */
+
         return true;
     }
 
-    private boolean checkNextPosition() {
-        /*
+    private boolean checkNextPosition(Direction targetDirection) {
+
         Game game = Game.getInstance();
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
-        switch (directionFacing){
-            case NORTH -> {
-                if(currentField.isWallNorth() || nextField.isWallSouth()) return false;
-                return true;
-            }
-            case SOUTH -> {
-                if(currentField.isWallSouth() || nextField.isWallNorth()) return false;
-                return true;
-            }
-            case EAST -> {
-                if(currentField.isWallEast() || nextField.isWallWest()) return false;
-                return true;
-            }
-            case WEST -> {
-                if(currentField.isWallWest() || nextField.isWallEast()) return false;
-                return true;
-            }
-            default -> {
-                return false;
-            }
-        }
 
-         */
+        if (currentField.checkWall(targetDirection) || nextField.checkWall(targetDirection.opposite()))
+            return false;
+
         return true;
-
     }
 
     /**

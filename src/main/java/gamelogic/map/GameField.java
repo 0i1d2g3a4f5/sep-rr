@@ -51,7 +51,23 @@ public class GameField {
     }
 
 
+    public boolean contains(ElementName elementName){
+        for (GameElement element:elements) {
+            if(element.getType()==elementName) return true;
+        }
+        return false;
+    }
 
+    public boolean checkWall(Direction direction){
+        for (GameElement element:elements) {
+            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction.toString())) return true;
+        }
+        return false;
+    }
+    public boolean contains(Robot robot){
+         if(this.robot.equals(robot)) return true;
+         return false;
+    }
 
     public boolean addElement(GameElement element) {
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)

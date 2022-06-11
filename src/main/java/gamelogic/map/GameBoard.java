@@ -23,6 +23,13 @@ public class GameBoard {
         return boardMap.get(column);
     }
 
+    public GameField getField(int y, int x){
+        return boardMap.get(x).get(y);
+    }
+    public GameField getField(Position position){
+        return boardMap.get(position.getX()).get(position.getY());
+    }
+
     public ArrayList<ArrayList<GameField>> boardMap;
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
