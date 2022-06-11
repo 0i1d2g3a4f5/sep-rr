@@ -26,6 +26,13 @@ public class EnergySpace extends GameElement{
         type =ElementName.ENERGYSPACE;
     }
 
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
     public static EnergySpace fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
 

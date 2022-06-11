@@ -12,6 +12,14 @@ public class Empty extends GameElement{
         super(ElementName.EMPTY);
     }
 
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
+
     public static Empty fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         Empty empty = new Empty();

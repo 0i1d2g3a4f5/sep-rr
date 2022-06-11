@@ -45,10 +45,19 @@ public class ConveyorBelt extends GameElement {
         else throw new IOException("Color not found");
     }
 
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
     public static ConveyorBelt fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+        Direction targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
+        Direction originDirection1;
+        Direction originDirection2;
         int speed = jsonObject.get("speed").getAsInt();
         Color color;
         switch (speed){
@@ -60,8 +69,24 @@ public class ConveyorBelt extends GameElement {
             default ->
                 throw new IOException("Invalid speed parameter");
         }
+        ConveyorBelt conveyorBelt;
+        switch (orientations.size()){
+            case 1 ->{
+                conveyorBelt = new ConveyorBelt(color, targetDirection);
+            }
+            case 2 ->{
+                originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
+                conveyorBelt = new ConveyorBelt(color,targetDirection, originDirection1);
+            }
+            case 3 ->{
+                originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
+                originDirection2 = Direction.parseDirection(orientations.get(2).getAsString());
+                conveyorBelt = new ConveyorBelt(color,targetDirection, originDirection1,originDirection2);
 
-        ConveyorBelt conveyorBelt = new ConveyorBelt(color, direction);
+            }
+            default -> throw new IOException("Illegal Number of arguments. Number of arguments: "+orientations.size());
+        }
+
 
         conveyorBelt.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 

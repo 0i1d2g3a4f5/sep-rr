@@ -8,15 +8,27 @@ import java.io.*;
 
 public class ModelLoader {
 
+    Gson gson = new Gson();
+    String jsonString;
+    JsonObject mapJson;
     /**
      * @author Ringer
      * @param mapName
      * @return
      */
     public GameBoard loadMap(String mapName) throws IOException {
+
         GameBoard board;
-        Gson gson = new Gson();
-        String filePath = mapName;
+        jsonString= readFile(mapName);
+        mapJson =  gson.fromJson(jsonString,JsonObject.class);
+
+        board =GameBoard.fromJson(mapJson);
+        return board;
+    }
+
+    public String readFile(String fileName){
+
+        String filePath = "src/main/resources/MapOfJson/"+fileName+".json";
         File file= new File(filePath);
         BufferedReader reader;
         try {
@@ -36,14 +48,7 @@ public class ModelLoader {
                 throw new RuntimeException(e);
             }
         }
-        JsonObject mapJson =  JsonParser.parseString(jsonString).getAsJsonObject();
-
-
-
-        MapDeserializer deserializer = new MapDeserializer();
-
-        board =deserializer.deserializeMap(mapJson);
-        return board;
+        return jsonString;
     }
 
 

@@ -13,7 +13,13 @@ public class StartPoint extends GameElement{
         super(ElementName.STARTPOINT);
     }
 
-
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
     public static StartPoint fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         StartPoint startPoint = new StartPoint();
@@ -33,7 +39,6 @@ public class StartPoint extends GameElement{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
         return jsonObject;
     }
 

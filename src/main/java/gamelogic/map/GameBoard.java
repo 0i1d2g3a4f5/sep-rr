@@ -11,8 +11,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GameBoard {
-    int dimension1;
-    int dimension2;
+    int dimensionY;
+    int dimensionX;
+
+    public ArrayList<ArrayList<GameField>> getBoardMap() {
+        return boardMap;
+    }
+
+    public ArrayList<GameField> getColumn(int column){
+        return boardMap.get(column);
+    }
+
     public ArrayList<ArrayList<GameField>> boardMap;
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -93,6 +102,8 @@ public class GameBoard {
      * @param dimensionX
      */
     GameBoard(int dimensionY, int dimensionX){
+        this.dimensionY = dimensionY;
+        this.dimensionX = dimensionX;
         boardMap = new ArrayList<ArrayList<GameField>>();
         for(int x = 0;x<dimensionX;x++){
             boardMap.add(new ArrayList<GameField>());
@@ -108,42 +119,67 @@ public class GameBoard {
 
     }
 
+    /**
+     * Method is used to receive the dimensions of the Map if they are not available
+     * @param arrayLVL1
+     * @return
+     */
     private static Pair<Integer,Integer> getDimensions(JsonArray arrayLVL1){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonArray arrayLVL2 = null;
         JsonArray arrayLVL3 = null;
-        int x=0;
+        int x=arrayLVL1.size();
         int y=0;
-        GameBoard board = new GameBoard(y,x);
+
         for (JsonElement elementLVL1:arrayLVL1) {
             arrayLVL2 = gson.fromJson(elementLVL1,JsonArray.class);
-            for (JsonElement elementLVL2:arrayLVL2) {
-                arrayLVL3 = gson.fromJson(elementLVL2,JsonArray.class);
-
-                y++;
-            }
-            x++;
+            if(arrayLVL2.size()>y) y=arrayLVL2.size();
         }
         return new Pair<Integer,Integer>(y,x);
 
     }
 
+    /**
+     * @author Ringer
+     * overloaded Method to access buildFromJson
+     * @param json
+     * @return
+     * @throws IOException
+     */
     public static GameBoard fromJson(JsonObject json) throws IOException {
 
         Pair<Integer,Integer> dimensions = getDimensions((JsonArray) json.get("gameMap"));
 
         return buildFromJson(json,dimensions);
     }
+
+    /**
+     * @author Ringer
+     * overloaded Method to access buildFromJson
+     * @param json
+     * @param dimensions
+     * @return
+     * @throws IOException
+     */
     public static GameBoard fromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
 
         return buildFromJson(json,dimensions);
     }
-    public static GameBoard buildFromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+
+    /**
+     * @author Ringer
+     * builds the game board from the JsonObject
+     * @param json
+     * @param dimensions
+     * @return
+     * @throws IOException
+     */
+    private static GameBoard buildFromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
-        JsonArray arrayLVL2 = null;
-        JsonArray arrayLVL3 = null;
+        JsonArray arrayLVL2;
+        JsonArray arrayLVL3;
         GameBoard board = new GameBoard(dimensions.getKey(),dimensions.getValue());
 
         int x=0;
@@ -160,18 +196,22 @@ public class GameBoard {
 
                 y++;
             }
+            y=0;
             x++;
         }
+
         return board;
     }
 
     /**
      * @author Ringer
-     * returns a JsonArray of the nested lists. The struckture of the JsonArray represents the
+     * returns a JsonObject with an JsonArray of the nested lists. The structure of the JsonArray represents the
      * structure of the ArrayLists
      * @return JsonArray
      */
-    public JsonArray toJson(){
+    public JsonObject toJson(){
+        JsonObject jsonMap = new JsonObject();
+
         JsonArray jsonArrayLVL1 = new JsonArray();
         for (ArrayList<GameField> listLVL1:boardMap) {
             JsonArray jsonArrayLVL2 = new JsonArray();
@@ -185,7 +225,8 @@ public class GameBoard {
             }
             jsonArrayLVL1.add(jsonArrayLVL2);
         }
-        return jsonArrayLVL1;
+        jsonMap.add("gameMap",jsonArrayLVL1);
+        return jsonMap;
     }
 
 

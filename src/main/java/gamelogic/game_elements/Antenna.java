@@ -17,9 +17,10 @@ public class Antenna extends GameElement{
 
     /**
      * @author Ringer
-     * transforms from jsonObject
+     * builds an Object from a JsonObject
      * @param jsonObject
      * @return
+     * @throws IOException
      */
     public static Antenna fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();

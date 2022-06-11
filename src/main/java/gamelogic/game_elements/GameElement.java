@@ -92,11 +92,19 @@ public abstract class GameElement {
         this.type = elementName;
 
     }
+    /**
+     * @author Ringer
+     * decides wich object is built from the jsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
 
     public static GameElement fromJson(JsonObject jsonObject) throws IOException {
         GameElement element;
+        ElementName name =ElementName.parseElementName(jsonObject.get("type").getAsString());
 
-        switch (ElementName.parseElementName(jsonObject.get("type").getAsString())){
+        switch (name){
             case ANTENNA -> {
                 element = Antenna.fromJson(jsonObject);
             }
@@ -128,10 +136,13 @@ public abstract class GameElement {
             case WALL -> {
                 element = Wall.fromJson(jsonObject);
             }
+            case RESTARTPOINT -> {
+                element = RestartPoint.fromJson(jsonObject);
+            }
             case EMPTY -> {
                 element = Empty.fromJson(jsonObject);
             }
-            default -> throw new IOException("Type not found");
+            default -> throw new IOException("Type "+name+" not found");
         }
         return element;
     }
