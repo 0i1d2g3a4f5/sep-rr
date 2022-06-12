@@ -1,6 +1,9 @@
 package gamelogic.cards;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
 import gamelogic.cards.damage_card.Spam;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.cards.damage_card.Virus;
@@ -9,7 +12,6 @@ import gamelogic.cards.special_cards.EnergyRoutine;
 import gamelogic.cards.special_cards.RepeatRoutine;
 import gamelogic.cards.special_cards.SpamFolder;
 import gamelogic.cards.special_cards.SpeedRoutine;
-import gamelogic.cards.upgrade_cards.permanent.CorruptionWave;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -58,20 +60,24 @@ public class DeckSerializer {
         return (Card) gson.fromJson(serializedCardJason,className);
     }
 
-    public Stack deserializeDeck(){
+    public Stack deserializeDeck(JsonElement element) throws IOException {
         //Mock
-        Stack<Card> deck = new Stack<>();
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
 
+        JsonArray array = element.getAsJsonArray();
+        Stack<Card> deck= new Stack<>();
+
+        for (JsonElement jsonType:array) {
+            deck.add(Card.parseCard(CardName.parseCardName(jsonType.toString())));
+        }
         return deck;
     }
 
-    public void serializeCard(){
-
+    public JsonElement serializeDeck(Stack<Card> deck){
+        JsonArray jsonArray = new JsonArray();
+        for (Card card:deck) {
+            jsonArray.add(card.toJson());
+        }
+        return jsonArray;
     }
 
 }

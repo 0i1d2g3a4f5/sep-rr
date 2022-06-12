@@ -110,7 +110,7 @@ public class Game {
         //TODO setup Damage cards
 
         //setup upgradeWarehouse
-        upgradeWarehouse = deckSerializer.deserializeDeck();
+        //upgradeWarehouse = deckSerializer.deserializeDeck();
 
         //setup upgradeShop
         upgradeShop = new ArrayList<>();

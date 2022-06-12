@@ -3,6 +3,7 @@ package gamelogic.map;
 
 
 import com.google.gson.*;
+import gamelogic.JsonSerializable;
 import gamelogic.Position;
 import gamelogic.game_elements.GameElement;
 import javafx.util.Pair;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class GameBoard {
+public class GameBoard implements JsonSerializable {
     int dimensionY;
     int dimensionX;
 
