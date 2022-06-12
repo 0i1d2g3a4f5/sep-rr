@@ -1,7 +1,12 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Direction;
+
+import java.io.IOException;
 
 public class Gear extends GameElement{
 
@@ -24,6 +29,31 @@ public class Gear extends GameElement{
         type = ElementName.GEAR;
     }
     boolean turnRight = false;
+
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
+    public static Gear fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+
+        GearDirection gearDirection;
+        switch (orientations.get(0).getAsString()){
+            case "clockwise" -> gearDirection = GearDirection.CLOCKWISE;
+            case "counterclockwise" -> gearDirection = GearDirection.COUNTERCLOCKWISE;
+            default -> throw new IOException("GearDirection not Found");
+        }
+        Gear gear = new Gear(gearDirection);
+        gear.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+
+
+        return gear;
+    }
 
     /**
      * @author Ringer

@@ -24,7 +24,7 @@ public class Server {
     int currentIndex;
     Game game;
     boolean isTerminated;
-    Server(Application application){
+    public Server(Application application){
         this.application=application;
         isTerminated=true;
         maxClients=10;

@@ -1,6 +1,5 @@
 {
-  "messageType": "GameStarted",
-  "messageBody": {
+
     "gameMap": [
       [
         [{"type": "Empty", "isOnBoard": "Start A"}],
@@ -163,5 +162,5 @@
         [{"type": "Empty", "isOnBoard": "5B"}]
       ]
     ]
-  }
 }
+

@@ -1,16 +1,16 @@
 package gamelogic.game_elements;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import gamelogic.Direction;
 
 import java.io.IOException;
 
-public class Pit extends GameElement{
-    public Pit(){
-        
+public class RestartPoint extends GameElement{
+
+
+    public RestartPoint(){
+        super(ElementName.RESTARTPOINT);
     }
 
     /**
@@ -21,13 +21,12 @@ public class Pit extends GameElement{
      * @throws IOException
      */
 
-    public static Pit fromJson(JsonObject jsonObject) throws IOException {
+    public static RestartPoint fromJson(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
+        RestartPoint restartPoint = new RestartPoint();
+        restartPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        Pit pit = new Pit();
-        pit.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-        return pit;
+        return restartPoint;
     }
 
     /**
@@ -41,7 +40,6 @@ public class Pit extends GameElement{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-
         return jsonObject;
     }
 

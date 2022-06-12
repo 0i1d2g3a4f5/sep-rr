@@ -5,6 +5,7 @@ package client;
  * @author Sarp Cagin Erdogan
  */
 public class TaskHandler {
+
     Application application;
     Client client;
 
@@ -12,6 +13,7 @@ public class TaskHandler {
         this.application=application;
         this.client=client;
     }
+
 
     void handleTask(Task task){
         switch (task.type){
@@ -29,6 +31,9 @@ public class TaskHandler {
             }
             case "ValuesAccepted" -> {
                 application.nameController.setFeedback(task.task);
+            }
+            case "A" -> {
+                application.nameController.setFeedback("Name \""+task.task+"\" is set.");
             }
             default -> {
 

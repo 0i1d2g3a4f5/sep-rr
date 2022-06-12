@@ -13,7 +13,8 @@ public enum ElementName {
     STARTPOINT("StartPoint"),
     WALL("Wall"),
     ANTENNA("Antenna"),
-    EMPTY("Empty");
+    RESTARTPOINT("RestartPoint"),
+    EMPTY("Empty"), ;
 
     @Override
     public String toString() {
@@ -50,10 +51,13 @@ public enum ElementName {
             case "Antenna" ->{
                 elementName = ANTENNA;
             }
+            case "RestartPoint" ->{
+                elementName = RESTARTPOINT;
+            }
             case "Empty" ->{
                 elementName = EMPTY;
             }
-            default -> throw new IOException("Element not found");
+            default -> throw new IOException("Element "+nameString+" not found");
         }
         return elementName;
     }

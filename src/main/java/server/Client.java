@@ -25,7 +25,7 @@ public class Client {
     Socket socket;
     String group;
     boolean isTerminated, isNamed, isAI;
-    Client(Server server, Socket socket, int id){
+    public Client(Server server, Socket socket, int id){
 
         this.server=server;
         this.socket=socket;
