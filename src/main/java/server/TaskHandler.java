@@ -13,8 +13,19 @@ public class TaskHandler {
 
     void handleTask(Task task){
         switch (task.type){
-            case "Example" -> {
-
+            case "Log" -> {
+                application.serverController.setServerLog(task.task.get("Text").getAsString());
+            }
+            case "AddToList" -> {
+                server.clientFromId(task.task.get("ID").getAsInt()).listIndex=application.serverController.addToClientList("ID: " + task.task.get("ID").getAsInt() + " | Unnamed");
+                server.application.serverController.printIndexes();
+                System.out.println("INDEXES PRINTED");
+            }
+            case "RemoveFromList" -> {
+                application.serverController.removeFromClientList(task.task.get("Index").getAsInt());
+            }
+            case "UpdateList" -> {
+                application.serverController.updateClientList(task.task.get("Index").getAsInt(), task.task.get("Text").getAsString());
             }
             default -> {
 

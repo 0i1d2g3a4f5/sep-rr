@@ -24,16 +24,16 @@ public class TaskHandler {
                 application.startController.failedReset();
             }
             case "NameUnavailable" -> {
-                application.nameController.setFeedback(task.task);
+                application.nameController.setFeedback(task.task.get("Text").getAsString());
             }
             case "FigureUnavailable" -> {
-                application.nameController.setFeedback(task.task);
+                application.nameController.setFeedback(task.task.get("Text").getAsString());
             }
             case "ValuesAccepted" -> {
-                application.nameController.setFeedback(task.task);
+                application.nameController.setFeedback(task.task.get("Text").getAsString());
             }
             case "A" -> {
-                application.nameController.setFeedback("Name \""+task.task+"\" is set.");
+                application.nameController.setFeedback("Name \""+task.task.get("Text").getAsString()+"\" is set.");
             }
             default -> {
 

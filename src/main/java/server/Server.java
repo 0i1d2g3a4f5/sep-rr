@@ -1,5 +1,7 @@
 package server;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import gamelogic.Game;
 import javafx.util.Pair;
 
@@ -31,16 +33,21 @@ public class Server {
         currentClients=0;
         currentIndex=1;
     }
-    //Only for Testing
-    public Server(){
-
-    }
     Runnable shutDownActions = new Runnable() {
         @Override
         public void run() {
-
+            shutDownServer();
         }
     };
+    Client clientFromId(int number){
+        for(Client a : clientList){
+            if(a.id==number){
+                return a;
+            }
+        }
+        System.out.println("SERVER.CLIENTFROMID() BUG");
+        return null;
+    }
     Runnable waitForClients = new Runnable() {
         @Override
         public void run() {
@@ -81,6 +88,9 @@ public class Server {
 
         try {
             serverSocket = new ServerSocket(1234);
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.add("Text", new JsonPrimitive("Server created at port 1234."));
+            application.addTask(new Task("Log", jsonObject));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -92,10 +102,29 @@ public class Server {
 
     }
     void shutDownServer(){
-        Thread thread = new Thread(shutDownActions);
-        thread.setDaemon(true);
-        thread.start();
+        for(Client client: clientList){
+                client.disconnect();
+        }
+        isTerminated=true;
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("Text", new JsonPrimitive("Server has been shutdown."));
+        application.addTask(new Task("Log", jsonObject));
+
     }
+    void updateIndexes(int index){
+        for(int i=0; i<clientList.size(); i++){
+            if(!clientList.get(i).isTerminated && clientList.get(i).listIndex>index){
+                clientList.get(i).listIndex--;
+            }
+        }
+
+    }
+
 
 
 

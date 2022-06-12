@@ -48,10 +48,10 @@ public class Client extends Thread{
                     socket = new Socket(ip, port);
                     socketCreationSuccessful();
                 } catch (UnknownHostException e) {
-                    application.addTask(new Task("FailedSocket", ""));
+                    application.addTask(new Task("FailedSocket", new JsonObject()));
                     throw new RuntimeException(e);
                 } catch (IOException e) {
-                    application.addTask(new Task("FailedSocket", ""));
+                    application.addTask(new Task("FailedSocket", new JsonObject()));
                     throw new RuntimeException(e);
                 }
             }
@@ -116,6 +116,13 @@ public class Client extends Thread{
             dataOutputStream.flush();
             //System.out.println("SENT: " + message.toJSON().toString());
         }  catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    void shutDown(){
+        try {
+            this.socket.close();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

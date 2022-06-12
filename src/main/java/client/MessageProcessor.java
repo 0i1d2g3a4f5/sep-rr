@@ -1,6 +1,7 @@
 package client;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import newmessages.*;
 
 /**
@@ -20,7 +21,7 @@ public class MessageProcessor {
                 if(messageProtocol.protocol.equals("Version 0.1")){
                     System.out.println("Correct communication protocol verified.");
                     client.sendSelf(new MessageHelloServer(client.group, false, "Version 0.1"));
-                    client.application.addTask(new Task("SwitchToName",""));
+                    client.application.addTask(new Task("SwitchToName",new JsonObject()));
                 }
                 else{
                     System.out.println("Error: False communication protocol.");
@@ -32,22 +33,27 @@ public class MessageProcessor {
             case "NameUnavailable" -> {
                 MessageNameUnavailable messageNameUnavailable = new MessageNameUnavailable(jsonObject);
                 client.application.nameController.activeTrue();
-                client.application.addTask(new Task("NameUnavailable", "Name \"" + messageNameUnavailable.name + "\" is unavailable."));
+                JsonObject temp =  new JsonObject();
+                temp.add("Text", new JsonPrimitive("Name \"" + messageNameUnavailable.name + "\" is unavailable."));
+                client.application.addTask(new Task("NameUnavailable", temp));
 
             }
             case "FigureUnavailable" -> {
                 MessageFigureUnavailable messageFigureUnavailable = new MessageFigureUnavailable(jsonObject);
                 client.application.nameController.activeTrue();
-                client.application.addTask(new Task("NameUnavailable", "Figure \"" + String.valueOf(messageFigureUnavailable.figure) + "\" is unavailable."));
+                JsonObject temp =  new JsonObject();
+                temp.add("Text", new JsonPrimitive("Figure \"" + String.valueOf(messageFigureUnavailable.figure) + "\" is unavailable."));
+                client.application.addTask(new Task("NameUnavailable", temp));
 
             }
             case "ValuesAccepted" -> {
                 MessageValuesAccepted messageValuesAccepted = new MessageValuesAccepted(jsonObject);
                 client.name=messageValuesAccepted.name;
                 client.figure=messageValuesAccepted.figure;
-                client.application.addTask(new Task("ValuesAccepted", "Name \"" + client.name + "\' and figure \"" + client.figure + "\" set."));
+                JsonObject temp =  new JsonObject();
+                temp.add("Text", new JsonPrimitive("Name \"" + client.name + "\' and figure \"" + client.figure + "\" set."));
+                client.application.addTask(new Task("ValuesAccepted", temp));
                 client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
-                System.out.println("SENT");
             }
             case "Welcome" -> {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);
