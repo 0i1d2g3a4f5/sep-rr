@@ -2,7 +2,6 @@ package gamelogic.cards.upgrade_cards.temporary;
 
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
-import gamelogic.cards.CardName;
 import gamelogic.cards.upgrade_cards.UpgradeCard;
 
 import java.util.Stack;
@@ -16,6 +15,7 @@ public class SpamBlocker extends UpgradeCard {
     }
 
     /**
+     * @author Qinyi
      * Replace each SPAM damage card in your hand with
      * a card from the top of your deck.
      * Immediately discard the SPAM damage cards by placing them in the SPAM damage card draw pile.
