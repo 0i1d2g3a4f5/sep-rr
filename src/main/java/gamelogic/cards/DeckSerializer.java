@@ -1,9 +1,6 @@
 package gamelogic.cards;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonPrimitive;
+import com.google.gson.*;
 import gamelogic.cards.damage_card.Spam;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.cards.damage_card.Virus;
@@ -12,8 +9,10 @@ import gamelogic.cards.special_cards.EnergyRoutine;
 import gamelogic.cards.special_cards.RepeatRoutine;
 import gamelogic.cards.special_cards.SpamFolder;
 import gamelogic.cards.special_cards.SpeedRoutine;
+import utility.JsonReader;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Path;
 import java.util.Stack;
 
 public class DeckSerializer {
@@ -60,7 +59,7 @@ public class DeckSerializer {
         return (Card) gson.fromJson(serializedCardJason,className);
     }
 
-    public Stack deserializeDeck(JsonElement element) throws IOException {
+    public Stack<Card> deserializeDeck(JsonElement element) throws IOException {
         //Mock
 
         JsonArray array = element.getAsJsonArray();
@@ -71,6 +70,18 @@ public class DeckSerializer {
         }
         return deck;
     }
+
+    public Stack<Card> builtDeck(String mapName) throws IOException {
+        Gson gson = new Gson();
+        JsonElement element = gson.fromJson(readFile(mapName),JsonElement.class);
+        return deserializeDeck(element);
+    }
+
+    private String readFile(String mapName){
+        String filePath = "src/main/resources/DeckModels/"+mapName+".json";
+        return new JsonReader().readFile(filePath);
+    }
+
 
     public JsonElement serializeDeck(Stack<Card> deck){
         JsonArray jsonArray = new JsonArray();

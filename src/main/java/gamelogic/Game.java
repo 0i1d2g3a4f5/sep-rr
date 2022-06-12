@@ -1,10 +1,11 @@
 package gamelogic;
 
 
+import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
 import gamelogic.cards.damage_card.TrojanHorse;
-import gamelogic.cards.upgrade_cards.UpgradeCard;
+import gamelogic.map.MapName;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
@@ -26,15 +27,11 @@ public class Game {
     private Stack<TrojanHorse> trojanHorseDrawPile;
     private Stack<Virus> virusDrawPile;
     private Stack<Worm> wormDrawPile;
-
-    private Stack<UpgradeCard> upgradeWarehouse;
-
-    private ArrayList<UpgradeCard> upgradeShop;
-
+    private MapName mapName;
+    private Stack<Card> upgradeWarehouse;
+    private ArrayList<Card> upgradeShop;
     boolean continueGame;
-
     public List<Player> playerList = new ArrayList<>();
-
     public Stack<Spam> getSpamDrawPile(){
         return spamDrawPile;
     }
@@ -47,11 +44,9 @@ public class Game {
     public Stack<Worm> getWormDrawPile(){
         return wormDrawPile;
     }
-
     public static void deleteInstance(){
         instance=null;
     }
-
     public static Game getInstance(){
         if(instance==null){
             instance = new Game();
@@ -73,7 +68,6 @@ public class Game {
      */
 
     public GameBoard board;
-
     public Player join(Client client) {
         Player player = new Player(client);
         for (Player existingPlayer : playerList) {
@@ -91,7 +85,7 @@ public class Game {
      * Does the setup for a new Game, loads the map and creates the different
      * card Decks
      */
-    public void setup(){
+    public void setup() throws IOException {
         DeckSerializer deckSerializer = new DeckSerializer();
         //select map
         ModelLoader loader = new ModelLoader();
@@ -108,12 +102,24 @@ public class Game {
         //TODO special cards
 
         //TODO setup Damage cards
+        //Setup Spam
+        for(int i = 0; i < 38; i++)
+            spamDrawPile.add(new Spam());
+        //Setup Virus
+        for(int i = 0; i < 18; i++)
+            virusDrawPile.add(new Virus());
+        //Setup TrojanHorse
+        for(int i = 0; i < 12; i++)
+            trojanHorseDrawPile.add(new TrojanHorse());
+        //Setup Worm
+        for(int i = 0; i<6; i++)
+            wormDrawPile.add(new Worm());
 
         //setup upgradeWarehouse
-        //upgradeWarehouse = deckSerializer.deserializeDeck();
+        upgradeWarehouse = deckSerializer.builtDeck(mapName.toString());
 
         //setup upgradeShop
-        upgradeShop = new ArrayList<>();
+        upgradeShop = new ArrayList<Card>();
         for(int i = 0;i< playerList.size();i++){
             upgradeShop.add(upgradeWarehouse.pop());
         }
@@ -128,7 +134,7 @@ public class Game {
 
     }
 
-    public void startGame(){
+    public void startGame() throws IOException {
         setup();
         continueGame=true;
         gameLoop();
@@ -148,7 +154,7 @@ public class Game {
      */
     private void upgradePhase(){
         if(upgradeShop.size()== playerList.size()){
-            for (UpgradeCard card:upgradeShop) {
+            for (Card card:upgradeShop) {
                 card.discard();
             }
         }

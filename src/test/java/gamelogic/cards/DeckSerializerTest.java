@@ -46,9 +46,16 @@ class DeckSerializerTest {
 
 
     @Test
-    void serializeDeck() {
+    void serializeDeck() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 
-        System.out.println(serializer.serializeDeck(deck));
+        JsonElement jsonElement = serializer.serializeDeck(deck);
+
+        Stack<Card> deckAfter = serializer.deserializeDeck(jsonElement);
+
+        System.out.println("DeckBefore: "+deck);
+        System.out.println("DeckAfter: "+deckAfter);
+
+        assertEquals(deck,deckAfter);
     }
 }

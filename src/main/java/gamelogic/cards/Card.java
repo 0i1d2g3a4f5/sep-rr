@@ -224,4 +224,9 @@ public abstract class Card implements JsonSerializable {
     public int hashCode() {
         return Objects.hash(getCardName());
     }
+
+    @Override
+    public String toString() {
+        return cardName.toString();
+    }
 }

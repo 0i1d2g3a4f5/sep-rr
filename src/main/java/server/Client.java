@@ -44,6 +44,11 @@ public class Client {
             disconnect();
         }
     };
+    //only for testing
+     Client() {
+
+    }
+
     public int getClientID(){
         return this.id;
     }

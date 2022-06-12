@@ -38,7 +38,7 @@ class GameBoardTest {
     }
 
     @Test
-    void getRegistry() {
+    void getRegistry() throws IOException {
         ArrayList list = new ArrayList();
         Game game = Game.getInstance();
         game.setup();
@@ -90,7 +90,7 @@ class GameBoardTest {
         JsonObject jsonObject = gson.fromJson(before,JsonObject.class);
         GameBoard gameBoard = GameBoard.fromJson(jsonObject);
         String after = gson.toJson(gameBoard.toJson());
-        String filePath = "src/main/resources/MapOfJson/"+"DizzyHighway"+".json";
+        String filePath = "src/main/resources/MapModels/"+"DizzyHighway"+".json";
         File file;
         //System.out.println(board);
         String json="";
