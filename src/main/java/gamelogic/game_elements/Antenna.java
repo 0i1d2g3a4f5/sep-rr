@@ -7,8 +7,9 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class Antenna extends GameElement{
+public class Antenna extends GameElement implements Serializable {
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
         orientations.add(direction.toString());
@@ -28,8 +29,6 @@ public class Antenna extends GameElement{
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         Antenna antenna = new Antenna(direction);
         antenna.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-
 
         return antenna;
     }

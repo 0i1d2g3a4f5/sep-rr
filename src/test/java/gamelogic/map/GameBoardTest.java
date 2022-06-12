@@ -90,7 +90,7 @@ class GameBoardTest {
         JsonObject jsonObject = gson.fromJson(before,JsonObject.class);
         GameBoard gameBoard = GameBoard.fromJson(jsonObject);
         String after = gson.toJson(gameBoard.toJson());
-        String filePath = "dizzy_highway.json";
+        String filePath = "src/main/resources/MapOfJson/"+"DizzyHighway"+".json";
         File file;
         //System.out.println(board);
         String json="";

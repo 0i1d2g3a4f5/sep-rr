@@ -25,7 +25,7 @@ public class Client {
     Socket socket;
     String group;
     boolean isTerminated, isNamed, isAI;
-    Client(Server server, Socket socket, int id){
+    public Client(Server server, Socket socket, int id){
 
         this.server=server;
         this.socket=socket;
@@ -33,6 +33,10 @@ public class Client {
         this.isNamed=false;
         this.isTerminated=false;
         this.messageProcessor=new MessageProcessor(this);
+    }
+    //for Testing
+    Client(){
+
     }
     public int getClientID(){
         return this.id;

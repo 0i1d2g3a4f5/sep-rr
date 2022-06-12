@@ -81,7 +81,7 @@ public enum Direction{
             case "left" -> {
                 return WEST;
             }
-            default -> throw new IOException("Direction not found");
+            default -> throw new IOException("Direction "+directionString+" not found");
         }
     }
     String directionString;

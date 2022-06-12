@@ -13,7 +13,7 @@ import static gamelogic.Direction.*;
  * @author Qinyi, Mark
  * create a robot character for every player
  */
-public class Robot {
+public class Robot implements RobotMovement{
 
     Game game;
 
@@ -65,8 +65,9 @@ public class Robot {
      * @return
      */
     private boolean move(int gear){
-        setNextPosition(gear);
-        Direction targetDirection = gear ==1 ? directionFacing : directionFacing.opposite();
+        Direction targetDirection = gear == 1 ? directionFacing : directionFacing.opposite();
+        setNextPosition(targetDirection);
+
         if(checkNextPosition(targetDirection))
             changePositionOnBoard();
 
@@ -103,17 +104,17 @@ public class Robot {
 
     /**
      * set the next Position if a robot meet the gear
-     * @param gear
+     * @param targetDirection
      * @return
      */
-    private boolean setNextPosition(int gear) {
-        switch (directionFacing){
+    private boolean setNextPosition(Direction targetDirection) {
+        switch (targetDirection){
 
-            case NORTH -> nextPosition = new Position(position.getY()+gear, position.getX());
-            case SOUTH -> nextPosition = new Position(position.getY()-gear, position.getX());
-            case EAST -> nextPosition = new Position(position.getY(), position.getX()+gear);
+            case NORTH -> nextPosition = new Position(position.getY()+1, position.getX());
+            case SOUTH -> nextPosition = new Position(position.getY()-1, position.getX());
+            case EAST -> nextPosition = new Position(position.getY(), position.getX()+1);
 
-            case WEST -> nextPosition = new Position(position.getY(), position.getX()-gear);
+            case WEST -> nextPosition = new Position(position.getY(), position.getX()-1);
 
             default -> {
                 return false;

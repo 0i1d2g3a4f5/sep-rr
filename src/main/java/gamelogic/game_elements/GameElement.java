@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import gamelogic.Direction;
-import gamelogic.Position;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -24,12 +24,16 @@ public class Server {
     int currentIndex;
     Game game;
     boolean isTerminated;
-    Server(Application application){
+    public Server(Application application){
         this.application=application;
         isTerminated=true;
         maxClients=10;
         currentClients=0;
         currentIndex=1;
+    }
+    //Only for Testing
+    public Server(){
+
     }
     Runnable shutDownActions = new Runnable() {
         @Override
