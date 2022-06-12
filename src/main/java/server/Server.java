@@ -31,10 +31,6 @@ public class Server {
         currentClients=0;
         currentIndex=1;
     }
-    //Only for Testing
-    public Server(){
-
-    }
     Runnable shutDownActions = new Runnable() {
         @Override
         public void run() {

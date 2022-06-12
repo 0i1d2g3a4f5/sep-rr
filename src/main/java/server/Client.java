@@ -34,10 +34,6 @@ public class Client {
         this.isTerminated=false;
         this.messageProcessor=new MessageProcessor(this);
     }
-    //for Testing
-    Client(){
-
-    }
     public int getClientID(){
         return this.id;
     }
