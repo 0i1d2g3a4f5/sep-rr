@@ -25,8 +25,8 @@ public class Application extends javafx.application.Application {
         taskHandler = new TaskHandler(this, this.client);
         client = new Client(this);
         mainStage = new Stage();
+        mainStage.setOnCloseRequest(windowEvent -> shutDown());
         mainStage.show();
-        mainStage.setFullScreen(true);
         launchStart();
     }
     void executeTasks(){
@@ -51,11 +51,10 @@ public class Application extends javafx.application.Application {
     void launchStart(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientStart.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
             startController=fxmlLoader.getController();
             startController.application=this;
             mainStage.setScene(scene);
-            mainStage.setFullScreen(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,16 +63,19 @@ public class Application extends javafx.application.Application {
     void launchName(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientName.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
             nameController=fxmlLoader.getController();
             nameController.application=this;
             mainStage.setScene(scene);
-            mainStage.setFullScreen(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         nameController.initialize();
 
+    }
+    void shutDown(){
+        client.shutDown();
+        Platform.exit();
     }
 
 

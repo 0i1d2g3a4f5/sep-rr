@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import javafx.util.Pair;
 import newmessages.*;
 
@@ -29,13 +30,15 @@ public class MessageProcessor {
                     client.isAI=messageGroupIdentification.isAI;
                     client.group=messageGroupIdentification.group;
                     client.sendSelf(new MessageWelcome(client.id));
+                    JsonObject temp = new JsonObject();
+                    temp.add("ID", new JsonPrimitive(client.id));
+                    client.server.application.addTask(new Task("AddToList", temp));
                 }
 
             }
             case "HashedCode" -> {
                 MessageHashedCode messageHashedCode = new MessageHashedCode(jsonObject);
                 client.server.idAndHashFromName.put(client.name, new Pair<>(client.id, messageHashedCode.hashedCode));
-                client.server.printList();
             }
             case "PlayerValues" -> {
                 MessagePlayerValues messageValueRequest = new MessagePlayerValues(jsonObject);
@@ -45,6 +48,7 @@ public class MessageProcessor {
             }
             case "Alive" -> {
                 //System.out.println("---");
+                client.response=true;
             }
             case "SetStatus" -> {
                 MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);

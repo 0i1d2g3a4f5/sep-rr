@@ -51,11 +51,9 @@ public class NameController {
     @FXML
     void choose1(ActionEvent event) {
         if(check1.isSelected()){
-            System.out.println("unselected1");
             selectAndUncheckCurrent(1);
         }
         else{
-            System.out.println("selected1");
             unselect(check1);
         }
     }

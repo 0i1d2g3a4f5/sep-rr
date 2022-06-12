@@ -61,7 +61,7 @@
             <content>
                 <ScrollPane prefHeight="420.0" prefWidth="560.0">
                     <content>
-                        <TextArea fx:id="serverWindow" editable="false" opacity="0.85" prefHeight="423.0" prefWidth="1110.0" promptText="Text Area" />
+                        <TextArea fx:id="serverLog" editable="false" opacity="0.85" prefHeight="423.0" prefWidth="1110.0" promptText="Text Area" />
                     </content>
                 </ScrollPane>
             </content>

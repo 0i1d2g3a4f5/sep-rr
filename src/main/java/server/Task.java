@@ -1,13 +1,16 @@
 package server;
+
+import com.google.gson.JsonObject;
+
 /**
  * @author Sarp Cagin Erdogan
  */
 public class Task {
     String type;
-    String task;
-    Task(String type, String task){
+    JsonObject task;
+    Task(String type, JsonObject jsonObject){
         this.type=type;
-        this.task=task;
+        this.task=jsonObject;
     }
 
 }
