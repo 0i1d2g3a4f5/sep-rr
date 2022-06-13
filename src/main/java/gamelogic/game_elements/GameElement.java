@@ -99,6 +99,7 @@ public abstract class GameElement {
      * @throws IOException
      */
 
+    //Factory
     public static GameElement fromJson(JsonObject jsonObject) throws IOException {
         GameElement element;
         ElementName name =ElementName.parseElementName(jsonObject.get("type").getAsString());

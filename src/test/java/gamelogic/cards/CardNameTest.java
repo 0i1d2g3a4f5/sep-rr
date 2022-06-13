@@ -1,7 +1,8 @@
 package gamelogic.cards;
 
-import net.jqwik.api.Property;
+
 import org.junit.jupiter.api.Test;
+
 
 import java.io.IOException;
 
@@ -22,7 +23,6 @@ class CardNameTest {
     }
 
 
-    @Property
 
     @Test
     void testToString() {

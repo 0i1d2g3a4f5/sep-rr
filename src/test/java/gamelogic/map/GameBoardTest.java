@@ -86,11 +86,12 @@ class GameBoardTest {
     void testFromJson() throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ModelLoader modelLoader = new ModelLoader();
-        String before = modelLoader.readFile("DizzyHighway");
+
+        String before = modelLoader.readFile("dizzy_highway");
         JsonObject jsonObject = gson.fromJson(before,JsonObject.class);
         GameBoard gameBoard = GameBoard.fromJson(jsonObject);
         String after = gson.toJson(gameBoard.toJson());
-        String filePath = "src/main/resources/MapModels/"+"DizzyHighway"+".json";
+        String filePath = "src/main/resources/MapModels/"+"dizzy_highway"+".json";
         File file;
         //System.out.println(board);
         String json="";
