@@ -163,6 +163,7 @@ public class Game {
      * Every player can buy upgrades with EnergyCubes
      */
     private void upgradePhase(){
+        sendToAll(new MessageActivePhase(1));
         if(upgradeShop.size()== playerList.size()){
             for (Card card:upgradeShop) {
                 card.discard();
@@ -194,7 +195,7 @@ public class Game {
      * Draw cards and arrange them
      */
     private void programmingPhase(){
-        sendToAll(new MessageActivePhase(1));
+        sendToAll(new MessageActivePhase(2));
 
 
     }
@@ -205,6 +206,7 @@ public class Game {
      * Every Element is activated
      */
     private void activationPhase(){
+        sendToAll(new MessageActivePhase(3));
 
     }
     /**
