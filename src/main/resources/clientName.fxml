@@ -29,7 +29,7 @@
       </Text>
       <TextField fx:id="nameInput" layoutX="660.0" layoutY="240.0" prefHeight="100.0" prefWidth="600.0" />
       <TextField fx:id="passInput" layoutX="660.0" layoutY="440.0" prefHeight="100.0" prefWidth="600.0" />
-      <Button layoutX="873.0" layoutY="890.0" mnemonicParsing="false" onAction="#startButton" text="Start" AnchorPane.leftAnchor="900.0">
+      <Button layoutX="748.0" layoutY="900.0" mnemonicParsing="false" onAction="#startButton" text="Start" AnchorPane.leftAnchor="600.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -89,5 +89,10 @@
             </CheckBox>
          </children>
       </GridPane>
+      <Button layoutX="1082.0" layoutY="900.0" mnemonicParsing="false" onAction="#reconnect" text="Reconnect Instead" AnchorPane.rightAnchor="600.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

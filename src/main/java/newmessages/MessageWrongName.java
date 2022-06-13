@@ -6,22 +6,20 @@ import com.google.gson.JsonPrimitive;
 /**
  * @author Sarp Cagin Erdogan
  */
-public class MessageReconnect extends Message{
+
+public class MessageWrongName extends Message{
     public String name;
-    public String hash;
-    public MessageReconnect(String name, String hash){
-        super(name, hash);
-        this.name=name;
-        this.hash=hash;
-        type="Reconnect";
+    public MessageWrongName(String string) {
+        super();
+        type = "WrongName";
+        this.name=string;
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));
-        jsonObject.add("Hash", new JsonPrimitive(hash));
         content = jsonObject;
     }
-    public MessageReconnect(JsonObject jsonObject){
+
+    public MessageWrongName(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
-        hash=content.get("Hash").getAsString();
     }
 }

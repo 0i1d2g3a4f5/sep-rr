@@ -53,7 +53,17 @@ public class MessageProcessor {
                 JsonObject temp =  new JsonObject();
                 temp.add("Text", new JsonPrimitive("Name \"" + client.name + "\' and figure \"" + client.figure + "\" set."));
                 client.application.addTask(new Task("ValuesAccepted", temp));
-                client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
+                if(!client.isReconnecting)
+                    client.sendSelf(new MessageHashedCode(client.application.nameController.pass));
+            }
+            case "WrongPass" -> {
+                client.application.addTask(new Task("WrongPass", new JsonObject()));
+            }
+            case "WrongName" -> {
+                MessageWrongName messageWrongName = new MessageWrongName(jsonObject);
+                JsonObject temp = new JsonObject();
+                temp.add("Name", new JsonPrimitive(messageWrongName.name));
+                client.application.addTask(new Task("WrongName", temp));
             }
             case "Welcome" -> {
                 MessageWelcome messageWelcome = new MessageWelcome(jsonObject);

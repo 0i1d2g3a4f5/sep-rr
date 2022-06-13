@@ -19,6 +19,11 @@ public class ServerController {
     Application application;
 
     @FXML
+    private Button disconnectChosen;
+    @FXML
+    private Button removeChosen;
+
+    @FXML
     private TextArea serverLog;
 
     @FXML
@@ -68,6 +73,30 @@ public class ServerController {
                 client.printIndex();
         }
     }
+    @FXML
+    void disconnectClient() {
+        System.out.println("SELECTED: " + playerList.getSelectionModel().getSelectedIndex());
+        int toDc = playerList.getSelectionModel().getSelectedIndex();
+        for(Client client : application.server.clientList){
+            if(client.listIndex==toDc){
+                client.disconnect();
+                break;
+            }
 
+        }
+
+    }
+    @FXML
+    void removeClient() {
+        System.out.println("SELECTED: " + playerList.getSelectionModel().getSelectedIndex());
+        int toRemove = playerList.getSelectionModel().getSelectedIndex();
+        for(Client client : application.server.clientList){
+            if(client.listIndex==toRemove){
+                client.shutDownClient();
+                break;
+            }
+
+        }
+    }
 }
 

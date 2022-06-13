@@ -39,6 +39,7 @@ public class MessageProcessor {
             case "HashedCode" -> {
                 MessageHashedCode messageHashedCode = new MessageHashedCode(jsonObject);
                 client.server.idAndHashFromName.put(client.name, new Pair<>(client.id, messageHashedCode.hashedCode));
+                client.server.printList();
             }
             case "PlayerValues" -> {
                 MessagePlayerValues messageValueRequest = new MessagePlayerValues(jsonObject);
@@ -49,6 +50,12 @@ public class MessageProcessor {
             case "Alive" -> {
                 //System.out.println("---");
                 client.response=true;
+            }
+            case "Reconnect" -> {
+                MessageReconnect messageReconnect = new MessageReconnect(jsonObject);
+                System.out.println("Name: "+ messageReconnect.name + " Hash: " + messageReconnect.hash);
+                client.checkExisting(messageReconnect.name, messageReconnect.hash);
+
             }
             case "SetStatus" -> {
                 MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);

@@ -22,7 +22,8 @@ public class Client extends Thread{
     int figure;
     int id;
     Socket socket;
-    boolean isTerminated;
+    boolean isReconnecting = false;
+    boolean isTerminated=true;
     MessageProcessor messageProcessor;
     HashSystem hashSystem;
     Client(Application application){
@@ -87,10 +88,10 @@ public class Client extends Thread{
         }
     };
     void socketCreationSuccessful(){
-        isTerminated = false;
         listen();
     }
     void listen(){
+        isTerminated=false;
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();

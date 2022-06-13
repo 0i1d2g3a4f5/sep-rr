@@ -13,7 +13,9 @@ import newmessages.MessagePlayerValues;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class NameController {
     Application application;
     List<CheckBox> checkBoxList;
@@ -159,6 +161,11 @@ public class NameController {
     }
     public void activeTrue(){
         active=true;
+    }
+    @FXML
+    void reconnect() {
+        application.launchReconnect();
+        application.client.isReconnecting=true;
     }
 
 }

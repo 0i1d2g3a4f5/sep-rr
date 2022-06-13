@@ -66,7 +66,8 @@ public class Application extends javafx.application.Application {
 
     }
     void shutDown(){
-        server.shutDownServer();
+        if(server!=null)
+            server.shutDownServer();
         Platform.exit();
     }
 }
