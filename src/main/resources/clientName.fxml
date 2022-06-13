@@ -10,31 +10,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onKeyPressed="#connectEnter" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.NameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#connectEnter" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.NameController">
    <children>
-      <Text layoutX="829.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER" AnchorPane.leftAnchor="846.0" AnchorPane.rightAnchor="846.3828125">
+      <Text layoutX="476.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ROBO RALLY" textAlignment="CENTER" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="493.31640625">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Text layoutX="486.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
+      <Text layoutX="283.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="503.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass:" textAlignment="RIGHT">
+      <Text layoutX="292.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass:" textAlignment="RIGHT">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="nameInput" layoutX="660.0" layoutY="240.0" prefHeight="100.0" prefWidth="600.0" />
-      <TextField fx:id="passInput" layoutX="660.0" layoutY="440.0" prefHeight="100.0" prefWidth="600.0" />
-      <Button layoutX="748.0" layoutY="900.0" mnemonicParsing="false" onAction="#startButton" text="Start" AnchorPane.leftAnchor="600.0">
+      <TextField fx:id="nameInput" layoutX="421.0" layoutY="143.0" prefHeight="100.0" prefWidth="600.0" />
+      <TextField fx:id="passInput" layoutX="421.0" layoutY="298.0" prefHeight="100.0" prefWidth="600.0" />
+      <Button layoutX="547.0" layoutY="565.0" mnemonicParsing="false" onAction="#startButton" text="Start" AnchorPane.leftAnchor="547.0">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Text layoutX="203.0" layoutY="723.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Figure:" textAlignment="RIGHT" AnchorPane.bottomAnchor="350.0" AnchorPane.topAnchor="682.0">
+      <Text layoutX="271.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Figure:" textAlignment="RIGHT" AnchorPane.bottomAnchor="157.40625" AnchorPane.topAnchor="475.1953125">
          <font>
             <Font size="36.0" />
          </font>
@@ -44,14 +44,14 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <GridPane fx:id="checkGrid" layoutX="360.0" layoutY="700.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.bottomAnchor="325.0">
+      <GridPane fx:id="checkGrid" layoutX="421.0" layoutY="446.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.bottomAnchor="129.0">
         <columnConstraints>
-          <ColumnConstraints fillWidth="false" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
+          <ColumnConstraints fillWidth="false" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -89,7 +89,7 @@
             </CheckBox>
          </children>
       </GridPane>
-      <Button layoutX="1082.0" layoutY="900.0" mnemonicParsing="false" onAction="#reconnect" text="Reconnect Instead" AnchorPane.rightAnchor="600.0">
+      <Button layoutX="707.0" layoutY="559.0" mnemonicParsing="false" onAction="#reconnect" text="Reconnect Instead" AnchorPane.rightAnchor="164.0">
          <font>
             <Font size="36.0" />
          </font>
