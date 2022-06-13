@@ -1,6 +1,7 @@
 package server;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import javafx.util.Pair;
 import newmessages.*;
 
@@ -29,6 +30,9 @@ public class MessageProcessor {
                     client.isAI=messageGroupIdentification.isAI;
                     client.group=messageGroupIdentification.group;
                     client.sendSelf(new MessageWelcome(client.id));
+                    JsonObject temp = new JsonObject();
+                    temp.add("ID", new JsonPrimitive(client.id));
+                    client.server.application.addTask(new Task("AddToList", temp));
                 }
 
             }
@@ -44,7 +48,14 @@ public class MessageProcessor {
 
             }
             case "Alive" -> {
-                System.out.println("---");
+                //System.out.println("---");
+                client.response=true;
+            }
+            case "Reconnect" -> {
+                MessageReconnect messageReconnect = new MessageReconnect(jsonObject);
+                System.out.println("Name: "+ messageReconnect.name + " Hash: " + messageReconnect.hash);
+                client.checkExisting(messageReconnect.name, messageReconnect.hash);
+
             }
             case "SetStatus" -> {
                 MessageSetStatus messageSetReady = new MessageSetStatus(jsonObject);

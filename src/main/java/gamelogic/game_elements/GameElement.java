@@ -4,12 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import gamelogic.Direction;
-import gamelogic.Position;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class GameElement {
 
@@ -23,17 +22,9 @@ public abstract class GameElement {
 
     public String isOnBoard = "B1";
 
-    public Position position;
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
 
     public GameElement(){
 
@@ -41,14 +32,13 @@ public abstract class GameElement {
     }
 
 
-
-
-
     @Override
     public String toString() {
         return "GameElement{" +
-                "position=" + position +
-                ", elementName=" + type +
+                "orientations=" + orientations +
+                ", type=" + type +
+                ", isOnBoard='" + isOnBoard + '\'' +
+                ", gson=" + gson +
                 '}';
     }
     /*
@@ -101,38 +91,61 @@ public abstract class GameElement {
         this.type = elementName;
 
     }
+    /**
+     * @author Ringer
+     * decides wich object is built from the jsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
 
     public static GameElement fromJson(JsonObject jsonObject) throws IOException {
-        GameElement gameElement;
-        ElementName type = ElementName.parseElementName(jsonObject.get("type").toString());
-        switch (type){
+        GameElement element;
+        ElementName name =ElementName.parseElementName(jsonObject.get("type").getAsString());
+
+        switch (name){
             case ANTENNA -> {
-                //gameElement = new Antenna()
+                element = Antenna.fromJson(jsonObject);
             }
             case LASER -> {
+                element = Laser.fromJson(jsonObject);
             }
             case CHECKPOINT -> {
+                element = Checkpoint.fromJson(jsonObject);
 
             }
             case CONVEYORBELT -> {
+                element = ConveyorBelt.fromJson(jsonObject);
             }
             case ENERGYSPACE -> {
+                element = EnergySpace.fromJson(jsonObject);
             }
             case GEAR -> {
+                element = Gear.fromJson(jsonObject);
             }
             case PUSHPANEL -> {
+                element = PushPanel.fromJson(jsonObject);
             }
             case PIT -> {
+                element = Pit.fromJson(jsonObject);
             }
             case STARTPOINT -> {
+                element = StartPoint.fromJson(jsonObject);
             }
             case WALL -> {
+                element = Wall.fromJson(jsonObject);
+            }
+            case RESTARTPOINT -> {
+                element = RestartPoint.fromJson(jsonObject);
             }
             case EMPTY -> {
+                element = Empty.fromJson(jsonObject);
             }
+            default -> throw new IOException("Type "+name+" not found");
         }
-        return new Antenna(Direction.NORTH);
+        return element;
     }
+
 
     /**
      * @author Ringer
@@ -150,4 +163,16 @@ public abstract class GameElement {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GameElement)) return false;
+        GameElement element = (GameElement) o;
+        return orientations.equals(element.orientations) && getType() == element.getType() && isOnBoard.equals(element.isOnBoard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orientations, getType(), isOnBoard);
+    }
 }

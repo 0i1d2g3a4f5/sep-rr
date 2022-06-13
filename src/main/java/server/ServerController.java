@@ -11,6 +11,7 @@ import java.io.IOException;
 
 /**
  * @author Qinyi
+ * @author Sarp Cagin Erdogan
  * ServerController connected to Application and Server
  */
 public class ServerController {
@@ -18,7 +19,12 @@ public class ServerController {
     Application application;
 
     @FXML
-    private TextArea serverWindow;
+    private Button disconnectChosen;
+    @FXML
+    private Button removeChosen;
+
+    @FXML
+    private TextArea serverLog;
 
     @FXML
     private Button startServer;
@@ -31,18 +37,66 @@ public class ServerController {
 
     @FXML
     void startServer(ActionEvent event) throws IOException {
-        if(application.server.isTerminated) {
-            application.server.startServerSocket();
-        }
+        application.startServer();
     }
 
     @FXML
     void stopServer(ActionEvent event) {
-        Thread thread = new Thread(application.server.shutDownActions);
-        thread.setDaemon(true);
-        thread.start();
+        application.server.shutDownServer();
     }
 
+    void setServerLog(String string){
+        serverLog.appendText("\n"+string);
+    }
+    void updateClientList(int index, String string){
+        playerList.getItems().set(index, string);
+        System.out.println("CLIENT LIST UPDATED");
+        printIndexes();
+        System.out.println("INDEXES PRINTED");
+    }
+    void removeFromClientList(int index){
+        playerList.getItems().remove(index);
+        application.server.updateIndexes(index);
+        System.out.println("CLIENT LIST GOT REMOVAL");
+        printIndexes();
+        System.out.println("INDEXES PRINTED");
+    }
+    int addToClientList(String string){
+        playerList.getItems().add(string);
+        System.out.println("CLIENT LIST GOT ADDITION");
+        return playerList.getItems().size()-1;
 
+    }
+    void printIndexes(){
+        for(Client client: application.server.clientList){
+            if(!client.isTerminated)
+                client.printIndex();
+        }
+    }
+    @FXML
+    void disconnectClient() {
+        System.out.println("SELECTED: " + playerList.getSelectionModel().getSelectedIndex());
+        int toDc = playerList.getSelectionModel().getSelectedIndex();
+        for(Client client : application.server.clientList){
+            if(client.listIndex==toDc){
+                client.disconnect();
+                break;
+            }
+
+        }
+
+    }
+    @FXML
+    void removeClient() {
+        System.out.println("SELECTED: " + playerList.getSelectionModel().getSelectedIndex());
+        int toRemove = playerList.getSelectionModel().getSelectedIndex();
+        for(Client client : application.server.clientList){
+            if(client.listIndex==toRemove){
+                client.shutDownClient();
+                break;
+            }
+
+        }
+    }
 }
 

@@ -13,12 +13,15 @@ import newmessages.MessagePlayerValues;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class NameController {
     Application application;
     List<CheckBox> checkBoxList;
     int currentFigure;
     String pass, currentName;
+    boolean active=true;
     @FXML
     private GridPane checkGrid;
     @FXML
@@ -50,11 +53,9 @@ public class NameController {
     @FXML
     void choose1(ActionEvent event) {
         if(check1.isSelected()){
-            System.out.println("unselected1");
             selectAndUncheckCurrent(1);
         }
         else{
-            System.out.println("selected1");
             unselect(check1);
         }
     }
@@ -122,20 +123,20 @@ public class NameController {
 
     }
     void submit(){
-        if(currentFigure == 7){
-            feedBack.setText("Select valid figure.");
-        }
-        else if(nameInput.getText().trim()==""){
-            feedBack.setText("Select valid name.");
-        }
-        else if(passInput.getText().trim().length()<4){
-            feedBack.setText("Select valid pass with at least 4 characters.");
-        }
-        else {
-            currentName=nameInput.getText().trim();
-            pass=application.client.getNewEncoded(passInput.getText().trim());
-            application.client.sendSelf(new MessagePlayerValues(nameInput.getText().trim(), currentFigure));
+        if(active){
+            if (currentFigure == 7) {
+                feedBack.setText("Select valid figure.");
+            } else if (nameInput.getText().trim() == "") {
+                feedBack.setText("Select valid name.");
+            } else if (passInput.getText().trim().length() < 4) {
+                feedBack.setText("Select valid pass with at least 4 characters.");
+            } else {
+                active=false;
+                currentName = nameInput.getText().trim();
+                pass = application.client.getNewEncoded(passInput.getText().trim());
+                application.client.sendSelf(new MessagePlayerValues(nameInput.getText().trim(), currentFigure));
 
+            }
         }
 
     }
@@ -156,7 +157,15 @@ public class NameController {
         currentFigure=7;
     }
     public void setFeedback(String string){
-
+        feedBack.setText(string);
+    }
+    public void activeTrue(){
+        active=true;
+    }
+    @FXML
+    void reconnect() {
+        application.launchReconnect();
+        application.client.isReconnecting=true;
     }
 
 }

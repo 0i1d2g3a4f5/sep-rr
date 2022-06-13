@@ -3,10 +3,14 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class MessageReconnect extends Message{
     public String name;
     public String hash;
     public MessageReconnect(String name, String hash){
+        super(name, hash);
         this.name=name;
         this.hash=hash;
         type="Reconnect";
@@ -17,5 +21,7 @@ public class MessageReconnect extends Message{
     }
     public MessageReconnect(JsonObject jsonObject){
         super(jsonObject);
+        name=content.get("Name").getAsString();
+        hash=content.get("Hash").getAsString();
     }
 }

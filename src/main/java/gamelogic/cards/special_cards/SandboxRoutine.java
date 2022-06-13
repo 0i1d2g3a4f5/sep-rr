@@ -18,7 +18,7 @@ public class SandboxRoutine extends SpecialCard {
      */
     public void PlayCard(){
         //player choose a card
-        switch (CardName){
+        switch (cardName){
             case MOVE_ONE:
                 player.getRobot().forward();
                 break;

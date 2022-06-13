@@ -1,9 +1,9 @@
 package gamelogic.game_elements;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+import com.google.gson.*;
 import gamelogic.Direction;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Wall extends GameElement{
@@ -13,6 +13,27 @@ public class Wall extends GameElement{
             this.orientations.add(direction.toString());
         }
 
+    }
+
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
+    public static Wall fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        ArrayList<Direction> directions = new ArrayList<>();
+        for (JsonElement orientation:orientations) {
+            directions.add(Direction.parseDirection(orientation.getAsString()));
+        }
+
+        Wall wall = new Wall(directions);
+        wall.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        return wall;
     }
 
     /**

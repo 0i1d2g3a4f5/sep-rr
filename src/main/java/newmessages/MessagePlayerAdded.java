@@ -32,7 +32,7 @@ public class MessagePlayerAdded extends Message{
         clientID = content.get("clientID").getAsInt();
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
-        System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
     }
 
 }

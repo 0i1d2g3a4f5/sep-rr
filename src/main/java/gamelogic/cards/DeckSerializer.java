@@ -1,6 +1,6 @@
 package gamelogic.cards;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import gamelogic.cards.damage_card.Spam;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.cards.damage_card.Virus;
@@ -9,9 +9,10 @@ import gamelogic.cards.special_cards.EnergyRoutine;
 import gamelogic.cards.special_cards.RepeatRoutine;
 import gamelogic.cards.special_cards.SpamFolder;
 import gamelogic.cards.special_cards.SpeedRoutine;
-import gamelogic.cards.upgrade_cards.permanent.CorruptionWave;
+import utility.JsonReader;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Path;
 import java.util.Stack;
 
 public class DeckSerializer {
@@ -58,20 +59,36 @@ public class DeckSerializer {
         return (Card) gson.fromJson(serializedCardJason,className);
     }
 
-    public Stack deserializeDeck(){
+    public Stack<Card> deserializeDeck(JsonElement element) throws IOException {
         //Mock
-        Stack<Card> deck = new Stack<>();
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
-        deck.add(new CorruptionWave());
 
+        JsonArray array = element.getAsJsonArray();
+        Stack<Card> deck= new Stack<>();
+
+        for (JsonElement jsonType:array) {
+            deck.add(Card.parseCard(CardName.parseCardName(jsonType.toString())));
+        }
         return deck;
     }
 
-    public void serializeCard(){
+    public Stack<Card> builtDeck(String mapName) throws IOException {
+        Gson gson = new Gson();
+        JsonElement element = gson.fromJson(readFile(mapName),JsonElement.class);
+        return deserializeDeck(element);
+    }
 
+    private String readFile(String mapName){
+        String filePath = "src/main/resources/DeckModels/"+mapName+".json";
+        return new JsonReader().readFile(filePath);
+    }
+
+
+    public JsonElement serializeDeck(Stack<Card> deck){
+        JsonArray jsonArray = new JsonArray();
+        for (Card card:deck) {
+            jsonArray.add(card.toJson());
+        }
+        return jsonArray;
     }
 
 }

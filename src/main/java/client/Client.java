@@ -22,7 +22,8 @@ public class Client extends Thread{
     int figure;
     int id;
     Socket socket;
-    boolean isTerminated;
+    boolean isReconnecting = false;
+    boolean isTerminated=true;
     MessageProcessor messageProcessor;
     HashSystem hashSystem;
     Client(Application application){
@@ -48,10 +49,10 @@ public class Client extends Thread{
                     socket = new Socket(ip, port);
                     socketCreationSuccessful();
                 } catch (UnknownHostException e) {
-                    application.addTask(new Task("FailedSocket", ""));
+                    application.addTask(new Task("FailedSocket", new JsonObject()));
                     throw new RuntimeException(e);
                 } catch (IOException e) {
-                    application.addTask(new Task("FailedSocket", ""));
+                    application.addTask(new Task("FailedSocket", new JsonObject()));
                     throw new RuntimeException(e);
                 }
             }
@@ -75,7 +76,7 @@ public class Client extends Thread{
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
-                        System.out.println("RECEIVED: " + input);
+                        //System.out.println("RECEIVED: " + input);
                         messageProcessor.process(jsonObject);
                     }
                 }
@@ -87,10 +88,10 @@ public class Client extends Thread{
         }
     };
     void socketCreationSuccessful(){
-        isTerminated = false;
         listen();
     }
     void listen(){
+        isTerminated=false;
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();
@@ -116,6 +117,13 @@ public class Client extends Thread{
             dataOutputStream.flush();
             //System.out.println("SENT: " + message.toJSON().toString());
         }  catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    void shutDown(){
+        try {
+            this.socket.close();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

@@ -19,7 +19,7 @@ public class WeaselRoutine extends SpecialCard {
      */
     public void PlayCard(){
         //player choose a card
-        switch (CardName){
+        switch (cardName){
             case LEFT_TURN :
                 player.getRobot().left();
                 break;

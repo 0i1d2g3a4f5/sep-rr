@@ -14,6 +14,7 @@ import java.util.Locale;
  */
 public class StartController {
     Application application;
+    boolean active=true;
 
 
     @FXML
@@ -40,29 +41,28 @@ public class StartController {
 
     }
     void checkIfNumber(){
-        if(groupInput.getText().trim()==""){
-            feedBack.setText("Enter a group name.");
-        }
-        else if(ipInput.getText().trim()==""){
-            feedBack.setText("Enter an IP Address.");
-        }
-        else if(portInput.getText().trim()==""){
-            feedBack.setText("Enter a port number.");
-        }
-        else{
-            int i = 0;
-            try {
-                i = Integer.parseInt(portInput.getText().trim());
-                connect(ipInput.getText().trim(), i);
+        if(active){
+            if (groupInput.getText().trim() == "") {
+                feedBack.setText("Enter a group name.");
+            } else if (ipInput.getText().trim() == "") {
+                feedBack.setText("Enter an IP Address.");
+            } else if (portInput.getText().trim() == "") {
+                feedBack.setText("Enter a port number.");
+            } else {
+                int i = 0;
+                try {
+                    i = Integer.parseInt(portInput.getText().trim());
+                    connect(ipInput.getText().trim(), i);
 
-            } catch (NumberFormatException e) {
-                feedBack.setText("Input is an invalid port number.");
+                } catch (NumberFormatException e) {
+                    feedBack.setText("Input is an invalid port number.");
+                }
             }
         }
 
-
     }
     void connect(String ip, int port){
+        active=false;
         application.client.startClient(ip, port);
         application.client.group=groupInput.getText().trim();
     }
@@ -70,6 +70,7 @@ public class StartController {
         ipInput.setText("");
         portInput.setText("");
         feedBack.setText("Socket couldn't be created.");
+        active=true;
     }
 
 }

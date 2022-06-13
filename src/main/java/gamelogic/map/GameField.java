@@ -7,6 +7,7 @@ import gamelogic.game_elements.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GameField {
     Position key;
@@ -50,7 +51,23 @@ public class GameField {
     }
 
 
+    public boolean contains(ElementName elementName){
+        for (GameElement element:elements) {
+            if(element.getType()==elementName) return true;
+        }
+        return false;
+    }
 
+    public boolean checkWall(Direction direction){
+        for (GameElement element:elements) {
+            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction.toString())) return true;
+        }
+        return false;
+    }
+    public boolean contains(Robot robot){
+         if(this.robot.equals(robot)) return true;
+         return false;
+    }
 
     public boolean addElement(GameElement element) {
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
@@ -61,5 +78,18 @@ public class GameField {
 
     public Position getKey() {
         return key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameField gameField = (GameField) o;
+        return isActive == gameField.isActive && key.equals(gameField.key) && Objects.equals(robot, gameField.robot) && elements.equals(gameField.elements);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(key, isActive, robot, elements);
     }
 }

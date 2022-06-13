@@ -1,5 +1,7 @@
 package gamelogic.game_elements;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
@@ -43,6 +45,24 @@ public class Laser extends GameElement{
         this.count = count;
         type = ElementName.LASER;
 
+    }
+
+    /**
+     * @author Ringer
+     * builds an Object from a JsonObject
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
+
+    public static Laser fromJson(JsonObject jsonObject) throws IOException {
+        Gson gson = new Gson();
+        JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+        Laser laser = new Laser(direction,jsonObject.get("count").getAsInt());
+        laser.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        return laser;
     }
 
     /**
