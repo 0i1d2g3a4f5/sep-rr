@@ -3,6 +3,7 @@ package gamelogic;
 import gamelogic.cards.Card;
 import gamelogic.cards.playableInRegister;
 import gamelogic.robot.Robot;
+import newmessages.Message;
 import server.Client;
 
 import java.util.ArrayList;
@@ -67,6 +68,10 @@ public class Player{
         return true;
     }
 
+    public void sendMessage(Message message){
+        client.sendSelf(message);
+    }
+
     public void clearRegister(){
         for (Card card:register) {
             discardPile.add(card);
@@ -108,5 +113,9 @@ public class Player{
         return robot ;
     }
 
+
+    public void placeRobot() {
+
+    }
 
 }

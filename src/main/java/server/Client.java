@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
  * @author Sarp Cagin Erdogan
  */
 public class Client {
+
+
     MessageProcessor messageProcessor;
     int figure = 7;
     int listIndex;
@@ -45,6 +47,15 @@ public class Client {
             disconnect();
         }
     };
+
+    public MessageProcessor getMessageProcessor() {
+        return messageProcessor;
+    }
+
+    //only for testing
+    Client() {
+
+    }
 
     public int getClientID(){
         return this.id;
@@ -224,7 +235,7 @@ public class Client {
         }
     }
 
-    void sendSelf(Message message) {
+    public void sendSelf(Message message) {
         sendSingle(this, message);
     }
     void sendAll(Message message) {

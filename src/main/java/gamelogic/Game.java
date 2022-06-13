@@ -9,6 +9,8 @@ import gamelogic.map.MapName;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
+import newmessages.Message;
+import newmessages.MessageActivePhase;
 import server.Client;
 
 import java.io.IOException;
@@ -22,6 +24,7 @@ import java.util.Stack;
 public class Game {
     ArrayList elementRegistry;
     private static Game instance;
+    public Timer timer;
 
     private Stack<Spam> spamDrawPile;
     private Stack<TrojanHorse> trojanHorseDrawPile;
@@ -125,11 +128,18 @@ public class Game {
         }
 
 
-        //TODO setup Timer and Checkpoint Tokens
+        //TODO setup Checkpoint Tokens
+
+        //Timer
+        timer = new Timer();
 
         //TODO setup Energy cubes
 
+
         //TODO place Robot
+        for (Player player:playerList) {
+            player.placeRobot();
+        }
 
 
     }
@@ -167,9 +177,25 @@ public class Game {
     }
 
     /**
+     * @author Ringer
+     * @param message
+     *
+     * sends the Message to all players in playerList
+     */
+
+    private void sendToAll(Message message){
+        for (Player player:playerList) {
+            player.sendMessage(message);
+        }
+    }
+
+    /**
+     * @author Ringer
      * Draw cards and arrange them
      */
     private void programmingPhase(){
+        sendToAll(new MessageActivePhase(1));
+
 
     }
 
