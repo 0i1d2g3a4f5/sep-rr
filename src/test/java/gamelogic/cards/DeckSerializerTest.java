@@ -1,37 +1,62 @@
 package gamelogic.cards;
 
 import com.google.gson.JsonElement;
-import gamelogic.cards.damage_card.Spam;
-import gamelogic.cards.damage_card.Virus;
-import gamelogic.cards.upgrade_cards.permanent.CorruptionWave;
 
-import net.jqwik.api.Example;
-import net.jqwik.api.lifecycle.AfterTry;
-import net.jqwik.api.lifecycle.BeforeTry;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.Stack;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class DeckSerializerTest {
     Stack<Card> deck = new Stack<>();
-    @BeforeTry
-    void before(){
-        deck.add(new Virus());
-        deck.add(new Spam());
-        deck.add(new CorruptionWave());
+/*
+    @Provide
+    List<CardName> cardNames(){
+        List<CardName> list = Arrays.stream(CardName.values()).toList();
+        return list;
     }
-    @AfterTry
+
+/*
+    @Property
+
+    void property(@ForAll("cardNames") CardName cardName ) throws IOException {
+        Card card1= Card.parseCard(cardName);
+        deck.add(card1);
+
+
+        assertTrue(deck.contains(card1));
+
+    }
+
+ */
+    @AfterEach
     void after(){
         deck.clear();
     }
 
-    @Example
+    @BeforeEach
+    void before() throws IOException {
+        CardName[] cards = CardName.values();
+        Random random = new Random();
+
+
+        int deckSize = 50;
+        for(int i = 0; i<deckSize;i++){
+            deck.add(Card.parseCard(cards[random.nextInt(cards.length)]));
+        }
+
+    }
+
+
+    @Test
     void deserializeCard() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 
@@ -44,16 +69,12 @@ class DeckSerializerTest {
 
     }
 
-    @Example
+    @Test
     void deserializeDeck() {
     }
 
 
-    void propertyTest(){
-
-    }
-
-    @Example
+    @Test
     void serializeDeck() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 

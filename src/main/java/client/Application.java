@@ -19,6 +19,8 @@ public class Application extends javafx.application.Application {
     Client client;
     StartController startController;
     NameController nameController;
+    GameController gameController;
+    ReconnectController reconnectController;
     Stage mainStage;
     @Override
     public void start(Stage stage) throws Exception {
@@ -73,8 +75,32 @@ public class Application extends javafx.application.Application {
         nameController.initialize();
 
     }
+    void launchGame(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("game.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            gameController=fxmlLoader.getController();
+            gameController.application=this;
+            mainStage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    void launchReconnect(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("reconnect.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            reconnectController=fxmlLoader.getController();
+            reconnectController.application=this;
+            mainStage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     void shutDown(){
-        client.shutDown();
+        if(!client.isTerminated)
+            client.shutDown();
         Platform.exit();
     }
 

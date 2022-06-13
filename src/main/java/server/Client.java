@@ -3,6 +3,7 @@ package server;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
+import javafx.util.Pair;
 import newmessages.*;
 
 import java.io.*;
@@ -44,10 +45,6 @@ public class Client {
             disconnect();
         }
     };
-    //only for testing
-     Client() {
-
-    }
 
     public int getClientID(){
         return this.id;
@@ -114,6 +111,7 @@ public class Client {
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();
+        isTerminated=false;
         listName="ID: " + String.valueOf(id) + " | " + "Unnamed";
 
     }
@@ -132,17 +130,43 @@ public class Client {
             server.application.addTask(new Task("UpdateList", jsonObject));
         }
     }
+    void removeClientFromList(){
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("Index", new JsonPrimitive(listIndex));
+        server.application.addTask(new Task("RemoveFromList", jsonObject));
+        server.currentClients--;
+        server.clientList.remove(this);
+    }
     void shutDownClient(){
             disconnect();
-            if(!isTerminated) {
-                JsonObject jsonObject = new JsonObject();
-                jsonObject.add("Index", new JsonPrimitive(listIndex));
-                server.application.addTask(new Task("RemoveFromList", jsonObject));
-                server.currentClients--;
-                server.clientList.remove(this);
+            removeClientFromList();
+    }
+    void checkExisting(String name, String hash){
+        if(server.idAndHashFromName.get(name) == null){
+            sendSelf(new MessageWrongName(name));
+        }
+        else {
+            Pair<Integer, String> pair = (Pair<Integer, String>) (server.idAndHashFromName.get(name));
+            if (pair.getValue().equals(hash)) {
+                for (Client client : server.clientList) {
+                    if (client.id == pair.getKey()) {
+                        System.out.println("GIRDI");
+                        client.socket = this.socket;
+                        client.listen();
+                        client.acceptedClient();
+                        this.socket = null;
+                        this.isTerminated = true;
+                        this.shutDownClient();
+                    }
+                }
             }
+            else{
+                sendSelf(new MessageWrongPass());
+            }
+        }
 
     }
+
     void sendProtocolCheck(){
         MessageHelloClient messageProtocol = new MessageHelloClient("Version 0.1");
         sendSelf(messageProtocol);
@@ -174,15 +198,19 @@ public class Client {
             this.figure=figure;
             this.name=string;
             isNamed=true;
-            sendSelf(new MessageValuesAccepted(name, figure));
-            MessagePlayerAdded message = new MessagePlayerAdded(id, string, figure);
-            sendAll(message);
-            listName = "ID: " + String.valueOf(id) + " | Figure: " + String.valueOf(figure) + " | Name: " + name;
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.add("Index", new JsonPrimitive(listIndex));
-            jsonObject.add("Text", new JsonPrimitive(listName));
-            server.application.addTask(new Task("UpdateList", jsonObject));
+            acceptedClient();
+
         }
+    }
+    void acceptedClient(){
+        sendSelf(new MessageValuesAccepted(name, figure));
+        MessagePlayerAdded message = new MessagePlayerAdded(this.id, this.name, this.figure);
+        sendAll(message);
+        listName = "ID: " + String.valueOf(id) + " | Figure: " + String.valueOf(figure) + " | Name: " + name;
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("Index", new JsonPrimitive(listIndex));
+        jsonObject.add("Text", new JsonPrimitive(listName));
+        server.application.addTask(new Task("UpdateList", jsonObject));
     }
     void sendSingle(Client client, Message message){
         try {
