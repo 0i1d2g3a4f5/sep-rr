@@ -1,6 +1,7 @@
 package gamelogic.cards;
 
-import net.jqwik.api.Property;
+
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardNameTest {
 
-    @Test
+    @Example
     void parseCardName() {
         CardName name1 = CardName.VIRUS;
         CardName name2 = null;
@@ -22,9 +23,9 @@ class CardNameTest {
     }
 
 
-    @Property
 
-    @Test
+
+    @Example
     void testToString() {
     }
 }

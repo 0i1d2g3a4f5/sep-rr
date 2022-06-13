@@ -4,6 +4,10 @@ import com.google.gson.JsonElement;
 import gamelogic.cards.damage_card.Spam;
 import gamelogic.cards.damage_card.Virus;
 import gamelogic.cards.upgrade_cards.permanent.CorruptionWave;
+
+import net.jqwik.api.Example;
+import net.jqwik.api.lifecycle.AfterTry;
+import net.jqwik.api.lifecycle.BeforeTry;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,18 +20,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DeckSerializerTest {
     Stack<Card> deck = new Stack<>();
-    @BeforeEach
+    @BeforeTry
     void before(){
         deck.add(new Virus());
         deck.add(new Spam());
         deck.add(new CorruptionWave());
     }
-    @AfterEach
+    @AfterTry
     void after(){
         deck.clear();
     }
 
-    @Test
+    @Example
     void deserializeCard() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 
@@ -40,12 +44,16 @@ class DeckSerializerTest {
 
     }
 
-    @Test
+    @Example
     void deserializeDeck() {
     }
 
 
-    @Test
+    void propertyTest(){
+
+    }
+
+    @Example
     void serializeDeck() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 
