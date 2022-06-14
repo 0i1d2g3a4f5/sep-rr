@@ -4,6 +4,7 @@ import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.upgrade_cards.UpgradeCard;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class SpamBlocker extends UpgradeCard {
@@ -23,7 +24,7 @@ public class SpamBlocker extends UpgradeCard {
      */
     @Override
     public void PlayCard() {
-        Stack<Card> handcardPile =player.getHandCards();//don't know whether it is handcardpile or discardpile
+        ArrayList<Card> handcardPile =player.getHandCards();//don't know whether it is handcardpile or discardpile
         for (Card card:handcardPile) {
             if(card.getCardName()==CardName.SPAM) handcardPile.remove(card);
             //replace the spam cards with the new drew cards

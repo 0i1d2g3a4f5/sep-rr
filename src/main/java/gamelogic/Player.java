@@ -1,13 +1,17 @@
 package gamelogic;
 
 import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
 import gamelogic.cards.playableInRegister;
 import gamelogic.robot.Robot;
 import newmessages.Message;
 import server.Client;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
+
+import static utility.CardUtility.searchCard;
 
 /**
  * @author Mark Ringer
@@ -24,8 +28,13 @@ public class Player{
 
     private Stack<Card> deck;
     private Stack<Card> discardPile;
-    private Stack<Card> handCards;
+    private ArrayList<Card> handCards;
     private Robot robot;
+
+    //only for testing
+    Player() {
+
+    }
 
     public Client getClient() {
         return client;
@@ -72,6 +81,14 @@ public class Player{
         client.sendSelf(message);
     }
 
+    public void playCard(CardName cardName){
+        Card card = searchCard(cardName,handCards);
+
+
+    }
+
+
+
     public void clearRegister(){
         for (Card card:register) {
             discardPile.add(card);
@@ -105,7 +122,7 @@ public class Player{
     }
     public Stack<Card> DeckPile(){return deck;}
 
-    public Stack<Card> getHandCards(){
+    public ArrayList<Card> getHandCards(){
         return handCards;
     }
 
