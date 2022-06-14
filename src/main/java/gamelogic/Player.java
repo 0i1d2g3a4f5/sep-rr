@@ -83,6 +83,8 @@ public class Player{
 
     public void playCard(CardName cardName){
         Card card = searchCard(cardName,handCards);
+        handCards.remove(card);
+
 
 
     }

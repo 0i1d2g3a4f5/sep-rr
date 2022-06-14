@@ -21,25 +21,8 @@ class PlayerTest {
         Player player = new Player();
 
     }
-/*
-    @Property
-    void propertySearchCard(@ForAll("deck") ArrayList<Card> deck, @ForAll CardName cardName){
-        System.out.println(utility.CardUtility.searchCard(cardName,deck));
 
-    }
 
- */
-
-    @Provide
-    ArrayList<Card> deck() throws IOException {
-        CardName[] cardNames = CardName.values();
-        ArrayList<Card> deck = new ArrayList<>();
-        Arbitrary<Integer> number = Arbitraries.integers();
-        for(int i = 0;i<number.sample();i++) {
-            deck.add(Card.parseCard(cardNames[number.sample()]));
-        }
-        return deck;
-    }
 
     @Example
     void searchCard() {

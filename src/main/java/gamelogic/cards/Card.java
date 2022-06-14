@@ -208,6 +208,7 @@ public abstract class Card implements JsonSerializable {
             case SPAM_BLOCKER -> {
                 return new SpamBlocker();
             }
+
             default -> throw new IOException("Card "+cardName+" not found");
         }
     }

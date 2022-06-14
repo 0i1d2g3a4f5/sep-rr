@@ -35,10 +35,5 @@ public class HashFunction {
         return String.valueOf(Math.pow(out.hashCode(),Double.parseDouble(String.valueOf(key[Math.abs(out.hashCode())%key.length]))));
     }
 
-    public static void main(String[] args){
-        HashFunction hf = new HashFunction();
-        System.out.println(hf.hash("MarA²²56zZk"));
-
-    }
 
 }
