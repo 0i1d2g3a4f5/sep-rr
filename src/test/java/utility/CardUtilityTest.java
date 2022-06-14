@@ -1,31 +1,31 @@
 package utility;
 
 import gamelogic.cards.Card;
+import gamelogic.cards.CardFactory;
 import gamelogic.cards.CardName;
 import net.jqwik.api.*;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.function.Supplier;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CardUtilityTest {
 
     @Property
     void propertySearchCard(@ForAll("deck") ArrayList<Card> deck, @ForAll CardName cardName) throws IOException {
         //System.out.println(utility.CardUtility.searchCard(cardName,deck));
-        boolean statementCardsAreEqual = (Card.parseCard(cardName)).equals(utility.CardUtility.searchCard(cardName,deck));
-        boolean statementDeckContainsCard = deck.contains(Card.parseCard(cardName));
-        boolean statementDeckDoesntContainCard = !deck.contains(Card.parseCard(cardName));
+        CardFactory cardFactory = new CardFactory();
+        boolean statementCardsAreEqual = (cardFactory.createCard(cardName)).equals(utility.CardUtility.searchCard(cardName,deck));
+        boolean statementDeckContainsCard = deck.contains(cardFactory.createCard(cardName));
+        boolean statementDeckDoesntContainCard = !deck.contains(cardFactory.createCard(cardName));
         boolean statementCardIsNull = (utility.CardUtility.searchCard(cardName,deck)==null);
 
         System.out.println("statementCardsAreEqual: "+statementCardsAreEqual);
         System.out.println("statementDeckContainsCard: "+statementDeckContainsCard);
         System.out.println("statementDeckDoesntContainCard: "+statementDeckDoesntContainCard);
         System.out.println("statementCardIsNull: "+statementCardIsNull);
-        System.out.println("parsed: "+Card.parseCard(cardName)+"| searched: "+utility.CardUtility.searchCard(cardName,deck));
+        System.out.println("parsed: "+cardFactory.createCard(cardName)+"| searched: "+utility.CardUtility.searchCard(cardName,deck));
 
         assertTrue((statementCardsAreEqual && statementDeckContainsCard)||(statementDeckDoesntContainCard&&statementCardIsNull));
 
@@ -52,7 +52,7 @@ class CardUtilityTest {
         for(int i = 0;i<deckSize;i++) {
             int position=number.sample()% cardNames.length;
             //System.out.println("CardName "+cardNames[position]);
-            deck.add(Card.parseCard(cardNames[position]));
+            deck.add(new CardFactory().createCard(cardNames[position]));
         }
         return deck;
 

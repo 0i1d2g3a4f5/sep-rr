@@ -53,7 +53,7 @@ class DeckSerializerTest {
 
         int deckSize = 50;
         for(int i = 0; i<deckSize;i++){
-            deck.add(Card.parseCard(cards[random.nextInt(cards.length)]));
+            deck.add(new CardFactory().createCard(cards[random.nextInt(cards.length)]));
         }
 
     }
