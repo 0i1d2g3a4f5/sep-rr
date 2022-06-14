@@ -52,7 +52,7 @@ public class ConveyorBelt extends GameElement {
      * @return
      * @throws IOException
      */
-    public static ConveyorBelt fromJson(JsonObject jsonObject) throws IOException {
+    public ConveyorBelt(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
@@ -91,8 +91,6 @@ public class ConveyorBelt extends GameElement {
         conveyorBelt.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
-
-        return conveyorBelt;
     }
 
     /**

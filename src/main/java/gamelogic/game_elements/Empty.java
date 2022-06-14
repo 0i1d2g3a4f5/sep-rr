@@ -20,11 +20,11 @@ public class Empty extends GameElement{
      * @throws IOException
      */
 
-    public static Empty fromJson(JsonObject jsonObject) throws IOException {
+    public Empty (JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         Empty empty = new Empty();
         empty.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return empty;
+
     }
 }

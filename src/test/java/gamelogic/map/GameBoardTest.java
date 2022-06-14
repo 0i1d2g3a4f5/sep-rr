@@ -89,7 +89,7 @@ class GameBoardTest {
 
         String before = modelLoader.readFile("dizzy_highway");
         JsonObject jsonObject = gson.fromJson(before,JsonObject.class);
-        GameBoard gameBoard = GameBoard.fromJson(jsonObject);
+        GameBoard gameBoard = new GameBoard(jsonObject);
         String after = gson.toJson(gameBoard.toJson());
         String filePath = "src/main/resources/MapModels/"+"dizzy_highway"+".json";
         File file;

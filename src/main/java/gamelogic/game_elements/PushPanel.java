@@ -22,14 +22,14 @@ public class PushPanel extends GameElement{
      * @return
      * @throws IOException
      */
-    public static PushPanel fromJson(JsonObject jsonObject) throws IOException {
+    public PushPanel(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         PushPanel pushPanel = new PushPanel(direction);
         pushPanel.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return pushPanel;
+
     }
 
     /**
