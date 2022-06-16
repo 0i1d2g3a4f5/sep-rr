@@ -5,6 +5,7 @@ package gamelogic.map;
 import com.google.gson.*;
 import gamelogic.JsonSerializable;
 import gamelogic.Position;
+import gamelogic.game_elements.ElementFactory;
 import gamelogic.game_elements.GameElement;
 import javafx.util.Pair;
 
@@ -155,56 +156,47 @@ public class GameBoard implements JsonSerializable {
 
     /**
      * @author Ringer
-     * overloaded Method to access buildFromJson
+     * overloaded Constructor
      * @param json
      * @return
      * @throws IOException
      */
-    public static GameBoard fromJson(JsonObject json) throws IOException {
+    public GameBoard (JsonObject json) throws IOException {
 
         Pair<Integer,Integer> dimensions = getDimensions((JsonArray) json.get("gameMap"));
 
-        return buildFromJson(json,dimensions);
+        new GameBoard(json,dimensions);
     }
 
     /**
      * @author Ringer
-     * overloaded Method to access buildFromJson
-     * @param json
-     * @param dimensions
-     * @return
-     * @throws IOException
-     */
-    public static GameBoard fromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
-
-        return buildFromJson(json,dimensions);
-    }
-
-    /**
-     * @author Ringer
+     * overloaded Constructor
      * builds the game board from the JsonObject
      * @param json
      * @param dimensions
      * @return
      * @throws IOException
      */
-    private static GameBoard buildFromJson(JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+
+    public GameBoard (JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        ElementFactory elementFactory = new ElementFactory();
 
         JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
         JsonArray arrayLVL2;
         JsonArray arrayLVL3;
-        GameBoard board = new GameBoard(dimensions.getKey(),dimensions.getValue());
+
 
         int x=0;
         int y=0;
         for (JsonElement elementLVL1:arrayLVL1) {
             arrayLVL2 = elementLVL1.getAsJsonArray();
             for (JsonElement elementLVL2:arrayLVL2) {
-                GameField gameField = board.getGameField(y,x);
+                GameField gameField = this.getGameField(y,x);
                 arrayLVL3 = elementLVL2.getAsJsonArray();
                 for (JsonElement elementLVL3:arrayLVL3) {
-                    gameField.addElement(GameElement.fromJson(gson.fromJson(elementLVL3, JsonObject.class)));
+                    gameField.addElement(elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class)));
 
                 }
 
@@ -214,8 +206,9 @@ public class GameBoard implements JsonSerializable {
             x++;
         }
 
-        return board;
     }
+
+
 
     /**
      * @author Ringer
@@ -229,12 +222,16 @@ public class GameBoard implements JsonSerializable {
         JsonArray jsonArrayLVL1 = new JsonArray();
         for (ArrayList<GameField> listLVL1:boardMap) {
             JsonArray jsonArrayLVL2 = new JsonArray();
-            for (GameField gameFieldLVL2:listLVL1) {
+            for (GameField gameField:listLVL1) {
                 JsonArray jsonArrayLVL3 = new JsonArray();
-
-                for (GameElement element:gameFieldLVL2.getElements()) {
-                    jsonArrayLVL3.add(element.toJson());
+                if(gameField.isActive){
+                    for (GameElement element:gameField.getElements()) {
+                        jsonArrayLVL3.add(element.toJson());
+                    }
+                } else {
+                    jsonArrayLVL3.add(gson.toJson(null));
                 }
+
                 jsonArrayLVL2.add(jsonArrayLVL3);
             }
             jsonArrayLVL1.add(jsonArrayLVL2);

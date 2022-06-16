@@ -21,13 +21,12 @@ public class Pit extends GameElement{
      * @throws IOException
      */
 
-    public static Pit fromJson(JsonObject jsonObject) throws IOException {
+    public Pit(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
 
         Pit pit = new Pit();
         pit.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return pit;
     }
 
     /**

@@ -20,12 +20,12 @@ public class StartPoint extends GameElement{
      * @return
      * @throws IOException
      */
-    public static StartPoint fromJson(JsonObject jsonObject) throws IOException {
+    public StartPoint(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         StartPoint startPoint = new StartPoint();
         startPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return startPoint;
+
     }
 
     /**

@@ -37,7 +37,7 @@ public class Gear extends GameElement{
      * @return
      * @throws IOException
      */
-    public static Gear fromJson(JsonObject jsonObject) throws IOException {
+    public Gear (JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
@@ -52,7 +52,7 @@ public class Gear extends GameElement{
 
 
 
-        return gear;
+
     }
 
     /**

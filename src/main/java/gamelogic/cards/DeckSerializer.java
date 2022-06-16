@@ -66,7 +66,7 @@ public class DeckSerializer {
         Stack<Card> deck= new Stack<>();
 
         for (JsonElement jsonType:array) {
-            deck.add(Card.parseCard(CardName.parseCardName(jsonType.toString())));
+            deck.add(new CardFactory().createCard(CardName.parseCardName(jsonType.toString())));
         }
         return deck;
     }

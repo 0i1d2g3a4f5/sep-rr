@@ -21,12 +21,12 @@ public class RestartPoint extends GameElement{
      * @throws IOException
      */
 
-    public static RestartPoint fromJson(JsonObject jsonObject) throws IOException {
+    public RestartPoint(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         RestartPoint restartPoint = new RestartPoint();
         restartPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return restartPoint;
+
     }
 
     /**

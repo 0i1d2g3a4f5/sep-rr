@@ -33,13 +33,13 @@ public class EnergySpace extends GameElement{
      * @return
      * @throws IOException
      */
-    public static EnergySpace fromJson(JsonObject jsonObject) throws IOException {
+    public EnergySpace (JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
 
         EnergySpace energySpace = new EnergySpace(jsonObject.get("count").getAsInt());
         energySpace.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
-        return energySpace;
+
     }
 
     /**

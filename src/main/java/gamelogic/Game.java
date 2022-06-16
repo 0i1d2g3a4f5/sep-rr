@@ -9,6 +9,8 @@ import gamelogic.map.MapName;
 import gamelogic.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
+import newmessages.Message;
+import newmessages.MessageActivePhase;
 import server.Client;
 
 import java.io.IOException;
@@ -22,6 +24,7 @@ import java.util.Stack;
 public class Game {
     ArrayList elementRegistry;
     private static Game instance;
+    public Timer timer;
 
     private Stack<Spam> spamDrawPile;
     private Stack<TrojanHorse> trojanHorseDrawPile;
@@ -125,11 +128,18 @@ public class Game {
         }
 
 
-        //TODO setup Timer and Checkpoint Tokens
+        //TODO setup Checkpoint Tokens
+
+        //Timer
+        timer = new Timer();
 
         //TODO setup Energy cubes
 
+
         //TODO place Robot
+        for (Player player:playerList) {
+            player.placeRobot();
+        }
 
 
     }
@@ -153,6 +163,7 @@ public class Game {
      * Every player can buy upgrades with EnergyCubes
      */
     private void upgradePhase(){
+        sendToAllPlayers(new MessageActivePhase(1));
         if(upgradeShop.size()== playerList.size()){
             for (Card card:upgradeShop) {
                 card.discard();
@@ -166,10 +177,14 @@ public class Game {
 
     }
 
+
     /**
+     * @author Ringer
      * Draw cards and arrange them
      */
     private void programmingPhase(){
+        sendToAllPlayers(new MessageActivePhase(2));
+
 
     }
 
@@ -179,8 +194,23 @@ public class Game {
      * Every Element is activated
      */
     private void activationPhase(){
+        sendToAllPlayers(new MessageActivePhase(3));
 
     }
+
+    /**
+     * @author Ringer
+     * @param message
+     *
+     * sends the Message to all players in playerList
+     */
+
+    private void sendToAllPlayers(Message message){
+        for (Player player:playerList) {
+            player.sendMessage(message);
+        }
+    }
+
     /**
      * returns all possible commands to play with
      *

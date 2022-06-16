@@ -1,9 +1,24 @@
-package client;
+package utility;
 
 public class HashFunction {
     String chars = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz123456789!§$%&/()=?`_-:.;,><|{[]}\\#'²³";
-    char[] key = "235734534646742".toCharArray();
+    char[] key = "235734534690742".toCharArray();
 
+    public HashFunction(Long key) {
+        this.key = String.valueOf(key).toCharArray();
+    }
+
+    public HashFunction() {
+
+    }
+
+    /**
+     * @author Ringer
+     * @param string
+     * @return String
+     * Hashes the string with a custom Key
+     * and returns a String
+     */
     public String hash(String string){
         String out= "";
         char[] inputString = string.toCharArray();
@@ -17,11 +32,8 @@ public class HashFunction {
         }
 
 
-        return String.valueOf(Math.pow(out.hashCode(),Double.parseDouble(String.valueOf(key[out.hashCode()%key.length]))));
+        return String.valueOf(Math.pow(out.hashCode(),Double.parseDouble(String.valueOf(key[Math.abs(out.hashCode())%key.length]))));
     }
-    public static void main(String[] args){
-        HashFunction hf = new HashFunction();
-        System.out.println(hf.hash("MarA²²56zZk"));
 
-    }
+
 }

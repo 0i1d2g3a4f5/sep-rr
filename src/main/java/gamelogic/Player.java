@@ -1,12 +1,17 @@
 package gamelogic;
 
 import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
 import gamelogic.cards.playableInRegister;
 import gamelogic.robot.Robot;
+import newmessages.Message;
 import server.Client;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
+
+import static utility.CardUtility.searchCard;
 
 /**
  * @author Mark Ringer
@@ -21,10 +26,16 @@ public class Player{
     private Card lastPlayedCard;
     private Direction direction;
 
+    private Card[] register= new Card[5];
     private Stack<Card> deck;
     private Stack<Card> discardPile;
-    private Stack<Card> handCards;
+    private ArrayList<Card> handCards;
     private Robot robot;
+
+    //only for testing
+    Player() {
+
+    }
 
     public Client getClient() {
         return client;
@@ -37,6 +48,11 @@ public class Player{
         this.client = client;
     }
 
+    /**
+     * @author Ringer
+     * @param robot
+     * select the Robot of a player
+     */
     public void setRobot(Robot robot) {
         this.robot = robot;
     }
@@ -54,30 +70,76 @@ public class Player{
     /**
      * @return
      */
-    private ArrayList<Card> register= new ArrayList<Card>();
 
-    public ArrayList<Card> getRegister() {
+
+    public Card[] getRegister() {
         return register;
     }
 
-    public boolean addToRegister(Card card){
-        if(checkRegister(card)){
-            register.add( card);
+    public boolean addToRegister(Card card,int position){
+        if(checkRegister(card,position)){
+            register[position] = card;
         }
         return true;
     }
 
+    /**
+     * @author Ringer
+     * @param message
+     * sends a message to the client of the Player
+     */
+    public void sendMessage(Message message){
+        client.sendSelf(message);
+    }
+
+    /**
+     * @author Ringer
+     * allows cards to be played by the Player
+     * @param cardName
+     * @param position
+     * @return
+     */
+    public boolean playCard(CardName cardName,int position){
+
+            Card card = searchCard(cardName,handCards);
+            if(card !=null&&addToRegister(card,position)){
+                handCards.remove(card);
+                return true;
+            }
+            return false;
+    }
+
+    /**
+     * @author Ringer
+     * @param position
+     * activates the register ot position
+     */
+    public void activateRegistry(int position){
+        register[position].PlayCard();
+    }
+
+    /**
+     * moves all cards from registry to discardPile
+     */
     public void clearRegister(){
-        for (Card card:register) {
+        for (int i = 0;i< register.length;i++) {
+            Card card = register[i];
             discardPile.add(card);
-            register.remove(card);
+            register[i] = null;
         }
     }
 
-    private boolean checkRegister(Card card){
-        if(register.size()>=5){
+    /**
+     * checks if a card can be played
+     * @author Ringer
+     * @param card
+     * @param position
+     * @return
+     */
+    private boolean checkRegister(Card card,int position){
+        if(!(card instanceof playableInRegister)) {
             return false;
-        } else if(!(card instanceof playableInRegister)){
+        }else if(register[position]!=null){
             return false;
         } else {
             return true;
@@ -100,7 +162,7 @@ public class Player{
     }
     public Stack<Card> DeckPile(){return deck;}
 
-    public Stack<Card> getHandCards(){
+    public ArrayList<Card> getHandCards(){
         return handCards;
     }
 
@@ -108,5 +170,9 @@ public class Player{
         return robot ;
     }
 
+
+    public void placeRobot() {
+
+    }
 
 }

@@ -6,7 +6,7 @@ import static gamelogic.cards.CardName.*;
 
 public class WeaselRoutine extends SpecialCard {
 
-    public WeaselRoutine(){super(SANDBOX_ROUTINE);}
+    public WeaselRoutine(){super(WEASEL_ROUTINE);}
 
     public void discard(){
 

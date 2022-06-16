@@ -22,7 +22,7 @@ public class Wall extends GameElement{
      * @return
      * @throws IOException
      */
-    public static Wall fromJson(JsonObject jsonObject) throws IOException {
+    public Wall(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         ArrayList<Direction> directions = new ArrayList<>();
@@ -32,8 +32,6 @@ public class Wall extends GameElement{
 
         Wall wall = new Wall(directions);
         wall.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-        return wall;
     }
 
     /**

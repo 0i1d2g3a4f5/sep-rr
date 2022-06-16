@@ -2,6 +2,9 @@ package gamelogic.cards;
 
 import com.google.gson.JsonElement;
 
+import net.jqwik.api.Example;
+import net.jqwik.api.lifecycle.AfterTry;
+import net.jqwik.api.lifecycle.BeforeTry;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,12 +40,12 @@ class DeckSerializerTest {
     }
 
  */
-    @AfterEach
+    @AfterTry
     void after(){
         deck.clear();
     }
 
-    @BeforeEach
+    @BeforeTry
     void before() throws IOException {
         CardName[] cards = CardName.values();
         Random random = new Random();
@@ -50,13 +53,13 @@ class DeckSerializerTest {
 
         int deckSize = 50;
         for(int i = 0; i<deckSize;i++){
-            deck.add(Card.parseCard(cards[random.nextInt(cards.length)]));
+            deck.add(new CardFactory().createCard(cards[random.nextInt(cards.length)]));
         }
 
     }
 
 
-    @Test
+    @Example
     void deserializeCard() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 
@@ -69,12 +72,12 @@ class DeckSerializerTest {
 
     }
 
-    @Test
+    @Example
     void deserializeDeck() {
     }
 
 
-    @Test
+    @Example
     void serializeDeck() throws IOException {
         DeckSerializer serializer = new DeckSerializer();
 

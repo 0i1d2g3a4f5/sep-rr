@@ -100,52 +100,7 @@ public abstract class GameElement {
      */
 
     //Factory
-    public static GameElement fromJson(JsonObject jsonObject) throws IOException {
-        GameElement element;
-        ElementName name =ElementName.parseElementName(jsonObject.get("type").getAsString());
 
-        switch (name){
-            case ANTENNA -> {
-                element = Antenna.fromJson(jsonObject);
-            }
-            case LASER -> {
-                element = Laser.fromJson(jsonObject);
-            }
-            case CHECKPOINT -> {
-                element = Checkpoint.fromJson(jsonObject);
-
-            }
-            case CONVEYORBELT -> {
-                element = ConveyorBelt.fromJson(jsonObject);
-            }
-            case ENERGYSPACE -> {
-                element = EnergySpace.fromJson(jsonObject);
-            }
-            case GEAR -> {
-                element = Gear.fromJson(jsonObject);
-            }
-            case PUSHPANEL -> {
-                element = PushPanel.fromJson(jsonObject);
-            }
-            case PIT -> {
-                element = Pit.fromJson(jsonObject);
-            }
-            case STARTPOINT -> {
-                element = StartPoint.fromJson(jsonObject);
-            }
-            case WALL -> {
-                element = Wall.fromJson(jsonObject);
-            }
-            case RESTARTPOINT -> {
-                element = RestartPoint.fromJson(jsonObject);
-            }
-            case EMPTY -> {
-                element = Empty.fromJson(jsonObject);
-            }
-            default -> throw new IOException("Type "+name+" not found");
-        }
-        return element;
-    }
 
 
     /**

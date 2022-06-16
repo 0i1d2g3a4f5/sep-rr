@@ -1,5 +1,6 @@
 package newmessages;
 
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -18,6 +19,12 @@ public class Message{
         type = jsonObject.get("MessageType").getAsString();
         content = jsonObject.get("MessageBody").getAsJsonObject();
     }
+
+    @Override
+    public String toString() {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(toJSON());
+    }
+
     //case Connection
     public Message(){
 
