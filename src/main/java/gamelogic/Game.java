@@ -11,6 +11,7 @@ import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.Message;
 import newmessages.MessageActivePhase;
+import newmessages.MessageTimerStarted;
 import server.Client;
 
 import java.io.IOException;
@@ -72,7 +73,7 @@ public class Game {
 
     public GameBoard board;
     public Player join(Client client) {
-        Player player = new Player(client);
+        Player player = new Player(client,this);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getClientID() == client.getClientID()) {
                 return null;
@@ -178,6 +179,8 @@ public class Game {
     }
 
 
+
+
     /**
      * @author Ringer
      * Draw cards and arrange them
@@ -185,6 +188,13 @@ public class Game {
     private void programmingPhase(){
         sendToAllPlayers(new MessageActivePhase(2));
 
+
+    }
+
+    void endProgrammingPhase(){
+
+        sendToAllPlayers(new MessageTimerStarted());
+        timer.start(30);
 
     }
 

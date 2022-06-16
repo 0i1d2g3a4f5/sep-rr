@@ -26,6 +26,7 @@ public class Player{
     private Card lastPlayedCard;
     private Direction direction;
 
+    Game game;
     private Card[] register= new Card[5];
     private Stack<Card> deck;
     private Stack<Card> discardPile;
@@ -44,8 +45,9 @@ public class Player{
 
     private Client client;
 
-    public Player(Client client) {
+    public Player(Client client,Game game) {
         this.client = client;
+        this.game = game;
     }
 
     /**
@@ -107,6 +109,10 @@ public class Player{
                 return true;
             }
             return false;
+    }
+
+    private void finishProgramming(){
+        game.endProgrammingPhase();
     }
 
     /**

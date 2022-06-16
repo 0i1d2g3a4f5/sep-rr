@@ -1,8 +1,12 @@
 package gamelogic.cards;
 
 
+import gamelogic.map.GameField;
 import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
+import server.Application;
+import server.Client;
+import server.Server;
 
 import java.io.IOException;
 

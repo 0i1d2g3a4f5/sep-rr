@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import gamelogic.Game;
 import gamelogic.Position;
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -82,7 +83,7 @@ class GameBoardTest {
     }
 
 
-    @Test
+    @Example
     void testFromJson() throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ModelLoader modelLoader = new ModelLoader();
