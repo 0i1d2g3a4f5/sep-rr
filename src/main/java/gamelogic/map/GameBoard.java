@@ -6,8 +6,10 @@ import com.google.gson.*;
 import gamelogic.Activatable;
 import gamelogic.JsonSerializable;
 import gamelogic.Position;
+import gamelogic.game_elements.Antenna;
 import gamelogic.game_elements.ElementFactory;
 import gamelogic.game_elements.GameElement;
+import gamelogic.game_elements.robot.Robot;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -16,9 +18,12 @@ import java.util.Collections;
 import java.util.Objects;
 
 public class GameBoard implements JsonSerializable {
-    int dimensionY;
-    int dimensionX;
+    protected int dimensionY;
+    protected int dimensionX;
 
+
+
+    private Antenna antenna;
     public ArrayList<ArrayList<GameField>> getBoardMap() {
         return boardMap;
     }
@@ -83,7 +88,13 @@ public class GameBoard implements JsonSerializable {
         return field.addElement(element);
     }
 
+    public Antenna getAntenna() {
+        return antenna;
+    }
 
+    public void setAntenna(Antenna antenna) {
+        this.antenna = antenna;
+    }
 
     /**
      * @author Ringer
@@ -97,7 +108,8 @@ public class GameBoard implements JsonSerializable {
         for (ArrayList<GameField> fieldList:boardMap) {
             for (GameField field:fieldList) {
                 for (GameElement element: field.getElements()) {
-                    list.add(element);
+                    if((element instanceof Activatable) )
+                        list.add(element);
                 }
             }
         }

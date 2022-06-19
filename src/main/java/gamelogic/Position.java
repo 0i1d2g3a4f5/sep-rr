@@ -7,8 +7,8 @@ import java.util.Objects;
  * get the coordinate of the points
  */
 public class Position {
-    public int x;
-    public int y;
+    private int x;
+    private int y;
     public Position(int y, int x){
         this.x = x;
         this.y = y;
@@ -29,6 +29,11 @@ public class Position {
 
     public int getX() {
         return x;
+    }
+
+    public Position clone(){
+        Position position = new Position(y,x);
+        return position;
     }
 
     @Override

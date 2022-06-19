@@ -20,19 +20,17 @@ public class SandboxRoutine extends SpecialCard {
         //player choose a card
         switch (cardName){
             case MOVE_ONE:
-                player.getRobot().forward();
+                player.getRobot().forward(1);
                 break;
             case MOVE_TWO:
-                player.getRobot().forward();
-                player.getRobot().forward();
+                player.getRobot().forward(2);
+
                 break;
             case MOVE_THREE:
-                player.getRobot().forward();
-                player.getRobot().forward();
-                player.getRobot().forward();
+                player.getRobot().forward(3);
                 break;
             case BACK_UP:
-                player.getRobot().backward();
+                player.getRobot().backward(1);
                 break;
             case LEFT_TURN :
                 player.getRobot().left();

@@ -18,7 +18,7 @@ public class MoveTwo extends ProgrammingCard {
     @Override
     public void activateCard() {
         // Move your robot two spaces in the direction it is facing.
-        player.getRobot().forward();
-        player.getRobot().forward();
+        player.getRobot().forward(2);
+
     }
 }

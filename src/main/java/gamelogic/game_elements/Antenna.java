@@ -5,6 +5,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
+import gamelogic.Game;
+import gamelogic.game_elements.robot.Robot;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -13,6 +15,7 @@ public class Antenna extends GameElement implements Serializable {
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
         orientations.add(direction.toString());
+        Game.getInstance().board.setAntenna(this);
     }
 
 
@@ -29,7 +32,7 @@ public class Antenna extends GameElement implements Serializable {
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         Antenna antenna = new Antenna(direction);
         antenna.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-        ;
+        Game.getInstance().board.setAntenna(this);
     }
     /**
      * @author Ringer
@@ -44,6 +47,12 @@ public class Antenna extends GameElement implements Serializable {
         jsonObject.add("orientations",gson.toJsonTree(orientations));
         return jsonObject;
 
+    }
+
+    public double calculateDistance(Robot robot){
+        double sideA = robot.getPosition().getX()-this.getGameField().getPosition().getX();
+        double sideB = robot.getPosition().getY()-this.getGameField().getPosition().getY();
+        return Math.sqrt(Math.pow(sideA,2)+Math.pow(sideB,2));
     }
 
     @Override

@@ -21,6 +21,6 @@ public class BackUp extends ProgrammingCard {
         Move your robot one space back.
         The robot does not change the direction it is facing.
          */
-        player.getRobot().backward();
+        player.getRobot().backward(1);
     }
 }

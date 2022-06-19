@@ -18,6 +18,6 @@ public class MoveOne extends ProgrammingCard {
     @Override
     public void activateCard() {
         // Move your robot one space in the direction it is facing.
-        player.getRobot().forward();
+        player.getRobot().forward(1);
     }
 }

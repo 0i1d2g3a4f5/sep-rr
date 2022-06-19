@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GameField {
-    private Position key;
+    private Position position;
 
     public boolean isActive() {
         return isActive;
@@ -24,15 +24,15 @@ public class GameField {
 
 
 
-     public GameField(Position key) {
+     public GameField(Position position) {
          elements.add(new Empty());
-         this.key = key;
+         this.position = position;
 
     }
 
     public GameField(int y, int x) {
         elements.add(new Empty());
-        this.key = new Position(y,x);
+        this.position = new Position(y,x);
 
     }
 
@@ -80,8 +80,8 @@ public class GameField {
         return true;
     }
 
-    public Position getKey() {
-        return key;
+    public Position getPosition() {
+        return position;
     }
 
     @Override
@@ -89,11 +89,11 @@ public class GameField {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameField gameField = (GameField) o;
-        return isActive == gameField.isActive && key.equals(gameField.key) && Objects.equals(robot, gameField.robot) && elements.equals(gameField.elements);
+        return isActive == gameField.isActive && position.equals(gameField.position) && Objects.equals(robot, gameField.robot) && elements.equals(gameField.elements);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, isActive, robot, elements);
+        return Objects.hash(position, isActive, robot, elements);
     }
 }

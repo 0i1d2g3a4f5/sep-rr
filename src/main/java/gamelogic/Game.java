@@ -9,16 +9,11 @@ import gamelogic.map.MapName;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
-import newmessages.Message;
-import newmessages.MessageActivePhase;
-import newmessages.MessageTimerEnded;
-import newmessages.MessageTimerStarted;
+import newmessages.*;
 import server.Client;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -167,6 +162,7 @@ public class Game {
             programmingPhase();
             activationPhase();
         }
+
     }
 
     /**
@@ -210,6 +206,24 @@ public class Game {
         sendToAllPlayers(new MessageTimerEnded());
     }
 
+    private ArrayList<Player> generatePlayerActivationList(){
+        ArrayList<Player> activationList = new ArrayList<>(playerList);
+        Collections.sort(activationList, new Comparator<Player>() {
+            @Override
+            public int compare(Player thisPlayer, Player thatPlayer) {
+                if(board.getAntenna().calculateDistance(thisPlayer.getRobot())>board.getAntenna().calculateDistance(thatPlayer.getRobot()))
+                    return -1;
+                else if (board.getAntenna().calculateDistance(thisPlayer.getRobot())<board.getAntenna().calculateDistance(thatPlayer.getRobot())) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            }
+        });
+        return activationList;
+    }
+
     /**
      * @author Mark
      *
@@ -217,8 +231,11 @@ public class Game {
      */
     private void activationPhase(){
         sendToAllPlayers(new MessageActivePhase(3));
+
+        ArrayList<Player> activationList = generatePlayerActivationList();
+
         for(int i = 0; i < 5;i++){
-            for (Player player:playerList) {
+            for (Player player:activationList) {
                 player.activateRegister(i);
             }
             for (Activatable element:elementRegistry) {
@@ -235,6 +252,7 @@ public class Game {
      */
     public void endGame(Player winner){
         continueGame = false;
+        sendToAllPlayers(new MessageGameFinished(winner.getClient().getClientID()));
     }
 
     /**
@@ -244,7 +262,7 @@ public class Game {
      * sends the Message to all players in playerList
      */
 
-    private void sendToAllPlayers(Message message){
+    public void sendToAllPlayers(Message message){
         for (Player player:playerList) {
             player.sendMessage(message);
         }
@@ -288,13 +306,9 @@ public class Game {
         StringBuilder outputString = new StringBuilder("Active player(s): \n");
         for (Player player : playerList) {
             outputString.append(player.getClient().getClientName() + ", ");
-
         }
-
         return new LobbyMessage(0, outputString.toString());
     }
-
-
      */
 
     /**

@@ -3,19 +3,23 @@ package gamelogic.game_elements.robot;
 import gamelogic.*;
 import gamelogic.game_elements.GameElement;
 import gamelogic.map.GameField;
+import newmessages.MessageMovement;
+import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
 
 /**
  * @author Qinyi, Mark
- * create a robot character for every player
+ * creates a robot character for every player
  */
 public class Robot extends GameElement implements RobotMovement, Activatable {
 
-    Game game;
+    private Game game;
 
-    Direction directionFacing;
-    Position position;
+    private Direction directionFacing;
+
+
+    private Position position;
     private String name;
 
     private boolean isAlive;
@@ -26,6 +30,15 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     private Position nextPosition;
     private Direction nextDirectionFacing;
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
 
     /**
      * update the location of the robot
@@ -46,25 +59,44 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     public boolean left(){
         directionFacing = directionFacing.left();
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"counterclockwise"));
+
         return true;
     }
     public boolean right(){
         directionFacing = directionFacing.right();
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
         return true;
     }
 
     public boolean uTurn(){
         directionFacing = directionFacing.opposite();
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
         return true;
     }
 
-    public boolean forward(){
-
-        return move(1);
+    public boolean forward(int distance){
+        Position oldPos = position.clone();
+        boolean success = true;
+        for (int i = 0;i<distance;i++){
+            if(!move(1)){
+                success = false;
+            }
+        }
+        game.sendToAllPlayers(new MessageMovement(player.getClient().getClientID(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
+        return success;
     }
-    public boolean backward(){
-
-        return move(-1);
+    public boolean backward(int distance){
+        Position oldPos = position.clone();
+        boolean success = true;
+        for (int i = 0;i<distance;i++){
+            if(!move(-1)){
+                success = false;
+            }
+        }
+        game.sendToAllPlayers(new MessageMovement(player.getClient().getClientID(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
+        return success;
     }
 
     /**
@@ -93,6 +125,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         currentField.removeRobot();
         position = nextPosition;
         nextPosition = null;
+        gameField = game.board.getField(position);
 
 
         return true;
