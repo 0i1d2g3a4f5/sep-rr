@@ -14,6 +14,7 @@ import java.util.List;
  * @author Sarp Cagin Erdogan
  */
 public class Application extends javafx.application.Application {
+
     TaskHandler taskHandler;
     List<Task> taskList = new ArrayList<>();
     Client client;

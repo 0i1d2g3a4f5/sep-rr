@@ -28,7 +28,6 @@ public class Client {
     String lobbyName;
     Socket socket;
     String group;
-
     boolean response, isTerminated, isNamed, isAI;
     public Client(Server server, Socket socket, int id){
         this.server=server;
@@ -51,12 +50,10 @@ public class Client {
     public MessageProcessor getMessageProcessor() {
         return messageProcessor;
     }
-
     //only for testing
     Client() {
 
     }
-
     public int getClientID(){
         return this.id;
     }
@@ -88,13 +85,11 @@ public class Client {
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
                         //System.out.println(id + " RECEIVED: " + input);
                         messageProcessor.process(jsonObject);
-
                     }
                 }
                 catch (InterruptedException | IOException e) {
                     throw new RuntimeException(e);
                 }
-
             }
         }
     };
@@ -102,7 +97,6 @@ public class Client {
         @Override
         public void run() {
             {
-
                 try {
                     TimeUnit.MILLISECONDS.sleep(6000);
                 } catch (InterruptedException e) {
@@ -115,7 +109,6 @@ public class Client {
                     }
                 }
             }
-
         }
     };
     void listen(){
@@ -124,7 +117,6 @@ public class Client {
         thread.start();
         isTerminated=false;
         listName="ID: " + String.valueOf(id) + " | " + "Unnamed";
-
     }
     void disconnect(){
         if(!isTerminated) {
@@ -175,7 +167,6 @@ public class Client {
                 sendSelf(new MessageWrongPass());
             }
         }
-
     }
 
     void sendProtocolCheck(){
@@ -194,7 +185,6 @@ public class Client {
         if(available){
             checkFigure(string, figure);
         }
-
     }
     public void checkFigure(String string, int figure){
         boolean available=true;
@@ -210,7 +200,6 @@ public class Client {
             this.name=string;
             isNamed=true;
             acceptedClient();
-
         }
     }
     void acceptedClient(){
@@ -234,7 +223,6 @@ public class Client {
             throw new RuntimeException(e);
         }
     }
-
     public void sendSelf(Message message) {
         sendSingle(this, message);
     }
@@ -250,14 +238,7 @@ public class Client {
         }
     }
     void setReadyTrue(){
-
     }
     void setReadyFalse(){
-
     }
-
-
-
-
-
 }
