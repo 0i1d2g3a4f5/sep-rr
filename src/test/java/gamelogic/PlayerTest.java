@@ -6,9 +6,8 @@ import gamelogic.cards.programming_cards.Again;
 import gamelogic.cards.programming_cards.BackUp;
 import gamelogic.cards.programming_cards.LeftTurn;
 import net.jqwik.api.*;
-import org.junit.jupiter.api.Test;
+import utility.SearchMethods;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,7 +27,7 @@ class PlayerTest {
     void searchCard() {
         Player player = new Player();
         ArrayList<Card> list = new ArrayList<Card>(Arrays.asList(new Card[]{new Again(),new BackUp(),new LeftTurn()}));
-        assertEquals(new Again(),utility.CardUtility.searchCard(CardName.AGAIN,list));
+        assertEquals(new Again(), SearchMethods.searchCard(CardName.AGAIN,list));
 
     }
 }

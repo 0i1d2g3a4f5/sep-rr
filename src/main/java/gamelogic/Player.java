@@ -3,14 +3,14 @@ package gamelogic;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
-import gamelogic.robot.Robot;
+import gamelogic.game_elements.robot.Robot;
 import newmessages.Message;
 import server.Client;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
-import static utility.CardUtility.searchCard;
+import static utility.SearchMethods.searchCard;
 
 /**
  * @author Mark Ringer
@@ -25,12 +25,15 @@ public class Player{
     private Card lastPlayedCard;
     private Direction direction;
 
-    Game game;
+    private Game game;
     private Card[] register= new Card[5];
     private Stack<Card> deck;
     private Stack<Card> discardPile;
     private ArrayList<Card> handCards;
     private Robot robot;
+
+
+    private int checkpointTokens;
 
     //only for testing
     Player() {
@@ -75,6 +78,14 @@ public class Player{
 
     public Card[] getRegister() {
         return register;
+    }
+
+    public int getCheckpointTokens() {
+        return checkpointTokens;
+    }
+
+    public void addCheckpointToken() {
+        this.checkpointTokens++;
     }
 
     public boolean addToRegister(Card card,int position){

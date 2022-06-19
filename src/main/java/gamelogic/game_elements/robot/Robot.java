@@ -1,15 +1,10 @@
-package gamelogic.robot;
+package gamelogic.game_elements.robot;
 
 import gamelogic.*;
-import gamelogic.game_elements.ConveyorBelt;
-import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
-import gamelogic.game_elements.Wall;
 import gamelogic.map.GameField;
 
 import java.io.IOException;
-
-import static gamelogic.Direction.*;
 
 /**
  * @author Qinyi, Mark
@@ -25,6 +20,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     private boolean isAlive;
 
+
+
+    private Player player;
+
     private Position nextPosition;
     private Direction nextDirectionFacing;
 
@@ -37,6 +36,13 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.position = position;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     public boolean left(){
         directionFacing = directionFacing.left();

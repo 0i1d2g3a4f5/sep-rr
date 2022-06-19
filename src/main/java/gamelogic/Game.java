@@ -6,7 +6,7 @@ import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.map.MapName;
-import gamelogic.robot.Robot;
+import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.Message;
@@ -29,6 +29,7 @@ public class Game {
 
 
     private boolean programmingPhase = false;
+    private boolean continueGame = true;
     private ArrayList<Activatable> elementRegistry;
     private static Game instance;
 
@@ -39,7 +40,6 @@ public class Game {
     private MapName mapName;
     private Stack<Card> upgradeWarehouse;
     private ArrayList<Card> upgradeShop;
-    boolean continueGame;
     public List<Player> playerList = new ArrayList<>();
     public Stack<Spam> getSpamDrawPile(){
         return spamDrawPile;
@@ -139,7 +139,6 @@ public class Game {
             upgradeShop.add(upgradeWarehouse.pop());
         }
 
-
         //TODO setup Checkpoint Tokens
 
         //Timer
@@ -150,8 +149,6 @@ public class Game {
         for (Player player:playerList) {
             player.placeRobot();
         }
-
-
     }
 
     public void startGame() throws IOException, InterruptedException {
@@ -186,11 +183,7 @@ public class Game {
             upgradeShop.add(upgradeWarehouse.pop());
         }
 
-
-
     }
-
-
 
 
     /**
@@ -233,6 +226,15 @@ public class Game {
             }
         }
 
+    }
+
+    /**
+     * @author Ringer
+     * Stops the game and notyfies the winner
+     * @param winner
+     */
+    public void endGame(Player winner){
+        continueGame = false;
     }
 
     /**

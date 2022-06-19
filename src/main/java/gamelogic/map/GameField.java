@@ -2,10 +2,9 @@ package gamelogic.map;
 
 import gamelogic.Direction;
 import gamelogic.Position;
-import gamelogic.robot.Robot;
+import gamelogic.game_elements.robot.Robot;
 import gamelogic.game_elements.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -76,6 +75,7 @@ public class GameField {
     public boolean addElement(GameElement element) {
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
             elements.remove(0);
+        element.setGameField(this);
         elements.add(element);
         return true;
     }

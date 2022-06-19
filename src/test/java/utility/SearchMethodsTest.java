@@ -10,22 +10,22 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class CardUtilityTest {
+class SearchMethodsTest {
 
     @Property
     void propertySearchCard(@ForAll("deck") ArrayList<Card> deck, @ForAll CardName cardName) throws IOException {
-        //System.out.println(utility.CardUtility.searchCard(cardName,deck));
+        //System.out.println(utility.SearchMethods.searchCard(cardName,deck));
         CardFactory cardFactory = new CardFactory();
-        boolean statementCardsAreEqual = (cardFactory.createCard(cardName)).equals(utility.CardUtility.searchCard(cardName,deck));
+        boolean statementCardsAreEqual = (cardFactory.createCard(cardName)).equals(SearchMethods.searchCard(cardName,deck));
         boolean statementDeckContainsCard = deck.contains(cardFactory.createCard(cardName));
         boolean statementDeckDoesntContainCard = !deck.contains(cardFactory.createCard(cardName));
-        boolean statementCardIsNull = (utility.CardUtility.searchCard(cardName,deck)==null);
+        boolean statementCardIsNull = (SearchMethods.searchCard(cardName,deck)==null);
 
         System.out.println("statementCardsAreEqual: "+statementCardsAreEqual);
         System.out.println("statementDeckContainsCard: "+statementDeckContainsCard);
         System.out.println("statementDeckDoesntContainCard: "+statementDeckDoesntContainCard);
         System.out.println("statementCardIsNull: "+statementCardIsNull);
-        System.out.println("parsed: "+cardFactory.createCard(cardName)+"| searched: "+utility.CardUtility.searchCard(cardName,deck));
+        System.out.println("parsed: "+cardFactory.createCard(cardName)+"| searched: "+ SearchMethods.searchCard(cardName,deck));
 
         assertTrue((statementCardsAreEqual && statementDeckContainsCard)||(statementDeckDoesntContainCard&&statementCardIsNull));
 

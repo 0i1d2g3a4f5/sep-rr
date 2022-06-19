@@ -6,6 +6,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Direction;
+import gamelogic.Game;
+import gamelogic.Player;
+import gamelogic.game_elements.robot.Robot;
+import utility.SearchMethods;
 
 import java.io.IOException;
 
@@ -48,8 +52,30 @@ public class Checkpoint extends GameElement implements Activatable {
         return jsonObject;
     }
 
+    /**
+     * @author Ringer
+     *
+     *gets the Robot above and adds a Token to its players inventory.
+     * if this is the last checkpoint, the Game ends and the Player wins
+     */
     @Override
     public void activate() {
+        Robot robot= (Robot) SearchMethods.searchElement(ElementName.ROBOT,getGameField().getElements());
+
+        if(robot !=null){
+
+            Player player = robot.getPlayer();
+            if(player.getCheckpointTokens()==count-1){
+                player.addCheckpointToken();
+                if(player.getCheckpointTokens()>=numberOfCheckpoints){
+                    Game.getInstance().endGame(player);
+                }
+            } else{
+                System.out.println("wrong order of Checkpoints: This is Checkpoint "+count+",\n" +
+                        "try to reach checkpoint "+player.getCheckpointTokens()+1);
+            }
+
+        }
 
     }
 

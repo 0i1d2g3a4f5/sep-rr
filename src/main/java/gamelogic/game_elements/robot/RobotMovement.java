@@ -1,4 +1,4 @@
-package gamelogic.robot;
+package gamelogic.game_elements.robot;
 
 public interface RobotMovement {
     public boolean right();
