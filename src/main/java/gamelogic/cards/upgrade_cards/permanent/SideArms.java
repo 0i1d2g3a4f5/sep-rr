@@ -17,7 +17,7 @@ public class SideArms extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: When you push a robot, you may choose to push it to the left or right instead of the direction you are facing

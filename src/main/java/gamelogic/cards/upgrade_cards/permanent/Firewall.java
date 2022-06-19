@@ -19,7 +19,7 @@ public class Firewall extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: Take no SPAM damage cards when rebooting

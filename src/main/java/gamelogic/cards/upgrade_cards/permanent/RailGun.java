@@ -19,7 +19,7 @@ public class RailGun extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: You may shoot through any number of walls and/or robots.

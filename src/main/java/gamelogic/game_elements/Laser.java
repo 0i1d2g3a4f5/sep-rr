@@ -4,11 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Activatable;
+import gamelogic.Color;
 import gamelogic.Direction;
 
 import java.io.IOException;
 
-public class Laser extends GameElement{
+public class Laser extends GameElement implements Activatable {
     Direction direction;
 
     private int count;
@@ -79,5 +81,41 @@ public class Laser extends GameElement{
         jsonObject.add("orientations",gson.toJsonTree(orientations));
         jsonObject.add("count",new JsonPrimitive(count));
         return jsonObject;
+    }
+
+    @Override
+    public void activate() {
+
+    }
+
+    /**
+     * @param o the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(GameElement o) {
+        switch (o.getType()){
+            case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE -> {
+                return 1;
+            }
+            case CONVEYORBELT -> {
+                ConveyorBelt cb = (ConveyorBelt) o;
+                if(cb.getColor()== Color.BLUE) {
+                    return -1;
+                }else {
+                    return 1;
+                }
+            }
+            case LASER -> {
+                return 0;
+            }
+            default -> {
+                try {
+                    throw new IOException(o.getType()+" is Not Comparable");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }

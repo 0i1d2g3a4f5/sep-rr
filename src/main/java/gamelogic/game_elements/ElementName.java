@@ -12,9 +12,10 @@ public enum ElementName {
     PIT("Pit"),
     STARTPOINT("StartPoint"),
     WALL("Wall"),
+    ROBOT("Robot"),
     ANTENNA("Antenna"),
     RESTARTPOINT("RestartPoint"),
-    EMPTY("Empty"), ;
+    EMPTY("Empty");
 
     @Override
     public String toString() {

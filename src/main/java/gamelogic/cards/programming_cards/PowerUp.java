@@ -16,7 +16,7 @@ public class PowerUp extends ProgrammingCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         // Take one energy cube, and place it on your player mat.
     }
 }

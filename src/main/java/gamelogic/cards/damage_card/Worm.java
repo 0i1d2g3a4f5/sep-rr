@@ -9,6 +9,6 @@ public class Worm extends DamageCard {
     }
     public void discard(){}
 
-    public void PlayCard(){}
+    public void activateCard(){}
 
 }

@@ -4,11 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Activatable;
 import gamelogic.Direction;
 
 import java.io.IOException;
 
-public class EnergySpace extends GameElement{
+public class EnergySpace extends GameElement implements Activatable {
 
     private int count;
 
@@ -54,5 +55,39 @@ public class EnergySpace extends GameElement{
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
         jsonObject.add("count",new JsonPrimitive(count));
         return jsonObject;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void activate() {
+
+    }
+
+    /**@author Ringer
+     * @param o the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(GameElement o) {
+        switch (o.getType()){
+            case CHECKPOINT, GEAR-> {
+                return 1;
+            }
+            case CONVEYORBELT, LASER,ROBOT,PUSHPANEL -> {
+                return -1;
+            }
+            case ENERGYSPACE -> {
+                return 0;
+            }
+            default -> {
+                try {
+                    throw new IOException(o.getType()+" is Not Comparable");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 }

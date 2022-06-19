@@ -11,6 +11,7 @@ import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.Message;
 import newmessages.MessageActivePhase;
+import newmessages.MessageTimerEnded;
 import newmessages.MessageTimerStarted;
 import server.Client;
 
@@ -18,14 +19,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Mark Ringer
  */
 public class Game {
-    ArrayList elementRegistry;
+
+
+
+    private boolean programmingPhase = false;
+    private ArrayList<Activatable> elementRegistry;
     private static Game instance;
-    public Timer timer;
 
     private Stack<Spam> spamDrawPile;
     private Stack<TrojanHorse> trojanHorseDrawPile;
@@ -70,7 +75,13 @@ public class Game {
      *
      * @return
      */
+    public boolean isProgramingPhase() {
+        return programmingPhase;
+    }
 
+    public void setProgrammingPhase(boolean programmingPhase) {
+        this.programmingPhase = programmingPhase;
+    }
     public GameBoard board;
     public Player join(Client client) {
         Player player = new Player(client,this);
@@ -132,8 +143,6 @@ public class Game {
         //TODO setup Checkpoint Tokens
 
         //Timer
-        timer = new Timer();
-
         //TODO setup Energy cubes
 
 
@@ -145,16 +154,19 @@ public class Game {
 
     }
 
-    public void startGame() throws IOException {
+    public void startGame() throws IOException, InterruptedException {
         setup();
         continueGame=true;
         gameLoop();
 
     }
 
-    public void gameLoop(){
+    public void gameLoop() throws InterruptedException {
         while (continueGame){
+            /*
+            will be added later on
             upgradePhase();
+             */
             programmingPhase();
             activationPhase();
         }
@@ -185,17 +197,24 @@ public class Game {
      * @author Ringer
      * Draw cards and arrange them
      */
-    private void programmingPhase(){
+    private void programmingPhase() throws InterruptedException {
+        programmingPhase =true;
         sendToAllPlayers(new MessageActivePhase(2));
-
-
+        while(programmingPhase){
+            wait();
+        }
+        endProgrammingPhase();
     }
 
-    void endProgrammingPhase(){
+    /**
+     * Informs all players, that the Timer has started and force-ends their programming Phase
+     * @throws InterruptedException
+     */
+    void endProgrammingPhase() throws InterruptedException {
 
         sendToAllPlayers(new MessageTimerStarted());
-        timer.start(30);
-
+        TimeUnit.SECONDS.sleep(30);
+        sendToAllPlayers(new MessageTimerEnded());
     }
 
     /**
@@ -205,6 +224,14 @@ public class Game {
      */
     private void activationPhase(){
         sendToAllPlayers(new MessageActivePhase(3));
+        for(int i = 0; i < 5;i++){
+            for (Player player:playerList) {
+                player.activateRegister(i);
+            }
+            for (Activatable element:elementRegistry) {
+                element.activate();
+            }
+        }
 
     }
 

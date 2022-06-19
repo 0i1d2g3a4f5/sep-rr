@@ -10,14 +10,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GameField {
-    Position key;
+    private Position key;
 
-    boolean isActive=true;
+    public boolean isActive() {
+        return isActive;
+    }
+
+    private boolean isActive=true;
 
 
-    Robot robot;
+    private Robot robot;
 
-    ArrayList<GameElement> elements = new ArrayList<>();
+    private ArrayList<GameElement> elements = new ArrayList<>();
 
 
 

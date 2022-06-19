@@ -12,7 +12,7 @@ public class SpamFolderRoutine extends UpgradeCard{
     public void discard(){
 
     }
-    public void PlayCard(){
+    public void activateCard(){
 
     }
 }

@@ -19,7 +19,7 @@ public class DeflectorShield extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: At the beginning of a register, you may spend one energy to negate any robot lasers that would hit you that register.

@@ -19,7 +19,7 @@ public class DoubleBarrelLaser extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: Deal one additional SPAM damage card to any robot you shoot

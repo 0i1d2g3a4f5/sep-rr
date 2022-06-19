@@ -17,7 +17,7 @@ public class TractorBeam extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: When you shoot a robot, you may pull it toward you one space.

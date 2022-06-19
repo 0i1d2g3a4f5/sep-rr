@@ -19,7 +19,7 @@ public class HoverUnit extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 1
         Effect: Your robot can pass over, but not land on, pits.

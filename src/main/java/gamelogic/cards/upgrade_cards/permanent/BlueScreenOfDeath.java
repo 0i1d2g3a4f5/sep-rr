@@ -19,7 +19,7 @@ public class BlueScreenOfDeath extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 4
         Effect: When you shoot or push an adjacent robot, you may give that player one worm damage card instead of one SPAM damage card.

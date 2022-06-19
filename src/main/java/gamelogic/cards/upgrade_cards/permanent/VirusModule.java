@@ -17,7 +17,7 @@ public class VirusModule extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: When you push a robot, give that player a virus damage card.

@@ -19,7 +19,7 @@ public class CrabLegs extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 5
         Effect: When executing a Move 1 card, you may move one space forward then one space right or left,

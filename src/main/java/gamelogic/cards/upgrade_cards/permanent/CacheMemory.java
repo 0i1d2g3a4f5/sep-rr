@@ -19,7 +19,7 @@ public class CacheMemory extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 4
         Effect: You may discard cards from your hand and place them on the top of your deck.

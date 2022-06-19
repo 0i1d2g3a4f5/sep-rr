@@ -2,13 +2,12 @@ package gamelogic;
 
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
-import gamelogic.cards.playableInRegister;
+import gamelogic.cards.PlayableInRegister;
 import gamelogic.robot.Robot;
 import newmessages.Message;
 import server.Client;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 import static utility.CardUtility.searchCard;
@@ -111,8 +110,8 @@ public class Player{
             return false;
     }
 
-    private void finishProgramming(){
-        game.endProgrammingPhase();
+    private void finishProgramming() throws InterruptedException {
+        game.setProgrammingPhase(false);
     }
 
     /**
@@ -120,8 +119,8 @@ public class Player{
      * @param position
      * activates the register ot position
      */
-    public void activateRegistry(int position){
-        register[position].PlayCard();
+    public void activateRegister(int position){
+        register[position].activateCard();
     }
 
     /**
@@ -143,7 +142,7 @@ public class Player{
      * @return
      */
     private boolean checkRegister(Card card,int position){
-        if(!(card instanceof playableInRegister)) {
+        if(!(card instanceof PlayableInRegister)) {
             return false;
         }else if(register[position]!=null){
             return false;

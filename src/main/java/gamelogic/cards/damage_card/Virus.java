@@ -9,5 +9,5 @@ public class Virus extends DamageCard {
     }
     public void discard(){}
 
-    public void PlayCard(){}
+    public void activateCard(){}
 }

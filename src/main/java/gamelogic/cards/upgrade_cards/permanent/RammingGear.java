@@ -19,7 +19,7 @@ public class RammingGear extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: Deal one SPAM damage card when you push a robot.

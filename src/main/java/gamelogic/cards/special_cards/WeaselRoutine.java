@@ -17,7 +17,7 @@ public class WeaselRoutine extends SpecialCard {
      * Turn Right,
      * U-Turn
      */
-    public void PlayCard(){
+    public void activateCard(){
         //player choose a card
         switch (cardName){
             case LEFT_TURN :

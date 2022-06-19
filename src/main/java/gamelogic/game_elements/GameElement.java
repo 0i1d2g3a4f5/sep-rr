@@ -18,19 +18,15 @@ public abstract class GameElement {
         return type;
     }
 
-    ElementName type = ElementName.EMPTY;
+    private ElementName type = ElementName.EMPTY;
 
     public String isOnBoard = "B1";
 
-
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public GameElement(){
 
-
     }
-
 
     @Override
     public String toString() {

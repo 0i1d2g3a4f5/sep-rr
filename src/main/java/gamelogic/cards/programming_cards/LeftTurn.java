@@ -16,7 +16,7 @@ public class LeftTurn extends ProgrammingCard{
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Turn your robot 90 degrees to the left.
         The robot remains in its current space.

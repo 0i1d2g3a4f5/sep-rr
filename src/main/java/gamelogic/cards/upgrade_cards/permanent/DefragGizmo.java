@@ -19,7 +19,7 @@ public class DefragGizmo extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 5
         Effect: Once during each round, you may permanently discard one damage card from your hand.

@@ -3,6 +3,7 @@ package gamelogic.map;
 
 
 import com.google.gson.*;
+import gamelogic.Activatable;
 import gamelogic.JsonSerializable;
 import gamelogic.Position;
 import gamelogic.game_elements.ElementFactory;
@@ -11,6 +12,7 @@ import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 public class GameBoard implements JsonSerializable {
@@ -84,20 +86,24 @@ public class GameBoard implements JsonSerializable {
 
 
     /**
-     * returns a list of all GameElements of the map
-     * @return
+     * @author Ringer
+     * returns a sorted list of all GameElements of the map
+     *
+     * @return ArrayList<Activatable></>
      */
-    public ArrayList getRegistry(){
-        /*
+    public ArrayList<Activatable> getRegistry(){
+
         ArrayList list = new ArrayList();
-        boardMap.forEach((key,value)->{
-            if(value.element!=null)
-            list.add(value.element);
-        });
+        for (ArrayList<GameField> fieldList:boardMap) {
+            for (GameField field:fieldList) {
+                for (GameElement element: field.getElements()) {
+                    list.add(element);
+                }
+            }
+        }
+        Collections.sort(list);
         return list;
 
-         */
-        return null;
     }
 
 
@@ -224,7 +230,7 @@ public class GameBoard implements JsonSerializable {
             JsonArray jsonArrayLVL2 = new JsonArray();
             for (GameField gameField:listLVL1) {
                 JsonArray jsonArrayLVL3 = new JsonArray();
-                if(gameField.isActive){
+                if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
                         jsonArrayLVL3.add(element.toJson());
                     }

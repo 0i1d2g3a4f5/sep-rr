@@ -16,7 +16,7 @@ public class SandboxRoutine extends SpecialCard {
      * Turn Right,
      * U-Turn
      */
-    public void PlayCard(){
+    public void activateCard(){
         //player choose a card
         switch (cardName){
             case MOVE_ONE:

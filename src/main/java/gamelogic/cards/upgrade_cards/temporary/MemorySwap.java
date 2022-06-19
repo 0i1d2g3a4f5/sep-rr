@@ -16,7 +16,7 @@ public class MemorySwap extends UpgradeCard {
      * Draw three cards. Then choose three from your hand to put on top of your deck.
      */
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         player.getHandCards().add(player.DeckPile().pop());
         player.getHandCards().add(player.DeckPile().pop());
         player.getHandCards().add(player.DeckPile().pop());

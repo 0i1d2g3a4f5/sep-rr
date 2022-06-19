@@ -17,7 +17,7 @@ public class Scrambler extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: If you attack a robot, that player replaces the card in their next register

@@ -19,7 +19,7 @@ public class ModularChassis extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 1
         Effect: When you push another robot, give that player this card, and take one of their installed upgrades.

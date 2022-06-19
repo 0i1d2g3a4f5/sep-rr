@@ -4,11 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Activatable;
 import gamelogic.Direction;
 
 import java.io.IOException;
 
-public class Checkpoint extends GameElement{
+public class Checkpoint extends GameElement implements Activatable {
     public static int numberOfCheckpoints;
     int count;
     public Checkpoint(int count){
@@ -47,4 +48,35 @@ public class Checkpoint extends GameElement{
         return jsonObject;
     }
 
+    @Override
+    public void activate() {
+
+    }
+
+
+    /**
+     * @author Ringer
+     * Compares this object with the specified object for order.  Returns a
+     * negative integer, zero, or a positive integer as this object is less
+     * than, equal to, or greater than the specified object.
+     * @param o the object to be compared.
+     * @return a negative integer, zero, or a positive integer as this object
+     * is less than, equal to, or greater than the specified object.
+     * @throws NullPointerException if the specified object is null
+     * @throws ClassCastException   if the specified object's type prevents it
+     *                              from being compared to this object.
+
+     */
+    @Override
+    public int compareTo(GameElement o) {
+        switch (o.getType()){
+            case CHECKPOINT -> {
+                return 0;
+            }
+            default -> {
+                return -1;
+            }
+        }
+
+    }
 }

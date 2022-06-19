@@ -20,7 +20,7 @@ public class SpamFolder extends SpecialCard {
      * Permanently discard an SPAM damage card from your discard pile to the SPAM damage card draw pile.
      */
     @Override
-    public void PlayCard(){
+    public void activateCard(){
         Stack<Card> discardPile =player.getDiscardPile();
         for (Card card:discardPile) {
             if(card.getCardName()==CardName.SPAM) discardPile.remove(card);

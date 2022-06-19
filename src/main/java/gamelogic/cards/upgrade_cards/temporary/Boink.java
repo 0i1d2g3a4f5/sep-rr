@@ -13,7 +13,7 @@ public class Boink extends UpgradeCard{
 
     }
 
-    public void PlayCard(){
+    public void activateCard(){
 
     }
 

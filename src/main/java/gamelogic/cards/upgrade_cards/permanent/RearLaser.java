@@ -17,7 +17,7 @@ public class RearLaser extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: Your robot may shoot backward as well as forward.

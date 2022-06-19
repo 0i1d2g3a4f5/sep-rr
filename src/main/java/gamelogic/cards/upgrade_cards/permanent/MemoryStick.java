@@ -19,7 +19,7 @@ public class MemoryStick extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: Draw one additional programming card at the start of each round.

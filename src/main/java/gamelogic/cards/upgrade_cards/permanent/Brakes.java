@@ -19,7 +19,7 @@ public class Brakes extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: You may treat your Move 1’s as Move 0’s.

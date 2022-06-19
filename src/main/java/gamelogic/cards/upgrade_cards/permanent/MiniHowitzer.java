@@ -19,7 +19,7 @@ public class MiniHowitzer extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 2
         Effect: Once per register, when you shoot, you may pay one energy to deal two additional SPAM damage cards and

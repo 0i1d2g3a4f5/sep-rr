@@ -1,11 +1,13 @@
 package gamelogic.robot;
 
-import gamelogic.Direction;
-import gamelogic.Game;
-import gamelogic.Position;
+import gamelogic.*;
+import gamelogic.game_elements.ConveyorBelt;
 import gamelogic.game_elements.ElementName;
+import gamelogic.game_elements.GameElement;
 import gamelogic.game_elements.Wall;
 import gamelogic.map.GameField;
+
+import java.io.IOException;
 
 import static gamelogic.Direction.*;
 
@@ -13,7 +15,7 @@ import static gamelogic.Direction.*;
  * @author Qinyi, Mark
  * create a robot character for every player
  */
-public class Robot implements RobotMovement{
+public class Robot extends GameElement implements RobotMovement, Activatable {
 
     Game game;
 
@@ -141,5 +143,34 @@ public class Robot implements RobotMovement{
     }
 
 
+    @Override
+    public void activate() {
 
+    }
+
+    /**
+     * @param o the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(GameElement o) {
+        switch (o.getType()){
+            case CHECKPOINT, GEAR, PUSHPANEL,ENERGYSPACE -> {
+                return 1;
+            }
+            case CONVEYORBELT, LASER -> {
+                    return -1;
+            }
+            case ROBOT -> {
+                return 0;
+            }
+            default -> {
+                try {
+                    throw new IOException(o.getType()+" is Not Comparable");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
 }

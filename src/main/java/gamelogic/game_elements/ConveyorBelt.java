@@ -4,16 +4,18 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Activatable;
 import gamelogic.Color;
 import gamelogic.Direction;
 
 
 import java.io.IOException;
-import java.util.List;
 
 
-public class ConveyorBelt extends GameElement {
-    Color color;
+public class ConveyorBelt extends GameElement implements Activatable {
+
+
+    private Color color;
     int speed;
 
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
@@ -109,4 +111,57 @@ public class ConveyorBelt extends GameElement {
 
     }
 
+    @Override
+    public void activate() {
+
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    /**@author Ringer
+     * @param o the object to be compared.
+     * @return
+     */
+    @Override
+    public int compareTo(GameElement o) {
+        if(this.color == Color.BLUE){
+            if(o.getType() == ElementName.CONVEYORBELT){
+                ConveyorBelt cb = (ConveyorBelt) o;
+                if(cb.getColor()==Color.BLUE) {
+                    return 0;
+                }else {
+                    return 1;
+                }
+            } else {
+                return 1;
+            }
+        } else {
+            switch (o.getType()){
+                case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE -> {
+                    return 1;
+                }
+                case CONVEYORBELT -> {
+                    ConveyorBelt cb = (ConveyorBelt) o;
+                    if(cb.getColor()==Color.BLUE) {
+                        return -1;
+                    }else {
+                        return 0;
+                    }
+                }
+                case LASER -> {
+                    return -1;
+                }
+                default -> {
+                    try {
+                        throw new IOException(o.getType()+" is Not Comparable");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
+
+    }
 }

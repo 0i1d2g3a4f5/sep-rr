@@ -23,7 +23,7 @@ public class SpamBlocker extends UpgradeCard {
      * If you draw new SPAM damage cards from your deck, keep them in your hand for this round.
      */
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         ArrayList<Card> handcardPile =player.getHandCards();//don't know whether it is handcardpile or discardpile
         for (Card card:handcardPile) {
             if(card.getCardName()==CardName.SPAM) handcardPile.remove(card);

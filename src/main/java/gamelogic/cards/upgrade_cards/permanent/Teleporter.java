@@ -17,7 +17,7 @@ public class Teleporter extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: You may pay one energy to ignore obstacles when moving.

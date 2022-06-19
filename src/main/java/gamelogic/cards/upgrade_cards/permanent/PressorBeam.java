@@ -19,7 +19,7 @@ public class PressorBeam extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: You may push any robot you shoot one space in the direction you are shooting

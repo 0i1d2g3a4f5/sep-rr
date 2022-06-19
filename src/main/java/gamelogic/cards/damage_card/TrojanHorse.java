@@ -18,7 +18,7 @@ public class TrojanHorse extends DamageCard {
     /**
      * if you discard a TrojanHorse, you will immediately get two Spam cards.
      */
-    public void PlayCard(){
+    public void activateCard(){
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
         //remove card from register and replace it with a new one.

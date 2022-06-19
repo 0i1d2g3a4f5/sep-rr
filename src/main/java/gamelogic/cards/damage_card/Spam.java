@@ -13,6 +13,6 @@ public class Spam extends DamageCard{
 
     }
 
-    public void PlayCard(){}
+    public void activateCard(){}
 
 }

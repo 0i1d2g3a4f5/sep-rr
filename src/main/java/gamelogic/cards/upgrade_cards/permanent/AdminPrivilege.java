@@ -19,7 +19,7 @@ public class AdminPrivilege extends UpgradeCard {
     }
 
     @Override
-    public void PlayCard() {
+    public void activateCard() {
         /*
         Cost: 3
         Effect: Once per round, you may give your robot priority for one register.
