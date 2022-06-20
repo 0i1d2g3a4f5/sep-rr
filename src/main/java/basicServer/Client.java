@@ -81,6 +81,9 @@ public class Client
             }
         }
     }
+    public int getId(){
+        return id;
+    }
     void removeClientFromList(){
         server.currentClients--;
         server.clientList.remove(this);

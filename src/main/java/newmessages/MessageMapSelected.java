@@ -11,7 +11,7 @@ public class MessageMapSelected extends Message{
 
     public String map;
 
-    MessageMapSelected(String map) {
+    public MessageMapSelected(String map) {
         super(map);
         this.map = map;
         type = "MapSelected";

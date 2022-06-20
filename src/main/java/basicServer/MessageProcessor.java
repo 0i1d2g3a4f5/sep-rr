@@ -53,6 +53,10 @@ public class MessageProcessor {
                     client.server.readyList.remove(client);
                 }
             }
+            case MAPSELECTED -> {
+                MessageMapSelected messageMapSelected = new MessageMapSelected(jsonObject);
+                System.out.println("AFKJ;ASKJF\n\n\n\n\n" + messageMapSelected.map);
+            }
             case DEFAULT -> {
             }
             default -> {

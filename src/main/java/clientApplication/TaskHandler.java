@@ -42,6 +42,7 @@ public class TaskHandler {
             case AVAILABLEMAPS -> {
                 TaskJsonArray taskJsonArray = new TaskJsonArray(task);
                 clientApplication.launchBasicMap();
+                clientApplication.clientMapBasicController.initializeMaps(taskJsonArray.jsonArray);
 
             }
             case ERROR -> {
