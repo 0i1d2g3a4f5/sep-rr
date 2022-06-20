@@ -12,6 +12,12 @@ public class MessageProcessor {
     }
     public void process(JsonObject jsonObject){
         Message message = new Message(jsonObject);
+
+        message = new MessageFactory().createMessage(message.messageType,jsonObject);
+        message.activateMessage(true);
+
+
+        /*
         switch (message.messageType){
             case HELLOSERVER -> {
                 MessageHelloServer messageHelloServer = new MessageHelloServer(jsonObject);
@@ -64,6 +70,8 @@ public class MessageProcessor {
             default -> {
             }
         };
+
+         */
 
 
     }
