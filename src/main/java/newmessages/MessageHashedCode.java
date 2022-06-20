@@ -2,7 +2,6 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server.MessageProcessor;
 /**
  * @author Sarp Cagin Erdogan
  */

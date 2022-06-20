@@ -35,24 +35,7 @@ public class Application extends javafx.application.Application {
         server.startServerSocket();
         taskHandler = new TaskHandler(this, server);
     }
-    void executeTasks(){
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                while (0 < taskList.size()) {
-                    taskHandler.handleTask(taskList.get(0));
-                    taskList.remove(0);
-                }
-            }
-        });
-
-
-    }
-    void addTask(Task task){
-        this.taskList.add(task);
-        executeTasks();
-    }
     void launchWindow(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("server.fxml"));
         try {

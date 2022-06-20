@@ -11,7 +11,7 @@ public class MessageWelcome extends Message{
     public int clientID;
 
     public MessageWelcome(int clientID) {
-        //super(clientID);
+        super(clientID);
         this.clientID = clientID;
         type = "Welcome";
         JsonObject jsonObject = new JsonObject();

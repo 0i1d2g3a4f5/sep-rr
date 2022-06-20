@@ -18,16 +18,16 @@ public class MessagePlayerStatus extends Message {
         this.ready = ready;
         type = "PlayerStatus";
         JsonObject jsonObject = new JsonObject();
-        jsonObject.add("clientID", new JsonPrimitive(clientID));
+        jsonObject.add("AA", new JsonPrimitive(clientID));
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
-        System.out.println("Created Status Message: " + this);
+        //System.out.println("Created Status Message: " + this);
     }
 
     public MessagePlayerStatus(JsonObject jsonObject) {
         super(jsonObject);
-        clientID = content.get("clientId").getAsInt();
+        clientID = content.get("AA").getAsInt();
         ready = content.get("ready").getAsBoolean();
-        System.out.println("Created Status Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Status Message: " + this + " from JSON: " + jsonObject);
     }
 }

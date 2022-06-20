@@ -24,7 +24,7 @@ public class MessageReceivedChat extends Message{
         jsonObject.add("from", new JsonPrimitive(from));
         jsonObject.add("isPrivate", new JsonPrimitive(isPrivate));
         content = jsonObject;
-        System.out.println("Created Received Message: " + this);
+        //System.out.println("Created Received Message: " + this);
     }
 
     public MessageReceivedChat(JsonObject jsonObject){
@@ -32,6 +32,6 @@ public class MessageReceivedChat extends Message{
         message = content.get("message").getAsString();
         from = content.get("from").getAsInt();
         isPrivate = content.get("isPrivate").getAsBoolean();
-        System.out.println("Created Received Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Received Message: " + this + " from JSON: " + jsonObject);
     }
 }

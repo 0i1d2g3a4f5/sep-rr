@@ -14,16 +14,16 @@ public class MessageError extends Message{
     public MessageError(String error){
         super(error);
         this.error = error;
-        type = error;
+        type = "Error";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("error", new JsonPrimitive(error));
         content = jsonObject;
-        System.out.println("Created Error Message: " + this);
+        //System.out.println("Created Error Message: " + this);
     }
 
     public MessageError(JsonObject jsonObject) {
         super(jsonObject);
         error = content.get("error").getAsString();
-        System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
     }
 }

@@ -18,12 +18,13 @@ public class MessageSetStatus extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
-        System.out.println("Created SetReady Message: " + this);
+        //System.out.println("Created SetReady Message: " + this);
     }
 
     public MessageSetStatus(JsonObject jsonObject){
+        super(jsonObject);
         ready = content.get("ready").getAsBoolean();
-        System.out.println("Created SetReady Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created SetReady Message: " + this + " from JSON: " + jsonObject);
     }
 
 }

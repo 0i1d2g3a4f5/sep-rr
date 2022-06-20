@@ -7,8 +7,14 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/test" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/server" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/client" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/messages" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/gamelogic" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/utility" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/sarpLovesJavaFX" />
     </content>
     <orderEntry type="jdk" jdkName="18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -73,7 +79,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:17.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:18-ea+6" level="project" />

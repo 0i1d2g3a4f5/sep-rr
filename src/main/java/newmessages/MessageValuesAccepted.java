@@ -7,7 +7,7 @@ public class MessageValuesAccepted extends Message{
     public String name;
     public int figure;
     public MessageValuesAccepted(String name, int figure){
-        super();
+        super(name, figure);
         type="ValuesAccepted";
         JsonObject jsonObject=new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));

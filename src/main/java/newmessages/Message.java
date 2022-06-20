@@ -1,11 +1,9 @@
 package newmessages;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -14,9 +12,11 @@ import java.util.ArrayList;
 public class Message{
     public String type;
     public JsonObject content;
+    public MessageType messageType;
 
     public Message(JsonObject jsonObject){
         type = jsonObject.get("MessageType").getAsString();
+        messageType = MessageType.valueOf(type.toUpperCase());
         content = jsonObject.get("MessageBody").getAsJsonObject();
     }
 
@@ -26,7 +26,7 @@ public class Message{
     }
 
     //case Connection
-    public Message(){
+    public Message(JsonArray jsonArray){
 
     }
     //case GroupIdentification
@@ -88,10 +88,13 @@ public class Message{
     Message(int clientID, int count, String source){
 
     }
+    Message(){
+
+    }
 
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();
-        result.add("MessageType", JsonParser.parseString(type));
+        result.add("MessageType", new JsonPrimitive(type));
         result.add("MessageBody", content);
         //System.out.println("JSON Object of the message: " + this + " is: " + result);
         return result;

@@ -10,7 +10,7 @@ import com.google.gson.JsonPrimitive;
 public class MessageWrongName extends Message{
     public String name;
     public MessageWrongName(String string) {
-        super();
+        super(string);
         type = "WrongName";
         this.name=string;
         JsonObject jsonObject = new JsonObject();

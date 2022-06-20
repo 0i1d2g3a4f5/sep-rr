@@ -1,22 +1,29 @@
 package newmessages;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 /**
- * @author Isabel Muhm
+ * @author Sarp Cagin Erdogan, Isabel Muhm
  */
 
 public class MessageSelectMap extends Message{
 
-    public ArrayList<String> availableMaps;
+    public JsonArray availableMaps;
 
-    public MessageSelectMap(ArrayList<String> availableMaps){
-        super(availableMaps);
-        this.availableMaps = availableMaps;
+    public MessageSelectMap(JsonArray jsonArray){
+        super(jsonArray);
         type = "SelectMap";
+        this.availableMaps = jsonArray;
         JsonObject jsonObject = new JsonObject();
-        //jsonObject.add("availableMaps", new JsonPrimitive(availableMaps));
+        jsonObject.add("availableMaps", jsonArray);
+        content=jsonObject;
+    }
+    public MessageSelectMap(JsonObject jsonObject){
+        super(jsonObject);
+        availableMaps=content.get("availableMaps").getAsJsonArray();
     }
 }

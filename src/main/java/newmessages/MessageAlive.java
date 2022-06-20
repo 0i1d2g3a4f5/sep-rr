@@ -1,7 +1,6 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 
 /**
  * @author Isabel Muhm
