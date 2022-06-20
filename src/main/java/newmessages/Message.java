@@ -20,6 +20,15 @@ public class Message{
         content = jsonObject.get("MessageBody").getAsJsonObject();
     }
 
+    public void activateMessage(boolean advanced){
+        if(advanced){
+
+        } else {
+
+        }
+
+    }
+
     @Override
     public String toString() {
         return new GsonBuilder().setPrettyPrinting().create().toJson(toJSON());

@@ -8,12 +8,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/src/test" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/server" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/client" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/messages" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/utility" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/sarpLovesJavaFX" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="jdk" jdkName="18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
