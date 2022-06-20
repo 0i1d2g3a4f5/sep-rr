@@ -7,6 +7,7 @@ import newmessages.*;
  */
 public class MessageProcessor {
     Client client;
+
     public MessageProcessor(Client client){
         this.client=client;
     }
@@ -14,7 +15,7 @@ public class MessageProcessor {
         Message message = new Message(jsonObject);
 
         message = new MessageFactory().createMessage(message.messageType,jsonObject);
-        message.activateMessage(true);
+        message.activateMessage(false);
 
 
         /*
