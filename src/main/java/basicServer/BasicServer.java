@@ -87,15 +87,17 @@ public class BasicServer{
             @Override
             public void run() {
                 boolean allAI = true;
-                for(Client client : readyList){
+                for(Client client : clientList){
                     if(!client.isAI){
                         allAI=false;
                     }
                 }
                 if(!allAI){
-                    mapSelect();
+                    if(readyList.size()==clientList.size()){
+                        mapSelect();
+                    }
                 }
-                else if(readyList.size()>=startingAmount){
+                else if(clientList.size()>startingAmount){
                     //TRIGGER START
                 }
             }

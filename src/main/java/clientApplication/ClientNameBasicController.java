@@ -12,7 +12,9 @@ import javafx.scene.text.Text;
 import newmessages.MessagePlayerValues;
 
 import java.util.List;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientNameBasicController {
     ClientApplication clientApplication;
 

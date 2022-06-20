@@ -4,7 +4,9 @@ import advancedClient.AdvancedClient;
 import basicClient.BasicClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientSelectionController {
     ClientApplication clientApplication;
 

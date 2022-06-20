@@ -2,7 +2,9 @@ package basicClient;
 import clientApplication.*;
 import com.google.gson.JsonObject;
 import newmessages.*;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class MessageProcessor {
     BasicClient basicClient;
     public MessageProcessor(BasicClient basicClient){

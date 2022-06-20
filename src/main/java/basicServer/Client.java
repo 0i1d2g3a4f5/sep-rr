@@ -9,7 +9,9 @@ import java.io.*;
 import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class Client
 {
     MessageProcessor messageProcessor;

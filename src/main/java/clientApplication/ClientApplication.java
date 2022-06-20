@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientApplication extends Application {
     BasicClient basicClient;
     AdvancedClient advancedClient;

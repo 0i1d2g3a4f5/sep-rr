@@ -4,7 +4,9 @@ import advancedServer.AdvancedServer;
 import basicServer.BasicServer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ServerSelectionController {
     ServerApplication serverApplication;
     boolean active = true;

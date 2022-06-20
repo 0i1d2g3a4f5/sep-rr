@@ -1,5 +1,7 @@
 package clientApplication;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public enum TaskType {
     FAILEDSOCKET,
     GOTID,

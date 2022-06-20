@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import newmessages.MessageMapSelected;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientMapBasicController {
     ClientApplication clientApplication;
 

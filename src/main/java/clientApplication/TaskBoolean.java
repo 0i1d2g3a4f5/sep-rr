@@ -1,5 +1,7 @@
 package clientApplication;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class TaskBoolean extends TaskContent{
     public boolean bool;
     public TaskBoolean(boolean inp1){

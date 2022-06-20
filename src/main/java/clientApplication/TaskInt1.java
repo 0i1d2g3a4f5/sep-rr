@@ -1,5 +1,7 @@
 package clientApplication;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class TaskInt1 extends TaskContent{
     public int int1;
     public TaskInt1(int inp1){

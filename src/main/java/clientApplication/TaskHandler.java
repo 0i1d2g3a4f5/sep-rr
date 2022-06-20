@@ -1,5 +1,7 @@
 package clientApplication;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class TaskHandler {
     ClientApplication clientApplication;
     public TaskHandler(ClientApplication clientApplication){

@@ -3,7 +3,9 @@ package clientApplication;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class TaskContent {
     public JsonObject content;
     public TaskContent(){

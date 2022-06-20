@@ -6,7 +6,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import newmessages.MessageSendChat;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientChatBasicController {
     ClientApplication clientApplication;
     boolean active = true;

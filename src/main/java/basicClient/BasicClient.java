@@ -14,7 +14,9 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class BasicClient {
     public List<BasicClient> playerList;
     ClientApplication clientApplication;

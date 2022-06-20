@@ -12,7 +12,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/server" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/client" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/messages" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/gamelogic" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/utility" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/sarpLovesJavaFX" />
     </content>
