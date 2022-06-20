@@ -233,10 +233,15 @@ public class Game {
         sendToAllPlayers(new MessageActivePhase(3));
 
         ArrayList<Player> activationList = generatePlayerActivationList();
-
+        ArrayList<Card> activatedRegisters = new ArrayList<>();
         for(int i = 0; i < 5;i++){
+
             for (Player player:activationList) {
-                player.activateRegister(i);
+                activatedRegisters.add(player.getRegister(i));
+            }
+            //sendToAllPlayers(new MessageCurrentCards());
+            for (Card card:activatedRegisters) {
+                card.activateCard();
             }
             for (Activatable element:elementRegistry) {
                 element.activate();

@@ -76,7 +76,7 @@ public class Player{
      */
 
 
-    public Card[] getRegister() {
+    public Card[] getAllRegisters() {
         return register;
     }
 
@@ -132,6 +132,10 @@ public class Player{
      */
     public void activateRegister(int position){
         register[position].activateCard();
+    }
+
+    public Card getRegister(int position){
+        return register[position];
     }
 
     /**
