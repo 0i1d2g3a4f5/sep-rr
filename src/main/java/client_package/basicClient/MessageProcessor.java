@@ -1,4 +1,4 @@
-package basicClient;
+package client_package.basicClient;
 import clientApplication.*;
 import com.google.gson.JsonObject;
 import newmessages.*;

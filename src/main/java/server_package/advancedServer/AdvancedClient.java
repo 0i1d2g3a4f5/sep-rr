@@ -1,7 +1,8 @@
-package advancedServer;
+package server_package.advancedServer;
 
 import gamelogic.Player;
 import newmessages.Message;
+import server_package.Client;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,13 +12,16 @@ import java.util.List;
 /**
  * @author Sarp Cagin Erdogan
  */
-public class Client {
-    AdvancedServer server;
-    int id;
-    boolean isListening;
-    String name;
-    Socket socket;
-    Player player;
+public class AdvancedClient extends Client {
+    private AdvancedServer server;
+    private Player player;
+    private int id;
+    private String name;
+    private Socket socket;
+    private boolean isListening;
+
+
+
 
 
     public int getId(){
@@ -25,7 +29,7 @@ public class Client {
 
     }
 
-    void sendSingle(Client client, Message message){
+    void sendSingle(AdvancedClient client, Message message){
         try {
             OutputStream outputStream = client.socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
@@ -42,14 +46,14 @@ public class Client {
     }
 
     void sendAll(Message message) {
-        for(Client client : server.clientList){
+        for(AdvancedClient client : server.getClientList()){
             if(client.isListening)
                 sendSingle(client, message);
         }
     }
 
-    void sendList(List<Client> clients, Message message) {
-        for (Client client : clients) {
+    void sendList(List<AdvancedClient> clients, Message message) {
+        for (AdvancedClient client : clients) {
             sendSingle(client, message);
         }
     }

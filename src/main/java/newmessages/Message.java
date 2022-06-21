@@ -1,6 +1,7 @@
 package newmessages;
 
 import com.google.gson.*;
+import org.apache.maven.settings.Server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +10,13 @@ import java.util.List;
  * @author Sarp Cagin Erdogan
  */
 
-public class Message{
+public abstract class Message{
     public String type;
     public JsonObject content;
     public MessageType messageType;
+
+    private Server server;
+
 
     public Message(JsonObject jsonObject){
         type = jsonObject.get("MessageType").getAsString();
@@ -20,14 +24,11 @@ public class Message{
         content = jsonObject.get("MessageBody").getAsJsonObject();
     }
 
-    public void activateMessage(boolean advanced){
-        if(advanced){
-
-        } else {
-
-        }
-
-    }
+    /**
+     * @author Ringer
+     * @param advanced
+     */
+    public abstract void activateMessage(boolean advanced);
 
     @Override
     public String toString() {

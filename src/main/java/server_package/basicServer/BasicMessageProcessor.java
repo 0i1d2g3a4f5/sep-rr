@@ -1,20 +1,24 @@
-package basicServer;
+package server_package.basicServer;
 
 import com.google.gson.JsonObject;
 import newmessages.*;
+import server_package.Client;
+import server_package.MessageProcessor;
+
 /**
  * @author Sarp Cagin Erdogan
  */
-public class MessageProcessor {
-    Client client;
+public class BasicMessageProcessor extends MessageProcessor {
+    BasicClient client;
 
-    public MessageProcessor(Client client){
-        this.client=client;
+    public BasicMessageProcessor(Client client){
+        super(client);
+
     }
     public void process(JsonObject jsonObject){
-        Message message = new Message(jsonObject);
+        MessageType messageType = MessageType.valueOf(String.valueOf(jsonObject.get("type")));
 
-        message = new MessageFactory().createMessage(message.messageType,jsonObject);
+        Message message = new MessageFactory().createMessage(messageType,jsonObject);
         message.activateMessage(false);
 
 

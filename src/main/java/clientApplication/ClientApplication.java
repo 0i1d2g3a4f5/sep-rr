@@ -1,9 +1,7 @@
 package clientApplication;
 
-import advancedClient.AdvancedClient;
-import advancedServer.AdvancedServer;
-import basicClient.BasicClient;
-import basicServer.BasicServer;
+import client_package.advancedClient.AdvancedClient;
+import client_package.basicClient.BasicClient;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

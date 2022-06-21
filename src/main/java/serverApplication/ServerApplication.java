@@ -1,7 +1,7 @@
 package serverApplication;
 
-import advancedServer.AdvancedServer;
-import basicServer.BasicServer;
+import server_package.advancedServer.AdvancedServer;
+import server_package.basicServer.BasicServer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

@@ -1,5 +1,7 @@
 package newmessages;
 
+import server_package.Client;
+import server_package.advancedServer.AdvancedClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -25,5 +27,13 @@ public class MessageActivePhase extends Message{
         super(jsonObject);
         phase = content.get("phase").getAsInt();
         System.out.println("Created Phase Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param advanced
+     */
+    @Override
+    public void activateMessage(boolean advanced) {
+
     }
 }

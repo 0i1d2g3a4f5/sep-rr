@@ -1,4 +1,4 @@
-package advancedClient;
+package client_package.advancedClient;
 
 import clientApplication.ClientApplication;
 /**

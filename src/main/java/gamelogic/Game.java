@@ -1,6 +1,7 @@
 package gamelogic;
 
 
+import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
@@ -10,7 +11,6 @@ import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.*;
-import server.Client;
 
 import java.io.IOException;
 import java.util.*;
@@ -74,14 +74,14 @@ public class Game {
         return programmingPhase;
     }
 
-    public void setProgrammingPhase(boolean programmingPhase) {
+    public synchronized void setProgrammingPhase(boolean programmingPhase) {
         this.programmingPhase = programmingPhase;
     }
     public GameBoard board;
-    public Player join(Client client) {
+    public Player join(AdvancedClient client) {
         Player player = new Player(client,this);
         for (Player existingPlayer : playerList) {
-            if (existingPlayer.getClient().getClientID() == client.getClientID()) {
+            if (existingPlayer.getClient().getId() == client.getId()) {
                 return null;
             }
 
@@ -96,6 +96,7 @@ public class Game {
      * card Decks
      */
     public void setup() throws IOException {
+        sendToAllPlayers(new MessageActivePhase(0));
         DeckSerializer deckSerializer = new DeckSerializer();
         //select map
         ModelLoader loader = new ModelLoader();
@@ -257,7 +258,7 @@ public class Game {
      */
     public void endGame(Player winner){
         continueGame = false;
-        sendToAllPlayers(new MessageGameFinished(winner.getClient().getClientID()));
+        sendToAllPlayers(new MessageGameFinished(winner.getClient().getId()));
     }
 
     /**

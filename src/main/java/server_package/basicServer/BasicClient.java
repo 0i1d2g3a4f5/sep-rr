@@ -1,9 +1,9 @@
-package basicServer;
+package server_package.basicServer;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
 import newmessages.*;
+import server_package.Client;
 
 import java.io.*;
 import java.net.Socket;
@@ -12,27 +12,38 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Sarp Cagin Erdogan
  */
-public class Client
-{
-    MessageProcessor messageProcessor;
-    int figure = 7;
+public class BasicClient extends Client {
+    private BasicMessageProcessor messageProcessor;
+    private int figure = 7;
 
+    //private
     BasicServer server;
-    String name;
+    private String name;
+    //private
     int id;
-    Socket socket;
+    private Socket socket;
+    //private
     String group;
 
+    //private
     boolean isReady, isListening, isNamed, isAI;
 
-    public Client(BasicServer server, int id, Socket socket){
+    public BasicClient(BasicServer server, int id, Socket socket){
         this.server=server;
         this.id=id;
         this.socket=socket;
         this.isNamed=false;
         this.isListening=false;
         this.isReady=false;
-        this.messageProcessor=new MessageProcessor(this);
+        this.messageProcessor=new BasicMessageProcessor(this);
+    }
+
+    public BasicServer getServer() {
+        return server;
+    }
+
+    public void setServer(BasicServer server) {
+        this.server = server;
     }
     Runnable listener = new Runnable() {
         @Override
@@ -51,8 +62,8 @@ public class Client
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
-                        Message message = new Message(jsonObject);
-                        System.out.println("RECEIVED BY " + id + " :: " + message.toString());
+                        //Message message = new Message(jsonObject);
+                        System.out.println("RECEIVED BY " + id + " :: " + jsonObject.toString());
                         messageProcessor.process(jsonObject);
 
                     }
@@ -94,7 +105,7 @@ public class Client
         disconnect();
         removeClientFromList();
     }
-    void sendSingle(Client client, Message message){
+    void sendSingle(BasicClient client, Message message){
         try {
             OutputStream outputStream = client.socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
@@ -111,20 +122,20 @@ public class Client
     }
 
     void sendAll(Message message) {
-        for(Client client : server.clientList){
+        for(BasicClient client : server.clientList){
             if(client.isListening)
                 sendSingle(client, message);
         }
     }
 
-    void sendList(List<Client> clients, Message message) {
-        for (Client client : clients) {
+    void sendList(List<BasicClient> clients, Message message) {
+        for (BasicClient client : clients) {
             sendSingle(client, message);
         }
     }
     public void checkValues(String name, int figure){
         boolean available = true;
-        for(Client client : server.clientList){
+        for(BasicClient client : server.clientList){
             if(client.isNamed && client.figure==figure){
                 available=false;
                 break;
@@ -141,7 +152,7 @@ public class Client
         }
     }
     public void sendPreviousInfo(){
-        for(Client client : server.clientList){
+        for(BasicClient client : server.clientList){
             if(client.isNamed && client.id!=this.id){
                 System.out.println(client.id + client.name + client.figure +  client.isReady);
                 sendSelf(new MessagePlayerAdded(client.id, client.name, client.figure));

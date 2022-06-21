@@ -1,4 +1,4 @@
-package basicClient;
+package client_package.basicClient;
 import clientApplication.ClientApplication;
 import clientApplication.Task;
 import clientApplication.TaskContent;

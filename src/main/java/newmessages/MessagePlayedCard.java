@@ -16,7 +16,7 @@ public class MessagePlayedCard extends Message{
         super(clientID, card);
         this.clientID = clientID;
         this.card = card;
-        type = "PlayedCard";
+        type = "CardPlayed";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("card", new JsonPrimitive(card));
@@ -29,5 +29,14 @@ public class MessagePlayedCard extends Message{
         clientID = content.get("clientID").getAsInt();
         card = content.get("card").getAsString();
         System.out.println("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @author Ringer
+     * @param advanced
+     */
+    @Override
+    public void activateMessage(boolean advanced) {
+
     }
 }

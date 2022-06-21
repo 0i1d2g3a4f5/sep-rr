@@ -1,23 +1,22 @@
-package basicServer;
+package server_package.basicServer;
 
 import com.google.gson.JsonArray;
-import javafx.util.Pair;
 import newmessages.MessageSelectMap;
 import serverApplication.ServerApplication;
+import server_package.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * @author Sarp Cagin Erdogan
  */
-public class BasicServer{
-    List<Client> clientList = new ArrayList<>();
-    List<Client> readyList = new ArrayList<>();
+public class BasicServer extends Server {
+    List<BasicClient> clientList = new ArrayList<>();
+    List<BasicClient> readyList = new ArrayList<>();
     ServerApplication serverApplication;
     ServerSocket serverSocket;
     int maxClients, currentClients, currentIndex, startingAmount;
@@ -44,7 +43,7 @@ public class BasicServer{
                     if(currentClients<maxClients){
                         Socket socket = null;
                         socket = serverSocket.accept();
-                        Client client = new Client(serverApplication.basicServer, currentIndex, socket);
+                        BasicClient client = new BasicClient(serverApplication.basicServer, currentIndex, socket);
                         clientList.add(client);
                         currentIndex++;
                         currentClients++;
@@ -74,8 +73,8 @@ public class BasicServer{
         thread.start();
 
     }
-    public Client clientFromId(int number){
-        for(Client a : clientList){
+    public BasicClient clientFromId(int number){
+        for(BasicClient a : clientList){
             if(a.id==number){
                 return a;
             }
@@ -87,7 +86,7 @@ public class BasicServer{
             @Override
             public void run() {
                 boolean allAI = true;
-                for(Client client : clientList){
+                for(BasicClient client : clientList){
                     if(!client.isAI){
                         allAI=false;
                     }

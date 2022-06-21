@@ -26,4 +26,12 @@ public class MessageError extends Message{
         error = content.get("error").getAsString();
         //System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
     }
+
+    /**
+     * @param advanced
+     */
+    @Override
+    public void activateMessage(boolean advanced) {
+
+    }
 }

@@ -1,11 +1,12 @@
 package gamelogic;
 
+import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
 import newmessages.Message;
-import server.Client;
+import newmessages.MessagePlayedCard;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -40,14 +41,14 @@ public class Player{
 
     }
 
-    public Client getClient() {
+    public AdvancedClient getClient() {
         return client;
     }
 
 
-    private Client client;
+    private AdvancedClient client;
 
-    public Player(Client client,Game game) {
+    public Player(AdvancedClient client, Game game) {
         this.client = client;
         this.game = game;
     }
@@ -116,6 +117,7 @@ public class Player{
             Card card = searchCard(cardName,handCards);
             if(card !=null&&addToRegister(card,position)){
                 handCards.remove(card);
+                game.sendToAllPlayers(new MessagePlayedCard(client.getId(),card.toString()));
                 return true;
             }
             return false;

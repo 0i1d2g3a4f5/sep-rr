@@ -1,6 +1,5 @@
 package clientApplication;
 
-import basicServer.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

@@ -59,20 +59,20 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     public boolean left(){
         directionFacing = directionFacing.left();
-        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"counterclockwise"));
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
 
         return true;
     }
     public boolean right(){
         directionFacing = directionFacing.right();
-        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         return true;
     }
 
     public boolean uTurn(){
         directionFacing = directionFacing.opposite();
-        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
-        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getClientID(),"clockwise"));
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
+        game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         return true;
     }
 
@@ -84,7 +84,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 success = false;
             }
         }
-        game.sendToAllPlayers(new MessageMovement(player.getClient().getClientID(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
+        //game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
         return success;
     }
     public boolean backward(int distance){
@@ -95,7 +95,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 success = false;
             }
         }
-        game.sendToAllPlayers(new MessageMovement(player.getClient().getClientID(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
+        //game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
         return success;
     }
 

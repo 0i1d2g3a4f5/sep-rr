@@ -1,7 +1,7 @@
 package clientApplication;
 
-import advancedClient.AdvancedClient;
-import basicClient.BasicClient;
+import client_package.advancedClient.AdvancedClient;
+import client_package.basicClient.BasicClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 /**

@@ -30,4 +30,12 @@ public class MessageSendChat extends Message{
         to = content.get("to").getAsInt();
         //System.out.println("Created Send Message: " + this + " from JSON: " + jsonObject);
     }
+
+    /**
+     * @param advanced
+     */
+    @Override
+    public void activateMessage(boolean advanced) {
+
+    }
 }

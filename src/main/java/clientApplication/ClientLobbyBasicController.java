@@ -1,8 +1,6 @@
 package clientApplication;
 
-import basicClient.BasicClient;
-import basicServer.Client;
-import javafx.event.ActionEvent;
+import client_package.basicClient.BasicClient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
