@@ -19,6 +19,9 @@ public abstract class Server {
         this.clientList = clientList;
     }
 
+    public Server(){
+
+    }
     public  Server(ServerApplication serverApplication){
         this.serverApplication=serverApplication;
     }

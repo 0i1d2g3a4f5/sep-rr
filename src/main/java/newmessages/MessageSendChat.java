@@ -2,6 +2,8 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Server;
+
 
 /**
  * @author Isabel Muhm
@@ -32,10 +34,10 @@ public class MessageSendChat extends Message{
     }
 
     /**
-     * @param advanced
+     * @param server
      */
     @Override
-    public void activateMessage(boolean advanced) {
+    public void activateMessage(Server server) {
 
     }
 }

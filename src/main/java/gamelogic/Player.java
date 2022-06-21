@@ -105,6 +105,13 @@ public class Player{
         client.sendSelf(message);
     }
 
+    public boolean playCard(CardName cardName) {
+        int position = findNextFreeRegister();
+        if(position>=0) {
+            return playCard(cardName,position);
+        }else return false;
+    }
+
     /**
      * @author Ringer
      * allows cards to be played by the Player
@@ -121,6 +128,13 @@ public class Player{
                 return true;
             }
             return false;
+    }
+
+    private int findNextFreeRegister(){
+        for (int i = 0; i < register.length; i++) {
+            if(register[i] == null) return i;
+        }
+        return -1;
     }
 
     private void finishProgramming() throws InterruptedException {
@@ -196,5 +210,6 @@ public class Player{
     public void placeRobot() {
 
     }
+
 
 }

@@ -1,9 +1,9 @@
 package newmessages;
 
-import server_package.Client;
-import server_package.advancedServer.AdvancedClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Server;
+
 
 /**
  * @author Isabel Muhm
@@ -30,10 +30,10 @@ public class MessageActivePhase extends Message{
     }
 
     /**
-     * @param advanced
+     * @param server
      */
     @Override
-    public void activateMessage(boolean advanced) {
+    public void activateMessage(Server server) {
 
     }
 }

@@ -12,7 +12,10 @@ import java.net.Socket;
 import java.util.List;
 
 public abstract class Client {
+
     private Server server;
+
+
     private Player player;
     private int id;
     private String name;
@@ -21,8 +24,13 @@ public abstract class Client {
     private boolean isListening;
 
 
+    public Server getServer(){
+        return server;
+    };
 
-
+    public Player getPlayer() {
+        return player;
+    }
 
     public int getId(){
         return id;

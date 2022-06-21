@@ -22,6 +22,7 @@ public class BasicServer extends Server {
     int maxClients, currentClients, currentIndex, startingAmount;
     boolean isTerminated;
     public BasicServer(ServerApplication serverApplication){
+        super(serverApplication);
         this.serverApplication=serverApplication;
         this.isTerminated=true;
         this.maxClients=10;

@@ -1,10 +1,10 @@
 package newmessages;
 
 import com.google.gson.*;
-import org.apache.maven.settings.Server;
+import server_package.Server;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -25,10 +25,10 @@ public abstract class Message{
     }
 
     /**
+     * @param server
      * @author Ringer
-     * @param advanced
      */
-    public abstract void activateMessage(boolean advanced);
+    public abstract void activateMessage(Server server) throws IOException;
 
     @Override
     public String toString() {

@@ -6,7 +6,7 @@ import newmessages.MessageFactory;
 import newmessages.MessageType;
 import server_package.advancedServer.AdvancedClient;
 
-public class MessageProcessor {
+public abstract class MessageProcessor {
 
     Client client;
 
@@ -17,6 +17,6 @@ public class MessageProcessor {
         MessageType messageType = MessageType.valueOf(String.valueOf(jsonObject.get("type")));
 
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
-        message.activateMessage(false);
+        message.activateMessage(client.getServer());
     }
 }

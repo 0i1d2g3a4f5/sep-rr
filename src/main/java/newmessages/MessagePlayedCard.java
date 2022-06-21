@@ -2,6 +2,13 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.cards.Card;
+import gamelogic.cards.CardName;
+import server_package.Client;
+import server_package.Server;
+
+import java.io.IOException;
+
 
 /**
  * @author Isabel Muhm
@@ -32,11 +39,13 @@ public class MessagePlayedCard extends Message{
     }
 
     /**
+     * @param server
      * @author Ringer
-     * @param advanced
      */
     @Override
-    public void activateMessage(boolean advanced) {
+    public void activateMessage(Server server) throws IOException {
+        Client client = server.searchClient(clientID);
 
+        client.getPlayer().playCard(CardName.parseCardName(card));
     }
 }
