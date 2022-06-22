@@ -11,8 +11,9 @@ public class MessageProcessor {
         this.basicClient=basicClient;
     }
     public void process(JsonObject jsonObject){
-        Message message = new Message(jsonObject);
-        switch (message.messageType){
+        MessageType messageType = MessageType.valueOf(jsonObject.get("type").getAsString());
+
+        switch (messageType){
             case HELLOCLIENT -> {
                 MessageHelloClient messageHelloClient = new MessageHelloClient(jsonObject);
                 if(messageHelloClient.protocol.equals("Version 0.1")){

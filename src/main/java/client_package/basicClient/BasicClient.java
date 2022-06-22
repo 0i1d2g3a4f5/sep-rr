@@ -96,8 +96,7 @@ public class BasicClient {
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
-                        Message message = new Message(jsonObject);
-                        System.out.println("RECEIVED :: " + message.toString());
+                        System.out.println("RECEIVED :: " + jsonObject);
                         messageProcessor.process(jsonObject);
                     }
                 }
