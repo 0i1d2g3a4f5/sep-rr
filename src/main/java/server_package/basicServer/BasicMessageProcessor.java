@@ -5,6 +5,8 @@ import newmessages.*;
 import server_package.Client;
 import server_package.MessageProcessor;
 
+import java.io.IOException;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -16,11 +18,11 @@ public class BasicMessageProcessor extends MessageProcessor {
 
     }
     @Override
-    public void process(JsonObject jsonObject){
+    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
         MessageType messageType = MessageType.valueOf(String.valueOf(jsonObject.get("type")));
 
         Message message = new MessageFactory().createMessage(messageType,jsonObject);
-        message.activateMessage(client.getServer());
+        message.activateMessage(client);
 
 
     }

@@ -62,6 +62,14 @@ public class Game {
     }
     private Game() {
     }
+
+    public MapName getMapName() {
+        return mapName;
+    }
+
+    public void setMapName(MapName mapName) {
+        this.mapName = mapName;
+    }
     public boolean getContinueGame() {
         return continueGame;
     }

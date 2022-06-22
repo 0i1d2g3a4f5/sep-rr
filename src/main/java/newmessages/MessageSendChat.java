@@ -2,6 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
 import server_package.Server;
 
 
@@ -38,6 +39,19 @@ public class MessageSendChat extends Message{
      */
     @Override
     public void activateMessage(Server server) {
+
+        Client client = server.searchClient();
+        if(to==-1){
+            client.sendAll(new MessageReceivedChat(messageSendChat.message, client.id, false));
+        }
+        else{
+            if(client.server.clientFromId(messageSendChat.to)!=null) {
+                client.sendSingle(client.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, client.id, true));
+            }
+            else{
+                client.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+            }
+        }
 
     }
 }

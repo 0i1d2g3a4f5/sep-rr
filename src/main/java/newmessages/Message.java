@@ -1,6 +1,7 @@
 package newmessages;
 
 import com.google.gson.*;
+import server_package.Client;
 import server_package.Server;
 
 import java.io.IOException;
@@ -25,10 +26,10 @@ public abstract class Message{
     }
 
     /**
-     * @param server
+     * @param client
      * @author Ringer
      */
-    public abstract void activateMessage(Server server) throws IOException;
+    public abstract void activateMessage(Client client) throws IOException, ClientNotFoundException;
 
     @Override
     public String toString() {

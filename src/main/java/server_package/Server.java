@@ -1,5 +1,6 @@
 package server_package;
 
+import gamelogic.Game;
 import serverApplication.ServerApplication;
 import server_package.advancedServer.AdvancedClient;
 
@@ -9,6 +10,7 @@ public abstract class Server {
     ServerApplication serverApplication;
 
 
+    Game game = Game.getInstance();
     private List<AdvancedClient> clientList;
 
     public List<AdvancedClient> getClientList() {
@@ -24,6 +26,10 @@ public abstract class Server {
     }
     public  Server(ServerApplication serverApplication){
         this.serverApplication=serverApplication;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public AdvancedClient searchClient(int clientID){

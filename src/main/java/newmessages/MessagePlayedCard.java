@@ -39,13 +39,12 @@ public class MessagePlayedCard extends Message{
     }
 
     /**
-     * @param server
+     * @param client
      * @author Ringer
      */
     @Override
-    public void activateMessage(Server server) throws IOException {
-        Client client = server.searchClient(clientID);
-
-        client.getPlayer().playCard(CardName.parseCardName(card));
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+        if (client != null) client.getPlayer().playCard(CardName.parseCardName(card));
+        else throw new ClientNotFoundException("Client with ID = "+ clientID +" not found");
     }
 }

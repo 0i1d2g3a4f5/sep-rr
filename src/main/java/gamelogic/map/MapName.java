@@ -13,4 +13,5 @@ public enum MapName {
     MapName(String mapName) {
         this.mapName = mapName;
     }
+
 }

@@ -70,6 +70,8 @@ public class BasicClient extends Client {
                 }
                 catch (InterruptedException | IOException e) {
                     throw new RuntimeException(e);
+                } catch (ClientNotFoundException e) {
+                    e.printStackTrace();
                 }
 
             }

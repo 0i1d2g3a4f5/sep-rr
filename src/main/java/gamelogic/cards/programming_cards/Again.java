@@ -2,7 +2,8 @@ package gamelogic.cards.programming_cards;
 
 import static gamelogic.cards.CardName.AGAIN;
 
-public class Again extends ProgrammingCard {
+public class
+Again extends ProgrammingCard {
 
     /**
      * @author Kafadar
