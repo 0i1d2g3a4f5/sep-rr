@@ -44,7 +44,7 @@ public class MessageHelloServer extends Message {
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (!this.protocol.equals("Version 0.1")) {
                 client.sendSelf(new MessageError("ERROR :: False communication protocol."));

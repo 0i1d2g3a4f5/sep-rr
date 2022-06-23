@@ -35,7 +35,7 @@ public abstract class Client {
 
     }
 
-    void sendSingle(Client client, Message message){
+    public void sendSingle(Client client, Message message){
         try {
             OutputStream outputStream = client.socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
@@ -63,6 +63,7 @@ public abstract class Client {
             sendSingle(client, message);
         }
     }
+
     /* GETTER SETTER
     *
     *

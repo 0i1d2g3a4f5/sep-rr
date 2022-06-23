@@ -38,17 +38,26 @@ public class MessageMapSelected extends Message{
      * @throws ClientNotFoundException
      * @uthor Ringer
      */
-    @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
-        try {
-            client.getServer().getGame().setMapName(MapName.valueOf(map));
-            for (Client clientSend:client.getServer().getClientList()) {
-                clientSend.sendSelf(this);
+    @Override
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            try {
+                client.getServer().getGame().setMapName(MapName.valueOf(map));
+                for (Client clientSend:client.getServer().getClientList()) {
+                    clientSend.sendSelf(this);
+                }
+            } catch (IllegalArgumentException e){
+                //client.sendSelf(new MessageSelectMap());
             }
-        } catch (IllegalArgumentException e){
-            //client.sendSelf(new MessageSelectMap());
         }
+        else {
+            //ADVANCED
+        }
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

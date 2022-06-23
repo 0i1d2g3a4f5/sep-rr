@@ -43,7 +43,16 @@ public class MessagePlayerValues extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            client.checkValues(this.name, this.figure);
+        }
+        else {
+            //ADVANCED
+        }
+    }
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

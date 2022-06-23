@@ -42,12 +42,28 @@ public class MessageSendChat extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            if (this.to == -1) {
+                client.sendAll(new MessageReceivedChat(this.message, client.getId(), false));
+            } else {
+                if (client.getServer().clientFromID(this.to) != null) {
+                    client.sendSingle(client.getServer().clientFromID(this.to), new MessageReceivedChat(this.message, client.getId(), true));
+                } else {
+                    client.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+                }
+            }
+        }
+        else {
+            //ADVANCED
+        }
+
+        /*
         if(to==-1){
             client.sendAll(new MessageReceivedChat(message, client.getId(), false));
         }
         else{
-            /*
+
             if(client.getServer().clientFromId(messageSendChat.to)!=null) {
                 client.sendSingle(client.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, client.id, true));
             }
@@ -57,5 +73,10 @@ public class MessageSendChat extends Message{
 
              */
         }
+
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
     }
 }
