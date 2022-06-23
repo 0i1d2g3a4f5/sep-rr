@@ -36,13 +36,15 @@ public abstract class Server {
         return game;
     }
 
-    public Client searchClient(int clientID){
+    public Client clientFromID(int clientID){
         for (Client client:clientList) {
             if(client.getId()==clientID) return client;
         }
         return null;
     }
     public abstract void checkReady();
+    public abstract void startServerSocket();
+    public abstract void mapSelect();
     /* GETTER SETTER
      *
      *

@@ -12,5 +12,20 @@ public class AdvancedServer extends Server {
 
     }
 
+    @Override
+    public void checkReady() {
+
+    }
+
+    @Override
+    public void startServerSocket() {
+
+    }
+
+    @Override
+    public void mapSelect() {
+
+    }
+
 
 }

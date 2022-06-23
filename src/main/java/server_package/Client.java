@@ -161,4 +161,18 @@ public abstract class Client {
     public void setSocket(Socket socket) {
         this.socket = socket;
     }
+
+    public abstract void listen();
+
+    public abstract void sendProtocolCheck();
+
+    public abstract void disconnect();
+
+    public abstract void removeClientFromList();
+
+    public abstract void shutDownClient();
+
+    public abstract void checkValues(String name, int figure);
+
+    public abstract void sendPreviousInfo();
 }

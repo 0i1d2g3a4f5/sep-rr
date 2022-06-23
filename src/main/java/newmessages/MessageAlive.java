@@ -24,14 +24,13 @@ public class MessageAlive extends Message{
         //System.out.println("Created Alive Message: " + this + " from JSON: " + jsonObject);
     }
 
-    /**
-     * @param client
-     * @param isBasic
-     * @throws IOException
-     * @throws ClientNotFoundException
-     */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

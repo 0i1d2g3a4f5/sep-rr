@@ -13,18 +13,19 @@ public class ServerSelectionController {
 
     @FXML
     void launchAdvanced(ActionEvent event) {
-        if(active) {
-            active=false;
-            serverApplication.setServer(new AdvancedServer(serverApplication));
+        if(isActive) {
+            setActive(false);
+            serverApplication.setAdvancedServer(new AdvancedServer(serverApplication));
+            serverApplication.setIsBasic(false);
         }
     }
 
     @FXML
     void launchBasic(ActionEvent event) {
-        if(active){
-            active=false;
-            serverApplication.setServer(new BasicServer(serverApplication));
-            serverApplication.getServer().;
+        if(isActive){
+            setActive(false);
+            serverApplication.setBasicServer(new BasicServer(serverApplication));
+            serverApplication.getBasicServer().startServerSocket();
         }
 
     }

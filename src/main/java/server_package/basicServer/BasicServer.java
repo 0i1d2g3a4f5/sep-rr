@@ -38,7 +38,7 @@ public class BasicServer extends Server {
                     if(getCurrentClients()<getMaxClients()){
                         Socket socket = null;
                         socket = getServerSocket().accept();
-                        BasicClient client = new BasicClient(getServerApplication().basicServer,getCurrentIndex(), socket);
+                        BasicClient client = new BasicClient(getServerApplication().getBasicServer(),getCurrentIndex(), socket);
                         getClientList().add(client);
                         setCurrentIndex(getCurrentIndex()+1);
                         setCurrentClients(getCurrentClients()+1);
@@ -56,6 +56,7 @@ public class BasicServer extends Server {
 
 
     }
+    @Override
     public void startServerSocket(){
         try {
             setServerSocket(new ServerSocket(1234));
@@ -67,14 +68,6 @@ public class BasicServer extends Server {
         thread.setDaemon(true);
         thread.start();
 
-    }
-    public Client clientFromId(int number){
-        for(Client a : getClientList()){
-            if(a.getId()==number){
-                return a;
-            }
-        }
-        return null;
     }
     @Override
     public void checkReady(){
@@ -101,6 +94,7 @@ public class BasicServer extends Server {
         thread.setDaemon(true);
         thread.start();
     }
+    @Override
     public void mapSelect(){
         for(int i=0; i<getReadyList().size(); i++){
             if(!getReadyList().get(i).getIsAI()){

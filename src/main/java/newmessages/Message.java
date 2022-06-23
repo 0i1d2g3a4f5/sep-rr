@@ -28,7 +28,7 @@ public abstract class Message{
     /**
      * @param client
      * @param isBasic
-     * @author Ringer
+     * @author Ringer, Erdogan
      */
     public abstract void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;

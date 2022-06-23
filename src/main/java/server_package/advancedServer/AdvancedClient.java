@@ -32,5 +32,40 @@ public class AdvancedClient extends Client{
 
     }
 
+    @Override
+    public void listen() {
+
+    }
+
+    @Override
+    public void sendProtocolCheck() {
+
+    }
+
+    @Override
+    public void disconnect() {
+
+    }
+
+    @Override
+    public void removeClientFromList() {
+
+    }
+
+    @Override
+    public void shutDownClient() {
+
+    }
+
+    @Override
+    public void checkValues(String name, int figure) {
+
+    }
+
+    @Override
+    public void sendPreviousInfo() {
+
+    }
+
 
 }

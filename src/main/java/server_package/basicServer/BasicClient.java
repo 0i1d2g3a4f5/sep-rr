@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.*;
 import server_package.Client;
+import server_package.MessageProcessor;
 
 import java.io.*;
 import java.net.Socket;
@@ -18,7 +19,7 @@ public class BasicClient extends Client {
         setNamed(false);
         setListening(false);
         setReady(false);
-        setMessageProcessor(new BasicMessageProcessor(this));
+        setMessageProcessor(new MessageProcessor(this, true));
     }
     Runnable listener = new Runnable() {
         @Override
@@ -52,16 +53,19 @@ public class BasicClient extends Client {
             }
         }
     };
+    @Override
     public void listen(){
         setListening(true);
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();
     }
-    void sendProtocolCheck(){
+    @Override
+    public void sendProtocolCheck(){
         sendSelf(new MessageHelloClient("Version 0.1"));
     }
-    void disconnect(){
+    @Override
+    public void disconnect(){
         if(getIsListening()) {
             setListening(false);
             try {
@@ -71,25 +75,17 @@ public class BasicClient extends Client {
             }
         }
     }
-    void removeClientFromList(){
+    @Override
+    public void removeClientFromList(){
         getServer().setCurrentClients(getServer().getCurrentClients()-1);
         getServer().getClientList().remove(this);
     }
-    void shutDownClient(){
+    @Override
+    public void shutDownClient(){
         disconnect();
         removeClientFromList();
     }
-    void sendSingle(BasicClient client, Message message){
-        try {
-            OutputStream outputStream = client.getSocket().getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeUTF(message.toJSON().toString());
-            dataOutputStream.flush();
-            System.out.println("SENT TO " + client.getId() + " :: " + message.toString());
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    @Override
     public void checkValues(String name, int figure){
         boolean available = true;
         for(Client client : getServer().getClientList()){
@@ -108,6 +104,7 @@ public class BasicClient extends Client {
             sendSelf(new MessageError("ERROR :: Figure already taken."));
         }
     }
+    @Override
     public void sendPreviousInfo(){
         for(Client client : getServer().getClientList()){
             if(client.getIsNamed() && client.getId()!=this.getId()){
