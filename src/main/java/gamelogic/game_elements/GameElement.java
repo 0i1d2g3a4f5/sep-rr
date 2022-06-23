@@ -24,7 +24,9 @@ public abstract class GameElement {
 
     protected ElementName type = ElementName.EMPTY;
 
-    public String isOnBoard = "B1";
+
+
+    protected String isOnBoard = "B1";
 
     protected Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -42,6 +44,10 @@ public abstract class GameElement {
                 '}';
     }
 
+
+    public String getIsOnBoard() {
+        return isOnBoard;
+    }
     public GameField getGameField() {
         return gameField;
     }

@@ -1,6 +1,8 @@
 package gamelogic;
 
 
+import gamelogic.cards.CardName;
+import gamelogic.game_elements.ElementName;
 import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
@@ -22,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class Game {
 
 
-
+    private int robotsPlaced = 0;
     private boolean programmingPhase = false;
     private boolean continueGame = true;
     private ArrayList<Activatable> elementRegistry;
@@ -67,6 +69,7 @@ public class Game {
         return mapName;
     }
 
+
     public void setMapName(MapName mapName) {
         this.mapName = mapName;
     }
@@ -103,7 +106,7 @@ public class Game {
      * Does the setup for a new Game, loads the map and creates the different
      * card Decks
      */
-    public void setup() throws IOException {
+    public void setup() throws IOException, InterruptedException {
         sendToAllPlayers(new MessageActivePhase(0));
         DeckSerializer deckSerializer = new DeckSerializer();
         //select map
@@ -150,9 +153,18 @@ public class Game {
 
 
         //TODO place Robot
-        for (Player player:playerList) {
-            player.placeRobot();
+        while(robotsPlaced<playerList.size()) {
+            wait();
         }
+    }
+
+    public synchronized boolean placeRobot(Player player,Position position){
+        if(board.getField(position).contains(ElementName.ROBOT)) return false;
+        else if(board.getField(position).contains(ElementName.STARTPOINT)){
+            board.getField(position).addElement(player.getRobot());
+            robotsPlaced++;
+            return true;
+        } else return false;
     }
 
     public void startGame() throws IOException, InterruptedException {
@@ -162,8 +174,26 @@ public class Game {
 
     }
 
+    private void drawCards(){
+        for (Player player:playerList) {
+            player.drawCards();
+            ArrayList<Card> handCards= player.getHandCards();
+            CardName[] cardNames = new CardName[handCards.size()];
+
+            for (int i = 0; i < cardNames.length; i++) {
+                cardNames[i] = handCards.get(i).getCardName();
+            }
+            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+            for (Player otherPlayer:playerList) {
+                if(player.getClient().getId()!= otherPlayer.getClient().getId())
+                player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
+            }
+        }
+    }
+
     public void gameLoop() throws InterruptedException {
         while (continueGame){
+            drawCards();
             /*
             will be added later on
             upgradePhase();
@@ -197,7 +227,10 @@ public class Game {
      */
     private void programmingPhase() throws InterruptedException {
         programmingPhase =true;
-        sendToAllPlayers(new MessageActivePhase(2));
+        for (Player player:playerList) {
+            player.sendMessage(new MessageActivePhase(2));
+            player.isProgramming = true;
+        }
         while(programmingPhase){
             wait();
         }
@@ -208,11 +241,11 @@ public class Game {
      * Informs all players, that the Timer has started and force-ends their programming Phase
      * @throws InterruptedException
      */
-    void endProgrammingPhase() throws InterruptedException {
+    public void endProgrammingPhase() throws InterruptedException {
 
         sendToAllPlayers(new MessageTimerStarted());
         TimeUnit.SECONDS.sleep(30);
-        sendToAllPlayers(new MessageTimerEnded());
+        sendToAllPlayers(new MessageTimerEnded(programmingPlayers()));
     }
 
     private ArrayList<Player> generatePlayerActivationList(){
@@ -336,6 +369,19 @@ public class Game {
     public void winningGame() {
         System.out.println("Game Ends Now");
     }
+
+    /**
+     * @author Ringer
+     * @return
+     */
+    public synchronized ArrayList<Player> programmingPlayers(){
+        ArrayList<Player> programmingPlayers = new ArrayList<>();
+        for (Player otherPlayer:playerList) {
+            if(!otherPlayer.isProgramming) programmingPlayers.add(otherPlayer);
+        }
+        return programmingPlayers;
+    }
+
 }
 
 

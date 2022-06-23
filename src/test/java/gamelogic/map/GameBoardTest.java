@@ -39,7 +39,7 @@ class GameBoardTest {
     }
 
     @Test
-    void getRegistry() throws IOException {
+    void getRegistry() throws IOException, InterruptedException {
         ArrayList list = new ArrayList();
         Game game = Game.getInstance();
         game.setup();

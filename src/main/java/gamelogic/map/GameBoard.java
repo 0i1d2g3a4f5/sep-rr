@@ -8,6 +8,7 @@ import gamelogic.JsonSerializable;
 import gamelogic.Position;
 import gamelogic.game_elements.Antenna;
 import gamelogic.game_elements.ElementFactory;
+import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
 import gamelogic.game_elements.robot.Robot;
 import javafx.util.Pair;
@@ -20,9 +21,6 @@ import java.util.Objects;
 public class GameBoard implements JsonSerializable {
     protected int dimensionY;
     protected int dimensionX;
-
-
-
     private Antenna antenna;
     public ArrayList<ArrayList<GameField>> getBoardMap() {
         return boardMap;
@@ -119,15 +117,6 @@ public class GameBoard implements JsonSerializable {
     }
 
 
-/*
-    /**
-     * @author Ringer
-     * @param leftTop
-     * @param rightBottom
-     * @param isActive
-     */
-
-
     /**
      * @author Ringer
      * nitializes a map with the dimensions of the parameters
@@ -183,6 +172,8 @@ public class GameBoard implements JsonSerializable {
 
         Pair<Integer,Integer> dimensions = getDimensions((JsonArray) json.get("gameMap"));
 
+
+
         new GameBoard(json,dimensions);
     }
 
@@ -205,7 +196,6 @@ public class GameBoard implements JsonSerializable {
         JsonArray arrayLVL2;
         JsonArray arrayLVL3;
 
-
         int x=0;
         int y=0;
         for (JsonElement elementLVL1:arrayLVL1) {
@@ -214,8 +204,8 @@ public class GameBoard implements JsonSerializable {
                 GameField gameField = this.getGameField(y,x);
                 arrayLVL3 = elementLVL2.getAsJsonArray();
                 for (JsonElement elementLVL3:arrayLVL3) {
-                    gameField.addElement(elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class)));
-
+                    GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
+                    gameField.addElement(element);
                 }
 
                 y++;

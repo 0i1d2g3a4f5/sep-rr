@@ -2,6 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Position;
 import server_package.Client;
 
 import java.io.IOException;
@@ -42,6 +43,11 @@ public class MessageSetStartingPoint extends Message{
      */
     @Override
     public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
+        Position position = new Position(y,x);
+        if(client.getPlayer().placeRobot(position)){
+            client.sendAll(new MessageStartingPointTaken(x,y, client.getId()));
+        }
 
     }
 }
