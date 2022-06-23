@@ -2,6 +2,10 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -21,6 +25,16 @@ public class MessageHelloClient extends Message{
         super(jsonObject);
         protocol=content.get("protocol").getAsString();
         //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 
 }

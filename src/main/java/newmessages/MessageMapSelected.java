@@ -46,7 +46,7 @@ public class MessageMapSelected extends Message{
                 clientSend.sendSelf(this);
             }
         } catch (IllegalArgumentException e){
-            client.sendSelf(new MessageSelectMap());
+            //client.sendSelf(new MessageSelectMap());
         }
 
     }

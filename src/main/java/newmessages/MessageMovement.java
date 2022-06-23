@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Isabel Muhm
@@ -33,5 +36,15 @@ public class MessageMovement extends Message{
         x= content.get("x").getAsInt();
         y = content.get("y").getAsInt();
         System.out.println("Created Move Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

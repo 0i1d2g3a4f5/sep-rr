@@ -53,7 +53,7 @@ public abstract class Client {
         sendSingle(this, message);
     }
 
-    void sendAll(Message message) {
+    public void sendAll(Message message) {
         for(Client client : server.getClientList()){
             if(client.isListening)
                 sendSingle(client, message);

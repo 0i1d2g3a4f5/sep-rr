@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Isabel Muhm
@@ -25,5 +28,15 @@ public class MessageAnimation extends Message{
         super(jsonObject);
         animationType = content.get("type").getAsString();
         System.out.println("Created Animation Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

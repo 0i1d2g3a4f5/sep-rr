@@ -1,6 +1,7 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
+import server_package.Client;
 import server_package.Server;
 
 import java.io.IOException;
@@ -27,12 +28,12 @@ public class MessageTimerStarted extends Message{
     }
 
     /**
-     * @param server
+     * @param client
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Server server) throws IOException, ClientNotFoundException {
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
 
     }
 }

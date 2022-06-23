@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Isabel Muhm
@@ -32,5 +35,15 @@ public class MessageStartingPointTaken extends Message{
         x = content.get("x"). getAsInt();
         y = content.get("y"). getAsInt();
         clientID = content.get("clientID"). getAsInt();
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

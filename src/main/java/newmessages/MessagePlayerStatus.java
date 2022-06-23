@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Isabel Muhm
@@ -29,5 +32,15 @@ public class MessagePlayerStatus extends Message {
         clientID = content.get("AA").getAsInt();
         ready = content.get("ready").getAsBoolean();
         //System.out.println("Created Status Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

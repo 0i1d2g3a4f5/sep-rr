@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Isabel Muhm
@@ -24,5 +27,15 @@ public class MessageWelcome extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         //System.out.println("Created GroupIdentification Message: " + this + " from JSON: " + jsonObject);
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

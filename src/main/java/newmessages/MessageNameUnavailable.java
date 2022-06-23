@@ -2,6 +2,9 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_package.Client;
+
+import java.io.IOException;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -18,5 +21,15 @@ public class MessageNameUnavailable extends Message{
     public MessageNameUnavailable(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("UnavailableName").getAsString();
+    }
+
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+
     }
 }

@@ -5,6 +5,8 @@ import com.google.gson.JsonPrimitive;
 import server_package.Client;
 import server_package.Server;
 
+import java.io.IOException;
+
 
 /**
  * @author Isabel Muhm
@@ -35,23 +37,25 @@ public class MessageSendChat extends Message{
     }
 
     /**
-     * @param server
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Server server) {
-
-        Client client = server.searchClient();
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
         if(to==-1){
-            client.sendAll(new MessageReceivedChat(messageSendChat.message, client.id, false));
+            client.sendAll(new MessageReceivedChat(message, client.getId(), false));
         }
         else{
-            if(client.server.clientFromId(messageSendChat.to)!=null) {
+            /*
+            if(client.getServer().clientFromId(messageSendChat.to)!=null) {
                 client.sendSingle(client.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, client.id, true));
             }
             else{
                 client.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
             }
-        }
 
+             */
+        }
     }
 }
