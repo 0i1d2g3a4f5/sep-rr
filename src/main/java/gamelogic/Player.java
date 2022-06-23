@@ -66,16 +66,8 @@ public class Player{
         this.robot = robot;
     }
 
-    /* public ClientHandler getClient() {
-        return client;
-    }
-
-    public Player(ClientHandler client) {
-        this.client = client;
-    }
 
 
-    */
     /**
      * @return
      */
@@ -109,6 +101,11 @@ public class Player{
         client.sendSelf(message);
     }
 
+    /**
+     * @author Ringer
+     * @param cardName
+     * @return
+     */
     public boolean playCard(CardName cardName) {
         int position = findNextFreeRegister();
         if(position>=0) {
