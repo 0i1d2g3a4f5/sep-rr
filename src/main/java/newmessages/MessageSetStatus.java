@@ -37,8 +37,25 @@ public class MessageSetStatus extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            client.setReady(this.ready);
+            client.sendAll(new MessagePlayerStatus(client.getId(), client.getIsReady()));
+            if(client.getIsReady()){
+                client.getServer().getReadyList().add(client);
+                client.getServer().checkReady();
+            }
+            else{
+                client.getServer().getReadyList().remove(client);
+            }
+        }
+        else {
+            //ADVANCED
+        }
     }
 
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
 }
