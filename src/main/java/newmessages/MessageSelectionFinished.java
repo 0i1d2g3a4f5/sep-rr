@@ -16,7 +16,6 @@ public class MessageSelectionFinished extends Message{
     public int clientID;
 
     public MessageSelectionFinished(int clientID){
-        super(clientID);
         this.clientID = clientID;
         type = "SelectionFinished";
         JsonObject jsonObject = new JsonObject();
@@ -38,7 +37,9 @@ public class MessageSelectionFinished extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+    public void activateMessage(Client client) throws IOException, ClientNotFoundException, InterruptedException {
+        if(client.getServer().getGame().programmingPlayers().size()==0)client.getServer().getGame().endProgrammingPhase();
+        client.getPlayer().isProgramming = false;
 
     }
 }

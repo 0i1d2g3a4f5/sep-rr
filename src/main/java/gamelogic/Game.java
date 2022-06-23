@@ -174,8 +174,26 @@ public class Game {
 
     }
 
+    private void drawCards(){
+        for (Player player:playerList) {
+            player.drawCards();
+            ArrayList<Card> handCards= player.getHandCards();
+            CardName[] cardNames = new CardName[handCards.size()];
+
+            for (int i = 0; i < cardNames.length; i++) {
+                cardNames[i] = handCards.get(i).getCardName();
+            }
+            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+            for (Player otherPlayer:playerList) {
+                if(player.getClient().getId()!= otherPlayer.getClient().getId())
+                player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
+            }
+        }
+    }
+
     public void gameLoop() throws InterruptedException {
         while (continueGame){
+            drawCards();
             /*
             will be added later on
             upgradePhase();
@@ -209,16 +227,9 @@ public class Game {
      */
     private void programmingPhase() throws InterruptedException {
         programmingPhase =true;
-        sendToAllPlayers(new MessageActivePhase(2));
         for (Player player:playerList) {
-            player.drawCards();
-            ArrayList<Card> handCards= player.getHandCards();
-            CardName[] cardNames = new CardName[handCards.size()];
-
-            for (int i = 0; i < cardNames.length; i++) {
-                cardNames[i] = handCards.get(i).getCardName();
-            }
-            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+            player.sendMessage(new MessageActivePhase(2));
+            player.isProgramming = true;
         }
         while(programmingPhase){
             wait();
@@ -230,11 +241,11 @@ public class Game {
      * Informs all players, that the Timer has started and force-ends their programming Phase
      * @throws InterruptedException
      */
-    void endProgrammingPhase() throws InterruptedException {
+    public void endProgrammingPhase() throws InterruptedException {
 
         sendToAllPlayers(new MessageTimerStarted());
         TimeUnit.SECONDS.sleep(30);
-        sendToAllPlayers(new MessageTimerEnded());
+        sendToAllPlayers(new MessageTimerEnded(programmingPlayers()));
     }
 
     private ArrayList<Player> generatePlayerActivationList(){
@@ -358,6 +369,19 @@ public class Game {
     public void winningGame() {
         System.out.println("Game Ends Now");
     }
+
+    /**
+     * @author Ringer
+     * @return
+     */
+    public synchronized ArrayList<Player> programmingPlayers(){
+        ArrayList<Player> programmingPlayers = new ArrayList<>();
+        for (Player otherPlayer:playerList) {
+            if(!otherPlayer.isProgramming) programmingPlayers.add(otherPlayer);
+        }
+        return programmingPlayers;
+    }
+
 }
 
 

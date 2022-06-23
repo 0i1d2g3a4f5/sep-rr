@@ -1,9 +1,11 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
+import gamelogic.Player;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Isabel Muhm
@@ -11,8 +13,7 @@ import java.io.IOException;
 
 public class MessageTimerEnded extends Message{
 
-    public MessageTimerEnded(){
-        super();
+    public MessageTimerEnded(ArrayList<Player> latePlayers){
         type = "TimerStarted";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;

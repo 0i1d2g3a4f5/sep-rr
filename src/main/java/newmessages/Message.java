@@ -29,7 +29,7 @@ public abstract class Message{
      * @param client
      * @author Ringer
      */
-    public abstract void activateMessage(Client client) throws IOException, ClientNotFoundException;
+    public abstract void activateMessage(Client client) throws IOException, ClientNotFoundException, InterruptedException;
 
     @Override
     public String toString() {

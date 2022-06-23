@@ -1,5 +1,6 @@
 package gamelogic;
 
+import server_package.Client;
 import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
@@ -9,6 +10,7 @@ import newmessages.Message;
 import newmessages.MessagePlayedCard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 import static utility.SearchMethods.searchCard;
@@ -19,6 +21,8 @@ import static utility.SearchMethods.searchCard;
 public class Player{
     int numberOfHearts;
     public boolean isProtected;
+
+    public boolean isProgramming;
    // ClientHandler client;
     boolean myTurn = false;
 
@@ -41,14 +45,14 @@ public class Player{
 
     }
 
-    public AdvancedClient getClient() {
+    public Client getClient() {
         return client;
     }
 
 
-    private AdvancedClient client;
+    private Client client;
 
-    public Player(AdvancedClient client, Game game) {
+    public Player(Client client, Game game) {
         this.client = client;
         this.game = game;
     }
@@ -129,7 +133,9 @@ public class Player{
             }
             return false;
     }
-
+    /**
+     * @author Ringer
+     */
     private int findNextFreeRegister(){
         for (int i = 0; i < register.length; i++) {
             if(register[i] == null) return i;
@@ -137,6 +143,9 @@ public class Player{
         return -1;
     }
 
+    /**
+     * @author Ringer
+     */
     private void finishProgramming() throws InterruptedException {
         game.setProgrammingPhase(false);
     }
@@ -155,6 +164,7 @@ public class Player{
     }
 
     /**
+     * @author Ringer
      * moves all cards from registry to discardPile
      */
     public void clearRegister(){
@@ -206,11 +216,38 @@ public class Player{
         return robot ;
     }
 
-
+    /**
+     * @author Ringer
+     */
     public boolean placeRobot(Position position) {
         return game.placeRobot(this,position);
     }
 
+
     public void drawCards() {
+        while(handCards.size()<9){
+            handCards.add(drawCard());
+        }
+
+    }
+    /**
+     * @author Ringer
+     */
+    private Card drawCard(){
+        if(deck.empty()) {
+            refillDeck();
+        }
+        Card card = deck.pop();
+        return card;
+    }
+
+    /**
+     * @author Ringer
+     */
+    private void refillDeck(){
+
+        deck = discardPile;
+        discardPile.clear();
+        Collections.shuffle(deck);
     }
 }
