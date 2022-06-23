@@ -38,10 +38,11 @@ public class MessageCardPlayed extends Message{
 
     /**
      * @param client
+     * @param isBasic
      * @author Ringer
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if (client != null) client.getPlayer().playCard(CardName.parseCardName(card));
         else throw new ClientNotFoundException("Client with ID = "+ clientID +" not found");
     }

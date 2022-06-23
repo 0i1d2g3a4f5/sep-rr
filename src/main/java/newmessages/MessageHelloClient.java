@@ -2,7 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import client_package.Client;
 
 import java.io.IOException;
 
@@ -27,14 +27,29 @@ public class MessageHelloClient extends Message{
         //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
     }
 
+    @Override
+    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
     /**
      * @param client
+     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
-
+    public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            if (this.protocol.equals("Version 0.1")) {
+                System.out.println("EVENT :: Correct communication protocol verified.");
+            } else {
+                System.out.println("ERROR :: False communication protocol.");
+            }
+        }
+        else{
+            //ADVANCED
+        }
     }
 
 }

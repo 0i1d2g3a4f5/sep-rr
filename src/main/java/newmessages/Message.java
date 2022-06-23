@@ -27,9 +27,11 @@ public abstract class Message{
 
     /**
      * @param client
+     * @param isBasic
      * @author Ringer
      */
-    public abstract void activateMessage(Client client) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
 
     @Override
     public String toString() {

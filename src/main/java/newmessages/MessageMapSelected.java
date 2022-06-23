@@ -32,13 +32,14 @@ public class MessageMapSelected extends Message{
     }
 
     /**
-     * @uthor Ringer
      * @param client
+     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
+     * @uthor Ringer
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
         try {
             client.getServer().getGame().setMapName(MapName.valueOf(map));

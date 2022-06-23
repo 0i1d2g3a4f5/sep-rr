@@ -3,7 +3,6 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
-import server_package.Server;
 
 
 /**
@@ -32,9 +31,10 @@ public class MessageActivePhase extends Message{
 
     /**
      * @param client
+     * @param isBasic
      */
     @Override
-    public void activateMessage(Client client) {
+    public void activateMessage(Client client, boolean isBasic) {
 
     }
 }

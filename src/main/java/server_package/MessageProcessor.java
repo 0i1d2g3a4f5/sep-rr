@@ -2,7 +2,6 @@ package server_package;
 
 import com.google.gson.JsonObject;
 import newmessages.*;
-import server_package.advancedServer.AdvancedClient;
 
 import java.io.IOException;
 /**
@@ -15,9 +14,9 @@ public abstract class MessageProcessor {
     public MessageProcessor(Client client){
         this.client=client;
     }
-    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
+    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("MessageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
-        message.activateMessage(client);
+        message.activateMessageInBackend(client, isBasic);
     }
 }

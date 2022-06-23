@@ -42,6 +42,7 @@ public abstract class Server {
         }
         return null;
     }
+    public abstract void checkReady();
     /* GETTER SETTER
      *
      *

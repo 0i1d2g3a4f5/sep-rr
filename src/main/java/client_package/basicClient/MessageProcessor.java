@@ -3,6 +3,9 @@ import client_application.*;
 import client_package.Client;
 import com.google.gson.JsonObject;
 import newmessages.*;
+
+import java.io.IOException;
+
 /**
  * @author Sarp Cagin Erdogan, Mark Ringer
  */
@@ -10,6 +13,9 @@ public class MessageProcessor extends client_package.MessageProcessor {
     BasicClient basicClient;
     public MessageProcessor(Client client){
         super(client);
+    }
+    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
+        process(jsonObject, true);
     }
     /*
     public void process(JsonObject jsonObject){

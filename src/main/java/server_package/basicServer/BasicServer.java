@@ -76,6 +76,7 @@ public class BasicServer extends Server {
         }
         return null;
     }
+    @Override
     public void checkReady(){
         Runnable runnable = new Runnable() {
             @Override

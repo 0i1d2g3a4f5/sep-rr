@@ -18,12 +18,7 @@ public class AdvancedMessageProcessor extends MessageProcessor {
     public AdvancedMessageProcessor(AdvancedClient client){
         super(client);
     }
-    @Override
     public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
-        MessageType messageType = MessageType.valueOf(String.valueOf(jsonObject.get("type")));
-        Message message = new MessageFactory().createMessage(messageType,jsonObject);
-        message.activateMessage(client);
-
-
+        process(jsonObject, false);
     }
 }

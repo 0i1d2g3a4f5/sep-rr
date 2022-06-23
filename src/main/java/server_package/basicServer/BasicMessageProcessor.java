@@ -16,10 +16,10 @@ public class BasicMessageProcessor extends MessageProcessor {
     public BasicMessageProcessor(Client client){
         super(client);
     }
-    @Override
+
+
     public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
-        MessageType messageType = MessageType.valueOf(String.valueOf(jsonObject.get("type")));
-        Message message = new MessageFactory().createMessage(messageType,jsonObject);
-        message.activateMessage(client);
+        process(jsonObject, true);
+
     }
 }

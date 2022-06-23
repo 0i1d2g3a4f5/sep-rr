@@ -30,11 +30,12 @@ public class MessageReconnect extends Message{
 
     /**
      * @param client
+     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

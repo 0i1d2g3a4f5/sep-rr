@@ -3,7 +3,6 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
-import server_package.Server;
 
 import java.io.IOException;
 
@@ -40,20 +39,30 @@ public class MessageHelloServer extends Message {
 
     /**
      * @param client
+     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client) throws IOException, ClientNotFoundException {
-        if(!this.protocol.equals("Version 0.1")){
-            client.sendSelf(new MessageError("ERROR :: False communication protocol."));
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            if (!this.protocol.equals("Version 0.1")) {
+                client.sendSelf(new MessageError("ERROR :: False communication protocol."));
+            } else {
+                client.setAI(this.isAI);
+                client.setGroup(this.group);
+                client.sendSelf(new MessageWelcome(client.getId()));
+            }
         }
         else{
-            client.setAI(this.isAI);
-            client.setGroup(this.group);
-            client.sendSelf(new MessageWelcome(client.getId()));
+            //ADVANCED
         }
 
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 
