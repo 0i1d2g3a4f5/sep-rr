@@ -1,4 +1,4 @@
-package serverApplication;
+package server_application;
 /**
  * @author Sarp Cagin Erdogan
  */

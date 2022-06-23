@@ -1,15 +1,17 @@
 package client_package.basicClient;
-import clientApplication.*;
+import client_application.*;
+import client_package.Client;
 import com.google.gson.JsonObject;
 import newmessages.*;
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Mark Ringer
  */
-public class MessageProcessor {
+public class MessageProcessor extends client_package.MessageProcessor {
     BasicClient basicClient;
-    public MessageProcessor(BasicClient basicClient){
-        this.basicClient=basicClient;
+    public MessageProcessor(Client client){
+        super(client);
     }
+    /*
     public void process(JsonObject jsonObject){
         MessageType messageType = MessageType.valueOf(jsonObject.get("type").getAsString());
 
@@ -85,4 +87,5 @@ public class MessageProcessor {
 
 
     }
+    */
 }

@@ -1,8 +1,9 @@
 package client_package.basicClient;
-import clientApplication.ClientApplication;
-import clientApplication.Task;
-import clientApplication.TaskContent;
-import clientApplication.TaskType;
+import client_application.ClientApplication;
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
+import client_package.Client;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.Message;
@@ -17,38 +18,19 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Sarp Cagin Erdogan
  */
-public class BasicClient {
-    public List<BasicClient> playerList;
-    ClientApplication clientApplication;
-    public String group;
-    public String name = "";
-    int figure;
-    public int id;
-    Socket socket;
-    public boolean isListening, isReady, isForList;
-    MessageProcessor messageProcessor;
-    public boolean idExists(int inp){
-        for(BasicClient temp : playerList){
-            if(temp.id==inp){
-                return true;
-            }
-        }
-        return false;
-    }
+public class BasicClient extends Client {
+
+
     public BasicClient(ClientApplication clientApplication){
-        this.clientApplication=clientApplication;
-        messageProcessor=new MessageProcessor(this);
-        isListening=false;
-        playerList = new ArrayList<>();
-        this.isForList=false;
-        this.isReady=false;
+        super(clientApplication, true);
     }
     public BasicClient(int id, String name, int figure){
-        this.id=id;
-        this.name=name;
-        this.figure=figure;
-        this.isForList=true;
-        this.isReady=false;
+        super(true);
+        setId(id);
+        setName(name);
+        setFigure(figure);
+        setIsForList(true);
+        setIsReady(false);
     }
     public void startClient(String ip, int port, String groupname){
 
@@ -56,8 +38,8 @@ public class BasicClient {
             @Override
             public void run() {
                 try {
-                    socket = new Socket(ip, port);
-                    group=groupname;
+                    setSocket(new Socket(ip, port));
+                    setGroup(groupname);
                     socketCreationSuccessful();
                 } catch (UnknownHostException e) {
                     clientApplication.addAndExecuteTask(new Task(TaskType.FAILEDSOCKET, new TaskContent()));
@@ -76,14 +58,7 @@ public class BasicClient {
 
 
     }
-    public BasicClient clientFromId(int inp){
-        for(BasicClient basicClient : this.playerList){
-            if(basicClient.id==inp){
-                return basicClient;
-            }
-        }
-        return null;
-    }
+
     Runnable listener = new Runnable() {
         @Override
         public void run() {
@@ -118,17 +93,6 @@ public class BasicClient {
         thread.start();
 
     }
-    public void sendSelf(Message message){
 
-        try {
-            OutputStream outputStream = socket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeUTF(message.toJSON().toString());
-            dataOutputStream.flush();
-            System.out.println("SENT :: " + message.toString());
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

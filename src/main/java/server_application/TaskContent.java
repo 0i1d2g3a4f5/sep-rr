@@ -1,4 +1,4 @@
-package serverApplication;
+package server_application;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;

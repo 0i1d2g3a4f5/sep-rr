@@ -2,33 +2,27 @@ package server_package.basicServer;
 
 import com.google.gson.JsonArray;
 import newmessages.MessageSelectMap;
-import serverApplication.ServerApplication;
+import server_application.ServerApplication;
+import server_package.Client;
 import server_package.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Sarp Cagin Erdogan
  */
 public class BasicServer extends Server {
-    List<BasicClient> clientList = new ArrayList<>();
-    List<BasicClient> readyList = new ArrayList<>();
-    ServerApplication serverApplication;
-    ServerSocket serverSocket;
-    int maxClients, currentClients, currentIndex, startingAmount;
-    boolean isTerminated;
+
+
     public BasicServer(ServerApplication serverApplication){
         super(serverApplication);
-        this.serverApplication=serverApplication;
-        this.isTerminated=true;
-        this.maxClients=10;
-        this.currentClients=0;
-        this.currentIndex=1;
-        this.startingAmount=3;
+        setTerminated(true);
+        setMaxClients(10);
+        setCurrentClients(0);
+        setCurrentIndex(1);
+        setStartingAmount(3);
     }
     Runnable shutDownActions = new Runnable() {
         @Override
@@ -39,15 +33,15 @@ public class BasicServer extends Server {
     Runnable waitForClients = new Runnable() {
         @Override
         public void run() {
-            while (!isTerminated){
+            while (!getIsTerminated()){
                 try {
-                    if(currentClients<maxClients){
+                    if(getCurrentClients()<getMaxClients()){
                         Socket socket = null;
-                        socket = serverSocket.accept();
-                        BasicClient client = new BasicClient(serverApplication.basicServer, currentIndex, socket);
-                        clientList.add(client);
-                        currentIndex++;
-                        currentClients++;
+                        socket = getServerSocket().accept();
+                        BasicClient client = new BasicClient(getServerApplication().basicServer,getCurrentIndex(), socket);
+                        getClientList().add(client);
+                        setCurrentIndex(getCurrentIndex()+1);
+                        setCurrentClients(getCurrentClients()+1);
                         client.listen();
                         client.sendProtocolCheck();
                         client.sendPreviousInfo();
@@ -64,19 +58,19 @@ public class BasicServer extends Server {
     }
     public void startServerSocket(){
         try {
-            serverSocket = new ServerSocket(1234);
+            setServerSocket(new ServerSocket(1234));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        isTerminated=false;
+        setTerminated(false);
         Thread thread = new Thread(waitForClients);
         thread.setDaemon(true);
         thread.start();
 
     }
-    public BasicClient clientFromId(int number){
-        for(BasicClient a : clientList){
-            if(a.id==number){
+    public Client clientFromId(int number){
+        for(Client a : getClientList()){
+            if(a.getId()==number){
                 return a;
             }
         }
@@ -87,17 +81,17 @@ public class BasicServer extends Server {
             @Override
             public void run() {
                 boolean allAI = true;
-                for(BasicClient client : clientList){
-                    if(!client.isAI){
+                for(Client client : getClientList()){
+                    if(!client.getIsAI()){
                         allAI=false;
                     }
                 }
                 if(!allAI){
-                    if(readyList.size()==clientList.size()){
+                    if(getReadyList().size()==getClientList().size()){
                         mapSelect();
                     }
                 }
-                else if(clientList.size()>startingAmount){
+                else if(getClientList().size()>getStartingAmount()){
                     //TRIGGER START
                 }
             }
@@ -107,13 +101,13 @@ public class BasicServer extends Server {
         thread.start();
     }
     public void mapSelect(){
-        for(int i=0; i<readyList.size(); i++){
-            if(!readyList.get(i).isAI){
+        for(int i=0; i<getReadyList().size(); i++){
+            if(!getReadyList().get(i).getIsAI()){
                 JsonArray jsonArray = new JsonArray();
                 jsonArray.add("Dizzy Highway");
                 jsonArray.add("Other Map");
                 jsonArray.add("Placeholder");
-                readyList.get(i).sendSelf(new MessageSelectMap(jsonArray));
+                getReadyList().get(i).sendSelf(new MessageSelectMap(jsonArray));
                 break;
             }
         }

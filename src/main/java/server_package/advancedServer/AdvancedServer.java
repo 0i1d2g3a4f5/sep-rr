@@ -1,9 +1,7 @@
 package server_package.advancedServer;
 
-import serverApplication.ServerApplication;
+import server_application.ServerApplication;
 import server_package.Server;
-
-import java.util.List;
 
 /**
  * @author Sarp Cagin Erdogan

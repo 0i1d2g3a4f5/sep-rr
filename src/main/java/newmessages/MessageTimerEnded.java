@@ -13,7 +13,7 @@ public class MessageTimerEnded extends Message{
 
     public MessageTimerEnded(){
         super();
-        type = "TimerStarted";
+        type = "TimerEnded";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
         System.out.println("Created StartTime Message: " + this);

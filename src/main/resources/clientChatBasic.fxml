@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane onKeyPressed="#submitKey" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientApplication.ClientChatBasicController">
+<AnchorPane onKeyPressed="#submitKey" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientChatBasicController">
    <children>
       <Button layoutX="437.0" layoutY="340.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="42.0" prefWidth="112.0" text="Submit" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="335.0" />
       <TextArea fx:id="chatArea" editable="false" layoutX="46.0" layoutY="14.0" prefHeight="315.0" prefWidth="524.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />

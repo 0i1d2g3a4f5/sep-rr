@@ -3,37 +3,35 @@ package server_package;
 import gamelogic.Player;
 import newmessages.Message;
 import server_package.advancedServer.AdvancedClient;
-import server_package.advancedServer.AdvancedServer;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.List;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public abstract class Client {
+    protected MessageProcessor messageProcessor;
+    protected int figure = 7;
+    protected String group;
+    protected Server server;
+    protected Player player;
+    protected int id;
+    protected String name;
+    protected Socket socket;
+    protected boolean isReady, isListening, isNamed, isAI, isBasic;
 
-    private Server server;
 
+    public Client(Server server, int id, Socket socket, boolean isBasic){
+        setServer(server);
+        setId(id);
+        setSocket(socket);
+        setBasic(isBasic);
 
-    private Player player;
-    private int id;
-    private String name;
-    private Socket socket;
-
-    private boolean isListening;
-
-
-    public Server getServer(){
-        return server;
-    };
-
-    public Player getPlayer() {
-        return player;
     }
-
-    public int getId(){
-        return id;
+    public Client(){
 
     }
 
@@ -64,5 +62,103 @@ public abstract class Client {
         for (AdvancedClient client : clients) {
             sendSingle(client, message);
         }
+    }
+    /* GETTER SETTER
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+    */
+    public int getFigure() {
+        return figure;
+    }
+
+    public void setFigure(int figure) {
+        this.figure = figure;
+    }
+
+
+    public Server getServer(){
+        return server;
+    };
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public int getId(){ return id;}
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name= name;
+    }
+    public String getGroup(){
+        return group;
+    }
+    public void setGroup(String string){
+        this.group=string;
+    }
+    public Socket getSocket(){
+        return socket;
+    }
+    public MessageProcessor getMessageProcessor(){
+        return messageProcessor;
+    }
+    public void setMessageProcessor(MessageProcessor messageProcessor){
+        this.messageProcessor=messageProcessor;
+    }
+
+
+    public boolean getIsNamed() {
+        return isNamed;
+    }
+    public void setNamed(boolean bool){
+        this.isNamed=bool;
+    }
+    public boolean getIsListening(){
+        return isListening;
+    }
+    public void setListening(boolean bool){
+        this.isListening=bool;
+    }
+    public boolean getIsReady() {
+        return isReady;
+    }
+    public void setReady(boolean bool){
+        this.isReady=bool;
+
+    }
+    public boolean getIsAI() {
+        return isAI;
+    }
+    public void setAI(boolean bool){
+        this.isAI=bool;
+
+    }
+
+
+    public boolean isBasic() {
+        return isBasic;
+    }
+
+    public void setBasic(boolean basic) {
+        isBasic = basic;
+    }
+
+    public void setServer(Server server) {
+        this.server = server;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
     }
 }

@@ -1,9 +1,9 @@
-package serverApplication;
+package server_application;
 /**
  * @author Sarp Cagin Erdogan
  */
 public class TaskHandler {
-    ServerApplication serverApplication;
+    private ServerApplication serverApplication;
     public TaskHandler(ServerApplication serverApplication){
         this.serverApplication=serverApplication;
     }

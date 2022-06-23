@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onKeyPressed="#connectEnter" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientApplication.ClientStartBasicController">
+<AnchorPane onKeyPressed="#connectEnter" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientStartBasicController">
    <children>
       <ImageView fitHeight="781.0" fitWidth="1266.0" layoutX="-5.0" layoutY="-12.0" opacity="0.7">
          <image>

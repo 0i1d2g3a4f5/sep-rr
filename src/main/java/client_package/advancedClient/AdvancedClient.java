@@ -1,6 +1,6 @@
 package client_package.advancedClient;
 
-import clientApplication.ClientApplication;
+import client_application.ClientApplication;
 /**
  * @author Sarp Cagin Erdogan
  */

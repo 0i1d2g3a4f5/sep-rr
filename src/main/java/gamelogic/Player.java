@@ -6,7 +6,7 @@ import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
 import newmessages.Message;
-import newmessages.MessagePlayedCard;
+import newmessages.MessageCardPlayed;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -124,7 +124,7 @@ public class Player{
             Card card = searchCard(cardName,handCards);
             if(card !=null&&addToRegister(card,position)){
                 handCards.remove(card);
-                game.sendToAllPlayers(new MessagePlayedCard(client.getId(),card.toString()));
+                game.sendToAllPlayers(new MessageCardPlayed(client.getId(),card.toString()));
                 return true;
             }
             return false;

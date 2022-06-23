@@ -1,5 +1,6 @@
-package serverApplication;
+package server_application;
 
+import server_package.Server;
 import server_package.advancedServer.AdvancedServer;
 import server_package.basicServer.BasicServer;
 import javafx.application.Application;
@@ -15,12 +16,13 @@ import java.util.List;
  * @author Sarp Cagin Erdogan
  */
 public class ServerApplication extends Application{
-    public BasicServer basicServer;
-    AdvancedServer advancedServer;
-    List<Task> taskList;
-    TaskHandler taskHandler;
+    private BasicServer basicServer;
+    private AdvancedServer advancedServer;
+    private boolean isBasic;
+    private List<Task> taskList;
+    private TaskHandler taskHandler;
 
-    ServerSelectionController serverSelectionController;
+    private ServerSelectionController serverSelectionController;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -29,7 +31,7 @@ public class ServerApplication extends Application{
         launchBeginning();
     }
 
-    void addAndExecuteTask(Task task){
+    public void addAndExecuteTask(Task task){
         this.taskList.add(task);
         Platform.runLater(new Runnable() {
             @Override
@@ -42,13 +44,13 @@ public class ServerApplication extends Application{
         });
     }
 
-    public void launchBeginning(){
+    private void launchBeginning(){
         Stage selectionStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("serverSelection.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
             serverSelectionController=fxmlLoader.getController();
-            serverSelectionController.serverApplication=this;
+            serverSelectionController.setServerApplication(this);
             selectionStage.setScene(scene);
             selectionStage.show();
         } catch (IOException e) {
@@ -56,5 +58,39 @@ public class ServerApplication extends Application{
         }
 
     }
+    /* GETTER SETTER
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+     */
 
+
+
+    public boolean isBasic() {
+        return isBasic;
+    }
+
+    public void setIsBasic(boolean basic) {
+        isBasic = basic;
+    }
+
+    public BasicServer getBasicServer() {
+        return basicServer;
+    }
+
+    public void setBasicServer(BasicServer basicServer) {
+        this.basicServer = basicServer;
+    }
+
+    public AdvancedServer getAdvancedServer() {
+        return advancedServer;
+    }
+
+    public void setAdvancedServer(AdvancedServer advancedServer) {
+        this.advancedServer = advancedServer;
+    }
 }

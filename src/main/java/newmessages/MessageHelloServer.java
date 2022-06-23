@@ -45,6 +45,15 @@ public class MessageHelloServer extends Message {
      */
     @Override
     public void activateMessage(Client client) throws IOException, ClientNotFoundException {
+        if(!this.protocol.equals("Version 0.1")){
+            client.sendSelf(new MessageError("ERROR :: False communication protocol."));
+        }
+        else{
+            client.setAI(this.isAI);
+            client.setGroup(this.group);
+            client.sendSelf(new MessageWelcome(client.getId()));
+        }
+
 
     }
 

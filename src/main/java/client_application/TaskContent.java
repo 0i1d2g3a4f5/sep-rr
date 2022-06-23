@@ -1,4 +1,4 @@
-package clientApplication;
+package client_application;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
