@@ -207,9 +207,7 @@ public class Player{
     }
 
 
-    public void placeRobot() {
-
+    public boolean placeRobot(Position position) {
+        return game.placeRobot(this,position);
     }
-
-
 }

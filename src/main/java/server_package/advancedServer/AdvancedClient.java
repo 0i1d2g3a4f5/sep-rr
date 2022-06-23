@@ -45,7 +45,7 @@ public class AdvancedClient extends Client {
         sendSingle(this, message);
     }
 
-    void sendAll(Message message) {
+    public void sendAll(Message message) {
         for(AdvancedClient client : server.getClientList()){
             if(client.isListening)
                 sendSingle(client, message);

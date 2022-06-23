@@ -18,7 +18,6 @@ public class GameField {
     private boolean isActive=true;
 
 
-    private Robot robot;
 
     private ArrayList<GameElement> elements = new ArrayList<>();
 
@@ -38,20 +37,25 @@ public class GameField {
 
 
 
-    public void setRobot(Robot robot) {
-        this.robot = robot;
-    }
+
 
     public ArrayList<GameElement> getElements() {
         return elements;
     }
 
+
+    public GameElement getElement(ElementName elementName){
+         if(contains(elementName)){
+             for (GameElement gameElement:elements) {
+                 if(gameElement.getType()==elementName) return gameElement;
+             }
+         }
+         return null;
+    }
     public Robot getRobot() {
-        return robot;
+        return (Robot) getElement(ElementName.ROBOT);
     }
-    public void removeRobot(){
-         robot = null;
-    }
+
 
 
     public boolean contains(ElementName elementName){
@@ -67,12 +71,9 @@ public class GameField {
         }
         return false;
     }
-    public boolean contains(Robot robot){
-         if(this.robot.equals(robot)) return true;
-         return false;
-    }
 
     public boolean addElement(GameElement element) {
+        if(element.getType()==ElementName.ROBOT) return false;
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
             elements.remove(0);
         element.setGameField(this);
@@ -89,11 +90,27 @@ public class GameField {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameField gameField = (GameField) o;
-        return isActive == gameField.isActive && position.equals(gameField.position) && Objects.equals(robot, gameField.robot) && elements.equals(gameField.elements);
+        return isActive == gameField.isActive && position.equals(gameField.position) && elements.equals(gameField.elements);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(position, isActive, robot, elements);
+        return Objects.hash(position, isActive, elements);
+    }
+
+    public void removeRobot() {
+         removeAll(ElementName.ROBOT);
+    }
+    private void removeAll(ElementName elementName){
+        for (GameElement element:elements) {
+            if(element.getType()==elementName) elements.remove(element);
+        }
+    }
+
+    public boolean addRobot(Robot robot) {
+         if(getRobot()==null){
+             elements.add(robot);
+             return true;
+         } else return false;
     }
 }

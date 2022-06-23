@@ -121,7 +121,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
 
-        nextField.setRobot(this);
+        if(!nextField.addRobot(this)) return false;
         currentField.removeRobot();
         position = nextPosition;
         nextPosition = null;

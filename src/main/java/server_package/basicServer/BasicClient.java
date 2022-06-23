@@ -123,7 +123,7 @@ public class BasicClient extends Client {
         sendSingle(this, message);
     }
 
-    void sendAll(Message message) {
+    public void sendAll(Message message) {
         for(BasicClient client : server.clientList){
             if(client.isListening)
                 sendSingle(client, message);

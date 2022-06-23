@@ -1,6 +1,7 @@
 package gamelogic;
 
 
+import gamelogic.game_elements.ElementName;
 import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 public class Game {
 
 
-
+    private int robotsPlaced = 0;
     private boolean programmingPhase = false;
     private boolean continueGame = true;
     private ArrayList<Activatable> elementRegistry;
@@ -67,6 +68,7 @@ public class Game {
         return mapName;
     }
 
+
     public void setMapName(MapName mapName) {
         this.mapName = mapName;
     }
@@ -103,7 +105,7 @@ public class Game {
      * Does the setup for a new Game, loads the map and creates the different
      * card Decks
      */
-    public void setup() throws IOException {
+    public void setup() throws IOException, InterruptedException {
         sendToAllPlayers(new MessageActivePhase(0));
         DeckSerializer deckSerializer = new DeckSerializer();
         //select map
@@ -150,9 +152,18 @@ public class Game {
 
 
         //TODO place Robot
-        for (Player player:playerList) {
-            player.placeRobot();
+        while(robotsPlaced<playerList.size()) {
+            wait();
         }
+    }
+
+    public synchronized boolean placeRobot(Player player,Position position){
+        if(board.getField(position).contains(ElementName.ROBOT)) return false;
+        else if(board.getField(position).contains(ElementName.STARTPOINT)){
+            board.getField(position).addElement(player.getRobot());
+            robotsPlaced++;
+            return true;
+        } else return false;
     }
 
     public void startGame() throws IOException, InterruptedException {
@@ -198,6 +209,9 @@ public class Game {
     private void programmingPhase() throws InterruptedException {
         programmingPhase =true;
         sendToAllPlayers(new MessageActivePhase(2));
+        for (Player player:playerList) {
+            //YourCards
+        }
         while(programmingPhase){
             wait();
         }
