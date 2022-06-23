@@ -1,35 +1,46 @@
 package newmessages;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.cards.CardName;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-/**
- * @author Isabel Muhm
- */
+public class MessageYourCards extends Message{
 
-public class MessageNotYourCards extends Message{
+
 
     public int clientID;
-    public int cardsInHand;
+    public CardName cardsInHand[];
 
-    public MessageNotYourCards(int clientID, int cardsInHand) {
+    public MessageYourCards(int clientID, CardName[] cardsInHand) {
+
         this.clientID = clientID;
         this.cardsInHand = cardsInHand;
-        type = "NotYourCards";
+        type = "YourCards";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
-        jsonObject.add("cardsInHand", new JsonPrimitive(cardsInHand));
+        JsonArray jsonArray = new JsonArray();
+        for (int i = 0; i < cardsInHand.length; i++) {
+            jsonArray.add(cardsInHand[i].toString());
+        }
+
+        jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
         System.out.println("Created Quantity Message: " + this);
     }
 
-    public MessageNotYourCards(JsonObject jsonObject){
+    public MessageYourCards(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        cardsInHand = content.get("cardsInHand").getAsInt();
+        JsonArray cardsJArray= content.get("cardsInHand").getAsJsonArray();
+        for (int i = 0; i < cardsJArray.size(); i++) {
+            cardsInHand[i] =CardName.valueOf(cardsJArray.get(i).getAsString());
+        }
+
         System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
     }
 

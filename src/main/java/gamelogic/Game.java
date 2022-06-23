@@ -1,6 +1,7 @@
 package gamelogic;
 
 
+import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
 import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
@@ -210,7 +211,14 @@ public class Game {
         programmingPhase =true;
         sendToAllPlayers(new MessageActivePhase(2));
         for (Player player:playerList) {
-            //YourCards
+            player.drawCards();
+            ArrayList<Card> handCards= player.getHandCards();
+            CardName[] cardNames = new CardName[handCards.size()];
+
+            for (int i = 0; i < cardNames.length; i++) {
+                cardNames[i] = handCards.get(i).getCardName();
+            }
+            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
         }
         while(programmingPhase){
             wait();

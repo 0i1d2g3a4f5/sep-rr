@@ -210,4 +210,7 @@ public class Player{
     public boolean placeRobot(Position position) {
         return game.placeRobot(this,position);
     }
+
+    public void drawCards() {
+    }
 }
