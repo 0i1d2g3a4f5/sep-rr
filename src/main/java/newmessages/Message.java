@@ -1,7 +1,6 @@
 package newmessages;
 
 import com.google.gson.*;
-import server_package.Client;
 import server_package.Server;
 
 import java.io.IOException;

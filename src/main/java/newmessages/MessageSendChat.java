@@ -42,7 +42,7 @@ public class MessageSendChat extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(to==-1){
             client.sendAll(new MessageReceivedChat(message, client.getId(), false));
         }

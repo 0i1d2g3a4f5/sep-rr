@@ -36,7 +36,7 @@ public class MessageGameFinished extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

@@ -1,9 +1,12 @@
 package newmessages;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import gamelogic.Player;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Isabel Muhm
@@ -11,12 +14,20 @@ import java.io.IOException;
 
 public class MessageTimerEnded extends Message{
 
-    public MessageTimerEnded(){
+    public MessageTimerEnded(ArrayList<Player> latePlayers){
         super();
         type = "TimerEnded";
         JsonObject jsonObject = new JsonObject();
+
+        JsonArray jsonArray = new JsonArray();
+        for (Player player:latePlayers
+             ) {
+            jsonArray.add(player.getClient().getId());
+        }
+        jsonObject.add("clientIDs",jsonArray);
         content = jsonObject;
         System.out.println("Created StartTime Message: " + this);
+
     }
 
     public MessageTimerEnded(JsonObject jsonObject){
@@ -31,7 +42,8 @@ public class MessageTimerEnded extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
 
     }
 }

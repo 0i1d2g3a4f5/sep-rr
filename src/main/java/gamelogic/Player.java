@@ -1,7 +1,7 @@
 package gamelogic;
 
+import newmessages.MessageCardSelected;
 import server_package.Client;
-import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
@@ -85,7 +85,7 @@ public class Player{
         this.checkpointTokens++;
     }
 
-    public boolean addToRegister(Card card,int position){
+    private boolean addToRegister(Card card,int position){
         if(checkRegister(card,position)){
             register[position] = card;
         }
@@ -103,33 +103,33 @@ public class Player{
 
     /**
      * @author Ringer
-     * @param cardName
-     * @return
-     */
-    public boolean playCard(CardName cardName) {
-        int position = findNextFreeRegister();
-        if(position>=0) {
-            return playCard(cardName,position);
-        }else return false;
-    }
-
-    /**
-     * @author Ringer
-     * allows cards to be played by the Player
+     * allows cards to be placed by the Player
      * @param cardName
      * @param position
      * @return
      */
-    public boolean playCard(CardName cardName,int position){
+    public boolean placeCard(CardName cardName, int position){
 
             Card card = searchCard(cardName,handCards);
             if(card !=null&&addToRegister(card,position)){
                 handCards.remove(card);
-                game.sendToAllPlayers(new MessageCardPlayed(client.getId(),card.toString()));
                 return true;
             }
             return false;
     }
+
+    public boolean removeCard(int position){
+
+        Card card = register[position];
+        if(card != null){
+            handCards.add(card);
+            register[position]=null;
+            return true;
+        }
+        return false;
+    }
+
+
     /**
      * @author Ringer
      */

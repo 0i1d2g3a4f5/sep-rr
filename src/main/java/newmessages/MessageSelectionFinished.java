@@ -36,7 +36,7 @@ public class MessageSelectionFinished extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException, InterruptedException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException, InterruptedException {
         if(client.getServer().getGame().programmingPlayers().size()==0)client.getServer().getGame().endProgrammingPhase();
         client.getPlayer().isProgramming = false;
 

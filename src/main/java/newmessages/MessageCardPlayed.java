@@ -42,8 +42,10 @@ public class MessageCardPlayed extends Message{
      * @author Ringer
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if (client != null) client.getPlayer().playCard(CardName.parseCardName(card));
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        /*if (client != null) client.getPlayer().placeCard(CardName.parseCardName(card));
         else throw new ClientNotFoundException("Client with ID = "+ clientID +" not found");
+
+         */
     }
 }

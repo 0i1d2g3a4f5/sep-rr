@@ -39,7 +39,7 @@ public class MessageMapSelected extends Message{
      * @uthor Ringer
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
         try {
             client.getServer().getGame().setMapName(MapName.valueOf(map));

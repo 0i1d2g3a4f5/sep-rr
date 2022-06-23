@@ -34,7 +34,7 @@ public class MessageActivePhase extends Message{
      * @param isBasic
      */
     @Override
-    public void activateMessage(Client client, boolean isBasic) {
+    public void activateMessageInBackend(Client client, boolean isBasic) {
 
     }
 }
