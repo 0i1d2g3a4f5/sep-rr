@@ -12,7 +12,7 @@ import java.io.IOException;
 public class MessageAlive extends Message{
 
     public MessageAlive() {
-        super();
+
         type = "Alive";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;

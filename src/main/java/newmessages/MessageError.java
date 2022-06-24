@@ -16,7 +16,6 @@ public class MessageError extends Message{
     public String error;
 
     public MessageError(String error){
-        super(error);
         this.error = error;
         type = "Error";
         JsonObject jsonObject = new JsonObject();

@@ -17,7 +17,6 @@ public class MessageCardSelected extends Message{
     public boolean filled;
 
     public MessageCardSelected(int clientID, int register, boolean filled){
-        super(clientID, register, filled);
         this.clientID =clientID;
         this.register = register;
         this.filled= filled;

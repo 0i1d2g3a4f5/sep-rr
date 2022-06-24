@@ -1,6 +1,7 @@
 package gamelogic;
 
 import newmessages.MessageCardSelected;
+import newmessages.MessageShuffleCoding;
 import server_package.Client;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
@@ -220,19 +221,34 @@ public class Player{
         return game.placeRobot(this,position);
     }
 
-
+    /**
+     * @author Ringer
+     */
     public void drawCards() {
         while(handCards.size()<9){
             handCards.add(drawCard());
         }
 
     }
+
+
+
+    /**
+     * @uthor Ringer
+     */
+    public void discardAllHandCards(){
+        for (Card card:handCards) {
+            handCards.remove(card);
+            discardPile.add(card);
+        }
+    }
     /**
      * @author Ringer
      */
-    private Card drawCard(){
+    public Card drawCard(){
         if(deck.empty()) {
             refillDeck();
+            client.getServer().getGame().sendToAllPlayers(new MessageShuffleCoding(client.getId()));
         }
         Card card = deck.pop();
         return card;

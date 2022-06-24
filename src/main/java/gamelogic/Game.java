@@ -174,26 +174,12 @@ public class Game {
 
     }
 
-    private void drawCards(){
-        for (Player player:playerList) {
-            player.drawCards();
-            ArrayList<Card> handCards= player.getHandCards();
-            CardName[] cardNames = new CardName[handCards.size()];
 
-            for (int i = 0; i < cardNames.length; i++) {
-                cardNames[i] = handCards.get(i).getCardName();
-            }
-            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
-            for (Player otherPlayer:playerList) {
-                if(player.getClient().getId()!= otherPlayer.getClient().getId())
-                player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
-            }
-        }
-    }
+
 
     public void gameLoop() throws InterruptedException {
         while (continueGame){
-            drawCards();
+
             /*
             will be added later on
             upgradePhase();
@@ -220,13 +206,35 @@ public class Game {
 
     }
 
+    /**
+     * @author Ringer
+     *
+     */
+    private void drawCards(){
+        for (Player player:playerList) {
+            player.drawCards();
+            ArrayList<Card> handCards= player.getHandCards();
+            CardName[] cardNames = new CardName[handCards.size()];
+
+            for (int i = 0; i < cardNames.length; i++) {
+                cardNames[i] = handCards.get(i).getCardName();
+            }
+            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+            for (Player otherPlayer:playerList) {
+                if(player.getClient().getId()!= otherPlayer.getClient().getId())
+                    player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
+            }
+        }
+    }
 
     /**
      * @author Ringer
      * Draw cards and arrange them
      */
     private void programmingPhase() throws InterruptedException {
+
         programmingPhase =true;
+        drawCards();
         for (Player player:playerList) {
             player.sendMessage(new MessageActivePhase(2));
             player.isProgramming = true;
@@ -245,7 +253,24 @@ public class Game {
 
         sendToAllPlayers(new MessageTimerStarted());
         TimeUnit.SECONDS.sleep(30);
-        sendToAllPlayers(new MessageTimerEnded(programmingPlayers()));
+        ArrayList<Player> programmingPlayers = programmingPlayers();
+        sendToAllPlayers(new MessageTimerEnded(programmingPlayers));
+
+        for (Player player:programmingPlayers) {
+            player.discardAllHandCards();
+
+            Card[] register = player.getAllRegisters();
+            ArrayList<Card> drawnCards = new ArrayList<>();
+            for (int i = 0; i < register.length; i++) {
+                if(register[i]==null) {
+                    Card drawnCard = player.drawCard();
+                    drawnCards.add(drawnCard);
+                    register[i] = drawnCard;
+                }
+            }
+            player.sendMessage(new MessageCardsYouGotNow(drawnCards));
+
+        }
     }
 
     private ArrayList<Player> generatePlayerActivationList(){
@@ -274,14 +299,14 @@ public class Game {
     private void activationPhase(){
         sendToAllPlayers(new MessageActivePhase(3));
 
-        ArrayList<Player> activationList = generatePlayerActivationList();
+        ArrayList<Player> activationList;
         ArrayList<Card> activatedRegisters = new ArrayList<>();
         for(int i = 0; i < 5;i++){
-
+            activationList = generatePlayerActivationList();
             for (Player player:activationList) {
                 activatedRegisters.add(player.getRegister(i));
             }
-            //sendToAllPlayers(new MessageCurrentCards());
+            sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));
             for (Card card:activatedRegisters) {
                 card.activateCard();
             }

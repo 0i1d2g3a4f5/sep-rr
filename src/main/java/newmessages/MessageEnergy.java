@@ -17,7 +17,7 @@ public class MessageEnergy extends Message{
     public String source;
 
     public MessageEnergy(int clientID, int count, String source){
-        super(clientID, count, source);
+
         this.clientID =clientID;
         this.count = count;
         this .source = source;

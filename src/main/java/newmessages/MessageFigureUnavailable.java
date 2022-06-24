@@ -12,7 +12,7 @@ import java.io.IOException;
 public class MessageFigureUnavailable extends Message{
     public int figure;
     public MessageFigureUnavailable(int i){
-        super(i);
+        this.
         type="FigureUnavailable";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Figure", new JsonPrimitive(i));

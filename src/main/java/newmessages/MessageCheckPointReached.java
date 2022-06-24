@@ -16,7 +16,6 @@ public class MessageCheckPointReached extends Message{
     public int number;
 
     public MessageCheckPointReached(int clientID, int number){
-        super(clientID,number);
         this.clientID = clientID;
         this.number = number;
         type = "CheckPointReached";

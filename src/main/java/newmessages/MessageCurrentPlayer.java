@@ -15,7 +15,6 @@ public class MessageCurrentPlayer extends Message{
     public int clientID;
 
     public MessageCurrentPlayer(int clientID) {
-        super(clientID);
         this.clientID = clientID;
         type = "CurrentPlayer";
         JsonObject jsonObject = new JsonObject();

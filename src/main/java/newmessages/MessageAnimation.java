@@ -15,7 +15,7 @@ public class MessageAnimation extends Message{
     public String animationType;
 
     public MessageAnimation(String animationType){
-        super(animationType);
+
         this.animationType = animationType;
         type = "Animation";
         JsonObject jsonObject = new JsonObject();

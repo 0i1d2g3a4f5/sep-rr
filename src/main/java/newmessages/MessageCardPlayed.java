@@ -18,7 +18,6 @@ public class MessageCardPlayed extends Message{
     public String card;
 
     public MessageCardPlayed(int clientID, String card){
-        super(clientID, card);
         this.clientID = clientID;
         this.card = card;
         type = "CardPlayed";

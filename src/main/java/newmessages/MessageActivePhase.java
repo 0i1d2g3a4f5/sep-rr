@@ -14,7 +14,6 @@ public class MessageActivePhase extends Message{
     public int phase;
 
     public MessageActivePhase(int phase){
-        super(phase);
         this.phase = phase;
         type = "ActivePhase";
         JsonObject jsonObject = new JsonObject();

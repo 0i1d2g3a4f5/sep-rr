@@ -37,69 +37,6 @@ public abstract class Message{
         return new GsonBuilder().setPrettyPrinting().create().toJson(toJSON());
     }
 
-    //case Connection
-    Message(JsonArray jsonArray){
-
-    }
-    //case GroupIdentification
-    Message(String group, boolean isAI, String protocol) {
-
-    }
-    //case Welcome, case Player, case Phase, case Shuffle, case SelectionFinished, case RoboReboot, case Finish
-    Message(int clientID) {
-
-    }
-    //case Protocol, case SelectedMap, case Error, case PlayCard, case Animation, case RebootDirection
-    Message(String string){
-
-    }
-    Message(String string1, String string2){
-
-    }
-    //case NameRequest, case MessageSend
-    Message(String name, int figure) {
-
-    }
-    //case NameSet
-    Message(int clientID, String name, int figure){
-
-    }
-    //case SetReady
-    Message(boolean ready){
-
-    }
-    //case Status
-    Message(int clientID, boolean ready){
-
-    }
-    //case AvailableMaps
-    Message(ArrayList<String> availableMaps) {
-
-    }
-    //case MessageReceived
-    Message(String message, int from, boolean isPrivate){
-
-    }
-    //case CardPlayed, case Turn
-    Message(int clientID, String card){
-
-    }
-    //case SetStart, case Quantity, case SelectCard, case CheckPoint
-    Message(int x, int y) {
-
-    }
-    //case StartSet, case Move
-    Message(int x, int y, int clientID){
-
-    }
-    //case Register
-    Message(int x, int y, boolean filled){
-
-    }
-    //case Energy
-    Message(int clientID, int count, String source){
-
-    }
     Message(){
 
     }
