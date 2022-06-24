@@ -11,8 +11,15 @@
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/server" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/client" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/messages" />
-      <excludeFolder url="file://$MODULE_DIR$/src/main/java/sarpLovesJavaFX" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/newmessages" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/client_package" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/client_application" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/gamelogic" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/utility" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/server_package" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/server_application" />
+      <excludeFolder url="file://$MODULE_DIR$/src/main/java/AI" />
     </content>
     <orderEntry type="jdk" jdkName="18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
