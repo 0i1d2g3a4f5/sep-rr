@@ -62,56 +62,115 @@ public class FXMLGridsAreTheBest extends Application {
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:
+                            switch(gameElement.orientations.get(0)) {
+                                case NORTH -> {
+                                    ImageView imageView0 = new ImageView(new Image("images/LaserT.png"));
+                                    stackPane.getChildren().add(imageView0);
+                                    stackPane.setAlignment(imageView0, Pos.CENTER);
+                                }
+                                case SOUTH -> {
+                                    ImageView imageView0 = new ImageView(new Image("images/LaserB.png"));
+                                    stackPane.getChildren().add(imageView0);
+                                    stackPane.setAlignment(imageView0,Pos.CENTER);
+                                }
+                                case EAST -> {
+                                    ImageView imageView0 = new ImageView(new Image("images/LaserR.png"));
+                                    stackPane.getChildren().add(imageView0);
+                                    stackPane.setAlignment(imageView0, Pos.CENTER);
+                                }
+                                case WEST -> {
+                                    ImageView imageView0 = new ImageView(new Image("images/LaserL.png"));
+                                    stackPane.getChildren().add(imageView0);
+                                    stackPane.setAlignment(imageView0, Pos.CENTER);
+                                }
+                            }
                             break;
                         case CHECKPOINT:
+                            //count 1,2,3,4
                             break;
                         case CONVEYORBELT:
                             switch (gameElement.orientations.get(0)){
 
                                 case NORTH -> {
-                                    ImageView imageView1= new ImageView(new Image("images/conveyorup.png"));
+                                    ImageView imageView1= new ImageView(new Image("images/bluebelt.png"));
                                     stackPane.getChildren().add(imageView1);
                                     stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case SOUTH -> {
-                                    ImageView imageView1= new ImageView(new Image("images/conveyordown.png"));
+                                    ImageView imageView1= new ImageView(new Image("images/bluebeltdown.png"));
                                     stackPane.getChildren().add(imageView1);
                                     stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case EAST-> {
-                                    ImageView imageView1= new ImageView(new Image("images/conveyorright.png"));
+                                    ImageView imageView1= new ImageView(new Image("images/bluebeltR.png"));
                                     stackPane.getChildren().add(imageView1);
                                     stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case WEST -> {
-                                    ImageView imageView1= new ImageView(new Image("images/conveyorleft.png"));
+                                    ImageView imageView1= new ImageView(new Image("images/bluebeltL.png"));
                                     stackPane.getChildren().add(imageView1);
                                     stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                             }
                             break;
                         case ENERGYSPACE:
+                            ImageView imageView2 = new ImageView("images/energy.png");
+                            stackPane.getChildren().add(imageView2);
+                            stackPane.setAlignment(imageView2,Pos.CENTER);
                             break;
                         case GEAR:
+                            // imageView3, clockwise or counterclockwise
                             break;
                         case PUSHPANEL:
+                            // imageView4, register 1,3,5 or 2,4
                             break;
                         case PIT:
+                            ImageView imageView5 = new ImageView("images/pit.png");
+                            stackPane.getChildren().add(imageView5);
+                            stackPane.setAlignment(imageView5,Pos.CENTER);
                             break;
                         case STARTPOINT:
+                            ImageView imageView6 = new ImageView("images/startpoint.png");
+                            stackPane.getChildren().add(imageView6);
+                            stackPane.setAlignment(imageView6,Pos.CENTER);
                             break;
                         case WALL:
+                            switch (gameElement.orientations.get(0)){
+                                case NORTH ->{
+                                    ImageView imageView7 = new ImageView("images/wallT.png");
+                                    stackPane.getChildren().add(imageView7);
+                                    stackPane.setAlignment(imageView7,Pos.CENTER);
+                                }
+                                case SOUTH -> {
+                                    ImageView imageView7 = new ImageView("images/wallB.png");
+                                    stackPane.getChildren().add(imageView7);
+                                    stackPane.setAlignment(imageView7,Pos.CENTER);
+                                }
+                                case WEST -> {
+                                    ImageView imageView7 = new ImageView("images/wallL.png");
+                                    stackPane.getChildren().add(imageView7);
+                                    stackPane.setAlignment(imageView7,Pos.CENTER);
+                                }
+                                case EAST -> {
+                                    ImageView imageView7 = new ImageView("images/wallR.png");
+                                    stackPane.getChildren().add(imageView7);
+                                    stackPane.setAlignment(imageView7,Pos.CENTER);
+                                }
+                            }
                             break;
                         case ROBOT:
+                            //imageView 8, 6 Figure
                             break;
                         case ANTENNA:
+                            //imageView9, orientations again
                             break;
                         case RESTARTPOINT:
+                            ImageView imageView10 = new ImageView(new Image("images/LaserR.png"));
+                            stackPane.getChildren().add(imageView10);
+                            stackPane.setAlignment(imageView10, Pos.CENTER);
                             break;
                         case EMPTY:
-
-
-
+                            //leer
                             break;
                     }
                 }

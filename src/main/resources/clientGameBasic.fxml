@@ -54,7 +54,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="3">
@@ -64,7 +64,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="4">
@@ -114,27 +114,27 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
@@ -144,7 +144,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="1">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.rowIndex="2">
@@ -154,7 +154,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -194,7 +194,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="2">
                <image>
-                  <Image url="@images/conveyorleft.png" />
+                  <Image url="@images/bluebeltL.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.rowIndex="3">
@@ -204,7 +204,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -239,7 +239,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="3">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="3">
@@ -254,7 +254,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -289,7 +289,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="4">
@@ -304,7 +304,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
@@ -339,7 +339,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="5">
@@ -354,7 +354,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <image>
-                  <Image url="@images/conveyordown.png" />
+                  <Image url="@images/bluebeltdown.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
@@ -389,7 +389,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="6">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="6">
@@ -399,7 +399,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.rowIndex="7">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -439,7 +439,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="7">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="7">
@@ -449,7 +449,7 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
@@ -459,27 +459,27 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="4" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="6" GridPane.rowIndex="8">
                <image>
-                  <Image url="@images/conveyorright.png" />
+                  <Image url="@images/bluebeltR.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="7" GridPane.rowIndex="8">
@@ -529,12 +529,12 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="7" GridPane.rowIndex="9">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="8" GridPane.rowIndex="9">
                <image>
-                  <Image url="@images/conveyorup.png" />
+                  <Image url="@images/bluebelt.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" GridPane.columnIndex="9" GridPane.rowIndex="9">

@@ -3,6 +3,7 @@ package gamelogic.cards;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Game;
 import gamelogic.JsonSerializable;
 import gamelogic.Player;
 
@@ -12,10 +13,12 @@ public abstract class Card implements JsonSerializable {
     protected CardName cardName;
 
     protected Player player;
+    protected Game game;
 
     public void setPlayer(Player player){
         this.player =player;
     }
+    public void setGame(Game game){this.game = game;}
 
     public Card(CardName cardName){
         this.cardName = cardName;
