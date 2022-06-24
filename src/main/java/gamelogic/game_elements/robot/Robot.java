@@ -1,7 +1,9 @@
 package gamelogic.game_elements.robot;
 
 import gamelogic.*;
+import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
+import gamelogic.game_elements.RestartPoint;
 import gamelogic.map.GameField;
 import newmessages.MessageMovement;
 import newmessages.MessagePlayerTurning;
@@ -117,6 +119,15 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    public boolean displace(Direction targetDirection){
+        setNextPosition(targetDirection);
+
+        if(checkNextPosition(targetDirection))
+            changePositionOnBoard();
+
+        return true;
+    }
+
 
     private boolean changePositionOnBoard() {
 
@@ -130,6 +141,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         nextPosition = null;
         gameField = game.board.getField(position);
 
+        player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
 
         return true;
     }
@@ -142,8 +154,29 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
         if (currentField.checkWall(targetDirection) || nextField.checkWall(targetDirection.opposite()))
             return false;
+        if(nextField.contains(ElementName.PIT)||nextField==null){
+            reboot();
+            return false;
+        }
+
 
         return true;
+    }
+
+    public void reboot(){
+
+
+        for(RestartPoint restartPoint:game.board.restartPoints){
+            if(restartPoint.getIsOnBoard()==isOnBoard){
+                getGameField().removeRobot();
+                restartPoint.getGameField().addRobot(this);
+                gameField = restartPoint.getGameField();
+                position = gameField.getPosition();
+                player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
+
+            }
+        }
+
     }
 
     /**

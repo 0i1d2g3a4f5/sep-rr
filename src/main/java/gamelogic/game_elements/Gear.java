@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Direction;
+import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +17,16 @@ public class Gear extends GameElement implements Activatable {
 
     @Override
     public void activate() {
+        if(gameField.contains(ElementName.ROBOT)){
+            if(orientations.get(0)==GearDirection.CLOCKWISE){
+                gameField.getRobot().right();
+                gameField.getRobot().getPlayer().getClient().sendAll(new MessagePlayerTurning(gameField.getRobot().getPlayer().getClient().getId(),"clockwise"));
+            } else{
+                gameField.getRobot().left();
+                gameField.getRobot().getPlayer().getClient().sendAll(new MessagePlayerTurning(gameField.getRobot().getPlayer().getClient().getId(),"counterclockwise"));
+            }
+        }
+
 
     }
 

@@ -5,7 +5,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
+import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.game_elements.robot.Robot;
 
 import java.io.IOException;
 
@@ -50,6 +52,13 @@ public class PushPanel extends GameElement implements Activatable {
 
     @Override
     public void activate() {
+
+        if(gameField.contains(ElementName.ROBOT)){
+            Robot robot = gameField.getRobot();
+            robot.displace(orientations.get(0));
+
+        }
+
 
     }
 
