@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskInt1;
+import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
@@ -14,7 +17,6 @@ public class MessageWelcome extends Message{
     public int clientID;
 
     public MessageWelcome(int clientID) {
-        super(clientID);
         this.clientID = clientID;
         type = "Welcome";
         JsonObject jsonObject = new JsonObject();
@@ -37,6 +39,16 @@ public class MessageWelcome extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.GOTID, new TaskInt1(this.clientID)));
+        }else{
+
+        }
 
     }
 }

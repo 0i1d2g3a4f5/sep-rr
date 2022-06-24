@@ -4,6 +4,7 @@ import gamelogic.Game;
 import server_application.ServerApplication;
 
 import java.net.ServerSocket;
+import java.util.ArrayList;
 import java.util.List;
 /**
  * @author Sarp Cagin Erdogan
@@ -28,6 +29,8 @@ public abstract class Server {
     }
     public  Server(ServerApplication serverApplication){
         setServerApplication(serverApplication);
+        setClientList(new ArrayList<>());
+        setReadyList(new ArrayList<>());
     }
 
 

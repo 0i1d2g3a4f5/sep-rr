@@ -10,7 +10,7 @@ public class Wall extends GameElement{
     public Wall(ArrayList<Direction> orientations){
         super(ElementName.WALL);
         for (Direction direction:orientations) {
-            this.orientations.add(direction.toString());
+            this.orientations.add(direction);
         }
 
     }

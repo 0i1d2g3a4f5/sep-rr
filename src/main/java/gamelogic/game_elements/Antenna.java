@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Antenna extends GameElement implements Serializable {
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
-        orientations.add(direction.toString());
+        orientations.add(direction);
         Game.getInstance().board.setAntenna(this);
     }
 

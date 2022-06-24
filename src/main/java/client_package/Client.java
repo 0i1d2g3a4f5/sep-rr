@@ -1,13 +1,13 @@
 package client_package;
 
 import client_application.ClientApplication;
-import client_package.basicClient.MessageProcessor;
 import newmessages.Message;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 /**
  * @author Sarp Cagin Erdogan
@@ -24,6 +24,7 @@ public abstract class Client {
     public Client(ClientApplication clientApplication, boolean isBasic){
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
+        setPlayerList(new ArrayList<>());
     }
     public Client(boolean isBasic){
         setIsBasic(isBasic);

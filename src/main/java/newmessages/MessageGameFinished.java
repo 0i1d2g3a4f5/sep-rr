@@ -15,7 +15,6 @@ public class MessageGameFinished extends Message{
     public int clientID;
 
     public MessageGameFinished(int clientID){
-        super(clientID);
         this.clientID =clientID;
         type = "GameFinished";
         JsonObject jsonObject = new JsonObject();
@@ -37,6 +36,11 @@ public class MessageGameFinished extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

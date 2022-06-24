@@ -10,7 +10,6 @@ public class MessageValuesAccepted extends Message{
     public String name;
     public int figure;
     public MessageValuesAccepted(String name, int figure){
-        super(name, figure);
         type="ValuesAccepted";
         JsonObject jsonObject=new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));
@@ -32,6 +31,11 @@ public class MessageValuesAccepted extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

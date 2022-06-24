@@ -18,7 +18,6 @@ public class MessageSetStartingPoint extends Message{
     public int y;
 
     public MessageSetStartingPoint(int x, int y) {
-        super(x, y);
         this.x = x;
         this.y = y;
         type = "SetStartingPoint";
@@ -49,6 +48,11 @@ public class MessageSetStartingPoint extends Message{
         if(client.getPlayer().placeRobot(position)){
             client.sendAll(new MessageStartingPointTaken(x,y, client.getId()));
         }
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

@@ -15,7 +15,6 @@ public class MessagePlayCard extends Message{
     public String card;
 
     public MessagePlayCard(String card){
-        super(card);
         this.card = card;
         type = "PlayCard";
         JsonObject jsonObject = new JsonObject();
@@ -38,6 +37,11 @@ public class MessagePlayCard extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

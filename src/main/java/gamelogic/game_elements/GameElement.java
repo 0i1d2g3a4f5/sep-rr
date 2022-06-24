@@ -16,7 +16,7 @@ public abstract class GameElement {
 
 
     protected GameField gameField;
-    public List<String> orientations = new ArrayList<String>();
+    public List<Direction> orientations = new ArrayList<Direction>();
 
     public ElementName getType(){
         return type;

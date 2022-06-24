@@ -60,7 +60,9 @@ public class BasicServer extends Server {
     public void startServerSocket(){
         try {
             setServerSocket(new ServerSocket(1234));
+            System.out.println("FASGDJHLKFASDHJKADFHJKFASJHKFASHJK");
         } catch (IOException e) {
+            System.out.println("DSFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
             throw new RuntimeException(e);
         }
         setTerminated(false);

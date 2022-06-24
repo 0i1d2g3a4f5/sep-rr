@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskJsonArray;
+import client_application.TaskType;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import server_package.Client;
@@ -16,7 +19,6 @@ public class MessageSelectMap extends Message{
     public JsonArray availableMaps;
 
     public MessageSelectMap(JsonArray jsonArray){
-        super(jsonArray);
         type = "SelectMap";
         this.availableMaps = jsonArray;
         JsonObject jsonObject = new JsonObject();
@@ -36,6 +38,16 @@ public class MessageSelectMap extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.AVAILABLEMAPS, new TaskJsonArray(this.availableMaps)));
+        }else{
+
+        }
 
     }
 

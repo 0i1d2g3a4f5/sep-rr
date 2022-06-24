@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class MessageWrongPass extends Message{
     public MessageWrongPass() {
-        super();
         type = "WrongPass";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
@@ -29,6 +28,11 @@ public class MessageWrongPass extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

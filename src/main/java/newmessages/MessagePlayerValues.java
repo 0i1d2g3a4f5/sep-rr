@@ -18,7 +18,6 @@ public class MessagePlayerValues extends Message{
     public int figure;
 
     public MessagePlayerValues(String name, int figure) {
-        super(name, figure);
         this.name = name;
         this.figure = figure;
         type = "PlayerValues";

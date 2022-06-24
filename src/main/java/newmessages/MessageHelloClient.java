@@ -13,7 +13,6 @@ public class MessageHelloClient extends Message{
     public String protocol;
 
     public MessageHelloClient(String string){
-        super(string);
         protocol=string;
         type="HelloClient";
         JsonObject jsonObject = new JsonObject();

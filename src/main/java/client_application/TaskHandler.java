@@ -14,7 +14,7 @@ public class TaskHandler {
             }
             case GOTID -> {
                 TaskInt1 taskInt1 = new TaskInt1(task);
-                clientApplication.basicClient.id= taskInt1.int1;
+                clientApplication.basicClient.setId(taskInt1.int1);
                 clientApplication.clientStartBasicController.createdSocket();
             }
             case CHATMESSAGE -> {

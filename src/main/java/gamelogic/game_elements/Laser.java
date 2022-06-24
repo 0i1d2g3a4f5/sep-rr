@@ -43,7 +43,7 @@ public class Laser extends GameElement implements Activatable {
      */
     public Laser(Direction direction, int count ) throws IOException {
         this.direction = direction;
-        orientations.add(direction.toString());
+        orientations.add(direction);
         if(count>3||count<1)
             throw new IOException("This Laser doesn't exist");
         this.count = count;

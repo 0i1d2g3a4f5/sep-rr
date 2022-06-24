@@ -8,13 +8,16 @@ import java.io.IOException;
 /**
  * @author Sarp Cagin Erdogan, Mark Ringer
  */
-public abstract class MessageProcessor {
+public class MessageProcessor {
     protected Client client;
-    public MessageProcessor(Client client){
+    private boolean isBasic;
+    public MessageProcessor(Client client, boolean isBasic){
         setClient(client);
+        setBasic(isBasic);
+
     }
 
-    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
+    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("MessageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
         message.activateMessageInFrontend(client, isBasic);
@@ -35,6 +38,13 @@ public abstract class MessageProcessor {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+    public boolean getBasic(){
+        return isBasic;
+    }
+
+    public void setBasic(boolean basic) {
+        isBasic = basic;
     }
 }
 

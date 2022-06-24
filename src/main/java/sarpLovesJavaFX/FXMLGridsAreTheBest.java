@@ -1,5 +1,11 @@
 package sarpLovesJavaFX;
 
+import com.google.gson.JsonObject;
+import gamelogic.game_elements.ConveyorBelt;
+import gamelogic.game_elements.GameElement;
+import gamelogic.map.GameBoard;
+import gamelogic.map.GameField;
+import gamelogic.map.MapCreator;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -10,7 +16,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import gamelogic.*;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,32 +27,83 @@ public class FXMLGridsAreTheBest extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        GridPane gridPane = new GridPane();
-        Image tile = new Image("images/tile.png");
-        Image zaaaa = new Image("images/checkenabled.png");
-        List<StackPane> panes = new ArrayList<>();
-        for(int i=0; i<5; i++){
-            for(int j=0; j<5; j++){
-                ImageView imageView = new ImageView(tile);
-                ImageView imageView1 = new ImageView(zaaaa);
-                StackPane pane1 = new StackPane();
-                pane1.getChildren().add(imageView);
-                pane1.getChildren().add(imageView1);
-                pane1.setAlignment(imageView, Pos.CENTER);
-                pane1.setAlignment(imageView1, Pos.CENTER);
-                panes.add(pane1);
-                gridPane.add(panes.get(i*5+j), i, j, 1, 1);
-            }
-        }
-        StackPane pane = new StackPane();
-        ImageView temp = new ImageView(new Image("images/conveyorleft.png"));
-        pane.getChildren().add(temp);
-        pane.setAlignment(temp, Pos.CENTER);
-        gridPane.getChildren().remove(24);
-        gridPane.add(pane, 4,4);
-        Scene scene = new Scene(gridPane);
+        GameBoard gameBoard = MapCreator.op();
+        Scene scene = new Scene(fromMap(gameBoard));
         stage.setScene(scene);
         stage.show();
+    }
+
+    public GridPane fromMap(GameBoard gameBoard){
+        GridPane gridPane = new GridPane();
+        for(int j=0; j<gameBoard.getDimensionY(); j++){
+            for(int i=0; i<gameBoard.getDimensionX(); i++){
+                GameField temp = gameBoard.getGameField(j, i);
+                StackPane stackPane = new StackPane();
+                ImageView mutterficker= new ImageView(new Image("images/tile.png"));
+                stackPane.getChildren().add(mutterficker);
+                stackPane.setAlignment(mutterficker, Pos.CENTER);
+
+                for(GameElement gameElement : temp.getElements()){
+                    switch (gameElement.getType()){
+                        case LASER:
+                            break;
+                        case CHECKPOINT:
+                            break;
+                        case CONVEYORBELT:
+                            switch (gameElement.orientations.get(0)){
+
+                                case NORTH -> {
+                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorup.png"));
+                                    stackPane.getChildren().add(mutterficker2);
+                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                }
+                                case SOUTH -> {
+                                    ImageView mutterficker2= new ImageView(new Image("images/conveyordown.png"));
+                                    stackPane.getChildren().add(mutterficker2);
+                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                }
+                                case EAST-> {
+                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorright.png"));
+                                    stackPane.getChildren().add(mutterficker2);
+                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                }
+                                case WEST -> {
+                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorleft.png"));
+                                    stackPane.getChildren().add(mutterficker2);
+                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                }
+                            }
+                            break;
+                        case ENERGYSPACE:
+                            break;
+                        case GEAR:
+                            break;
+                        case PUSHPANEL:
+                            break;
+                        case PIT:
+                            break;
+                        case STARTPOINT:
+                            break;
+                        case WALL:
+                            break;
+                        case ROBOT:
+                            break;
+                        case ANTENNA:
+                            break;
+                        case RESTARTPOINT:
+                            break;
+                        case EMPTY:
+
+
+
+                            break;
+                    }
+                }
+                gridPane.add(stackPane, i, j);
+            }
+        }
+        return gridPane;
+
     }
 
 }

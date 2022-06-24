@@ -47,4 +47,9 @@ public class MessageCardPlayed extends Message{
 
          */
     }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
 }

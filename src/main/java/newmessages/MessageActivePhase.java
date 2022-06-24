@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
+import java.io.IOException;
+
 
 /**
  * @author Isabel Muhm
@@ -34,6 +36,11 @@ public class MessageActivePhase extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

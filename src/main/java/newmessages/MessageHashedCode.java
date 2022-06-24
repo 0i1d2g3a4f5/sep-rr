@@ -12,7 +12,6 @@ import java.io.IOException;
 public class MessageHashedCode extends Message{
     public String hashedCode;
     public MessageHashedCode(String string){
-        super(string);
         hashedCode=string;
         type="HashedCode";
         JsonObject jsonObject = new JsonObject();
@@ -32,6 +31,11 @@ public class MessageHashedCode extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

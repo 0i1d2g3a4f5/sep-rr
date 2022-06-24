@@ -18,7 +18,6 @@ public class MessageSelectedCard extends Message {
     public int register;
 
     public MessageSelectedCard(String card, int register) {
-        super(card, register);
         this.card = card;
         this.register = register;
         type = "SelectedCard";
@@ -64,6 +63,11 @@ public class MessageSelectedCard extends Message {
             }
 
         }
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

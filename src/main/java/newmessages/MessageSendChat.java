@@ -17,7 +17,6 @@ public class MessageSendChat extends Message{
     public int to;
 
     public MessageSendChat(String message, int to) {
-        super(message, to);
         this.message = message;
         this.to = to;
         type = "SendChat";

@@ -60,7 +60,7 @@ public class ClientStartBasicController {
     void connect(String ip, int port){
         active=false;
         clientApplication.basicClient.startClient(ip, port, groupInput.getText().trim());
-        clientApplication.basicClient.group=groupInput.getText().trim();
+        clientApplication.basicClient.setGroup(groupInput.getText().trim());
     }
     void failedReset(){
         ipInput.setText("");

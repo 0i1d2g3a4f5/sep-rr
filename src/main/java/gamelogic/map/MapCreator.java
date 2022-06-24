@@ -19,9 +19,8 @@ public class MapCreator {
 
     /**
      * @author Ringer
-     * @param args
      */
-    public static void main(String[] args) throws IOException {
+    public static GameBoard op() throws IOException {
         int dimension1 = 10;
         int dimension2 = 13;
 
@@ -90,6 +89,7 @@ public class MapCreator {
         File file;
         //System.out.println(board);
         String json="";
+
         try {
             file = new File(filePath);
             PrintWriter printWriter = new PrintWriter(new FileWriter(file));
@@ -125,6 +125,7 @@ public class MapCreator {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         /*
         MapDeserializer deserializer = new MapDeserializer();
         board=deserializer.deserializeMap(deserializer.gson.fromJson(json,JsonObject.class));
@@ -134,6 +135,7 @@ public class MapCreator {
         System.out.println(after);
 
          */
+        return board;
 
 
     }

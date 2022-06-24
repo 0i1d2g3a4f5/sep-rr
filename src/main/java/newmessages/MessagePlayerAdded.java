@@ -21,7 +21,6 @@ public class MessagePlayerAdded extends Message{
     public int figure;
 
     public MessagePlayerAdded(int clientID, String name, int figure) {
-        super(clientID, name, figure);
         this.clientID = clientID;
         this.name = name;
         this.figure = figure;

@@ -16,7 +16,6 @@ public class MessageMapSelected extends Message{
     public String map;
 
     public MessageMapSelected(String map) {
-        super(map);
         this.map = map;
         type = "MapSelected";
         JsonObject jsonObject = new JsonObject();

@@ -49,6 +49,11 @@ public class MessageEnergy extends Message{
 
     }
 
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
     /**
      * @param server
      * @throws IOException

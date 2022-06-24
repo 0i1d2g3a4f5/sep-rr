@@ -15,7 +15,6 @@ public class MessageRebootDirection extends Message{
     public String direction;
 
     public MessageRebootDirection(String direction){
-        super(direction);
         this.direction = direction;
         type = "RebootDirection";
         JsonObject jsonObject = new JsonObject();
@@ -38,6 +37,11 @@ public class MessageRebootDirection extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

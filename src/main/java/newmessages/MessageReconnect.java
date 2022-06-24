@@ -13,7 +13,6 @@ public class MessageReconnect extends Message{
     public String name;
     public String hash;
     public MessageReconnect(String name, String hash){
-        super(name, hash);
         this.name=name;
         this.hash=hash;
         type="Reconnect";
@@ -36,6 +35,11 @@ public class MessageReconnect extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

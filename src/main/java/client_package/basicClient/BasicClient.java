@@ -4,8 +4,10 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.Client;
+import client_package.MessageProcessor;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import newmessages.ClientNotFoundException;
 import newmessages.Message;
 import newmessages.MessageHelloServer;
 
@@ -23,6 +25,7 @@ public class BasicClient extends Client {
 
     public BasicClient(ClientApplication clientApplication){
         super(clientApplication, true);
+        setMessageProcessor(new MessageProcessor(this, true));
     }
     public BasicClient(int id, String name, int figure){
         super(true);
@@ -31,6 +34,7 @@ public class BasicClient extends Client {
         setFigure(figure);
         setIsForList(true);
         setIsReady(false);
+        setIsListening(false);
     }
     public void startClient(String ip, int port, String groupname){
 
@@ -72,7 +76,11 @@ public class BasicClient extends Client {
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
                         System.out.println("RECEIVED :: " + jsonObject);
-                        messageProcessor.process(jsonObject);
+                        try {
+                            messageProcessor.process(jsonObject);
+                        } catch (ClientNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
                 catch (InterruptedException | IOException e) {
@@ -87,7 +95,7 @@ public class BasicClient extends Client {
         sendSelf(new MessageHelloServer(group, false, "Version 0.1"));
     }
     void listen(){
-        isListening=true;
+        setIsListening(true);
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();

@@ -12,7 +12,6 @@ import java.io.IOException;
 public class MessageNameUnavailable extends Message{
     public String name;
     public MessageNameUnavailable(String string){
-        super(string);
         type="NameUnavailable";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("UnavailableName", new JsonPrimitive(string));
@@ -31,6 +30,11 @@ public class MessageNameUnavailable extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

@@ -31,7 +31,7 @@ public class Gear extends GameElement implements Activatable {
         }
     }
     public Gear(GearDirection direction){
-        orientations.add(direction.toString());
+        orientations.add(direction);
         type = ElementName.GEAR;
     }
     boolean turnRight = false;

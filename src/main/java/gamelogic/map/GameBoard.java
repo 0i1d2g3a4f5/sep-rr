@@ -38,6 +38,12 @@ public class GameBoard implements JsonSerializable {
     public ArrayList<ArrayList<GameField>> boardMap;
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    public int getDimensionX(){
+        return dimensionX;
+    }
+    public int getDimensionY(){
+        return dimensionY;
+    }
 
 
 

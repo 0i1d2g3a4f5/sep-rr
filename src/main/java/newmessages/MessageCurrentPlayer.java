@@ -39,4 +39,9 @@ public class MessageCurrentPlayer extends Message{
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
 }

@@ -16,7 +16,6 @@ public class MessageHelloServer extends Message {
     public String protocol;
 
     public MessageHelloServer(String group, boolean isAI, String protocol) {
-        super(group, isAI, protocol);
         this.group = group;
         this.isAI = isAI;
         this.protocol = protocol;

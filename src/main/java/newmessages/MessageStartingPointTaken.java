@@ -17,7 +17,6 @@ public class MessageStartingPointTaken extends Message{
     public int clientID;
 
     public MessageStartingPointTaken(int x, int y, int clientID){
-        super(x,y,clientID);
         this.x = x;
         this.y = y;
         this.clientID = clientID;
@@ -45,6 +44,11 @@ public class MessageStartingPointTaken extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

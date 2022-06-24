@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskString1;
+import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
@@ -17,7 +20,6 @@ public class MessageReceivedChat extends Message{
     public boolean isPrivate;
 
     public MessageReceivedChat(String message, int from, boolean isPrivate) {
-        super(message, from, isPrivate);
         this.message = message;
         this.from = from;
         this.isPrivate = isPrivate;

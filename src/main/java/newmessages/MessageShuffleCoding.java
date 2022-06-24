@@ -15,7 +15,6 @@ public class MessageShuffleCoding extends Message{
     public int clientID;
 
     public MessageShuffleCoding(int clientID) {
-        super(clientID);
         this.clientID = clientID;
         type = "ShuffleCoding";
         JsonObject jsonObject = new JsonObject();
@@ -38,6 +37,11 @@ public class MessageShuffleCoding extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

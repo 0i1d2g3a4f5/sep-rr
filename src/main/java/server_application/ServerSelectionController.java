@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
  */
 public class ServerSelectionController {
     private ServerApplication serverApplication;
-    private boolean isActive;
+    private boolean isActive=true;
 
     @FXML
     void launchAdvanced(ActionEvent event) {
