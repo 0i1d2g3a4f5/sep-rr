@@ -27,10 +27,6 @@ public class FXMLGridsAreTheBest extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        GameBoard gameBoard = MapCreator.op();
-        Scene scene = new Scene(fromMap(gameBoard));
-        stage.setScene(scene);
-        stage.show();
     }
     void rotate(ImageView imageView,int direction){
         imageView.setRotate(imageView.getRotate()+direction*90);
@@ -48,7 +44,7 @@ public class FXMLGridsAreTheBest extends Application {
     }
 
 
-    public GridPane fromMap(GameBoard gameBoard){
+    public static Scene fromMap(GameBoard gameBoard){
         GridPane gridPane = new GridPane();
         for(int j=0; j<gameBoard.getDimensionY(); j++){
             for(int i=0; i<gameBoard.getDimensionX(); i++){
@@ -117,7 +113,10 @@ public class FXMLGridsAreTheBest extends Application {
                 gridPane.add(stackPane, i, j);
             }
         }
-        return gridPane;
+        gridPane.setScaleX(0.5);
+        gridPane.setScaleY(0.5);
+        Scene scene = new Scene(gridPane);
+        return scene;
 
     }
 

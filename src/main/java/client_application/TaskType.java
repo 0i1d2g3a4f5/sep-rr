@@ -11,6 +11,7 @@ public enum TaskType {
     UPDATEREADYBUTTON,
     UPDATELOBBYLIST,
     AVAILABLEMAPS,
+    TRIGGERSTART,
 
     ERROR;
 }

@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskString1;
+import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.map.MapName;
@@ -21,13 +24,11 @@ public class MessageMapSelected extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("map", new JsonPrimitive(map));
         content = jsonObject;
-        System.out.println("Created MapSelected Message: " + this);
     }
 
     public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
         map = content.get("map").getAsString();
-        System.out.println("Created MapSelected Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -57,6 +58,12 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskString1(this.map)));
+        }
+        else {
+            //ADVANCED
+        }
 
     }
 }

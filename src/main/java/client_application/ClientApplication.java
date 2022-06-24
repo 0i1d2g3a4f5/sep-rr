@@ -25,7 +25,8 @@ public class ClientApplication extends Application {
     ClientChatBasicController clientChatBasicController;
     ClientLobbyBasicController clientLobbyBasicController;
     ClientMapBasicController clientMapBasicController;
-    Stage stageSelection, stageBasicStart, stageBasicName, stageBasicChat, stageBasicLobby, stageBasicMap;
+    ClientGameBasicController clientGameBasicController;
+    Stage stageSelection, stageBasicStart, stageBasicName, stageBasicChat, stageBasicLobby, stageBasicMap, stageMapView, stageBasicGame;
     public boolean lobbyActive;
     @Override
     public void start(Stage stage) throws Exception {
@@ -136,6 +137,27 @@ public class ClientApplication extends Application {
         }
 
 
+    }
+    public void launchBasicGame(){
+        stageBasicGame = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientGameBasic.fxml"));
+        try {
+            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            clientGameBasicController=fxmlLoader.getController();
+            clientGameBasicController.clientApplication=this;
+            stageBasicGame.setScene(scene);
+            stageBasicGame.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    public void launchMapView(Scene scene){
+        stageMapView = new Stage();
+        stageMapView.setScene(scene);
+        stageMapView.show();
     }
 
 }

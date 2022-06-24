@@ -9,7 +9,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.ClientNotFoundException;
 import newmessages.Message;
+import newmessages.MessageAlive;
 import newmessages.MessageHelloServer;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.Socket;
@@ -71,13 +73,19 @@ public class BasicClient extends Client {
 
                     TimeUnit.MILLISECONDS.sleep(100);
                     String hahaha = "";
-                    while (socket.getInputStream().available() > 0) {
+                    boolean isEnded = false;
+                    int i=0;
+                    while (!isEnded && socket.getInputStream().available() > 0) {
                         char a = (char)socket.getInputStream().read();
+                        if((int) a == 10){
+                            isEnded=true;
+                        }
                         hahaha+=String.valueOf(a);
                     }
                     if(!hahaha.equals("")){
+                        isEnded=false;
+                        System.out.println("RECEIVED: " + hahaha);
                         JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
-                        System.out.println("RECEIVED :: " + jsonObject);
                         try {
                             messageProcessor.process(jsonObject);
                         } catch (ClientNotFoundException e) {

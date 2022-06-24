@@ -1,4 +1,11 @@
 package client_application;
+
+import gamelogic.map.GameBoard;
+import gamelogic.map.MapCreator;
+import sarpLovesJavaFX.FXMLGridsAreTheBest;
+
+import java.io.IOException;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -46,6 +53,22 @@ public class TaskHandler {
                 clientApplication.launchBasicMap();
                 clientApplication.clientMapBasicController.initializeMaps(taskJsonArray.jsonArray);
 
+            }
+            case TRIGGERSTART -> {
+                TaskString1 taskString1 = new TaskString1(task);
+                switch (taskString1.string1){
+                    case "Dizzy Highway" -> {
+                        try {
+                            GameBoard gameBoard = MapCreator.op();
+                            clientApplication.launchMapView(FXMLGridsAreTheBest.fromMap(gameBoard));
+                            clientApplication.launchBasicGame();
+                            clientApplication.stageBasicMap.close();
+                            clientApplication.stageBasicLobby.close();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
             }
             case ERROR -> {
 

@@ -43,7 +43,6 @@ public abstract class Message{
 
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();
-
         result.add("messageType", new JsonPrimitive(type));
         result.add("messageBody", content);
         return result;
