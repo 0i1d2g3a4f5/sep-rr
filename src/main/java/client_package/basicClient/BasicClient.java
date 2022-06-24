@@ -71,7 +71,7 @@ public class BasicClient extends Client {
 
                     TimeUnit.MILLISECONDS.sleep(100);
                     if (socket.getInputStream().available() > 0) {
-                        InputStream inputStream = socket.getInputStream();
+                        /*InputStream inputStream = socket.getInputStream();
                         DataInputStream dataInputStream = new DataInputStream(inputStream);
                         String input = dataInputStream.readUTF();
                         JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
@@ -80,7 +80,7 @@ public class BasicClient extends Client {
                             messageProcessor.process(jsonObject);
                         } catch (ClientNotFoundException e) {
                             throw new RuntimeException(e);
-                        }
+                        }*/
                     }
                 }
                 catch (InterruptedException | IOException e) {
