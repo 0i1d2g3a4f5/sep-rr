@@ -70,17 +70,19 @@ public class BasicClient extends Client {
                 try {
 
                     TimeUnit.MILLISECONDS.sleep(100);
-                    if (socket.getInputStream().available() > 0) {
-                        /*InputStream inputStream = socket.getInputStream();
-                        DataInputStream dataInputStream = new DataInputStream(inputStream);
-                        String input = dataInputStream.readUTF();
-                        JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
+                    String hahaha = "";
+                    while (socket.getInputStream().available() > 0) {
+                        char a = (char)socket.getInputStream().read();
+                        hahaha+=String.valueOf(a);
+                    }
+                    if(!hahaha.equals("")){
+                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
                         System.out.println("RECEIVED :: " + jsonObject);
                         try {
                             messageProcessor.process(jsonObject);
                         } catch (ClientNotFoundException e) {
                             throw new RuntimeException(e);
-                        }*/
+                        }
                     }
                 }
                 catch (InterruptedException | IOException e) {

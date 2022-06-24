@@ -18,7 +18,7 @@ public class MessageProcessor {
     }
 
     public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
-        MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("MessageType").getAsString());
+        MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
         message.activateMessageInFrontend(client, isBasic);
     }
