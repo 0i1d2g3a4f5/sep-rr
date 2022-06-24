@@ -318,13 +318,28 @@ public class  Game {
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
                 activatedRegisters.add(player.getRegister(i));
+
             }
             sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));
             for (Card card:activatedRegisters) {
                 card.activateCard();
             }
+            careEnergyCube();
+
             for (Activatable element:elementRegistry) {
                 element.activate();
+            }
+        }
+
+    }
+
+    private void careEnergyCube(){
+        for(Player player:playerList){
+            if(player.getRobot().getGameField().contains(ElementName.ENERGY_CUBE)){
+                player.addEnergyCube();
+                player.getRobot().getGameField().removeEnergyCube();
+                player.getClient().sendAll(new MessageEnergy(player.getClient().getId(),1,"EnergyCube"));
+
             }
         }
 
