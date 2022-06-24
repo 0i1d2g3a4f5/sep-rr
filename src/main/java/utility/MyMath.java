@@ -2,6 +2,9 @@ package utility;
 
 import gamelogic.Position;
 
+/**
+ * @author Ringer
+ */
 public class MyMath {
     public static double pythagoras(Position pos1, Position pos2){
         double sideA = pos1.getX()-pos2.getX();

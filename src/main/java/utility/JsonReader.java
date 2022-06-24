@@ -2,6 +2,9 @@ package utility;
 
 import java.io.*;
 
+/**
+ * @author Ringer
+ */
 public class JsonReader {
 
     public String readFile(String filePath){
