@@ -141,6 +141,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         nextPosition = null;
         gameField = game.board.getField(position);
 
+        player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
 
         return true;
     }
@@ -170,6 +171,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 getGameField().removeRobot();
                 restartPoint.getGameField().addRobot(this);
                 gameField = restartPoint.getGameField();
+                position = gameField.getPosition();
+                player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
 
             }
         }
