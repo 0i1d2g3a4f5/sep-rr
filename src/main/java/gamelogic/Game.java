@@ -3,6 +3,7 @@ package gamelogic;
 
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
+import server_package.Client;
 import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
@@ -89,7 +90,7 @@ public class Game {
         this.programmingPhase = programmingPhase;
     }
     public GameBoard board;
-    public Player join(AdvancedClient client) {
+    public Player join(Client client) {
         Player player = new Player(client,this);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getId() == client.getId()) {
@@ -158,6 +159,12 @@ public class Game {
         }
     }
 
+    /**
+     * @author Ringer
+     * @param player
+     * @param position
+     * @return
+     */
     public synchronized boolean placeRobot(Player player,Position position){
         if(board.getField(position).contains(ElementName.ROBOT)) return false;
         else if(board.getField(position).contains(ElementName.STARTPOINT)){
@@ -167,6 +174,11 @@ public class Game {
         } else return false;
     }
 
+    /**
+     * @author Ringer
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public void startGame() throws IOException, InterruptedException {
         setup();
         continueGame=true;
@@ -174,9 +186,10 @@ public class Game {
 
     }
 
-
-
-
+    /**
+     * @author Ringer
+     * @throws InterruptedException
+     */
     public void gameLoop() throws InterruptedException {
         while (continueGame){
 

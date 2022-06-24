@@ -8,9 +8,7 @@ import gamelogic.JsonSerializable;
 import gamelogic.Position;
 import gamelogic.game_elements.Antenna;
 import gamelogic.game_elements.ElementFactory;
-import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
-import gamelogic.game_elements.robot.Robot;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -130,7 +128,7 @@ public class GameBoard implements JsonSerializable {
         for(int x = 0;x<dimensionX;x++){
             boardMap.add(new ArrayList<GameField>());
             for (int y = 0;y<dimensionY;y++){
-                boardMap.get(x).add(new GameField(y,x));
+                boardMap.get(x).add(new GameField(this, x, y));
             }
         }
 

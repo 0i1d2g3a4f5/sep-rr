@@ -49,6 +49,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.position = position;
     }
 
+    public void takeDamage(int count) {
+        player.sendMessage();
+    }
     public Player getPlayer() {
         return player;
     }
