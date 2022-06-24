@@ -28,26 +28,23 @@ public class BasicClient extends Client {
             while(getIsListening() && !getServer().getIsTerminated()  ){
                 try {
                     TimeUnit.MILLISECONDS.sleep(100);
-                    counter++;
-                    if(counter>=500){
-                        sendSelf(new MessageAlive());
-                        counter=0;
+                    String hahaha = "";
+                    while (socket.getInputStream().available() > 0) {
+                        char a = (char)socket.getInputStream().read();
+                        hahaha+=String.valueOf(a);
                     }
-                    if (getIsListening() && getSocket().getInputStream().available() > 0) {
-                        InputStream inputStream = getSocket().getInputStream();
-                        DataInputStream dataInputStream = new DataInputStream(inputStream);
-                        String input = dataInputStream.readUTF();
-                        JsonObject jsonObject = JsonParser.parseString(input).getAsJsonObject();
-                        //Message message = new Message(jsonObject);
-                        System.out.println("RECEIVED BY " + getId() + " :: " + jsonObject.toString());
-                        getMessageProcessor().process(jsonObject);
-
+                    if(!hahaha.equals("")){
+                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
+                        System.out.println("RECEIVED :: " + jsonObject);
+                        try {
+                            messageProcessor.process(jsonObject);
+                        } catch (ClientNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
                 catch (InterruptedException | IOException e) {
                     throw new RuntimeException(e);
-                } catch (ClientNotFoundException e) {
-                    e.printStackTrace();
                 }
 
             }

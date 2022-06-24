@@ -45,9 +45,18 @@ public abstract class Client {
         try {
             OutputStream outputStream = socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            dataOutputStream.writeUTF(message.toJSON().toString());
+            String toSend = message.toJSON().toString();
+            String print = "";
+            for(int i=0; i<toSend.length(); i++){
+                print+=toSend.charAt(i);
+                dataOutputStream.write((int )toSend.toCharArray()[i]);
+                dataOutputStream.flush();
+            }
+            System.out.println(print);
+            /*dataOutputStream.writeUTF(message.toJSON().toString());
+            System.out.println("very important:" + message.toJSON().toString());
             dataOutputStream.flush();
-            System.out.println("SENT :: " + message.toString());
+            System.out.println("SENT :: " + message.toString());*/
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }

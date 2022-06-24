@@ -19,9 +19,9 @@ public abstract class Message{
 
 
     public Message(JsonObject jsonObject){
-        type = jsonObject.get("MessageType").getAsString();
+        type = jsonObject.get("messageType").getAsString();
         messageType = new MessageTypeFactory().fromString(type);
-        content = jsonObject.get("MessageBody").getAsJsonObject();
+        content = jsonObject.get("messageBody").getAsJsonObject();
     }
 
     /**
@@ -43,8 +43,9 @@ public abstract class Message{
 
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();
-        result.add("MessageType", new JsonPrimitive(type));
-        result.add("MessageBody", content);
+
+        result.add("messageType", new JsonPrimitive(type));
+        result.add("messageBody", content);
         return result;
     }
 

@@ -12,7 +12,6 @@ class GameTest {
     @Test
     void getInstance(){
         Game game = Game.getInstance();
-        game.continueGame=true;
 
         assertEquals(true,game.getContinueGame());
     }
@@ -32,11 +31,7 @@ class GameTest {
         assertNotNull(game);
     }
 
-    @Test
-    void getContinueGame() {
-        Game game = Game.getInstance();
-        assertEquals(game.continueGame,game.getContinueGame());
-    }
+
 
     @Test
     void startGame() {
