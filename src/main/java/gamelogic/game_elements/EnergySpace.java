@@ -60,7 +60,7 @@ public class EnergySpace extends GameElement implements Activatable {
     }
 
     /**
-     *
+     * @author Ringer
      */
     @Override
     public void activate() {

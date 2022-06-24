@@ -43,6 +43,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
 
     /**
+     * @author Ringer
      * update the location of the robot
      * @param position
      */
@@ -62,17 +63,31 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.player = player;
     }
 
+    /**
+     * @author Ringer
+     * @return boolean
+     */
     public boolean left(){
         directionFacing = directionFacing.left();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
 
         return true;
     }
+
+    /**
+     * @author Ringer
+     * @return boolean
+     */
     public boolean right(){
         directionFacing = directionFacing.right();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         return true;
     }
+
+    /**
+     * @author Ringer
+     * @return boolean
+     */
 
     public boolean uTurn(){
         directionFacing = directionFacing.opposite();
@@ -81,6 +96,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    /**
+     * @author Ringer
+     * @param distance
+     * @return
+     */
     public boolean forward(int distance){
         Position oldPos = position.clone();
         boolean success = true;
@@ -92,6 +112,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         //game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
         return success;
     }
+
+    /**
+     * @author Ringer
+     * @param distance
+     * @return
+     */
     public boolean backward(int distance){
         Position oldPos = position.clone();
         boolean success = true;
@@ -105,7 +131,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
-     *
+     * @auther Ringer
      * @param gear is The Direction
      * @return
      */
@@ -119,6 +145,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    /**
+     * @author Ringer
+     * @param targetDirection
+     * @return
+     */
     public boolean displace(Direction targetDirection){
         setNextPosition(targetDirection);
 
@@ -128,7 +159,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
-
+    /**
+     * @author Ringer
+     * @return
+     */
     private boolean changePositionOnBoard() {
 
         Game game = Game.getInstance();
@@ -146,6 +180,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    /**
+     * @author Ringer
+     * @param targetDirection
+     * @return
+     */
     private boolean checkNextPosition(Direction targetDirection) {
 
         Game game = Game.getInstance();
@@ -163,6 +202,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    /**
+     * @uthor Ringer
+     */
     public void reboot(){
 
 
@@ -180,6 +222,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * @author Ringer
      * set the next Position if a robot meet the gear
      * @param targetDirection
      * @return

@@ -38,6 +38,11 @@ public class GameField {
 
     }
 
+    /**
+     * @auther Ringer
+     * @param direction
+     * @return
+     */
     public GameField getNeighbor(Direction direction){
          switch (direction){
              case NORTH -> {
@@ -64,7 +69,9 @@ public class GameField {
         return elements;
     }
 
-
+    /**
+     * @author Ringer
+     */
     public GameElement getElement(ElementName elementName){
          if(contains(elementName)){
              for (GameElement gameElement:elements) {
@@ -78,7 +85,9 @@ public class GameField {
     }
 
 
-
+    /**
+     * @author Ringer
+     */
     public boolean contains(ElementName elementName){
         for (GameElement element:elements) {
             if(element.getType()==elementName) return true;
@@ -86,12 +95,18 @@ public class GameField {
         return false;
     }
 
+    /**
+     * @author Ringer
+     */
     public boolean checkWall(Direction direction){
         for (GameElement element:elements) {
             if(element.getType()==ElementName.WALL&& element.orientations.contains(direction.toString())) return true;
         }
         return false;
     }
+    /**
+     * @author Ringer
+     */
 
     public boolean addElement(GameElement element) {
         if(element.getType()==ElementName.ROBOT) return false;
@@ -128,6 +143,9 @@ public class GameField {
         }
     }
 
+    /**
+     * @author Ringer
+     */
     public boolean addRobot(Robot robot) {
          if(getRobot()==null){
              elements.add(robot);
@@ -135,6 +153,9 @@ public class GameField {
          } else return false;
     }
 
+    /**
+     * @author Ringer
+     */
     public void removeEnergyCube() {
         for (GameElement element:elements) {
             if(element.getType()==ElementName.ENERGY_CUBE) {

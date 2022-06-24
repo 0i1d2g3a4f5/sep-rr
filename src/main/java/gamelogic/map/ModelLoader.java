@@ -6,7 +6,9 @@ import com.google.gson.JsonParser;
 import utility.JsonReader;
 
 import java.io.*;
-
+/**
+ * @author Ringer
+ */
 public class ModelLoader {
 
     Gson gson = new Gson();

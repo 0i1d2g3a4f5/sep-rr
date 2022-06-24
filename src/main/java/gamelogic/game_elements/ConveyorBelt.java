@@ -20,6 +20,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
     private Color color;
     int speed;
 
+    /**
+     * @author Ringer
+     */
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
         orientations.add(targetDirection);
         orientations.add(originDirection1);
@@ -29,6 +32,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
         else if (color == Color.GREEN) speed =1;
         else throw new IOException("Color not found");
     }
+    /**
+     * @author Ringer
+     */
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
 
         orientations.add(targetDirection);
@@ -39,6 +45,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
         else throw new IOException("Color not found");
     }
 
+    /**
+     * @author Ringer
+     */
     public ConveyorBelt(Color color,Direction targetDirection) throws IOException {
 
         orientations.add(targetDirection);
@@ -112,7 +121,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
         return jsonObject;
 
     }
-
+    /**
+     * @author Ringer
+     */
     @Override
     public void activate() {
         if(gameField.contains(ElementName.ROBOT)){

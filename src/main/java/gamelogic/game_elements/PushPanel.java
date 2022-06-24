@@ -50,6 +50,9 @@ public class PushPanel extends GameElement implements Activatable {
         return jsonObject;
     }
 
+    /**
+     * @author Ringer
+     */
     @Override
     public void activate() {
 

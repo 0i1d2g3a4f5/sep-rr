@@ -48,7 +48,9 @@ public class Antenna extends GameElement implements Serializable {
         return jsonObject;
 
     }
-
+    /**
+     * @author Ringer
+     */
     public double calculateDistance(Robot robot){
         double sideA = robot.getPosition().getX()-this.getGameField().getPosition().getX();
         double sideB = robot.getPosition().getY()-this.getGameField().getPosition().getY();

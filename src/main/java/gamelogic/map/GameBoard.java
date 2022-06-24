@@ -254,7 +254,9 @@ public class GameBoard implements JsonSerializable {
         jsonMap.add("gameMap",jsonArrayLVL1);
         return jsonMap;
     }
-
+    /**
+     * @author Ringer
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

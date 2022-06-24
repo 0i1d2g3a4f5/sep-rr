@@ -31,6 +31,7 @@ public class MessageSelectionFinished extends Message{
     }
 
     /**
+     * @author Ringer
      * @param client
      * @param isBasic
      * @throws IOException

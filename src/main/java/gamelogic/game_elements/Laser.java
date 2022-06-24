@@ -111,6 +111,8 @@ public class Laser extends GameElement implements Activatable {
 
 
     /**
+     * @author Ringer
+     *
      * @param o the object to be compared.
      * @return
      */
