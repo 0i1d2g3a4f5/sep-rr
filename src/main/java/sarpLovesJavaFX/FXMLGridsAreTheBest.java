@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -48,6 +49,7 @@ public class FXMLGridsAreTheBest extends Application {
 
 
     public static Scene fromMap(GameBoard gameBoard){
+        ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
         for(int j=0; j<gameBoard.getDimensionY(); j++){
             for(int i=0; i<gameBoard.getDimensionX(); i++){
@@ -116,9 +118,8 @@ public class FXMLGridsAreTheBest extends Application {
                 gridPane.add(stackPane, i, j);
             }
         }
-        gridPane.setScaleX(0.5);
-        gridPane.setScaleY(0.5);
-        Scene scene = new Scene(gridPane);
+        scrollPane.setContent(gridPane);
+        Scene scene = new Scene(scrollPane, 512, 512);
         return scene;
 
     }

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
 import newmessages.MessageSendChat;
 /**
  * @author Sarp Cagin Erdogan
@@ -19,6 +20,7 @@ public class ClientChatBasicController {
 
     @FXML
     private TextArea inputArea;
+    
 
     @FXML
     void submitButton(ActionEvent event) {
