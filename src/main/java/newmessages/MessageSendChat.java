@@ -6,10 +6,10 @@ import server_package.Client;
 
 import java.io.IOException;
 
-
 /**
- * @author Isabel Muhm
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
+
 
 public class MessageSendChat extends Message{
 

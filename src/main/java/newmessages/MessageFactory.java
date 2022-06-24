@@ -1,6 +1,9 @@
 package newmessages;
 
 import com.google.gson.JsonObject;
+/**
+ * @author Sarp Cagin Erdogan, Mark Ringer
+ */
 
 public class MessageFactory {
 

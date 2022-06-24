@@ -5,10 +5,10 @@ import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
 import java.io.IOException;
-
 /**
- * @author Sarp Cagin Erdogan
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
+
 public class MessageNameUnavailable extends Message{
     public String name;
     public MessageNameUnavailable(String string){

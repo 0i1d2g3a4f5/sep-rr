@@ -7,6 +7,9 @@ import gamelogic.cards.CardName;
 import server_package.Client;
 
 import java.io.IOException;
+/**
+ * @author Mark Ringer
+ */
 
 public class MessageYourCards extends Message{
 

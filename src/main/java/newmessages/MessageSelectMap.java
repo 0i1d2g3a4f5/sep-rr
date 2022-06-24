@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 /**
- * @author Sarp Cagin Erdogan, Isabel Muhm
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
 
 public class MessageSelectMap extends Message{

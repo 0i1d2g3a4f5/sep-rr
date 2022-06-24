@@ -1,4 +1,7 @@
 package newmessages;
+/**
+ * @author Sarp Cagin Erdogan, Mark Ringer
+ */
 
 public class MessageTypeFactory {
     public MessageType fromString(String string) {

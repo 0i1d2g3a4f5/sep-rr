@@ -5,6 +5,9 @@ import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
 import java.io.IOException;
+/**
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
+ */
 
 public class MessageValuesAccepted extends Message{
     public String name;

@@ -7,8 +7,9 @@ import server_package.Client;
 import java.io.IOException;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
+
 public class MessageFigureUnavailable extends Message{
     public int figure;
     public MessageFigureUnavailable(int i){

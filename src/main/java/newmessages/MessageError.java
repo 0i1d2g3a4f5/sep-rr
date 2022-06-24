@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 /**
- * @author Isabel Muhm
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
 
 public class MessageError extends Message{

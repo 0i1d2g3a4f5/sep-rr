@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Mark Ringer
  */
 
 public abstract class Message{
@@ -24,11 +24,7 @@ public abstract class Message{
         content = jsonObject.get("messageBody").getAsJsonObject();
     }
 
-    /**
-     * @param client
-     * @param isBasic
-     * @author Ringer, Erdogan
-     */
+
     public abstract void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
 

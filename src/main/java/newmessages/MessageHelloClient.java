@@ -5,10 +5,10 @@ import com.google.gson.JsonPrimitive;
 import client_package.Client;
 
 import java.io.IOException;
-
 /**
- * @author Sarp Cagin Erdogan
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
+
 public class MessageHelloClient extends Message{
     public String protocol;
 

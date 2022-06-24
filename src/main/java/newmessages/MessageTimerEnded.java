@@ -7,10 +7,10 @@ import server_package.Client;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 /**
- * @author Isabel Muhm
+ * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
+
 
 public class MessageTimerEnded extends Message{
 

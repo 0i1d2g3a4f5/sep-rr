@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * @author Sarp Cagin Erdogan
+ */
 
 public class FXMLGridsAreTheBest extends Application {
 

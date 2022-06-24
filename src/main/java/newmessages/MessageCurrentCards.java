@@ -12,6 +12,9 @@ import server_package.Client;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Mark Ringer
+ */
 
 public class MessageCurrentCards extends Message {
     ArrayList<Card> cards;
