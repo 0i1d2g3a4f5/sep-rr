@@ -17,7 +17,6 @@ public class MessageMovement extends Message{
     public int y;
 
     public MessageMovement(int clientID, int x, int y){
-        super(clientID, x, y);
         this.clientID = clientID;
         this.x = x;
         this.y = y;
@@ -46,6 +45,17 @@ public class MessageMovement extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

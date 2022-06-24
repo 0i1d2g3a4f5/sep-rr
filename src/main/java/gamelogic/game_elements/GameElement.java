@@ -90,4 +90,6 @@ public abstract class GameElement {
     public int hashCode() {
         return Objects.hash(orientations, getType(), isOnBoard);
     }
+
+
 }

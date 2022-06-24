@@ -16,7 +16,7 @@ public class MessagePlayerTurning extends Message{
     public String rotation;
 
     public MessagePlayerTurning(int clientID, String rotation){
-        super(clientID, rotation);
+
         this.clientID = clientID;
         this.rotation = rotation;
         type = "PlayerTurning";
@@ -42,6 +42,17 @@ public class MessagePlayerTurning extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }

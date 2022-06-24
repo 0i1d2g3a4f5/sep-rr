@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class GameField {
     private Position position;
+    private GameBoard board;
 
     public boolean isActive() {
         return isActive;
@@ -23,19 +24,39 @@ public class GameField {
 
 
 
-     public GameField(Position position) {
+     public GameField(GameBoard board,Position position) {
+         this.board = board;
          elements.add(new Empty());
          this.position = position;
 
     }
 
-    public GameField(int y, int x) {
+    public GameField(GameBoard board, int x, int y) {
+        this.board = board;
         elements.add(new Empty());
         this.position = new Position(y,x);
 
     }
 
-
+    public GameField getNeighbor(Direction direction){
+         switch (direction){
+             case NORTH -> {
+                 return board.getField(position.getY()-1, position.getX());
+             }
+             case SOUTH -> {
+                 return board.getField(position.getY()+1, position.getX());
+             }
+             case EAST -> {
+                 return board.getField(position.getY(), position.getX()+1);
+             }
+             case WEST -> {
+                 return board.getField(position.getY(), position.getX()-1);
+             }
+             default -> {
+                 return null;
+             }
+         }
+    }
 
 
 

@@ -7,6 +7,8 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.game_elements.robot.Robot;
+import gamelogic.map.GameField;
 
 import java.io.IOException;
 
@@ -85,8 +87,28 @@ public class Laser extends GameElement implements Activatable {
 
     @Override
     public void activate() {
-
+        laserMovement(gameField);
     }
+
+    /**
+     * @author Ringer
+     * simulates the Lasermovement
+     * @param gameField
+     */
+
+    private void laserMovement(GameField gameField){
+        if(gameField != null){
+            if(gameField.contains(ElementName.ROBOT)){
+                Robot robot = (Robot) gameField.getElement(ElementName.ROBOT);
+                robot.takeDamage(count);
+            }else{
+                GameField nextField = gameField.getNeighbor(direction);
+                if(nextField !=null)
+                    if(!gameField.checkWall(direction)&&!nextField.checkWall(direction.opposite())) laserMovement(nextField);
+            }
+        }
+    }
+
 
     /**
      * @param o the object to be compared.
