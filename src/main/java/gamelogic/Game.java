@@ -21,16 +21,15 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author Mark Ringer
+ * Class serves as the main acces to the Gamelogic.
+ * It's a Singleton.
  */
 public class  Game {
-
-
     private int robotsPlaced = 0;
     private boolean programmingPhase = false;
     private boolean continueGame = true;
     private ArrayList<Activatable> elementRegistry;
     private static Game instance;
-
     private Stack<Spam> spamDrawPile;
     private Stack<TrojanHorse> trojanHorseDrawPile;
     private Stack<Virus> virusDrawPile;
@@ -65,12 +64,9 @@ public class  Game {
     }
     private Game() {
     }
-
     public MapName getMapName() {
         return mapName;
     }
-
-
     public void setMapName(MapName mapName) {
         this.mapName = mapName;
     }
@@ -79,13 +75,11 @@ public class  Game {
     }
     /**
      * players join the game
-     *
      * @return
      */
     public boolean isProgramingPhase() {
         return programmingPhase;
     }
-
     public synchronized void setProgrammingPhase(boolean programmingPhase) {
         this.programmingPhase = programmingPhase;
     }

@@ -53,9 +53,9 @@ public class FXMLGridsAreTheBest extends Application {
             for(int i=0; i<gameBoard.getDimensionX(); i++){
                 GameField temp = gameBoard.getGameField(j, i);
                 StackPane stackPane = new StackPane();
-                ImageView mutterficker= new ImageView(new Image("images/tile.png"));
-                stackPane.getChildren().add(mutterficker);
-                stackPane.setAlignment(mutterficker, Pos.CENTER);
+                ImageView imageView= new ImageView(new Image("images/tile.png"));
+                stackPane.getChildren().add(imageView);
+                stackPane.setAlignment(imageView, Pos.CENTER);
 
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
@@ -67,24 +67,24 @@ public class FXMLGridsAreTheBest extends Application {
                             switch (gameElement.orientations.get(0)){
 
                                 case NORTH -> {
-                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorup.png"));
-                                    stackPane.getChildren().add(mutterficker2);
-                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                    ImageView imageView1= new ImageView(new Image("images/conveyorup.png"));
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case SOUTH -> {
-                                    ImageView mutterficker2= new ImageView(new Image("images/conveyordown.png"));
-                                    stackPane.getChildren().add(mutterficker2);
-                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                    ImageView imageView1= new ImageView(new Image("images/conveyordown.png"));
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case EAST-> {
-                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorright.png"));
-                                    stackPane.getChildren().add(mutterficker2);
-                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                    ImageView imageView1= new ImageView(new Image("images/conveyorright.png"));
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                                 case WEST -> {
-                                    ImageView mutterficker2= new ImageView(new Image("images/conveyorleft.png"));
-                                    stackPane.getChildren().add(mutterficker2);
-                                    stackPane.setAlignment(mutterficker2, Pos.CENTER);
+                                    ImageView imageView1= new ImageView(new Image("images/conveyorleft.png"));
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
                                 }
                             }
                             break;
