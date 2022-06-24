@@ -31,6 +31,11 @@ public class MessageAlive extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            client.sendSelf(new MessageAlive());
+        } else{
+
+        }
 
     }
 }

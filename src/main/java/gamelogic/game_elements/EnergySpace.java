@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Direction;
+import gamelogic.game_elements.robot.Robot;
 
 import java.io.IOException;
 
@@ -62,7 +63,10 @@ public class EnergySpace extends GameElement implements Activatable {
      */
     @Override
     public void activate() {
-
+        if(gameField.contains(ElementName.ROBOT)){
+            Robot robot =(Robot) gameField.getElement(ElementName.ROBOT);
+            robot.getPlayer().addEnergyCube();
+        }
     }
 
     /**@author Ringer

@@ -50,4 +50,19 @@ public class MessageReceivedChat extends Message{
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
+
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            if(this.isPrivate){
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.CHATMESSAGE, new TaskString1("[Private] " + this.from + " :: " + this.message)));
+            }
+            else{
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.CHATMESSAGE, new TaskString1(this.from + " :: " + this.message)));
+            }
+        }else{
+
+        }
+
+    }
 }

@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Mark Ringer
  */
-public class Game {
+public class  Game {
 
 
     private int robotsPlaced = 0;

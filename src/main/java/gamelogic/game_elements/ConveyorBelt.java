@@ -19,9 +19,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
     int speed;
 
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
-        orientations.add(targetDirection.toString());
-        orientations.add(originDirection1.toString());
-        orientations.add(originDirection2.toString());
+        orientations.add(targetDirection);
+        orientations.add(originDirection1);
+        orientations.add(originDirection2);
         type = ElementName.CONVEYORBELT;
         if(color ==Color.BLUE ) speed =2;
         else if (color == Color.GREEN) speed =1;
@@ -29,8 +29,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
     }
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
 
-        orientations.add(targetDirection.toString());
-        orientations.add(originDirection.toString());
+        orientations.add(targetDirection);
+        orientations.add(originDirection);
         type = ElementName.CONVEYORBELT;
         if(color ==Color.BLUE ) speed =2;
         else if (color == Color.GREEN) speed =1;
@@ -39,8 +39,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
     public ConveyorBelt(Color color,Direction targetDirection) throws IOException {
 
-        orientations.add(targetDirection.toString());
-        orientations.add(targetDirection.opposite().toString());
+        orientations.add(targetDirection);
+        orientations.add(targetDirection.opposite());
         type = ElementName.CONVEYORBELT;
         if(color ==Color.BLUE ) speed =2;
         else if (color == Color.GREEN) speed =1;
@@ -106,7 +106,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
         jsonObject.add("speed",new JsonPrimitive(speed) );
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(orientations.toString()));
         return jsonObject;
 
     }

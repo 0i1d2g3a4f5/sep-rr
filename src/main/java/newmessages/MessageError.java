@@ -44,6 +44,19 @@ public class MessageError extends Message{
 
     }
 
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            System.out.println(this.error);
+            if(this.error.equals("ERROR :: Figure already taken.")){
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.FIGURETAKEN, new TaskContent()));
+            }
+        } else{
+
+        }
+
+    }
+
 
     /**
      * @param server

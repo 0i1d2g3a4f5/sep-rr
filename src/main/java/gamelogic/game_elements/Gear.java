@@ -8,8 +8,11 @@ import gamelogic.Activatable;
 import gamelogic.Direction;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Gear extends GameElement implements Activatable {
+
+    ArrayList<GearDirection> orientations;
 
     @Override
     public void activate() {

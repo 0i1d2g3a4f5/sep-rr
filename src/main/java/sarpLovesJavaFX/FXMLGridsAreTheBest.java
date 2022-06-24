@@ -32,6 +32,21 @@ public class FXMLGridsAreTheBest extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    void rotate(ImageView imageView,int direction){
+        imageView.setRotate(imageView.getRotate()+direction*90);
+    }
+
+    void rotateAnimated(ImageView imageView,int direction){
+        for (int i = 0; i < 90; i++) {
+            imageView.setRotate(imageView.getRotate()+direction);
+            try {
+                wait(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
 
     public GridPane fromMap(GameBoard gameBoard){
         GridPane gridPane = new GridPane();
