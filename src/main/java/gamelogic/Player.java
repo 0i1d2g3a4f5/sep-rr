@@ -1,14 +1,11 @@
 package gamelogic;
 
-import newmessages.MessageCardSelected;
-import newmessages.MessageShuffleCoding;
+import newmessages.*;
 import server_package.Client;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
-import newmessages.Message;
-import newmessages.MessageCardPlayed;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -192,6 +189,7 @@ public class Player{
 
     public void addEnergyCube(){
         EnergyCube ++;
+        ;
     }
     public int getEnergyCube(){
         return EnergyCube;

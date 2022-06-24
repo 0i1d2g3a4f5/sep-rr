@@ -6,9 +6,7 @@ import com.google.gson.*;
 import gamelogic.Activatable;
 import gamelogic.JsonSerializable;
 import gamelogic.Position;
-import gamelogic.game_elements.Antenna;
-import gamelogic.game_elements.ElementFactory;
-import gamelogic.game_elements.GameElement;
+import gamelogic.game_elements.*;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -34,6 +32,8 @@ public class GameBoard implements JsonSerializable {
     public GameField getField(Position position){
         return boardMap.get(position.getX()).get(position.getY());
     }
+
+    public ArrayList<RestartPoint> restartPoints = new ArrayList<>();
 
     public ArrayList<ArrayList<GameField>> boardMap;
 
@@ -210,6 +210,9 @@ public class GameBoard implements JsonSerializable {
                 for (JsonElement elementLVL3:arrayLVL3) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
                     gameField.addElement(element);
+                    if(element.getType() == ElementName.RESTARTPOINT){
+                        restartPoints.add((RestartPoint) element);
+                    }
                 }
 
                 y++;

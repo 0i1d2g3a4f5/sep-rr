@@ -15,6 +15,7 @@ public enum ElementName {
     ROBOT("Robot"),
     ANTENNA("Antenna"),
     RESTARTPOINT("RestartPoint"),
+    ENERGY_CUBE("EnergyCube"),
     EMPTY("Empty");
 
     @Override

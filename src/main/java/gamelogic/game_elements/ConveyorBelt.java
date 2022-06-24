@@ -7,6 +7,8 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.game_elements.robot.Robot;
+import gamelogic.map.GameField;
 
 
 import java.io.IOException;
@@ -113,7 +115,15 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
     @Override
     public void activate() {
+        if(gameField.contains(ElementName.ROBOT)){
+            Robot robot = gameField.getRobot();
 
+            if(color ==Color.BLUE){
+                robot.displace(orientations.get(0));
+            }
+            robot.displace(orientations.get(0));
+
+        }
     }
 
     public Color getColor() {

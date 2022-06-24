@@ -134,4 +134,14 @@ public class GameField {
              return true;
          } else return false;
     }
+
+    public void removeEnergyCube() {
+        for (GameElement element:elements) {
+            if(element.getType()==ElementName.ENERGY_CUBE) {
+                elements.remove(element);
+                return;
+            }
+        }
+
+    }
 }
