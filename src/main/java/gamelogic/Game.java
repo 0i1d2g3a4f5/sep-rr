@@ -25,6 +25,8 @@ import java.util.concurrent.TimeUnit;
  * It's a Singleton.
  */
 public class  Game {
+
+    private int activeRegister = -1;
     private int robotsPlaced = 0;
     private boolean programmingPhase = false;
     private boolean continueGame = true;
@@ -73,6 +75,10 @@ public class  Game {
     public boolean getContinueGame() {
         return continueGame;
     }
+    public int getActiveRegister() {
+        return activeRegister;
+    }
+
     /**
      * players join the game
      * @return
@@ -309,6 +315,7 @@ public class  Game {
         ArrayList<Player> activationList;
         ArrayList<Card> activatedRegisters = new ArrayList<>();
         for(int i = 0; i < 5;i++){
+            activeRegister = i;
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
                 activatedRegisters.add(player.getRegister(i));
@@ -324,6 +331,7 @@ public class  Game {
                 element.activate();
             }
         }
+        activeRegister = -1;
 
     }
 

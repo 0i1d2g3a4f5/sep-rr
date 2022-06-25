@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="desperate_drosseln_hp" target="14" />
+      <module name="AI" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,20 +1,21 @@
 package gamelogic.game_elements;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+import com.google.gson.*;
 import gamelogic.Activatable;
 import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.Game;
 import gamelogic.game_elements.robot.Robot;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PushPanel extends GameElement implements Activatable {
     Direction direction;
-    public PushPanel(Direction direction){
+    ArrayList<Integer> activateRegisters;
+    public PushPanel(Direction direction, ArrayList<Integer> activationRegisters){
         this.direction=direction;
+        this.activateRegisters=activationRegisters;
         type =ElementName.PUSHPANEL;
     }
 
@@ -29,7 +30,13 @@ public class PushPanel extends GameElement implements Activatable {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
-        PushPanel pushPanel = new PushPanel(direction);
+        JsonArray jsonArrayRegisters = jsonObject.get("registers").getAsJsonArray();
+        ArrayList<Integer> activationRegisters = new ArrayList<>();
+        for (JsonElement activeRegister:jsonArrayRegisters) {
+            activationRegisters.add(activeRegister.getAsInt());
+        }
+
+        PushPanel pushPanel = new PushPanel(direction,activationRegisters);
         pushPanel.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
@@ -47,6 +54,11 @@ public class PushPanel extends GameElement implements Activatable {
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
         jsonObject.add("orientations",gson.toJsonTree(orientations));
+        JsonArray jsonArrayRegisters = new JsonArray();
+        for (int register:activateRegisters) {
+            jsonArrayRegisters.add(register);
+        }
+        jsonObject.add("registers",jsonArrayRegisters);
         return jsonObject;
     }
 
@@ -56,7 +68,7 @@ public class PushPanel extends GameElement implements Activatable {
     @Override
     public void activate() {
 
-        if(gameField.contains(ElementName.ROBOT)){
+        if(gameField.contains(ElementName.ROBOT)&& (activateRegisters.contains(Game.getInstance().getActiveRegister()+1))){
             Robot robot = gameField.getRobot();
             robot.displace(orientations.get(0));
 

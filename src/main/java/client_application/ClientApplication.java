@@ -153,7 +153,6 @@ public class ClientApplication extends Application {
 
 
     }
-
     public void launchMapView(Scene scene){
         stageMapView = new Stage();
         stageMapView.setScene(scene);
