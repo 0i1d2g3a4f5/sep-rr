@@ -551,7 +551,7 @@
       </GridPane>
       <ImageView fitHeight="135.0" fitWidth="363.0" layoutX="143.0" layoutY="20.0">
          <image>
-            <Image url="@images/robologo.png" />
+            <Image url="@images/robo-logo.png" />
          </image>
       </ImageView>
       <GridPane layoutX="62.0" layoutY="433.0" prefHeight="110.0" prefWidth="409.0">

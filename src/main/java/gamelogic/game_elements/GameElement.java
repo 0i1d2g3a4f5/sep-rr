@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.map.GameField;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +18,8 @@ public abstract class GameElement {
 
     protected GameField gameField;
     public List<Direction> orientations = new ArrayList<Direction>();
+    public List<Color> color = new ArrayList<Color>();
+    public List<Gear.GearDirection> geardirection = new ArrayList<Gear.GearDirection>();
 
     public ElementName getType(){
         return type;

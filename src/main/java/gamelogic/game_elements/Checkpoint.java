@@ -15,11 +15,15 @@ import java.io.IOException;
 
 public class Checkpoint extends GameElement implements Activatable {
     public static int numberOfCheckpoints;
-    int count;
+    public static int count;
     public Checkpoint(int count){
         super(ElementName.CHECKPOINT);
         this.count =count;
         numberOfCheckpoints++;
+    }
+
+    public static int getCount(){
+        return count;
     }
 
     /**
