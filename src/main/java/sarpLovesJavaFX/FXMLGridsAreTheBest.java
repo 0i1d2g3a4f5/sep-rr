@@ -15,8 +15,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import gamelogic.*;
 
-import static gamelogic.Color.BLUE;
-
 /**
  * @author Sarp Cagin Erdogan
  * @author Qinyi
@@ -42,7 +40,11 @@ public class FXMLGridsAreTheBest extends Application {
         }
     }
 
-
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param gameBoard
+     * @return
+     */
     public static Scene fromMap(GameBoard gameBoard){
         ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
@@ -57,280 +59,40 @@ public class FXMLGridsAreTheBest extends Application {
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:
-                            switch(gameElement.orientations.get(0)) {
-                                case NORTH -> {
-                                    ImageView imageView0 = new ImageView(new Image("images/LaserB.png"));
-                                    stackPane.getChildren().add(imageView0);
-                                    stackPane.setAlignment(imageView0, Pos.CENTER);
-                                }
-                                case SOUTH -> {
-                                    ImageView imageView0 = new ImageView(new Image("images/LaserT.png"));
-                                    stackPane.getChildren().add(imageView0);
-                                    stackPane.setAlignment(imageView0,Pos.CENTER);
-                                }
-                                case EAST -> {
-                                    ImageView imageView0 = new ImageView(new Image("images/LaserL.png"));
-                                    stackPane.getChildren().add(imageView0);
-                                    stackPane.setAlignment(imageView0, Pos.CENTER);
-                                }
-                                case WEST -> {
-                                    ImageView imageView0 = new ImageView(new Image("images/LaserR.png"));
-                                    stackPane.getChildren().add(imageView0);
-                                    stackPane.setAlignment(imageView0, Pos.CENTER);
-                                }
-                            }
+                            caseLaser(stackPane, gameElement);
                             break;
                         case CHECKPOINT:
-                            Checkpoint checkpoint = (Checkpoint) gameElement;
-                            switch (checkpoint.getCount()){
-                                case 1 -> {
-                                    ImageView imageViewcheck = new ImageView(new Image("images/checkPoint1.png"));
-                                    stackPane.getChildren().add(imageViewcheck);
-                                    stackPane.setAlignment(imageViewcheck, Pos.CENTER);
-                                }
-                                case 2 ->{
-                                    ImageView imageViewcheck = new ImageView(new Image("images/checkPoint2.png"));
-                                    stackPane.getChildren().add(imageViewcheck);
-                                    stackPane.setAlignment(imageViewcheck, Pos.CENTER);
-                                }
-                                case 3->{
-                                    ImageView imageViewcheck = new ImageView(new Image("images/checkPoint3.png"));
-                                    stackPane.getChildren().add(imageViewcheck);
-                                    stackPane.setAlignment(imageViewcheck, Pos.CENTER);
-                                }
-                                case 4->{
-                                    ImageView imageViewcheck = new ImageView(new Image("images/checkPoint4.png"));
-                                    stackPane.getChildren().add(imageViewcheck);
-                                    stackPane.setAlignment(imageViewcheck, Pos.CENTER);
-                                }
-                            }
+                            caseCheckpoint(stackPane, (Checkpoint) gameElement);
                             break;
                         case CONVEYORBELT:
-                            ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
-                            switch (conveyorBelt.getColor()){
-                                case BLUE -> {
-                                    switch (gameElement.orientations.get(0)){
-                                        case NORTH -> {
-                                            ImageView imageView1= new ImageView(new Image("images/bluebelt.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case SOUTH -> {
-                                            ImageView imageView1= new ImageView(new Image("images/bluebeltdown.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case EAST-> {
-                                            ImageView imageView1= new ImageView(new Image("images/bluebeltR.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case WEST -> {
-                                            ImageView imageView1= new ImageView(new Image("images/bluebeltL.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                    }
-                                }
-                                case GREEN -> {
-                                    switch (gameElement.orientations.get(0)){
-                                        case NORTH -> {
-                                            ImageView imageView1= new ImageView(new Image("images/greenbelt.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case SOUTH -> {
-                                            ImageView imageView1= new ImageView(new Image("images/greenbeltdown.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case EAST-> {
-                                            ImageView imageView1= new ImageView(new Image("images/greenbeltR.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                        case WEST -> {
-                                            ImageView imageView1= new ImageView(new Image("images/greenbeltL.png"));
-                                            stackPane.getChildren().add(imageView1);
-                                            stackPane.setAlignment(imageView1, Pos.CENTER);
-                                        }
-                                    }
-                                }
-                            }
-
+                            caseConveyorBelt(stackPane, gameElement);
                             break;
                         case ENERGYSPACE:
-                            ImageView imageView2 = new ImageView("images/energy.png");
-                            stackPane.getChildren().add(imageView2);
-                            stackPane.setAlignment(imageView2,Pos.CENTER);
+                            caseEnergySpace(stackPane);
                             break;
                         case GEAR:
-                            Gear gear = (Gear) gameElement;
-                            switch (gear.getGearDirection()){
-                                case CLOCKWISE -> {
-                                    ImageView imageView3 = new ImageView("images/clockwisegear.png");
-                                    stackPane.getChildren().add(imageView3);
-                                    stackPane.setAlignment(imageView3,Pos.CENTER);
-                                }
-                                case COUNTERCLOCKWISE -> {
-                                    ImageView imageView3 = new ImageView("images/conterclockwise.png");
-                                    stackPane.getChildren().add(imageView3);
-                                    stackPane.setAlignment(imageView3,Pos.CENTER);
-                                }
-                            }
+                            caseGear(stackPane, (Gear) gameElement);
                             break;
                         case PUSHPANEL:
-                            switch(Game.getInstance().getActiveRegister()){
-                                case 1,3,5 -> {
-                                    switch (gameElement.orientations.get(0)){
-                                        case NORTH -> {
-                                            ImageView imageView4 = new ImageView("images/push135B.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case SOUTH -> {
-                                            ImageView imageView4 = new ImageView("images/push135T.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case EAST -> {
-                                            ImageView imageView4 = new ImageView("images/push135L.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case WEST -> {
-                                            ImageView imageView4 = new ImageView("images/push135R.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                    }
-                                }
-                                case 2,4 ->{
-                                    switch (gameElement.orientations.get(0)){
-                                        case NORTH -> {
-                                            ImageView imageView4 = new ImageView("images/push24B.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case SOUTH -> {
-                                            ImageView imageView4 = new ImageView("images/push24T.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case EAST -> {
-                                            ImageView imageView4 = new ImageView("images/push24L.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                        case WEST -> {
-                                            ImageView imageView4 = new ImageView("images/push24R.png");
-                                            stackPane.getChildren().add(imageView4);
-                                            stackPane.setAlignment(imageView4,Pos.CENTER);
-                                        }
-                                    }
-                                }
-                            }
-
+                            casePushPanel(stackPane, gameElement);
                             break;
                         case PIT:
-                            ImageView imageView5 = new ImageView("images/pit.png");
-                            stackPane.getChildren().add(imageView5);
-                            stackPane.setAlignment(imageView5,Pos.CENTER);
+                            casePit(stackPane);
                             break;
                         case STARTPOINT:
-                            ImageView imageView6 = new ImageView("images/startpoint.png");
-                            stackPane.getChildren().add(imageView6);
-                            stackPane.setAlignment(imageView6,Pos.CENTER);
+                            caseStartPoint(stackPane);
                             break;
                         case WALL:
-                            switch (gameElement.orientations.get(0)){
-                                case NORTH ->{
-                                    ImageView imageView7 = new ImageView("images/wallT.png");
-                                    stackPane.getChildren().add(imageView7);
-                                    stackPane.setAlignment(imageView7,Pos.CENTER);
-                                }
-                                case SOUTH -> {
-                                    ImageView imageView7 = new ImageView("images/wallB.png");
-                                    stackPane.getChildren().add(imageView7);
-                                    stackPane.setAlignment(imageView7,Pos.CENTER);
-                                }
-                                case WEST -> {
-                                    ImageView imageView7 = new ImageView("images/wallL.png");
-                                    stackPane.getChildren().add(imageView7);
-                                    stackPane.setAlignment(imageView7,Pos.CENTER);
-                                }
-                                case EAST -> {
-                                    ImageView imageView7 = new ImageView("images/wallR.png");
-                                    stackPane.getChildren().add(imageView7);
-                                    stackPane.setAlignment(imageView7,Pos.CENTER);
-                                }
-                            }
+                            caseWall(stackPane, gameElement);
                             break;
                         case ROBOT:
-                            Robot robot = (Robot) gameElement;
-                            switch (robot.getColor()){
-                                case BLUE -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/roboblue.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-                                case RED -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/robored.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-                                case GREEN -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/robogreen.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-                                case ORANGE -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/roboorange.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-                                case PURPLE -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/robopurple.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-                                case YELLOW -> {
-                                    ImageView imageView8 = new ImageView(new Image("images/roboyellow.png"));
-                                    stackPane.getChildren().add(imageView8);
-                                    stackPane.setAlignment(imageView8, Pos.CENTER);
-                                }
-
-                            }
+                            caseRobot(stackPane, (Robot) gameElement);
                             break;
                         case ANTENNA:
-                            switch (gameElement.orientations.get(0)){
-                                case NORTH -> {
-                                    ImageView imageView9 = new ImageView(new Image("images/antennanorth.png"));
-                                    stackPane.getChildren().add(imageView9);
-                                    stackPane.setAlignment(imageView9, Pos.CENTER);
-                                }
-                                case SOUTH -> {
-                                    ImageView imageView9 = new ImageView(new Image("images/antennasouth.png"));
-                                    stackPane.getChildren().add(imageView9);
-                                    stackPane.setAlignment(imageView9, Pos.CENTER);
-                                }
-                                case WEST -> {
-                                    ImageView imageView9 = new ImageView(new Image("images/antennawest.png"));
-                                    stackPane.getChildren().add(imageView9);
-                                    stackPane.setAlignment(imageView9, Pos.CENTER);
-                                }
-                                case EAST -> {
-                                    ImageView imageView9 = new ImageView(new Image("images/antennaeast.png"));
-                                    stackPane.getChildren().add(imageView9);
-                                    stackPane.setAlignment(imageView9, Pos.CENTER);
-                                }
-                            }
+                            caseAntenna(stackPane, gameElement);
                             break;
                         case RESTARTPOINT:
-                            ImageView imageView10 = new ImageView(new Image("images/restart.png"));
-                            stackPane.getChildren().add(imageView10);
-                            stackPane.setAlignment(imageView10, Pos.CENTER);
-                            break;
+                            caseRestartPoint(stackPane);
                         case EMPTY:
                             //leer
                             break;
@@ -343,6 +105,359 @@ public class FXMLGridsAreTheBest extends Application {
         Scene scene = new Scene(scrollPane, 512, 512);
         return scene;
 
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     */
+    private static void caseRestartPoint(StackPane stackPane) {
+        ImageView imageView10 = new ImageView(new Image("images/restart.png"));
+        stackPane.getChildren().add(imageView10);
+        stackPane.setAlignment(imageView10, Pos.CENTER);
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseAntenna(StackPane stackPane, GameElement gameElement) {
+        switch (gameElement.orientations.get(0)){
+            case NORTH -> {
+                ImageView imageView9 = new ImageView(new Image("images/antennanorth.png"));
+                stackPane.getChildren().add(imageView9);
+                stackPane.setAlignment(imageView9, Pos.CENTER);
+            }
+            case SOUTH -> {
+                ImageView imageView9 = new ImageView(new Image("images/antennasouth.png"));
+                stackPane.getChildren().add(imageView9);
+                stackPane.setAlignment(imageView9, Pos.CENTER);
+            }
+            case WEST -> {
+                ImageView imageView9 = new ImageView(new Image("images/antennawest.png"));
+                stackPane.getChildren().add(imageView9);
+                stackPane.setAlignment(imageView9, Pos.CENTER);
+            }
+            case EAST -> {
+                ImageView imageView9 = new ImageView(new Image("images/antennaeast.png"));
+                stackPane.getChildren().add(imageView9);
+                stackPane.setAlignment(imageView9, Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseRobot(StackPane stackPane, Robot gameElement) {
+        Robot robot = gameElement;
+        switch (robot.getColor()){
+            case BLUE -> {
+                ImageView imageView8 = new ImageView(new Image("images/roboblue.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+            case RED -> {
+                ImageView imageView8 = new ImageView(new Image("images/robored.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+            case GREEN -> {
+                ImageView imageView8 = new ImageView(new Image("images/robogreen.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+            case ORANGE -> {
+                ImageView imageView8 = new ImageView(new Image("images/roboorange.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+            case PURPLE -> {
+                ImageView imageView8 = new ImageView(new Image("images/robopurple.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+            case YELLOW -> {
+                ImageView imageView8 = new ImageView(new Image("images/roboyellow.png"));
+                stackPane.getChildren().add(imageView8);
+                stackPane.setAlignment(imageView8, Pos.CENTER);
+            }
+
+        }
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseWall(StackPane stackPane, GameElement gameElement) {
+        switch (gameElement.orientations.get(0)){
+            case NORTH ->{
+                ImageView imageView7 = new ImageView("images/wallT.png");
+                stackPane.getChildren().add(imageView7);
+                stackPane.setAlignment(imageView7,Pos.CENTER);
+            }
+            case SOUTH -> {
+                ImageView imageView7 = new ImageView("images/wallB.png");
+                stackPane.getChildren().add(imageView7);
+                stackPane.setAlignment(imageView7,Pos.CENTER);
+            }
+            case WEST -> {
+                ImageView imageView7 = new ImageView("images/wallL.png");
+                stackPane.getChildren().add(imageView7);
+                stackPane.setAlignment(imageView7,Pos.CENTER);
+            }
+            case EAST -> {
+                ImageView imageView7 = new ImageView("images/wallR.png");
+                stackPane.getChildren().add(imageView7);
+                stackPane.setAlignment(imageView7,Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     */
+    private static void caseStartPoint(StackPane stackPane) {
+        ImageView imageView6 = new ImageView("images/startpoint.png");
+        stackPane.getChildren().add(imageView6);
+        stackPane.setAlignment(imageView6,Pos.CENTER);
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     */
+    private static void casePit(StackPane stackPane) {
+        ImageView imageView5 = new ImageView("images/pit.png");
+        stackPane.getChildren().add(imageView5);
+        stackPane.setAlignment(imageView5,Pos.CENTER);
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void casePushPanel(StackPane stackPane, GameElement gameElement) {
+        switch(Game.getInstance().getActiveRegister()){
+            case 1,3,5 -> {
+                switch (gameElement.orientations.get(0)){
+                    case NORTH -> {
+                        ImageView imageView4 = new ImageView("images/push135B.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case SOUTH -> {
+                        ImageView imageView4 = new ImageView("images/push135T.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case EAST -> {
+                        ImageView imageView4 = new ImageView("images/push135L.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case WEST -> {
+                        ImageView imageView4 = new ImageView("images/push135R.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                }
+            }
+            case 2,4 ->{
+                switch (gameElement.orientations.get(0)){
+                    case NORTH -> {
+                        ImageView imageView4 = new ImageView("images/push24B.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case SOUTH -> {
+                        ImageView imageView4 = new ImageView("images/push24T.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case EAST -> {
+                        ImageView imageView4 = new ImageView("images/push24L.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                    case WEST -> {
+                        ImageView imageView4 = new ImageView("images/push24R.png");
+                        stackPane.getChildren().add(imageView4);
+                        stackPane.setAlignment(imageView4,Pos.CENTER);
+                    }
+                }
+            }
+        }
+
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseGear(StackPane stackPane, Gear gameElement) {
+        Gear gear = gameElement;
+        switch (gear.getGearDirection()){
+            case CLOCKWISE -> {
+                ImageView imageView3 = new ImageView("images/clockwisegear.png");
+                stackPane.getChildren().add(imageView3);
+                stackPane.setAlignment(imageView3,Pos.CENTER);
+            }
+            case COUNTERCLOCKWISE -> {
+                ImageView imageView3 = new ImageView("images/conterclockwise.png");
+                stackPane.getChildren().add(imageView3);
+                stackPane.setAlignment(imageView3,Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     */
+    private static void caseEnergySpace(StackPane stackPane) {
+        ImageView imageView2 = new ImageView("images/energy.png");
+        stackPane.getChildren().add(imageView2);
+        stackPane.setAlignment(imageView2,Pos.CENTER);
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseConveyorBelt(StackPane stackPane, GameElement gameElement) {
+        ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
+        switch (conveyorBelt.getColor()){
+            case BLUE -> {
+                switch (gameElement.orientations.get(0)){
+                    case NORTH -> {
+                        ImageView imageView1= new ImageView(new Image("images/bluebelt.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case SOUTH -> {
+                        ImageView imageView1= new ImageView(new Image("images/bluebeltdown.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case EAST-> {
+                        ImageView imageView1= new ImageView(new Image("images/bluebeltR.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case WEST -> {
+                        ImageView imageView1= new ImageView(new Image("images/bluebeltL.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                }
+            }
+            case GREEN -> {
+                switch (gameElement.orientations.get(0)){
+                    case NORTH -> {
+                        ImageView imageView1= new ImageView(new Image("images/greenbelt.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case SOUTH -> {
+                        ImageView imageView1= new ImageView(new Image("images/greenbeltdown.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case EAST-> {
+                        ImageView imageView1= new ImageView(new Image("images/greenbeltR.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                    case WEST -> {
+                        ImageView imageView1= new ImageView(new Image("images/greenbeltL.png"));
+                        stackPane.getChildren().add(imageView1);
+                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseCheckpoint(StackPane stackPane, Checkpoint gameElement) {
+        Checkpoint checkpoint = gameElement;
+        switch (checkpoint.getCount()){
+            case 1 -> {
+                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint1.png"));
+                stackPane.getChildren().add(imageViewcheck);
+                stackPane.setAlignment(imageViewcheck, Pos.CENTER);
+            }
+            case 2 ->{
+                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint2.png"));
+                stackPane.getChildren().add(imageViewcheck);
+                stackPane.setAlignment(imageViewcheck, Pos.CENTER);
+            }
+            case 3->{
+                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint3.png"));
+                stackPane.getChildren().add(imageViewcheck);
+                stackPane.setAlignment(imageViewcheck, Pos.CENTER);
+            }
+            case 4->{
+                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint4.png"));
+                stackPane.getChildren().add(imageViewcheck);
+                stackPane.setAlignment(imageViewcheck, Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    /**
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @param stackPane
+     * @param gameElement
+     */
+    private static void caseLaser(StackPane stackPane, GameElement gameElement) {
+        switch(gameElement.orientations.get(0)) {
+            case NORTH -> {
+                ImageView imageView0 = new ImageView(new Image("images/LaserB.png"));
+                stackPane.getChildren().add(imageView0);
+                stackPane.setAlignment(imageView0, Pos.CENTER);
+            }
+            case SOUTH -> {
+                ImageView imageView0 = new ImageView(new Image("images/LaserT.png"));
+                stackPane.getChildren().add(imageView0);
+                stackPane.setAlignment(imageView0,Pos.CENTER);
+            }
+            case EAST -> {
+                ImageView imageView0 = new ImageView(new Image("images/LaserL.png"));
+                stackPane.getChildren().add(imageView0);
+                stackPane.setAlignment(imageView0, Pos.CENTER);
+            }
+            case WEST -> {
+                ImageView imageView0 = new ImageView(new Image("images/LaserR.png"));
+                stackPane.getChildren().add(imageView0);
+                stackPane.setAlignment(imageView0, Pos.CENTER);
+            }
+        }
+        return;
     }
 
 }

@@ -118,9 +118,7 @@ public class  Game {
             throw new RuntimeException(e);
         }
         elementRegistry = board.getRegistry();
-        for (Player player :playerList) {
-            player.setRobot(new Robot(new Position(1,1)));
-        }
+        //TODO set Robots
 
         //TODO special cards
 
