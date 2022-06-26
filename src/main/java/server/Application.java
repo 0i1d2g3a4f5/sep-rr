@@ -18,6 +18,10 @@ public class Application extends javafx.application.Application {
     Server server;
     ServerController serverController;
     Stage mainStage;
+
+    public void addTask(Task task){
+        //TODO: check it please
+    }
     @Override
     public void start(Stage stage) throws Exception {
         mainStage = new Stage();
