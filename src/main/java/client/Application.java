@@ -77,7 +77,7 @@ public class Application extends javafx.application.Application {
 
     }
     void launchGame(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("game.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientGameBasic.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
             gameController=fxmlLoader.getController();
