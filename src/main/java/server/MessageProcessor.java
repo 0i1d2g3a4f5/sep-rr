@@ -17,7 +17,7 @@ public class MessageProcessor {
         this.client=client;
     }
     void process(JsonObject jsonObject){
-        Message message = new Message(jsonObject);
+        Message message = new Message(jsonObject); //TODO: should be implemented to activemessagesinFrontend or activemessagesinBackend
         switch (message.type){
             case "HelloServer" -> {
                 MessageHelloServer messageGroupIdentification = new MessageHelloServer(jsonObject);

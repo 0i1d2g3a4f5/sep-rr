@@ -14,7 +14,7 @@ public class MessageProcessor {
         this.client=client;
     }
     void process(JsonObject jsonObject){
-        Message message = new Message(jsonObject);
+        Message message = new Message(jsonObject);//TODO: should be implemented to the activemessagesinFrontend or activemessagesinBackend
         switch (message.type){
             case "HelloClient" -> {
                 MessageHelloClient messageProtocol = new MessageHelloClient(jsonObject);
@@ -104,7 +104,7 @@ public class MessageProcessor {
                 System.out.println("Handle error message");
             }
             case "CardPlayed" -> {
-                MessagePlayedCard messageCardPlayed = new MessagePlayedCard(jsonObject);
+                MessageCardPlayed messageCardPlayed = new MessageCardPlayed(jsonObject);
                 //check if clientId equals my own ID -> then show other message?
                 if(messageCardPlayed.clientID == client.id) {
                     System.out.println("\"You played \"" + messageCardPlayed.card);
