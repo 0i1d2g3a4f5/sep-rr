@@ -6,10 +6,8 @@ import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.game_elements.robot.Robot;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 public class PushPanel extends GameElement implements Activatable {
     Direction direction;
     ArrayList<Integer> activateRegisters;
@@ -18,7 +16,6 @@ public class PushPanel extends GameElement implements Activatable {
         this.activateRegisters=activationRegisters;
         type =ElementName.PUSHPANEL;
     }
-
     /**
      * @author Ringer
      * builds an Object from a JsonObject
@@ -35,13 +32,9 @@ public class PushPanel extends GameElement implements Activatable {
         for (JsonElement activeRegister:jsonArrayRegisters) {
             activationRegisters.add(activeRegister.getAsInt());
         }
-
         PushPanel pushPanel = new PushPanel(direction,activationRegisters);
         pushPanel.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-
     }
-
     /**
      * @author Ringer
      * transforms the object to a jsonObject
@@ -49,7 +42,6 @@ public class PushPanel extends GameElement implements Activatable {
      */
     @Override
     public JsonObject toJson(){
-
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
@@ -61,22 +53,16 @@ public class PushPanel extends GameElement implements Activatable {
         jsonObject.add("registers",jsonArrayRegisters);
         return jsonObject;
     }
-
     /**
      * @author Ringer
      */
     @Override
     public void activate() {
-
         if(gameField.contains(ElementName.ROBOT)&& (activateRegisters.contains(Game.getInstance().getActiveRegister()+1))){
             Robot robot = gameField.getRobot();
             robot.displace(orientations.get(0));
-
         }
-
-
     }
-
     /**
      * @param o the object to be compared.
      * @return

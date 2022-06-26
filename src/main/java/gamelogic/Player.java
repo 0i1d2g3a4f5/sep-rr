@@ -189,7 +189,7 @@ public class Player{
 
     public void addEnergyCube(){
         EnergyCube ++;
-        ;
+
     }
     public int getEnergyCube(){
         return EnergyCube;

@@ -332,7 +332,9 @@ public class  Game {
             }
         }
         activeRegister = -1;
-
+        for (Player player:playerList) {
+            player.clearRegister();
+        }
     }
 
     private void careEnergyCube(){
