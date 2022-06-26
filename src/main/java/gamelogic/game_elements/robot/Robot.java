@@ -9,6 +9,7 @@ import newmessages.MessageMovement;
 import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Qinyi, Mark
@@ -16,6 +17,9 @@ import java.io.IOException;
  */
 public class Robot extends GameElement implements RobotMovement, Activatable {
 
+
+
+    private final Color color;
     private Game game;
 
     private Direction directionFacing;
@@ -33,6 +37,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private Position nextPosition;
     private Direction nextDirectionFacing;
 
+    public Color getColor() {
+        return color;
+    }
     public Position getPosition() {
         return position;
     }
@@ -47,9 +54,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * update the location of the robot
      * @param position
      */
-    public Robot (Position position){
+    public Robot (Position position, ArrayList<Direction> orientations,Color color){
         game =Game.getInstance();
         this.position = position;
+        this.orientations = orientations;
+        this.color = color;
     }
 
     public void takeDamage(int count) {

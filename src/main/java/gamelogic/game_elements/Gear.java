@@ -5,7 +5,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
-import gamelogic.Direction;
 import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
@@ -13,12 +12,16 @@ import java.util.ArrayList;
 
 public class Gear extends GameElement implements Activatable {
 
-    ArrayList<GearDirection> orientations;
+    public GearDirection getGearDirection() {
+        return gearDirection;
+    }
+
+    GearDirection gearDirection;
 
     @Override
     public void activate() {
         if(gameField.contains(ElementName.ROBOT)){
-            if(orientations.get(0)==GearDirection.CLOCKWISE){
+            if(gearDirection==GearDirection.CLOCKWISE){
                 gameField.getRobot().right();
                 gameField.getRobot().getPlayer().getClient().sendAll(new MessagePlayerTurning(gameField.getRobot().getPlayer().getClient().getId(),"clockwise"));
             } else{
@@ -45,7 +48,7 @@ public class Gear extends GameElement implements Activatable {
         }
     }
     public Gear(GearDirection direction){
-        orientations.add(direction);
+        gearDirection = direction;
         type = ElementName.GEAR;
     }
     boolean turnRight = false;
@@ -61,12 +64,7 @@ public class Gear extends GameElement implements Activatable {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
-        GearDirection gearDirection;
-        switch (orientations.get(0).getAsString()){
-            case "clockwise" -> gearDirection = GearDirection.CLOCKWISE;
-            case "counterclockwise" -> gearDirection = GearDirection.COUNTERCLOCKWISE;
-            default -> throw new IOException("GearDirection not Found");
-        }
+        GearDirection gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
         Gear gear = new Gear(gearDirection);
         gear.isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
@@ -85,7 +83,7 @@ public class Gear extends GameElement implements Activatable {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(gearDirection));
         return jsonObject;
     }
 

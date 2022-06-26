@@ -18,8 +18,7 @@ public abstract class GameElement {
 
     protected GameField gameField;
     public List<Direction> orientations = new ArrayList<Direction>();
-    public List<Color> color = new ArrayList<Color>();
-    public List<Gear.GearDirection> geardirection = new ArrayList<Gear.GearDirection>();
+
 
     public ElementName getType(){
         return type;

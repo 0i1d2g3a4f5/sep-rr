@@ -1,30 +1,22 @@
 package sarpLovesJavaFX;
 
-import com.google.gson.JsonObject;
-import gamelogic.game_elements.Checkpoint;
-import gamelogic.game_elements.ConveyorBelt;
-import gamelogic.game_elements.GameElement;
-import gamelogic.game_elements.PushPanel;
+import gamelogic.game_elements.*;
+import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.GameField;
-import gamelogic.map.MapCreator;
 import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import gamelogic.*;
 
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import static gamelogic.Color.BLUE;
+
 /**
  * @author Sarp Cagin Erdogan
  * @author Qinyi
@@ -89,7 +81,8 @@ public class FXMLGridsAreTheBest extends Application {
                             }
                             break;
                         case CHECKPOINT:
-                            switch (Checkpoint.getCount()){
+                            Checkpoint checkpoint = (Checkpoint) gameElement;
+                            switch (checkpoint.getCount()){
                                 case 1 -> {
                                     ImageView imageViewcheck = new ImageView(new Image("images/checkPoint1.png"));
                                     stackPane.getChildren().add(imageViewcheck);
@@ -113,7 +106,8 @@ public class FXMLGridsAreTheBest extends Application {
                             }
                             break;
                         case CONVEYORBELT:
-                            switch (gameElement.color.get(0)){
+                            ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
+                            switch (conveyorBelt.getColor()){
                                 case BLUE -> {
                                     switch (gameElement.orientations.get(0)){
                                         case NORTH -> {
@@ -171,7 +165,8 @@ public class FXMLGridsAreTheBest extends Application {
                             stackPane.setAlignment(imageView2,Pos.CENTER);
                             break;
                         case GEAR:
-                            switch (gameElement.geardirection.get(0)){
+                            Gear gear = (Gear) gameElement;
+                            switch (gear.getGearDirection()){
                                 case CLOCKWISE -> {
                                     ImageView imageView3 = new ImageView("images/clockwisegear.png");
                                     stackPane.getChildren().add(imageView3);
@@ -272,7 +267,8 @@ public class FXMLGridsAreTheBest extends Application {
                             }
                             break;
                         case ROBOT:
-                            switch (gameElement.color.get(0)){
+                            Robot robot = (Robot) gameElement;
+                            switch (robot.getColor()){
                                 case BLUE -> {
                                     ImageView imageView8 = new ImageView(new Image("images/roboblue.png"));
                                     stackPane.getChildren().add(imageView8);
