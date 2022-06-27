@@ -15,10 +15,8 @@ public abstract class AIClient extends Client {
         setIsBasic(isBasic);
         this.aiController = aiController;
     }
+
     public abstract void createSocket();
-
-
-
 
 
 }
