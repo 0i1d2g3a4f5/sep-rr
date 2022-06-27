@@ -16,7 +16,8 @@ public abstract class AIClient extends Client {
         this.aiController = aiController;
     }
 
-    public abstract void createSocket();
+    public abstract void createSocket(String ip, int port);
+    public abstract void sayHello(String group, String protocol);
 
 
 }

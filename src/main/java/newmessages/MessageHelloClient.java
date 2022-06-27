@@ -55,7 +55,7 @@ public class MessageHelloClient extends Message{
         if(isBasic) {
             if (this.protocol.equals(client.getAiController().protocolVersion)) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
-                client.sendSelf(new MessageHelloServer(client.getAiController().groupName,true,client.getAiController().protocolVersion));
+                client.sayHello(client.getAiController().groupName, client.getAiController().protocolVersion);
             } else {
                 System.out.println("ERROR :: False communication protocol.");
             }

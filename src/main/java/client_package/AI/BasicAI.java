@@ -12,14 +12,6 @@ public class BasicAI extends AIClient{
     public BasicAI(boolean isBasic, AIController aiController){
         super(isBasic, aiController);
     }
-    public void createSocket(String ip, int port){
-        try {
-            setSocket(new Socket(ip, port));
-        } catch (IOException e) {
-            //COULDNT CREATE
-            throw new RuntimeException(e);
-        }
-    }
     @Override
     public void listen() {
         setIsListening(true);
@@ -40,6 +32,17 @@ public class BasicAI extends AIClient{
         }
     }
     @Override
-    public void createSocket(){}
+    public void createSocket(String ip, int port){
+        try {
+            setSocket(new Socket(ip, port));
+        } catch (IOException e) {
+            //COULDNT CREATE
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public void sayHello(String group, String protocol){
+        sendSelf(new MessageHelloServer(getAiController().groupName,true,getAiController().protocolVersion));
+    }
 
 }

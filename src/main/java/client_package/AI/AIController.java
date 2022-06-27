@@ -1,5 +1,7 @@
 package client_package.AI;
 
+import newmessages.MessageHelloServer;
+
 public class AIController extends Thread{
     public final String groupName;
     public final String protocolVersion;
@@ -11,9 +13,8 @@ public class AIController extends Thread{
     AIClient aiClient = new BasicAI(true, this);
     @Override
     public void run(){
-        //aiClient.createSocket(IP, PORT);
-        //aiClient.listen();
-
+        aiClient.createSocket(AIMain.IP, AIMain.PORT);
+        aiClient.listen();
     }
 
 
