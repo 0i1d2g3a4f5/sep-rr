@@ -11,8 +11,8 @@ public class AIController extends Thread{
     AIClient aiClient = new BasicAI(true, this);
     @Override
     public void run(){
-        aiClient.createSocket(IP, PORT);
-        aiClient.listen();
+        //aiClient.createSocket(IP, PORT);
+        //aiClient.listen();
 
     }
 

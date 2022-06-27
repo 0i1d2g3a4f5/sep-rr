@@ -39,5 +39,7 @@ public class BasicAI extends AIClient{
             throw new RuntimeException(e);
         }
     }
+    @Override
+    public void createSocket(){}
 
 }

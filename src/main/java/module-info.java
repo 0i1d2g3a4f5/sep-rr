@@ -5,7 +5,8 @@ module desperate.drosseln.hp {
     /*
     requires deeplearning4j.nn;
     requires nd4j.api;
-     */
+    */
+
 
     requires javafx.graphics;
     requires javafx.fxml;
