@@ -1,6 +1,9 @@
 package client_package;
 
 import client_application.ClientApplication;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import newmessages.ClientNotFoundException;
 import newmessages.Message;
 
 import java.io.DataOutputStream;
@@ -9,6 +12,8 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -20,15 +25,15 @@ public abstract class Client {
     protected int figure, id;
     protected Socket socket;
     protected boolean isListening, isReady, isForList, isBasic;
-    protected MessageProcessor messageProcessor;
+    public Client(){
+    }
     public Client(ClientApplication clientApplication, boolean isBasic){
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
         setPlayerList(new ArrayList<>());
     }
-    public Client(boolean isBasic){
-        setIsBasic(isBasic);
-    }
+
+
 
     public Client clientFromId(int inp){
         for(Client client : this.playerList){
@@ -57,6 +62,41 @@ public abstract class Client {
             throw new RuntimeException(e);
         }
     }
+    public abstract void listen();
+    public abstract void process(JsonObject jsonObject);
+    protected Runnable basicListener = new Runnable() {
+        @Override
+        public void run() {
+            while(isListening){
+                try {
+
+                    TimeUnit.MILLISECONDS.sleep(100);
+                    String hahaha = "";
+                    boolean isEnded = false;
+                    int i=0;
+                    while (!isEnded && socket.getInputStream().available() > 0) {
+                        char a = (char)socket.getInputStream().read();
+                        if((int) a == 10){
+                            isEnded=true;
+                        }
+                        hahaha+=String.valueOf(a);
+                    }
+                    if(!hahaha.equals("")){
+                        isEnded=false;
+                        System.out.println("RECEIVED: " + hahaha);
+                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
+                        process(jsonObject);
+                    }
+                }
+                catch (InterruptedException | IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }
+    };
+
+
 
     /*GETTER SETTER
     *
@@ -144,13 +184,6 @@ public abstract class Client {
         isForList = forList;
     }
 
-    public MessageProcessor getMessageProcessor() {
-        return messageProcessor;
-    }
-
-    public void setMessageProcessor(MessageProcessor messageProcessor) {
-        this.messageProcessor = messageProcessor;
-    }
 
     public boolean isBasic() {
         return isBasic;

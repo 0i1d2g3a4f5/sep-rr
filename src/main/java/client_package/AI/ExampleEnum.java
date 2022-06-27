@@ -1,4 +1,4 @@
-package AI;
+package client_package.AI;
 
 public enum ExampleEnum {
     HALLO("hi"),BYE("by");

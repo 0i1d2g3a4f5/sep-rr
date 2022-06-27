@@ -4,13 +4,9 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.Client;
-import client_package.MessageProcessor;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import newmessages.ClientNotFoundException;
-import newmessages.Message;
-import newmessages.MessageAlive;
-import newmessages.MessageHelloServer;
+import newmessages.*;
 
 
 import java.io.*;
@@ -27,10 +23,10 @@ public class BasicClient extends Client {
 
     public BasicClient(ClientApplication clientApplication){
         super(clientApplication, true);
-        setMessageProcessor(new MessageProcessor(this, true));
     }
     public BasicClient(int id, String name, int figure){
-        super(true);
+        super();
+        setIsBasic(true);
         setId(id);
         setName(name);
         setFigure(figure);
@@ -65,48 +61,27 @@ public class BasicClient extends Client {
 
     }
 
-    Runnable listener = new Runnable() {
-        @Override
-        public void run() {
-            while(isListening){
-                try {
 
-                    TimeUnit.MILLISECONDS.sleep(100);
-                    String hahaha = "";
-                    boolean isEnded = false;
-                    int i=0;
-                    while (!isEnded && socket.getInputStream().available() > 0) {
-                        char a = (char)socket.getInputStream().read();
-                        if((int) a == 10){
-                            isEnded=true;
-                        }
-                        hahaha+=String.valueOf(a);
-                    }
-                    if(!hahaha.equals("")){
-                        isEnded=false;
-                        System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
-                        try {
-                            messageProcessor.process(jsonObject);
-                        } catch (ClientNotFoundException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                }
-                catch (InterruptedException | IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        }
-    };
     void socketCreationSuccessful(){
         listen();
         sendSelf(new MessageHelloServer(group, false, "Version 0.1"));
     }
-    void listen(){
+    @Override
+    public void process(JsonObject jsonObject){
+        MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
+        Message message = new MessageFactory().createMessage(messageType, jsonObject);
+        try {
+            message.activateMessageInFrontend(this, isBasic);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClientNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public void listen(){
         setIsListening(true);
-        Thread thread = new Thread(listener);
+        Thread thread = new Thread(basicListener);
         thread.setDaemon(true);
         thread.start();
 

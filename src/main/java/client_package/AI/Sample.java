@@ -1,4 +1,4 @@
-package AI;
+package client_package.AI;
 
 import gamelogic.Position;
 import gamelogic.cards.Card;

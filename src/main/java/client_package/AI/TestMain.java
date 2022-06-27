@@ -1,4 +1,4 @@
-package AI;
+package client_package.AI;
 
 public class TestMain {
     public static void main(String[] args){
