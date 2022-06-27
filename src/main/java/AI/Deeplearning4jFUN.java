@@ -1,5 +1,8 @@
 package AI;
 
+
+/*
+
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -26,8 +29,5 @@ public class Deeplearning4jFUN {
             // ... other hyperparameters
             .list()
             .build();
-
-    
-
-
 }
+ */
