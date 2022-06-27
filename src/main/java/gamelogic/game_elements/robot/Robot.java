@@ -55,6 +55,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @param position
      */
     public Robot (Position position, ArrayList<Direction> orientations,Color color){
+
+        //TODO Change ArrayList<Direction> orientations to Driection direction facing and foill orientations after
         game =Game.getInstance();
         this.position = position;
         this.orientations = orientations;
@@ -62,7 +64,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     public void takeDamage(int count) {
-        //player.sendMessage();
+        //TODO player.sendMessage(), Spam Card
     }
     public Player getPlayer() {
         return player;
@@ -118,7 +120,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 success = false;
             }
         }
-        //game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
+        //TODO game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
         return success;
     }
 
@@ -160,6 +162,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return
      */
     public boolean displace(Direction targetDirection){
+        //TODO better name
         setNextPosition(targetDirection);
 
         if(checkNextPosition(targetDirection))
@@ -215,6 +218,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @uthor Ringer
      */
     public void reboot(){
+        //TODO Check rules if Register is continued
 
 
         for(RestartPoint restartPoint:game.board.restartPoints){
@@ -272,7 +276,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     @Override
     public void activate() {
-
+        //TODO activate Robot Lasers
     }
 
     /**

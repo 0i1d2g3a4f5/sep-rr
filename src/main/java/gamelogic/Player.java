@@ -17,17 +17,11 @@ import static utility.SearchMethods.searchCard;
  * @author Mark Ringer
  */
 public class Player{
-    int numberOfHearts;
-    public boolean isProtected;
-
     public boolean isProgramming;
    // ClientHandler client;
-    boolean myTurn = false;
 
     private int EnergyCube;
     private Card lastPlayedCard;
-    private Direction direction;
-
     private Game game;
     private Card[] register= new Card[5];
     private Stack<Card> deck;
@@ -35,12 +29,12 @@ public class Player{
     private ArrayList<Card> handCards;
     private Robot robot;
 
+    private Client client;
 
     private int checkpointTokens;
 
     //only for testing
     Player() {
-
     }
 
     public Client getClient() {
@@ -48,7 +42,7 @@ public class Player{
     }
 
 
-    private Client client;
+
 
     public Player(Client client, Game game) {
         this.client = client;
@@ -72,6 +66,7 @@ public class Player{
 
 
     public Card[] getAllRegisters() {
+        //TODO ArrayList or Array?
         return register;
     }
 
@@ -83,6 +78,12 @@ public class Player{
         this.checkpointTokens++;
     }
 
+    /**
+     * used by place card
+     * @param card
+     * @param position
+     * @return
+     */
     private boolean addToRegister(Card card,int position){
         if(checkRegister(card,position)){
             register[position] = card;
@@ -107,7 +108,6 @@ public class Player{
      * @return
      */
     public boolean placeCard(CardName cardName, int position){
-
             Card card = searchCard(cardName,handCards);
             if(card !=null&&addToRegister(card,position)){
                 handCards.remove(card);
@@ -117,7 +117,6 @@ public class Player{
     }
 
     public boolean removeCard(int position){
-
         Card card = register[position];
         if(card != null){
             handCards.add(card);
@@ -131,16 +130,7 @@ public class Player{
     /**
      * @author Ringer
      */
-    private int findNextFreeRegister(){
-        for (int i = 0; i < register.length; i++) {
-            if(register[i] == null) return i;
-        }
-        return -1;
-    }
-
-    /**
-     * @author Ringer
-     */
+    //TODO Check use
     private void finishProgramming() throws InterruptedException {
         game.setProgrammingPhase(false);
     }

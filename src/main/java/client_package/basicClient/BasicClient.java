@@ -11,7 +11,7 @@ import newmessages.ClientNotFoundException;
 import newmessages.Message;
 import newmessages.MessageAlive;
 import newmessages.MessageHelloServer;
-import org.json.JSONObject;
+
 
 import java.io.*;
 import java.net.Socket;

@@ -6,13 +6,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.JsonSerializable;
 import gamelogic.map.GameField;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class GameElement {
+public abstract class GameElement implements JsonSerializable {
 
 
 

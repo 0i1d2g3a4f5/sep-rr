@@ -67,6 +67,7 @@ public class PushPanel extends GameElement implements Activatable {
      * @param o the object to be compared.
      * @return
      */
+
     @Override
     public int compareTo(GameElement o) {
         switch (o.getType()){

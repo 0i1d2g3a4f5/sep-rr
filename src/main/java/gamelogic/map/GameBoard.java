@@ -192,6 +192,7 @@ public class GameBoard implements JsonSerializable {
      */
 
     public GameBoard (JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+        //TODO ?
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ElementFactory elementFactory = new ElementFactory();

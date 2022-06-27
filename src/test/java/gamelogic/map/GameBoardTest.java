@@ -42,7 +42,7 @@ class GameBoardTest {
     void getRegistry() throws IOException, InterruptedException {
         ArrayList list = new ArrayList();
         Game game = Game.getInstance();
-        game.setup();
+        //game.setup();
         /*
         game.board.boardMap.forEach((key,value)->{
             if(value.element!=null){

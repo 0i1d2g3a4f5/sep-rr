@@ -90,7 +90,15 @@ public class  Game {
         this.programmingPhase = programmingPhase;
     }
     public GameBoard board;
+
+    /**
+     * @author Mark Ringer
+     * player can join the Game
+     * @param client
+     * @return
+     */
     public Player join(Client client) {
+        //TODO get Robot from player
         Player player = new Player(client,this);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getId() == client.getId()) {
@@ -107,18 +115,20 @@ public class  Game {
      * Does the setup for a new Game, loads the map and creates the different
      * card Decks
      */
-    public void setup() throws IOException, InterruptedException {
+    public void setup(MapName mapName) throws IOException, InterruptedException {
+        this.mapName = mapName;
         sendToAllPlayers(new MessageActivePhase(0));
         DeckSerializer deckSerializer = new DeckSerializer();
+        //TODO initialize player decks
         //select map
         ModelLoader loader = new ModelLoader();
         try {
-            board = loader.loadMap("dizzy_highway.json");
+            //TODO allow different maps
+            board = loader.loadMap(mapName+".json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         elementRegistry = board.getRegistry();
-        //TODO set Robots
 
         //TODO special cards
 
@@ -147,10 +157,7 @@ public class  Game {
 
         //TODO setup Checkpoint Tokens
 
-        //Timer
         //TODO setup Energy cubes
-
-
         //TODO place Robot
         while(robotsPlaced<playerList.size()) {
             wait();
@@ -177,8 +184,8 @@ public class  Game {
      * @throws IOException
      * @throws InterruptedException
      */
-    public void startGame() throws IOException, InterruptedException {
-        setup();
+    public void startGame(MapName mapName) throws IOException, InterruptedException {
+        setup(mapName);
         continueGame=true;
         gameLoop();
 
@@ -271,6 +278,7 @@ public class  Game {
             player.discardAllHandCards();
 
             Card[] register = player.getAllRegisters();
+            //TODO Probably buggy
             ArrayList<Card> drawnCards = new ArrayList<>();
             for (int i = 0; i < register.length; i++) {
                 if(register[i]==null) {
@@ -332,6 +340,7 @@ public class  Game {
         activeRegister = -1;
         for (Player player:playerList) {
             player.clearRegister();
+            player.discardAllHandCards();
         }
     }
 
@@ -355,6 +364,7 @@ public class  Game {
     public void endGame(Player winner){
         continueGame = false;
         sendToAllPlayers(new MessageGameFinished(winner.getClient().getId()));
+        //TODO javafx action
     }
 
     /**
