@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AIMain {
+    public static final String IP = "sep21.dbs.ifi.lmu.de";
+    public static  final int PORT = 52021;
     static ArrayList<AIController> AIControllers= new ArrayList();
 
     public static void main(){
