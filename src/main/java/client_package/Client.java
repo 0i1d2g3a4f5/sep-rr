@@ -3,6 +3,7 @@ package client_package;
 import client_application.ClientApplication;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import gamelogic.map.GameBoard;
 import newmessages.ClientNotFoundException;
 import newmessages.Message;
 
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @author Sarp Cagin Erdogan
  */
 public abstract class Client {
+
     protected List<Client> playerList;
     protected ClientApplication clientApplication;
     protected String group;

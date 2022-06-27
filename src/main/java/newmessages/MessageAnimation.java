@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
@@ -50,6 +51,11 @@ public class MessageAnimation extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
+
+    @Override
+    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 }
