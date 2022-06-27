@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import server_package.Client;
 
@@ -31,6 +32,15 @@ public class MessageAlive extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            client.sendSelf(new MessageAlive());
+        } else{
+
+        }
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
             client.sendSelf(new MessageAlive());
         } else{

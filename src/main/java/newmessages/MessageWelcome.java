@@ -8,6 +8,8 @@ import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -47,6 +49,17 @@ public class MessageWelcome extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.GOTID, new TaskInt1(this.clientID)));
+        }else{
+
+        }
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+
+            client.setId(clientID);
+            client.sendSelf(new MessagePlayerValues(client.getName(), ThreadLocalRandom.current().nextInt(1,7)));
         }else{
 
         }

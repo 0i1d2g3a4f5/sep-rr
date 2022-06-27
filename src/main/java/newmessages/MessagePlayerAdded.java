@@ -71,5 +71,24 @@ public class MessagePlayerAdded extends Message{
         }
 
     }
+    @Override
+    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            if (this.clientID == client.getId()){
+                client.setName(this.name);
+                client.setFigure(this.figure);
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+            }else{
+                client.getPlayerList().add(new BasicClient(this.clientID, this.name, this.figure));
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+            }
+            client.sendSelf(new MessageSetStatus(true));
+        }
+        else{
+            //ADVANCED
+        }
+
+    }
 
 }

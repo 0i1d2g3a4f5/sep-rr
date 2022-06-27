@@ -67,4 +67,21 @@ public class MessagePlayerStatus extends Message {
         }
 
     }
+    @Override
+    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic){
+            if(this.clientID==client.getId()) {
+                client.setIsReady(this.ready);
+                boolean isFirst = false;
+            }
+            else{
+                client.clientFromId(this.clientID).setIsReady(this.ready);
+
+            }
+        }
+        else{
+
+        }
+
+    }
 }

@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.AI.AIClient;
 import com.google.gson.*;
 import server_package.Server;
 
@@ -27,6 +28,7 @@ public abstract class Message{
 
     public abstract void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException;
 
     @Override
     public String toString() {

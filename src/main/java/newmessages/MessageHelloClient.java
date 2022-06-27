@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import client_package.Client;
@@ -42,6 +43,19 @@ public class MessageHelloClient extends Message{
         if(isBasic) {
             if (this.protocol.equals("Version 0.1")) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
+            } else {
+                System.out.println("ERROR :: False communication protocol.");
+            }
+        }
+        else{
+            //ADVANCED
+        }
+    }
+    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(isBasic) {
+            if (this.protocol.equals(client.getAiController().protocolVersion)) {
+                System.out.println("EVENT :: Correct communication protocol verified.");
+                client.sendSelf(new MessageHelloServer(client.getAiController().groupName,true,client.getAiController().protocolVersion));
             } else {
                 System.out.println("ERROR :: False communication protocol.");
             }
