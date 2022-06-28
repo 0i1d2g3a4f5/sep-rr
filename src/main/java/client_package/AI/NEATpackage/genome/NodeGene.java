@@ -1,4 +1,4 @@
-package client_package.AI.genome;
+package client_package.AI.NEATpackage.genome;
 
 public class NodeGene extends Gene{
 

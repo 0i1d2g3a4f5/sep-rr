@@ -1,9 +1,8 @@
-package client_package.AI.neat;
+package client_package.AI.NEATpackage.neat;
 
-import client_package.AI.data_structure.RandomHashSet;
-import client_package.AI.genome.ConnectionGene;
-import client_package.AI.genome.Genome;
-import client_package.AI.genome.NodeGene;
+import client_package.AI.NEATpackage.genome.Genome;
+import client_package.AI.NEATpackage.genome.ConnectionGene;
+import client_package.AI.NEATpackage.genome.NodeGene;
 
 import java.util.ArrayList;
 import java.util.HashMap;

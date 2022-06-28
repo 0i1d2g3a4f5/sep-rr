@@ -1,7 +1,7 @@
-package client_package.AI.genome;
+package client_package.AI.NEATpackage.genome;
 
-import client_package.AI.data_structure.RandomHashSet;
-import client_package.AI.neat.Neat;
+import client_package.AI.NEATpackage.data_structure.RandomHashSet;
+import client_package.AI.NEATpackage.neat.Neat;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -120,6 +120,13 @@ public class Genome {
     }
 
     public void mutate(){
+
+    }
+
+    public void mutate_link(){
+
+    }
+    public void mutate_node(){
 
     }
 

@@ -1,4 +1,4 @@
-package client_package.AI.data_structure;
+package client_package.AI.NEATpackage.data_structure;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;

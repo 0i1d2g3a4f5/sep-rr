@@ -1,6 +1,6 @@
-package client_package.AI.genome;
+package client_package.AI.NEATpackage.genome;
 
-import client_package.AI.neat.Neat;
+import client_package.AI.NEATpackage.neat.Neat;
 
 import java.util.Objects;
 

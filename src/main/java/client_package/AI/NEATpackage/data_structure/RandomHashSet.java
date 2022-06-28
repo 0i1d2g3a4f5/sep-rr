@@ -1,4 +1,6 @@
-package client_package.AI.data_structure;
+package client_package.AI.NEATpackage.data_structure;
+
+import client_package.AI.NEATpackage.genome.Gene;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -28,6 +30,17 @@ public class RandomHashSet<T> {
         if(!set.contains(object)){
             set.add(object);
             data.add(object);
+        }
+    }
+
+    public void addSorted(Gene object){
+        for(int i = 0;i<this.size();i++){
+            int innovation = ((Gene)data.get(i)).getInnovationNumber();
+            if(object.getInnovationNumber()<innovation){
+                data.add(i, (T)object);
+                set.add((T)object);
+                return;
+            }
         }
     }
 
