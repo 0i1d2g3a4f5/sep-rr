@@ -116,18 +116,24 @@ public class  Game {
      * card Decks
      */
     public void setup(MapName mapName) throws IOException, InterruptedException {
+        System.out.println("Game Setup");
         this.mapName = mapName;
         sendToAllPlayers(new MessageActivePhase(0));
         DeckSerializer deckSerializer = new DeckSerializer();
         //TODO initialize player decks
         //select map
+        System.out.println("ModelLoader");
         ModelLoader loader = new ModelLoader();
         try {
             //TODO allow different maps
-            board = loader.loadMap(mapName+".json");
+            System.out.println("load Map");
+            board = loader.loadMap(String.valueOf(mapName));
+            System.out.println("Map: "+board.boardMap);
+            System.out.println("loaded Map");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Map: "+board.boardMap);
         elementRegistry = board.getRegistry();
 
         //TODO special cards

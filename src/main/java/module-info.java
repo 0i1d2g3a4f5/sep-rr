@@ -8,7 +8,7 @@ module desperate.drosseln.hp {
     requires nd4j.api;
     */
 
-
+    requires neat;
     requires javafx.graphics;
     requires javafx.fxml;
     requires com.google.gson;

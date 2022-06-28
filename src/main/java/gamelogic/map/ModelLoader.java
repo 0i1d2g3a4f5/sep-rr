@@ -23,9 +23,10 @@ public class ModelLoader {
 
         GameBoard board;
         jsonString= readFile(mapName);
-        mapJson =  gson.fromJson(jsonString,JsonObject.class);
+        mapJson = gson.fromJson(jsonString,JsonObject.class);
 
         board =new GameBoard(mapJson);
+        System.out.println("Map in loader: "+board.boardMap);
         return board;
     }
 

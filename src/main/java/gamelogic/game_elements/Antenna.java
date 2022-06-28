@@ -7,15 +7,18 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.game_elements.robot.Robot;
+import gamelogic.map.MapName;
 
 import java.io.IOException;
 import java.io.Serializable;
+
+import static gamelogic.map.MapName.DIZZY_HIGHWAY;
 
 public class Antenna extends GameElement implements Serializable {
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
         orientations.add(direction);
-        Game.getInstance().board.setAntenna(this);
+
     }
 
 
@@ -32,7 +35,7 @@ public class Antenna extends GameElement implements Serializable {
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         Antenna antenna = new Antenna(direction);
         antenna.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-        Game.getInstance().board.setAntenna(this);
+
     }
     /**
      * @author Ringer

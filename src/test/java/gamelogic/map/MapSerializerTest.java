@@ -1,5 +1,6 @@
 package gamelogic.map;
 
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,11 +17,11 @@ class MapSerializerTest {
     void tearDown() {
     }
 
-    @Test
+    @Example
     void serializeBoard() {
     }
 
-    @Test
+    @Example
     void deserializeBoard() {
     }
 }

@@ -78,7 +78,7 @@ public class EnergySpace extends GameElement implements Activatable {
     @Override
     public int compareTo(GameElement o) {
         switch (o.getType()){
-            case CHECKPOINT, GEAR-> {
+            case CHECKPOINT, GEAR,EMPTY-> {
                 return 1;
             }
             case CONVEYORBELT, LASER,ROBOT,PUSHPANEL -> {

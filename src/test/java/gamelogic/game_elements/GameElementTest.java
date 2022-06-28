@@ -1,25 +1,26 @@
 package gamelogic.game_elements;
 
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameElementTest {
 
-    @Test
+    @Example
     void getType() {
     }
 
-    @Test
+    @Example
     void testToString() {
     }
 
-    @Test
+    @Example
     void fromJson() {
 
     }
 
-    @Test
+    @Example
     void toJson() {
     }
 }

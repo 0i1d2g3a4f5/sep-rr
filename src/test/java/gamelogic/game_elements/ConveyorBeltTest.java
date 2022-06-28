@@ -2,6 +2,7 @@ package gamelogic.game_elements;
 
 import gamelogic.Color;
 import gamelogic.Direction;
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ConveyorBeltTest {
 
-    @Test
+    @Example
     void toJson() throws IOException {
         ArrayList list = new ArrayList();
         list.add("top");

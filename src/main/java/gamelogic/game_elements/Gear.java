@@ -98,7 +98,7 @@ public class Gear extends GameElement implements Activatable {
             case CHECKPOINT-> {
                 return 1;
             }
-            case CONVEYORBELT, LASER,ROBOT,PUSHPANEL,ENERGYSPACE -> {
+            case CONVEYORBELT, LASER,ROBOT,PUSHPANEL,ENERGYSPACE,EMPTY -> {
                 return -1;
             }
             case GEAR -> {

@@ -1,29 +1,35 @@
 package gamelogic;
 
+import gamelogic.map.MapName;
+import net.jqwik.api.Example;
+import net.jqwik.api.lifecycle.AfterTry;
+import net.jqwik.api.lifecycle.BeforeTry;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
-    @Test
+    @Example
     void getInstance(){
         Game game = Game.getInstance();
 
         assertEquals(true,game.getContinueGame());
     }
 
-    @Test
+    @Example
     void deleteInstance() {
         Game game = Game.getInstance();
         Game.deleteInstance();
         assertFalse(Game.instanceExists());
     }
 
-    @Test
+    @Example
     void testGetInstance() {
         assertFalse(Game.instanceExists());
         Game game = Game.getInstance();
@@ -33,32 +39,32 @@ class GameTest {
 
 
 
-    @Test
-    void startGame() {
-        /*
-        Game game = Game.getInstance();
-        assertNotEquals(true,game.getContinueGame());
-        game.startGame();
-        assertNotEquals(true,game.getContinueGame());
+    @Example
+    void startGame() throws IOException, InterruptedException {
 
-         */
+        Game game = Game.getInstance();
+
+        game.startGame(MapName.DIZZY_HIGHWAY);
+        assertNotNull(game.board);
+
+
     }
 
 
-    @Test
+    @Example
     void winningGame() {
     }
 
-    @BeforeEach
+    @BeforeTry
     void setUp() {
     }
 
-    @AfterEach
+    @AfterTry
     void tearDown() {
         Game.deleteInstance();
     }
 
-    @Test
+    @Example
     void join() {
     }
 }

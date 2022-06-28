@@ -119,7 +119,7 @@ public class Laser extends GameElement implements Activatable {
     @Override
     public int compareTo(GameElement o) {
         switch (o.getType()){
-            case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE -> {
+            case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE,EMPTY -> {
                 return 1;
             }
             case CONVEYORBELT -> {

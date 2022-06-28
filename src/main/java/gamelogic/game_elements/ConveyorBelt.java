@@ -160,7 +160,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
             }
         } else {
             switch (o.getType()){
-                case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE -> {
+                case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE,EMPTY -> {
                     return 1;
                 }
                 case CONVEYORBELT -> {

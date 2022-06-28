@@ -19,11 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameBoardTest {
 
-    @Test
+    @Example
     void testToString() {
     }
 
-    @Test
+    @Example
     void addField() {
         /*
         GameBoard board = new GameBoard();
@@ -34,11 +34,11 @@ class GameBoardTest {
          */
     }
 
-    @Test
+    @Example
     void getField() {
     }
 
-    @Test
+    @Example
     void getRegistry() throws IOException, InterruptedException {
         ArrayList list = new ArrayList();
         Game game = Game.getInstance();
@@ -54,31 +54,31 @@ class GameBoardTest {
          */
     }
 
-    @Test
+    @Example
     void changeActiveStatus() {
     }
 
-    @Test
+    @Example
     void testToString1() {
     }
 
-    @Test
+    @Example
     void addElement() {
     }
 
-    @Test
+    @Example
     void testAddElement() {
     }
 
-    @Test
+    @Example
     void testGetRegistry() {
     }
 
-    @Test
+    @Example
     void getGameField() {
     }
 
-    @Test
+    @Example
     void fromJson() {
     }
 
@@ -87,11 +87,15 @@ class GameBoardTest {
     void testFromJson() throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ModelLoader modelLoader = new ModelLoader();
+        System.out.println("setup");
 
         String before = modelLoader.readFile("dizzy_highway");
+        System.out.println("Modelloader");
         JsonObject jsonObject = gson.fromJson(before,JsonObject.class);
         GameBoard gameBoard = new GameBoard(jsonObject);
+        System.out.println("created");
         String after = gson.toJson(gameBoard.toJson());
+        System.out.println("toString");
         String filePath = "src/main/resources/MapModels/"+"dizzy_highway"+".json";
         File file;
         //System.out.println(board);
@@ -109,7 +113,7 @@ class GameBoardTest {
 
     }
 
-    @Test
+    @Example
     void toJson() {
     }
 }

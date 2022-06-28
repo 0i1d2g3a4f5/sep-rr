@@ -1,5 +1,6 @@
 package gamelogic.map;
 
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,18 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ModelLoaderTest {
 
-    @Test
+    @Example
     void loadMap() {
         ModelLoader modelLoader = new ModelLoader();
         try {
-            modelLoader.loadMap("DizzyHighway");
+            modelLoader.loadMap("dizzy_highway");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         System.out.println(modelLoader.mapJson);
     }
 
-    @Test
+    @Example
     void readFile() {
     }
 }

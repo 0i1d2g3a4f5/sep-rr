@@ -71,7 +71,7 @@ public class PushPanel extends GameElement implements Activatable {
     @Override
     public int compareTo(GameElement o) {
         switch (o.getType()){
-            case CHECKPOINT, GEAR,ENERGYSPACE-> {
+            case CHECKPOINT, GEAR,ENERGYSPACE,EMPTY-> {
                 return 1;
             }
             case CONVEYORBELT, LASER,ROBOT -> {

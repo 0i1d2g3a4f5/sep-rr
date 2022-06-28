@@ -18,6 +18,8 @@ public class GameBoard implements JsonSerializable {
     protected int dimensionY;
     protected int dimensionX;
     private Antenna antenna;
+
+    public ArrayList<ArrayList<GameField>> boardMap;
     public ArrayList<ArrayList<GameField>> getBoardMap() {
         return boardMap;
     }
@@ -35,7 +37,7 @@ public class GameBoard implements JsonSerializable {
 
     public ArrayList<RestartPoint> restartPoints = new ArrayList<>();
 
-    public ArrayList<ArrayList<GameField>> boardMap;
+
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     public int getDimensionX(){
@@ -172,30 +174,22 @@ public class GameBoard implements JsonSerializable {
      * @return
      * @throws IOException
      */
-    public GameBoard (JsonObject json) throws IOException {
-
-        Pair<Integer,Integer> dimensions = getDimensions((JsonArray) json.get("gameMap"));
-
-
-
-        new GameBoard(json,dimensions);
-    }
-
     /**
      * @author Ringer
      * overloaded Constructor
      * builds the game board from the JsonObject
      * @param json
-     * @param dimensions
      * @return
      * @throws IOException
      */
 
-    public GameBoard (JsonObject json,Pair<Integer,Integer> dimensions) throws IOException {
+    public GameBoard (JsonObject json) throws IOException {
         //TODO ?
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ElementFactory elementFactory = new ElementFactory();
+        boardMap = boardMap = new ArrayList<ArrayList<GameField>>();
+        ArrayList<GameField> row = new ArrayList<GameField>();
 
         JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
         JsonArray arrayLVL2;
@@ -206,21 +200,27 @@ public class GameBoard implements JsonSerializable {
         for (JsonElement elementLVL1:arrayLVL1) {
             arrayLVL2 = elementLVL1.getAsJsonArray();
             for (JsonElement elementLVL2:arrayLVL2) {
-                GameField gameField = this.getGameField(y,x);
+                GameField gameField = new GameField(this,y,x);
                 arrayLVL3 = elementLVL2.getAsJsonArray();
                 for (JsonElement elementLVL3:arrayLVL3) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
                     gameField.addElement(element);
+
                     if(element.getType() == ElementName.RESTARTPOINT){
                         restartPoints.add((RestartPoint) element);
                     }
+                    if(element.getType() == ElementName.ANTENNA){
+                        setAntenna((Antenna) element);
+                    }
                 }
-
+                row.add(gameField);
                 y++;
             }
+            boardMap.add(row);
             y=0;
             x++;
         }
+        System.out.println(boardMap);
 
     }
 

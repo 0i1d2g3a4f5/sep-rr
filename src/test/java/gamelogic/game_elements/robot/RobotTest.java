@@ -1,38 +1,39 @@
 package gamelogic.game_elements.robot;
 
+import net.jqwik.api.Example;
 import org.junit.jupiter.api.Test;
 
 class RobotTest {
 
-    @Test
+    @Example
     void left() {
     }
 
-    @Test
+    @Example
     void right() {
     }
 
-    @Test
+    @Example
     void uTurn() {
     }
 
-    @Test
+    @Example
     void forward() {
     }
 
-    @Test
+    @Example
     void backward() {
     }
 
-    @Test
+    @Example
     void getName() {
     }
 
-    @Test
+    @Example
     void testToString() {
     }
 
-    @Test
+    @Example
     void getMaxLives() {
     }
 }
