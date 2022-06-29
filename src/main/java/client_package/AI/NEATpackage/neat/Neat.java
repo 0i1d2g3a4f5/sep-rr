@@ -12,11 +12,40 @@ public class Neat {
 
     private double C1 = 1, C2 = 1, C3 = 1;
 
+    private double WEIGHT_SHIFT_STRENGTH = 0.3;
+    private double WEIGHT_RANDOM_STRENGTH = 1.0;
+
+    private double PROBABILITY_MUTATE_LINK = 0.23;
+    private double PROBABILITY_MUTATE_NODE = 0.37;
+    private double PROBABILITY_MUTATE_WEIGHT_RANDOM= 0.123;
+    private double PROBABILITY_MUTATE_WEIGHT_SHIFT = 0.223;
+    private double PROBABILITY_MUTATE_TOGGLE_LINK = 0.21;
     private HashMap<ConnectionGene,ConnectionGene> allConnections = new HashMap<>();
     private ArrayList<NodeGene> allNodes;
+
     private int inputSize;
     private int maxClients;
     private int outputSize;
+
+    public double getPROBABILITY_MUTATE_LINK() {
+        return PROBABILITY_MUTATE_LINK;
+    }
+
+    public double getPROBABILITY_MUTATE_NODE() {
+        return PROBABILITY_MUTATE_NODE;
+    }
+
+    public double getPROBABILITY_MUTATE_WEIGHT_RANDOM() {
+        return PROBABILITY_MUTATE_WEIGHT_RANDOM;
+    }
+
+    public double getPROBABILITY_MUTATE_WEIGHT_SHIFT() {
+        return PROBABILITY_MUTATE_WEIGHT_SHIFT;
+    }
+
+    public double getPROBABILITY_MUTATE_TOGGLE_LINK() {
+        return PROBABILITY_MUTATE_TOGGLE_LINK;
+    }
 
     public double getC1() {
         return C1;
@@ -28,6 +57,14 @@ public class Neat {
 
     public double getC3() {
         return C3;
+    }
+
+    public double getWEIGHT_SHIFT_STRENGTH() {
+        return WEIGHT_SHIFT_STRENGTH;
+    }
+
+    public double getWEIGHT_RANDOM_STRENGTH() {
+        return WEIGHT_RANDOM_STRENGTH;
     }
 
     public int getInputSize() {

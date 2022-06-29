@@ -120,14 +120,81 @@ public class Genome {
     }
 
     public void mutate(){
-
+        //TODO remove NODE, Remove Connection
+        if(neat.getPROBABILITY_MUTATE_LINK() > Math.random())
+            mutateLink();
+        if(neat.getPROBABILITY_MUTATE_NODE() > Math.random())
+            mutateNode();
+        if(neat.getPROBABILITY_MUTATE_WEIGHT_RANDOM() > Math.random())
+            mutateWeightRandom();
+        if(neat.getPROBABILITY_MUTATE_WEIGHT_SHIFT() > Math.random())
+            mutateWeightShift();
+        if(neat.getPROBABILITY_MUTATE_TOGGLE_LINK() > Math.random())
+            mutateLinkToggle();
     }
 
-    public void mutate_link(){
+    public void mutateLink(){
+        for (int i= 0; i < 100; i++) {
+            NodeGene a = nodes.random_element();
+            NodeGene b = nodes.random_element();
+
+            if(a.getX() == b.getX()){
+                continue;
+            }
+            ConnectionGene con;
+            if(a.getX()<b.getX()){
+                con = new ConnectionGene(a,b);
+            } else {
+                con = new ConnectionGene(b,a);
+            }
+            con = neat.getConnection(con.getOriginGene(),con.getTargetGene());
+            con.setWeight(ThreadLocalRandom.current().nextDouble(-1,1)*neat.getWEIGHT_RANDOM_STRENGTH());
+            connections.addSorted(con);
+            return;
+
+        }
 
     }
-    public void mutate_node(){
+    public void mutateNode(){
+        ConnectionGene con = connections.random_element();
+        if(con == null) return;
+        NodeGene originGene = con.getOriginGene();
+        NodeGene targetGene = con.getTargetGene();
 
+        NodeGene middle = neat.getNode();
+        middle.setX((originGene.getX() + targetGene.getX()) / 2);
+        middle.setY((originGene.getY() + targetGene.getY()) / 2);
+
+        ConnectionGene con1 = neat.getConnection(originGene,middle);
+        ConnectionGene con2 = neat.getConnection(middle,targetGene);
+
+        con1.setWeight(1);
+        con2.setWeight(con.getWeight());
+        con2.setEnabled(con.isEnabled());
+
+        connections.remove(con);
+        connections.add(con1);
+        connections.add(con2);
+        nodes.add(middle);
+
+    }
+    public void mutateWeightShift(){
+        ConnectionGene connectionGene = connections.random_element();
+        if(connectionGene != null){
+            connectionGene.setWeight(connectionGene.getWeight()+ThreadLocalRandom.current().nextDouble(-1,1)*neat.getWEIGHT_SHIFT_STRENGTH());
+        }
+    }
+    public void mutateWeightRandom(){
+        ConnectionGene connectionGene = connections.random_element();
+        if(connectionGene != null){
+            connectionGene.setWeight(ThreadLocalRandom.current().nextDouble(-1,1)*neat.getWEIGHT_RANDOM_STRENGTH());
+        }
+    }
+    public void mutateLinkToggle(){
+        ConnectionGene connectionGene = connections.random_element();
+        if(connectionGene != null){
+            connectionGene.setEnabled(!connectionGene.isEnabled());
+        }
     }
 
     public RandomHashSet<ConnectionGene> getConnections() {
