@@ -61,4 +61,5 @@ public class MessageCheckPointReached extends Message{
     public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
+
 }

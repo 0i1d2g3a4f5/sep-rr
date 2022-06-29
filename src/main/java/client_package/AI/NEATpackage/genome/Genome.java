@@ -135,8 +135,8 @@ public class Genome {
 
     public void mutateLink(){
         for (int i= 0; i < 100; i++) {
-            NodeGene a = nodes.random_element();
-            NodeGene b = nodes.random_element();
+            NodeGene a = nodes.randomElement();
+            NodeGene b = nodes.randomElement();
 
             if(a.getX() == b.getX()){
                 continue;
@@ -156,7 +156,7 @@ public class Genome {
 
     }
     public void mutateNode(){
-        ConnectionGene con = connections.random_element();
+        ConnectionGene con = connections.randomElement();
         if(con == null) return;
         NodeGene originGene = con.getOriginGene();
         NodeGene targetGene = con.getTargetGene();
@@ -179,19 +179,19 @@ public class Genome {
 
     }
     public void mutateWeightShift(){
-        ConnectionGene connectionGene = connections.random_element();
+        ConnectionGene connectionGene = connections.randomElement();
         if(connectionGene != null){
             connectionGene.setWeight(connectionGene.getWeight()+ThreadLocalRandom.current().nextDouble(-1,1)*neat.getWEIGHT_SHIFT_STRENGTH());
         }
     }
     public void mutateWeightRandom(){
-        ConnectionGene connectionGene = connections.random_element();
+        ConnectionGene connectionGene = connections.randomElement();
         if(connectionGene != null){
             connectionGene.setWeight(ThreadLocalRandom.current().nextDouble(-1,1)*neat.getWEIGHT_RANDOM_STRENGTH());
         }
     }
     public void mutateLinkToggle(){
-        ConnectionGene connectionGene = connections.random_element();
+        ConnectionGene connectionGene = connections.randomElement();
         if(connectionGene != null){
             connectionGene.setEnabled(!connectionGene.isEnabled());
         }

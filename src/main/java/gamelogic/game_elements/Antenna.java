@@ -15,6 +15,8 @@ import java.io.Serializable;
 import static gamelogic.map.MapName.DIZZY_HIGHWAY;
 
 public class Antenna extends GameElement implements Serializable {
+
+
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
         orientations.add(direction);

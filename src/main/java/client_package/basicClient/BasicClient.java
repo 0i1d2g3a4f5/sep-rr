@@ -64,7 +64,7 @@ public class BasicClient extends Client {
 
     void socketCreationSuccessful(){
         listen();
-        sendSelf(new MessageHelloServer(group, false, "Version 0.1"));
+        sendSelf(new MessageHelloServer(group, false, "Version 1.0"));
     }
     @Override
     public void process(JsonObject jsonObject){

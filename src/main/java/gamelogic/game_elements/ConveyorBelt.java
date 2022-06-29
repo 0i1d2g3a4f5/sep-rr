@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class ConveyorBelt extends GameElement implements Activatable {
 
-
+    int activationOrder = 1;
     private Color color;
     int speed;
 
@@ -28,8 +28,14 @@ public class ConveyorBelt extends GameElement implements Activatable {
         orientations.add(originDirection1);
         orientations.add(originDirection2);
         type = ElementName.CONVEYORBELT;
-        if(color ==Color.BLUE ) speed =2;
-        else if (color == Color.GREEN) speed =1;
+        if(color ==Color.BLUE ){
+            speed =2;
+            activationOrder = 1;
+        }
+        else if (color == Color.GREEN) {
+            speed =1;
+            activationOrder = 2;
+        }
         else throw new IOException("Color not found");
     }
     /**
@@ -141,48 +147,18 @@ public class ConveyorBelt extends GameElement implements Activatable {
         return color;
     }
 
+    public int getActivationOrder(){
+        return activationOrder;
+    }
+
     /**@author Ringer
      * @param o the object to be compared.
      * @return
      */
     @Override
-    public int compareTo(GameElement o) {
-        if(this.color == Color.BLUE){
-            if(o.getType() == ElementName.CONVEYORBELT){
-                ConveyorBelt cb = (ConveyorBelt) o;
-                if(cb.getColor()==Color.BLUE) {
-                    return 0;
-                }else {
-                    return 1;
-                }
-            } else {
-                return 1;
-            }
-        } else {
-            switch (o.getType()){
-                case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE,EMPTY -> {
-                    return 1;
-                }
-                case CONVEYORBELT -> {
-                    ConveyorBelt cb = (ConveyorBelt) o;
-                    if(cb.getColor()==Color.BLUE) {
-                        return -1;
-                    }else {
-                        return 0;
-                    }
-                }
-                case LASER -> {
-                    return -1;
-                }
-                default -> {
-                    try {
-                        throw new IOException(o.getType()+" is Not Comparable");
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
-
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
     }
 }

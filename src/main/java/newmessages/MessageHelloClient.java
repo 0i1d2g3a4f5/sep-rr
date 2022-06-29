@@ -41,7 +41,7 @@ public class MessageHelloClient extends Message{
     @Override
     public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            if (this.protocol.equals("Version 0.1")) {
+            if (this.protocol.equals("Version 1.0")) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
             } else {
                 System.out.println("ERROR :: False communication protocol.");

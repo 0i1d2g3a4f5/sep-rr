@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class EnergySpace extends GameElement implements Activatable {
 
+    int activationOrder = 7;
     private int count;
 
 
@@ -70,30 +71,21 @@ public class EnergySpace extends GameElement implements Activatable {
             robot.getPlayer().getClient().sendAll(new MessageEnergy(robot.getPlayer().getClient().getId(),1,"EnergyCube"));
         }
     }
+    @Override
+    public int getActivationOrder() {
+        return activationOrder;
+    }
+
+    @Override
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
+    }
 
     /**@author Ringer
      * @param o the object to be compared.
      * @return
      */
-    @Override
-    public int compareTo(GameElement o) {
-        switch (o.getType()){
-            case CHECKPOINT, GEAR,EMPTY-> {
-                return 1;
-            }
-            case CONVEYORBELT, LASER,ROBOT,PUSHPANEL -> {
-                return -1;
-            }
-            case ENERGYSPACE -> {
-                return 0;
-            }
-            default -> {
-                try {
-                    throw new IOException(o.getType()+" is Not Comparable");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }
+
 }

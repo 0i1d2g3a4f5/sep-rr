@@ -116,6 +116,13 @@ public class Player{
             return false;
     }
 
+    public void drawSpam(int count){
+        for (int i = 0; i < count; i++) {
+            discardPile.add(game.getSpamDrawPile().pop());
+        }
+
+    }
+
     public boolean removeCard(int position){
         Card card = register[position];
         if(card != null){

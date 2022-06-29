@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class Gear extends GameElement implements Activatable {
 
+    int activationOrder = 4;
+
     public GearDirection getGearDirection() {
         return gearDirection;
     }
@@ -86,6 +88,10 @@ public class Gear extends GameElement implements Activatable {
         jsonObject.add("orientations",gson.toJsonTree(gearDirection));
         return jsonObject;
     }
+    @Override
+    public int getActivationOrder() {
+        return activationOrder;
+    }
 
     /**
      * @author Ringer
@@ -93,24 +99,9 @@ public class Gear extends GameElement implements Activatable {
      * @return
      */
     @Override
-    public int compareTo(GameElement o) {
-        switch (o.getType()){
-            case CHECKPOINT-> {
-                return 1;
-            }
-            case CONVEYORBELT, LASER,ROBOT,PUSHPANEL,ENERGYSPACE,EMPTY -> {
-                return -1;
-            }
-            case GEAR -> {
-                return 0;
-            }
-            default -> {
-                try {
-                    throw new IOException(o.getType()+" is Not Comparable");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
     }
 }

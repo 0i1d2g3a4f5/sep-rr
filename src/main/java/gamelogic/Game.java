@@ -138,32 +138,37 @@ public class  Game {
 
         //TODO special cards
 
-        //TODO setup Damage cards
         //Setup Spam
+        spamDrawPile = new Stack<Spam>();
         for(int i = 0; i < 38; i++)
             spamDrawPile.add(new Spam());
         //Setup Virus
+        virusDrawPile = new Stack<Virus>();
         for(int i = 0; i < 18; i++)
             virusDrawPile.add(new Virus());
         //Setup TrojanHorse
+        trojanHorseDrawPile = new Stack<TrojanHorse>();
         for(int i = 0; i < 12; i++)
             trojanHorseDrawPile.add(new TrojanHorse());
         //Setup Worm
+        wormDrawPile = new Stack<Worm>();
         for(int i = 0; i<6; i++)
             wormDrawPile.add(new Worm());
 
         //setup upgradeWarehouse
-        upgradeWarehouse = deckSerializer.builtDeck(mapName.toString());
+        //TODO upgrades
+        //upgradeWarehouse = deckSerializer.builtDeck(mapName.toString());
 
         //setup upgradeShop
+        /*
         upgradeShop = new ArrayList<Card>();
         for(int i = 0;i< playerList.size();i++){
             upgradeShop.add(upgradeWarehouse.pop());
         }
 
-        //TODO setup Checkpoint Tokens
+         */
 
-        //TODO setup Energy cubes
+
         //TODO place Robot
         while(robotsPlaced<playerList.size()) {
             wait();
@@ -255,7 +260,7 @@ public class  Game {
      * @author Ringer
      * Draw cards and arrange them
      */
-    private void programmingPhase() throws InterruptedException {
+    private synchronized void programmingPhase() throws InterruptedException {
 
         programmingPhase =true;
         drawCards();

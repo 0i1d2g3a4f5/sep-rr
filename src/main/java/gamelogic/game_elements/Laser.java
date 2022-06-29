@@ -13,6 +13,8 @@ import gamelogic.map.GameField;
 import java.io.IOException;
 
 public class Laser extends GameElement implements Activatable {
+
+    int activationOrder = 5;
     Direction direction;
 
     private int count;
@@ -108,6 +110,10 @@ public class Laser extends GameElement implements Activatable {
             }
         }
     }
+    @Override
+    public int getActivationOrder() {
+        return activationOrder;
+    }
 
 
     /**
@@ -117,29 +123,9 @@ public class Laser extends GameElement implements Activatable {
      * @return
      */
     @Override
-    public int compareTo(GameElement o) {
-        switch (o.getType()){
-            case CHECKPOINT, GEAR, ROBOT, PUSHPANEL,ENERGYSPACE,EMPTY -> {
-                return 1;
-            }
-            case CONVEYORBELT -> {
-                ConveyorBelt cb = (ConveyorBelt) o;
-                if(cb.getColor()== Color.BLUE) {
-                    return -1;
-                }else {
-                    return 1;
-                }
-            }
-            case LASER -> {
-                return 0;
-            }
-            default -> {
-                try {
-                    throw new IOException(o.getType()+" is Not Comparable");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
     }
 }

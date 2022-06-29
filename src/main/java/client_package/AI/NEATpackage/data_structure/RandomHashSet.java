@@ -17,7 +17,7 @@ public class RandomHashSet<T> {
     public boolean contains(T object){
         return set.contains(object);
     }
-    public T random_element(){
+    public T randomElement(){
         if(size()>0){
             return data.get(ThreadLocalRandom.current().nextInt(0,size()));
         }

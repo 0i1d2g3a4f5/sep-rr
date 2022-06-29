@@ -9,6 +9,7 @@ import gamelogic.game_elements.robot.Robot;
 import java.io.IOException;
 import java.util.ArrayList;
 public class PushPanel extends GameElement implements Activatable {
+    int activationOrder = 3;
     Direction direction;
     ArrayList<Integer> activateRegisters;
     public PushPanel(Direction direction, ArrayList<Integer> activationRegisters){
@@ -63,30 +64,19 @@ public class PushPanel extends GameElement implements Activatable {
             robot.displace(orientations.get(0));
         }
     }
+    @Override
+    public int getActivationOrder() {
+        return activationOrder;
+    }
     /**
      * @param o the object to be compared.
      * @return
      */
 
     @Override
-    public int compareTo(GameElement o) {
-        switch (o.getType()){
-            case CHECKPOINT, GEAR,ENERGYSPACE,EMPTY-> {
-                return 1;
-            }
-            case CONVEYORBELT, LASER,ROBOT -> {
-                return -1;
-            }
-            case PUSHPANEL -> {
-                return 0;
-            }
-            default -> {
-                try {
-                    throw new IOException(o.getType()+" is Not Comparable");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
     }
 }

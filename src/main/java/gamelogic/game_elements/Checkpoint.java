@@ -14,6 +14,7 @@ import utility.SearchMethods;
 import java.io.IOException;
 
 public class Checkpoint extends GameElement implements Activatable {
+    int activationOrder = 8;
     public static int numberOfCheckpoints;
     int count;
     public Checkpoint(int count){
@@ -82,6 +83,10 @@ public class Checkpoint extends GameElement implements Activatable {
         }
 
     }
+    @Override
+    public int getActivationOrder() {
+        return activationOrder;
+    }
 
 
     /**
@@ -98,15 +103,9 @@ public class Checkpoint extends GameElement implements Activatable {
 
      */
     @Override
-    public int compareTo(GameElement o) {
-        switch (o.getType()){
-            case CHECKPOINT -> {
-                return 0;
-            }
-            default -> {
-                return -1;
-            }
-        }
-
+    public int compareTo(Activatable o) {
+        if(getActivationOrder()>o.getActivationOrder()) return -1;
+        else if (getActivationOrder()<o.getActivationOrder()) return 1;
+        return 0;
     }
 }
