@@ -15,6 +15,9 @@ public class MessageSelectionFinished extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageSelectionFinished(int clientID){
         this.clientID = clientID;
         type = "SelectionFinished";
@@ -24,6 +27,9 @@ public class MessageSelectionFinished extends Message{
         System.out.println("Created SelectionFinished Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageSelectionFinished(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clienID").getAsInt();
@@ -49,6 +55,12 @@ public class MessageSelectionFinished extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

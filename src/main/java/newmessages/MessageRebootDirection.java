@@ -14,6 +14,9 @@ public class MessageRebootDirection extends Message{
 
     public String direction;
 
+    /**
+     * @param direction
+     */
     public MessageRebootDirection(String direction){
         this.direction = direction;
         type = "RebootDirection";
@@ -23,6 +26,9 @@ public class MessageRebootDirection extends Message{
         System.out.println("Created RebootDirection Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageRebootDirection(JsonObject jsonObject){
         super(jsonObject);
         direction = content.get("direction").getAsString();

@@ -13,6 +13,11 @@ import java.io.IOException;
 public class MessageReconnect extends Message{
     public String name;
     public String hash;
+
+    /**
+     * @param name
+     * @param hash
+     */
     public MessageReconnect(String name, String hash){
         this.name=name;
         this.hash=hash;
@@ -22,6 +27,10 @@ public class MessageReconnect extends Message{
         jsonObject.add("Hash", new JsonPrimitive(hash));
         content = jsonObject;
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageReconnect(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
@@ -39,6 +48,12 @@ public class MessageReconnect extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

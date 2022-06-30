@@ -10,13 +10,23 @@ import java.io.IOException;
  */
 
 public class MessageNameUnavailable extends Message{
+
     public String name;
+
+    /**
+     *
+     * @param string
+     */
     public MessageNameUnavailable(String string){
         type="NameUnavailable";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("UnavailableName", new JsonPrimitive(string));
         content = jsonObject;
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageNameUnavailable(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("UnavailableName").getAsString();

@@ -11,7 +11,8 @@ import java.io.IOException;
  */
 public class MessageSelectedDamage extends Message {
 
-    //TODO check if correct please
+    //TODO check if correct
+
     public String damage;
     public int register;
 

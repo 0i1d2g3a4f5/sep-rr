@@ -18,6 +18,10 @@ public class MessageCardPlayed extends Message{
     public int clientID;
     public String card;
 
+    /**
+     * @param clientID
+     * @param card
+     */
     public MessageCardPlayed(int clientID, String card){
         this.clientID = clientID;
         this.card = card;
@@ -29,6 +33,9 @@ public class MessageCardPlayed extends Message{
         System.out.println("Created CardPlayed Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageCardPlayed(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

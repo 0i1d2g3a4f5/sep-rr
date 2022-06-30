@@ -4,6 +4,11 @@ package newmessages;
  */
 
 public class MessageTypeFactory {
+
+    /**
+     * @param string
+     * @return
+     */
     public MessageType fromString(String string) {
         switch (string) {
             case "ActivePhase" -> {

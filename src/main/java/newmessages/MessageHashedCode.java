@@ -12,6 +12,10 @@ import java.io.IOException;
 
 public class MessageHashedCode extends Message{
     public String hashedCode;
+
+    /**
+     * @param string
+     */
     public MessageHashedCode(String string){
         hashedCode=string;
         type="HashedCode";
@@ -19,6 +23,10 @@ public class MessageHashedCode extends Message{
         jsonObject.add("HashedCode", new JsonPrimitive(hashedCode));
         content=jsonObject;
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageHashedCode(JsonObject jsonObject){
         super(jsonObject);
         hashedCode=content.get("HashedCode").getAsString();

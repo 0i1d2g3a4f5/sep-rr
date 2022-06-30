@@ -18,6 +18,10 @@ public class MessageSelectedCard extends Message {
     public String card;
     public int register;
 
+    /**
+     * @param card
+     * @param register
+     */
     public MessageSelectedCard(String card, int register) {
         this.card = card;
         this.register = register;
@@ -29,6 +33,9 @@ public class MessageSelectedCard extends Message {
         System.out.println("Created SelectCard Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageSelectedCard(JsonObject jsonObject) {
         super(jsonObject);
         card = content.get("card").getAsString();
@@ -67,6 +74,12 @@ public class MessageSelectedCard extends Message {
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

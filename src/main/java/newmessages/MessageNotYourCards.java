@@ -15,6 +15,10 @@ public class MessageNotYourCards extends Message{
     public int clientID;
     public int cardsInHand;
 
+    /**
+     * @param clientID
+     * @param cardsInHand
+     */
     public MessageNotYourCards(int clientID, int cardsInHand) {
         this.clientID = clientID;
         this.cardsInHand = cardsInHand;
@@ -26,6 +30,9 @@ public class MessageNotYourCards extends Message{
         System.out.println("Created Quantity Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageNotYourCards(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -44,6 +51,12 @@ public class MessageNotYourCards extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

@@ -20,6 +20,10 @@ public class MessagePlayerStatus extends Message {
     public int clientID;
     public boolean ready;
 
+    /**
+     * @param clientID
+     * @param ready
+     */
     public MessagePlayerStatus(int clientID, boolean ready){
         this.clientID = clientID;
         this.ready = ready;
@@ -31,6 +35,9 @@ public class MessagePlayerStatus extends Message {
         //System.out.println("Created Status Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessagePlayerStatus(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -49,6 +56,12 @@ public class MessagePlayerStatus extends Message {
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
@@ -67,6 +80,13 @@ public class MessagePlayerStatus extends Message {
         }
 
     }
+
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){

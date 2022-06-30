@@ -16,6 +16,9 @@ public class MessageAnimation extends Message{
 
     public String animationType;
 
+    /**
+     * @param animationType
+     */
     public MessageAnimation(String animationType){
 
         this.animationType = animationType;
@@ -26,6 +29,9 @@ public class MessageAnimation extends Message{
         System.out.println("Created Animation Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageAnimation(JsonObject jsonObject){
         super(jsonObject);
         animationType = content.get("type").getAsString();

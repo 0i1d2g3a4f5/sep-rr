@@ -18,6 +18,9 @@ public class MessageMapSelected extends Message{
 
     public String map;
 
+    /**
+     * @param map
+     */
     public MessageMapSelected(String map) {
         this.map = map;
         type = "MapSelected";
@@ -26,6 +29,9 @@ public class MessageMapSelected extends Message{
         content = jsonObject;
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
         map = content.get("map").getAsString();

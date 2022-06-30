@@ -7,6 +7,11 @@ import com.google.gson.JsonObject;
 
 public class MessageFactory {
 
+    /**
+     * @param messageType
+     * @param jsonObject
+     * @return
+     */
     public Message createMessage(MessageType messageType, JsonObject jsonObject){
         switch (messageType){
             case DEFAULT -> {

@@ -14,6 +14,9 @@ public class MessagePlayCard extends Message{
 
     public String card;
 
+    /**
+     * @param card
+     */
     public MessagePlayCard(String card){
         this.card = card;
         type = "PlayCard";
@@ -23,6 +26,9 @@ public class MessagePlayCard extends Message{
         System.out.println("Created PlayCard Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessagePlayCard(JsonObject jsonObject){
         super(jsonObject);
         card = content.get("card").getAsString();

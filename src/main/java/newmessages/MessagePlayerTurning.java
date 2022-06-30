@@ -16,6 +16,10 @@ public class MessagePlayerTurning extends Message{
     public int clientID;
     public String rotation;
 
+    /**
+     * @param clientID
+     * @param rotation
+     */
     public MessagePlayerTurning(int clientID, String rotation){
 
         this.clientID = clientID;
@@ -28,6 +32,9 @@ public class MessagePlayerTurning extends Message{
         System.out.println("Created Turn Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessagePlayerTurning(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

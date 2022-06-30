@@ -14,6 +14,9 @@ public class MessageReboot extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageReboot(int clientID){
         this.clientID = clientID;
         type = "Reboot";
@@ -23,6 +26,9 @@ public class MessageReboot extends Message{
         System.out.println("Created RoboReboot Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageReboot(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -40,6 +46,12 @@ public class MessageReboot extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

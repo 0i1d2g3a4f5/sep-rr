@@ -18,10 +18,15 @@ public class MessageCardSelected extends Message{
     public int register;
     public boolean filled;
 
+    /**
+     * @param clientID
+     * @param register
+     * @param filled
+     */
     public MessageCardSelected(int clientID, int register, boolean filled){
-        this.clientID =clientID;
+        this.clientID = clientID;
         this.register = register;
-        this.filled= filled;
+        this.filled = filled;
         type = "CardSelected";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
@@ -31,6 +36,9 @@ public class MessageCardSelected extends Message{
         System.out.println("Created Register Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageCardSelected(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

@@ -18,6 +18,11 @@ public class MessageMovement extends Message{
     public int x;
     public int y;
 
+    /**
+     * @param clientID
+     * @param x
+     * @param y
+     */
     public MessageMovement(int clientID, int x, int y){
         this.clientID = clientID;
         this.x = x;
@@ -31,6 +36,9 @@ public class MessageMovement extends Message{
         System.out.println("Created Move Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageMovement(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

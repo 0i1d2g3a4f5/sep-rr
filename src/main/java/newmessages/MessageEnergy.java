@@ -16,9 +16,14 @@ public class MessageEnergy extends Message{
     public int count;
     public String source;
 
+    /**
+     * @param clientID
+     * @param count
+     * @param source
+     */
     public MessageEnergy(int clientID, int count, String source){
 
-        this.clientID =clientID;
+        this.clientID = clientID;
         this.count = count;
         this .source = source;
         type = "Energy";
@@ -30,6 +35,9 @@ public class MessageEnergy extends Message{
         System.out.println("Created Energy Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageEnergy(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

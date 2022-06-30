@@ -14,6 +14,9 @@ public class MessageShuffleCoding extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageShuffleCoding(int clientID) {
         this.clientID = clientID;
         type = "ShuffleCoding";
@@ -23,6 +26,9 @@ public class MessageShuffleCoding extends Message{
         System.out.println("Created Shuffle Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageShuffleCoding(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -40,6 +46,12 @@ public class MessageShuffleCoding extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

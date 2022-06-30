@@ -10,9 +10,13 @@ import java.io.IOException;
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
 
-
 public class MessageWrongName extends Message{
+
     public String name;
+
+    /**
+     * @param string
+     */
     public MessageWrongName(String string) {
         type = "WrongName";
         this.name=string;
@@ -21,6 +25,9 @@ public class MessageWrongName extends Message{
         content = jsonObject;
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageWrongName(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
@@ -37,6 +44,12 @@ public class MessageWrongName extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

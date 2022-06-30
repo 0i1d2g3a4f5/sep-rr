@@ -15,6 +15,11 @@ public class MessageStartingPointTaken extends Message{
     public int y;
     public int clientID;
 
+    /**
+     * @param x
+     * @param y
+     * @param clientID
+     */
     public MessageStartingPointTaken(int x, int y, int clientID){
         this.x = x;
         this.y = y;
@@ -28,6 +33,9 @@ public class MessageStartingPointTaken extends Message{
         System.out.println("Created StartSet Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageStartingPointTaken(JsonObject jsonObject) {
         super(jsonObject);
         x = content.get("x"). getAsInt();
@@ -46,6 +54,12 @@ public class MessageStartingPointTaken extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

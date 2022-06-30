@@ -8,16 +8,18 @@ import server_package.Client;
 
 import java.io.IOException;
 /**
- * @author Mark Ringer
+ * @author Mark Ringer, Vivian Kafadar
  */
 
 public class MessageYourCards extends Message{
 
-
-
     public int clientID;
     public CardName cardsInHand[];
 
+    /**
+     * @param clientID
+     * @param cardsInHand
+     */
     public MessageYourCards(int clientID, CardName[] cardsInHand) {
 
         this.clientID = clientID;
@@ -35,6 +37,9 @@ public class MessageYourCards extends Message{
         System.out.println("Created Quantity Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageYourCards(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

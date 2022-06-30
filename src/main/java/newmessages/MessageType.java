@@ -1,6 +1,6 @@
 package newmessages;
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Vivian Kafadar
  */
 public enum MessageType {
     DEFAULT,

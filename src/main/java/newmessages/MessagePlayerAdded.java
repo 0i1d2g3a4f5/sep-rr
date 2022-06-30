@@ -21,6 +21,11 @@ public class MessagePlayerAdded extends Message{
     public String name;
     public int figure;
 
+    /**
+     * @param clientID
+     * @param name
+     * @param figure
+     */
     public MessagePlayerAdded(int clientID, String name, int figure) {
         this.clientID = clientID;
         this.name = name;
@@ -34,6 +39,9 @@ public class MessagePlayerAdded extends Message{
         //System.out.println("Created PlayerAdded Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessagePlayerAdded(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -42,6 +50,12 @@ public class MessagePlayerAdded extends Message{
         //System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
@@ -71,6 +85,13 @@ public class MessagePlayerAdded extends Message{
         }
 
     }
+
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {

@@ -10,8 +10,14 @@ import java.io.IOException;
  */
 
 public class MessageValuesAccepted extends Message{
+
     public String name;
     public int figure;
+
+    /**
+     * @param name
+     * @param figure
+     */
     public MessageValuesAccepted(String name, int figure){
         type="ValuesAccepted";
         JsonObject jsonObject=new JsonObject();
@@ -20,6 +26,10 @@ public class MessageValuesAccepted extends Message{
         content=jsonObject;
 
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageValuesAccepted(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
@@ -37,6 +47,12 @@ public class MessageValuesAccepted extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 

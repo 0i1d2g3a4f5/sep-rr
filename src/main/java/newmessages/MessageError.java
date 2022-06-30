@@ -18,6 +18,9 @@ public class MessageError extends Message{
 
     public String error;
 
+    /**
+     * @param error
+     */
     public MessageError(String error){
         this.error = error;
         type = "Error";
@@ -27,6 +30,9 @@ public class MessageError extends Message{
         //System.out.println("Created Error Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageError(JsonObject jsonObject) {
         super(jsonObject);
         error = content.get("error").getAsString();

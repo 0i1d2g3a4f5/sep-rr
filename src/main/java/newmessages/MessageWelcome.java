@@ -19,6 +19,9 @@ public class MessageWelcome extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageWelcome(int clientID) {
         this.clientID = clientID;
         type = "Welcome";
@@ -28,6 +31,9 @@ public class MessageWelcome extends Message{
         //System.out.println("Created Welcome Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageWelcome(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
@@ -45,6 +51,12 @@ public class MessageWelcome extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
@@ -54,6 +66,13 @@ public class MessageWelcome extends Message{
         }
 
     }
+
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){

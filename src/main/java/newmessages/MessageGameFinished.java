@@ -14,6 +14,9 @@ public class MessageGameFinished extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageGameFinished(int clientID){
         this.clientID =clientID;
         type = "GameFinished";
@@ -22,6 +25,10 @@ public class MessageGameFinished extends Message{
         content = jsonObject;
         System.out.println("Created Finish Message: " + this);
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageGameFinished(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

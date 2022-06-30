@@ -20,6 +20,11 @@ public class MessageReceivedChat extends Message{
     public int from;
     public boolean isPrivate;
 
+    /**
+     * @param message
+     * @param from
+     * @param isPrivate
+     */
     public MessageReceivedChat(String message, int from, boolean isPrivate) {
         this.message = message;
         this.from = from;
@@ -33,6 +38,9 @@ public class MessageReceivedChat extends Message{
         //System.out.println("Created Received Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageReceivedChat(JsonObject jsonObject){
         super(jsonObject);
         message = content.get("message").getAsString();
@@ -52,6 +60,12 @@ public class MessageReceivedChat extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){

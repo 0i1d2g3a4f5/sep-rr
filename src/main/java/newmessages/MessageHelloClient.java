@@ -13,6 +13,9 @@ import java.io.IOException;
 public class MessageHelloClient extends Message{
     public String protocol;
 
+    /**
+     * @param string
+     */
     public MessageHelloClient(String string){
         protocol=string;
         type="HelloClient";
@@ -21,6 +24,10 @@ public class MessageHelloClient extends Message{
         content=jsonObject;
         //System.out.println("Created Protocol Message: " + this);
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageHelloClient(JsonObject jsonObject){
         super(jsonObject);
         protocol=content.get("protocol").getAsString();

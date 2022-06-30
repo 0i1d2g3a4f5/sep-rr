@@ -14,12 +14,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * @author Mark Ringer
+ * @author Mark Ringer, Vivian Kafadar
  */
 
 public class MessageCurrentCards extends Message {
     ArrayList<Card> cards;
     ArrayList<Player> players;
+
+    /**
+     * @param cards
+     * @param players
+     */
     public MessageCurrentCards(ArrayList<Card> cards, ArrayList<Player> players){
 
         this.cards = cards;
@@ -34,11 +39,15 @@ public class MessageCurrentCards extends Message {
             jsonArray.add(infoJObject);
         }
         jsonObject.add("activeCards",jsonArray);
-
         content = jsonObject;
+
         System.out.println("Created Register Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     * @throws IOException
+     */
     public MessageCurrentCards(JsonObject jsonObject) throws IOException {
         JsonArray jsonArray = jsonObject.get("activeCards").getAsJsonArray();
         ArrayList<Card> cards = new ArrayList<>();
@@ -74,6 +83,12 @@ public class MessageCurrentCards extends Message {
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
 

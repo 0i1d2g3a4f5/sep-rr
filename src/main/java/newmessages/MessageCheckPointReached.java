@@ -17,6 +17,10 @@ public class MessageCheckPointReached extends Message{
     public int clientID;
     public int number;
 
+    /**
+     * @param clientID
+     * @param number
+     */
     public MessageCheckPointReached(int clientID, int number){
         this.clientID = clientID;
         this.number = number;
@@ -28,6 +32,9 @@ public class MessageCheckPointReached extends Message{
         System.out.println("Created CheckPoint Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageCheckPointReached(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

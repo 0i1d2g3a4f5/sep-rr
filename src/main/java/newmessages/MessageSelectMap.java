@@ -18,6 +18,9 @@ public class MessageSelectMap extends Message{
 
     public JsonArray availableMaps;
 
+    /**
+     * @param jsonArray
+     */
     public MessageSelectMap(JsonArray jsonArray){
         type = "SelectMap";
         this.availableMaps = jsonArray;
@@ -25,6 +28,10 @@ public class MessageSelectMap extends Message{
         jsonObject.add("availableMaps", jsonArray);
         content=jsonObject;
     }
+
+    /**
+     * @param jsonObject
+     */
     public MessageSelectMap(JsonObject jsonObject){
         super(jsonObject);
         availableMaps=content.get("availableMaps").getAsJsonArray();
@@ -41,6 +48,12 @@ public class MessageSelectMap extends Message{
 
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){

@@ -22,6 +22,10 @@ public class MessageTimerStarted extends Message{
         System.out.println("Created EndTime Message: " + this);
     }
 
+    /**
+     *
+     * @param jsonObject
+     */
     public MessageTimerStarted(JsonObject jsonObject){
         super(jsonObject);
         System.out.println("Created EndTime Message: " + this + " from JSON: " + jsonObject);

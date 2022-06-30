@@ -18,6 +18,9 @@ import java.util.ArrayList;
 public class MessageCardsYouGotNow extends Message{
     ArrayList<Card> cards;
 
+    /**
+     * @param cards
+     */
     public MessageCardsYouGotNow(ArrayList<Card> cards){
 
         this.cards = cards;
@@ -34,6 +37,10 @@ public class MessageCardsYouGotNow extends Message{
         System.out.println("Created Register Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     * @throws IOException
+     */
     public MessageCardsYouGotNow(JsonObject jsonObject) throws IOException {
         JsonArray jsonArray = jsonObject.get("cards").getAsJsonArray();
         ArrayList<Card> cards = new ArrayList<>();

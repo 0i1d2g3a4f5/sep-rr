@@ -16,6 +16,11 @@ public class MessageHelloServer extends Message {
     public boolean isAI;
     public String protocol;
 
+    /**
+     * @param group
+     * @param isAI
+     * @param protocol
+     */
     public MessageHelloServer(String group, boolean isAI, String protocol) {
         this.group = group;
         this.isAI = isAI;
@@ -29,6 +34,9 @@ public class MessageHelloServer extends Message {
         //System.out.println("Created GroupIdentification Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageHelloServer(JsonObject jsonObject) {
         super(jsonObject);
         group = content.get("group").getAsString();

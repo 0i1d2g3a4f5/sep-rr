@@ -16,6 +16,9 @@ public class MessageCurrentPlayer extends Message{
 
     public int clientID;
 
+    /**
+     * @param clientID
+     */
     public MessageCurrentPlayer(int clientID) {
         this.clientID = clientID;
         type = "CurrentPlayer";
@@ -25,6 +28,9 @@ public class MessageCurrentPlayer extends Message{
         System.out.println("Created Player Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();

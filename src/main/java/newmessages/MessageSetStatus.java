@@ -14,21 +14,33 @@ public class MessageSetStatus extends Message{
 
     public boolean ready;
 
+    /**
+     * @param ready
+     */
     public MessageSetStatus(boolean ready) {
         this.ready = ready;
         type = "SetStatus";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
-        //System.out.println("Created SetReady Message: " + this);
+        System.out.println("Created SetReady Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageSetStatus(JsonObject jsonObject){
         super(jsonObject);
         ready = content.get("ready").getAsBoolean();
-        //System.out.println("Created SetReady Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created SetReady Message: " + this + " from JSON: " + jsonObject);
     }
 
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
@@ -48,16 +60,15 @@ public class MessageSetStatus extends Message{
 
     }
 
-    @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
-    }
-
     /**
      * @param client
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
+    @Override
+    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+    }
 
 }

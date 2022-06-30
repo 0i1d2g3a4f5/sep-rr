@@ -11,9 +11,11 @@ import java.util.ArrayList;
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
 
-
 public class MessageTimerEnded extends Message{
 
+    /**
+     * @param latePlayers
+     */
     public MessageTimerEnded(ArrayList<Player> latePlayers){
         super();
         type = "TimerEnded";
@@ -30,6 +32,9 @@ public class MessageTimerEnded extends Message{
 
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
         System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);

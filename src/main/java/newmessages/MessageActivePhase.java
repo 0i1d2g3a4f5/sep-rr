@@ -16,6 +16,9 @@ public class MessageActivePhase extends Message{
 
     public int phase;
 
+    /**
+     * @param phase
+     */
     public MessageActivePhase(int phase){
         this.phase = phase;
         type = "ActivePhase";
@@ -25,6 +28,9 @@ public class MessageActivePhase extends Message{
         System.out.println("Created Phase Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageActivePhase(JsonObject jsonObject) {
         super(jsonObject);
         phase = content.get("phase").getAsInt();

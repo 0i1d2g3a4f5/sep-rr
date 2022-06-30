@@ -16,6 +16,10 @@ public class MessageSendChat extends Message{
     public String message;
     public int to;
 
+    /**
+     * @param message
+     * @param to
+     */
     public MessageSendChat(String message, int to) {
         this.message = message;
         this.to = to;
@@ -24,14 +28,17 @@ public class MessageSendChat extends Message{
         jsonObject.add("message", new JsonPrimitive(message));
         jsonObject.add("to", new JsonPrimitive(to));
         content = jsonObject;
-        //System.out.println("Created Send Message: " + this);
+        System.out.println("Created Send Message: " + this);
     }
 
+    /**
+     * @param jsonObject
+     */
     public MessageSendChat(JsonObject jsonObject) {
         super(jsonObject);
         message = content.get("message").getAsString();
         to = content.get("to").getAsInt();
-        //System.out.println("Created Send Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created Send Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -57,6 +64,8 @@ public class MessageSendChat extends Message{
             //ADVANCED
         }
 
+        //TODO - what is this?
+
         /*
         if(to==-1){
             client.sendAll(new MessageReceivedChat(message, client.getId(), false));
@@ -73,7 +82,12 @@ public class MessageSendChat extends Message{
              */
         }
 
-
+    /**
+     * @param client
+     * @param isBasic
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
