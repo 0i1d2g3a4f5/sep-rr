@@ -12,7 +12,12 @@ public class TrojanHorse extends DamageCard {
 
     @Override
     public void discard() {
-
+        //TODO check game rules
+        game.getTrojanHorseDrawPile().push(this);
+        /*
+        player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().push());
+        player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().push());
+         */
     }
 
     /**

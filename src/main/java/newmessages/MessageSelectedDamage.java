@@ -1,16 +1,48 @@
 package newmessages;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
 import java.io.IOException;
 
 public class MessageSelectedDamage extends Message {
 
-    //TODO implement constructor etc...
+    //TODO check if correct please
+    public String damage;
+    public int register;
+
+    /**
+     * @author Vivian Kafadar
+     * @param damage
+     * @param register
+     */
+    public MessageSelectedDamage(String damage, int register) {
+        this.damage = damage;
+        this.register = register;
+        type = "SelectedDamage";
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("damage", new JsonPrimitive(damage));
+        jsonObject.add("register", new JsonPrimitive(register));
+        content = jsonObject;
+        System.out.println("Created SelectDamage Message: " + this);
+    }
+
+    /**
+     * @author Vivian Kafadar
+     * @param jsonObject
+     */
+    public MessageSelectedDamage(JsonObject jsonObject) {
+        super(jsonObject);
+        damage = content.get("damage").getAsString();
+        register = content.get("register").getAsInt();
+        System.out.println("Created SelectDamage Message: " + this + " from JSON: " + jsonObject);
+    }
+
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
-        //TODO draw selected dmg cards
+        //TODO draw selected dmg cards (Mark)
 
     }
 
