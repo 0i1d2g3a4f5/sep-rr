@@ -6,6 +6,9 @@ import server_package.Client;
 
 import java.io.IOException;
 
+/**
+ * @author Vivian Kafadar
+ */
 public class MessageSelectedDamage extends Message {
 
     //TODO check if correct please
@@ -13,7 +16,6 @@ public class MessageSelectedDamage extends Message {
     public int register;
 
     /**
-     * @author Vivian Kafadar
      * @param damage
      * @param register
      */
@@ -29,7 +31,6 @@ public class MessageSelectedDamage extends Message {
     }
 
     /**
-     * @author Vivian Kafadar
      * @param jsonObject
      */
     public MessageSelectedDamage(JsonObject jsonObject) {
