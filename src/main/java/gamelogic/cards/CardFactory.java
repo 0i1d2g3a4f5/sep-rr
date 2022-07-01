@@ -11,6 +11,9 @@ import gamelogic.cards.upgrade_cards.temporary.*;
 
 import java.io.IOException;
 
+/**
+ * @author Mark Ringer, Qinyi
+ */
 public class CardFactory {
 
     public Card createCard(CardName cardName) throws IOException {

@@ -14,7 +14,7 @@ import java.util.Stack;
 import static utility.SearchMethods.searchCard;
 
 /**
- * @author Mark Ringer
+ * @author Mark Ringer, Qinyi
  */
 public class Player{
     public boolean isProgramming;
@@ -184,6 +184,10 @@ public class Player{
         }
     }
 
+    /**
+     * @author Qinyi
+     * get the energyspace
+     */
     public void addEnergyCube(){
         EnergyCube ++;
 
@@ -192,6 +196,10 @@ public class Player{
         return EnergyCube;
     }
 
+    /**
+     * @author Qinyi build card Piles
+     * @return
+     */
     public  Card getLastPlayedCard(){
         return lastPlayedCard;
     }
@@ -208,6 +216,7 @@ public class Player{
     public Robot getRobot(){
         return robot ;
     }
+
 
     /**
      * @author Ringer
