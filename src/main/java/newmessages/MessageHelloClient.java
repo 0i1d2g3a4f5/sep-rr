@@ -6,6 +6,9 @@ import com.google.gson.JsonPrimitive;
 import client_package.Client;
 
 import java.io.IOException;
+
+import static utility.GlobalParameters.PROTOCOL_VERSION;
+
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
@@ -48,7 +51,7 @@ public class MessageHelloClient extends Message{
     @Override
     public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            if (this.protocol.equals("Version 1.0")) {
+            if (this.protocol.equals(PROTOCOL_VERSION)) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
             } else {
                 System.out.println("ERROR :: False communication protocol.");

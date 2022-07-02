@@ -46,7 +46,30 @@ public class Calculator {
 
             Node nodeOrigin = nodeHashMap.get(origin.getInnovationNumber());
             Node nodeTarget = nodeHashMap.get(target.getInnovationNumber());
+
+            Connection con = new Connection(nodeOrigin,nodeTarget);
+            con.setWeight(c.getWeight());
+            con.setEnabled(c.isEnabled());
+
+            nodeTarget.getConnections().add(con);
+
         }
 
+    }
+
+    public double[] calculate(double... input){
+        if(input.length != inputNodes.size()) throw new RuntimeException("Amount of inputs doesnt match amount of inputNodes");
+        for (int i = 0; i < inputNodes.size(); i++) {
+            inputNodes.get(i).setOutput(input[i]);
+        }
+        for(Node n:hiddenNodes){
+            n.calculate();
+        }
+        double[] output = new double[outputNodes.size()];
+        for(int i = 0;i< outputNodes.size();i++){
+            outputNodes.get(i).calculate();
+            output[i] = outputNodes.get(i).getOutput();
+        }
+        return output;
     }
 }

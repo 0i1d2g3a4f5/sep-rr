@@ -1,5 +1,6 @@
 package client_package.AI.NEATpackage.genome;
 
+import client_package.AI.NEATpackage.calculations.Calculator;
 import client_package.AI.NEATpackage.data_structure.RandomHashSet;
 import client_package.AI.NEATpackage.neat.Neat;
 
@@ -10,9 +11,21 @@ public class Genome {
     private RandomHashSet<NodeGene> nodes = new RandomHashSet<>();
 
     private Neat neat;
+    private Calculator calculator;
 
     public Genome(Neat neat){
         this.neat = neat;
+    }
+
+    public void generateCalculator(){
+        calculator = new Calculator(this);
+    }
+
+    public double[] calculate(double... input){
+        if(calculator != null){
+            return calculator.calculate(input);
+        }
+        return null;
     }
 
     public double distance(Genome genome2){

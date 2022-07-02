@@ -5,10 +5,14 @@ import com.google.gson.JsonParser;
 import newmessages.*;
 import server_package.Client;
 import server_package.MessageProcessor;
+import utility.GlobalParameters;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.TimeUnit;
+
+import static utility.GlobalParameters.PROTOCOL_VERSION;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -65,7 +69,7 @@ public class BasicClient extends Client {
     }
     @Override
     public void sendProtocolCheck(){
-        sendSelf(new MessageHelloClient("Version 0.1"));
+        sendSelf(new MessageHelloClient(PROTOCOL_VERSION));
     }
     @Override
     public void disconnect(){

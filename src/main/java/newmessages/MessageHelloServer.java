@@ -6,6 +6,8 @@ import server_package.Client;
 
 import java.io.IOException;
 
+import static utility.GlobalParameters.PROTOCOL_VERSION;
+
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
@@ -54,7 +56,7 @@ public class MessageHelloServer extends Message {
     @Override
     public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            if (!this.protocol.equals("Version 1.0")) {
+            if (!this.protocol.equals(PROTOCOL_VERSION)) {
                 client.sendSelf(new MessageError("ERROR :: False communication protocol."));
             } else {
                 client.setAI(this.isAI);

@@ -275,6 +275,7 @@ public class  Game {
     }
 
     /**
+     * @author Mark Ringer
      * Informs all players, that the Timer has started and force-ends their programming Phase
      * @throws InterruptedException
      */
