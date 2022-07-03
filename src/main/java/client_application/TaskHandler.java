@@ -60,7 +60,8 @@ public class TaskHandler {
                     case "Dizzy Highway" -> {
                         try {
                             GameBoard gameBoard = MapCreator.op();
-                            clientApplication.launchMapView(FXMLGridsAreTheBest.fromMap(gameBoard));
+                            //TODO fix pls, wrong input
+                            //clientApplication.launchMapView(FXMLGridsAreTheBest.fromMap(gameBoard));
                             clientApplication.launchBasicGame();
                             clientApplication.stageBasicMap.close();
                             clientApplication.stageBasicLobby.close();

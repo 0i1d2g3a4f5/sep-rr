@@ -6,7 +6,12 @@ import gamelogic.Color;
 
 import java.util.ArrayList;
 
+/**
+ * @author Mark Ringer
+ */
 public class Player {
+
+    int EnergyCubes;
     int clientID;
     private Robot robot;
     private int handCards = 0;
@@ -16,6 +21,9 @@ public class Player {
 
         this.robot = new Robot(robotColor);
 
+    }
+
+    public Player() {
     }
 
     public Robot getRobot() {
@@ -29,7 +37,7 @@ public class Player {
         return registerCards;
     }
 
-    public int getHandCards() {
+    public int getHandCardsCount() {
         return handCards;
     }
 

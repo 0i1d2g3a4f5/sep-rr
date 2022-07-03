@@ -1,13 +1,16 @@
 package client_package.client_gamelogic.game_elements.game_elements.robot;
 
-import client_package.client_gamelogic.game_elements.game_elements.ElementName;
+
+import client_package.client_gamelogic.Game;
+import client_package.client_gamelogic.Player;
 import client_package.client_gamelogic.game_elements.game_elements.GameElement;
-import client_package.client_gamelogic.game_elements.game_elements.RestartPoint;
-import gamelogic.*;
-import gamelogic.cards.CardName;
-import gamelogic.map.GameField;
+
+import gamelogic.Color;
+import gamelogic.Direction;
+import gamelogic.Position;
 import newmessages.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -35,6 +38,13 @@ public class Robot extends GameElement {
         return position;
     }
 
+    public void moveRobotTo(int y, int x){
+        game.getMap().getGameField(y,x).removeRobot();
+        position = new Position(y,x);
+        game.getMap().addElement(position,this);
+
+    }
+
 
     private void setPosition(Position position) {
         this.position = position;
@@ -47,7 +57,7 @@ public class Robot extends GameElement {
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (Position position, Direction direction, Color color){
+    public Robot (Position position, Direction direction, Color color) throws IOException {
         game =Game.getInstance();
         directionFacing = direction;
         this.position = position;
@@ -116,7 +126,6 @@ public class Robot extends GameElement {
      */
     public void reboot() {
         //TODO Check rules if Register is continued
-        game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
         //TODO case not answered
     }
 
