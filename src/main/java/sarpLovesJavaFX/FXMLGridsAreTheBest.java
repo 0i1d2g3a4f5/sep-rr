@@ -18,8 +18,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
-import client_package.client_gamelogic.cards.*;
-import client_package.client_gamelogic.game_elements.*;
 
 import java.io.IOException;
 

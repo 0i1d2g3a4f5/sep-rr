@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.RIGHT_TURN;
+import static client_package.client_gamelogic.cards.CardName.RIGHT_TURN;
 
 public class RightTurn extends ProgrammingCard {
 

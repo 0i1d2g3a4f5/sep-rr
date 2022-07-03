@@ -2,7 +2,7 @@ package client_package.client_gamelogic.cards.programming_cards;
 
 import newmessages.MessageEnergy;
 
-import static gamelogic.cards.CardName.POWER_UP;
+import static client_package.client_gamelogic.cards.CardName.POWER_UP;
 
 public class PowerUp extends ProgrammingCard {
 

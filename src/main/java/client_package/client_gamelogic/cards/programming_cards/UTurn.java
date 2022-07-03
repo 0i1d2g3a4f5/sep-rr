@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.U_TURN;
+import static client_package.client_gamelogic.cards.CardName.U_TURN;
 
 public class UTurn extends ProgrammingCard {
 

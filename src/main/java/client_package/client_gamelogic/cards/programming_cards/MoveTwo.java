@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.MOVE_TWO;
+import static client_package.client_gamelogic.cards.CardName.MOVE_TWO;
 
 public class MoveTwo extends ProgrammingCard {
 

@@ -1,8 +1,8 @@
 package client_package.client_gamelogic.cards.damage_card;
 
-import gamelogic.Game;
+import client_package.client_gamelogic.Game;
 
-import static gamelogic.cards.CardName.TROJAN_HORSE;
+import static client_package.client_gamelogic.cards.CardName.TROJAN_HORSE;
 
 public class TrojanHorse extends DamageCard {
 

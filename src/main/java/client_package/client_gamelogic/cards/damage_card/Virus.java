@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.damage_card;
 
-import static gamelogic.cards.CardName.VIRUS;
+import static client_package.client_gamelogic.cards.CardName.VIRUS;
 
 public class Virus extends DamageCard {
 

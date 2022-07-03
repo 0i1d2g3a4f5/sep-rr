@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.special_cards;
 
-import static gamelogic.cards.CardName.ENERGY_ROUTINE;
+import static client_package.client_gamelogic.cards.CardName.ENERGY_ROUTINE;
 
 public class EnergyRoutine extends SpecialCard {
 

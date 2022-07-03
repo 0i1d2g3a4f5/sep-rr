@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.MOVE_ONE;
+import static client_package.client_gamelogic.cards.CardName.MOVE_ONE;
 
 public class MoveOne extends ProgrammingCard {
 

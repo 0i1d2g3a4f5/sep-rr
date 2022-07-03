@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.BACK_UP;
+import static client_package.client_gamelogic.cards.CardName.BACK_UP;
 
 public class BackUp extends ProgrammingCard {
 

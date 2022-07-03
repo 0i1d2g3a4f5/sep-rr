@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static gamelogic.cards.CardName.AGAIN;
+import static client_package.client_gamelogic.cards.CardName.AGAIN;
 
 public class
 Again extends ProgrammingCard {

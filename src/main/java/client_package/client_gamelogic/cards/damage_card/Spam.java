@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.damage_card;
 
-import static gamelogic.cards.CardName.SPAM;
+import static client_package.client_gamelogic.cards.CardName.SPAM;
 
 public class Spam extends DamageCard {
 
