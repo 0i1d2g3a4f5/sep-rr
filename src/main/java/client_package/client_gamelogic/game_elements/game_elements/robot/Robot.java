@@ -24,6 +24,9 @@ public class Robot extends GameElement {
     private String name;
     private Player player;
 
+    public Robot(Color color) {
+        this.color = color;
+    }
 
     public Color getColor() {
         return color;

@@ -6,14 +6,13 @@ import client_package.client_gamelogic.game_elements.game_elements.ElementFactor
 import client_package.client_gamelogic.game_elements.game_elements.GameElement;
 import com.google.gson.*;
 
-import gamelogic.JsonSerializable;
+
 import gamelogic.Position;
 
 import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Objects;
 
 public class GameBoard  {
@@ -185,6 +184,11 @@ public class GameBoard  {
         }
         System.out.println(boardMap);
 
+    }
+
+    public ArrayList<GameElement> getElements(int y, int x){
+        GameField gameField = getGameField(y,x);
+        return gameField.getElements();
     }
 
 
