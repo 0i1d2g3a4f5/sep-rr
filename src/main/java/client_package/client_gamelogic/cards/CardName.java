@@ -61,6 +61,7 @@ public enum CardName {
     SANDBOX_ROUTINE("SandboxRoutine"),
     WEASEL_ROUTINE("WeaselRoutine"),
     SPAM_BLOCKER("SpamBlocker"),
+    UNKNOWN("Unknown"),
     NULL("Null");
 
 
