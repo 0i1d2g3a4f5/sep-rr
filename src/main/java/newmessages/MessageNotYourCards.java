@@ -67,6 +67,7 @@ public class MessageNotYourCards extends Message{
         for (Player player:playerList) {
             if(player.getClientID()==clientID){
                 player.setHandCards(cardsInHand);
+                break;
             }
         }
 

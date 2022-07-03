@@ -13,6 +13,16 @@ public class Game {
     private ArrayList<Player> playerList;
     private GameBoard map;
     private Client client;
+    private static Game instance;
+
+    public Game() {
+
+    }
+
+    public static Game getInstance() throws IOException {
+        if(instance != null) return  instance;
+        else return new Game();
+    }
 
     public ArrayList<Player> getPlayerList() {
         return playerList;

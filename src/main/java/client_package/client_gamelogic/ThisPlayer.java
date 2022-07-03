@@ -6,7 +6,7 @@ import gamelogic.Color;
 
 import java.util.ArrayList;
 
-public class ThisPlayer{
+public class ThisPlayer extends Player{
 
     private Robot robot;
     private ArrayList<Card> registerCards;
@@ -15,6 +15,10 @@ public class ThisPlayer{
     public ThisPlayer(Color robotColor) {
         this.robot = new Robot(robotColor);
 
+    }
+
+    public void drawDamage(){
+        //TODO draw Damage handeling
     }
 
     public void setHandCards(ArrayList<Card> handCards) {

@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.client_gamelogic.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
@@ -58,7 +59,7 @@ public class MessageMovement extends Message{
 
     }
 
-    /**
+    /**@author Mark Ringer
      * @param client
      * @param isBasic
      * @throws IOException
@@ -66,6 +67,10 @@ public class MessageMovement extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
+        for (Player player:client.getGame().getPlayerList()) {
+            if(clientID == player.getClientID()){
+                player.getRobot().moveRobotTo(y,x);
+            }
+        }
     }
 }
