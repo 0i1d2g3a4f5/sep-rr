@@ -1,11 +1,11 @@
 package sarpLovesJavaFX;
 
 
-import client_package.client_gamelogic.game_elements.game_elements.Checkpoint;
-import client_package.client_gamelogic.game_elements.game_elements.ConveyorBelt;
-import client_package.client_gamelogic.game_elements.game_elements.GameElement;
-import client_package.client_gamelogic.game_elements.game_elements.Gear;
-import client_package.client_gamelogic.game_elements.game_elements.robot.Robot;
+import client_package.client_gamelogic.game_elements.Checkpoint;
+import client_package.client_gamelogic.game_elements.ConveyorBelt;
+import client_package.client_gamelogic.game_elements.GameElement;
+import client_package.client_gamelogic.game_elements.Gear;
+import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 import javafx.application.Application;
 import javafx.geometry.Pos;

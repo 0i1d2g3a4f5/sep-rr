@@ -1,10 +1,8 @@
-package client_package.client_gamelogic.game_elements.game_elements;
+package client_package.client_gamelogic.game_elements;
 
 import client_package.client_gamelogic.map.GameField;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
 
 

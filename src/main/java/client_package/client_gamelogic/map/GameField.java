@@ -2,9 +2,11 @@ package client_package.client_gamelogic.map;
 
 
 
-import client_package.client_gamelogic.game_elements.game_elements.*;
+import client_package.client_gamelogic.game_elements.ElementName;
+import client_package.client_gamelogic.game_elements.Empty;
+import client_package.client_gamelogic.game_elements.GameElement;
 
-import client_package.client_gamelogic.game_elements.game_elements.robot.Robot;
+import client_package.client_gamelogic.game_elements.robot.Robot;
 import gamelogic.Direction;
 import gamelogic.Position;
 
