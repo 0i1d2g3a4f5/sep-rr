@@ -52,7 +52,7 @@ public class FXMLGridsAreTheBest extends Application {
             for(int i=0; i<gameBoard.getDimensionX(); i++){
                 GameField temp = gameBoard.getGameField(j, i);
                 StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image("images/tile.png"));
+                ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
 
@@ -112,7 +112,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @param stackPane
      */
     private static void caseRestartPoint(StackPane stackPane) {
-        ImageView imageView10 = new ImageView(new Image("images/restart.png"));
+        ImageView imageView10 = new ImageView(new Image("images/boardElements/Reboot.png"));
         stackPane.getChildren().add(imageView10);
         stackPane.setAlignment(imageView10, Pos.CENTER);
         return;
@@ -126,22 +126,22 @@ public class FXMLGridsAreTheBest extends Application {
     private static void caseAntenna(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH -> {
-                ImageView imageView9 = new ImageView(new Image("images/antennanorth.png"));
+                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaNorth.png"));
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case SOUTH -> {
-                ImageView imageView9 = new ImageView(new Image("images/antennasouth.png"));
+                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaSouth.png"));
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case WEST -> {
-                ImageView imageView9 = new ImageView(new Image("images/antennawest.png"));
+                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaWest.png"));
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView9 = new ImageView(new Image("images/antennaeast.png"));
+                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaEast.png"));
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
@@ -158,32 +158,32 @@ public class FXMLGridsAreTheBest extends Application {
         Robot robot = gameElement;
         switch (robot.getColor()){
             case BLUE -> {
-                ImageView imageView8 = new ImageView(new Image("images/roboblue.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotBlueSpin.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case RED -> {
-                ImageView imageView8 = new ImageView(new Image("images/robored.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotRedHulkx90.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case GREEN -> {
-                ImageView imageView8 = new ImageView(new Image("images/robogreen.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotGreenZoom.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case ORANGE -> {
-                ImageView imageView8 = new ImageView(new Image("images/roboorange.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotOrangeTwonky.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case PURPLE -> {
-                ImageView imageView8 = new ImageView(new Image("images/robopurple.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotPurpleHammer.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case YELLOW -> {
-                ImageView imageView8 = new ImageView(new Image("images/roboyellow.png"));
+                ImageView imageView8 = new ImageView(new Image("images/robots/RobotYellowSmash.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
@@ -200,22 +200,22 @@ public class FXMLGridsAreTheBest extends Application {
     private static void caseWall(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH ->{
-                ImageView imageView7 = new ImageView("images/wallT.png");
+                ImageView imageView7 = new ImageView("images/boardElements/WallTop.png");
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case SOUTH -> {
-                ImageView imageView7 = new ImageView("images/wallB.png");
+                ImageView imageView7 = new ImageView("images/boardElements/WallBottom.png");
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case WEST -> {
-                ImageView imageView7 = new ImageView("images/wallL.png");
+                ImageView imageView7 = new ImageView("images/boardElements/WallLeft.png");
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView7 = new ImageView("images/wallR.png");
+                ImageView imageView7 = new ImageView("images/boardElements/WallRight.png");
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
@@ -228,7 +228,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @param stackPane
      */
     private static void caseStartPoint(StackPane stackPane) {
-        ImageView imageView6 = new ImageView("images/startpoint.png");
+        ImageView imageView6 = new ImageView("images/boardElements/StartingPoint.png");
         stackPane.getChildren().add(imageView6);
         stackPane.setAlignment(imageView6,Pos.CENTER);
         return;
@@ -239,7 +239,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @param stackPane
      */
     private static void casePit(StackPane stackPane) {
-        ImageView imageView5 = new ImageView("images/pit.png");
+        ImageView imageView5 = new ImageView("images/boardElements/Pit.png");
         stackPane.getChildren().add(imageView5);
         stackPane.setAlignment(imageView5,Pos.CENTER);
         return;
@@ -255,22 +255,22 @@ public class FXMLGridsAreTheBest extends Application {
             case 1,3,5 -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView4 = new ImageView("images/push135B.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel125Bottom.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView4 = new ImageView("images/push135T.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Top.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case EAST -> {
-                        ImageView imageView4 = new ImageView("images/push135L.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Left.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView4 = new ImageView("images/push135R.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Right.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
@@ -279,22 +279,22 @@ public class FXMLGridsAreTheBest extends Application {
             case 2,4 ->{
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView4 = new ImageView("images/push24B.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Bottom.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView4 = new ImageView("images/push24T.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Top.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case EAST -> {
-                        ImageView imageView4 = new ImageView("images/push24L.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Left.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView4 = new ImageView("images/push24R.png");
+                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Right.png");
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
@@ -314,12 +314,12 @@ public class FXMLGridsAreTheBest extends Application {
         Gear gear = gameElement;
         switch (gear.getGearDirection()){
             case CLOCKWISE -> {
-                ImageView imageView3 = new ImageView("images/clockwisegear.png");
+                ImageView imageView3 = new ImageView("images/boardElements/GearClockwise.png");
                 stackPane.getChildren().add(imageView3);
                 stackPane.setAlignment(imageView3,Pos.CENTER);
             }
             case COUNTERCLOCKWISE -> {
-                ImageView imageView3 = new ImageView("images/conterclockwise.png");
+                ImageView imageView3 = new ImageView("images/boardElements/GearCounterclockwise.png");
                 stackPane.getChildren().add(imageView3);
                 stackPane.setAlignment(imageView3,Pos.CENTER);
             }
@@ -332,7 +332,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @param stackPane
      */
     private static void caseEnergySpace(StackPane stackPane) {
-        ImageView imageView2 = new ImageView("images/energy.png");
+        ImageView imageView2 = new ImageView("images/boardElements/EnergySpaceGreen.png");
         stackPane.getChildren().add(imageView2);
         stackPane.setAlignment(imageView2,Pos.CENTER);
         return;
@@ -349,22 +349,22 @@ public class FXMLGridsAreTheBest extends Application {
             case BLUE -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView1= new ImageView(new Image("images/bluebelt.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltBlueUp.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView1= new ImageView(new Image("images/bluebeltdown.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltBlueDown.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case EAST-> {
-                        ImageView imageView1= new ImageView(new Image("images/bluebeltR.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltBlueRight.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView1= new ImageView(new Image("images/bluebeltL.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltBlueLeft.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
@@ -373,22 +373,22 @@ public class FXMLGridsAreTheBest extends Application {
             case GREEN -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView1= new ImageView(new Image("images/greenbelt.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltGreenUp.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView1= new ImageView(new Image("images/greenbeltdown.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltGreenDown.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case EAST-> {
-                        ImageView imageView1= new ImageView(new Image("images/greenbeltR.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltGreenRight.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView1= new ImageView(new Image("images/greenbeltL.png"));
+                        ImageView imageView1= new ImageView(new Image("images/boardElements/BeltGreenLeft.png"));
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
@@ -406,22 +406,22 @@ public class FXMLGridsAreTheBest extends Application {
         Checkpoint checkpoint = gameElement;
         switch (checkpoint.getCount()){
             case 1 -> {
-                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint1.png"));
+                ImageView imageViewcheck = new ImageView(new Image("images/boardElements/CheckPoint1.png"));
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 2 ->{
-                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint2.png"));
+                ImageView imageViewcheck = new ImageView(new Image("images/boardElements/CheckPoint2.png"));
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 3->{
-                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint3.png"));
+                ImageView imageViewcheck = new ImageView(new Image("images/boardElements/CheckPoint3.png"));
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 4->{
-                ImageView imageViewcheck = new ImageView(new Image("images/checkPoint4.png"));
+                ImageView imageViewcheck = new ImageView(new Image("images/boardElements/CheckPoint4.png"));
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
@@ -437,22 +437,22 @@ public class FXMLGridsAreTheBest extends Application {
     private static void caseLaser(StackPane stackPane, GameElement gameElement) {
         switch(gameElement.orientations.get(0)) {
             case NORTH -> {
-                ImageView imageView0 = new ImageView(new Image("images/LaserB.png"));
+                ImageView imageView0 = new ImageView(new Image("images/boardElements/LaserUp.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0, Pos.CENTER);
             }
             case SOUTH -> {
-                ImageView imageView0 = new ImageView(new Image("images/LaserT.png"));
+                ImageView imageView0 = new ImageView(new Image("images/boardElements/LaserDown.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0,Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView0 = new ImageView(new Image("images/LaserL.png"));
+                ImageView imageView0 = new ImageView(new Image("images/boardElements/LaserLeft.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0, Pos.CENTER);
             }
             case WEST -> {
-                ImageView imageView0 = new ImageView(new Image("images/LaserR.png"));
+                ImageView imageView0 = new ImageView(new Image("images/boardElements/LaserRight.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0, Pos.CENTER);
             }
