@@ -115,6 +115,13 @@ public class Player{
             }
             return false;
     }
+    public boolean placeCard(Card card, int position){
+        if(card !=null&&addToRegister(card,position)){
+            handCards.remove(card);
+            return true;
+        }
+        return false;
+    }
 
     public void drawSpam(int count){
         for (int i = 0; i < count; i++) {
@@ -122,6 +129,13 @@ public class Player{
         }
 
     }
+    public void drawVirus(int count){
+        for (int i = 0; i < count; i++) {
+            discardPile.add(game.getVirusDrawPile().pop());
+        }
+    }
+
+
 
     public boolean removeCard(int position){
         Card card = register[position];
@@ -159,12 +173,17 @@ public class Player{
      * @author Ringer
      * moves all cards from registry to discardPile
      */
-    public void clearRegister(){
+    public void clearAllRegister(){
         for (int i = 0;i< register.length;i++) {
             Card card = register[i];
             discardPile.add(card);
             register[i] = null;
         }
+    }
+
+    public void clearThisRegister(int pos){
+        if((register.length >pos )&&( pos>0))
+        register[pos] = null;
     }
 
     /**

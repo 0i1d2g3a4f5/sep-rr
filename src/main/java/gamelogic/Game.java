@@ -4,13 +4,11 @@ package gamelogic;
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
 import server_package.Client;
-import server_package.advancedServer.AdvancedClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.map.MapName;
-import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.*;
@@ -39,7 +37,7 @@ public class  Game {
     private MapName mapName;
     private Stack<Card> upgradeWarehouse;
     private ArrayList<Card> upgradeShop;
-    public List<Player> playerList = new ArrayList<>();
+    public ArrayList<Player> playerList = new ArrayList<>();
     public Stack<Spam> getSpamDrawPile(){
         return spamDrawPile;
     }
@@ -65,6 +63,9 @@ public class  Game {
         return instance!=null;
     }
     private Game() {
+    }
+    public ArrayList<Player> getPlayerList(){
+        return playerList;
     }
     public MapName getMapName() {
         return mapName;
@@ -351,7 +352,7 @@ public class  Game {
         }
         activeRegister = -1;
         for (Player player:playerList) {
-            player.clearRegister();
+            player.clearAllRegister();
             player.discardAllHandCards();
         }
     }

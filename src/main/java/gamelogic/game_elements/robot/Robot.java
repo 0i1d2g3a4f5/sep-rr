@@ -2,7 +2,6 @@ package gamelogic.game_elements.robot;
 
 import gamelogic.*;
 import gamelogic.cards.CardName;
-import gamelogic.cards.damage_card.DamageCard;
 import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
 import gamelogic.game_elements.RestartPoint;
@@ -245,7 +244,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @uthor Ringer
      */
     public void reboot() {
-        //TODO Check rules if Register is continued
+        takeDamage(2);
+        player.discardAllHandCards();
+        player.clearAllRegister();
 
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
         //TODO case not answered

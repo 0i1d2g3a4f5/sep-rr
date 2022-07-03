@@ -8,4 +8,14 @@ public abstract class DamageCard extends Card implements PlayableInRegister {
     public DamageCard(CardName cardName) {
         super(cardName);
     }
+
+    @Override
+    public void discard() {
+
+    }
+
+    protected void removeFromRegister(){
+        player.clearThisRegister(game.getActiveRegister());
+    }
+
 }

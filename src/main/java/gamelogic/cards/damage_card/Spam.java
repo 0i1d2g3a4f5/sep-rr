@@ -17,11 +17,17 @@ public class Spam extends DamageCard{
      */
     @Override
     public void discard() {
-        game.getSpamDrawPile().push(this);
+
 
     }
 
     public void activateCard(){
+        //TODO notify Player
+        player.clearThisRegister(game.getActiveRegister());
+        game.getSpamDrawPile().add(this);
+        player.placeCard(player.drawCard(), game.getActiveRegister());
+        player.activateRegister(game.getActiveRegister());
+
     }
 
 }

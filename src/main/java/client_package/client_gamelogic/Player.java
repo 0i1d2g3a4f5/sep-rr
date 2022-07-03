@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class Player {
 
+
+
     int EnergyCubes;
     int clientID;
     private Robot robot;
@@ -26,6 +28,9 @@ public class Player {
     public Player() {
     }
 
+    public int getEnergyCubes() {
+        return EnergyCubes;
+    }
     public Robot getRobot() {
         return robot;
     }

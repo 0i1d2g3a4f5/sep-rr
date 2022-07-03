@@ -1,8 +1,11 @@
 package gamelogic.cards.damage_card;
 
 import gamelogic.Game;
+import gamelogic.Player;
+import utility.MyMath;
 
 import static gamelogic.cards.CardName.*;
+import static utility.MyMath.pythagoras;
 
 public class Virus extends DamageCard {
 
@@ -19,7 +22,17 @@ public class Virus extends DamageCard {
     }
 
     public void activateCard(){
-        //TODO: should add a method in Game/Player class to calculate the distance between current player and other players
+        for (Player player:game.getPlayerList()) {
+            if(pythagoras(player.getRobot().getPosition(),this.player.getRobot().getPosition())>=6 ){
+                player.drawVirus(1);
+            }
+
+        }
+        //TODO notify Player
+        player.clearThisRegister(game.getActiveRegister());
+        game.getVirusDrawPile().add(this);
+        player.placeCard(player.drawCard(), game.getActiveRegister());
+        player.activateRegister(game.getActiveRegister());
 
     }
 }
