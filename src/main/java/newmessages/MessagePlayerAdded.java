@@ -6,7 +6,6 @@ import client_application.TaskType;
 import client_package.basicClient.BasicClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import client_package.Client;
 
 import java.io.IOException;
 
@@ -76,7 +75,7 @@ public class MessagePlayerAdded extends Message{
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }else{
-                client.getPlayerList().add(new BasicClient(this.clientID, this.name, this.figure));
+                client.getClientList().add(new BasicClient(this.clientID, this.name, this.figure));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
         }
@@ -101,7 +100,7 @@ public class MessagePlayerAdded extends Message{
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }else{
-                client.getPlayerList().add(new BasicClient(this.clientID, this.name, this.figure));
+                client.getClientList().add(new BasicClient(this.clientID, this.name, this.figure));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
             client.sendSelf(new MessageSetStatus(true));
