@@ -2,7 +2,7 @@ package client_package.utility;
 
 /**
  * @author Isabel
- *
+ * replaces image paths with shorter strings
  */
 public class Images {
 
@@ -57,8 +57,21 @@ public class Images {
     public static String startingPointElement = "images/boardElements/StartingPoint.png";
     public static String wallElement = "images/boardElements/WallTop.png";
 
+    //racing courses
+    public static String deathTrapMap = "images/racingCourses/DeathTrapMap.png";
+    public static String dizzyHighwayMap = "images/racingCourses/DeathTrapMap.png";
+    public static String extraCrispyMap = "images/racingCourses/DeathTrapMap.png";
+    public static String lostBearingsMap = "images/racingCourses/DeathTrapMap.png";
 
+    //robots
+    public static String hammerBot = "images/robots/RobotPurpleHammer.png";
+    public static String hulkBot = "images/robots/RobotRedHulkx90.png";
+    public static String smashBot = "images/robots/RobotYellowSmash.png";
+    public static String spinBot = "images/robots/RobotBlueSpin.png";
+    public static String twonkyBot = "images/robots/RobotOrangeTwonky.png";
+    public static String zoomBot = "images/robots/RobotGreenZoom.png";
 
-
+    //others
+    //TODO check importance of, increase and add other images to the class
 
 }
