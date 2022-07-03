@@ -1,4 +1,4 @@
-package client_package.client_gamelogic.game_elements.game_elements;
+package client_package.client_gamelogic.game_elements;
 
 import gamelogic.Direction;
 

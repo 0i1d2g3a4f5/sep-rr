@@ -1,14 +1,13 @@
-package client_package.client_gamelogic.game_elements.game_elements;
+package client_package.client_gamelogic.game_elements;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 
 import java.io.IOException;
 
-public class Pit extends GameElement {
-    public Pit(){
-        
+public class Empty extends GameElement {
+    public Empty(){
+        super(ElementName.EMPTY);
     }
 
     /**
@@ -19,10 +18,8 @@ public class Pit extends GameElement {
      * @throws IOException
      */
 
-    public Pit(JsonObject jsonObject) throws IOException {
+    public Empty (JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
-        Pit pit = new Pit();
+        Empty empty = new Empty();
     }
-
-
 }

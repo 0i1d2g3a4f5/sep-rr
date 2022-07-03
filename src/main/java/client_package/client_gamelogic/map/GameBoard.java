@@ -2,8 +2,8 @@ package client_package.client_gamelogic.map;
 
 
 
-import client_package.client_gamelogic.game_elements.game_elements.ElementFactory;
-import client_package.client_gamelogic.game_elements.game_elements.GameElement;
+import client_package.client_gamelogic.game_elements.ElementFactory;
+import client_package.client_gamelogic.game_elements.GameElement;
 import com.google.gson.*;
 
 

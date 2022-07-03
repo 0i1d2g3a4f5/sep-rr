@@ -1,8 +1,7 @@
-package client_package.client_gamelogic.game_elements.game_elements;
+package client_package.client_gamelogic.game_elements;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 
 import java.io.IOException;
 

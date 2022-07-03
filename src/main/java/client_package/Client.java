@@ -5,8 +5,6 @@ import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.ThisPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import gamelogic.map.GameBoard;
-import newmessages.ClientNotFoundException;
 import newmessages.Message;
 
 import java.io.DataOutputStream;
@@ -22,6 +20,8 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class Client {
 
+    protected List<Client> clientList;
+    //TODO playerlist as filter for clients that are playing
     protected List<Client> playerList;
     protected ClientApplication clientApplication;
 
@@ -37,13 +37,13 @@ public abstract class Client {
     public Client(ClientApplication clientApplication, boolean isBasic){
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
-        setPlayerList(new ArrayList<>());
+        setClientList(new ArrayList<>());
     }
 
 
 
     public Client clientFromId(int inp){
-        for(Client client : this.playerList){
+        for(Client client : this.clientList){
             if(client.getId()==inp){
                 return client;
             }
@@ -120,11 +120,11 @@ public abstract class Client {
         return game;
     }
 
-    public List<Client> getPlayerList(){
-        return this.playerList;
+    public List<Client> getClientList(){
+        return this.clientList;
     }
-    public void setPlayerList(List<Client> clientList){
-        this.playerList=clientList;
+    public void setClientList(List<Client> clientList){
+        this.clientList =clientList;
     }
 
     public ClientApplication getClientApplication() {

@@ -1,7 +1,7 @@
 package client_package.client_gamelogic;
 
 import client_package.client_gamelogic.cards.Card;
-import client_package.client_gamelogic.game_elements.game_elements.robot.Robot;
+import client_package.client_gamelogic.game_elements.robot.Robot;
 import gamelogic.Color;
 
 import java.util.ArrayList;

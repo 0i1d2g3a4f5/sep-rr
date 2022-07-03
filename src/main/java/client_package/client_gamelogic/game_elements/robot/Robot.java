@@ -1,17 +1,15 @@
-package client_package.client_gamelogic.game_elements.game_elements.robot;
+package client_package.client_gamelogic.game_elements.robot;
 
 
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.Player;
-import client_package.client_gamelogic.game_elements.game_elements.GameElement;
+import client_package.client_gamelogic.game_elements.GameElement;
 
 import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Position;
-import newmessages.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @author Qinyi, Mark

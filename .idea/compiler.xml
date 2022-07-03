@@ -12,9 +12,11 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AI" target="14" />
+      <module name="client_package" target="14" />
       <module name="clientModule" target="18" />
       <module name="communication" target="18" />
       <module name="gamelogic" target="18" />
+      <module name="server_package" target="14" />
       <module name="serverModule" target="18" />
     </bytecodeTargetLevel>
   </component>

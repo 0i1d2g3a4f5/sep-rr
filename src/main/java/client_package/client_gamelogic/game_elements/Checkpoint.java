@@ -1,13 +1,7 @@
-package client_package.client_gamelogic.game_elements.game_elements;
+package client_package.client_gamelogic.game_elements;
 
-import client_package.client_gamelogic.game_elements.game_elements.robot.Robot;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import gamelogic.Activatable;
-import gamelogic.Game;
-import gamelogic.Player;
-import utility.SearchMethods;
 
 import java.io.IOException;
 
