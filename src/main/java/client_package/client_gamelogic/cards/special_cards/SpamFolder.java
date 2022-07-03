@@ -5,11 +5,11 @@ import client_package.client_gamelogic.cards.CardName;
 
 import java.util.Stack;
 
-import static gamelogic.cards.CardName.SPAM_FOLDER;
+
 
 public class SpamFolder extends SpecialCard {
     public SpamFolder(){
-        super(SPAM_FOLDER);
+        super(CardName.SPAM_FOLDER);
     }
     public void discard() {
 
@@ -21,9 +21,5 @@ public class SpamFolder extends SpecialCard {
      */
     @Override
     public void activateCard(){
-        Stack<Card> discardPile =player.getDiscardPile();
-        for (Card card:discardPile) {
-            if(card.getCardName()== CardName.SPAM) discardPile.remove(card);
-        }
     }
 }

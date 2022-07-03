@@ -1,15 +1,15 @@
 package client_package.client_gamelogic.cards;
 
 
+import client_package.client_gamelogic.Game;
+import client_package.client_gamelogic.Player;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import gamelogic.Game;
-import gamelogic.JsonSerializable;
-import gamelogic.Player;
+
 
 import java.util.Objects;
 
-public abstract class Card implements JsonSerializable {
+public abstract class Card{
     protected CardName cardName;
 
     protected Player player;

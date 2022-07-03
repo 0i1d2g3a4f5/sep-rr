@@ -12,7 +12,7 @@ public class Worm extends DamageCard {
         super(WORM);
     }
     public void discard(){
-        game.getWormDrawPile().push(this);
+
     }
 
     public void activateCard(){

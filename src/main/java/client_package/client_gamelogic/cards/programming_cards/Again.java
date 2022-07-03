@@ -21,7 +21,5 @@ Again extends ProgrammingCard {
      */
     @Override
     public void activateCard() {
-        //Activates the previous Register
-        player.activateRegister(game.getActiveRegister()-1);
     }
 }

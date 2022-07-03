@@ -13,7 +13,7 @@ public class Virus extends DamageCard {
         super(VIRUS);
     }
     public void discard(){
-        game.getVirusDrawPile().push(this);
+
     }
 
     public void activateCard(){

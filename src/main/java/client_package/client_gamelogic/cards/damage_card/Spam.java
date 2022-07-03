@@ -13,8 +13,6 @@ public class Spam extends DamageCard {
      */
     @Override
     public void discard() {
-        game.getSpamDrawPile().push(this);
-
     }
 
     public void activateCard(){

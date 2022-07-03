@@ -16,7 +16,7 @@ public class EnergyRoutine extends SpecialCard {
      * the player will take one energy cube.
      */
     public void activateCard(){
-        player.addEnergyCube();
+
     }
 
 }

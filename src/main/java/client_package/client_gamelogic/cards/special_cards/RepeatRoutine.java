@@ -1,10 +1,11 @@
 package client_package.client_gamelogic.cards.special_cards;
 
-import static gamelogic.cards.CardName.REPEAT_ROUTINE;
+
+import client_package.client_gamelogic.cards.CardName;
 
 public class RepeatRoutine extends SpecialCard {
     public RepeatRoutine(){
-        super(REPEAT_ROUTINE);
+        super(CardName.REPEAT_ROUTINE);
     }
     public void discard() {
 
@@ -16,6 +17,6 @@ public class RepeatRoutine extends SpecialCard {
      * If the previous discarded card was a damage card, draw a card from the top of the deck and play it.
      */
     public void activateCard(){
-        player.getLastPlayedCard().activateCard();
+
     }
 }
