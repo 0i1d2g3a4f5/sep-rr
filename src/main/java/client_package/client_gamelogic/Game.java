@@ -14,6 +14,30 @@ public class Game {
     private GameBoard map;
     private Client client;
 
+    public ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(ArrayList<Player> playerList) {
+        this.playerList = playerList;
+    }
+
+    public GameBoard getMap() {
+        return map;
+    }
+
+    public void setMap(GameBoard map) {
+        this.map = map;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     public Game(Client client, ArrayList<Player> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
         this.playerList = playerList;

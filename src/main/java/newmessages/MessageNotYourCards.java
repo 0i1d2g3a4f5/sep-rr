@@ -1,10 +1,12 @@
 package newmessages;
 
+import client_package.client_gamelogic.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -59,6 +61,14 @@ public class MessageNotYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+        ArrayList<Player> playerList = client.getGame().getPlayerList();
+
+        for (Player player:playerList) {
+            if(player.getClientID()==clientID){
+                player.setHandCards(cardsInHand);
+            }
+        }
 
     }
 }

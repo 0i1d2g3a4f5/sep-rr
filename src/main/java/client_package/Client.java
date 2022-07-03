@@ -1,6 +1,8 @@
 package client_package;
 
 import client_application.ClientApplication;
+import client_package.client_gamelogic.Game;
+import client_package.client_gamelogic.ThisPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import gamelogic.map.GameBoard;
@@ -22,6 +24,9 @@ public abstract class Client {
 
     protected List<Client> playerList;
     protected ClientApplication clientApplication;
+
+    protected ThisPlayer player;
+    protected Game game;
     protected String group;
     protected String name = "";
     protected int figure, id;
@@ -110,6 +115,11 @@ public abstract class Client {
     *
     *
     */
+
+    public Game getGame() {
+        return game;
+    }
+
     public List<Client> getPlayerList(){
         return this.playerList;
     }
@@ -193,5 +203,10 @@ public abstract class Client {
 
     public void setIsBasic(boolean basic) {
         isBasic = basic;
+    }
+
+
+    public ThisPlayer getPlayer() {
+      return player;
     }
 }

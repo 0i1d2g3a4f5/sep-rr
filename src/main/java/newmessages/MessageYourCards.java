@@ -1,5 +1,7 @@
 package newmessages;
 
+import client_package.client_gamelogic.cards.Card;
+import client_package.client_gamelogic.cards.CardFactory;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -7,6 +9,8 @@ import gamelogic.cards.CardName;
 import server_package.Client;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  * @author Mark Ringer, Vivian Kafadar
  */
@@ -70,6 +74,15 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+        ArrayList<Card> handCards = new ArrayList<>();
+        CardFactory cardFactory = new CardFactory();
+
+        for (CardName card:cardsInHand) {
+            handCards.add(cardFactory.createCard(card));
+        }
+
+        client.getPlayer().setHandCards(handCards);
 
     }
 

@@ -16,10 +16,10 @@ import java.io.IOException;
  */
 public class CardFactory {
 
-    public Card createCard(CardName cardName) throws IOException {
+    public Card createCard(gamelogic.cards.CardName cardName) throws IOException {
         return buildCard(cardName);
     }
-    private Card buildCard(CardName cardName) throws IOException {
+    private Card buildCard(gamelogic.cards.CardName cardName) throws IOException {
         switch (cardName){
             case SPAM -> {
                 return new Spam();

@@ -7,6 +7,7 @@ import gamelogic.Color;
 import java.util.ArrayList;
 
 public class Player {
+    int clientID;
     private Robot robot;
     private int handCards = 0;
     private ArrayList<Card> registerCards= new ArrayList(9);
@@ -30,5 +31,17 @@ public class Player {
 
     public int getHandCards() {
         return handCards;
+    }
+
+    public void addHandCards(int count){
+        handCards += count;
+    }
+
+    public void setHandCards(int handCards) {
+        this.handCards = handCards;
+    }
+
+    public int getClientID() {
+        return clientID;
     }
 }

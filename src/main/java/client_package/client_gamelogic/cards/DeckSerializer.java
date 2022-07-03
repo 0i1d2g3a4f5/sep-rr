@@ -67,7 +67,7 @@ public class DeckSerializer {
         Stack<Card> deck= new Stack<>();
 
         for (JsonElement jsonType:array) {
-            deck.add(new CardFactory().createCard(CardName.parseCardName(jsonType.toString())));
+            deck.add(new CardFactory().createCard(gamelogic.cards.CardName.parseCardName(jsonType.toString())));
         }
         return deck;
     }
