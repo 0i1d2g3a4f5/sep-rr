@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Game {
+
+    private int activeRegister;
     private ArrayList<Player> playerList;
     private GameBoard map;
     private Client client;
@@ -19,9 +21,14 @@ public class Game {
 
     }
 
+
     public static Game getInstance() throws IOException {
         if(instance != null) return  instance;
         else return new Game();
+    }
+
+    public int getActiveRegister() {
+        return activeRegister;
     }
 
     public ArrayList<Player> getPlayerList() {
