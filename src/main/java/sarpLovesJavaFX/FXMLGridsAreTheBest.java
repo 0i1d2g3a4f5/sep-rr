@@ -15,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import client_package.client_gamelogic.*;
@@ -150,7 +151,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @return
      * @throws IOException
      */
-    public Scene constructMap() throws IOException {
+    private void constructMap() throws IOException {
         Game game = Game.getInstance();
         ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
@@ -209,7 +210,6 @@ public class FXMLGridsAreTheBest extends Application {
         }
         scrollPane.setContent(gridPane);
         Scene scene = new Scene(scrollPane, 512, 512);
-        return scene;
     }
 
     /**
