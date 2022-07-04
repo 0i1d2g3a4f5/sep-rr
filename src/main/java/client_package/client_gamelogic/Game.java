@@ -31,6 +31,8 @@ public class Game {
         return activeRegister;
     }
 
+
+
     public ArrayList<Player> getPlayerList() {
         return playerList;
     }

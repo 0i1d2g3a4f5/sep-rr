@@ -12,21 +12,22 @@ import java.util.ArrayList;
 public class Player {
 
 
-
     int EnergyCubes;
     int clientID;
     private Robot robot;
     private int handCards = 0;
     private ArrayList<Card> registerCards= new ArrayList(9);
 
-    public Player(Color robotColor){
+    public Player(int clientID, Color robotColor){
 
         this.robot = new Robot(robotColor);
+        this.clientID = clientID;
 
     }
 
-    public Player() {
+    protected Player() {
     }
+
 
     public int getEnergyCubes() {
         return EnergyCubes;
@@ -38,7 +39,7 @@ public class Player {
     public void registerCard(Card card, int position){
         registerCards.add(position,card);
     }
-    public static ArrayList<Card> getRegisterCards(){
+    public ArrayList<Card> getRegisterCards(){
         return registerCards;
     }
 

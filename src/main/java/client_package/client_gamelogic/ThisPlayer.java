@@ -12,9 +12,8 @@ public class ThisPlayer extends Player{
     private static ArrayList<Card> registerCards;
     private static ArrayList<Card> handCards;
 
-    public ThisPlayer(Color robotColor) {
-        this.robot = new Robot(robotColor);
-
+    public ThisPlayer(int id, Color robotColor) {
+        super(id,robotColor);
     }
 
     public void drawDamage(){
@@ -33,7 +32,7 @@ public class ThisPlayer extends Player{
         this.registerCards = registerCards;
     }
 
-    public static ArrayList<Card> getRegisterCards(){
+    public ArrayList<Card> getRegisterCards(){
         return registerCards;
     }
 

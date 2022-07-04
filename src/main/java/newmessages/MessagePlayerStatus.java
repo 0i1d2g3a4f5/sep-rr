@@ -74,6 +74,7 @@ public class MessagePlayerStatus extends Message {
                 client.clientFromId(this.clientID).setIsReady(this.ready);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
+
         }
         else{
 

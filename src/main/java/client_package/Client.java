@@ -5,6 +5,7 @@ import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.ThisPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import gamelogic.Color;
 import newmessages.Message;
 
 import java.io.DataOutputStream;
@@ -26,15 +27,37 @@ public abstract class Client {
     protected ClientApplication clientApplication;
 
     protected ThisPlayer player;
-    protected Game game;
+    protected Game game = Game.getInstance();
     protected String group;
     protected String name = "";
     protected int figure, id;
     protected Socket socket;
     protected boolean isListening, isReady, isForList, isBasic;
-    public Client(){
+    public Client() throws IOException {
     }
-    public Client(ClientApplication clientApplication, boolean isBasic){
+
+    public Color getRoboColor(){
+        switch (figure){
+            case 1:
+                return Color.RED;
+            case 2:
+                return Color.BLUE;
+            case 3:
+                return Color.GREEN;
+            case 4:
+                return Color.ORANGE;
+
+            case 5:
+                return Color.PURPLE;
+
+            case 6:
+                return Color.YELLOW;
+
+            default:throw new IllegalArgumentException();
+        }
+    }
+
+    public Client(ClientApplication clientApplication, boolean isBasic) throws IOException {
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
         setClientList(new ArrayList<>());
@@ -69,6 +92,23 @@ public abstract class Client {
             throw new RuntimeException(e);
         }
     }
+
+    public List<Client> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Client> playerList) {
+        this.playerList = playerList;
+    }
+
+    public void setPlayer(ThisPlayer player) {
+        this.player = player;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     public abstract void listen();
     public abstract void process(JsonObject jsonObject);
     protected Runnable basicListener = new Runnable() {
