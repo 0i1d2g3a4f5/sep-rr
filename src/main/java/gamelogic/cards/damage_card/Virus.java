@@ -21,6 +21,9 @@ public class Virus extends DamageCard {
         game.getVirusDrawPile().push(this);
     }
 
+    /**
+     * @author Mark Ringer
+     */
     public void activateCard(){
         for (Player player:game.getPlayerList()) {
             if(pythagoras(player.getRobot().getPosition(),this.player.getRobot().getPosition())>=6 ){

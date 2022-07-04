@@ -15,6 +15,9 @@ public class Worm extends DamageCard {
         game.getWormDrawPile().push(this);
     }
 
+    /**
+     * @author Mark Ringer
+     */
     public void activateCard(){
         //TODO notify Player
         player.getRobot().reboot();

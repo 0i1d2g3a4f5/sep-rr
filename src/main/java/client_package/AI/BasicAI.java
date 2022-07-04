@@ -1,12 +1,12 @@
 package client_package.AI;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 import newmessages.*;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.TimeUnit;
+
 
 public class BasicAI extends AIClient{
     public BasicAI(boolean isBasic, AIController aiController){
@@ -36,7 +36,7 @@ public class BasicAI extends AIClient{
         try {
             setSocket(new Socket(ip, port));
         } catch (IOException e) {
-            //COULDNT CREATE
+            //COULDN'T CREATE
             throw new RuntimeException(e);
         }
     }
