@@ -57,8 +57,8 @@ public class JavaFXGridHandler {
             throw new RuntimeException(e);
         }
     }
-    public void gridPaneFromGameBoard(GameBoard gameBoard, GridPane gridPane){
-        updateGameBoard(gameBoard, gridPane);
+    public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
+        return updateGameBoard(gameBoard);
     }
 
     private void addToPane(StackPane stackPane,String path){
@@ -223,8 +223,8 @@ public class JavaFXGridHandler {
         Scene scene = new Scene(scrollPane, 512, 512);
     }*/
 
-    private void updateGameBoard(GameBoard gameBoard, GridPane input){
-        input.getChildren().clear();
+    private GridPane updateGameBoard(GameBoard gameBoard){
+        GridPane input = new GridPane();
         for(int j=0; j<gameBoard.getDimensionY(); j++){
             for(int i=0; i<gameBoard.getDimensionX(); i++){
                 GameField temp = gameBoard.getGameField(j, i);
@@ -281,6 +281,7 @@ public class JavaFXGridHandler {
                 input.add(stackPane, i, j);
             }
         }
+        return input;
     }
 
     /**

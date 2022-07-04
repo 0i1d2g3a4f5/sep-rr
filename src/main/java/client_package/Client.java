@@ -21,6 +21,10 @@ import java.util.concurrent.TimeUnit;
  * @author Sarp Cagin Erdogan
  */
 public abstract class Client {
+    protected ArrayList<Message> toSendList = new ArrayList<>();
+    public void addToSendList(Message message){
+        toSendList.add(message);
+    }
 
     protected List<Client> clientList;
     //TODO playerlist as filter for clients that are playing
@@ -85,7 +89,9 @@ public abstract class Client {
     }
 
 
-    public void sendSelf(Message message){
+    public void sendSelf(Message temp){
+        addToSendList(temp);
+        Message message = toSendList.get(0);
 
         try {
             OutputStream outputStream = socket.getOutputStream();
@@ -98,6 +104,7 @@ public abstract class Client {
                 dataOutputStream.flush();
             }
             System.out.println("SENT: " + print);
+            toSendList.remove(message);
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }
