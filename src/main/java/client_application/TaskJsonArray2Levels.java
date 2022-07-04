@@ -4,7 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class TaskJsonArray2Levels extends TaskContent{
     public JsonArray jsonArray;
     public ArrayList<ArrayList<String>> stringContent;

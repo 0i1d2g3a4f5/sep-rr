@@ -1,5 +1,6 @@
 package server_package.basicServer;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.*;
@@ -50,7 +51,7 @@ public class BasicClient extends Client {
                     if(!hahaha.equals("")){
                         isEnded=false;
                         System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
+                        JsonObject jsonObject =  new Gson().fromJson(hahaha, JsonObject.class);
                         try {
                             messageProcessor.process(jsonObject);
                         } catch (ClientNotFoundException e) {

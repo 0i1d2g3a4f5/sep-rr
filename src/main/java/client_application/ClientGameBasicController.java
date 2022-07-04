@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class ClientGameBasicController {
 
     public ClientApplication clientApplication;

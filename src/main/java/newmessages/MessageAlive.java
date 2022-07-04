@@ -17,12 +17,10 @@ public class MessageAlive extends Message{
         type = "Alive";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
-        System.out.println("Created ALive Message: " + this);
     }
 
     public MessageAlive(JsonObject jsonObject){
         super(jsonObject);
-        System.out.println("Created Alive Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

@@ -3,6 +3,7 @@ package client_package;
 import client_application.ClientApplication;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.ThisPlayer;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import gamelogic.Color;
@@ -140,7 +141,7 @@ public abstract class Client {
                     if(!hahaha.equals("")){
                         isEnded=false;
                         System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject = JsonParser.parseString(hahaha).getAsJsonObject();
+                        JsonObject jsonObject =  new Gson().fromJson(hahaha, JsonObject.class);
                         process(jsonObject);
                     }
                 }

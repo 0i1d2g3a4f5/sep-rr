@@ -47,12 +47,10 @@ public class ClientLobbyBasicController {
 
     }
     void activateReady(){
-        System.out.println("ACTIVATED READY");
         ready.setVisible(true);
         ready.setDisable(false);
     }
     void activateNot(){
-        System.out.println("ACTIVATED NOT READY");
         notReady.setVisible(true);
         notReady.setDisable(false);
     }
