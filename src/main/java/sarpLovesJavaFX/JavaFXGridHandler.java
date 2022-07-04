@@ -110,22 +110,22 @@ public class JavaFXGridHandler {
                     addToPane(stackPane, "images/cards/ProgrammingCards/UTurn.png");
                     break;
 
-                    // special programming cards
-                    case ENERGY_ROUTINE:
-                        caseEnergyRoutine(stackPane, registerElement);
-                        break;
-                    case REPEAT_ROUTINE:
-                        caseRepeatRoutine(stackPane, registerElement);
-                        break;
-                    case SANDBOX_ROUTINE:
-                        caseSandboxRoutine(stackPane, registerElement);
-                        break;
-                    case SPAM_FOLDER:
-                        caseSpamFolder(stackPane, registerElement);
-                        break;
-                    case WEASEL_ROUTINE:
-                        caseWeaselRoutine(stackPane, registerElement);
-                        break;
+                // special programming cards
+                case ENERGY_ROUTINE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/EnergyRoutine.png");
+                    break;
+                case REPEAT_ROUTINE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/RepeatRoutine.png");
+                    break;
+                case SANDBOX_ROUTINE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/SandboxRoutine.png");
+                    break;
+                case SPAM_FOLDER:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/SpamFolder.png");
+                    break;
+                case WEASEL_ROUTINE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/WeaselRoutine.png");
+                    break;
                 }
                 gridPane.add(stackPane,i,0);
             }
