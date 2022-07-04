@@ -53,8 +53,12 @@ public class JavaFXGridHandler {
 
     }
 
-    public void updateCards(){
-
+    public GridPane updateOwnCards(ArrayList<Card> cardList){
+        try {
+            return constructCardsList(cardList);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     public GridPane updateMap(GameBoard gameBoard){
         return updateGameBoard(gameBoard);

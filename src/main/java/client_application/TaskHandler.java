@@ -1,10 +1,14 @@
 package client_application;
 
+import client_package.client_gamelogic.cards.Card;
+import client_package.client_gamelogic.cards.CardFactory;
+import gamelogic.cards.CardName;
 import gamelogic.map.GameBoard;
 import gamelogic.map.MapCreator;
 import sarpLovesJavaFX.JavaFXGridHandler;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -81,6 +85,24 @@ public class TaskHandler {
                 }
                 JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
                 clientApplication.clientGameBasicController.updateGameBoard(javaFXGridHandler.updateMap(gameBoard));
+            }
+            case UPDATEOWNREGISTER -> {
+                TaskJsonArray taskJsonArray = new TaskJsonArray(task);
+                ArrayList<Card> cardArrayList = new ArrayList<>();
+                CardFactory cardFactory = new CardFactory();
+                for(int i = 0; i<taskJsonArray.jsonArray.size(); i++){
+                    try {
+                        cardArrayList.add(cardFactory.createCard(CardName.parseCardName(taskJsonArray.jsonArray.get(i).getAsString())));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
+                clientApplication.clientGameBasicController.updateOwnRegister(javaFXGridHandler.updateOwnCards(cardArrayList));
+            }
+            case UPDATEAVAILABLEREGISTER -> {
+            }
+            case UPDATEOTHERSREGISTERS -> {
             }
             case ERROR -> {
 
