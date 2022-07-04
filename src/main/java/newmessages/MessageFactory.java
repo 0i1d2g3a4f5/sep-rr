@@ -14,8 +14,11 @@ public class MessageFactory {
      */
     public Message createMessage(MessageType messageType, JsonObject jsonObject){
         switch (messageType){
+            case GAME_STARTED ->{
+                return new MessageGameStarted(jsonObject);
+            }
             case DEFAULT -> {
-                return null;
+                throw new RuntimeException();
             }
             case ACTIVE_PHASE -> {
                 return new MessageActivePhase(jsonObject);
@@ -140,7 +143,8 @@ public class MessageFactory {
             case WRONG_PASS -> {
                 return new MessageWrongPass(jsonObject);
             }
+            default -> throw new IllegalArgumentException();
         }
-        return null;
+
     }
 }

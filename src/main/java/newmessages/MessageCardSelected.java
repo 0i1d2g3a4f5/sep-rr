@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -66,7 +69,22 @@ public class MessageCardSelected extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        if(clientID ==client.getId()){
+            client.getPlayer().placeRegisterCards(client.getPlayer().getSelectedCard(),register);
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOWNREGISTER, new TaskContent()));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
+        }
+        else {
+            for(client_package.client_gamelogic.Player player:client.getGame().getPlayerList()){
+                if(player.getClientID()==clientID){
+                    player.addHandCards(register);
+                }
+            }
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOTHERSREGISTERS, new TaskContent()));
+
+
+        }
     }
 
     @Override

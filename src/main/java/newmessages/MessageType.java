@@ -44,7 +44,7 @@ public enum MessageType {
     VALUES_ACCEPTED,
     WELCOME,
     WRONG_NAME,
-    WRONG_PASS;
+    WRONG_PASS, GAME_STARTED;
 
 
 

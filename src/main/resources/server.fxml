@@ -43,7 +43,7 @@
       </Button>
       <ImageView fitHeight="126.0" fitWidth="190.0" layoutX="503.0" layoutY="11.0">
          <image>
-            <Image url="@images/danger.jpg" />
+            <Image url="@danger.jpg" />
          </image>
       </ImageView>
         <ImageView fx:id="upperbar" fitHeight="85.0" fitWidth="1200.0" layoutY="106.0" opacity="0.8">

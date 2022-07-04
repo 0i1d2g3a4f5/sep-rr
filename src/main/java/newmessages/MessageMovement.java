@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.client_gamelogic.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -72,5 +75,6 @@ public class MessageMovement extends Message{
                 player.getRobot().moveRobotTo(y,x);
             }
         }
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
     }
 }

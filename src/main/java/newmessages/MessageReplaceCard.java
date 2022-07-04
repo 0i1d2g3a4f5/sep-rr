@@ -43,6 +43,7 @@ public class MessageReplaceCard extends Message {
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
+
     }
 
     @Override

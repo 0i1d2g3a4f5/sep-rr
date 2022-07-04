@@ -1,5 +1,9 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
+import client_package.client_gamelogic.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.Client;
@@ -61,6 +65,17 @@ public class MessagePlayerTurning extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+
+        for (Player player:client.getGame().getPlayerList())
+        //TODO check if rotation gets clockwise{
+            if(clientID == player.getClientID()){
+                if(rotation=="clockwise"){
+                    player.getRobot().right();
+                }else {
+                    player.getRobot().left();
+            }
+        }
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
 
     }
 }

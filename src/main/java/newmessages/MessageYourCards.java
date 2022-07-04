@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.cards.CardFactory;
 import com.google.gson.JsonArray;
@@ -83,6 +86,8 @@ public class MessageYourCards extends Message{
         }
 
         client.getPlayer().setHandCards(handCards);
+
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
     }
 

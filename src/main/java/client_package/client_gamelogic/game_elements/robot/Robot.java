@@ -8,6 +8,7 @@ import client_package.client_gamelogic.game_elements.GameElement;
 import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Position;
+import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
 
@@ -77,6 +78,7 @@ public class Robot extends GameElement {
      */
     public boolean left(){
         //TODO Animation
+        directionFacing.left();
         return true;
     }
 
@@ -86,6 +88,7 @@ public class Robot extends GameElement {
      */
     public boolean right(){
         //TODO Animation
+        directionFacing.right();
         return true;
     }
 
@@ -96,28 +99,12 @@ public class Robot extends GameElement {
 
     public boolean uTurn(){
         //TODO Animation
+        directionFacing.right();
+        directionFacing.right();
         return true;
     }
 
-    /**
-     * @author Ringer
-     * @param distance
-     * @return
-     */
-    public boolean forward(int distance){
-        //TODO Animation
-        return true;
-    }
 
-    /**
-     * @author Ringer
-     * @param distance
-     * @return
-     */
-    public boolean backward(int distance){
-        //TODO Animation
-        return true;
-    }
 
     /**
      * @uthor Ringer

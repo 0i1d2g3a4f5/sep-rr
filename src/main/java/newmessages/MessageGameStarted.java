@@ -55,7 +55,7 @@ public class MessageGameStarted extends Message{
             if(client2.getId() !=client.getId()){
                 client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new Player(client2.getId(),client2.getRoboColor()));
             } else {
-                client.setPlayer(new ThisPlayer(client2.getId(),client2.getRoboColor()));
+                client.setPlayer(new ThisPlayer(client2.getId(),client2.getRoboColor(),client));
                 client_package.client_gamelogic.Game.getInstance().getPlayerList().add(client.getPlayer());
             }
 

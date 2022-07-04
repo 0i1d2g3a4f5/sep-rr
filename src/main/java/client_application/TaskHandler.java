@@ -2,9 +2,7 @@ package client_application;
 
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.cards.CardFactory;
-import client_package.client_gamelogic.map.GameBoard;
 import gamelogic.cards.CardName;
-import gamelogic.map.MapCreator;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
 
@@ -65,7 +63,7 @@ public class TaskHandler {
                     clientApplication.stageSelection.close();
                 }
                 clientApplication.launchBasicGame();
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(clientApplication.basicClient.getGame().getMap()));
+                //clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(clientApplication.basicClient.getGame().getMap()));
 
             }
             case UPDATEGAMEBOARD -> {
@@ -76,12 +74,12 @@ public class TaskHandler {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(gameBoard));
+                //clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(gameBoard));
             }
             case UPDATEOWNREGISTER -> {
                 clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
             }
-            case UPDATEAVAILABLEREGISTER -> {
+            case UPDATE_HANDCARDS -> {
                 clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(task));
             }
             case UPDATEOTHERSREGISTERS -> {
@@ -95,10 +93,10 @@ public class TaskHandler {
             }
         }
     }
-    public GridPane gridPaneFromMap(GameBoard gameBoard){
+    /*public GridPane gridPaneFromMap(GameBoard gameBoard){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.updateMap(gameBoard);
-    }
+        return javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
+    }*/
     public GridPane gridPaneFromCardList(Task task){
         TaskJsonArray taskJsonArray = new TaskJsonArray(task);
         ArrayList<Card> cardArrayList = new ArrayList<>();

@@ -50,7 +50,7 @@ public class MessageSetStartingPoint extends Message{
      */
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
+        //TODO insert
         Position position = new Position(y,x);
         if(client.getPlayer().placeRobot(position)){
             client.sendAll(new MessageStartingPointTaken(x,y, client.getId()));

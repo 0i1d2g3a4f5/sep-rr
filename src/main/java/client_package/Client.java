@@ -128,20 +128,24 @@ public abstract class Client {
                 try {
 
                     TimeUnit.MILLISECONDS.sleep(100);
-                    String hahaha = "";
+                    String inputString = "";
                     boolean isEnded = false;
                     int i=0;
                     while (!isEnded && socket.getInputStream().available() > 0) {
                         char a = (char)socket.getInputStream().read();
+                        //TODO possible reason for fail
+
                         if((int) a == 10){
                             isEnded=true;
                         }
-                        hahaha+=String.valueOf(a);
+
+
+                        inputString+=String.valueOf(a);
                     }
-                    if(!hahaha.equals("")){
+                    if(!inputString.equals("")){
                         isEnded=false;
-                        System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject =  new Gson().fromJson(hahaha, JsonObject.class);
+                        System.out.println("RECEIVED: " + inputString);
+                        JsonObject jsonObject =  new Gson().fromJson(inputString, JsonObject.class);
                         process(jsonObject);
                     }
                 }

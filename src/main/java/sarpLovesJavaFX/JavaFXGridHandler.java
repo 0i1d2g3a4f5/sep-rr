@@ -8,10 +8,7 @@ import client_package.client_gamelogic.game_elements.GameElement;
 import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
-import client_application.*;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -60,8 +57,8 @@ public class JavaFXGridHandler {
             throw new RuntimeException(e);
         }
     }
-    public GridPane updateMap(GameBoard gameBoard){
-        return updateGameBoard(gameBoard);
+    public void gridPaneFromGameBoard(GameBoard gameBoard, GridPane gridPane){
+        updateGameBoard(gameBoard, gridPane);
     }
 
     private void addToPane(StackPane stackPane,String path){
@@ -82,7 +79,7 @@ public class JavaFXGridHandler {
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             StackPane stackPane = new StackPane();
-            ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
+            ImageView imageView= new ImageView(new Image("TBDtile.png"));
             stackPane.getChildren().add(imageView);
             stackPane.setAlignment(imageView, Pos.CENTER);
 
@@ -226,13 +223,13 @@ public class JavaFXGridHandler {
         Scene scene = new Scene(scrollPane, 512, 512);
     }*/
 
-    private GridPane updateGameBoard(GameBoard gameBoard){
-        GridPane input = new GridPane();
+    private void updateGameBoard(GameBoard gameBoard, GridPane input){
+        input.getChildren().clear();
         for(int j=0; j<gameBoard.getDimensionY(); j++){
             for(int i=0; i<gameBoard.getDimensionX(); i++){
                 GameField temp = gameBoard.getGameField(j, i);
                 StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
+                ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
                 for(GameElement gameElement : temp.getElements()){
@@ -284,7 +281,6 @@ public class JavaFXGridHandler {
                 input.add(stackPane, i, j);
             }
         }
-        return input;
     }
 
     /**

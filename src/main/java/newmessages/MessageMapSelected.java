@@ -57,7 +57,8 @@ public class MessageMapSelected extends Message{
             Game.getInstance().setBoard(gameBoard);
             System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             client.sendAll(this);
-            client.sendAll(new MessageGameStarted(Game.getInstance().getBoard().toJson(), false));
+            //TODO select position, revert to get gameBoard
+            client.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
 
         }
         else {
