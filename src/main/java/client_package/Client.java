@@ -27,13 +27,22 @@ public abstract class Client {
     protected ClientApplication clientApplication;
 
     protected ThisPlayer player;
-    protected Game game = Game.getInstance();
+    protected Game game;
+
+    {
+        try {
+            game = Game.getInstance();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     protected String group;
     protected String name = "";
     protected int figure, id;
     protected Socket socket;
     protected boolean isListening, isReady, isForList, isBasic;
-    public Client() throws IOException {
+    public Client(){
     }
 
     public Color getRoboColor(){
@@ -57,7 +66,7 @@ public abstract class Client {
         }
     }
 
-    public Client(ClientApplication clientApplication, boolean isBasic) throws IOException {
+    public Client(ClientApplication clientApplication, boolean isBasic){
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
         setClientList(new ArrayList<>());

@@ -3,6 +3,8 @@ package client_package.AI;
 import client_application.ClientApplication;
 import client_package.Client;
 
+import java.io.IOException;
+
 public abstract class AIClient extends Client {
     AIController aiController;
 
