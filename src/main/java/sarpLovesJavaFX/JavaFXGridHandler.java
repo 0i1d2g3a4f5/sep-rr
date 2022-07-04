@@ -9,6 +9,8 @@ import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -162,10 +164,9 @@ public class JavaFXGridHandler {
      * @return
      * @throws IOException
      */
-    /*private void constructMap() throws IOException {
+    private void constructMap(GridPane gridPane) throws IOException {
         Game game = Game.getInstance();
         ScrollPane scrollPane = new ScrollPane();
-        GridPane gridPane = new GridPane();
         for(int j=0; j<game.getMap().getDimensionY(); j++){
             for(int i=0; i<game.getMap().getDimensionX(); i++){
                 GameField temp = game.getMap().getGameField(j, i);
@@ -221,13 +222,12 @@ public class JavaFXGridHandler {
         }
         scrollPane.setContent(gridPane);
         Scene scene = new Scene(scrollPane, 512, 512);
-    }*/
-
+    }
     private GridPane updateGameBoard(GameBoard gameBoard){
         GridPane input = new GridPane();
-        for(int j=0; j<gameBoard.getDimensionY(); j++){
-            for(int i=0; i<gameBoard.getDimensionX(); i++){
-                GameField temp = gameBoard.getGameField(j, i);
+        for(int y=0; y<gameBoard.getDimensionY(); y++){
+            for(int x=0; x<gameBoard.getDimensionX(); x++){
+                GameField temp = gameBoard.getGameField(y, x);
                 StackPane stackPane = new StackPane();
                 ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
@@ -278,7 +278,7 @@ public class JavaFXGridHandler {
                             break;
                     }
                 }
-                input.add(stackPane, i, j);
+                input.add(stackPane, x, y);
             }
         }
         return input;
@@ -288,7 +288,7 @@ public class JavaFXGridHandler {
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param gameBoard
      * @return
-     *//*
+     */
     public static Scene fromMap(GameBoard gameBoard) throws IOException {
         ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
@@ -349,7 +349,7 @@ public class JavaFXGridHandler {
         Scene scene = new Scene(scrollPane, 512, 512);
         return scene;
 
-    }*/
+    }
 
     /**
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer

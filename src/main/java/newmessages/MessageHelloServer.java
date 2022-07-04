@@ -62,9 +62,9 @@ public class MessageHelloServer extends Message {
                 client.setAI(this.isAI);
                 client.setGroup(this.group);
                 client.sendSelf(new MessageWelcome(client.getId()));
-                if(client.getId().equals(null)){
+
                     System.out.println("Client "+ ", with ID: " + client.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
-                }
+
             }
         }
         else{

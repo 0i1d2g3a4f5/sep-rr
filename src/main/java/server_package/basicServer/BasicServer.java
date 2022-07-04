@@ -43,6 +43,7 @@ public class BasicServer extends Server {
                         setCurrentIndex(getCurrentIndex()+1);
                         setCurrentClients(getCurrentClients()+1);
                         client.listen();
+
                         client.sendProtocolCheck();
                         client.sendPreviousInfo();
                     }

@@ -4,6 +4,7 @@ import gamelogic.Player;
 import newmessages.Message;
 import server_package.advancedServer.AdvancedClient;
 
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -43,21 +44,28 @@ public abstract class Client {
     public void sendSingle(Client client, Message temp){
         addToSendList(temp);
         Message message = toSendList.get(0);
-        try {
-            OutputStream outputStream = client.socket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            String toSend = message.toJSON().toString()+"\n";
-            String print = "";
-            for(int i=0; i<toSend.length(); i++){
-                print+=toSend.charAt(i);
-                dataOutputStream.write((int) toSend.toCharArray()[i]);
+        synchronized (temp) {
+            try {
+                OutputStream outputStream = client.socket.getOutputStream();
+                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+                String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
+                char[] arr = toSend.toCharArray();
+                String print = "";
+                for (char c:arr) {
+                    dataOutputStream.writeInt((int)c);
+                    print+=c;
+                }
                 dataOutputStream.flush();
+                System.out.println("ToSend length: "+toSend.length());
+                System.out.println("SENT: " + print);
+
+                toSendList.remove(message);
+                dataOutputStream.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            System.out.println("SENT: " + print);
-            toSendList.remove(message);
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
         }
+
     }
 
     public void sendSelf(Message message) {

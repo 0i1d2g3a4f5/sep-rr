@@ -41,8 +41,9 @@ public class BasicClient extends Client {
                     String hahaha = "";
                     boolean isEnded = false;
                     int i=0;
-                    while (!isEnded && socket.getInputStream().available() > 0) {
-                        char a = (char)socket.getInputStream().read();
+                    DataInputStream dataInputStream= new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                    while (!isEnded && dataInputStream.available() > 0) {
+                        char a = (char)dataInputStream.readInt();
                         if((int) a == 10){
                             isEnded=true;
                         }

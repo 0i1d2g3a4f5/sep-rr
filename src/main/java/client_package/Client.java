@@ -9,9 +9,7 @@ import com.google.gson.JsonParser;
 import gamelogic.Color;
 import newmessages.Message;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,14 +93,15 @@ public abstract class Client {
 
         try {
             OutputStream outputStream = socket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            String toSend = message.toJSON().toString()+"\n";
+            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
+            char[] arr = toSend.toCharArray();
             String print = "";
-            for(int i=0; i<toSend.length(); i++){
-                print+=toSend.charAt(i);
-                dataOutputStream.write((int)toSend.toCharArray()[i]);
-                dataOutputStream.flush();
+            for (char c:arr) {
+                dataOutputStream.writeInt((int)c);
+                print+=c;
             }
+            dataOutputStream.flush();
             System.out.println("SENT: " + print);
             toSendList.remove(message);
         }  catch (IOException e) {
@@ -131,15 +130,23 @@ public abstract class Client {
     protected Runnable basicListener = new Runnable() {
         @Override
         public void run() {
+            try {
+            DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
             while(isListening){
-                try {
+
 
                     TimeUnit.MILLISECONDS.sleep(100);
                     String inputString = "";
                     boolean isEnded = false;
                     int i=0;
-                    while (!isEnded && socket.getInputStream().available() > 0) {
-                        char a = (char)socket.getInputStream().read();
+                    if(dataInputStream.available()>0)
+                    System.out.println("waiting Chars: "+ dataInputStream.available());
+
+                    while (!isEnded && dataInputStream.available() > 0) {
+                        int in = dataInputStream.readInt();
+                       // System.out.println(in);
+
+                        char a = (char)in;
                         //TODO possible reason for fail
 
                         if((int) a == 10){
@@ -149,6 +156,8 @@ public abstract class Client {
 
                         inputString+=String.valueOf(a);
                     }
+                    if (inputString.length()>0)
+                    System.out.println("message length: "+inputString.length());
                     if(!inputString.equals("")){
                         isEnded=false;
                         System.out.println("RECEIVED: " + inputString);
@@ -156,10 +165,10 @@ public abstract class Client {
                         process(jsonObject);
                     }
                 }
-                catch (InterruptedException | IOException e) {
-                    throw new RuntimeException(e);
-                }
 
+
+            }catch (InterruptedException | IOException e) {
+                throw new RuntimeException(e);
             }
         }
     };
