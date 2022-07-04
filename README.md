@@ -21,7 +21,7 @@ If you're a first-timer, please find the rules attached: https://media.wizards.c
 4. Have fun!
 
 ## Authors and Acknowledgement
-This project was created by Vivian Kafadar, Sarp Erdogan, Mark Ringer, Isabel Muhm and Qinyi Hui for the Software Engineering Practical Course at LMU Munich rooted in the BSc Computer Science degree programme. Supervised by Nicolas in the Summer Semester 2022.
+This project was created by Vivian Kafadar, Sarp Erdogan, Mark Ringer, Isabel Muhm and Qinyi Hui for the Software Engineering Practical Course at LMU Munich rooted in the BSc Computer Science degree programme. Supervised by Nicolas Brauner in the Summer Semester 2022.
 
 ## Project Status
 In progress.
