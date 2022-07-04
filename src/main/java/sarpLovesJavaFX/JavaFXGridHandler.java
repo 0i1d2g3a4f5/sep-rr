@@ -70,6 +70,13 @@ public class JavaFXGridHandler {
         stackPane.setAlignment(imageView1, Pos.CENTER);
     }
 
+    /**
+     * @author Vivian Kafadar
+     *
+     * @param cardList
+     * @return
+     * @throws IOException
+     */
     private GridPane constructCardsList(ArrayList<Card> cardList) throws IOException {
         GridPane gridPane = new GridPane();
         // get card list length, add image in gridpanes at needed locations
