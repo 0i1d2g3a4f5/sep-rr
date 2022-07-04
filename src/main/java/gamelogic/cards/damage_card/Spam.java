@@ -3,6 +3,7 @@ package gamelogic.cards.damage_card;
 import gamelogic.Game;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName.*;
+import newmessages.MessageReplaceCard;
 
 import static gamelogic.cards.CardName.*;
 
@@ -20,12 +21,17 @@ public class Spam extends DamageCard{
 
 
     }
-
+    /**
+     * @author Mark Ringer
+     */
     public void activateCard(){
         //TODO notify Player
         player.clearThisRegister(game.getActiveRegister());
         game.getSpamDrawPile().add(this);
-        player.placeCard(player.drawCard(), game.getActiveRegister());
+        Card card = player.drawCard();
+        int activeRegister = game.getActiveRegister();
+        player.placeCard(card,activeRegister);
+        player.sendMessage(new MessageReplaceCard(activeRegister,card.getCardName(),player.getClient().getId()));
         player.activateRegister(game.getActiveRegister());
 
     }

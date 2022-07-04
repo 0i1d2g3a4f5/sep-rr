@@ -43,7 +43,7 @@ public class FXMLGridsAreTheBest extends Application {
     }
 
     /**
-     * @author Mark Ringer
+     * @author Mark Ringer, Sarp Cagin Erdogan
      * @param imageView
      * @param direction
      */
@@ -147,7 +147,7 @@ public class FXMLGridsAreTheBest extends Application {
     } */
 
     /**
-     * @author Mark Ringer
+     * @author Mark Ringer, Sarp Cagin Erdogan
      * constructs the Map as JavaFX content
      * @return
      * @throws IOException

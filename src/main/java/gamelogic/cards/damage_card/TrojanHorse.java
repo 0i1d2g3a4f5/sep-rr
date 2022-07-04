@@ -21,7 +21,7 @@ public class TrojanHorse extends DamageCard {
     }
 
     /**
-     *
+     * @author Mark Ringer
      * if you discard a TrojanHorse, you will immediately get two Spam cards.
      */
     public void activateCard(){
