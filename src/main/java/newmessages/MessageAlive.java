@@ -25,6 +25,8 @@ public class MessageAlive extends Message{
 
     @Override
     public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        System.out.println("Client " + client.getId() +" is still connected to server");
+        //TODO server sends message every 5 seconds an ist not answering on client messages
     }
 
     @Override

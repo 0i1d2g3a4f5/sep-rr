@@ -54,7 +54,7 @@ public class MessageHelloServer extends Message {
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (!this.protocol.equals(PROTOCOL_VERSION)) {
                 client.sendSelf(new MessageError("ERROR :: False communication protocol."));
@@ -62,6 +62,9 @@ public class MessageHelloServer extends Message {
                 client.setAI(this.isAI);
                 client.setGroup(this.group);
                 client.sendSelf(new MessageWelcome(client.getId()));
+                if(client.getId().equals(null)){
+                    System.out.println("Client "+ ", with ID: " + client.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
+                }
             }
         }
         else{

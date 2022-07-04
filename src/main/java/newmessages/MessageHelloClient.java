@@ -56,6 +56,7 @@ public class MessageHelloClient extends Message{
             } else {
                 System.out.println("ERROR :: False communication protocol.");
             }
+            // TODO do not compare global parameter "protocol_version" with itself, instead let server tell client its version
         }
         else{
             //ADVANCED
