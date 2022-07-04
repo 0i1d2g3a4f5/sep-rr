@@ -85,30 +85,30 @@ public class JavaFXGridHandler {
                     // add card again
                     addToPane(stackPane,"images/cards/ProgrammingCards/Again.png");
                     break;
-                    case BACK_UP:
-                       addToPane(stackPane,"images/cards/ProgrammingCards/BackUp.png");
-                        break;
-                    case LEFT_TURN:
-                        caseLeftTurn(stackPane, registerElement);
-                        break;
-                    case MOVE_ONE:
-                        caseMoveOne(stackPane, registerElement);
-                        break;
-                    case MOVE_THREE:
-                        caseMoveThree(stackPane, registerElement);
-                        break;
-                    case MOVE_TWO:
-                        caseMoveTwo(stackPane, registerElement);
-                        break;
-                    case POWER_UP:
-                        casePowerUp(stackPane, registerElement);
-                        break;
-                    case RIGHT_TURN:
-                        caseRightTurn(stackPane, registerElement);
-                        break;
-                    case U_TURN:
-                        caseUTurn(stackPane, registerElement);
-                        break;
+                case BACK_UP:
+                    addToPane(stackPane,"images/cards/ProgrammingCards/BackUp.png");
+                    break;
+                case LEFT_TURN:
+                    addToPane(stackPane,"images/cards/ProgrammingCards/LeftTurn.png");
+                    break;
+                case MOVE_ONE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveOne.png");
+                    break;
+                case MOVE_THREE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveThree.png");
+                    break;
+                case MOVE_TWO:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveTwo.png");
+                    break;
+                case POWER_UP:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/PowerUp.png");
+                    break;
+                case RIGHT_TURN:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/RightTurn.png");
+                    break;
+                case U_TURN:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/UTurn.png");
+                    break;
 
                     // special programming cards
                     case ENERGY_ROUTINE:
