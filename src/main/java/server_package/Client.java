@@ -8,11 +8,16 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 /**
  * @author Sarp Cagin Erdogan
  */
 public abstract class Client {
+    protected ArrayList<Message> toSendList = new ArrayList<>();
+    public void addToSendList(Message message){
+        toSendList.add(message);
+    }
     protected MessageProcessor messageProcessor;
     protected int figure = 7;
     protected String group;
@@ -35,7 +40,9 @@ public abstract class Client {
 
     }
 
-    public void sendSingle(Client client, Message message){
+    public void sendSingle(Client client, Message temp){
+        addToSendList(temp);
+        Message message = toSendList.get(0);
         try {
             OutputStream outputStream = client.socket.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
@@ -47,6 +54,7 @@ public abstract class Client {
                 dataOutputStream.flush();
             }
             System.out.println("SENT: " + print);
+            toSendList.remove(message);
         }  catch (IOException e) {
             throw new RuntimeException(e);
         }
