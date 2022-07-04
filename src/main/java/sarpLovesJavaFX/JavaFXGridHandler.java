@@ -66,10 +66,6 @@ public class JavaFXGridHandler {
         stackPane.setAlignment(imageView1, Pos.CENTER);
     }
 
-
-
-    // getRegisterCards und getHandCards as cardList
-
     private GridPane constructCardsList(ArrayList<Card> cardList) throws IOException {
         GridPane gridPane = new GridPane();
         // get card list length, add image in gridpanes at needed locations
@@ -125,6 +121,20 @@ public class JavaFXGridHandler {
                     break;
                 case WEASEL_ROUTINE:
                     addToPane(stackPane, "images/cards/ProgrammingCards/WeaselRoutine.png");
+                    break;
+
+                // damage cards
+                case SPAM:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/Spam.png");
+                    break;
+                case TROJAN_HORSE:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/TrojanHorse.png");
+                    break;
+                case VIRUS:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/Virus.png");
+                    break;
+                case WORM:
+                    addToPane(stackPane, "images/cards/ProgrammingCards/StackPane.png");
                     break;
                 }
                 gridPane.add(stackPane,i,0);
