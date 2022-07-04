@@ -3,9 +3,10 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskString1;
 import client_application.TaskType;
-import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Game;
+import gamelogic.map.GameBoard;
 import gamelogic.map.MapName;
 import gamelogic.map.ModelLoader;
 import server_package.Client;
@@ -50,9 +51,14 @@ public class MessageMapSelected extends Message{
     @Override
     public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
+            //Game.getInstance().setMapName(MapName.valueOf(map));
             ModelLoader modelLoader = new ModelLoader();
+            GameBoard gameBoard = modelLoader.loadMap(map);
+            Game.getInstance().setBoard(gameBoard);
+            System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             client.sendAll(this);
-            client.sendAll(new MessageGameStarted(modelLoader.loadMap(map).toJson(), false));
+            client.sendAll(new MessageGameStarted(Game.getInstance().getBoard().toJson(), false));
+
         }
         else {
             //ADVANCED
@@ -61,7 +67,6 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        System.out.println("lalalalal");
 
 
     }

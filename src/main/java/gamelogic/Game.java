@@ -91,6 +91,12 @@ public class  Game {
         this.programmingPhase = programmingPhase;
     }
     public GameBoard board;
+    public GameBoard getBoard(){
+        return board;
+    }
+    public void setBoard(GameBoard gameBoard){
+        this.board=gameBoard;
+    }
 
     /**
      * @author Mark Ringer

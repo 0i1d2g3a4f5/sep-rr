@@ -22,7 +22,7 @@ public class BasicServer extends Server {
         setMaxClients(6);
         setCurrentClients(0);
         setCurrentIndex(1);
-        setStartingAmount(2);
+        setStartingAmount(1);
     }
     Runnable shutDownActions = new Runnable() {
         @Override

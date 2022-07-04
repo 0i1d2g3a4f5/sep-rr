@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskString1;
 import client_application.TaskType;
+import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.Player;
 import client_package.client_gamelogic.ThisPlayer;
 import client_package.client_gamelogic.map.GameBoard;
@@ -58,9 +59,10 @@ public class MessageGameStarted extends Message{
                 client_package.client_gamelogic.Game.getInstance().getPlayerList().add(client.getPlayer());
             }
 
+
         }
         if(isBasic) {
-            client.getGame().setMap(new GameBoard(gameMap));
+            Game.getInstance().setMap(new GameBoard(gameMap));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
         }
         else {
