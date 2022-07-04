@@ -1,6 +1,7 @@
 package sarpLovesJavaFX;
 
 
+import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.Checkpoint;
 import client_package.client_gamelogic.game_elements.ConveyorBelt;
 import client_package.client_gamelogic.game_elements.GameElement;
@@ -20,6 +21,9 @@ import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import static client_package.client_gamelogic.cards.CardName.*;
 
 
 /**
@@ -51,6 +55,94 @@ public class FXMLGridsAreTheBest extends Application {
             }
         }
     }
+
+    public void updateAll(){
+
+    }
+
+    public void updateCards(){
+
+    }
+    public void updateMap(ClientApplication clientApplication){
+
+        updateGameBoard();
+    }
+
+    private void addToPane(StackPane stackPane,String path){
+        ImageView imageView1= new ImageView(new Image("images/cards/ProgrammingCards/Again.png"));
+        stackPane.getChildren().add(imageView1);
+        stackPane.setAlignment(imageView1, Pos.CENTER);
+    }
+
+
+
+    // getRegisterCards und getHandCards as cardList
+
+    private void constructCardsList(GridPane gridPane, ArrayList<Card> cardList) throws IOException {
+        // get card list length, add image in gridpanes at needed locations
+        for(int i=0; i<cardList.size(); i++){
+            StackPane stackPane = new StackPane();
+            ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
+            stackPane.getChildren().add(imageView);
+            stackPane.setAlignment(imageView, Pos.CENTER);
+
+            switch (cardList.get(i).getCardName()) {
+                // programming cards
+                case AGAIN:
+                    // add card again
+                    addToPane(stackPane,"images/cards/ProgrammingCards/Again.png");
+                    break;
+                    case BACK_UP:
+                       addToPane(stackPane,"images/cards/ProgrammingCards/BackUp.png");
+                        break;
+                    case LEFT_TURN:
+                        caseLeftTurn(stackPane, registerElement);
+                        break;
+                    case MOVE_ONE:
+                        caseMoveOne(stackPane, registerElement);
+                        break;
+                    case MOVE_THREE:
+                        caseMoveThree(stackPane, registerElement);
+                        break;
+                    case MOVE_TWO:
+                        caseMoveTwo(stackPane, registerElement);
+                        break;
+                    case POWER_UP:
+                        casePowerUp(stackPane, registerElement);
+                        break;
+                    case RIGHT_TURN:
+                        caseRightTurn(stackPane, registerElement);
+                        break;
+                    case U_TURN:
+                        caseUTurn(stackPane, registerElement);
+                        break;
+
+                    // special programming cards
+                    case ENERGY_ROUTINE:
+                        caseEnergyRoutine(stackPane, registerElement);
+                        break;
+                    case REPEAT_ROUTINE:
+                        caseRepeatRoutine(stackPane, registerElement);
+                        break;
+                    case SANDBOX_ROUTINE:
+                        caseSandboxRoutine(stackPane, registerElement);
+                        break;
+                    case SPAM_FOLDER:
+                        caseSpamFolder(stackPane, registerElement);
+                        break;
+                    case WEASEL_ROUTINE:
+                        caseWeaselRoutine(stackPane, registerElement);
+                        break;
+                }
+                gridPane.add(stackPane,i,0);
+            }
+        }
+
+    /* public Scene constructHandCards() throws IOException {
+        ArrayList<Card> getHandCards = ThisPlayer.getHandCards();
+
+        // return handcards;
+    } */
 
     /**
      * @author Mark Ringer

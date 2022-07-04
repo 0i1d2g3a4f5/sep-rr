@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class ThisPlayer extends Player{
 
     private Robot robot;
-    private ArrayList<Card> registerCards;
-    private ArrayList<Card> handCards;
+    private static ArrayList<Card> registerCards;
+    private static ArrayList<Card> handCards;
 
     public ThisPlayer(Color robotColor) {
         this.robot = new Robot(robotColor);
@@ -25,7 +25,7 @@ public class ThisPlayer extends Player{
         this.handCards = handCards;
     }
 
-    public ArrayList<Card> getHandCards() {
+    public static ArrayList<Card> getHandCards() {
         return handCards;
     }
 
@@ -33,7 +33,7 @@ public class ThisPlayer extends Player{
         this.registerCards = registerCards;
     }
 
-    public ArrayList<Card> getRegisterCards(){
+    public static ArrayList<Card> getRegisterCards(){
         return registerCards;
     }
 

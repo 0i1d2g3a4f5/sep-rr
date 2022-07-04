@@ -38,7 +38,7 @@ public class Player {
     public void registerCard(Card card, int position){
         registerCards.add(position,card);
     }
-    public ArrayList<Card> getRegisterCards(){
+    public static ArrayList<Card> getRegisterCards(){
         return registerCards;
     }
 
