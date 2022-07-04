@@ -8,6 +8,7 @@ import client_package.client_gamelogic.game_elements.GameElement;
 import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
+import client_application.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -210,6 +211,66 @@ public class FXMLGridsAreTheBest extends Application {
         }
         scrollPane.setContent(gridPane);
         Scene scene = new Scene(scrollPane, 512, 512);
+    }
+
+    private void updateGameBoard(GridPane input, GameBoard gameBoard){
+        input.getChildren().clear();
+        for(int j=0; j<gameBoard.getDimensionY(); j++){
+            for(int i=0; i<gameBoard.getDimensionX(); i++){
+                GameField temp = gameBoard.getGameField(j, i);
+                StackPane stackPane = new StackPane();
+                ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
+                stackPane.getChildren().add(imageView);
+                stackPane.setAlignment(imageView, Pos.CENTER);
+                for(GameElement gameElement : temp.getElements()){
+                    switch (gameElement.getType()){
+                        case LASER:
+                            caseLaser(stackPane, gameElement);
+                            break;
+                        case CHECKPOINT:
+                            caseCheckpoint(stackPane, (Checkpoint) gameElement);
+                            break;
+                        case CONVEYORBELT:
+                            caseConveyorBelt(stackPane, gameElement);
+                            break;
+                        case ENERGYSPACE:
+                            caseEnergySpace(stackPane);
+                            break;
+                        case GEAR:
+                            caseGear(stackPane, (Gear) gameElement);
+                            break;
+                        case PUSHPANEL:
+                            try {
+                                casePushPanel(stackPane, gameElement);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            break;
+                        case PIT:
+                            casePit(stackPane);
+                            break;
+                        case STARTPOINT:
+                            caseStartPoint(stackPane);
+                            break;
+                        case WALL:
+                            caseWall(stackPane, gameElement);
+                            break;
+                        case ROBOT:
+                            caseRobot(stackPane, (Robot) gameElement);
+                            break;
+                        case ANTENNA:
+                            caseAntenna(stackPane, gameElement);
+                            break;
+                        case RESTARTPOINT:
+                            caseRestartPoint(stackPane);
+                        case EMPTY:
+                            //leer
+                            break;
+                    }
+                }
+                input.add(stackPane, i, j);
+            }
+        }
     }
 
     /**
