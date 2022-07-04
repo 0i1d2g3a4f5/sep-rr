@@ -43,7 +43,7 @@ public abstract class Client {
             String print = "";
             for(int i=0; i<toSend.length(); i++){
                 print+=toSend.charAt(i);
-                dataOutputStream.write((int )toSend.toCharArray()[i]);
+                dataOutputStream.write((int) toSend.toCharArray()[i]);
                 dataOutputStream.flush();
             }
             System.out.println("SENT: " + print);

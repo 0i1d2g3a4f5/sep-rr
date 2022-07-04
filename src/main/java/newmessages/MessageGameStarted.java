@@ -20,9 +20,7 @@ public class MessageGameStarted extends Message{
     public JsonObject gameMap;
     public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
-        JsonObject temp = new JsonObject();
-        temp.add("gameMap", jsonObject);
-        content = temp;
+        content = jsonObject;
     }
 
     /**

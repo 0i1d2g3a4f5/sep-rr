@@ -51,6 +51,7 @@ public class MessageMapSelected extends Message{
     public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             ModelLoader modelLoader = new ModelLoader();
+            client.sendAll(this);
             client.sendAll(new MessageGameStarted(modelLoader.loadMap(map).toJson(), false));
         }
         else {
@@ -60,6 +61,7 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        System.out.println("lalalalal");
 
 
     }

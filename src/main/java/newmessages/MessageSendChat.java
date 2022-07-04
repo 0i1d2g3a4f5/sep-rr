@@ -28,7 +28,6 @@ public class MessageSendChat extends Message{
         jsonObject.add("message", new JsonPrimitive(message));
         jsonObject.add("to", new JsonPrimitive(to));
         content = jsonObject;
-        System.out.println("Created Send Message: " + this);
     }
 
     /**
@@ -38,7 +37,6 @@ public class MessageSendChat extends Message{
         super(jsonObject);
         message = content.get("message").getAsString();
         to = content.get("to").getAsInt();
-        System.out.println("Created Send Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
