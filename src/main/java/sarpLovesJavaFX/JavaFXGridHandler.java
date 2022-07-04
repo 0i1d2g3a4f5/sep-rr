@@ -9,23 +9,18 @@ import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 import client_application.*;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static client_package.client_gamelogic.cards.CardName.*;
 
 
 /**
@@ -33,11 +28,7 @@ import static client_package.client_gamelogic.cards.CardName.*;
  * @author Qinyi
  */
 
-public class FXMLGridsAreTheBest extends Application {
-
-    @Override
-    public void start(Stage stage) throws Exception {
-    }
+public class JavaFXGridHandler {
     void rotate(ImageView imageView,int direction){
         imageView.setRotate(imageView.getRotate()+direction*90);
     }
@@ -65,9 +56,8 @@ public class FXMLGridsAreTheBest extends Application {
     public void updateCards(){
 
     }
-    public void updateMap(ClientApplication clientApplication){
-
-        updateGameBoard();
+    public GridPane updateMap(GameBoard gameBoard){
+        return updateGameBoard(gameBoard);
     }
 
     private void addToPane(StackPane stackPane,String path){
@@ -152,7 +142,7 @@ public class FXMLGridsAreTheBest extends Application {
      * @return
      * @throws IOException
      */
-    private void constructMap() throws IOException {
+    /*private void constructMap() throws IOException {
         Game game = Game.getInstance();
         ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
@@ -211,10 +201,10 @@ public class FXMLGridsAreTheBest extends Application {
         }
         scrollPane.setContent(gridPane);
         Scene scene = new Scene(scrollPane, 512, 512);
-    }
+    }*/
 
-    private void updateGameBoard(GridPane input, GameBoard gameBoard){
-        input.getChildren().clear();
+    private GridPane updateGameBoard(GameBoard gameBoard){
+        GridPane input = new GridPane();
         for(int j=0; j<gameBoard.getDimensionY(); j++){
             for(int i=0; i<gameBoard.getDimensionX(); i++){
                 GameField temp = gameBoard.getGameField(j, i);
@@ -271,6 +261,7 @@ public class FXMLGridsAreTheBest extends Application {
                 input.add(stackPane, i, j);
             }
         }
+        return input;
     }
 
     /**

@@ -11,35 +11,43 @@ public class ClientGameBasicController {
     public ClientApplication clientApplication;
 
     @FXML
-    private GridPane activePlayerRegister;
+    private GridPane gridAvailableProgramming;
 
     @FXML
-    private Pane activePlayerRegisterPane;
+    private GridPane gridGameBoard;
 
     @FXML
-    private ScrollPane activePlayerRegisterScroll;
+    private GridPane gridOtherRegisters;
 
     @FXML
-    private Pane gameBoardPane;
+    private GridPane gridProgramming;
 
     @FXML
-    private ScrollPane gameBoardScroll;
-
-    @FXML
-    private ScrollPane programmingCardsScroll;
-
-    @FXML
-    private Pane programmingCardsScrollprogrammingCardsPane;
-
-    @FXML
-    private Pane registerOfOthersPane;
-
-    @FXML
-    private ScrollPane registerOfOthersScroll;
+    private GridPane gridTempProgramming;
 
     @FXML
     void startButton(ActionEvent event) {
 
+    }
+    public void updateProgrammingCards(GridPane gridPane){
+        gridProgramming.getChildren().clear();
+        gridProgramming=gridPane;
+    }
+    public void updateOtherRegisters(GridPane gridPane){
+        gridOtherRegisters.getChildren().clear();
+        gridOtherRegisters=gridPane;
+    }
+
+    public void updateOwnRegister(GridPane gridPane){
+        gridOtherRegisters.getChildren().clear();
+        gridOtherRegisters=gridPane;
+    }
+
+
+
+    public void updateGameBoard(GridPane gridPane){
+        gridGameBoard.getChildren().clear();
+        gridGameBoard=gridPane;
     }
 
 }

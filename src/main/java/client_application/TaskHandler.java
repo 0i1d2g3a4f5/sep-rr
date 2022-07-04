@@ -2,7 +2,7 @@ package client_application;
 
 import gamelogic.map.GameBoard;
 import gamelogic.map.MapCreator;
-import sarpLovesJavaFX.FXMLGridsAreTheBest;
+import sarpLovesJavaFX.JavaFXGridHandler;
 
 import java.io.IOException;
 
@@ -70,6 +70,17 @@ public class TaskHandler {
                         }
                     }
                 }
+            }
+            case UPDATEGAMEBOARD -> {
+                TaskJsonObject taskJsonObject = new TaskJsonObject(task);
+                client_package.client_gamelogic.map.GameBoard gameBoard;
+                try {
+                    gameBoard = new client_package.client_gamelogic.map.GameBoard(taskJsonObject.jsonObject);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
+                clientApplication.clientGameBasicController.updateGameBoard(javaFXGridHandler.updateMap(gameBoard));
             }
             case ERROR -> {
 

@@ -14,6 +14,12 @@ public class TaskContent {
     public TaskContent(Task task){
         content=task.taskContent.content;
     }
+    public TaskContent(JsonObject jsonObject){
+        JsonObject temp = new JsonObject();
+        temp.add("1", jsonObject);
+        content=temp;
+    }
+
     public TaskContent(JsonArray jsonArray){
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("1", jsonArray);
