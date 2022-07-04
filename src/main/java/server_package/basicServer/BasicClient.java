@@ -32,6 +32,11 @@ public class BasicClient extends Client {
             while(getIsListening() && !getServer().getIsTerminated()  ){
                 try {
                     TimeUnit.MILLISECONDS.sleep(100);
+                    counter++;
+                    if(counter>=50){
+                        sendSelf(new MessageAlive());
+                        counter=0;
+                    }
                     String hahaha = "";
                     boolean isEnded = false;
                     int i=0;

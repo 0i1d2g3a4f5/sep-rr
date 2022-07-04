@@ -1,6 +1,9 @@
 package newmessages;
 
-import client_package.client_gamelogic.Game;
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskString1;
+import client_application.TaskType;
 import client_package.client_gamelogic.Player;
 import client_package.client_gamelogic.ThisPlayer;
 import client_package.client_gamelogic.map.GameBoard;
@@ -11,22 +14,15 @@ import server_package.Client;
 import java.io.IOException;
 
 /**
- * @author Vivian Kafadar
+ * @author Sarp Cagin Erdogan
  */
 public class MessageGameStarted extends Message{
-
-    public int clientID;
-
-    /**
-     * @param clientID
-     */
-    public MessageGameStarted(int clientID){
-        this.clientID = clientID;
+    public JsonObject gameMap;
+    public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.add("clientID", new JsonPrimitive(clientID));
-        content = jsonObject;
-        System.out.println("Created Started Message: " + this);
+        JsonObject temp = new JsonObject();
+        temp.add("gameMap", jsonObject);
+        content = temp;
     }
 
     /**
@@ -34,8 +30,7 @@ public class MessageGameStarted extends Message{
      */
     public MessageGameStarted(JsonObject jsonObject) {
         super(jsonObject);
-        clientID = content.get("clientID").getAsInt();
-        System.out.println("Created Started Message: " + this + " from JSON: " + jsonObject);
+        gameMap = content.get("gameMap").getAsJsonObject();
     }
 
     /**
@@ -57,9 +52,7 @@ public class MessageGameStarted extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
-        for (client_package.Client client2:client.getPlayerList()
-             ) {
+        for (client_package.Client client2: client.getClientList()) {
             if(client2.getId() !=client.getId()){
                 client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new Player(client2.getId(),client2.getRoboColor()));
             } else {
@@ -68,8 +61,13 @@ public class MessageGameStarted extends Message{
             }
 
         }
-        //client_package.client_gamelogic.Game.getInstance().setMap(new GameBoard());
-
+        if(isBasic) {
+            client.getGame().setMap(new GameBoard(gameMap));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
+        }
+        else {
+            //ADVANCED
+        }
     }
 
     /**

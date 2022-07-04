@@ -12,6 +12,7 @@ import newmessages.MessageMapSelected;
  */
 public class ClientMapBasicController {
     ClientApplication clientApplication;
+    boolean active = true;
 
     @FXML
     private Button choose;
@@ -22,6 +23,7 @@ public class ClientMapBasicController {
     @FXML
     void clicked(ActionEvent event) {
         if(!mapList.getSelectionModel().getSelectedItem().equals(null)){
+            active=false;
             clientApplication.basicClient.sendSelf(new MessageMapSelected(mapList.getSelectionModel().getSelectedItem()));
         }
 

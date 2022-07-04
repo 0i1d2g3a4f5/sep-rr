@@ -2,8 +2,8 @@ package client_application;
 
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.cards.CardFactory;
+import client_package.client_gamelogic.map.GameBoard;
 import gamelogic.cards.CardName;
-import gamelogic.map.GameBoard;
 import gamelogic.map.MapCreator;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
@@ -60,21 +60,13 @@ public class TaskHandler {
 
             }
             case TRIGGERSTART -> {
-                TaskString1 taskString1 = new TaskString1(task);
-                switch (taskString1.string1){
-                    case "Dizzy Highway" -> {
-                        try {
-                            GameBoard gameBoard = MapCreator.op();
-                            //TODO fix pls, wrong input
-                            //clientApplication.launchMapView(FXMLGridsAreTheBest.fromMap(gameBoard));
-                            clientApplication.launchBasicGame();
-                            clientApplication.stageBasicMap.close();
-                            clientApplication.stageBasicLobby.close();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
+                clientApplication.stageBasicLobby.close();
+                if(clientApplication.stageSelection!=null) {
+                    clientApplication.stageSelection.close();
                 }
+                clientApplication.launchBasicGame();
+                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(clientApplication.basicClient.getGame().getMap()));
+
             }
             case UPDATEGAMEBOARD -> {
                 TaskJsonObject taskJsonObject = new TaskJsonObject(task);
@@ -84,8 +76,7 @@ public class TaskHandler {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-                clientApplication.clientGameBasicController.updateGameBoard(javaFXGridHandler.updateMap(gameBoard));
+                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(gameBoard));
             }
             case UPDATEOWNREGISTER -> {
                 clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
@@ -103,6 +94,10 @@ public class TaskHandler {
 
             }
         }
+    }
+    public GridPane gridPaneFromMap(GameBoard gameBoard){
+        JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
+        return javaFXGridHandler.updateMap(gameBoard);
     }
     public GridPane gridPaneFromCardList(Task task){
         TaskJsonArray taskJsonArray = new TaskJsonArray(task);

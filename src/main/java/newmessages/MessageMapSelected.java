@@ -7,6 +7,7 @@ import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.map.MapName;
+import gamelogic.map.ModelLoader;
 import server_package.Client;
 
 import java.io.IOException;
@@ -49,14 +50,8 @@ public class MessageMapSelected extends Message{
     @Override
     public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            try {
-                client.getServer().getGame().setMapName(MapName.valueOf(map));
-                for (Client clientSend:client.getServer().getClientList()) {
-                    clientSend.sendSelf(this);
-                }
-            } catch (IllegalArgumentException e){
-                //client.sendSelf(new MessageSelectMap());
-            }
+            ModelLoader modelLoader = new ModelLoader();
+            client.sendAll(new MessageGameStarted(modelLoader.loadMap(map).toJson(), false));
         }
         else {
             //ADVANCED
@@ -65,13 +60,7 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic) {
-            client.getGame().setMap(new GameBoard((JsonObject) content.get("map")));
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskString1(this.map)));
-        }
-        else {
-            //ADVANCED
-        }
+
 
     }
 }

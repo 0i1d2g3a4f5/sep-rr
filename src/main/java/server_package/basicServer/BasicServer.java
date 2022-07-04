@@ -19,10 +19,10 @@ public class BasicServer extends Server {
     public BasicServer(ServerApplication serverApplication){
         super(serverApplication);
         setTerminated(true);
-        setMaxClients(10);
+        setMaxClients(6);
         setCurrentClients(0);
         setCurrentIndex(1);
-        setStartingAmount(3);
+        setStartingAmount(2);
     }
     Runnable shutDownActions = new Runnable() {
         @Override
@@ -81,7 +81,7 @@ public class BasicServer extends Server {
                     }
                 }
                 if(!allAI){
-                    if(getReadyList().size()==getClientList().size()){
+                    if(getReadyList().size()==getClientList().size() && getReadyList().size()>=startingAmount){
                         mapSelect();
                     }
                 }
@@ -99,9 +99,10 @@ public class BasicServer extends Server {
         for(int i=0; i<getReadyList().size(); i++){
             if(!getReadyList().get(i).getIsAI()){
                 JsonArray jsonArray = new JsonArray();
-                jsonArray.add("Dizzy Highway");
-                jsonArray.add("Other Map");
-                jsonArray.add("Placeholder");
+                jsonArray.add("death_trap");
+                jsonArray.add("dizzy_highway");
+                jsonArray.add("extra_crispy");
+                jsonArray.add("lost_bearings");
                 getReadyList().get(i).sendSelf(new MessageSelectMap(jsonArray));
                 break;
             }
