@@ -1,10 +1,16 @@
-package client_package.utility;
+package utility;
+
+import javafx.scene.image.ImageView;
 
 /**
  * @author Isabel
  * replaces image paths with shorter strings
  */
 public class Images {
+    public void rotate(ImageView imageView, int direction){
+        imageView.setRotate(imageView.getRotate()+direction*90);
+    }
+    //TODO edit
 
     //cards
     public static String cardBackCard = "images/cards/CardBack.png";
