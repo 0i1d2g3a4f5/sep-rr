@@ -70,7 +70,8 @@ public class JavaFXGridHandler {
 
     // getRegisterCards und getHandCards as cardList
 
-    private void constructCardsList(GridPane gridPane, ArrayList<Card> cardList) throws IOException {
+    private GridPane constructCardsList(ArrayList<Card> cardList) throws IOException {
+        GridPane gridPane = new GridPane();
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             StackPane stackPane = new StackPane();
@@ -128,6 +129,7 @@ public class JavaFXGridHandler {
                 }
                 gridPane.add(stackPane,i,0);
             }
+        return gridPane;
         }
 
     /* public Scene constructHandCards() throws IOException {
@@ -268,7 +270,7 @@ public class JavaFXGridHandler {
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param gameBoard
      * @return
-     */
+     *//*
     public static Scene fromMap(GameBoard gameBoard) throws IOException {
         ScrollPane scrollPane = new ScrollPane();
         GridPane gridPane = new GridPane();
@@ -329,7 +331,7 @@ public class JavaFXGridHandler {
         Scene scene = new Scene(scrollPane, 512, 512);
         return scene;
 
-    }
+    }*/
 
     /**
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
