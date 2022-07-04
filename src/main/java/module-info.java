@@ -21,8 +21,9 @@ module desperate.drosseln.hp {
     opens client_application to javafx.fxml;
     opens server_application to javafx.fxml;
     opens sarpLovesJavaFX to javafx.fxml;
-
+    opens aaa to javafx.fxml;
     exports client_application;
     exports server_application;
     exports sarpLovesJavaFX;
+    exports aaa;
 }

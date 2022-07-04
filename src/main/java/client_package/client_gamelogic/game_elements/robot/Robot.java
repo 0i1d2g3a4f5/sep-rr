@@ -131,4 +131,9 @@ public class Robot extends GameElement {
         return 3;
     }
 
+    public void backward(int i) {
+    }
+
+    public void forward(int i) {
+    }
 }

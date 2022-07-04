@@ -24,6 +24,15 @@ public class GameBoard  {
         return boardMap;
     }
 
+
+    public void setDimensionY(int dimensionY) {
+        this.dimensionY = dimensionY;
+    }
+
+    public void setDimensionX(int dimensionX) {
+        this.dimensionX = dimensionX;
+    }
+
     public ArrayList<GameField> getColumn(int column){
         return boardMap.get(column);
     }
@@ -179,11 +188,15 @@ public class GameBoard  {
                 }
                 row.add(gameField);
                 y++;
+
             }
+            dimensionY=y;
             boardMap.add(row);
             y=0;
             x++;
         }
+        dimensionX = x;
+        x=0;
         System.out.println(boardMap);
 
     }
@@ -203,6 +216,15 @@ public class GameBoard  {
         if (o == null || getClass() != o.getClass()) return false;
         GameBoard gameBoard = (GameBoard) o;
         return dimensionY == gameBoard.dimensionY && dimensionX == gameBoard.dimensionX && boardMap.equals(gameBoard.boardMap);
+    }
+
+    public int createDimensionX(){
+        setDimensionX(boardMap.size());
+        return boardMap.size();
+    }
+    public int createDimensionY(){
+        setDimensionY(boardMap.get(1).size());
+        return boardMap.get(1).size();
     }
 
     @Override
