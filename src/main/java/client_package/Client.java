@@ -97,12 +97,14 @@ public abstract class Client {
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
             char[] arr = toSend.toCharArray();
             String print = "";
+            int count = 0;
             for (char c:arr) {
                 dataOutputStream.writeInt((int)c);
                 print+=c;
+                count++;
             }
             dataOutputStream.flush();
-            System.out.println("SENT: " + print);
+            System.out.println("SENT: " + print+"count: "+count);
             toSendList.remove(message);
         }  catch (IOException e) {
             throw new RuntimeException(e);
@@ -154,8 +156,12 @@ public abstract class Client {
                         }
 
 
-                        inputString+=String.valueOf(a);
+                        inputString+=a;
                     }
+                    if(dataInputStream.available()>0)
+                    System.out.println("still aviable in data: " +dataInputStream.available());
+                    if(socket.getInputStream().available()>0)
+                    System.out.println("still aviable in socket: " +socket.getInputStream().available());
                     if (inputString.length()>0)
                     System.out.println("message length: "+inputString.length());
                     if(!inputString.equals("")){

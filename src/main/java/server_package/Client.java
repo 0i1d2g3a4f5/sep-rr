@@ -43,26 +43,32 @@ public abstract class Client {
 
     public void sendSingle(Client client, Message temp){
         addToSendList(temp);
-        Message message = toSendList.get(0);
-        synchronized (temp) {
-            try {
-                OutputStream outputStream = client.socket.getOutputStream();
-                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
-                String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
-                char[] arr = toSend.toCharArray();
-                String print = "";
-                for (char c:arr) {
-                    dataOutputStream.writeInt((int)c);
-                    print+=c;
-                }
-                dataOutputStream.flush();
-                System.out.println("ToSend length: "+toSend.length());
-                System.out.println("SENT: " + print);
+        while (toSendList.size() > 0){
+            Message message = toSendList.get(0);
+                synchronized (message) {
 
-                toSendList.remove(message);
-                dataOutputStream.flush();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+
+                try {
+                    OutputStream outputStream = client.socket.getOutputStream();
+                    DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+                    String toSend = message.toJSON().toString().replaceAll("\n", "").trim() + "\n";
+                    char[] arr = toSend.toCharArray();
+                    String print = "";
+                    int count = 0;
+                    for (char c : arr) {
+                        dataOutputStream.writeInt((int) c);
+                        print += c;
+                        count++;
+                    }
+                    dataOutputStream.flush();
+                    System.out.println("ToSend length: " + toSend.length());
+                    System.out.println("SENT: " + print+ "count: "+count);
+
+                    toSendList.remove(message);
+                    dataOutputStream.flush();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 

@@ -11,6 +11,9 @@ public class MessageTypeFactory {
      */
     public MessageType fromString(String string) {
         switch (string) {
+            case "GameStarted" ->{
+                return MessageType.GAME_STARTED;
+            }
             case "ActivePhase" -> {
                 return MessageType.ACTIVE_PHASE;
             }

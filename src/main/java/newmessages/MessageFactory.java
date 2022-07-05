@@ -17,9 +17,6 @@ public class MessageFactory {
             case GAME_STARTED ->{
                 return new MessageGameStarted(jsonObject);
             }
-            case DEFAULT -> {
-                throw new RuntimeException();
-            }
             case ACTIVE_PHASE -> {
                 return new MessageActivePhase(jsonObject);
             }
