@@ -13,10 +13,9 @@ public class Testserver {
 
     DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
     DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(inputStream));
+    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
 
-    public DataOutputStream getDataOutputStream() {
-        return dataOutputStream;
-    }
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
 
     public DataInputStream getDataInputStream() {
         return dataInputStream;
@@ -34,11 +33,18 @@ public class Testserver {
     void sendText(String input) throws IOException {
         input.trim();
         input += "\n";
+        bufferedWriter.write(input);
+        bufferedWriter.newLine();
+        bufferedWriter.write("|");
+        bufferedWriter.flush();
+        /*
         char[] arr = input.toCharArray();
         for (char c:arr) {
             dataOutputStream.writeInt((int)c);
         }
         dataOutputStream.flush();
+
+         */
     }
 
     Runnable listen = new Runnable() {
@@ -46,13 +52,34 @@ public class Testserver {
         public void run() {
             try {
                 while(true){
+                    if(dataInputStream.available()>0)
+                        System.out.println("avaiable:" +dataInputStream.available());
                     TimeUnit.MILLISECONDS.sleep(100);
                     String text = "";
-                    while(getDataInputStream().available()>0){
+                    boolean isReading = true;
+                    int readChars =dataInputStream.available();
+
+                        while(isReading && readChars>0){
+                            String input = bufferedReader.readLine();
+                            System.out.println("input:" +input);
+                            if(input.equals("\n" )|| input.equals("")){
+                                System.out.println("ended");
+                                isReading = false;
+                            }
+
+                            else
+                                text += input;
+                            readChars--;
+                        }
+
+
+                        /*
                         int in = dataInputStream.readInt();
                         System.out.println(in);
                         text+= (char)in;
-                    }
+
+                         */
+
                     if(text !="")
                     System.out.println(text);
                 }

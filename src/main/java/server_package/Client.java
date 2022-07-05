@@ -4,13 +4,12 @@ import gamelogic.Player;
 import newmessages.Message;
 import server_package.advancedServer.AdvancedClient;
 
-import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -50,8 +49,18 @@ public abstract class Client {
 
                 try {
                     OutputStream outputStream = client.socket.getOutputStream();
-                    DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+                    DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
                     String toSend = message.toJSON().toString().replaceAll("\n", "").trim() + "\n";
+
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
+
+                    writer.write(toSend);
+                    writer.write("\n");
+                    writer.flush();
+
+
+                    /*
                     char[] arr = toSend.toCharArray();
                     String print = "";
                     int count = 0;
@@ -59,15 +68,24 @@ public abstract class Client {
                         dataOutputStream.writeInt((int) c);
                         print += c;
                         count++;
+                        dataOutputStream.flush();
                     }
-                    dataOutputStream.flush();
-                    System.out.println("ToSend length: " + toSend.length());
-                    System.out.println("SENT: " + print+ "count: "+count);
+
+                     */
+
+                    //System.out.println("ToSend length: " + toSend.length());
+                    System.out.println("SENT: " + toSend);
 
                     toSendList.remove(message);
-                    dataOutputStream.flush();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                }
+                if (toSendList.size()>0) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }

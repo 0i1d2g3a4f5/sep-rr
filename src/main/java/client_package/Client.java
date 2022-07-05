@@ -93,8 +93,15 @@ public abstract class Client {
 
         try {
             OutputStream outputStream = socket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+            DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
+
+            writer.write(toSend);
+            writer.write("\n");
+            writer.flush();
+            /*
             char[] arr = toSend.toCharArray();
             String print = "";
             int count = 0;
@@ -105,6 +112,8 @@ public abstract class Client {
             }
             dataOutputStream.flush();
             System.out.println("SENT: " + print+"count: "+count);
+
+             */
             toSendList.remove(message);
         }  catch (IOException e) {
             throw new RuntimeException(e);
@@ -133,20 +142,40 @@ public abstract class Client {
         @Override
         public void run() {
             try {
-            DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-            while(isListening){
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
+                DataInputStream dataInputStream= new DataInputStream(bufferedInputStream);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(dataInputStream));
+
+                while(isListening){
 
 
                     TimeUnit.MILLISECONDS.sleep(100);
                     String inputString = "";
                     boolean isEnded = false;
-                    int i=0;
+                    int readChars =dataInputStream.available();
+
+                    while(!isEnded && readChars>0){
+                        String input = reader.readLine();
+                        System.out.println("input:" +input);
+                        if(input.equals("\n" )|| input.equals("")){
+                            System.out.println("ended");
+                            isEnded = true;
+                        }
+
+                        else
+                            inputString += input;
+                        readChars--;
+                    }
+
+                    if(inputString!="")
+                    System.out.println(inputString);
+                    /*
                     if(dataInputStream.available()>0)
                     System.out.println("waiting Chars: "+ dataInputStream.available());
-
                     while (!isEnded && dataInputStream.available() > 0) {
                         int in = dataInputStream.readInt();
                        // System.out.println(in);
+
 
                         char a = (char)in;
                         //TODO possible reason for fail
@@ -164,11 +193,20 @@ public abstract class Client {
                     System.out.println("still aviable in socket: " +socket.getInputStream().available());
                     if (inputString.length()>0)
                     System.out.println("message length: "+inputString.length());
+                     */
                     if(!inputString.equals("")){
+
+                            String[] strings = inputString.split("\n");
+                            for (String string :strings
+                                 ) {
+                                System.out.println("RECEIVED: " + inputString);
+                                JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
+                                process(jsonObject);
+
+                            }
+
                         isEnded=false;
-                        System.out.println("RECEIVED: " + inputString);
-                        JsonObject jsonObject =  new Gson().fromJson(inputString, JsonObject.class);
-                        process(jsonObject);
+
                     }
                 }
 
