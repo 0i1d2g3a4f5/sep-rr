@@ -82,8 +82,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
         }
         Direction originDirection1;
         Direction originDirection2;
-        int speed = jsonObject.get("speed").getAsInt();
-        Color color;
+        speed = jsonObject.get("speed").getAsInt();
+
         switch (speed){
             case 0 -> color = Color.GREEN;
             case 1 ->
@@ -100,16 +100,20 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
             }
             case 1 ->{
-                new ConveyorBelt(color, targetDirection);
+
+                this.orientations.add(targetDirection.opposite());
             }
             case 2 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
-                new ConveyorBelt(color,targetDirection, originDirection1);
+                this.orientations.add(targetDirection);
+                this.orientations.add(originDirection1);
             }
             case 3 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
                 originDirection2 = Direction.parseDirection(orientations.get(2).getAsString());
-                new ConveyorBelt(color,targetDirection, originDirection1,originDirection2);
+                this.orientations.add(targetDirection);
+                this.orientations.add(originDirection1);
+                this.orientations.add(originDirection2);
 
             }
             default -> throw new IOException("Illegal Number of arguments. Number of arguments: "+orientations.size());
