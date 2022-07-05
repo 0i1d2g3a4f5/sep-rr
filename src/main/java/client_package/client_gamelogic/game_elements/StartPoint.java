@@ -18,8 +18,7 @@ public class StartPoint extends GameElement {
      * @throws IOException
      */
     public StartPoint(JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
-        StartPoint startPoint = new StartPoint();
+        this();
     }
 
 

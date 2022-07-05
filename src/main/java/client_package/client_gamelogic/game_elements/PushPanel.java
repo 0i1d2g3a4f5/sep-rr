@@ -24,7 +24,7 @@ public class PushPanel extends GameElement{
      * @throws IOException
      */
     public PushPanel(JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
+        super(ElementName.PUSHPANEL);
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         JsonArray jsonArrayRegisters = jsonObject.get("registers").getAsJsonArray();
@@ -32,7 +32,10 @@ public class PushPanel extends GameElement{
         for (JsonElement activeRegister:jsonArrayRegisters) {
             activationRegisters.add(activeRegister.getAsInt());
         }
-        PushPanel pushPanel = new PushPanel(direction,activationRegisters);
+
+        this.activateRegisters = activationRegisters;
+        this.direction = direction;
+
     }
 
 }
