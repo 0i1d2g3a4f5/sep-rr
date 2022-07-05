@@ -110,7 +110,7 @@ public class TaskHandler {
             }
         }
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.updateOwnCards(cardArrayList);
+        return javaFXGridHandler.gridPaneFromCards(cardArrayList);
     }
     public GridPane gridPaneFromMultipleCardLists(Task task){
         TaskJsonArray2Levels taskJsonArray2Levels = new TaskJsonArray2Levels(task);
@@ -126,7 +126,7 @@ public class TaskHandler {
                     throw new RuntimeException(e);
                 }
             }
-            result.add(javaFXGridHandler.updateOwnCards(cardArrayList), i, 0);
+            result.add(javaFXGridHandler.gridPaneFromCards(cardArrayList), i, 0);
         }
         return result;
     }
