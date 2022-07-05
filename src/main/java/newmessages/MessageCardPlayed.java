@@ -1,6 +1,7 @@
 package newmessages;
 
 import client_package.AI.AIClient;
+import client_package.client_gamelogic.cards.CardName;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -49,10 +50,12 @@ public class MessageCardPlayed extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-        /*if (sClient != null) sClient.getPlayer().placeCard(CardName.parseCardName(card));
-        else throw new ClientNotFoundException("SClient with ID = "+ clientID +" not found");
-
-         */
+        if (sClient != null) {
+            sClient.getPlayer().placeCard(CardName.parseCardName(card), 1);
+            // TODO check if okay
+        } else {
+            throw new ClientNotFoundException("SClient with ID = " + clientID + " not found");
+        }
     }
 
     @Override

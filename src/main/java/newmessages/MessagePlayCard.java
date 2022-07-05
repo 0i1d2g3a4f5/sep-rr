@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
