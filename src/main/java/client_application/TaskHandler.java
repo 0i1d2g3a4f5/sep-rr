@@ -64,18 +64,17 @@ public class TaskHandler {
                     clientApplication.stageSelection.close();
                 }
                 clientApplication.launchBasicGame();
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(clientApplication.basicClient.getGame().getMap()));
 
             }
             case UPDATEGAMEBOARD -> {
-                TaskJsonObject taskJsonObject = new TaskJsonObject(task);
+                /*TaskJsonObject taskJsonObject = new TaskJsonObject(task);
                 client_package.client_gamelogic.map.GameBoard gameBoard;
                 try {
                     gameBoard = new client_package.client_gamelogic.map.GameBoard(taskJsonObject.jsonObject);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(gameBoard));
+                }*/
+                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(this.clientApplication.basicClient.getGame().getMap()));
             }
             case UPDATEOWNREGISTER -> {
                 clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
