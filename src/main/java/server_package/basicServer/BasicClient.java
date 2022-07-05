@@ -38,29 +38,57 @@ public class BasicClient extends Client {
                         sendSelf(new MessageAlive());
                         counter=0;
                     }
-                    String hahaha = "";
+                    String inputString = "";
                     boolean isEnded = false;
                     int i=0;
-                    DataInputStream dataInputStream= new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
+                    DataInputStream dataInputStream= new DataInputStream(bufferedInputStream);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(dataInputStream));
+
+                    int readChars =dataInputStream.available();
+
+                    while(!isEnded && readChars>0){
+                        String input = reader.readLine();
+                        System.out.println("input:" +input);
+                        if(input.equals("\n" )|| input.equals("")){
+                            System.out.println("ended");
+                            isEnded = true;
+                        }
+
+                        else
+                            inputString += input;
+                        readChars--;
+                    }
+
+                    if(inputString !="")
+                    System.out.println(inputString);
+                    /*
                     while (!isEnded && dataInputStream.available() > 0) {
                         char a = (char)dataInputStream.readInt();
                         if((int) a == 10){
                             isEnded=true;
                         }
-                        hahaha+=String.valueOf(a);
+                        inputString+=String.valueOf(a);
                     }
-                    if(!hahaha.equals("")){
+
+                     */
+                    if(!inputString.equals("")){
+
+                            String[] strings = inputString.split("\n");
+                            for (String string :strings
+                            ) {
+                                System.out.println("RECEIVED: " + inputString);
+                                JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
+                                messageProcessor.process(jsonObject);
+                            }
+
                         isEnded=false;
-                        System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject =  new Gson().fromJson(hahaha, JsonObject.class);
-                        try {
-                            messageProcessor.process(jsonObject);
-                        } catch (ClientNotFoundException e) {
-                            throw new RuntimeException(e);
-                        }
+
                     }
                 }
                 catch (InterruptedException | IOException e) {
+                    throw new RuntimeException(e);
+                } catch (ClientNotFoundException e) {
                     throw new RuntimeException(e);
                 }
 
