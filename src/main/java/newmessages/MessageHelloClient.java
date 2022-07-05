@@ -4,6 +4,7 @@ import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import client_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -38,7 +39,7 @@ public class MessageHelloClient extends Message{
     }
 
     @Override
-    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

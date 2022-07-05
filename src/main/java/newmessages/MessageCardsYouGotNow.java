@@ -3,11 +3,10 @@ package newmessages;
 import client_package.AI.AIClient;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardFactory;
 import gamelogic.cards.CardName;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,13 +53,13 @@ public class MessageCardsYouGotNow extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

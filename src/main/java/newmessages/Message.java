@@ -1,11 +1,10 @@
 package newmessages;
 
-import client_package.AI.AIClient;
 import com.google.gson.*;
+import server_package.SClient;
 import server_package.Server;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @author Sarp Cagin Erdogan, Mark Ringer
@@ -26,7 +25,7 @@ public abstract class Message{
     }
 
 
-    public abstract void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException{
         activateMessageInFrontend(client,isBasic);

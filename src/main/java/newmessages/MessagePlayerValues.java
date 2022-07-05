@@ -3,7 +3,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -43,15 +43,15 @@ public class MessagePlayerValues extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            client.checkValues(this.name, this.figure);
+            sClient.checkValues(this.name, this.figure);
         }
         else {
             //ADVANCED

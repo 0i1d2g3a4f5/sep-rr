@@ -2,7 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -48,22 +48,22 @@ public class MessageHelloServer extends Message {
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (!this.protocol.equals(PROTOCOL_VERSION)) {
-                client.sendSelf(new MessageError("ERROR :: False communication protocol."));
+                sClient.sendSelf(new MessageError("ERROR :: False communication protocol."));
             } else {
-                client.setAI(this.isAI);
-                client.setGroup(this.group);
-                client.sendSelf(new MessageWelcome(client.getId()));
+                sClient.setAI(this.isAI);
+                sClient.setGroup(this.group);
+                sClient.sendSelf(new MessageWelcome(sClient.getId()));
 
-                    System.out.println("Client "+ ", with ID: " + client.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
+                    System.out.println("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
 
             }
         }

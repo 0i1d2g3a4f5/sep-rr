@@ -74,6 +74,14 @@ public class GameField {
         return elements;
     }
 
+    @Override
+    public String toString() {
+        return "GameField{" +
+                "position=" + position +
+                ", elements=" + elements +
+                '}';
+    }
+
     /**
      * @author Ringer
      */

@@ -14,18 +14,18 @@ public abstract class Server {
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
     protected int maxClients, currentClients, currentIndex, startingAmount;
-    protected List<Client> clientList;
-    protected List<Client> readyList;
+    protected List<SClient> sClientList;
+    protected List<SClient> readyList;
     protected boolean isTerminated, isBasic;
     protected ServerSocket serverSocket;
 
 
-    public List<Client> getClientList() {
-        return clientList;
+    public List<SClient> getClientList() {
+        return sClientList;
     }
 
-    public void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
+    public void setClientList(List<SClient> sClientList) {
+        this.sClientList = sClientList;
     }
     public  Server(ServerApplication serverApplication){
         setServerApplication(serverApplication);
@@ -39,9 +39,9 @@ public abstract class Server {
         return game;
     }
 
-    public Client clientFromID(int clientID){
-        for (Client client:clientList) {
-            if(client.getId()==clientID) return client;
+    public SClient clientFromID(int clientID){
+        for (SClient sClient : sClientList) {
+            if(sClient.getId()==clientID) return sClient;
         }
         return null;
     }
@@ -92,11 +92,11 @@ public abstract class Server {
         this.startingAmount = startingAmount;
     }
 
-    public List<Client> getReadyList() {
+    public List<SClient> getReadyList() {
         return readyList;
     }
 
-    public void setReadyList(List<Client> readyList) {
+    public void setReadyList(List<SClient> readyList) {
         this.readyList = readyList;
     }
 

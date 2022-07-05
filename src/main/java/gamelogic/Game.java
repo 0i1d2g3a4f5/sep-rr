@@ -3,7 +3,7 @@ package gamelogic;
 
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
-import server_package.Client;
+import server_package.SClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
@@ -101,14 +101,14 @@ public class  Game {
     /**
      * @author Mark Ringer
      * player can join the Game
-     * @param client
+     * @param sClient
      * @return
      */
-    public Player join(Client client) {
+    public Player join(SClient sClient) {
         //TODO get Robot from player
-        Player player = new Player(client,this);
+        Player player = new Player(sClient,this);
         for (Player existingPlayer : playerList) {
-            if (existingPlayer.getClient().getId() == client.getId()) {
+            if (existingPlayer.getClient().getId() == sClient.getId()) {
                 return null;
             }
 

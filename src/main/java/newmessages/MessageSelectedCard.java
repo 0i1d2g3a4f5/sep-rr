@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Player;
 import gamelogic.cards.CardName;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -47,27 +47,27 @@ public class MessageSelectedCard extends Message {
      * @author Ringer
      *
      * Answers according tho function feedback
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        Player player = client.getPlayer();
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+        Player player = sClient.getPlayer();
         if (card == "Null"){
             if (player.removeCard(register))
-                client.getServer().getGame().sendToAllPlayers(new MessageCardSelected(client.getId(), register, false));
-            else client.getServer().getGame().sendToAllPlayers(new MessageCardSelected(client.getId(), register, true));
+                sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, false));
+            else sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
         }
         else{
             if (player.removeCard(register)){
                 if (player.placeCard(CardName.valueOf(card), register))
-                    client.getServer().getGame().sendToAllPlayers(new MessageCardSelected(client.getId(), register, true));
+                    sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
                 else
-                    client.getServer().getGame().sendToAllPlayers(new MessageCardSelected(client.getId(), register, false));
+                    sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, false));
             }else {
-                client.getServer().getGame().sendToAllPlayers(new MessageCardSelected(client.getId(), register, true));
+                sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
             }
 
         }

@@ -5,7 +5,7 @@ package newmessages;
  */
 public class ClientNotFoundException extends Exception{
     public ClientNotFoundException(){
-        super("Client not found");
+        super("SClient not found");
     }
     public ClientNotFoundException(String message){
         super(message);

@@ -72,6 +72,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
      * @throws IOException
      */
     public ConveyorBelt(JsonObject jsonObject) throws IOException {
+        super(ElementName.CONVEYORBELT);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
@@ -123,7 +124,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
         jsonObject.add("speed",new JsonPrimitive(speed) );
-        jsonObject.add("orientations",gson.toJsonTree(orientations.toString()));
+        jsonObject.add("orientations",gson.toJsonTree(getOrientationsAsStrings()));
         return jsonObject;
 
     }

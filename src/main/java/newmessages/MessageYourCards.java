@@ -9,7 +9,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.cards.CardName;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,13 +59,13 @@ public class MessageYourCards extends Message{
     }
 
     /**
-     * @param client
+     * @param aClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient aClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

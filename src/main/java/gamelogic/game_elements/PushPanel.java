@@ -13,9 +13,10 @@ public class PushPanel extends GameElement implements Activatable {
     Direction direction;
     ArrayList<Integer> activateRegisters;
     public PushPanel(Direction direction, ArrayList<Integer> activationRegisters){
+        super(ElementName.PUSHPANEL);
         this.direction=direction;
         this.activateRegisters=activationRegisters;
-        type =ElementName.PUSHPANEL;
+
     }
     /**
      * @author Ringer
@@ -25,7 +26,7 @@ public class PushPanel extends GameElement implements Activatable {
      * @throws IOException
      */
     public PushPanel(JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
+        super(ElementName.PUSHPANEL);
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         JsonArray jsonArrayRegisters = jsonObject.get("registers").getAsJsonArray();
@@ -33,8 +34,10 @@ public class PushPanel extends GameElement implements Activatable {
         for (JsonElement activeRegister:jsonArrayRegisters) {
             activationRegisters.add(activeRegister.getAsInt());
         }
-        PushPanel pushPanel = new PushPanel(direction,activationRegisters);
-        pushPanel.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        this.activateRegisters = activationRegisters;
+        this.direction = direction;
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
     }
     /**
      * @author Ringer
@@ -46,7 +49,7 @@ public class PushPanel extends GameElement implements Activatable {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(getOrientationsAsStrings()));
         JsonArray jsonArrayRegisters = new JsonArray();
         for (int register:activateRegisters) {
             jsonArrayRegisters.add(register);

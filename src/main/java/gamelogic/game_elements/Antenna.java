@@ -19,6 +19,7 @@ public class Antenna extends GameElement implements Serializable {
 
     public Antenna(Direction direction){
         type = ElementName.ANTENNA;
+        System.out.println(toJson());
         orientations.add(direction);
 
     }
@@ -32,6 +33,7 @@ public class Antenna extends GameElement implements Serializable {
      * @throws IOException
      */
     public Antenna(JsonObject jsonObject) throws IOException {
+        super(ElementName.ANTENNA);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
@@ -49,7 +51,7 @@ public class Antenna extends GameElement implements Serializable {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(getOrientationsAsStrings()));
         return jsonObject;
 
     }

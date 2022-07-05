@@ -26,7 +26,7 @@ public abstract class GameElement implements JsonSerializable {
         return type;
     }
 
-    protected ElementName type = ElementName.EMPTY;
+    protected ElementName type;
 
 
 
@@ -36,16 +36,6 @@ public abstract class GameElement implements JsonSerializable {
 
     public GameElement(){
 
-    }
-
-    @Override
-    public String toString() {
-        return "GameElement{" +
-                "orientations=" + orientations +
-                ", type=" + type +
-                ", isOnBoard='" + isOnBoard + '\'' +
-                ", gson=" + gson +
-                '}';
     }
 
 
@@ -72,13 +62,16 @@ public abstract class GameElement implements JsonSerializable {
      * @return
      */
 
-    public JsonObject toJson(){
+    public abstract JsonObject toJson();
 
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.add("type",new JsonPrimitive(type.toString()));
-        jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        //jsonObject.add("orientations",gson.toJsonTree(orientations));
-        return jsonObject;
+    public ArrayList<String> getOrientationsAsStrings(){
+        ArrayList<String> outputList = new ArrayList<>();
+
+        for (Direction direction:orientations) {
+            outputList.add(direction.toString());
+        }
+
+        return outputList;
     }
 
 
@@ -88,6 +81,15 @@ public abstract class GameElement implements JsonSerializable {
         if (!(o instanceof GameElement)) return false;
         GameElement element = (GameElement) o;
         return orientations.equals(element.orientations) && getType() == element.getType() && isOnBoard.equals(element.isOnBoard);
+    }
+
+    @Override
+    public String toString() {
+        return "GameElement{" +
+                "orientations=" + orientations +
+                ", type=" + type +
+                ", isOnBoard='" + isOnBoard + '\'' +
+                '}';
     }
 
     @Override

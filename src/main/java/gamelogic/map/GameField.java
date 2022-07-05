@@ -109,6 +109,7 @@ public class GameField {
      */
 
     public boolean addElement(GameElement element) {
+        System.out.println("Type in addElement: "+element.getType());
         if(element.getType()==ElementName.ROBOT) return false;
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
             elements.remove(0);

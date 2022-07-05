@@ -3,7 +3,7 @@ package server_package.basicServer;
 import com.google.gson.JsonArray;
 import newmessages.MessageSelectMap;
 import server_application.ServerApplication;
-import server_package.Client;
+import server_package.SClient;
 import server_package.Server;
 
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class BasicServer extends Server {
                     if(getCurrentClients()<getMaxClients()){
                         Socket socket = null;
                         socket = getServerSocket().accept();
-                        BasicClient client = new BasicClient(getServerApplication().getBasicServer(),getCurrentIndex(), socket);
+                        BasicSClient client = new BasicSClient(getServerApplication().getBasicServer(),getCurrentIndex(), socket);
                         getClientList().add(client);
                         setCurrentIndex(getCurrentIndex()+1);
                         setCurrentClients(getCurrentClients()+1);
@@ -76,7 +76,7 @@ public class BasicServer extends Server {
             @Override
             public void run() {
                 boolean allAI = true;
-                for(Client client : getClientList()){
+                for(SClient client : getClientList()){
                     if(!client.getIsAI()){
                         allAI=false;
                     }

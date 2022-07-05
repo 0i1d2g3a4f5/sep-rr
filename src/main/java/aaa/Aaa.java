@@ -23,7 +23,7 @@ public class Aaa extends Application {
         ScrollPane scrollPane1 = (ScrollPane) scene.getRoot();
         GridPane temp = (GridPane) scrollPane1.getContent();
 
-        bbbb.gpm(temp, modelLoader.loadMap("dizzy_highway"));
+        //bbbb.gpm(temp, modelLoader.loadMap("dizzy_highway"));
 
     }
 }
