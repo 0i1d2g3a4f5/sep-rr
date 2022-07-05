@@ -10,9 +10,6 @@ import java.io.IOException;
  */
 public class ModelLoader {
 
-    Gson gson = new Gson();
-    String jsonString;
-    JsonObject mapJson;
     /**
      * @author Ringer
      * @param mapName
@@ -20,19 +17,26 @@ public class ModelLoader {
      */
     public GameBoard loadMap(String mapName) throws IOException {
 
-        GameBoard board;
-        jsonString= readFile(mapName);
-        mapJson = gson.fromJson(jsonString,JsonObject.class);
+        System.out.println("rdy");
+        gamelogic.map.ModelLoader helpMEEEE = new gamelogic.map.ModelLoader();
+        System.out.println("creadted loader ");
+        gamelogic.map.GameBoard helpboard = helpMEEEE.loadMap(mapName);
+        System.out.println("loaded map");
+        JsonObject obhqawfbaeqfg = helpboard.toJson();
+        System.out.println("tojson");
 
-        board =new GameBoard(mapJson);
-        System.out.println("Map in loader: "+board.boardMap);
-        return board;
+        return new GameBoard(obhqawfbaeqfg);
     }
 
     public String readFile(String fileName){
 
         String filePath = "src/main/resources/MapModels/"+fileName+".json";
         return new JsonReader().readFile(filePath);
+    }
+
+    public static void main(String[] args) throws IOException {
+        ModelLoader loader = new ModelLoader();
+        loader.loadMap("dizzy_highway");
     }
 
 
