@@ -1,4 +1,4 @@
-package aaa;
+package aexperimental;
 
 import client_package.client_gamelogic.map.ModelLoader;
 import javafx.application.Application;

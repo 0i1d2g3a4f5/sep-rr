@@ -28,11 +28,6 @@ public class ModelLoader {
         return new GameBoard(obhqawfbaeqfg);
     }
 
-    public String readFile(String fileName){
-
-        String filePath = "src/main/resources/MapModels/"+fileName+".json";
-        return new JsonReader().readFile(filePath);
-    }
 
     public static void main(String[] args) throws IOException {
         ModelLoader loader = new ModelLoader();
