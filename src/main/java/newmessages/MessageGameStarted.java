@@ -64,6 +64,7 @@ public class MessageGameStarted extends Message{
         if(isBasic) {
             Game.getInstance().setMap(new GameBoard(content));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
         }
         else {
             //ADVANCED

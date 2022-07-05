@@ -17,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
+import utility.ImagePathFromName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class JavaFXGridHandler {
 
     }
 
-    public GridPane updateOwnCards(ArrayList<Card> cardList){
+    public GridPane gridPaneFromCards(ArrayList<Card> cardList){
         try {
             return constructCardsList(cardList);
         } catch (IOException e) {
@@ -64,7 +65,7 @@ public class JavaFXGridHandler {
     }
 
     private void addToPane(StackPane stackPane,String path){
-        ImageView imageView1= new ImageView(new Image("images/cards/ProgrammingCards/Again.png"));
+        ImageView imageView1= new ImageView(new Image(path));
         stackPane.getChildren().add(imageView1);
         stackPane.setAlignment(imageView1, Pos.CENTER);
     }
@@ -81,39 +82,35 @@ public class JavaFXGridHandler {
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             StackPane stackPane = new StackPane();
-            ImageView imageView= new ImageView(new Image("TBDtile.png"));
-            stackPane.getChildren().add(imageView);
-            stackPane.setAlignment(imageView, Pos.CENTER);
-
             switch (cardList.get(i).getCardName()) {
                 // programming cards
                 case AGAIN:
                     // add card again
-                    addToPane(stackPane,"images/cards/ProgrammingCards/Again.png");
+                    addToPane(stackPane, ImagePathFromName.AGAIN.toString());
                     break;
                 case BACK_UP:
-                    addToPane(stackPane,"images/cards/ProgrammingCards/BackUp.png");
+                    addToPane(stackPane, ImagePathFromName.BACK_UP.toString());
                     break;
                 case LEFT_TURN:
-                    addToPane(stackPane,"images/cards/ProgrammingCards/LeftTurn.png");
+                    addToPane(stackPane,ImagePathFromName.LEFT_TURN.toString());
                     break;
                 case MOVE_ONE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveOne.png");
+                    addToPane(stackPane, ImagePathFromName.MOVE_ONE.toString());
                     break;
                 case MOVE_THREE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveThree.png");
+                    addToPane(stackPane, ImagePathFromName.MOVE_THREE.toString());
                     break;
                 case MOVE_TWO:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/MoveTwo.png");
+                    addToPane(stackPane, ImagePathFromName.MOVE_TWO.toString());
                     break;
                 case POWER_UP:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/PowerUp.png");
+                    addToPane(stackPane, ImagePathFromName.POWER_UP.toString());
                     break;
                 case RIGHT_TURN:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/RightTurn.png");
+                    addToPane(stackPane, ImagePathFromName.RIGHT_TURN.toString());
                     break;
                 case U_TURN:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/UTurn.png");
+                    addToPane(stackPane, ImagePathFromName.U_TURN.toString());
                     break;
 
                 // special programming cards
