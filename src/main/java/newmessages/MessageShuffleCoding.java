@@ -3,6 +3,7 @@ package newmessages;
 import client_package.client_gamelogic.Player;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Game;
 import server_package.SClient;
 
 import java.io.IOException;

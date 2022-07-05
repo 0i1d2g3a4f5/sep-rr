@@ -62,6 +62,6 @@ public class MessageStartingPointTaken extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
+        System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
     }
 }

@@ -50,7 +50,9 @@ public class MessageCurrentPlayer extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-
+        if(client.getSocket().isConnected()){
+            System.out.println("Current player is " + client.getName() + "," +client.getId());
+        }
     }
 
     @Override
