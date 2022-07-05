@@ -64,39 +64,51 @@ public class ConveyorBelt extends GameElement{
      * @throws IOException
      */
     public ConveyorBelt(JsonObject jsonObject) throws IOException {
+        super(ElementName.CONVEYORBELT);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        Direction targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
+        Direction targetDirection = null;
+        if(orientations.size()>0){
+            targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
+
+        }
         Direction originDirection1;
         Direction originDirection2;
         int speed = jsonObject.get("speed").getAsInt();
         Color color;
         switch (speed){
+            case 0 -> color = Color.GREEN;
             case 1 ->
-                color = Color.GREEN;
+                    color = Color.GREEN;
 
             case 2 ->
-                color = Color.BLUE;
+                    color = Color.BLUE;
             default ->
-                throw new IOException("Invalid speed parameter");
+                    throw new IOException("Invalid speed parameter.  speed: "+speed);
         }
-        ConveyorBelt conveyorBelt;
+        gamelogic.game_elements.ConveyorBelt conveyorBelt;
         switch (orientations.size()){
+            case 0 ->{
+
+            }
             case 1 ->{
-                conveyorBelt = new ConveyorBelt(color, targetDirection);
+                new gamelogic.game_elements.ConveyorBelt(color, targetDirection);
             }
             case 2 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
-                conveyorBelt = new ConveyorBelt(color,targetDirection, originDirection1);
+                new gamelogic.game_elements.ConveyorBelt(color,targetDirection, originDirection1);
             }
             case 3 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
                 originDirection2 = Direction.parseDirection(orientations.get(2).getAsString());
-                conveyorBelt = new ConveyorBelt(color,targetDirection, originDirection1,originDirection2);
+                new gamelogic.game_elements.ConveyorBelt(color,targetDirection, originDirection1,originDirection2);
 
             }
             default -> throw new IOException("Illegal Number of arguments. Number of arguments: "+orientations.size());
         }
+
+
+
     }
     public Color getColor() {
         return color;

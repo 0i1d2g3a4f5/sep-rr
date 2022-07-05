@@ -2,18 +2,18 @@ package server_package;
 
 import gamelogic.Player;
 import newmessages.Message;
-import server_package.advancedServer.AdvancedClient;
+import server_package.advancedServer.AdvancedSClient;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Sarp Cagin Erdogan
  */
-public abstract class Client {
+public abstract class SClient {
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
         toSendList.add(message);
@@ -29,35 +29,67 @@ public abstract class Client {
     protected boolean isReady, isListening, isNamed, isAI, isBasic;
 
 
-    public Client(Server server, int id, Socket socket, boolean isBasic){
+    public SClient(Server server, int id, Socket socket, boolean isBasic){
         setServer(server);
         setId(id);
         setSocket(socket);
         setBasic(isBasic);
 
     }
-    public Client(){
+    public SClient(){
 
     }
 
-    public void sendSingle(Client client, Message temp){
+    public void sendSingle(SClient sClient, Message temp){
         addToSendList(temp);
-        Message message = toSendList.get(0);
-        try {
-            OutputStream outputStream = client.socket.getOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-            String toSend = message.toJSON().toString()+"\n";
-            String print = "";
-            for(int i=0; i<toSend.length(); i++){
-                print+=toSend.charAt(i);
-                dataOutputStream.write((int) toSend.toCharArray()[i]);
-                dataOutputStream.flush();
+        while (toSendList.size() > 0){
+            Message message = toSendList.get(0);
+                synchronized (message) {
+
+
+                try {
+                    OutputStream outputStream = sClient.socket.getOutputStream();
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+                    DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
+                    String toSend = message.toJSON().toString().replaceAll("\n", "").trim() + "\n";
+
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
+
+                    writer.write(toSend);
+                    writer.write("\n");
+                    writer.flush();
+
+
+                    /*
+                    char[] arr = toSend.toCharArray();
+                    String print = "";
+                    int count = 0;
+                    for (char c : arr) {
+                        dataOutputStream.writeInt((int) c);
+                        print += c;
+                        count++;
+                        dataOutputStream.flush();
+                    }
+
+                     */
+
+                    //System.out.println("ToSend length: " + toSend.length());
+                    System.out.println("SENT: " + toSend);
+
+                    toSendList.remove(message);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                if (toSendList.size()>0) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
-            System.out.println("SENT: " + print);
-            toSendList.remove(message);
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
         }
+
     }
 
     public void sendSelf(Message message) {
@@ -65,14 +97,14 @@ public abstract class Client {
     }
 
     public void sendAll(Message message) {
-        for(Client client : server.getClientList()){
-            if(client.isListening)
-                sendSingle(client, message);
+        for(SClient sClient : server.getClientList()){
+            if(sClient.isListening)
+                sendSingle(sClient, message);
         }
     }
 
-    void sendList(List<AdvancedClient> clients, Message message) {
-        for (AdvancedClient client : clients) {
+    void sendList(List<AdvancedSClient> clients, Message message) {
+        for (AdvancedSClient client : clients) {
             sendSingle(client, message);
         }
     }

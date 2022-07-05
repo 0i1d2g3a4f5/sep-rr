@@ -27,7 +27,7 @@ public class Checkpoint extends GameElement {
      */
 
     public Checkpoint(JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
+
 
         Checkpoint checkpoint = new Checkpoint(jsonObject.get("count").getAsInt());
     }

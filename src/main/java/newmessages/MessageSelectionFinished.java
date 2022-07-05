@@ -2,7 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -38,17 +38,17 @@ public class MessageSelectionFinished extends Message{
 
     /**
      * @author Ringer
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         try {
-            if (client.getServer().getGame().programmingPlayers().size() == 0)
-                client.getServer().getGame().endProgrammingPhase();
-            client.getPlayer().isProgramming = false;
+            if (sClient.getServer().getGame().programmingPlayers().size() == 0)
+                sClient.getServer().getGame().endProgrammingPhase();
+            sClient.getPlayer().isProgramming = false;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

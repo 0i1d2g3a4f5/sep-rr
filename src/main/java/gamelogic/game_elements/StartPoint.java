@@ -21,6 +21,7 @@ public class StartPoint extends GameElement{
      * @throws IOException
      */
     public StartPoint(JsonObject jsonObject) throws IOException {
+        super(ElementName.STARTPOINT);
         Gson gson = new Gson();
         StartPoint startPoint = new StartPoint();
         startPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();

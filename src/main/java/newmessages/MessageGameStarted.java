@@ -2,15 +2,14 @@ package newmessages;
 
 import client_application.Task;
 import client_application.TaskContent;
-import client_application.TaskString1;
 import client_application.TaskType;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.Player;
 import client_package.client_gamelogic.ThisPlayer;
 import client_package.client_gamelogic.map.GameBoard;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -18,10 +17,11 @@ import java.io.IOException;
  * @author Sarp Cagin Erdogan
  */
 public class MessageGameStarted extends Message{
-    public JsonObject gameMap;
+    public JsonArray gameMap;
     public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
         content = jsonObject;
+        System.out.println("GameStarted content: "+content);
     }
 
     /**
@@ -29,17 +29,17 @@ public class MessageGameStarted extends Message{
      */
     public MessageGameStarted(JsonObject jsonObject) {
         super(jsonObject);
-        gameMap = content.get("gameMap").getAsJsonObject();
+        gameMap = content.get("gameMap").getAsJsonArray();
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 
@@ -62,8 +62,9 @@ public class MessageGameStarted extends Message{
 
         }
         if(isBasic) {
-            Game.getInstance().setMap(new GameBoard(gameMap));
+            Game.getInstance().setMap(new GameBoard(content));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
         }
         else {
             //ADVANCED

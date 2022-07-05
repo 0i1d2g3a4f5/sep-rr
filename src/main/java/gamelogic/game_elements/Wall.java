@@ -23,6 +23,7 @@ public class Wall extends GameElement{
      * @throws IOException
      */
     public Wall(JsonObject jsonObject) throws IOException {
+        super(ElementName.WALL);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         ArrayList<Direction> directions = new ArrayList<>();
@@ -30,8 +31,11 @@ public class Wall extends GameElement{
             directions.add(Direction.parseDirection(orientation.getAsString()));
         }
 
-        Wall wall = new Wall(directions);
-        wall.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        for (Direction direction:directions) {
+            this.orientations.add(direction);
+        }
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
     }
 
     /**
@@ -45,7 +49,7 @@ public class Wall extends GameElement{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(getOrientationsAsStrings()));
         return jsonObject;
 
     }

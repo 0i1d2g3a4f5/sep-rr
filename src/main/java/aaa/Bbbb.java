@@ -4,11 +4,12 @@ import client_package.client_gamelogic.map.GameBoard;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import sarpLovesJavaFX.JavaFXGridHandler;
 
 public class Bbbb {
     public void gpm(GridPane gridPane, GameBoard gameBoard){
         System.out.println(gameBoard.getDimensionX() + " " + gameBoard.getDimensionY());
-
+/*
         gridPane.getChildren().clear();
         for(int x=0; x< gameBoard.getDimensionX(); x++){
             for(int y=0; y< gameBoard.getDimensionY(); y++){
@@ -17,6 +18,10 @@ public class Bbbb {
                 System.out.println(gridPane.getChildren().size());
             }
         }
+
+ */
+        JavaFXGridHandler jfg = new JavaFXGridHandler();
+        gridPane =jfg.gridPaneFromGameBoard(gameBoard);
 
     }
 }

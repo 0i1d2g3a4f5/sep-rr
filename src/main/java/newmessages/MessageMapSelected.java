@@ -1,15 +1,11 @@
 package newmessages;
 
-import client_application.Task;
-import client_application.TaskString1;
-import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Game;
 import gamelogic.map.GameBoard;
-import gamelogic.map.MapName;
 import gamelogic.map.ModelLoader;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -41,7 +37,7 @@ public class MessageMapSelected extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
@@ -49,16 +45,16 @@ public class MessageMapSelected extends Message{
      */
 
     @Override
-    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             //Game.getInstance().setMapName(MapName.valueOf(map));
             ModelLoader modelLoader = new ModelLoader();
             GameBoard gameBoard = modelLoader.loadMap(map);
             Game.getInstance().setBoard(gameBoard);
             System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
-            client.sendAll(this);
+            sClient.sendAll(this);
             //TODO select position, revert to get gameBoard
-            client.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
+            sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
 
         }
         else {
@@ -68,6 +64,8 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        client_package.client_gamelogic.map.ModelLoader modelLoader = new client_package.client_gamelogic.map.ModelLoader();
+        client.getGame().setMap(modelLoader.loadMap(map));
 
 
     }

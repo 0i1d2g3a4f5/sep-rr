@@ -20,6 +20,7 @@ public class EnergyCube extends GameElement{
      */
 
     public EnergyCube(JsonObject jsonObject) throws IOException {
+        super(ElementName.ENERGY_CUBE);
         Gson gson = new Gson();
 
         EnergyCube energyCube = new EnergyCube();

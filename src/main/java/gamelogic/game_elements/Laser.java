@@ -44,6 +44,7 @@ public class Laser extends GameElement implements Activatable {
      * @param direction
      */
     public Laser(Direction direction, int count ) throws IOException {
+        super(ElementName.LASER);
         this.direction = direction;
         orientations.add(direction);
         if(count>3||count<1)
@@ -62,11 +63,21 @@ public class Laser extends GameElement implements Activatable {
      */
 
     public Laser(JsonObject jsonObject) throws IOException {
+        super(ElementName.LASER);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
-        Laser laser = new Laser(direction,jsonObject.get("count").getAsInt());
-        laser.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+        if(orientations.size()>0){
+            Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+            this.direction = direction;
+            this.orientations.add(direction);
+        }
+
+        /*if(count>3||count<1)
+            throw new IOException("This Laser doesn't exist");
+
+         */
+        this.count = jsonObject.get("count").getAsInt();
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
     }

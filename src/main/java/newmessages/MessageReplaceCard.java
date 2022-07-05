@@ -3,7 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.cards.CardName;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -41,7 +41,7 @@ public class MessageReplaceCard extends Message {
     }
 
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
 
     }

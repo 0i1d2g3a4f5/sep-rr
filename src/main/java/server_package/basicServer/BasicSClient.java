@@ -2,11 +2,9 @@ package server_package.basicServer;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import newmessages.*;
-import server_package.Client;
+import server_package.SClient;
 import server_package.MessageProcessor;
-import utility.GlobalParameters;
 
 import java.io.*;
 import java.net.Socket;
@@ -17,9 +15,9 @@ import static utility.GlobalParameters.PROTOCOL_VERSION;
 /**
  * @author Sarp Cagin Erdogan
  */
-public class BasicClient extends Client {
+public class BasicSClient extends SClient {
 
-    public BasicClient(BasicServer server, int id, Socket socket){
+    public BasicSClient(BasicServer server, int id, Socket socket){
         super(server, id, socket, true);
         setNamed(false);
         setListening(false);
@@ -38,28 +36,57 @@ public class BasicClient extends Client {
                         sendSelf(new MessageAlive());
                         counter=0;
                     }
-                    String hahaha = "";
+                    String inputString = "";
                     boolean isEnded = false;
                     int i=0;
-                    while (!isEnded && socket.getInputStream().available() > 0) {
-                        char a = (char)socket.getInputStream().read();
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
+                    DataInputStream dataInputStream= new DataInputStream(bufferedInputStream);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(dataInputStream));
+
+                    int readChars =dataInputStream.available();
+
+                    while(!isEnded && readChars>0){
+                        String input = reader.readLine();
+                        System.out.println("input:" +input);
+                        if(input.equals("\n" )|| input.equals("")){
+                            System.out.println("ended");
+                            isEnded = true;
+                        }
+
+                        else
+                            inputString += input;
+                        readChars--;
+                    }
+
+                    if(inputString !="")
+                    System.out.println(inputString);
+                    /*
+                    while (!isEnded && dataInputStream.available() > 0) {
+                        char a = (char)dataInputStream.readInt();
                         if((int) a == 10){
                             isEnded=true;
                         }
-                        hahaha+=String.valueOf(a);
+                        inputString+=String.valueOf(a);
                     }
-                    if(!hahaha.equals("")){
+
+                     */
+                    if(!inputString.equals("")){
+
+                            String[] strings = inputString.split("\n");
+                            for (String string :strings
+                            ) {
+                                System.out.println("RECEIVED: " + inputString);
+                                JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
+                                messageProcessor.process(jsonObject);
+                            }
+
                         isEnded=false;
-                        System.out.println("RECEIVED: " + hahaha);
-                        JsonObject jsonObject =  new Gson().fromJson(hahaha, JsonObject.class);
-                        try {
-                            messageProcessor.process(jsonObject);
-                        } catch (ClientNotFoundException e) {
-                            throw new RuntimeException(e);
-                        }
+
                     }
                 }
                 catch (InterruptedException | IOException e) {
+                    throw new RuntimeException(e);
+                } catch (ClientNotFoundException e) {
                     throw new RuntimeException(e);
                 }
 
@@ -101,8 +128,8 @@ public class BasicClient extends Client {
     @Override
     public void checkValues(String name, int figure){
         boolean available = true;
-        for(Client client : getServer().getClientList()){
-            if(client.getIsNamed() && client.getFigure()==figure){
+        for(SClient sClient : getServer().getClientList()){
+            if(sClient.getIsNamed() && sClient.getFigure()==figure){
                 available=false;
                 break;
             }
@@ -119,11 +146,11 @@ public class BasicClient extends Client {
     }
     @Override
     public void sendPreviousInfo(){
-        for(Client client : getServer().getClientList()){
-            if(client.getIsNamed() && client.getId()!=this.getId()){
-                System.out.println(client.getId() + client.getName() + client.getFigure() +  client.getIsReady());
-                sendSelf(new MessagePlayerAdded(client.getId(), client.getName(), client.getFigure()));
-                sendSelf(new MessagePlayerStatus(client.getId(), client.getIsReady()));
+        for(SClient sClient : getServer().getClientList()){
+            if(sClient.getIsNamed() && sClient.getId()!=this.getId()){
+                System.out.println(sClient.getId() + sClient.getName() + sClient.getFigure() +  sClient.getIsReady());
+                sendSelf(new MessagePlayerAdded(sClient.getId(), sClient.getName(), sClient.getFigure()));
+                sendSelf(new MessagePlayerStatus(sClient.getId(), sClient.getIsReady()));
             }
         }
     }

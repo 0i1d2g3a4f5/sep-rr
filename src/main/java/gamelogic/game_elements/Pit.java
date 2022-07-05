@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class Pit extends GameElement{
     public Pit(){
+        super(ElementName.PIT);
         
     }
 
@@ -22,10 +23,11 @@ public class Pit extends GameElement{
      */
 
     public Pit(JsonObject jsonObject) throws IOException {
+        super(ElementName.PIT);
         Gson gson = new Gson();
 
-        Pit pit = new Pit();
-        pit.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
     }
 

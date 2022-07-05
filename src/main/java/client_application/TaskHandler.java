@@ -64,18 +64,17 @@ public class TaskHandler {
                     clientApplication.stageSelection.close();
                 }
                 clientApplication.launchBasicGame();
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(clientApplication.basicClient.getGame().getMap()));
 
             }
             case UPDATEGAMEBOARD -> {
-                TaskJsonObject taskJsonObject = new TaskJsonObject(task);
+                /*TaskJsonObject taskJsonObject = new TaskJsonObject(task);
                 client_package.client_gamelogic.map.GameBoard gameBoard;
                 try {
                     gameBoard = new client_package.client_gamelogic.map.GameBoard(taskJsonObject.jsonObject);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(gameBoard));
+                }*/
+                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(this.clientApplication.basicClient.getGame().getMap()));
             }
             case UPDATEOWNREGISTER -> {
                 clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
@@ -110,7 +109,7 @@ public class TaskHandler {
             }
         }
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.updateOwnCards(cardArrayList);
+        return javaFXGridHandler.gridPaneFromCards(cardArrayList);
     }
     public GridPane gridPaneFromMultipleCardLists(Task task){
         TaskJsonArray2Levels taskJsonArray2Levels = new TaskJsonArray2Levels(task);
@@ -126,7 +125,7 @@ public class TaskHandler {
                     throw new RuntimeException(e);
                 }
             }
-            result.add(javaFXGridHandler.updateOwnCards(cardArrayList), i, 0);
+            result.add(javaFXGridHandler.gridPaneFromCards(cardArrayList), i, 0);
         }
         return result;
     }
