@@ -18,6 +18,8 @@ public abstract class GameElement {
     public List<Direction> orientations = new ArrayList<Direction>();
 
 
+
+
     public ElementName getType(){
         return type;
     }

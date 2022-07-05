@@ -47,6 +47,7 @@ class DeckSerializerTest {
 
     @BeforeTry
     void before() throws IOException {
+        /*
         CardName[] cards = CardName.values();
         Random random = new Random();
 
@@ -55,6 +56,8 @@ class DeckSerializerTest {
         for(int i = 0; i<deckSize;i++){
             deck.add(new CardFactory().createCard(cards[random.nextInt(cards.length)]));
         }
+
+         */
 
     }
 

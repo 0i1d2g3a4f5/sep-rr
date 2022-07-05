@@ -51,7 +51,7 @@ class AntennaTest {
                 "  \"type\": \"Antenna\",\n" +
                 "  \"isOnBoard\": \"Start A\",\n" +
                 "  \"orientations\": [\n" +
-                "    \"EAST\"\n" +
+                "    \"right\"\n" +
                 "  ]\n" +
                 "}",jsonString);
 

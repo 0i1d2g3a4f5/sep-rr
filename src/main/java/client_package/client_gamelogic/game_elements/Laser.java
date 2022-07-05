@@ -56,10 +56,21 @@ public class Laser extends GameElement  {
      */
 
     public Laser(JsonObject jsonObject) throws IOException {
+        super(ElementName.LASER);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
-        Laser laser = new Laser(direction,jsonObject.get("count").getAsInt());
+        if(orientations.size()>0){
+            Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
+            this.direction = direction;
+            this.orientations.add(direction);
+        }
+
+        /*if(count>3||count<1)
+            throw new IOException("This Laser doesn't exist");
+
+         */
+        this.count = jsonObject.get("count").getAsInt();
+
 
 
     }

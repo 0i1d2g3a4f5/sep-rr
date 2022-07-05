@@ -21,7 +21,6 @@ public class RestartPoint extends GameElement {
      */
 
     public RestartPoint(JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
-        RestartPoint restartPoint = new RestartPoint();
+        this();
     }
 }

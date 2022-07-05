@@ -15,15 +15,15 @@ public class Images {
     //cards
     public static String cardBackCard = "images/cards/CardBack.png";
     //programmingCards
-    public static String againCard = "images/cards/ProgrammingCards/Again.png";
-    public static String backUpCard = "images/cards/ProgrammingCards/BackUp.png";
-    public static String move1Card = "images/cards/ProgrammingCards/Move1.png";
-    public static String move2Card = "images/cards/ProgrammingCards/Move2.png";
-    public static String move3Card = "images/cards/ProgrammingCards/Move3.png";
-    public static String powerUpCard = "images/cards/ProgrammingCards/PowerUp.png";
-    public static String turnLeftCard = "images/cards/ProgrammingCards/TurnLeft.png";
-    public static String turnRightCard = "images/cards/ProgrammingCards/TurnRight.png";
-    public static String uTurnCard = "images/cards/ProgrammingCards/UTurn.png";
+    public static String againCard = "Again.png";
+    public static String backUpCard = "BackUp.png";
+    public static String move1Card = "Move1.png";
+    public static String move2Card = "Move2.png";
+    public static String move3Card = "Move3.png";
+    public static String powerUpCard = "PowerUp.png";
+    public static String turnLeftCard = "TurnLeft.png";
+    public static String turnRightCard = "TurnRight.png";
+    public static String uTurnCard = "UTurn.png";
     //damageCards
     public static String spamCard = "images/cards/damageCards/Spam.png";
     public static String trojanHorseCard = "images/cards/damageCards/TrojanHorse.png";

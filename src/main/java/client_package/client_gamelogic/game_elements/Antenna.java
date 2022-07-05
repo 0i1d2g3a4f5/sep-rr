@@ -26,12 +26,16 @@ public class Antenna extends GameElement implements Serializable {
      * @throws IOException
      */
     public Antenna(JsonObject jsonObject) throws IOException {
+        super(ElementName.ANTENNA);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         if(orientations.size()>0){
             Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
-            orientations.add(String.valueOf(direction));
+            this.orientations.add(direction);
+
         }
+
+
 
     }
 

@@ -67,7 +67,7 @@ public enum CardName {
 
 
     private String cardName;
-    public static gamelogic.cards.CardName parseCardName(String cardName) throws IOException {
+    public static CardName parseCardName(String cardName) throws IOException {
         for (CardName  name:CardName.values()){
             cardName =cardName.replaceAll("\"","");
             System.out.println("Wanted: "+cardName);
