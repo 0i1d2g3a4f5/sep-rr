@@ -154,7 +154,7 @@
       [{"type":"ConveyorBelt","isOnBoard":"4A","speed":2,"orientations":["bottom","top"]}],
       [{"type":"ConveyorBelt","isOnBoard":"4A","speed":2,"orientations":["bottom","top"]}],
       [{"type":"ConveyorBelt","isOnBoard":"4A","speed":2,"orientations":["left","top"]}],
-      [{"type":"EnergySpace","isOnBoard":"4A"}],
+      [{"type":"EnergySpace","isOnBoard":"4A","count":1}],
       [{"type":"Empty","isOnBoard":"4A"}],
       [{"type":"ConveyorBelt","isOnBoard":"4A","speed":2,"orientations":["left","bottom"]}],
       [{"type":"ConveyorBelt","isOnBoard":"4A","speed":2,"orientations":["top","bottom"]}],
