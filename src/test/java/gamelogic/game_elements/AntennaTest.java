@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class AntennaTest {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+
+
     @Example
     void fromJson() throws IOException {
         /*
@@ -24,7 +26,7 @@ class AntennaTest {
                 "  \"type\": \"Antenna\",\n" +
                 "  \"isOnBoard\": \"Start A\",\n" +
                 "  \"orientations\": [\n" +
-                "    \"right\"\n" +
+                "    \"\"\n" +
                 "  ]\n" +
                 "}";
         JsonObject jsonObject = gson.fromJson(jsonString,JsonObject.class);
@@ -39,7 +41,7 @@ class AntennaTest {
 
     @Example
     void toJson() {
-        /*
+
         Antenna antenna = new Antenna(Direction.EAST);
         antenna.isOnBoard = "Start A";
 
@@ -49,10 +51,10 @@ class AntennaTest {
                 "  \"type\": \"Antenna\",\n" +
                 "  \"isOnBoard\": \"Start A\",\n" +
                 "  \"orientations\": [\n" +
-                "    \"right\"\n" +
+                "    \"EAST\"\n" +
                 "  ]\n" +
                 "}",jsonString);
 
-         */
+
     }
 }

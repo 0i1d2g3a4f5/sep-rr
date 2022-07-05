@@ -63,12 +63,13 @@ public class Gear extends GameElement implements Activatable {
      * @throws IOException
      */
     public Gear (JsonObject jsonObject) throws IOException {
+        super(ElementName.GEAR);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
         GearDirection gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
-        Gear gear = new Gear(gearDirection);
-        gear.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
 

@@ -1,5 +1,7 @@
 package gamelogic.game_elements.robot;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import gamelogic.*;
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
@@ -301,6 +303,17 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      */
     public String getName(){
         return name;
+    }
+
+    @Override
+    public JsonObject toJson() {
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("type",new JsonPrimitive(type.toString()));
+        jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
+        jsonObject.add("orientations",gson.toJsonTree(orientations.toString()));
+        return jsonObject;
+
     }
 
     public String toString(){

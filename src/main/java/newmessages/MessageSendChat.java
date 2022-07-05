@@ -2,7 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -40,21 +40,21 @@ public class MessageSendChat extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(server_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (this.to == -1) {
-                client.sendAll(new MessageReceivedChat(this.message, client.getId(), false));
+                sClient.sendAll(new MessageReceivedChat(this.message, sClient.getId(), false));
             } else {
-                if (client.getServer().clientFromID(this.to) != null) {
-                    client.sendSingle(client.getServer().clientFromID(this.to), new MessageReceivedChat(this.message, client.getId(), true));
+                if (sClient.getServer().clientFromID(this.to) != null) {
+                    sClient.sendSingle(sClient.getServer().clientFromID(this.to), new MessageReceivedChat(this.message, sClient.getId(), true));
                 } else {
-                    client.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+                    sClient.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
                 }
             }
         }
@@ -66,15 +66,15 @@ public class MessageSendChat extends Message{
 
         /*
         if(to==-1){
-            client.sendAll(new MessageReceivedChat(message, client.getId(), false));
+            sClient.sendAll(new MessageReceivedChat(message, sClient.getId(), false));
         }
         else{
 
-            if(client.getServer().clientFromId(messageSendChat.to)!=null) {
-                client.sendSingle(client.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, client.id, true));
+            if(sClient.getServer().clientFromId(messageSendChat.to)!=null) {
+                sClient.sendSingle(sClient.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, sClient.id, true));
             }
             else{
-                client.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+                sClient.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
             }
 
              */

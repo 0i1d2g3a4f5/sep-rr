@@ -3,7 +3,7 @@ package newmessages;
 import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -38,11 +38,11 @@ public class MessageActivePhase extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) {
 
     }
 

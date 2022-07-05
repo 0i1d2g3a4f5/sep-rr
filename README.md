@@ -10,13 +10,13 @@ If you're a first-timer, please find the rules attached: https://media.wizards.c
 1. When prompted allow Maven structure to be added
 2. Edit configurations:
    1. For the server application: Add application > Set main class as ServerApplication > Add VM Options > Link your local file path to the JavaFX lib. 
-   2. Repeat for client application with ClientApplication.
+   2. Repeat for sClient application with ClientApplication.
 3. Add the JavaFX library: File > Project Structure > Libraries > + > Java > Select the JavaFX lib file path
 
 ## Start the Game
 
 1. Launch the server: Run desperate_drosseln_hp > src > main > java > server_application > ServerApplication.java
-2. Open a client: Run desperate_drosseln_hp > src > main > java > client_application > ClientApplication.java. Repeat for amount needed.
+2. Open a sClient: Run desperate_drosseln_hp > src > main > java > client_application > ClientApplication.java. Repeat for amount needed.
 3. Choose whether to play a basic or advanced game by choosing the respective game. Follow the on-screen instructions to start a game.
 4. Have fun!
 

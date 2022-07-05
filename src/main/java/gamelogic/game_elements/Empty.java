@@ -3,13 +3,25 @@ package gamelogic.game_elements;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import gamelogic.Direction;
 
 import java.io.IOException;
 
 public class Empty extends GameElement{
+
     public Empty(){
-        super(ElementName.EMPTY);
+        type = ElementName.EMPTY;
+    }
+
+    @Override
+    public JsonObject toJson(){
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("type",new JsonPrimitive(type.toString()));
+        jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
+        return jsonObject;
+
     }
 
     /**
@@ -21,9 +33,11 @@ public class Empty extends GameElement{
      */
 
     public Empty (JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
-        Empty empty = new Empty();
-        empty.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+        super(ElementName.EMPTY);
+
+        System.out.println(type);
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
 
 
     }

@@ -17,7 +17,7 @@ class ModelLoaderTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(modelLoader.mapJson);
+       // System.out.println(modelLoader.mapJson);
     }
 
     @Example

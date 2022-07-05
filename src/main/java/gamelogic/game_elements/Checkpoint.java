@@ -36,6 +36,7 @@ public class Checkpoint extends GameElement implements Activatable {
      */
 
     public Checkpoint(JsonObject jsonObject) throws IOException {
+        super(ElementName.CHECKPOINT);
         Gson gson = new Gson();
 
         Checkpoint checkpoint = new Checkpoint(jsonObject.get("count").getAsInt());

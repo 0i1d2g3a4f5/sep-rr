@@ -2,7 +2,6 @@ package newmessages;
 
 import client_application.Task;
 import client_application.TaskContent;
-import client_application.TaskString1;
 import client_application.TaskType;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.Player;
@@ -10,8 +9,7 @@ import client_package.client_gamelogic.ThisPlayer;
 import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -23,6 +21,7 @@ public class MessageGameStarted extends Message{
     public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
         content = jsonObject;
+        System.out.println("GameStarted content: "+content);
     }
 
     /**
@@ -34,13 +33,13 @@ public class MessageGameStarted extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
     }
 

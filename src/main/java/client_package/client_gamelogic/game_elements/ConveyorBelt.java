@@ -66,6 +66,7 @@ public class ConveyorBelt extends GameElement{
     public ConveyorBelt(JsonObject jsonObject) throws IOException {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
+        //TODO if for directions
         Direction targetDirection = Direction.parseDirection(orientations.get(0).getAsString());
         Direction originDirection1;
         Direction originDirection2;

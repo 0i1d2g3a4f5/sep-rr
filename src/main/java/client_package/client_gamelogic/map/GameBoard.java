@@ -63,7 +63,6 @@ public class GameBoard  {
                 "dimensionY=" + dimensionY +
                 ", dimensionX=" + dimensionX +
                 ", boardMap=" + boardMap +
-                ", gson=" + gson +
                 '}';
     }
 
@@ -197,7 +196,7 @@ public class GameBoard  {
         }
         dimensionX = x;
         x=0;
-        System.out.println(boardMap);
+        //System.out.println(boardMap);
 
     }
 

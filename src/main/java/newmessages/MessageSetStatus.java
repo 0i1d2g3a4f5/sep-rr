@@ -2,7 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import server_package.Client;
+import server_package.SClient;
 
 import java.io.IOException;
 
@@ -34,22 +34,22 @@ public class MessageSetStatus extends Message{
     }
 
     /**
-     * @param client
+     * @param sClient
      * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
-            client.setReady(this.ready);
-            client.sendAll(new MessagePlayerStatus(client.getId(), client.getIsReady()));
-            if(client.getIsReady()){
-                client.getServer().getReadyList().add(client);
-                client.getServer().checkReady();
+            sClient.setReady(this.ready);
+            sClient.sendAll(new MessagePlayerStatus(sClient.getId(), sClient.getIsReady()));
+            if(sClient.getIsReady()){
+                sClient.getServer().getReadyList().add(sClient);
+                sClient.getServer().checkReady();
             }
             else{
-                client.getServer().getReadyList().remove(client);
+                sClient.getServer().getReadyList().remove(sClient);
             }
 
         }else{

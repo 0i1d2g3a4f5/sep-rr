@@ -9,16 +9,16 @@ import java.io.IOException;
  */
 public class MessageProcessor {
 
-    private Client client;
+    private SClient sClient;
     private boolean isBasic;
 
-    public MessageProcessor(Client client, boolean isBasic){
-        this.client=client;
+    public MessageProcessor(SClient sClient, boolean isBasic){
+        this.sClient = sClient;
         this.isBasic=isBasic;
     }
     public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
-        message.activateMessageInBackend(client, isBasic);
+        message.activateMessageInBackend(sClient, isBasic);
     }
 }

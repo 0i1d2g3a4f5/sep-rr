@@ -38,6 +38,7 @@ public class EnergySpace extends GameElement implements Activatable {
      * @throws IOException
      */
     public EnergySpace (JsonObject jsonObject) throws IOException {
+        super(ElementName.ENERGYSPACE);
         Gson gson = new Gson();
 
         EnergySpace energySpace = new EnergySpace(jsonObject.get("count").getAsInt());

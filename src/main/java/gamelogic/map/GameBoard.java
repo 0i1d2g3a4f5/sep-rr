@@ -204,6 +204,7 @@ public class GameBoard implements JsonSerializable {
                 arrayLVL3 = elementLVL2.getAsJsonArray();
                 for (JsonElement elementLVL3:arrayLVL3) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
+                    System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
 
                     if(element.getType() == ElementName.RESTARTPOINT){
@@ -220,7 +221,7 @@ public class GameBoard implements JsonSerializable {
             y=0;
             x++;
         }
-        System.out.println(boardMap);
+        System.out.println(toJson());
 
     }
 
@@ -242,6 +243,7 @@ public class GameBoard implements JsonSerializable {
                 JsonArray jsonArrayLVL3 = new JsonArray();
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
+                        System.out.println("Element in Board.toJson: "+element);
                         jsonArrayLVL3.add(element.toJson());
                     }
                 } else {

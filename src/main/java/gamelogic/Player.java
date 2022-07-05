@@ -1,7 +1,7 @@
 package gamelogic;
 
 import newmessages.*;
-import server_package.Client;
+import server_package.SClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
@@ -18,7 +18,7 @@ import static utility.SearchMethods.searchCard;
  */
 public class Player{
     public boolean isProgramming;
-   // ClientHandler client;
+   // ClientHandler sClient;
 
     private int EnergyCube;
     private Card lastPlayedCard;
@@ -29,7 +29,7 @@ public class Player{
     private ArrayList<Card> handCards;
     private Robot robot;
 
-    private Client client;
+    private SClient sClient;
 
     private int checkpointTokens;
 
@@ -37,15 +37,15 @@ public class Player{
     Player() {
     }
 
-    public Client getClient() {
-        return client;
+    public SClient getClient() {
+        return sClient;
     }
 
 
 
 
-    public Player(Client client, Game game) {
-        this.client = client;
+    public Player(SClient sClient, Game game) {
+        this.sClient = sClient;
         this.game = game;
     }
 
@@ -94,10 +94,10 @@ public class Player{
     /**
      * @author Ringer
      * @param message
-     * sends a message to the client of the Player
+     * sends a message to the sClient of the Player
      */
     public void sendMessage(Message message){
-        client.sendSelf(message);
+        sClient.sendSelf(message);
     }
 
     /**
@@ -271,7 +271,7 @@ public class Player{
     public Card drawCard(){
         if(deck.empty()) {
             refillDeck();
-            client.getServer().getGame().sendToAllPlayers(new MessageShuffleCoding(client.getId()));
+            sClient.getServer().getGame().sendToAllPlayers(new MessageShuffleCoding(sClient.getId()));
         }
         Card card = deck.pop();
         return card;
