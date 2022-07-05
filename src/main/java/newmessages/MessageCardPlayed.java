@@ -50,12 +50,11 @@ public class MessageCardPlayed extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-        if (sClient != null) {
-            sClient.getPlayer().placeCard(CardName.parseCardName(card), 1);
-            // TODO check if okay
+        /*if (sClient != null) {
+            sClient.getPlayer().placeCard(CardName.parseCardName(card));
         } else {
             throw new ClientNotFoundException("SClient with ID = " + clientID + " not found");
-        }
+        }*/
     }
 
     @Override

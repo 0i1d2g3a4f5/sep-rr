@@ -49,7 +49,6 @@ public class MessageTimerEnded extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
 
-
     }
 
     /**

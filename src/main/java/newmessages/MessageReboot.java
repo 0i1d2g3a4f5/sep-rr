@@ -43,7 +43,7 @@ public class MessageReboot extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-
+        //TODO add message that sends coordinates of the reboot position, client notes position of bot
     }
 
     /**
