@@ -13,8 +13,8 @@ public class ThisCPlayer extends CPlayer {
     private Client client;
 
     private Robot robot;
-    private static ArrayList<Card> registerCards;
-    private static ArrayList<Card> handCards;
+    private Card[] registerCards;
+    private ArrayList<Card> handCards;
 
     public ThisCPlayer(Client client, Game game) {
         this.client = client;
@@ -30,7 +30,7 @@ public class ThisCPlayer extends CPlayer {
         this.handCards = handCards;
     }
 
-    public static ArrayList<Card> getHandCards() {
+    public  ArrayList<Card> getHandCards() {
         return handCards;
     }
 
@@ -39,7 +39,8 @@ public class ThisCPlayer extends CPlayer {
     }
 
     public void placeRegisterCards(Card card,int pos) {
-        registerCards.add(pos,card);
+        registerCards[pos] = card;
+
     }
 
     public void selectCard(int posHandcard,int posRegister){
@@ -49,7 +50,7 @@ public class ThisCPlayer extends CPlayer {
 
     }
 
-    public ArrayList<Card> getRegisterCards(){
+    public Card[] getRegisterCards(){
         return registerCards;
     }
 

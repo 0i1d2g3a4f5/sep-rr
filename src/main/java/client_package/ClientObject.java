@@ -7,5 +7,7 @@ public interface ClientObject {
     int getFigure();
     String getName();
 
+    boolean isReady();
+
     void setIsReady(boolean ready);
 }

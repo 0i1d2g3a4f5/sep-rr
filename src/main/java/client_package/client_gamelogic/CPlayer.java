@@ -54,7 +54,7 @@ public class CPlayer {
     public void registerCard(Card card, int position){
         registerCards.add(position,card);
     }
-    public ArrayList<Card> getRegisterCards(){
+    public Card[] getRegisterCards(){
         return registerCards;
     }
 

@@ -15,14 +15,18 @@ import java.util.ArrayList;
  */
 
 public class MessageCardsYouGotNow extends Message{
-    ArrayList<Card> cards;
+    ArrayList<CardName> cards;
 
     /**
      * @param cards
      */
     public MessageCardsYouGotNow(ArrayList<Card> cards){
 
-        this.cards = cards;
+        for (Card card:cards
+             ) {
+            this.cards.add(card.getCardName());
+        }
+
         type = "CardsYouGotNow";
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
@@ -42,10 +46,10 @@ public class MessageCardsYouGotNow extends Message{
      */
     public MessageCardsYouGotNow(JsonObject jsonObject) throws IOException {
         JsonArray jsonArray = jsonObject.get("cards").getAsJsonArray();
-        ArrayList<Card> cards = new ArrayList<>();
+        ArrayList<CardName> cards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
-        for (int i = 0; i < cards.size(); i++) {
-            cards.add(cardFactory.createCard(CardName.valueOf(jsonArray.get(i).getAsString())));
+        for (int i = 0; i < jsonArray.size(); i++) {
+            cards.add(CardName.valueOf(jsonArray.get(i).getAsString()));
         }
         this.cards = cards;
 
@@ -71,9 +75,13 @@ public class MessageCardsYouGotNow extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        client_package.client_gamelogic.cards.CardFactory cardFactory = new client_package.client_gamelogic.cards.CardFactory();
 
-        for (int i = 0; i < client.getPlayer().getRegisterCards().size(); i++) {
-           //client.getPlayer().getRegisterCards().get()
+        for (int i = 0; i < client.getPlayer().getRegisterCards().length; i++) {
+            if(client.getPlayer().getRegisterCards()[i] == null){
+                client.getPlayer().placeRegisterCards(cardFactory.createCard(cards.get(0)),i);
+                cards.remove(0);
+            }
         }
     }
 
