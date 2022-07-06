@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.basicClient.BasicClient;
+import client_package.client_gamelogic.OtherClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -73,10 +74,14 @@ public class MessagePlayerAdded extends Message{
             if (this.clientID == client.getId()){
                 client.setName(this.name);
                 client.setFigure(this.figure);
+                client.getGame().join(client);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }else{
-                client.getClientList().add(new BasicClient(this.clientID, this.name, this.figure));
+                OtherClient otherClient = new OtherClient(this.clientID, this.figure,this.name);
+                client.getClientList().add(otherClient);
+
+                client.getGame().join(otherClient);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
         }

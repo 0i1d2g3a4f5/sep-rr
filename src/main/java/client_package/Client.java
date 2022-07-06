@@ -18,15 +18,15 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Sarp Cagin Erdogan
  */
-public abstract class Client {
+public abstract class Client implements ClientObject{
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
         toSendList.add(message);
     }
 
-    protected List<Client> clientList;
+    protected List<ClientObject> clientList;
     //TODO playerlist as filter for clients that are playing
-    protected List<Client> playerList;
+    protected List<ClientObject> playerList;
     protected ClientApplication clientApplication;
 
     protected ThisPlayer player;
@@ -73,12 +73,13 @@ public abstract class Client {
         setClientApplication(clientApplication);
         setIsBasic(isBasic);
         setClientList(new ArrayList<>());
+        game.setClient(this);
     }
 
 
 
-    public Client clientFromId(int inp){
-        for(Client client : this.clientList){
+    public ClientObject clientFromId(int inp){
+        for(ClientObject client : this.clientList){
             if(client.getId()==inp){
                 return client;
             }
@@ -120,11 +121,11 @@ public abstract class Client {
         }
     }
 
-    public List<Client> getPlayerList() {
+    public List<ClientObject> getPlayerList() {
         return playerList;
     }
 
-    public void setPlayerList(List<Client> playerList) {
+    public void setPlayerList(List<ClientObject> playerList) {
         this.playerList = playerList;
     }
 
@@ -234,10 +235,10 @@ public abstract class Client {
         return game;
     }
 
-    public List<Client> getClientList(){
+    public List<ClientObject> getClientList(){
         return this.clientList;
     }
-    public void setClientList(List<Client> clientList){
+    public void setClientList(List<ClientObject> clientList){
         this.clientList =clientList;
     }
 
@@ -282,6 +283,7 @@ public abstract class Client {
     public Socket getSocket(){
         return this.socket;
     }
+
     public void setSocket(Socket socket){
         this.socket=socket;
     }

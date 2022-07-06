@@ -1,6 +1,7 @@
 package client_package.client_gamelogic;
 
 import client_package.Client;
+import client_package.ClientObject;
 import client_package.client_gamelogic.map.GameBoard;
 import client_package.client_gamelogic.map.MapName;
 import com.google.gson.JsonObject;
@@ -31,7 +32,14 @@ public class Game {
         return activeRegister;
     }
 
+    public void join(ClientObject client){
+        if(!(client.getId()==this.client.getId())){
+            OtherClient otherClient = (OtherClient) client;
+            Player player = new Player();
 
+            otherClient.setPlayer(player);
+        }
+    }
 
     public ArrayList<Player> getPlayerList() {
         return playerList;

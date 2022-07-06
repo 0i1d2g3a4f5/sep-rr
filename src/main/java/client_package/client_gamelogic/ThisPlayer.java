@@ -1,6 +1,7 @@
 package client_package.client_gamelogic;
 
 import client_package.Client;
+import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import gamelogic.Color;
@@ -17,9 +18,10 @@ public class ThisPlayer extends Player{
     private static ArrayList<Card> registerCards;
     private static ArrayList<Card> handCards;
 
-    public ThisPlayer(int id, Color robotColor,Client client) {
-        super(id,robotColor);
+    public ThisPlayer(Client client, Game game) {
         this.client = client;
+        this.robot = new Robot(client.getFigure(),this);
+
     }
 
     public void drawDamage(){

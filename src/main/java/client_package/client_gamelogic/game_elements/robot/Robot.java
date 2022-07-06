@@ -8,7 +8,6 @@ import client_package.client_gamelogic.game_elements.GameElement;
 import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Position;
-import newmessages.MessagePlayerTurning;
 
 import java.io.IOException;
 
@@ -18,7 +17,9 @@ import java.io.IOException;
  */
 public class Robot extends GameElement {
 
-    private final Color color;
+    //private final Color color;
+
+    public final int figure;
     private Game game;
 
     private Direction directionFacing;
@@ -26,13 +27,11 @@ public class Robot extends GameElement {
     private String name;
     private Player player;
 
-    public Robot(Color color) {
-        this.color = color;
+    public Robot(int figure,Player player) {
+        this.player = player;
+        this.figure = figure;
     }
 
-    public Color getColor() {
-        return color;
-    }
     public Position getPosition() {
         return position;
     }
@@ -53,15 +52,17 @@ public class Robot extends GameElement {
     /**
      * @param position
      * @param direction
+     * @param figure
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (Position position, Direction direction, Color color) throws IOException {
+    public Robot (Position position, Direction direction, int figure) throws IOException {
+        this.figure = figure;
         game =Game.getInstance();
         directionFacing = direction;
         this.position = position;
         this.orientations.add(direction);
-        this.color = color;
+
     }
 
     public Player getPlayer() {
