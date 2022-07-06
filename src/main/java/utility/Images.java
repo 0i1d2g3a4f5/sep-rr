@@ -1,5 +1,6 @@
 package utility;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -14,9 +15,9 @@ public enum Images {
     //TODO edit*/
 
     //cards
-    CARD_BACK_CARD ("images/cards/CardBack.png"),
+    CARD_BACK_CARD ("images/cards/CardBack.png", new ImageView(new Image("")));
     //programmingCards
-    AGAINCARD("Again.png"),
+    /*AGAINCARD("Again.png"),
     public static String backUpCard = "BackUp.png";
     public static String move1Card = "Move1.png";
     public static String move2Card = "Move2.png";
@@ -76,9 +77,10 @@ public enum Images {
     public static String smashBot = "images/robots/RobotYellowSmash.png";
     public static String spinBot = "images/robots/RobotBlueSpin.png";
     public static String twonkyBot = "images/robots/RobotOrangeTwonky.png";
-    public static String zoomBot = "images/robots/RobotGreenZoom.png";
+    public static String zoomBot = "images/robots/RobotGreenZoom.png";*/
     public String string;
-    public Images(String string){
+    public ImageView imageView;
+    Images(String string, ImageView imageView){
         this.string=string;
     }
     public String toString(){
