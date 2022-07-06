@@ -19,6 +19,11 @@ public enum Images {
     //programmingCards
     AGAINCARD("images/cards/programmingCards/Again.png", new ImageView(new Image("images/programmingCards/Again.png"))),
     TURN_RIGHT_CARD("images/cards/programmingCards/TurnRight.png", new ImageView(new Image("images/cards/programmingCards/TurnRight.png"))),
+    POWER_UP_CARD("images/cards/programmingCards/PowerUp.png", new ImageView(new Image("images/cards/programmingCards/PowerUp.png"))),
+    MOVE_1_CARD("images/cards/programmingCards/Move1.png", new ImageView(new Image("images/cards/programmingCards/Move1.png"))),
+    MOVE_2_CARD("images/cards/programmingCards/Move2.png", new ImageView(new Image("images/cards/programmingCards/Move2.png"))),
+    MOVE_3_CARD("images/cards/programmingCards/Move3.png", new ImageView(new Image("images/cards/programmingCards/Move3.png"))),
+    TURN_LEFT_CARD("images/cards/programmingCards/TurnLeft.png", new ImageView(new Image("images/cards/programmingCards/TurnLeft.png"))),
     U_TURN_CARD("images/cards/programmingCards/UTurn.png", new ImageView(new Image("images/cards/programmingCards/UTurn.png"))),
     //damageCards
     SPAM_CARD("images/cards/damageCards/Spam.png", new ImageView(new Image("images/cards/damageCards/Spam.png"))),
@@ -54,11 +59,22 @@ public enum Images {
     GEAR_COUNTERCLOCKWISE_ELEMENT("images/boardElements/GearCounterclockwise.png", new ImageView(new Image("images/boardElements/GearCounterclockwise.png"))),
     LASER_1_ELEMENT("images/boardElements/LaserUp.png", new ImageView(new Image("images/boardElements/LaserUp.png"))),
     PIT_ELEMENT("images/boardElements/Pit.png", new ImageView(new Image("images/boardElements/Pit.png"))),
-    PUSH_PANEL_24_ELEMENT("images/boardElements/PushPanel24Top.png", new ImageView(new Image("images/boardElements/PushPanel24Top.png"))),
-    PUSH_PANEL_135_ELEMENT("images/boardElements/PushPanel135Top.png", new ImageView(new Image("images/boardElements/PushPanel135Top.png"))),
+    PUSH_PANEL_24_TOP_ELEMENT("images/boardElements/PushPanel24Top.png", new ImageView(new Image("images/boardElements/PushPanel24Top.png"))),
+    PUSH_PANEL_24_BOTTOM_ELEMENT("images/boardElements/PushPanel24Bottom.png", new ImageView(new Image("images/boardElements/PushPanel24Bottom.png"))),
+    PUSH_PANEL_24_RIGHT_ELEMENT("images/boardElements/PushPanel24Right.png", new ImageView(new Image("images/boardElements/PushPanel24Right.png"))),
+    PUSH_PANEL_24_LEFT_ELEMENT("images/boardElements/PushPanel24Left.png", new ImageView(new Image("images/boardElements/PushPanel24Left.png"))),
+    PUSH_PANEL_135_TOP_ELEMENT("images/boardElements/PushPanel135Top.png", new ImageView(new Image("images/boardElements/PushPanel135Top.png"))),
+    PUSH_PANEL_135_BOTTOM_ELEMENT("images/boardElements/PushPanel135Bottom.png", new ImageView(new Image("images/boardElements/PushPanel135Bottom.png"))),
+    PUSH_PANEL_135_RIGHT_ELEMENT("images/boardElements/PushPanel135Right.png", new ImageView(new Image("images/boardElements/PushPanel135Right.png"))),
+    PUSH_PANEL_135_LEFT_ELEMENT("images/boardElements/PushPanel135Left.png", new ImageView(new Image("images/boardElements/PushPanel135Left.png"))),
+
+
     REBOOT_ELEMENT("images/boardElements/Reboot.png", new ImageView(new Image("images/boardElements/Reboot.png"))),
     STARTING_POINT_ELEMENT("images/boardElements/StartingPoint.png", new ImageView(new Image("images/boardElements/StartingPoint.png"))),
-    WALL_ELEMENT("images/boardElements/WallTop.png", new ImageView(new Image("images/boardElements/WallTop.png"))),
+    WALL_TOP_ELEMENT("images/boardElements/WallTop.png", new ImageView(new Image("images/boardElements/WallTop.png"))),
+    WALL_BOTTOM_ELEMENT("images/boardElements/WallBottom.png", new ImageView(new Image("images/boardElements/WallBottom.png"))),
+    WALL_RIGHT_ELEMENT("images/boardElements/WallRight.png", new ImageView(new Image("images/boardElements/WallRight.png"))),
+    WALL_LEFT_ELEMENT("images/boardElements/WallLeft.png", new ImageView(new Image("images/boardElements/WallLeft.png"))),
 
     //racing courses
     DEATH_TRAP_MAP("images/racingCourses/DeathTrapMap.png", new ImageView(new Image("images/racingCourses/DeathTrapMap.png"))),
@@ -82,9 +98,6 @@ public enum Images {
     }
     public String toString(){
         return this.string;
-    }
-    Images(ImageView imageView) {
-        this.imageView = imageView;
     }
 
     public ImageView toImageView() {

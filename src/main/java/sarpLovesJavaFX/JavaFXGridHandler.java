@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
+import utility.Images;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -82,70 +83,71 @@ public class JavaFXGridHandler {
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             StackPane stackPane = new StackPane();
-            switch (cardList.get(i).getCardName()) {
-                // programming cards
-                case AGAIN:
-                    // add card again
-                    addToPane(stackPane, "Again.png");
-                    break;
-                case BACK_UP:
-                    addToPane(stackPane, "BackUp.png");
-                    break;
-                case LEFT_TURN:
-                    addToPane(stackPane, "TurnLeft.png");
-                    break;
-                case MOVE_ONE:
-                    addToPane(stackPane, "Move1.png");
-                    break;
-                case MOVE_THREE:
-                    addToPane(stackPane, "Move3.png");
-                    break;
-                case MOVE_TWO:
-                    addToPane(stackPane, "Move2.png");
-                    break;
-                case POWER_UP:
-                    addToPane(stackPane, "PowerUp.png");
-                    break;
-                case RIGHT_TURN:
-                    addToPane(stackPane, "TurnRight.png");
-                    break;
-                case U_TURN:
-                    addToPane(stackPane, "UTurn.png");
-                    break;
+                switch (cardList.get(i).getCardName()) {
+                    // programming cards
+                    case AGAIN:
+                        // add card again
+                        addToPane(stackPane, Images.AGAINCARD.toString());
+                        break;
+                    case BACK_UP:
+                        addToPane(stackPane, Images.CARD_BACK_CARD.toString());
+                        break;
+                    case LEFT_TURN:
+                        addToPane(stackPane, Images.TURN_LEFT_CARD.toString());
+                        break;
+                    case MOVE_ONE:
+                        addToPane(stackPane, Images.MOVE_1_CARD.toString());
+                        break;
+                    case MOVE_THREE:
+                        addToPane(stackPane, Images.MOVE_3_CARD.toString());
+                        break;
+                    case MOVE_TWO:
+                        addToPane(stackPane, Images.MOVE_2_CARD.toString());
+                        break;
+                    case POWER_UP:
+                        addToPane(stackPane, Images.POWER_UP_CARD.toString());
+                        break;
+                    case RIGHT_TURN:
+                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toString());
+                        break;
+                    case U_TURN:
+                        addToPane(stackPane, Images.U_TURN_CARD.toString());
+                        break;
 
-                // special programming cards
-                case ENERGY_ROUTINE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/EnergyRoutine.png");
-                    break;
-                case REPEAT_ROUTINE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/RepeatRoutine.png");
-                    break;
-                case SANDBOX_ROUTINE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/SandboxRoutine.png");
-                    break;
-                case SPAM_FOLDER:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/SpamFolder.png");
-                    break;
-                case WEASEL_ROUTINE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/WeaselRoutine.png");
-                    break;
+                    // special programming cards
+                    case ENERGY_ROUTINE:
+                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toString());
+                        break;
+                    case REPEAT_ROUTINE:
+                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toString());
+                        break;
+                    case SANDBOX_ROUTINE:
+                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toString());
+                        break;
+                    case SPAM_FOLDER:
+                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toString());
+                        break;
+                    case WEASEL_ROUTINE:
+                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toString());
+                        break;
 
-                // damage cards
-                case SPAM:
-                    addToPane(stackPane, "Spam.png");
-                    break;
-                case TROJAN_HORSE:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/TrojanHorse.png");
-                    break;
-                case VIRUS:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/Virus.png");
-                    break;
-                case WORM:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/StackPane.png");
-                    break;
+                    // damage cards
+                    case SPAM:
+                        addToPane(stackPane, Images.SPAM_CARD.toString());
+                        break;
+                    case TROJAN_HORSE:
+                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toString());
+                        break;
+                    case VIRUS:
+                        addToPane(stackPane, Images.VIRUS_CARD.toString());
+                        break;
+                    case WORM:
+                        addToPane(stackPane, Images.WORM_CARD.toString());
+                        break;
                 }
-                gridPane.add(stackPane,i,0);
-            }
+                gridPane.add(stackPane, i, 0);
+
+        }
         return gridPane;
         }
 
@@ -251,22 +253,22 @@ public class JavaFXGridHandler {
     private static void caseAntenna(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH -> {
-                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaNorth.png"));
+                ImageView imageView9 = Images.ANTENNA_NORTH_ELEMENTS.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case SOUTH -> {
-                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaSouth.png"));
+                ImageView imageView9 = Images.ANTENNA_SOUTH_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case WEST -> {
-                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaWest.png"));
+                ImageView imageView9 = Images.ANTENNA_WEST_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView9 = new ImageView(new Image("images/boardElements/AntennaEast.png"));
+                ImageView imageView9 = Images.ANTENNA_EAST.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
@@ -325,22 +327,22 @@ public class JavaFXGridHandler {
     private static void caseWall(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH ->{
-                ImageView imageView7 = new ImageView("images/boardElements/WallTop.png");
+                ImageView imageView7 = Images.WALL_TOP_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case SOUTH -> {
-                ImageView imageView7 = new ImageView("images/boardElements/WallBottom.png");
+                ImageView imageView7 = Images.WALL_BOTTOM_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case WEST -> {
-                ImageView imageView7 = new ImageView("images/boardElements/WallLeft.png");
+                ImageView imageView7 = Images.WALL_LEFT_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView7 = new ImageView("images/boardElements/WallRight.png");
+                ImageView imageView7 = Images.WALL_RIGHT_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
@@ -353,7 +355,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      */
     private static void caseStartPoint(StackPane stackPane) {
-        ImageView imageView6 = new ImageView("images/boardElements/StartingPoint.png");
+        ImageView imageView6 = Images.STARTING_POINT_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView6);
         stackPane.setAlignment(imageView6,Pos.CENTER);
         return;
@@ -364,7 +366,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      */
     private static void casePit(StackPane stackPane) {
-        ImageView imageView5 = new ImageView("images/boardElements/Pit.png");
+        ImageView imageView5 = Images.PIT_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView5);
         stackPane.setAlignment(imageView5,Pos.CENTER);
         return;
@@ -380,22 +382,22 @@ public class JavaFXGridHandler {
             case 1,3,5 -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel125Bottom.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_135_TOP_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Top.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_135_BOTTOM_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case EAST -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Left.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_135_RIGHT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel135Right.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_135_LEFT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
@@ -404,22 +406,22 @@ public class JavaFXGridHandler {
             case 2,4 ->{
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Bottom.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_24_TOP_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Top.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_24_BOTTOM_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case EAST -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Left.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_24_RIGHT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView4 = new ImageView("images/boardElements/PushPanel24Right.png");
+                        ImageView imageView4 = Images.PUSH_PANEL_24_LEFT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
@@ -439,12 +441,12 @@ public class JavaFXGridHandler {
         Gear gear = gameElement;
         switch (gear.getGearDirection()){
             case CLOCKWISE -> {
-                ImageView imageView3 = new ImageView("images/boardElements/GearClockwise.png");
+                ImageView imageView3 =Images.GEAR_CLOCKWISE_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView3);
                 stackPane.setAlignment(imageView3,Pos.CENTER);
             }
             case COUNTERCLOCKWISE -> {
-                ImageView imageView3 = new ImageView("images/boardElements/GearCounterclockwise.png");
+                ImageView imageView3 = Images.GEAR_COUNTERCLOCKWISE_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView3);
                 stackPane.setAlignment(imageView3,Pos.CENTER);
             }
@@ -457,7 +459,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      */
     private static void caseEnergySpace(StackPane stackPane) {
-        ImageView imageView2 = new ImageView("images/boardElements/EnergySpaceGreen.png");
+        ImageView imageView2 = Images.ENERGY_SPACE_GREEN_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView2);
         stackPane.setAlignment(imageView2,Pos.CENTER);
         return;
