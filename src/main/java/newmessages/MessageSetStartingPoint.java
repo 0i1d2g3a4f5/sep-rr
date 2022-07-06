@@ -69,7 +69,7 @@ public class MessageSetStartingPoint extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         /*Position position = new Position(y,x);
         if(!client.getPlayer().getRobot(position).equals(null)) {
-            System.out.println("Player " + client.getName() + " is at position " + client.getPlayer);
+            System.out.println("CPlayer " + client.getName() + " is at position " + client.getPlayer);
         }*/
     }
 }

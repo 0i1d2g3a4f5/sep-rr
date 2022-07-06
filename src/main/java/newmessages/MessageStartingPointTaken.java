@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -62,6 +63,11 @@ public class MessageStartingPointTaken extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        for (CPlayer player:client.getGame().getPlayerList()) {
+            if(player.getClientID()==clientID){
+                player.getRobot().moveRobotTo(y,x);
+            }
+        }
         System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
     }
 }

@@ -150,7 +150,7 @@ public class JavaFXGridHandler {
         }
 
     /* public Scene constructHandCards() throws IOException {
-        ArrayList<Card> getHandCards = ThisPlayer.getHandCards();
+        ArrayList<Card> getHandCards = ThisCPlayer.getHandCards();
 
         // return handcards;
     } */

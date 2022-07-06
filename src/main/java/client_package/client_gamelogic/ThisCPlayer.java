@@ -1,15 +1,13 @@
 package client_package.client_gamelogic;
 
 import client_package.Client;
-import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
-import gamelogic.Color;
 import newmessages.MessageSelectedCard;
 
 import java.util.ArrayList;
 
-public class ThisPlayer extends Player{
+public class ThisCPlayer extends CPlayer {
     private Card selectedCard;
 
     private Client client;
@@ -18,7 +16,7 @@ public class ThisPlayer extends Player{
     private static ArrayList<Card> registerCards;
     private static ArrayList<Card> handCards;
 
-    public ThisPlayer(Client client, Game game) {
+    public ThisCPlayer(Client client, Game game) {
         this.client = client;
         this.robot = new Robot(client.getFigure(),this);
 

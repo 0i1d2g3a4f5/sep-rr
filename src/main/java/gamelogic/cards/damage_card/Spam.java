@@ -25,7 +25,7 @@ public class Spam extends DamageCard{
      * @author Mark Ringer
      */
     public void activateCard(){
-        //TODO notify Player
+        //TODO notify CPlayer
         player.clearThisRegister(game.getActiveRegister());
         game.getSpamDrawPile().add(this);
         Card card = player.drawCard();

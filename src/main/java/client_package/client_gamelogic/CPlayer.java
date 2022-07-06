@@ -4,16 +4,16 @@ import client_package.Client;
 import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
-import gamelogic.Color;
 
 import java.util.ArrayList;
 
 /**
  * @author Mark Ringer
  */
-public class Player {
+public class CPlayer {
 
     int figure;
+
 
     Game game;
     int EnergyCubes;
@@ -22,10 +22,10 @@ public class Player {
     private int handCards = 0;
     private ArrayList<Card> registerCards= new ArrayList(9);
 
-    public Player(ClientObject clientObject,Game game){
+    public CPlayer(ClientObject clientObject, Game game){
         if(clientObject.getId() == game.getClient().getId()){
             //TODO own client needs player
-            ThisPlayer thisPlayer = new ThisPlayer((Client)clientObject,game);
+            ThisCPlayer thisPlayer = new ThisCPlayer((Client)clientObject,game);
             OtherClient client = (OtherClient) clientObject;
             this.clientID = client.getId();
             client.setPlayer(thisPlayer);
@@ -40,7 +40,7 @@ public class Player {
 
     }
 
-    protected Player() {
+    protected CPlayer() {
     }
 
 

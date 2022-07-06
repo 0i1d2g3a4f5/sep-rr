@@ -435,7 +435,7 @@ public class  Game {
 
 
         StringBuilder outputString = new StringBuilder("Active player(s): \n");
-        for (Player player : playerList) {
+        for (CPlayer player : playerList) {
             outputString.append(player.getClient().getClientName() + ", ");
         }
         return new LobbyMessage(0, outputString.toString());

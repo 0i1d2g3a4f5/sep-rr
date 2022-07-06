@@ -9,7 +9,7 @@ public class OtherClient implements ClientObject {
 
     private boolean isReady = false;
 
-    private Player player;
+    private CPlayer player;
 
 
     public OtherClient(int clientID, int figure, String name) {
@@ -30,11 +30,11 @@ public class OtherClient implements ClientObject {
         return name;
     }
 
-    public Player getPlayer() {
+    public CPlayer getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(CPlayer player) {
         this.player = player;
     }
 

@@ -1,6 +1,6 @@
 package newmessages;
 
-import client_package.client_gamelogic.Player;
+import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -62,9 +62,9 @@ public class MessageNotYourCards extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
-        ArrayList<Player> playerList = client.getGame().getPlayerList();
+        ArrayList<CPlayer> playerList = client.getGame().getPlayerList();
 
-        for (Player player:playerList) {
+        for (CPlayer player:playerList) {
             if(player.getClientID()==clientID){
                 player.setHandCards(cardsInHand);
                 break;

@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.AI.AIClient;
+import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -76,7 +77,7 @@ public class MessageCardSelected extends Message{
 
         }
         else {
-            for(client_package.client_gamelogic.Player player:client.getGame().getPlayerList()){
+            for(CPlayer player:client.getGame().getPlayerList()){
                 if(player.getClientID()==clientID){
                     player.addHandCards(register);
                 }

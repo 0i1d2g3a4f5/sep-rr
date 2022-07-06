@@ -72,6 +72,9 @@ public class MessageCardsYouGotNow extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
+        for (int i = 0; i < client.getPlayer().getRegisterCards().size(); i++) {
+           //client.getPlayer().getRegisterCards().get()
+        }
     }
 
     @Override

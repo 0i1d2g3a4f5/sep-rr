@@ -1,8 +1,8 @@
 package client_package.client_gamelogic.cards;
 
 
+import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
-import client_package.client_gamelogic.Player;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
@@ -12,10 +12,10 @@ import java.util.Objects;
 public abstract class Card{
     protected CardName cardName;
 
-    protected Player player;
+    protected CPlayer player;
     protected Game game;
 
-    public void setPlayer(Player player){
+    public void setPlayer(CPlayer player){
         this.player =player;
     }
     public void setGame(Game game){this.game = game;}

@@ -25,7 +25,7 @@ public class MessageCurrentPlayer extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created Player Message: " + this);
+        System.out.println("Created CPlayer Message: " + this);
     }
 
     /**
@@ -34,7 +34,7 @@ public class MessageCurrentPlayer extends Message{
     public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        System.out.println("Created Player Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created CPlayer Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

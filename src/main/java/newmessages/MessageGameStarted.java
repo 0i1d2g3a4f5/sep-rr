@@ -4,9 +4,7 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.ClientObject;
-import client_package.client_gamelogic.Game;
-import client_package.client_gamelogic.Player;
-import client_package.client_gamelogic.ThisPlayer;
+import client_package.client_gamelogic.ThisCPlayer;
 import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -55,9 +53,9 @@ public class MessageGameStarted extends Message{
         for (ClientObject client2: client.getClientList()) {
             if(client2.getId() !=client.getId()){
                 //TODO check if this needs to be done here or somewhere else
-                //client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new Player(client2.getId(),client2.getRoboColor()));
+                //client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new CPlayer(client2.getId(),client2.getRoboColor()));
             } else {
-                client.setPlayer(new ThisPlayer(client,client.getGame()));
+                client.setPlayer(new ThisCPlayer(client,client.getGame()));
                 client.getGame().getPlayerList().add(client.getPlayer());
             }
 

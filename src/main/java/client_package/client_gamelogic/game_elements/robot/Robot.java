@@ -1,11 +1,10 @@
 package client_package.client_gamelogic.game_elements.robot;
 
 
+import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
-import client_package.client_gamelogic.Player;
 import client_package.client_gamelogic.game_elements.GameElement;
 
-import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Position;
 
@@ -25,9 +24,9 @@ public class Robot extends GameElement {
     private Direction directionFacing;
     private Position position;
     private String name;
-    private Player player;
+    private CPlayer player;
 
-    public Robot(int figure,Player player) {
+    public Robot(int figure, CPlayer player) {
         this.player = player;
         this.figure = figure;
     }
@@ -37,9 +36,11 @@ public class Robot extends GameElement {
     }
 
     public void moveRobotTo(int y, int x){
+        game.getMap().getGameField(position.getY(),position.getX()).removeRobot();
         game.getMap().getGameField(y,x).removeRobot();
+        game.getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
-        game.getMap().addElement(position,this);
+
 
     }
 
@@ -65,11 +66,11 @@ public class Robot extends GameElement {
 
     }
 
-    public Player getPlayer() {
+    public CPlayer getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(CPlayer player) {
         this.player = player;
     }
 

@@ -3,7 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
-import client_package.client_gamelogic.Player;
+import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -70,7 +70,7 @@ public class MessageMovement extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        for (Player player:client.getGame().getPlayerList()) {
+        for (CPlayer player:client.getGame().getPlayerList()) {
             if(clientID == player.getClientID()){
                 player.getRobot().moveRobotTo(y,x);
             }

@@ -2,10 +2,9 @@ package client_package;
 
 import client_application.ClientApplication;
 import client_package.client_gamelogic.Game;
-import client_package.client_gamelogic.ThisPlayer;
+import client_package.client_gamelogic.ThisCPlayer;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import gamelogic.Color;
 import newmessages.Message;
 
@@ -29,7 +28,7 @@ public abstract class Client implements ClientObject{
     protected List<ClientObject> playerList;
     protected ClientApplication clientApplication;
 
-    protected ThisPlayer player;
+    protected ThisCPlayer player;
     protected Game game;
 
     {
@@ -129,7 +128,7 @@ public abstract class Client implements ClientObject{
         this.playerList = playerList;
     }
 
-    public void setPlayer(ThisPlayer player) {
+    public void setPlayer(ThisCPlayer player) {
         this.player = player;
     }
 
@@ -322,7 +321,7 @@ public abstract class Client implements ClientObject{
     }
 
 
-    public ThisPlayer getPlayer() {
+    public ThisCPlayer getPlayer() {
       return player;
     }
 }
