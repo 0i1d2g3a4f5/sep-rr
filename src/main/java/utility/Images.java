@@ -1,5 +1,8 @@
 package utility;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 /**
  * @author Isabel
  * replaces image paths with shorter strings
@@ -12,76 +15,83 @@ public enum Images {
     //TODO edit*/
 
     //cards
-    CARD_BACK_CARD ("images/cards/CardBack.png"),
+    CARD_BACK_CARD ("images/cards/CardBack.png", new ImageView(new Image("images/cards/CardBack.png"))),
     //programmingCards
-    AGAIN_CARD("images/cards/programmingCards/Again.png"),
-    BACK_UP_CARD("images/cards/programmingCards/BackUp.png"),
-    MOVE_ONE_CARD("images/cards/programmingCards/Move1.png"),
-    MOVE_TWO_CARD("images/cards/programmingCards/Move2.png"),
-    MOVE_THREE_CARD("images/cards/programmingCards/Move3.png"),
-    POWER_UP_CARD("images/cards/programmingCards/PowerUp.png"),
-    TURN_LEFT_CARD ("images/cards/programmingCards/TurnLeft.png"),
-    TURN_RIGHT_CARD("images/cards/programmingCards/TurnRight.png"),
-    U_TURN_CARD("images/cards/programmingCards/UTurn.png"),
+    AGAINCARD("images/cards/programmingCards/Again.png", new ImageView(new Image("images/programmingCards/Again.png"))),
+    TURN_RIGHT_CARD("images/cards/programmingCards/TurnRight.png", new ImageView(new Image("images/cards/programmingCards/TurnRight.png"))),
+    U_TURN_CARD("images/cards/programmingCards/UTurn.png", new ImageView(new Image("images/cards/programmingCards/UTurn.png"))),
     //damageCards
-    public static String spamCard = "images/cards/damageCards/Spam.png";
-    public static String trojanHorseCard = "images/cards/damageCards/TrojanHorse.png";
-    public static String virusCard = "images/cards/damageCards/Virus.png";
-    public static String wormCard = "images/cards/damageCards/Worm.png";
+    SPAM_CARD("images/cards/damageCards/Spam.png", new ImageView(new Image("images/cards/damageCards/Spam.png"))),
+    TROJAN_HORSE_CARD("images/cards/damageCards/TrojanHorse.png", new ImageView(new Image("images/cards/damageCards/TrojanHorse.png"))),
+    VIRUS_CARD("images/cards/damageCards/Virus.png", new ImageView(new Image("images/cards/damageCards/Virus.png"))),
+    WORM_CARD("images/cards/damageCards/Worm.png", new ImageView(new Image("images/cards/damageCards/Worm.png"))),
     //specialProgrammingCards
-    public static String energyRoutineCard = "images/cards/specialProgrammingCards/EnergyRoutine.png";
-    public static String repeatRoutineCard = "images/cards/specialProgrammingCards/RepeatRoutine.png";
-    public static String sandboxRoutineCard = "images/cards/specialProgrammingCards/SandboxRoutine.png";
-    public static String spamFolderCard = "images/cards/specialProgrammingCards/SpamFolder.png";
-    public static String speedRoutineCard = "images/cards/specialProgrammingCards/SpeedRoutine.png";
-    public static String weaselRoutineCard = "images/cards/specialProgrammingCards/WeaselRoutine.png";
+
+    ENERGY_ROUTINE_CARD("images/cards/specialProgrammingCards/EnergyRoutine.png", new ImageView(new Image("images/cards/specialProgrammingCards/EnergyRoutine.png"))),
+    REPEAT_ROUTINE_CARD("images/cards/specialProgrammingCards/RepeatRoutine.png", new ImageView(new Image("images/cards/specialProgrammingCards/RepeatRoutine.png"))),
+    SANDBOX_ROUTINE_CARD("images/cards/specialProgrammingCards/SandboxRoutine.png", new ImageView(new Image("images/cards/specialProgrammingCards/SandboxRoutine.png"))),
+    SPAM_FOLDER_CARD("images/cards/specialProgrammingCards/SpamFolder.png", new ImageView(new Image("images/cards/specialProgrammingCards/SpamFolder.png"))),
+    SPEED_ROUTINE_CARD("images/cards/specialProgrammingCards/SpeedRoutine.png", new ImageView(new Image("images/cards/specialProgrammingCards/SpeedRoutine.png"))),
+    WEASEL_ROUTINE_CARD("images/cards/specialProgrammingCards/WeaselRoutine.png", new ImageView(new Image("images/cards/specialProgrammingCards/WeaselRoutine.png"))),
 
     //board elements
-    public static String antennaEastElement = "AntennaEast.png";
-    public static String antennaNorthElement = "AntennaNorth.png";
-    public static String antennaSouthElement = "AntennaSouth.png";
-    public static String antennaWestElement = "AntennaWest.png";
-    public static String beltBlueCrossElement = "BeltBlueCrossDown.png";
-    public static String beltBlueCurveElement = "BeltBlueUpToLeft.png";
-    public static String beltBlueElement = "BeltBlueUp.png";
-    public static String beltGreenCurveElement = "BeltGreenUpToLeft.png";
-    public static String beltGreenElement = "BeltGreenUp.png";
-    public static String board2x8Element = "Board2x8.png";
-    public static String checkPoint1Element = "CheckPoint1.png";
-    public static String checkPoint2Element = "CheckPoint2.png";
-    public static String checkPoint3Element = "CheckPoint3.png";
-    public static String checkPoint4Element = "CheckPoint4.png";
-    public static String energySpaceGreenElement = "EnergySpaceGreen.png";
-    public static String gearClockwiseElement = "GearClockwise.png";
-    public static String gearCounterclockwiseElement = "GearCounterclockwise.png";
-    public static String laser1Element = "LaserUp.png";
-    public static String pitElement = "Pit.png";
-    public static String pushPanel24Element = "PushPanel24Top.png";
-    public static String pushPanel135Element = "PushPanel135Top.png";
-    public static String rebootElement = "Reboot.png";
-    public static String startingPointElement = "StartingPoint.png";
-    public static String wallElement = "WallTop.png";
+    ANTENNA_EAST("images/boardElements/AntennaEast.png", new ImageView(new Image("images/boardElements/AntennaEast.png"))),
+    ANTENNA_NORTH_ELEMENTS("images/boardElements/AntennaNorth.png", new ImageView(new Image("images/boardElements/AntennaNorth.png"))),
+    ANTENNA_SOUTH_ELEMENT("images/boardElements/AntennaSouth.png", new ImageView(new Image("images/boardElements/AntennaSouth.png"))),
+    ANTENNA_WEST_ELEMENT("images/boardElements/AntennaWest.png", new ImageView(new Image("images/boardElements/AntennaWest.png"))),
+    BELT_BLUE_CROSS_ELEMENT("images/boardElements/BeltBlueCrossDown.png", new ImageView(new Image("images/boardElements/BeltBlueCrossDown.png"))),
+    BELT_BLUE_CURVE_ELEMENT("images/boardElements/BeltBlueUpToLeft.png",new ImageView(new Image("images/boardElements/BeltBlueUpToLeft.png"))),
+    BELT_BLUE_ELEMENT("images/boardElements/BeltBlueUp.png", new ImageView(new Image("images/boardElements/BeltBlueUp.png"))),
+    BELT_GREEN_CURVE_ELEMENT("images/boardElements/BeltGreenUpToLeft.png", new ImageView(new Image("images/boardElements/BeltGreenUpToLeft.png"))),
+    BELT_GREEN_ELEMENT("images/boardElements/BeltGreenUp.png", new ImageView(new Image("images/boardElements/BeltGreenUp.png"))),
+    BELT_2X8_ELEMENT("images/boardElements/Board2x8.png", new ImageView(new Image("images/boardElements/Board2x8.png"))),
+    CHECKPOINT_1_ELEMENT("images/boardElements/CheckPoint1.png", new ImageView(new Image("images/boardElements/CheckPoint1.png"))),
+    CHECKPOINT_2_ELEMENT("images/boardElements/CheckPoint2.png", new ImageView(new Image("images/boardElements/CheckPoint2.png"))),
+    CHECKPOINT_3_ELEMENT("images/boardElements/CheckPoint3.png", new ImageView(new Image("images/boardElements/CheckPoint3.png"))),
+    CHECKPOINT_4_ELEMENT("images/boardElements/CheckPoint4.png", new ImageView(new Image("images/boardElements/CheckPoint4.png"))),
+    ENERGY_SPACE_GREEN_ELEMENT("images/boardElements/EnergySpaceGreen.png", new ImageView(new Image("images/boardElements/EnergySpaceGreen.png"))),
+    GEAR_CLOCKWISE_ELEMENT("images/boardElements/GearClockwise.png", new ImageView(new Image("images/boardElements/GearClockwise.png"))),
+    GEAR_COUNTERCLOCKWISE_ELEMENT("images/boardElements/GearCounterclockwise.png", new ImageView(new Image("images/boardElements/GearCounterclockwise.png"))),
+    LASER_1_ELEMENT("images/boardElements/LaserUp.png", new ImageView(new Image("images/boardElements/LaserUp.png"))),
+    PIT_ELEMENT("images/boardElements/Pit.png", new ImageView(new Image("images/boardElements/Pit.png"))),
+    PUSH_PANEL_24_ELEMENT("images/boardElements/PushPanel24Top.png", new ImageView(new Image("images/boardElements/PushPanel24Top.png"))),
+    PUSH_PANEL_135_ELEMENT("images/boardElements/PushPanel135Top.png", new ImageView(new Image("images/boardElements/PushPanel135Top.png"))),
+    REBOOT_ELEMENT("images/boardElements/Reboot.png", new ImageView(new Image("images/boardElements/Reboot.png"))),
+    STARTING_POINT_ELEMENT("images/boardElements/StartingPoint.png", new ImageView(new Image("images/boardElements/StartingPoint.png"))),
+    WALL_ELEMENT("images/boardElements/WallTop.png", new ImageView(new Image("images/boardElements/WallTop.png"))),
 
     //racing courses
-    public static String deathTrapMap = "images/racingCourses/DeathTrapMap.png";
-    public static String dizzyHighwayMap = "images/racingCourses/DeathTrapMap.png";
-    public static String extraCrispyMap = "images/racingCourses/DeathTrapMap.png";
-    public static String lostBearingsMap = "images/racingCourses/DeathTrapMap.png";
+    DEATH_TRAP_MAP("images/racingCourses/DeathTrapMap.png", new ImageView(new Image("images/racingCourses/DeathTrapMap.png"))),
+    DIZZY_HIGHWAY_MAP("images/racingCourses/DeathTrapMap.png", new ImageView(new Image("images/racingCourses/DeathTrapMap.png"))),
+    EXTRA_CRISPY_MAP("images/racingCourses/DeathTrapMap.png", new ImageView(new Image("images/racingCourses/DeathTrapMap.png"))),
+    LOST_BEARINGS_MAP("images/racingCourses/DeathTrapMap.png", new ImageView(new Image("images/racingCourses/DeathTrapMap.png"))),
 
     //robots
-    public static String hammerBot = "images/robots/RobotPurpleHammer.png";
-    public static String hulkBot = "images/robots/RobotRedHulkx90.png";
-    public static String smashBot = "images/robots/RobotYellowSmash.png";
-    public static String spinBot = "images/robots/RobotBlueSpin.png";
-    public static String twonkyBot = "images/robots/RobotOrangeTwonky.png";
-    public static String zoomBot = "images/robots/RobotGreenZoom.png";
+    HAMMER_BOT("images/robots/RobotPurpleHammer.png", new ImageView(new Image("images/robots/RobotPurpleHammer.png"))),
+    HULK_BOT("images/robots/RobotRedHulkx90.png", new ImageView(new Image("images/robots/RobotRedHulkx90.png"))),
+    SMASH_BOT("images/robots/RobotYellowSmash.png", new ImageView(new Image("images/robots/RobotYellowSmash.png"))),
+    SPIN_BOT("images/robots/RobotBlueSpin.png", new ImageView(new Image("images/robots/RobotBlueSpin.png"))),
+    TWONKY_BOT("images/robots/RobotOrangeTwonky.png", new ImageView(new Image("images/robots/RobotOrangeTwonky.png"))),
+    ZOOM_BOT("images/robots/RobotGreenZoom.png", new ImageView(new Image("images/robots/RobotGreenZoom.png")));
+
     public String string;
-    public Images(String string){
-        this.string=string;
+    public ImageView imageView;
+    Images(String string, ImageView imageView) {
+        this.string = string;
+        this.imageView = imageView;
     }
     public String toString(){
         return this.string;
     }
+    Images(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    public ImageView toImageView() {
+        return this.imageView;
+    }
+
+
 
     //others
     //TODO check importance of, increase and add other images to the class
