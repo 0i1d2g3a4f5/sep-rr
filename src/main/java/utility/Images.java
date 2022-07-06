@@ -15,7 +15,7 @@ public enum Images {
     //TODO edit*/
 
     //cards
-    CARD_BACK_CARD ("images/cards/CardBack.png", new ImageView(new Image("images/cards/CardBack.png"))),
+    CARD_BACK_CARD ("images/cards/CardBack.png", new ImageView(new Image("images/cards/CardBack.png")), "Card"),
     //programmingCards
     AGAINCARD("images/cards/programmingCards/Again.png", new ImageView(new Image("images/programmingCards/Again.png"))),
     TURN_RIGHT_CARD("images/cards/programmingCards/TurnRight.png", new ImageView(new Image("images/cards/programmingCards/TurnRight.png"))),
@@ -92,16 +92,39 @@ public enum Images {
 
     public String string;
     public ImageView imageView;
-    Images(String string, ImageView imageView) {
+    public String type;
+    Images(String string, ImageView imageView, String type) {
         this.string = string;
         this.imageView = imageView;
+        this.type = type;
     }
     public String toString(){
         return this.string;
     }
 
     public ImageView toImageView() {
+        switch (this.type){
+            case "Card" ->{
+                return handleCard(this.toImageView());
+            }
+            case "MapElement" ->{
+                return handleMapElement(this.toImageView());
+            }
+
+        }
         return this.imageView;
+    }
+    public ImageView handleCard(ImageView imageView){
+        imageView.setSmooth(true);
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(50);
+        return imageView;
+    }
+    public ImageView handleMapElement(ImageView imageView){
+        imageView.setSmooth(true);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        return imageView;
     }
 
 

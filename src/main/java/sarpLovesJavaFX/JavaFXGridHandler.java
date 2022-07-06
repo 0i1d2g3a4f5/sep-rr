@@ -65,10 +65,9 @@ public class JavaFXGridHandler {
         return temp;
     }
 
-    private void addToPane(StackPane stackPane,String path){
-        ImageView imageView1= new ImageView(new Image(path));
-        stackPane.getChildren().add(imageView1);
-        stackPane.setAlignment(imageView1, Pos.CENTER);
+    private void addToPane(StackPane stackPane,ImageView imageView){
+        stackPane.getChildren().add(imageView);
+        stackPane.setAlignment(imageView, Pos.CENTER);
     }
 
     /**
@@ -87,62 +86,62 @@ public class JavaFXGridHandler {
                     // programming cards
                     case AGAIN:
                         // add card again
-                        addToPane(stackPane, Images.AGAINCARD.toString());
+                        addToPane(stackPane, Images.AGAINCARD.toImageView());
                         break;
                     case BACK_UP:
-                        addToPane(stackPane, Images.CARD_BACK_CARD.toString());
+                        addToPane(stackPane, Images.CARD_BACK_CARD.toImageView());
                         break;
                     case LEFT_TURN:
-                        addToPane(stackPane, Images.TURN_LEFT_CARD.toString());
+                        addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView());
                         break;
                     case MOVE_ONE:
-                        addToPane(stackPane, Images.MOVE_1_CARD.toString());
+                        addToPane(stackPane, Images.MOVE_1_CARD.toImageView());
                         break;
                     case MOVE_THREE:
-                        addToPane(stackPane, Images.MOVE_3_CARD.toString());
+                        addToPane(stackPane, Images.MOVE_3_CARD.toImageView());
                         break;
                     case MOVE_TWO:
-                        addToPane(stackPane, Images.MOVE_2_CARD.toString());
+                        addToPane(stackPane, Images.MOVE_2_CARD.toImageView());
                         break;
                     case POWER_UP:
-                        addToPane(stackPane, Images.POWER_UP_CARD.toString());
+                        addToPane(stackPane, Images.POWER_UP_CARD.toImageView());
                         break;
                     case RIGHT_TURN:
-                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toString());
+                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toImageView());
                         break;
                     case U_TURN:
-                        addToPane(stackPane, Images.U_TURN_CARD.toString());
+                        addToPane(stackPane, Images.U_TURN_CARD.toImageView());
                         break;
 
                     // special programming cards
                     case ENERGY_ROUTINE:
-                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toString());
+                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toImageView());
                         break;
                     case REPEAT_ROUTINE:
-                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toString());
+                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toImageView());
                         break;
                     case SANDBOX_ROUTINE:
-                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toString());
+                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toImageView());
                         break;
                     case SPAM_FOLDER:
-                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toString());
+                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toImageView());
                         break;
                     case WEASEL_ROUTINE:
-                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toString());
+                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toImageView());
                         break;
 
                     // damage cards
                     case SPAM:
-                        addToPane(stackPane, Images.SPAM_CARD.toString());
+                        addToPane(stackPane, Images.SPAM_CARD.toImageView());
                         break;
                     case TROJAN_HORSE:
-                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toString());
+                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toImageView());
                         break;
                     case VIRUS:
-                        addToPane(stackPane, Images.VIRUS_CARD.toString());
+                        addToPane(stackPane, Images.VIRUS_CARD.toImageView());
                         break;
                     case WORM:
-                        addToPane(stackPane, Images.WORM_CARD.toString());
+                        addToPane(stackPane, Images.WORM_CARD.toImageView());
                         break;
                 }
                 gridPane.add(stackPane, i, 0);

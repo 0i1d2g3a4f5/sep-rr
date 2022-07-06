@@ -18,24 +18,24 @@ public class Aaa extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*Scene scene;
+        Scene scene;
         System.out.println("a");
         ScrollPane scrollPane = new ScrollPane();
         System.out.println("b");
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         ModelLoader modelLoader = new ModelLoader();
         System.out.println("c");
-        GameBoard gameBoard = modelLoader.loadMap("death_trap");
+        GameBoard gameBoard = modelLoader.loadMap("dizzy_highway");
         System.out.println("edfsfds");
         GridPane gridPane = javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
         System.out.println("d");
         scrollPane.setContent(gridPane);
         System.out.println("e");
-        scene = new Scene(scrollPane, 1280, 720);
+        scene = new Scene(scrollPane, 1440, 810);
         System.out.println("f");
         stage.setScene(scene);
         System.out.println("g");
-        stage.show();*/
+        stage.show();
         /*Scene scene;
         ScrollPane scrollPane = new ScrollPane();
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
