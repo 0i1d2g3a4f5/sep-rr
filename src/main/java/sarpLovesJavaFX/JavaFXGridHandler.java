@@ -15,7 +15,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
-import utility.PathFromName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,31 +86,31 @@ public class JavaFXGridHandler {
                 // programming cards
                 case AGAIN:
                     // add card again
-                    addToPane(stackPane, PathFromName.AGAIN.toString());
+                    addToPane(stackPane, "Again.png");
                     break;
                 case BACK_UP:
-                    addToPane(stackPane, PathFromName.BACK_UP.toString());
+                    addToPane(stackPane, "BackUp.png");
                     break;
                 case LEFT_TURN:
-                    addToPane(stackPane, PathFromName.LEFT_TURN.toString());
+                    addToPane(stackPane, "TurnLeft.png");
                     break;
                 case MOVE_ONE:
-                    addToPane(stackPane, PathFromName.MOVE_ONE.toString());
+                    addToPane(stackPane, "Move1.png");
                     break;
                 case MOVE_THREE:
-                    addToPane(stackPane, PathFromName.MOVE_THREE.toString());
+                    addToPane(stackPane, "Move3.png");
                     break;
                 case MOVE_TWO:
-                    addToPane(stackPane, PathFromName.MOVE_TWO.toString());
+                    addToPane(stackPane, "Move2.png");
                     break;
                 case POWER_UP:
-                    addToPane(stackPane, PathFromName.POWER_UP.toString());
+                    addToPane(stackPane, "PowerUp.png");
                     break;
                 case RIGHT_TURN:
-                    addToPane(stackPane, PathFromName.RIGHT_TURN.toString());
+                    addToPane(stackPane, "TurnRight.png");
                     break;
                 case U_TURN:
-                    addToPane(stackPane, PathFromName.U_TURN.toString());
+                    addToPane(stackPane, "UTurn.png");
                     break;
 
                 // special programming cards
@@ -133,7 +132,7 @@ public class JavaFXGridHandler {
 
                 // damage cards
                 case SPAM:
-                    addToPane(stackPane, "images/cards/ProgrammingCards/Spam.png");
+                    addToPane(stackPane, "Spam.png");
                     break;
                 case TROJAN_HORSE:
                     addToPane(stackPane, "images/cards/ProgrammingCards/TrojanHorse.png");
@@ -170,7 +169,7 @@ public class JavaFXGridHandler {
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
                 StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image(PathFromName.TILE_BACKGROUND.toString()));
+                ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
                 for(GameElement gameElement : temp.getElements()){
@@ -530,6 +529,7 @@ public class JavaFXGridHandler {
      */
     private static void caseCheckpoint(StackPane stackPane, Checkpoint gameElement) {
         Checkpoint checkpoint = gameElement;
+        System.out.println("ASDFGLJKFASDGKJSGDJKFKJSGD" + checkpoint.getCount());
         switch (checkpoint.getCount()){
             case 1 -> {
                 ImageView imageViewcheck = new ImageView(new Image("CheckPoint1.png"));
