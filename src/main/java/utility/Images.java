@@ -6,16 +6,17 @@ import javafx.scene.image.ImageView;
  * @author Isabel
  * replaces image paths with shorter strings
  */
-public class Images {
+public enum Images {
+    /*
     public void rotate(ImageView imageView, int direction){
         imageView.setRotate(imageView.getRotate()+direction*90);
     }
-    //TODO edit
+    //TODO edit*/
 
     //cards
-    public static String cardBackCard = "images/cards/CardBack.png";
+    CARD_BACK_CARD ("images/cards/CardBack.png"),
     //programmingCards
-    public static String againCard = "Again.png";
+    AGAINCARD("Again.png"),
     public static String backUpCard = "BackUp.png";
     public static String move1Card = "Move1.png";
     public static String move2Card = "Move2.png";
@@ -76,6 +77,13 @@ public class Images {
     public static String spinBot = "images/robots/RobotBlueSpin.png";
     public static String twonkyBot = "images/robots/RobotOrangeTwonky.png";
     public static String zoomBot = "images/robots/RobotGreenZoom.png";
+    public String string;
+    public Images(String string){
+        this.string=string;
+    }
+    public String toString(){
+        return this.string;
+    }
 
     //others
     //TODO check importance of, increase and add other images to the class

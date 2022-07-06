@@ -86,10 +86,7 @@ public class GameBoard implements JsonSerializable {
      * @return
      */
     public boolean addElement(Position position, GameElement element){
-        GameField field = boardMap.get(position.getX()).get(position.getY());
-
-
-        return field.addElement(element);
+        return addElement(position.getY(), position.getX(), element);
     }
 
     public Antenna getAntenna() {
@@ -183,13 +180,13 @@ public class GameBoard implements JsonSerializable {
      * @throws IOException
      */
 
-    public GameBoard (JsonObject json) throws IOException {
+    public GameBoard(JsonObject json) throws IOException {
         //TODO ?
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ElementFactory elementFactory = new ElementFactory();
-        boardMap = boardMap = new ArrayList<ArrayList<GameField>>();
-        ArrayList<GameField> row = new ArrayList<GameField>();
+        boardMap = new ArrayList<ArrayList<GameField>>();
+
 
         JsonArray arrayLVL1 = (JsonArray) json.get("gameMap");
         JsonArray arrayLVL2;
@@ -197,14 +194,15 @@ public class GameBoard implements JsonSerializable {
 
         int x=0;
         int y=0;
-        for (JsonElement elementLVL1:arrayLVL1) {
-            arrayLVL2 = elementLVL1.getAsJsonArray();
-            for (JsonElement elementLVL2:arrayLVL2) {
-                GameField gameField = new GameField(this,y,x);
-                arrayLVL3 = elementLVL2.getAsJsonArray();
-                for (JsonElement elementLVL3:arrayLVL3) {
+        for (int i=0; i<arrayLVL1.getAsJsonArray().size();i++) {
+            ArrayList<GameField> row = new ArrayList<GameField>();
+            for (int j=0; j<arrayLVL1.get(i).getAsJsonArray().size(); j++) {
+                System.out.println("Y :: " + j + " :: " + arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray().toString());
+                GameField gameField = new GameField(this,j,i);
+
+                for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
-                    System.out.println("Type after Factory: "+element.getType());
+                    //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
 
                     if(element.getType() == ElementName.RESTARTPOINT){
@@ -215,13 +213,10 @@ public class GameBoard implements JsonSerializable {
                     }
                 }
                 row.add(gameField);
-                y++;
             }
             boardMap.add(row);
-            y=0;
-            x++;
         }
-        System.out.println(toJson());
+        //System.out.println(toJson());
 
     }
 

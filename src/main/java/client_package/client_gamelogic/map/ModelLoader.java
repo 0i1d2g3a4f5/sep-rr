@@ -1,8 +1,7 @@
 package client_package.client_gamelogic.map;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import utility.JsonReader;
+import gamelogic.map.GameBoard;
 
 import java.io.IOException;
 /**
@@ -15,17 +14,11 @@ public class ModelLoader {
      * @param mapName
      * @return
      */
-    public GameBoard loadMap(String mapName) throws IOException {
-
-        System.out.println("rdy");
+    public client_package.client_gamelogic.map.GameBoard loadMap(String mapName) throws IOException {
         gamelogic.map.ModelLoader helpMEEEE = new gamelogic.map.ModelLoader();
-        System.out.println("creadted loader ");
-        gamelogic.map.GameBoard helpboard = helpMEEEE.loadMap(mapName);
-        System.out.println("loaded map");
+        GameBoard helpboard = helpMEEEE.loadMap(mapName);
         JsonObject obhqawfbaeqfg = helpboard.toJson();
-        System.out.println("tojson");
-
-        return new GameBoard(obhqawfbaeqfg);
+        return new client_package.client_gamelogic.map.GameBoard(obhqawfbaeqfg);
     }
 
 

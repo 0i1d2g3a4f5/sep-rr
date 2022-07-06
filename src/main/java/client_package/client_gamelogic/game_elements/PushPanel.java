@@ -38,4 +38,3 @@ public class PushPanel extends GameElement{
 
     }
 
-}

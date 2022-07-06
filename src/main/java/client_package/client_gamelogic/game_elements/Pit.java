@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 
 public class Pit extends GameElement {
+
     public Pit(){
         
     }

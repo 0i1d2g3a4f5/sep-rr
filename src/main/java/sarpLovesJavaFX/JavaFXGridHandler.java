@@ -9,15 +9,13 @@ import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
-import utility.ImagePathFromName;
+import utility.PathFromName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -61,7 +59,10 @@ public class JavaFXGridHandler {
         }
     }
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
-        return updateGameBoard(gameBoard);
+        GridPane temp = updateGameBoard(gameBoard);
+        temp.setScaleX(0.2);
+        temp.setScaleY(0.2);
+        return temp;
     }
 
     private void addToPane(StackPane stackPane,String path){
@@ -86,31 +87,31 @@ public class JavaFXGridHandler {
                 // programming cards
                 case AGAIN:
                     // add card again
-                    addToPane(stackPane, ImagePathFromName.AGAIN.toString());
+                    addToPane(stackPane, PathFromName.AGAIN.toString());
                     break;
                 case BACK_UP:
-                    addToPane(stackPane, ImagePathFromName.BACK_UP.toString());
+                    addToPane(stackPane, PathFromName.BACK_UP.toString());
                     break;
                 case LEFT_TURN:
-                    addToPane(stackPane,ImagePathFromName.LEFT_TURN.toString());
+                    addToPane(stackPane, PathFromName.LEFT_TURN.toString());
                     break;
                 case MOVE_ONE:
-                    addToPane(stackPane, ImagePathFromName.MOVE_ONE.toString());
+                    addToPane(stackPane, PathFromName.MOVE_ONE.toString());
                     break;
                 case MOVE_THREE:
-                    addToPane(stackPane, ImagePathFromName.MOVE_THREE.toString());
+                    addToPane(stackPane, PathFromName.MOVE_THREE.toString());
                     break;
                 case MOVE_TWO:
-                    addToPane(stackPane, ImagePathFromName.MOVE_TWO.toString());
+                    addToPane(stackPane, PathFromName.MOVE_TWO.toString());
                     break;
                 case POWER_UP:
-                    addToPane(stackPane, ImagePathFromName.POWER_UP.toString());
+                    addToPane(stackPane, PathFromName.POWER_UP.toString());
                     break;
                 case RIGHT_TURN:
-                    addToPane(stackPane, ImagePathFromName.RIGHT_TURN.toString());
+                    addToPane(stackPane, PathFromName.RIGHT_TURN.toString());
                     break;
                 case U_TURN:
-                    addToPane(stackPane, ImagePathFromName.U_TURN.toString());
+                    addToPane(stackPane, PathFromName.U_TURN.toString());
                     break;
 
                 // special programming cards
@@ -161,72 +162,15 @@ public class JavaFXGridHandler {
      * @return
      * @throws IOException
      */
-    private void constructMap(GridPane gridPane) throws IOException {
-        Game game = Game.getInstance();
-        ScrollPane scrollPane = new ScrollPane();
-        for(int j=0; j<game.getMap().getDimensionY(); j++){
-            for(int i=0; i<game.getMap().getDimensionX(); i++){
-                GameField temp = game.getMap().getGameField(j, i);
-                StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
-                stackPane.getChildren().add(imageView);
-                stackPane.setAlignment(imageView, Pos.CENTER);
 
-                for(GameElement gameElement : temp.getElements()){
-                    switch (gameElement.getType()){
-                        case LASER:
-                            caseLaser(stackPane, gameElement);
-                            break;
-                        case CHECKPOINT:
-                            caseCheckpoint(stackPane, (Checkpoint) gameElement);
-                            break;
-                        case CONVEYORBELT:
-                            caseConveyorBelt(stackPane, gameElement);
-                            break;
-                        case ENERGYSPACE:
-                            caseEnergySpace(stackPane);
-                            break;
-                        case GEAR:
-                            caseGear(stackPane, (Gear) gameElement);
-                            break;
-                        case PUSHPANEL:
-                            casePushPanel(stackPane, gameElement);
-                            break;
-                        case PIT:
-                            casePit(stackPane);
-                            break;
-                        case STARTPOINT:
-                            caseStartPoint(stackPane);
-                            break;
-                        case WALL:
-                            caseWall(stackPane, gameElement);
-                            break;
-                        case ROBOT:
-                            caseRobot(stackPane, (Robot) gameElement);
-                            break;
-                        case ANTENNA:
-                            caseAntenna(stackPane, gameElement);
-                            break;
-                        case RESTARTPOINT:
-                            caseRestartPoint(stackPane);
-                        case EMPTY:
-                            //leer
-                            break;
-                    }
-                }
-                gridPane.add(stackPane, i, j);
-            }
-        }
-        scrollPane.setContent(gridPane);
-        Scene scene = new Scene(scrollPane, 512, 512);
-    }
     private GridPane updateGameBoard(GameBoard gameBoard){
         GridPane input = new GridPane();
+        System.out.println("X: Y:  " + gameBoard.getDimensionX() + gameBoard.getDimensionY());
         for(int y=0; y<gameBoard.getDimensionY(); y++){
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
                 StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image("TBDtile.png"));
+                ImageView imageView= new ImageView(new Image(PathFromName.TILE_BACKGROUND.toString()));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
                 for(GameElement gameElement : temp.getElements()){
@@ -276,6 +220,7 @@ public class JavaFXGridHandler {
                     }
                 }
                 input.add(stackPane, x, y);
+
             }
         }
         return input;
@@ -286,67 +231,7 @@ public class JavaFXGridHandler {
      * @param gameBoard
      * @return
      */
-    public static Scene fromMap(GameBoard gameBoard) throws IOException {
-        ScrollPane scrollPane = new ScrollPane();
-        GridPane gridPane = new GridPane();
-        for(int j=0; j<gameBoard.getDimensionY(); j++){
-            for(int i=0; i<gameBoard.getDimensionX(); i++){
-                GameField temp = gameBoard.getGameField(j, i);
-                StackPane stackPane = new StackPane();
-                ImageView imageView= new ImageView(new Image("images/boardElements/TBDtile.png"));
-                stackPane.getChildren().add(imageView);
-                stackPane.setAlignment(imageView, Pos.CENTER);
 
-                for(GameElement gameElement : temp.getElements()){
-                    switch (gameElement.getType()){
-                        case LASER:
-                            caseLaser(stackPane, gameElement);
-                            break;
-                        case CHECKPOINT:
-                            caseCheckpoint(stackPane, (Checkpoint) gameElement);
-                            break;
-                        case CONVEYORBELT:
-                            caseConveyorBelt(stackPane, gameElement);
-                            break;
-                        case ENERGYSPACE:
-                            caseEnergySpace(stackPane);
-                            break;
-                        case GEAR:
-                            caseGear(stackPane, (Gear) gameElement);
-                            break;
-                        case PUSHPANEL:
-                            casePushPanel(stackPane, gameElement);
-                            break;
-                        case PIT:
-                            casePit(stackPane);
-                            break;
-                        case STARTPOINT:
-                            caseStartPoint(stackPane);
-                            break;
-                        case WALL:
-                            caseWall(stackPane, gameElement);
-                            break;
-                        case ROBOT:
-                            caseRobot(stackPane, (Robot) gameElement);
-                            break;
-                        case ANTENNA:
-                            caseAntenna(stackPane, gameElement);
-                            break;
-                        case RESTARTPOINT:
-                            caseRestartPoint(stackPane);
-                        case EMPTY:
-                            //leer
-                            break;
-                    }
-                }
-                gridPane.add(stackPane, i, j);
-            }
-        }
-        scrollPane.setContent(gridPane);
-        Scene scene = new Scene(scrollPane, 512, 512);
-        return scene;
-
-    }
 
     /**
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer

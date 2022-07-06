@@ -24,7 +24,7 @@ public class GameField {
 
 
 
-     public GameField(GameBoard board,Position position) {
+     public GameField(GameBoard board, Position position) {
          this.board = board;
          elements.add(new Empty());
          this.position = position;
@@ -109,7 +109,7 @@ public class GameField {
      */
 
     public boolean addElement(GameElement element) {
-        System.out.println("Type in addElement: "+element.getType());
+        //System.out.println("Type in addElement: "+element.getType());
         if(element.getType()==ElementName.ROBOT) return false;
         if (elements.size() == 1 && elements.get(0).getType() == ElementName.EMPTY)
             elements.remove(0);
@@ -142,6 +142,15 @@ public class GameField {
         for (GameElement element:elements) {
             if(element.getType()==elementName) elements.remove(element);
         }
+    }
+    @Override
+    public String toString(){
+        String result = "";
+        for(GameElement yaaa : getElements()){
+            result.concat(" + " + yaaa.getType().toString());
+        }
+        return result;
+
     }
 
     /**
