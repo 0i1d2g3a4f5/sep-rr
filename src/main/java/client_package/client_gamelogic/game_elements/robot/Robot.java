@@ -138,4 +138,8 @@ public class Robot extends GameElement {
 
     public void forward(int i) {
     }
+
+    public int getFigure() {
+        return figure;
+    }
 }

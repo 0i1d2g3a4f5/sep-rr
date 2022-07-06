@@ -397,33 +397,33 @@ public class JavaFXGridHandler {
      */
     private static void caseRobot(StackPane stackPane, Robot gameElement) {
         Robot robot = gameElement;
-        switch (robot.getColor()){
-            case BLUE -> {
+        switch (robot.getFigure()){
+            case 1 -> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotBlueSpin.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
-            case RED -> {
+            case 2 -> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotRedHulkx90.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
-            case GREEN -> {
+            case 3 -> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotGreenZoom.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
-            case ORANGE -> {
+            case 4 -> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotOrangeTwonky.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
-            case PURPLE -> {
+            case 5 -> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotPurpleHammer.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
-            case YELLOW -> {
+            case 6-> {
                 ImageView imageView8 = new ImageView(new Image("images/robots/RobotYellowSmash.png"));
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
