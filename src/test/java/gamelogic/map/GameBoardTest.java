@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import gamelogic.Game;
-import gamelogic.Position;
 import net.jqwik.api.Example;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -105,8 +102,8 @@ class GameBoardTest {
         PrintWriter printWriter = new PrintWriter(new FileWriter(file));
         printWriter.write(after);
         printWriter.flush();
-        assertEquals(10,gameBoard.dimensionY);
-        assertEquals(10,gameBoard.getColumn(0).size());
+        assertEquals(10, gameBoard.dimensionY);
+        assertEquals(10, gameBoard.getColumn(0).size());
         before =before.replaceAll("\n","");
         after = after.replaceAll("\n","");
         assertEquals(before.replaceAll(" ",""),after.replaceAll(" ",""));

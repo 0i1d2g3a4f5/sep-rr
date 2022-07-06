@@ -7,21 +7,24 @@ import gamelogic.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
-public class PushPanel extends GameElement{
+public class PushPanel extends GameElement {
     int activationOrder = 3;
     Direction direction;
     ArrayList<Integer> activateRegisters;
-    public PushPanel(Direction direction, ArrayList<Integer> activationRegisters){
-        this.direction=direction;
-        this.activateRegisters=activationRegisters;
+
+    public PushPanel(Direction direction, ArrayList<Integer> activationRegisters) {
+        this.direction = direction;
+        orientations.add(direction);
+        this.activateRegisters = activationRegisters;
         type = ElementName.PUSHPANEL;
     }
+
     /**
-     * @author Ringer
-     * builds an Object from a JsonObject
      * @param jsonObject
      * @return
      * @throws IOException
+     * @author Ringer
+     * builds an Object from a JsonObject
      */
     public PushPanel(JsonObject jsonObject) throws IOException {
         super(ElementName.PUSHPANEL);
@@ -29,7 +32,7 @@ public class PushPanel extends GameElement{
         Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
         JsonArray jsonArrayRegisters = jsonObject.get("registers").getAsJsonArray();
         ArrayList<Integer> activationRegisters = new ArrayList<>();
-        for (JsonElement activeRegister:jsonArrayRegisters) {
+        for (JsonElement activeRegister : jsonArrayRegisters) {
             activationRegisters.add(activeRegister.getAsInt());
         }
 
@@ -37,5 +40,5 @@ public class PushPanel extends GameElement{
         this.direction = direction;
 
     }
-
 }
+

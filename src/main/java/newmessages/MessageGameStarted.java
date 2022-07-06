@@ -50,7 +50,7 @@ public class MessageGameStarted extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        for (ClientObject client2: client.getClientList()) {
+       /* for (ClientObject client2: client.getClientList()) {
             if(client2.getId() !=client.getId()){
                 //TODO check if this needs to be done here or somewhere else
                 //client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new CPlayer(client2.getId(),client2.getRoboColor()));
@@ -60,7 +60,7 @@ public class MessageGameStarted extends Message{
             }
 
 
-        }
+        }*/
         if(isBasic) {
             client.getGame().setMap(new GameBoard(content));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));

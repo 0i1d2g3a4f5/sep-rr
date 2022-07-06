@@ -2,7 +2,6 @@ package gamelogic.map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import utility.JsonReader;
 
 import java.io.*;
@@ -28,7 +27,7 @@ public class ModelLoader {
        // System.out.println("in ModelLoaderbefore parsing: "+mapJson);
 
         board =new GameBoard(mapJson);
-        System.out.println("Map in loader: "+board.toJson());
+        //System.out.println("Map in loader: "+board.toJson());
         return board;
     }
 
@@ -39,7 +38,7 @@ public class ModelLoader {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(new ModelLoader().loadMap("dizzy_highway"));
+        //System.out.println(new ModelLoader().loadMap("dizzy_highway"));
     }
 
 

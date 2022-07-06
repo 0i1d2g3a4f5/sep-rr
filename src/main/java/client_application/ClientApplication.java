@@ -142,7 +142,7 @@ public class ClientApplication extends Application {
         stageBasicGame = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientGameBasic.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 1440, 810);
             clientGameBasicController=fxmlLoader.getController();
             clientGameBasicController.clientApplication=this;
             stageBasicGame.setScene(scene);

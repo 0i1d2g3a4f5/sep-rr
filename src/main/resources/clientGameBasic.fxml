@@ -19,9 +19,9 @@
             <Image url="@images/factory3.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="622.0" layoutY="12.0" prefHeight="617.0" prefWidth="807.0">
+      <ScrollPane fx:id="scrollPaneGameBoard" layoutX="622.0" layoutY="12.0" prefHeight="617.0" prefWidth="807.0">
          <content>
-            <GridPane fx:id="gridGameBoard">
+            <GridPane>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="60.0" prefWidth="60.0" />
                </columnConstraints>

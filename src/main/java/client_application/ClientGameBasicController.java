@@ -3,6 +3,7 @@ package client_application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 /**
@@ -11,12 +12,11 @@ import javafx.scene.layout.Pane;
 public class ClientGameBasicController {
 
     public ClientApplication clientApplication;
-
     @FXML
     private GridPane gridAvailableProgramming;
 
     @FXML
-    private GridPane gridGameBoard;
+    private ScrollPane scrollPaneGameBoard;
 
     @FXML
     private GridPane gridOtherRegisters;
@@ -48,8 +48,7 @@ public class ClientGameBasicController {
 
 
     public void updateGameBoard(GridPane gridPane){
-        gridGameBoard.getChildren().clear();
-        gridGameBoard=gridPane;
+        scrollPaneGameBoard.setContent(gridPane);
     }
 
 }

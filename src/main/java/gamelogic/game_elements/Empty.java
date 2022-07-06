@@ -35,7 +35,7 @@ public class Empty extends GameElement{
     public Empty (JsonObject jsonObject) throws IOException {
         super(ElementName.EMPTY);
 
-        System.out.println(type);
+        //System.out.println(type);
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
