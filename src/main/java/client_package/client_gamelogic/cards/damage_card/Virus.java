@@ -17,7 +17,7 @@ public class Virus extends DamageCard {
     }
 
     public void activateCard(){
-        //TODO: should add a method in Game/Player class to calculate the distance between current player and other players
+        //TODO: should add a method in Game/CPlayer class to calculate the distance between current player and other players
 
     }
 }

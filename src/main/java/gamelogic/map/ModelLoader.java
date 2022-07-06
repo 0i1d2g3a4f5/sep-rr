@@ -38,6 +38,10 @@ public class ModelLoader {
         return new JsonReader().readFile(filePath);
     }
 
+    public static void main(String[] args) throws IOException {
+        System.out.println(new ModelLoader().loadMap("dizzy_highway"));
+    }
+
 
 
 }

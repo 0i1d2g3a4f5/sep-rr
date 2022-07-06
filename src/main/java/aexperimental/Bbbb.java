@@ -1,8 +1,6 @@
-package aaa;
+package aexperimental;
 
 import client_package.client_gamelogic.map.GameBoard;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
 

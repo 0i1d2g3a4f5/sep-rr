@@ -1,6 +1,7 @@
 package client_application;
 
 import client_package.Client;
+import client_package.ClientObject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -40,7 +41,7 @@ public class ClientLobbyBasicController {
         playerList.getItems().clear();
         playerList.getItems().add(0, "{"+clientApplication.basicClient.getId()+"} " + clientApplication.basicClient.getName() + " [" + clientApplication.basicClient.isReady() + "]" );
         for(int i = 1; i<clientApplication.basicClient.getClientList().size()+1; i++){
-            Client temp = clientApplication.basicClient.getClientList().get(i-1);
+            ClientObject temp = (Client)clientApplication.basicClient.getClientList().get(i-1);
             playerList.getItems().add(i, "{"+temp.getId()+"} " + temp.getName() + " [" + temp.isReady() + "]" );
         }
 

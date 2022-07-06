@@ -62,7 +62,7 @@ public class Checkpoint extends GameElement implements Activatable {
      * @author Ringer
      *
      *gets the Robot above and adds a Token to its players inventory.
-     * if this is the last checkpoint, the Game ends and the Player wins
+     * if this is the last checkpoint, the Game ends and the CPlayer wins
      */
     @Override
     public void activate() {

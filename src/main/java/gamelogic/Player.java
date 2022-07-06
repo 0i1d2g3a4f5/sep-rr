@@ -94,7 +94,7 @@ public class Player{
     /**
      * @author Ringer
      * @param message
-     * sends a message to the sClient of the Player
+     * sends a message to the sClient of the CPlayer
      */
     public void sendMessage(Message message){
         sClient.sendSelf(message);
@@ -102,7 +102,7 @@ public class Player{
 
     /**
      * @author Ringer
-     * allows cards to be placed by the Player
+     * allows cards to be placed by the CPlayer
      * @param cardName
      * @param position
      * @return

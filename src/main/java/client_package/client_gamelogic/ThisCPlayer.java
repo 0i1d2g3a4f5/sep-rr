@@ -3,23 +3,23 @@ package client_package.client_gamelogic;
 import client_package.Client;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
-import gamelogic.Color;
 import newmessages.MessageSelectedCard;
 
 import java.util.ArrayList;
 
-public class ThisPlayer extends Player{
+public class ThisCPlayer extends CPlayer {
     private Card selectedCard;
 
     private Client client;
 
     private Robot robot;
-    private static ArrayList<Card> registerCards;
-    private static ArrayList<Card> handCards;
+    private Card[] registerCards;
+    private ArrayList<Card> handCards;
 
-    public ThisPlayer(int id, Color robotColor,Client client) {
-        super(id,robotColor);
+    public ThisCPlayer(Client client, Game game) {
         this.client = client;
+        this.robot = new Robot(client.getFigure(),this);
+
     }
 
     public void drawDamage(){
@@ -30,7 +30,7 @@ public class ThisPlayer extends Player{
         this.handCards = handCards;
     }
 
-    public static ArrayList<Card> getHandCards() {
+    public  ArrayList<Card> getHandCards() {
         return handCards;
     }
 
@@ -39,7 +39,8 @@ public class ThisPlayer extends Player{
     }
 
     public void placeRegisterCards(Card card,int pos) {
-        registerCards.add(pos,card);
+        registerCards[pos] = card;
+
     }
 
     public void selectCard(int posHandcard,int posRegister){
@@ -49,7 +50,7 @@ public class ThisPlayer extends Player{
 
     }
 
-    public ArrayList<Card> getRegisterCards(){
+    public Card[] getRegisterCards(){
         return registerCards;
     }
 

@@ -27,7 +27,7 @@ public class TrojanHorse extends DamageCard {
     public void activateCard(){
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
-        //TODO notify Player
+        //TODO notify CPlayer
         player.clearThisRegister(game.getActiveRegister());
         game.getTrojanHorseDrawPile().add(this);
         player.placeCard(player.drawCard(), game.getActiveRegister());

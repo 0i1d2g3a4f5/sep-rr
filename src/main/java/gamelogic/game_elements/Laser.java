@@ -93,7 +93,7 @@ public class Laser extends GameElement implements Activatable {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(orientations));
+        jsonObject.add("orientations",gson.toJsonTree(getOrientationsAsStrings()));
         jsonObject.add("count",new JsonPrimitive(count));
         return jsonObject;
     }

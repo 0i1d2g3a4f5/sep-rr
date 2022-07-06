@@ -1,18 +1,17 @@
 package client_package.client_gamelogic;
 
 import client_package.Client;
+import client_package.ClientObject;
 import client_package.client_gamelogic.map.GameBoard;
-import client_package.client_gamelogic.map.MapName;
 import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Game {
 
     private int activeRegister;
-    private ArrayList<Player> playerList;
+    private ArrayList<CPlayer> playerList;
     private GameBoard map;
     private Client client;
     private static Game instance;
@@ -31,13 +30,20 @@ public class Game {
         return activeRegister;
     }
 
+    public void join(ClientObject client){
+        if(!(client.getId()==this.client.getId())){
+            OtherClient otherClient = (OtherClient) client;
+            CPlayer player = new CPlayer();
 
+            otherClient.setPlayer(player);
+        }
+    }
 
-    public ArrayList<Player> getPlayerList() {
+    public ArrayList<CPlayer> getPlayerList() {
         return playerList;
     }
 
-    public void setPlayerList(ArrayList<Player> playerList) {
+    public void setPlayerList(ArrayList<CPlayer> playerList) {
         this.playerList = playerList;
     }
 
@@ -57,7 +63,7 @@ public class Game {
         this.client = client;
     }
 
-    public Game(Client client, ArrayList<Player> playerList, JsonObject mapJson) throws IOException {
+    public Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
         this.playerList = playerList;
         map = new GameBoard(mapJson);

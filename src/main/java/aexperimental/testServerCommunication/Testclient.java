@@ -1,4 +1,4 @@
-package aaa.testServerCommunication;
+package aexperimental.testServerCommunication;
 
 import java.io.*;
 import java.net.Socket;

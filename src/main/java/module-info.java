@@ -17,13 +17,14 @@ module desperate.drosseln.hp {
 
     exports gamelogic;
     exports client_package.client_gamelogic;
+    exports gamelogic.game_elements;
 
     opens client_application to javafx.fxml;
     opens server_application to javafx.fxml;
     opens sarpLovesJavaFX to javafx.fxml;
-    opens aaa to javafx.fxml;
+    opens aexperimental to javafx.fxml;
     exports client_application;
     exports server_application;
     exports sarpLovesJavaFX;
-    exports aaa;
+    exports aexperimental;
 }

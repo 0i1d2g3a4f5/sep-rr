@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PlayerTest {
+class CPlayerTest {
 
     @Example
     void playCard() {
