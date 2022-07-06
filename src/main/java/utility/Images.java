@@ -1,7 +1,5 @@
 package utility;
 
-import javafx.scene.image.ImageView;
-
 /**
  * @author Isabel
  * replaces image paths with shorter strings
@@ -16,15 +14,15 @@ public enum Images {
     //cards
     CARD_BACK_CARD ("images/cards/CardBack.png"),
     //programmingCards
-    AGAINCARD("Again.png"),
-    public static String backUpCard = "BackUp.png";
-    public static String move1Card = "Move1.png";
-    public static String move2Card = "Move2.png";
-    public static String move3Card = "Move3.png";
-    public static String powerUpCard = "PowerUp.png";
-    public static String turnLeftCard = "TurnLeft.png";
-    public static String turnRightCard = "TurnRight.png";
-    public static String uTurnCard = "UTurn.png";
+    AGAIN_CARD("images/cards/programmingCards/Again.png"),
+    BACK_UP_CARD("images/cards/programmingCards/BackUp.png"),
+    MOVE_ONE_CARD("images/cards/programmingCards/Move1.png"),
+    MOVE_TWO_CARD("images/cards/programmingCards/Move2.png"),
+    MOVE_THREE_CARD("images/cards/programmingCards/Move3.png"),
+    POWER_UP_CARD("images/cards/programmingCards/PowerUp.png"),
+    TURN_LEFT_CARD ("images/cards/programmingCards/TurnLeft.png"),
+    TURN_RIGHT_CARD("images/cards/programmingCards/TurnRight.png"),
+    U_TURN_CARD("images/cards/programmingCards/UTurn.png"),
     //damageCards
     public static String spamCard = "images/cards/damageCards/Spam.png";
     public static String trojanHorseCard = "images/cards/damageCards/TrojanHorse.png";
