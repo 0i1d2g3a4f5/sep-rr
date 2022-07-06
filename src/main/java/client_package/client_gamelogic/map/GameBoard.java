@@ -215,8 +215,6 @@ public class GameBoard  {
             }
             boardMap.add(row);
         }
-        dimensionX = x;
-        x=0;
         //System.out.println(boardMap);
 
     }

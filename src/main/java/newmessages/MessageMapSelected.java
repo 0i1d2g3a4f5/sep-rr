@@ -64,8 +64,11 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        /*TODO check if needed
         client_package.client_gamelogic.map.ModelLoader modelLoader = new client_package.client_gamelogic.map.ModelLoader();
         client.getGame().setMap(modelLoader.loadMap(map));
+
+         */
 
 
     }
