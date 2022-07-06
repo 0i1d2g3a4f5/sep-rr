@@ -86,7 +86,7 @@ public class JavaFXGridHandler {
                     // programming cards
                     case AGAIN:
                         // add card again
-                        addToPane(stackPane, Images.AGAINCARD.toImageView());
+                        addToPane(stackPane, Images.AGAIN_CARD.toImageView());
                         break;
                     case BACK_UP:
                         addToPane(stackPane, Images.CARD_BACK_CARD.toImageView());
@@ -252,7 +252,7 @@ public class JavaFXGridHandler {
     private static void caseAntenna(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH -> {
-                ImageView imageView9 = Images.ANTENNA_NORTH_ELEMENTS.toImageView();
+                ImageView imageView9 = Images.ANTENNA_NORTH_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
@@ -267,7 +267,7 @@ public class JavaFXGridHandler {
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
             case EAST -> {
-                ImageView imageView9 = Images.ANTENNA_EAST.toImageView();
+                ImageView imageView9 = Images.ANTENNA_EAST_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }

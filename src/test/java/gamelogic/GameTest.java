@@ -44,11 +44,8 @@ class GameTest {
 
         Game game = Game.getInstance();
 
-        /*
-        game.startGame(MapName.DIZZY_HIGHWAY);
-        assertNotNull(game.board);
-
-         */
+        /* game.startGame(MapName.DIZZY_HIGHWAY);
+        assertNotNull(game.board); */
 
 
     }
