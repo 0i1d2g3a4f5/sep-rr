@@ -55,7 +55,7 @@ public class CPlayer {
         registerCards.add(position,card);
     }
     public Card[] getRegisterCards(){
-        return registerCards;
+        return registerCards.toArray(new Card[0]);
     }
 
     public int getHandCardsCount() {

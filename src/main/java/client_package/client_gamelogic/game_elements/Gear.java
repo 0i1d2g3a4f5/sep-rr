@@ -31,8 +31,11 @@ public class Gear extends GameElement{
         }
     }
     public Gear(GearDirection direction){
+        System.out.println(direction);
         gearDirection = direction;
+        System.out.println(direction);
         type = ElementName.GEAR;
+        System.out.println(direction);
     }
     boolean turnRight = false;
 
@@ -44,11 +47,14 @@ public class Gear extends GameElement{
      * @throws IOException
      */
     public Gear (JsonObject jsonObject) throws IOException {
+        super(ElementName.GEAR);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
         GearDirection gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
-        Gear gear = new Gear(gearDirection);
+
+        System.out.println(orientations.get(0).getAsString());
+        this.gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
 
     }
 
