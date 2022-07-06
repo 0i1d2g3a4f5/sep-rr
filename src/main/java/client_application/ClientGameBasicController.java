@@ -6,43 +6,43 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
 /**
  * @author Sarp Cagin Erdogan
  */
 public class ClientGameBasicController {
 
     public ClientApplication clientApplication;
+
+
+
     @FXML
-    private GridPane gridAvailableProgramming;
+    private ScrollPane scrollAvailableProgramming;
+
+    @FXML
+    private ScrollPane scrollOtherRegisters;
 
     @FXML
     private ScrollPane scrollPaneGameBoard;
 
     @FXML
-    private GridPane gridOtherRegisters;
+    private StackPane stackTempProgramming;
 
-    @FXML
-    private GridPane gridProgramming;
-
-    @FXML
-    private GridPane gridTempProgramming;
 
     @FXML
     void startButton(ActionEvent event) {
 
     }
     public void updateProgrammingCards(GridPane gridPane){
-        gridProgramming.getChildren().clear();
-        gridProgramming=gridPane;
+        scrollAvailableProgramming.setContent(gridPane);
     }
     public void updateOtherRegisters(GridPane gridPane){
-        gridOtherRegisters.getChildren().clear();
-        gridOtherRegisters=gridPane;
+        scrollOtherRegisters.setContent(gridPane);
     }
 
     public void updateOwnRegister(GridPane gridPane){
-        gridOtherRegisters.getChildren().clear();
-        gridOtherRegisters=gridPane;
+        stackTempProgramming.getChildren().add(gridPane);
     }
 
 

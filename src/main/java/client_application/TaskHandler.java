@@ -81,6 +81,7 @@ public class TaskHandler {
             }
             case UPDATE_HANDCARDS -> {
                 clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(task));
+
             }
             case UPDATEOTHERSREGISTERS -> {
                 clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(task));

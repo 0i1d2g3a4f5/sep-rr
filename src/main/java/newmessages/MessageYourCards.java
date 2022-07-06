@@ -89,6 +89,8 @@ public class MessageYourCards extends Message{
 
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
+
+
     }
 
 }
