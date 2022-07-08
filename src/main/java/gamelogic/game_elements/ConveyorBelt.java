@@ -94,7 +94,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
             default ->
                 throw new IOException("Invalid speed parameter.  speed: "+speed);
         }
-        ConveyorBelt conveyorBelt;
+
         switch (orientations.size()){
             case 0 ->{
 
@@ -150,6 +150,15 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
             if(color ==Color.BLUE){
                 robot.displace(orientations.get(0));
+                GameElement element;
+                if((element = robot.getGameField().getElement(ElementName.CONVEYORBELT)) !=null){
+                    ConveyorBelt nextBelt = (ConveyorBelt) element;
+                    robot.displace(nextBelt.orientations.get(0));
+                } else {
+                    robot.displace(orientations.get(0));
+                }
+            } else{
+
             }
             robot.displace(orientations.get(0));
 

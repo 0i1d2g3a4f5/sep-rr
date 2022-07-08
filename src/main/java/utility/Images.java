@@ -118,16 +118,16 @@ public enum Images {
     public ImageView toImageView() {
         switch (this.type){
             case "Card" ->{
-                return handleCard(this.toImageView());
+                return handleCard(imageView);
             }
             case "MapElement" ->{
-                return handleMapElement(this.toImageView());
+                return handleMapElement(imageView);
             }
             case "Map" ->{
-                return handleMap(this.toImageView());
+                return handleMap(imageView);
             }
             case "Robot" ->{
-                return handleRobot(this.toImageView());
+                return handleRobot(imageView);
             }
 
         }
