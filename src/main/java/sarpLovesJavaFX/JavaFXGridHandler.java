@@ -85,6 +85,7 @@ public class JavaFXGridHandler {
             StackPane stackPane = new StackPane();
                 switch (cardList.get(i).getCardName()) {
                     // programming cards
+
                     case AGAIN:
                         // add card again
                         addToPane(stackPane, Images.AGAIN_CARD.toImageView());
@@ -92,9 +93,12 @@ public class JavaFXGridHandler {
                     case BACK_UP:
                         addToPane(stackPane, Images.CARD_BACK_CARD.toImageView());
                         break;
+
+
                     case LEFT_TURN:
                         addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView());
                         break;
+
                     case MOVE_ONE:
                         addToPane(stackPane, Images.MOVE_1_CARD.toImageView());
                         break;
@@ -144,6 +148,7 @@ public class JavaFXGridHandler {
                     case WORM:
                         addToPane(stackPane, Images.WORM_CARD.toImageView());
                         break;
+
                 }
                 gridPane.add(stackPane, i, 0);
 
@@ -185,12 +190,16 @@ public class JavaFXGridHandler {
                         case CONVEYORBELT:
                             caseConveyorBelt(stackPane, gameElement);
                             break;
+
                         case ENERGYSPACE:
+
                             caseEnergySpace(stackPane);
                             break;
                         case GEAR:
                             caseGear(stackPane, (Gear) gameElement);
                             break;
+
+
                         case PUSHPANEL:
                             try {
                                 casePushPanel(stackPane, gameElement);
@@ -325,6 +334,7 @@ public class JavaFXGridHandler {
      * @param gameElement
      */
     private static void caseWall(StackPane stackPane, GameElement gameElement) {
+
         switch (gameElement.orientations.get(0)){
             case NORTH ->{
                 ImageView imageView7 = Images.WALL_TOP_ELEMENT.toImageView();
@@ -346,6 +356,8 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
+
+
         }
         return;
     }

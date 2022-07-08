@@ -18,6 +18,7 @@ public class Aaa extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         Scene scene;
         System.out.println("a");
         ScrollPane scrollPane = new ScrollPane();
@@ -45,7 +46,7 @@ public class Aaa extends Application {
         ArrayList<Card> cardArrayList = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
-        cardArrayList.add(cardFactory.createCard(CardName.RIGHT_TURN));
+        cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
         GridPane gridPaneNew = javaFXGridHandler.gridPaneFromCards(cardArrayList);
