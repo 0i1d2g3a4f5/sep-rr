@@ -14,7 +14,7 @@ public class ThisCPlayer extends CPlayer {
 
     private Robot robot;
     private Card[] registerCards;
-    private ArrayList<Card> handCards;
+    public ArrayList<Card> handCards;
 
     public ThisCPlayer(Client client, Game game) {
         this.client = client;

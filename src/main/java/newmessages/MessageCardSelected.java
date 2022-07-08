@@ -72,7 +72,7 @@ public class MessageCardSelected extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId()){
             client.getPlayer().placeRegisterCards(client.getPlayer().getSelectedCard(),register);
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOWNREGISTER, new TaskContent()));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
         }

@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.control.ListView;;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -15,8 +16,6 @@ public class ClientGameBasicController {
 
     public ClientApplication clientApplication;
 
-
-
     @FXML
     private ScrollPane scrollAvailableProgramming;
 
@@ -24,19 +23,47 @@ public class ClientGameBasicController {
     private ScrollPane scrollOtherRegisters;
 
     @FXML
-    private ScrollPane scrollPaneGameBoard;
+    private ScrollPane scrollChosenProgramming;
 
     @FXML
     private StackPane stackTempProgramming;
 
+    /*
+    @FXML
+    private ListView<String> handCardsList;
+    
+    @FXML
+    private ListView<String> progCardsList;
+    */
+
+    @FXML
+    private ScrollPane scrollPaneGameBoard;
 
     @FXML
     void startButton(ActionEvent event) {
-
     }
-    public void updateProgrammingCards(GridPane gridPane){
+
+    /* @FXML
+    void confirmCards(ActionEvent event) {
+    }
+    
+    @FXML
+    void confirmCardsButton(ActionEvent event) {
+    }
+    */
+
+    public void updateGameBoard(GridPane gridPane){
+        scrollPaneGameBoard.setContent(gridPane);
+    }
+
+    public void updateHandCards(GridPane gridPane){
         scrollAvailableProgramming.setContent(gridPane);
     }
+
+    public void updateProgrammingCards(GridPane gridPane) {
+        scrollChosenProgramming.setContent(gridPane);
+    }
+
     public void updateOtherRegisters(GridPane gridPane){
         scrollOtherRegisters.setContent(gridPane);
     }
@@ -45,22 +72,7 @@ public class ClientGameBasicController {
         stackTempProgramming.getChildren().add(gridPane);
     }
 
-
-
-    public void updateGameBoard(GridPane gridPane){
-        scrollPaneGameBoard.setContent(gridPane);
-    }
-
-    // Set AnchorPane visible at start of programming phase
-        // if progPhase (true) then ...
-    // extract info from startingCoordinates and save
-    // display info in handCardsList
+    // if prog phase true show hand cards
     // have click of setCardButton add it to progCardsList
     // confirm whole list and send to game when clicking confirmCardsButton
-
-    /*@FXML
-    AnchorPane controlCenter() {
-
-    }*/
-
 }

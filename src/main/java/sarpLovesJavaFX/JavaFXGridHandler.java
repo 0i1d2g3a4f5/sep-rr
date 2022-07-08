@@ -19,7 +19,6 @@ import utility.Images;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 /**
@@ -59,6 +58,17 @@ public class JavaFXGridHandler {
             throw new RuntimeException(e);
         }
     }
+
+    /*
+    public ListView<String> listViewFromCards(ArrayList<Card> cardList) {
+        try {
+            return constructCardsList(cardList);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    */
+
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
         GridPane temp = updateGameBoard(gameBoard);
         temp.setScaleX(0.2);
@@ -72,11 +82,10 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Vivian Kafadar
-     *
      * @param cardList
      * @return
      * @throws IOException
+     * @author Vivian Kafadar
      */
     private GridPane constructCardsList(ArrayList<Card> cardList) throws IOException {
         GridPane gridPane = new GridPane();
@@ -85,7 +94,6 @@ public class JavaFXGridHandler {
             StackPane stackPane = new StackPane();
                 switch (cardList.get(i).getCardName()) {
                     // programming cards
-
                     case AGAIN:
                         // add card again
                         addToPane(stackPane, Images.AGAIN_CARD.toImageView());
@@ -93,12 +101,9 @@ public class JavaFXGridHandler {
                     case BACK_UP:
                         addToPane(stackPane, Images.CARD_BACK_CARD.toImageView());
                         break;
-
-
                     case LEFT_TURN:
                         addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView());
                         break;
-
                     case MOVE_ONE:
                         addToPane(stackPane, Images.MOVE_1_CARD.toImageView());
                         break;
@@ -151,7 +156,6 @@ public class JavaFXGridHandler {
 
                 }
                 gridPane.add(stackPane, i, 0);
-
         }
         return gridPane;
         }
