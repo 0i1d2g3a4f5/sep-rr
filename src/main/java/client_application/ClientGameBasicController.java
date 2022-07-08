@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import newmessages.MessageSetStartingPoint;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -81,7 +82,9 @@ public class ClientGameBasicController {
                 System.out.println("This Start Point is taken. Please choose another one.");
             }
             else{
-                player.getRobot().setPosition(position);
+                //TODO Option for advanced
+                clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
+
                 System.out.println("The Client: "+player.getClient().getId()+ "takes the Start Point" + position);
             }
         }
