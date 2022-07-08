@@ -51,4 +51,16 @@ public class ClientGameBasicController {
         scrollPaneGameBoard.setContent(gridPane);
     }
 
+    // Set AnchorPane visible at start of programming phase
+        // if progPhase (true) then ...
+    // extract info from startingCoordinates and save
+    // display info in handCardsList
+    // have click of setCardButton add it to progCardsList
+    // confirm whole list and send to game when clicking confirmCardsButton
+
+    /*@FXML
+    AnchorPane controlCenter() {
+
+    }*/
+
 }

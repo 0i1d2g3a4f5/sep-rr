@@ -54,7 +54,7 @@ public class MessageSendChat extends Message{
                 if (sClient.getServer().clientFromID(this.to) != null) {
                     sClient.sendSingle(sClient.getServer().clientFromID(this.to), new MessageReceivedChat(this.message, sClient.getId(), true));
                 } else {
-                    sClient.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+                    sClient.sendSelf(new MessageError("ERROR :: Invalid private message recipient."));
                 }
             }
         }
@@ -74,7 +74,7 @@ public class MessageSendChat extends Message{
                 sClient.sendSingle(sClient.server.clientFromId(messageSendChat.to), new MessageReceivedChat(messageSendChat.message, sClient.id, true));
             }
             else{
-                sClient.sendSelf(new MessageError("ERROR :: Invalid private message recepient."));
+                sClient.sendSelf(new MessageError("ERROR :: Invalid private message recipient."));
             }
 
              */

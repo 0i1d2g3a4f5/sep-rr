@@ -5,6 +5,8 @@ import gamelogic.cards.damage_card.TrojanHorse;
 import java.io.IOException;
 
 public enum CardName {
+    TURN_LEFT_CARD("TurnLeft"),
+
     // Damage Cards
     SPAM("Spam"),
     TROJAN_HORSE("TrojanHorse"),

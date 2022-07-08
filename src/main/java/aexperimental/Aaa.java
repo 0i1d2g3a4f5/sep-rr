@@ -36,6 +36,9 @@ public class Aaa extends Application {
         stage.setScene(scene);
         System.out.println("g");
         stage.show();
+
+
+
         /*Scene scene;
         ScrollPane scrollPane = new ScrollPane();
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
@@ -44,13 +47,12 @@ public class Aaa extends Application {
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.RIGHT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
-        cardArrayList.add(cardFactory.createCard(CardName.SPAM));
-        GridPane gridPane = javaFXGridHandler.gridPaneFromCards(cardArrayList);
-        scrollPane.setContent(gridPane);
+        cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
+        GridPane gridPaneNew = javaFXGridHandler.gridPaneFromCards(cardArrayList);
+        scrollPane.setContent(gridPaneNew);
         scene = new Scene(scrollPane, 1280, 720);
         stage.setScene(scene);
         stage.show();*/
-
 
     }
 }
