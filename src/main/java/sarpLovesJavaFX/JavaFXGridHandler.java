@@ -175,7 +175,7 @@ public class JavaFXGridHandler {
 
     private GridPane updateGameBoard(GameBoard gameBoard){
         GridPane input = new GridPane();
-        System.out.println("X: Y:  " + gameBoard.getDimensionX() + gameBoard.getDimensionY());
+        System.out.println("X: Y:  " + gameBoard.getDimensionX() +"| "+ gameBoard.getDimensionY());
         for(int y=0; y<gameBoard.getDimensionY(); y++){
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
@@ -183,6 +183,7 @@ public class JavaFXGridHandler {
                 ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
+                System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:
@@ -203,7 +204,6 @@ public class JavaFXGridHandler {
                             caseGear(stackPane, (Gear) gameElement);
                             break;
 
-
                         case PUSHPANEL:
                             try {
                                 casePushPanel(stackPane, gameElement);
@@ -216,6 +216,7 @@ public class JavaFXGridHandler {
                             break;
                         case STARTPOINT:
                             caseStartPoint(stackPane);
+
                             break;
                         case WALL:
                             caseWall(stackPane, gameElement);
@@ -263,7 +264,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseAntenna(StackPane stackPane, GameElement gameElement) {
+    private  void caseAntenna(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case NORTH -> {
                 ImageView imageView9 = Images.ANTENNA_NORTH_ELEMENT.toImageView();
@@ -294,7 +295,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseRobot(StackPane stackPane, Robot gameElement) {
+    private  void caseRobot(StackPane stackPane, Robot gameElement) {
         Robot robot = gameElement;
         switch (robot.getFigure()){
             case 1 -> {
@@ -337,7 +338,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseWall(StackPane stackPane, GameElement gameElement) {
+    private void caseWall(StackPane stackPane, GameElement gameElement) {
 
         switch (gameElement.orientations.get(0)){
             case NORTH ->{
@@ -370,7 +371,7 @@ public class JavaFXGridHandler {
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      */
-    private static void caseStartPoint(StackPane stackPane) {
+    private void caseStartPoint(StackPane stackPane) {
         ImageView imageView6 = Images.STARTING_POINT_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView6);
         stackPane.setAlignment(imageView6,Pos.CENTER);
@@ -381,7 +382,7 @@ public class JavaFXGridHandler {
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      */
-    private static void casePit(StackPane stackPane) {
+    private void casePit(StackPane stackPane) {
         ImageView imageView5 = Images.PIT_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView5);
         stackPane.setAlignment(imageView5,Pos.CENTER);
@@ -393,7 +394,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void casePushPanel(StackPane stackPane, GameElement gameElement) throws IOException {
+    private void casePushPanel(StackPane stackPane, GameElement gameElement) throws IOException {
         switch(Game.getInstance().getActiveRegister()){
             case 1,3,5 -> {
                 switch (gameElement.orientations.get(0)){
@@ -452,7 +453,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseGear(StackPane stackPane, Gear gameElement) {
+    private void caseGear(StackPane stackPane, Gear gameElement) {
         Gear gear = gameElement;
         switch (gear.getGearDirection()){
             case CLOCKWISE -> {
@@ -473,7 +474,7 @@ public class JavaFXGridHandler {
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      */
-    private static void caseEnergySpace(StackPane stackPane) {
+    private void caseEnergySpace(StackPane stackPane) {
         ImageView imageView2 = Images.ENERGY_SPACE_GREEN_ELEMENT.toImageView();
         stackPane.getChildren().add(imageView2);
         stackPane.setAlignment(imageView2,Pos.CENTER);
@@ -485,7 +486,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseConveyorBelt(StackPane stackPane, GameElement gameElement) {
+    private void caseConveyorBelt(StackPane stackPane, GameElement gameElement) {
         ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
         switch (conveyorBelt.getColor()){
             case BLUE -> {
@@ -544,11 +545,11 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseCheckpoint(StackPane stackPane, Checkpoint gameElement) {
+    private void caseCheckpoint(StackPane stackPane, Checkpoint gameElement) {
         Checkpoint checkpoint = gameElement;
         System.out.println("ASDFGLJKFASDGKJSGDJKFKJSGD" + checkpoint.getCount());
         switch (checkpoint.getCount()){
-            case 1 -> {
+            case 1,0 -> {
                 ImageView imageViewcheck = new ImageView(new Image("/CheckPoint1.png"));
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
@@ -577,7 +578,7 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private static void caseLaser(StackPane stackPane, GameElement gameElement) {
+    private void caseLaser(StackPane stackPane, GameElement gameElement) {
         switch(gameElement.orientations.get(0)) {
             case NORTH -> {
                 ImageView imageView0 = new ImageView(new Image("/LaserUp.png"));

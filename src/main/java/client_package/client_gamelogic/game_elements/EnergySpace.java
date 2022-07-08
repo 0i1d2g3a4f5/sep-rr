@@ -34,11 +34,8 @@ public class EnergySpace extends GameElement {
      * @throws IOException
      */
     public EnergySpace (JsonObject jsonObject) throws IOException {
-        Gson gson = new Gson();
-
-        EnergySpace energySpace = new EnergySpace(jsonObject.get("count").getAsInt());
-
-
+        super(ElementName.ENERGYSPACE);
+        this.count = jsonObject.get("count").getAsInt();
     }
 
     /**

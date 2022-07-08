@@ -19,8 +19,6 @@ public class ClientGameBasicController {
 
     public ClientApplication clientApplication;
 
-
-
     @FXML
     private ScrollPane scrollAvailableProgramming;
 
@@ -89,7 +87,4 @@ public class ClientGameBasicController {
             }
         }
     }
-
-
-
 }

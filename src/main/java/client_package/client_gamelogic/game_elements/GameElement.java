@@ -35,11 +35,8 @@ public abstract class GameElement {
 
     @Override
     public String toString() {
-        return "GameElement{" +
-                "orientations=" + orientations +
-                ", type=" + type +
-                ", gson=" + gson +
-                '}';
+        return "type=" + type +
+                " | orientations=" + orientations;
     }
 
 

@@ -24,7 +24,7 @@ public class ModelLoader {
         GameBoard board;
         jsonString= readFile(mapName);
         mapJson = gson.fromJson(jsonString,JsonObject.class);
-       // System.out.println("in ModelLoaderbefore parsing: "+mapJson);
+       //System.out.println("in ModelLoaderbefore parsing: "+mapJson);
 
         board =new GameBoard(mapJson);
         //System.out.println("Map in loader: "+board.toJson());

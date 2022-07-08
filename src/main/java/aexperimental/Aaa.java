@@ -27,6 +27,8 @@ public class Aaa extends Application {
         ModelLoader modelLoader = new ModelLoader();
         System.out.println("c");
         GameBoard gameBoard = modelLoader.loadMap("dizzy_highway");
+
+
         System.out.println("edfsfds");
         GridPane gridPane = javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
         System.out.println("d");

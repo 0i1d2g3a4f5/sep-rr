@@ -23,14 +23,14 @@ public class Wall extends GameElement {
      * @throws IOException
      */
     public Wall(JsonObject jsonObject) throws IOException {
+        super(ElementName.WALL);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        ArrayList<Direction> directions = new ArrayList<>();
+
         for (JsonElement orientation:orientations) {
-            directions.add(Direction.parseDirection(orientation.getAsString()));
+            this.orientations.add(Direction.parseDirection(orientation.getAsString()));
         }
 
-        Wall wall = new Wall(directions);
 
     }
 

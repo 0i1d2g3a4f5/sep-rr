@@ -28,9 +28,9 @@ public class Checkpoint extends GameElement {
      */
 
     public Checkpoint(JsonObject jsonObject) throws IOException {
+        super(ElementName.CHECKPOINT);
+        this.count =jsonObject.get("count").getAsInt();
 
-
-        Checkpoint checkpoint = new Checkpoint(jsonObject.get("count").getAsInt());
     }
 }
 
