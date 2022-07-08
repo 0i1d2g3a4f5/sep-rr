@@ -92,6 +92,10 @@ public abstract class SClient {
 
     }
 
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     public void sendSelf(Message message) {
         sendSingle(this, message);
     }

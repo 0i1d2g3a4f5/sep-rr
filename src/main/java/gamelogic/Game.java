@@ -107,6 +107,7 @@ public class  Game {
     public Player join(SClient sClient) {
         //TODO get Robot from player
         Player player = new Player(sClient,this);
+        sClient.setPlayer(player);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getId() == sClient.getId()) {
                 return null;
@@ -255,11 +256,12 @@ public class  Game {
             for (int i = 0; i < cardNames.length; i++) {
                 cardNames[i] = handCards.get(i).getCardName();
             }
-            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+
             for (Player otherPlayer:playerList) {
                 if(player.getClient().getId()!= otherPlayer.getClient().getId())
                     player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
             }
+            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
         }
     }
 

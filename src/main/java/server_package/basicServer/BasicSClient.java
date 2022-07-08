@@ -2,6 +2,7 @@ package server_package.basicServer;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import gamelogic.Game;
 import newmessages.*;
 import server_package.SClient;
 import server_package.MessageProcessor;
@@ -139,6 +140,7 @@ public class BasicSClient extends SClient {
             setName(name);
             setFigure(figure);
             sendAll(new MessagePlayerAdded(getId(), getName(), getFigure()));
+            Game.getInstance().join(this);
         }
         else{
             sendSelf(new MessageError("ERROR :: Figure already taken."));

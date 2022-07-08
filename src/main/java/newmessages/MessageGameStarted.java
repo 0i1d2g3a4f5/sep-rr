@@ -11,6 +11,7 @@ import com.google.gson.JsonObject;
 import server_package.SClient;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -65,6 +66,14 @@ public class MessageGameStarted extends Message{
             client.getGame().setMap(new GameBoard(content));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("type in y pos:");
+            int y = Integer.parseInt(scanner.nextLine());
+            System.out.println("type in x pos:");
+            int x = Integer.parseInt(scanner.nextLine());
+
+            client.sendSelf(new MessageSetStartingPoint(x,y));
         }
         else {
             //ADVANCED
