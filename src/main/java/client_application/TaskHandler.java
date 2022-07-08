@@ -74,7 +74,7 @@ public class TaskHandler {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }*/
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromMap(this.clientApplication.basicClient.getGame().getMap()));
+                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(this.clientApplication.basicClient.getGame().getMap()));
             }
             case UPDATE_HANDCARDS -> {
                 //clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(this.clientApplication.basicClient.getPlayer().getHandCards()));
@@ -97,7 +97,7 @@ public class TaskHandler {
             }
         }
     }
-    public GridPane gridPaneFromMap(GameBoard gameBoard){
+    public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         return javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
     }
