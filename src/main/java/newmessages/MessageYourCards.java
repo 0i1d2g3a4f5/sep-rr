@@ -51,8 +51,9 @@ public class MessageYourCards extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         JsonArray cardsJArray= content.get("cardsInHand").getAsJsonArray();
+        cardsInHand = new CardName[9];
         for (int i = 0; i < cardsJArray.size(); i++) {
-            cardsInHand[i] =CardName.valueOf(cardsJArray.get(i).getAsString());
+            cardsInHand[i] =CardName.parseCardName(cardsJArray.get(i).getAsString());
         }
 
         System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
@@ -78,7 +79,7 @@ public class MessageYourCards extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         System.out.println("Cards You Got: "+ cardsInHand);
-        /*
+
 
         ArrayList<Card> handCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -91,7 +92,7 @@ public class MessageYourCards extends Message{
 
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
-         */
+
     }
 
 }

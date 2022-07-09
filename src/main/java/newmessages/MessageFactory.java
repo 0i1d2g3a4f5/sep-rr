@@ -140,7 +140,10 @@ public class MessageFactory {
             case WRONG_PASS -> {
                 return new MessageWrongPass(jsonObject);
             }
-            default -> throw new IllegalArgumentException();
+            case YOUR_CARDS -> {
+                return new MessageYourCards(jsonObject);
+            }
+            default -> throw new IllegalArgumentException("There is no MessageType "+messageType);
         }
 
     }

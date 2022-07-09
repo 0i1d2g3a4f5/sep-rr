@@ -75,6 +75,7 @@ public class TaskHandler {
                     throw new RuntimeException(e);
                 }*/
                 clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(this.clientApplication.basicClient.getGame().getMap()));
+                System.out.println("TaskHandler: finished updating Game board" );
             }
             case UPDATE_HANDCARDS -> {
                 //clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(this.clientApplication.basicClient.getPlayer().getHandCards()));

@@ -127,6 +127,9 @@ public class MessageTypeFactory {
             case "WrongPass" -> {
                 return MessageType.WRONG_PASS;
             }
+            case "YourCards" ->{
+                return MessageType.YOUR_CARDS;
+            }
             default -> {
                 return MessageType.DEFAULT;
             }

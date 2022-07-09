@@ -70,7 +70,7 @@ public enum CardName {
 
 
     private String cardName;
-    public static CardName parseCardName(String cardName) throws IOException {
+    public static CardName parseCardName(String cardName) {
         for (CardName  name:CardName.values()){
             cardName =cardName.replaceAll("\"","");
             System.out.println("Wanted: "+cardName);
@@ -79,7 +79,7 @@ public enum CardName {
 
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }
-        throw new IOException("Card "+cardName+" not found");
+        throw new IllegalArgumentException("Card "+cardName+" not found");
     }
     public String toString(){
         return cardName;

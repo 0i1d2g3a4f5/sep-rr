@@ -70,6 +70,8 @@ public class MessageStartingPointTaken extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
+
+
         if(client.getId()==clientID) {
             if(!client.getPlayer().getRobot().isPlaced()) {
                 client.getPlayer().getRobot().placeRobot(y, x);
@@ -88,6 +90,7 @@ public class MessageStartingPointTaken extends Message{
 
             }
         }
+
     }
 
 }

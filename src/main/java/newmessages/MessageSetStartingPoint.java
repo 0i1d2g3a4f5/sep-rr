@@ -7,6 +7,7 @@ import gamelogic.Position;
 import server_package.SClient;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -65,20 +66,45 @@ public class MessageSetStartingPoint extends Message{
             sClient.sendAll(new MessageStartingPointTaken(x,y, sClient.getId()));
         }
 
+       // sClient.sendSelf(new MessageSendChat("Server: checking if you already placed your Robot", sClient.getId()));
         boolean allPlaced = true;
 
-        for (Player player:sClient.getPlayer().getGame().getPlayerList()) {
+        ArrayList<Player> players = sClient.getPlayer().getGame().getPlayerList();
+
+        for (Player player: players) {
+            player.sendMessage(new MessageSendChat("Server: checking if you already placed your Robot", sClient.getId()));
+            System.out.println("placed: " +player.getRobot().isPlaced());
             if(!player.getRobot().isPlaced()){
                 allPlaced = false;
             }
         }
+
+        sClient.sendSelf(new MessageSendChat("Server: all placed "+ allPlaced, sClient.getId()));
+
         if(allPlaced){
-            try {
-                sClient.getPlayer().getGame().startGame();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+
+
+                sClient.sendSelf(new MessageSendChat("Server: Initializing Game", sClient.getId()));
+                Thread thread = new Thread(){
+                    @Override
+                    public void run() {
+                        try {
+                            sClient.getPlayer().getGame().startGame();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                };
+                thread.start();
+
+
         }
+
+
+
+
 
     }
 

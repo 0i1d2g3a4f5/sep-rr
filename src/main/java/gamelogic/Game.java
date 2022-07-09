@@ -203,6 +203,7 @@ public class  Game {
      */
     public void startGame() throws IOException, InterruptedException {
         System.out.println("Game started");
+        sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
         gameLoop();
 
@@ -272,8 +273,10 @@ public class  Game {
 
         programmingPhase =true;
         drawCards();
+
         for (Player player:playerList) {
-            player.sendMessage(new MessageActivePhase(2));
+            System.out.println("send to:" + player.getClient().getName());
+            player.getClient().sendSelf(new MessageActivePhase(2));
             player.isProgramming = true;
         }
         while(programmingPhase){

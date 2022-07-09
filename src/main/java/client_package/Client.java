@@ -151,7 +151,7 @@ public abstract class Client implements ClientObject{
 
 
                     TimeUnit.MILLISECONDS.sleep(10);
-                    System.out.println("LASFDLKASDFGLAFSDG");
+                    //System.out.println("LASFDLKASDFGLAFSDG");
                     String inputString = "";
                     boolean isEnded = false;
                     int readChars =dataInputStream.available();
