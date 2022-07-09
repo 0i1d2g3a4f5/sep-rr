@@ -97,10 +97,11 @@ public abstract class Client implements ClientObject{
             DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
-
+            System.out.println("SENT :: " + toSend);
             writer.write(toSend);
             writer.write("\n");
             writer.flush();
+
             /*
             char[] arr = toSend.toCharArray();
             String print = "";
@@ -149,16 +150,15 @@ public abstract class Client implements ClientObject{
                 while(isListening){
 
 
-                    TimeUnit.MILLISECONDS.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(10);
+                    System.out.println("LASFDLKASDFGLAFSDG");
                     String inputString = "";
                     boolean isEnded = false;
                     int readChars =dataInputStream.available();
 
                     while(!isEnded && readChars>0){
                         String input = reader.readLine();
-                        System.out.println("input:" +input);
                         if(input.equals("\n" )|| input.equals("")){
-                            System.out.println("ended");
                             isEnded = true;
                         }
 
@@ -168,7 +168,6 @@ public abstract class Client implements ClientObject{
                     }
 
                     if(inputString!="")
-                    System.out.println(inputString);
                     /*
                     if(dataInputStream.available()>0)
                     System.out.println("waiting Chars: "+ dataInputStream.available());
@@ -201,9 +200,7 @@ public abstract class Client implements ClientObject{
                                  ) {
                                 System.out.println("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
-                                Thread thread = new Thread(() -> process(jsonObject));
-                                thread.setDaemon(true);
-                                thread.start();
+                                process(jsonObject);
 
 
                             }

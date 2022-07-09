@@ -25,7 +25,6 @@ public class MessageActivePhase extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("phase", new JsonPrimitive(phase));
         content = jsonObject;
-        System.out.println("Created Phase Message: " + this);
     }
 
     /**
@@ -34,7 +33,6 @@ public class MessageActivePhase extends Message{
     public MessageActivePhase(JsonObject jsonObject) {
         super(jsonObject);
         phase = content.get("phase").getAsInt();
-        System.out.println("Created Phase Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

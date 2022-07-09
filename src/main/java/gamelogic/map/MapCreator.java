@@ -83,7 +83,7 @@ public class MapCreator {
         board.addElement(9,11,new ConveyorBelt(BLUE,NORTH));
 
 
-        System.out.println("boardSize: "+board.boardMap.size());
+        //System.out.println("boardSize: "+board.boardMap.size());
         String before = board.toString();
         String filePath = "dizzy_highway.json";
         File file;

@@ -1,5 +1,6 @@
 package client_application;
 
+import client_package.Client;
 import client_package.advancedClient.AdvancedClient;
 import client_package.basicClient.BasicClient;
 import javafx.application.Application;
@@ -145,13 +146,24 @@ public class ClientApplication extends Application {
             Scene scene = new Scene(fxmlLoader.load(), 1440, 810);
             clientGameBasicController=fxmlLoader.getController();
             clientGameBasicController.clientApplication=this;
-            clientGameBasicController.init();
             stageBasicGame.setScene(scene);
             stageBasicGame.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
+
+    }
+    public Client getClient(){
+        if(basicClient!=null){
+            return basicClient;
+        }
+        if(advancedClient!=null){
+            return advancedClient;
+        }
+        else {
+            throw new NullPointerException("CLIENT NOT FOUND");
+        }
 
     }
     public void launchMapView(Scene scene){

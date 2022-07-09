@@ -31,6 +31,16 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
     }
+    public MessageSetStartingPoint(Position position) {
+        this.x = position.getX();
+        this.y = position.getY();
+        type = "SetStartingPoint";
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("x", new JsonPrimitive(x));
+        jsonObject.add("y", new JsonPrimitive(y));
+        content = jsonObject;
+
+    }
 
     /**
      * @param jsonObject
@@ -80,9 +90,5 @@ public class MessageSetStartingPoint extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        /*Position position = new Position(y,x);
-        if(!client.getPlayer().getRobot(position).equals(null)) {
-            System.out.println("CPlayer " + client.getName() + " is at position " + client.getPlayer);
-        }*/
     }
 }

@@ -1,16 +1,10 @@
 package client_application;
 
-import gamelogic.Game;
-import gamelogic.Player;
 import gamelogic.Position;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import newmessages.MessageSetStartingPoint;
@@ -19,6 +13,7 @@ import newmessages.MessageSetStartingPoint;
  * @author Sarp Cagin Erdogan
  */
 public class ClientGameBasicController {
+    boolean startingSubmitActive = true;
 
     public ClientApplication clientApplication;
     public GridPane gameBoard;
@@ -48,31 +43,70 @@ public class ClientGameBasicController {
 
     @FXML
     void submitButton(ActionEvent event) {
-        String coordinatesAsString = startingCoordinates.getText().trim();
-        String[] singleCoordinate = coordinatesAsString.split("/");
-        System.out.println("submitButton");
-        Position pos = new Position(Integer.parseInt(singleCoordinate[1].trim()),Integer.parseInt(singleCoordinate[0].trim()));
-        System.out.println("Starting Position: "+pos);
-        setStartPoint(pos);
+
+        if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
+            String[] singleCoordinate ={};
+            String toCheck =startingCoordinates.getText().trim();
+            boolean formatGood = false;
+            for(int i = 0; i<toCheck.length(); i++){
+                if(toCheck.charAt(i)=='/'){
+                    formatGood=true;
+                }
+            }
+            if(!formatGood){
+                startingCoordinates.setText("GIVE PROPER COORDINATE BVITCH ");
+            }
+            else {
+                singleCoordinate = toCheck.split("/");
+
+                if (singleCoordinate.length != 2) {
+                    startingCoordinates.setText("GIVE PROPER COORDINATE BVITCH ");
+                } else {
+                    boolean proper = false;
+                    int x = -1, y = -1;
+                    try {
+                        x = Integer.parseInt(singleCoordinate[0]);
+                        y = Integer.parseInt(singleCoordinate[1]);
+                        proper=true;
+                    } catch (NumberFormatException e) {
+                        startingCoordinates.setText("write number idiot");
+                    }
+                    if(proper) {
+                        Position pos = new Position(y, x);
+
+                        startingSubmitActive=false;
+                        sendStartPoint(pos);
+                    }
+
+                }
+            }
+
+
+        }
 
 
     }
 
     public void updateProgrammingCards(GridPane gridPane){
         availableCards=gridPane;
+        scrollAvailableProgramming.setContent(availableCards);
     }
     public void updateOtherRegisters(GridPane gridPane){
         otherRegisters=gridPane;
+        scrollOtherRegisters.setContent(otherRegisters);
     }
 
     public void updateHandCards(GridPane gridPane){
         ownRegister=gridPane;
+        stackOwnProgramming.getChildren().clear();
+        stackOwnProgramming.getChildren().add(ownRegister);
     }
 
 
 
     public void updateGameBoard(GridPane gridPane){
-        gameBoard=gridPane;
+        gameBoard = gridPane;
+        scrollPaneGameBoard.setContent(gameBoard);
     }
 
     // Set AnchorPane visible at start of programming phase
@@ -87,49 +121,12 @@ public class ClientGameBasicController {
 
     }*/
 
-    //TODO: check if it is correct for players to select a start point
-    public void selectStartPoint(Group group){
-        group.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                int x = GridPane.getColumnIndex(group);
-                int y = GridPane.getRowIndex(group);
-                Position position = new Position(x,y);
-                setStartPoint(position);
-            }
-        });
+    public void sendStartPoint(Position position){
+        clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position));
+
     }
-
-    public void setStartPoint(Position position){
-        for(Player player : Game.getInstance().playerList){
-            /*
-            if(player.getRobot().getPosition().equals(position)){
-                System.out.println("This Start Point is taken. Please choose another one.");
-                return;
-            }
-
-             */
-
-        }
-
-        //TODO Option for advanced
-        clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
-
-        System.out.println("You"+"take the Start Point" + position);
-    }
-    public void init(){
-        gameBoard=new GridPane();
-        scrollPaneGameBoard.setContent(gameBoard);
-        ownRegister=new GridPane();
-        stackOwnProgramming.getChildren().add(ownRegister);
-        otherRegisters = new GridPane();
-        scrollOtherRegisters.setContent(otherRegisters);
-        availableCards=new GridPane();
-        scrollAvailableProgramming.setContent(availableCards);
-    }
-    public void getSelectedAvailableCard(MouseEvent mouseEvent){
-        Node clicked = mouseEvent.getPickResult().getIntersectedNode();
-        System.out.println(clicked.getClass().toString());
-
+    public void resetSubmitStartingPoint(){
+        startingCoordinates.setText("");
+        startingSubmitActive=true;
     }
 }

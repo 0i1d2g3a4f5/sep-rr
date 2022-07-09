@@ -29,9 +29,9 @@ public class BasicSClient extends SClient {
             int counter = 0;
             while(getIsListening() && !getServer().getIsTerminated()  ){
                 try {
-                    TimeUnit.MILLISECONDS.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(10);
                     counter++;
-                    if(counter>=50){
+                    if(counter>=500){
                         sendSelf(new MessageAlive());
                         counter=0;
                     }
@@ -46,9 +46,7 @@ public class BasicSClient extends SClient {
 
                     while(!isEnded && readChars>0){
                         String input = reader.readLine();
-                        System.out.println("input:" +input);
                         if(input.equals("\n" )|| input.equals("")){
-                            System.out.println("ended");
                             isEnded = true;
                         }
 

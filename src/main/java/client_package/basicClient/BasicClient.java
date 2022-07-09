@@ -60,15 +60,23 @@ public class BasicClient extends Client {
     }
     @Override
     public void process(JsonObject jsonObject){
-        MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
-        Message message = new MessageFactory().createMessage(messageType, jsonObject);
-        try {
-            message.activateMessageInFrontend(this, true);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClientNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
+                Message message = new MessageFactory().createMessage(messageType, jsonObject);
+                try {
+                    message.activateMessageInFrontend(clientApplication.getClient(), true);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (ClientNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.setDaemon(true);
+        thread.start();
     }
     @Override
     public void listen(){

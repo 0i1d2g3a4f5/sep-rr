@@ -197,7 +197,7 @@ public class GameBoard implements JsonSerializable {
         for (int i=0; i<arrayLVL1.getAsJsonArray().size();i++) {
             ArrayList<GameField> row = new ArrayList<GameField>();
             for (int j=0; j<arrayLVL1.get(i).getAsJsonArray().size(); j++) {
-                System.out.println("Y :: " + j + " :: " + arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray().toString());
+                //System.out.println("Y :: " + j + " :: " + arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray().toString());
                 GameField gameField = new GameField(this,j,i);
 
                 for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
@@ -238,7 +238,7 @@ public class GameBoard implements JsonSerializable {
                 JsonArray jsonArrayLVL3 = new JsonArray();
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
-                        System.out.println("Element in Board.toJson: "+element);
+                        //System.out.println("Element in Board.toJson: "+element);
                         jsonArrayLVL3.add(element.toJson());
                     }
                 } else {

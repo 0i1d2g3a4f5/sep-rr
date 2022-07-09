@@ -36,7 +36,6 @@ public class MessageStartingPointTaken extends Message{
         jsonObject.add("y", new JsonPrimitive(y));
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created StartSet Message: " + this);
     }
 
     /**
@@ -74,15 +73,7 @@ public class MessageStartingPointTaken extends Message{
         if(client.getId()==clientID) {
             if(!client.getPlayer().getRobot().isPlaced()) {
                 client.getPlayer().getRobot().placeRobot(y, x);
-                System.out.println("StartPoint is set to " + x + "|" + y);
-
-                //System.out.println(client.getGame().getMap().toString());
-
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
-                System.out.println("is Listening: "+ client.isListening());
-
-
-                //System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
                 //TODO disable place Robot Field
             }
         } else {
@@ -91,7 +82,6 @@ public class MessageStartingPointTaken extends Message{
                     if(!player.getRobot().isPlaced()){
                         player.getRobot().placeRobot(y,x);
                         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
-                        System.out.println("updated");
                     }
 
                 }
