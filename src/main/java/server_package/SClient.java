@@ -1,7 +1,8 @@
 package server_package;
 
+import com.google.gson.JsonObject;
 import gamelogic.Player;
-import newmessages.Message;
+import newmessages.*;
 import server_package.advancedServer.AdvancedSClient;
 
 import java.io.*;
@@ -18,7 +19,6 @@ public abstract class SClient {
     public void addToSendList(Message message){
         toSendList.add(message);
     }
-    protected MessageProcessor messageProcessor;
     protected int figure = 7;
     protected String group;
     protected Server server;
@@ -156,12 +156,6 @@ public abstract class SClient {
     public Socket getSocket(){
         return socket;
     }
-    public MessageProcessor getMessageProcessor(){
-        return messageProcessor;
-    }
-    public void setMessageProcessor(MessageProcessor messageProcessor){
-        this.messageProcessor=messageProcessor;
-    }
 
 
     public boolean getIsNamed() {
@@ -225,4 +219,9 @@ public abstract class SClient {
     public abstract void checkValues(String name, int figure);
 
     public abstract void sendPreviousInfo();
+    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
+        MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
+        Message message = new MessageFactory().createMessage(messageType, jsonObject);
+        message.activateMessageInBackend(this, isBasic);
+    }
 }

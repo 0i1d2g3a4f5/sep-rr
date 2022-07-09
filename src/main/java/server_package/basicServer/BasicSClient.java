@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import gamelogic.Game;
 import newmessages.*;
 import server_package.SClient;
-import server_package.MessageProcessor;
 
 import java.io.*;
 import java.net.Socket;
@@ -23,7 +22,6 @@ public class BasicSClient extends SClient {
         setNamed(false);
         setListening(false);
         setReady(false);
-        setMessageProcessor(new MessageProcessor(this, true));
     }
     Runnable listener = new Runnable() {
         @Override
@@ -60,7 +58,6 @@ public class BasicSClient extends SClient {
                     }
 
                     if(inputString !="")
-                    System.out.println(inputString);
                     /*
                     while (!isEnded && dataInputStream.available() > 0) {
                         char a = (char)dataInputStream.readInt();
@@ -78,7 +75,7 @@ public class BasicSClient extends SClient {
                             ) {
                                 System.out.println("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
-                                messageProcessor.process(jsonObject);
+                                process(jsonObject, true);
                             }
 
                         isEnded=false;
@@ -126,6 +123,12 @@ public class BasicSClient extends SClient {
         disconnect();
         removeClientFromList();
     }
+
+    @Override
+    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
+        super.process(jsonObject, true);
+    }
+
     @Override
     public void checkValues(String name, int figure){
         boolean available = true;

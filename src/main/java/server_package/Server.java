@@ -68,6 +68,7 @@ public abstract class Server {
         this.serverApplication = serverApplication;
     }
 
+
     public int getMaxClients() {
         return maxClients;
     }

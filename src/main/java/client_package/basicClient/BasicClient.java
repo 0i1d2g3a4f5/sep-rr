@@ -63,13 +63,12 @@ public class BasicClient extends Client {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
         try {
-            message.activateMessageInFrontend(this, isBasic);
+            message.activateMessageInFrontend(this, true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClientNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("finished processing "+messageType);
     }
     @Override
     public void listen(){
