@@ -72,18 +72,24 @@ public class MessageStartingPointTaken extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
         if(client.getId()==clientID) {
-            client.getPlayer().getRobot().placeRobot(y, x);
-            System.out.println("StartPoint is set to " + x + "|" + y);
+            if(!client.getPlayer().getRobot().isPlaced()) {
+                client.getPlayer().getRobot().placeRobot(y, x);
+                System.out.println("StartPoint is set to " + x + "|" + y);
 
-            //System.out.println(client.getGame().getMap().toString());
+                //System.out.println(client.getGame().getMap().toString());
 
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 
-            //System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
+                //System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
+            }
         } else {
             for (CPlayer player: client.getGame().getPlayerList()) {
                 if(player.getClientID() == clientID){
-                    player.getRobot().moveRobotTo(y,x);
+                    if(!player.getRobot().isPlaced()){
+                        player.getRobot().placeRobot(y,x);
+                        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+                    }
+
                 }
 
             }
