@@ -127,7 +127,7 @@ public class  Game {
         System.out.println("Game Setup");
         this.mapName = mapName;
         sendToAllPlayers(new MessageActivePhase(0));
-        DeckSerializer deckSerializer = new DeckSerializer();
+        //DeckSerializer deckSerializer = new DeckSerializer();
         //TODO initialize player decks
         //select map
         System.out.println("ModelLoader");
@@ -178,9 +178,6 @@ public class  Game {
 
 
         //TODO place Robot
-        while(robotsPlaced<playerList.size()) {
-            wait();
-        }
     }
 
     /**
@@ -194,6 +191,7 @@ public class  Game {
         else if(board.getField(position).contains(ElementName.STARTPOINT)){
             board.getField(position).addRobot(player.getRobot());
             robotsPlaced++;
+            player.getRobot().setPlaced(true);
             return true;
         } else return false;
     }
@@ -203,8 +201,7 @@ public class  Game {
      * @throws IOException
      * @throws InterruptedException
      */
-    public void startGame(MapName mapName) throws IOException, InterruptedException {
-        setup(mapName);
+    public void startGame() throws IOException, InterruptedException {
         continueGame=true;
         gameLoop();
 

@@ -1,5 +1,6 @@
 package gamelogic;
 
+import gamelogic.cards.programming_cards.*;
 import newmessages.*;
 import server_package.SClient;
 import gamelogic.cards.Card;
@@ -24,9 +25,9 @@ public class Player{
     private Card lastPlayedCard;
     private Game game;
     private Card[] register= new Card[5];
-    private Stack<Card> deck;
-    private Stack<Card> discardPile;
-    private ArrayList<Card> handCards;
+    private Stack<Card> deck = buildDeck();
+    private Stack<Card> discardPile = new Stack<>();
+    private ArrayList<Card> handCards = new ArrayList<>();
     private Robot robot;
 
     private SClient sClient;
@@ -42,7 +43,9 @@ public class Player{
     }
 
 
-
+    public Game getGame() {
+        return game;
+    }
 
     public Player(SClient sClient, Game game) {
         this.sClient = sClient;
@@ -57,6 +60,40 @@ public class Player{
      */
     public void setRobot(Robot robot) {
         this.robot = robot;
+    }
+
+
+    private Stack<Card> buildDeck(){
+        Stack<Card> deck = new Stack<>();
+        for (int i = 0; i < 6; i++) {
+            deck.add(new Again());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new BackUp());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new LeftTurn());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new MoveOne());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new MoveThree());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new MoveTwo());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new PowerUp());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new RightTurn());
+        }
+        for (int i = 0; i < 6; i++) {
+            deck.add(new UTurn());
+        }
+        return deck;
+
     }
 
 

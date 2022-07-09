@@ -51,7 +51,7 @@ public class ClientGameBasicController {
         String coordinatesAsString = startingCoordinates.getText().trim();
         String[] singleCoordinate = coordinatesAsString.split("/");
         System.out.println("submitButton");
-        Position pos = new Position(Integer.parseInt(singleCoordinate[1]),Integer.parseInt(singleCoordinate[0]));
+        Position pos = new Position(Integer.parseInt(singleCoordinate[1].trim()),Integer.parseInt(singleCoordinate[0].trim()));
         System.out.println("Starting Position: "+pos);
         setStartPoint(pos);
 
