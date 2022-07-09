@@ -57,6 +57,21 @@ public class MessageSetStartingPoint extends Message{
             sClient.sendAll(new MessageStartingPointTaken(x,y, sClient.getId()));
         }
 
+        boolean allPlaced = true;
+
+        for (Player player:sClient.getPlayer().getGame().getPlayerList()) {
+            if(!player.getRobot().isPlaced()){
+                allPlaced = false;
+            }
+        }
+        if(allPlaced){
+            try {
+                sClient.getPlayer().getGame().startGame();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 
     /**
