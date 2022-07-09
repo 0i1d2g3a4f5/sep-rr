@@ -30,7 +30,6 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        System.out.println("Created StartRequest Message: " + this);
     }
 
     /**
@@ -40,7 +39,6 @@ public class MessageSetStartingPoint extends Message{
         super(jsonObject);
         x = content.get("x").getAsInt();
         y = content.get("y").getAsInt();
-        System.out.println("Created StartRequest Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
