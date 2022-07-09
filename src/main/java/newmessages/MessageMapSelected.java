@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Game;
 import gamelogic.map.GameBoard;
+import gamelogic.map.MapName;
 import gamelogic.map.ModelLoader;
 import server_package.SClient;
 
@@ -50,7 +51,11 @@ public class MessageMapSelected extends Message{
             //Game.getInstance().setMapName(MapName.valueOf(map));
             ModelLoader modelLoader = new ModelLoader();
             GameBoard gameBoard = modelLoader.loadMap(map);
-            Game.getInstance().setBoard(gameBoard);
+            try {
+                Game.getInstance().setup(MapName.fromString(map));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             sClient.sendAll(this);
             //TODO select position, revert to get gameBoard

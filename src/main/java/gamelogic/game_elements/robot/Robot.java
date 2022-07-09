@@ -20,6 +20,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
 
+    private boolean isPlaced = false;
+
     private Game game;
 
     private Direction directionFacing;
@@ -97,6 +99,15 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
 
     }
+
+    public boolean isPlaced() {
+        return isPlaced;
+    }
+
+    public void setPlaced(boolean placed) {
+        isPlaced = placed;
+    }
+
     public Player getPlayer() {
         return player;
     }
