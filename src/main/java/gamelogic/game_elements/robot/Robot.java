@@ -20,7 +20,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
 
-    private final Color color;
     private Game game;
 
     private Direction directionFacing;
@@ -34,9 +33,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private Position nextPosition;
     private Direction nextDirectionFacing;
 
-    public Color getColor() {
-        return color;
-    }
     public Position getPosition() {
         return position;
     }
@@ -56,12 +52,18 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (Position position, Direction direction, Color color){
+    public Robot (Position position, Direction direction){
         game =Game.getInstance();
         directionFacing = direction;
         this.position = position;
         this.orientations.add(direction);
-        this.color = color;
+
+    }
+    public Robot (){
+        game =Game.getInstance();
+        directionFacing = Direction.EAST;
+        this.orientations.add(Direction.EAST);
+
     }
 
     public void takeDamage(int count) {

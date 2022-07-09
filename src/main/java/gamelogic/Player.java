@@ -47,6 +47,7 @@ public class Player{
     public Player(SClient sClient, Game game) {
         this.sClient = sClient;
         this.game = game;
+        setRobot(new Robot());
     }
 
     /**

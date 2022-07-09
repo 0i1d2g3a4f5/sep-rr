@@ -192,7 +192,7 @@ public class  Game {
     public synchronized boolean placeRobot(Player player,Position position){
         if(board.getField(position).contains(ElementName.ROBOT)) return false;
         else if(board.getField(position).contains(ElementName.STARTPOINT)){
-            board.getField(position).addElement(player.getRobot());
+            board.getField(position).addRobot(player.getRobot());
             robotsPlaced++;
             return true;
         } else return false;

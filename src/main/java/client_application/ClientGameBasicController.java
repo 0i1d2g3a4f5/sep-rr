@@ -109,9 +109,10 @@ public class ClientGameBasicController {
              */
 
         }
+
         //TODO Option for advanced
         clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
 
-        System.out.println("The Client: "+"takes the Start Point" + position);
+        System.out.println("You"+"take the Start Point" + position);
     }
 }
