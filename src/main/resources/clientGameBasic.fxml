@@ -70,7 +70,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <StackPane fx:id="stackTempProgramming" layoutX="6.0" layoutY="429.0" prefHeight="200.0" prefWidth="606.0" style="-fx-background-color: white;">
+      <StackPane fx:id="stackOwnProgramming" layoutX="6.0" layoutY="429.0" prefHeight="200.0" prefWidth="606.0" style="-fx-background-color: white;">
          <children>
             <ScrollPane fx:id="scrollChosenProgramming" prefHeight="200.0" prefWidth="605.0">
                <content>

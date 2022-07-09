@@ -7,10 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -22,6 +21,10 @@ import newmessages.MessageSetStartingPoint;
 public class ClientGameBasicController {
 
     public ClientApplication clientApplication;
+    public GridPane gameBoard;
+    public GridPane ownRegister;
+    public GridPane availableCards;
+    public GridPane otherRegisters;
 
     @FXML
     private ScrollPane scrollAvailableProgramming;
@@ -33,7 +36,7 @@ public class ClientGameBasicController {
     private ScrollPane scrollPaneGameBoard;
 
     @FXML
-    private StackPane stackTempProgramming;
+    private StackPane stackOwnProgramming;
 
 
     @FXML
@@ -56,21 +59,20 @@ public class ClientGameBasicController {
     }
 
     public void updateProgrammingCards(GridPane gridPane){
-        scrollAvailableProgramming.setContent(gridPane);
+        availableCards=gridPane;
     }
     public void updateOtherRegisters(GridPane gridPane){
-        scrollOtherRegisters.setContent(gridPane);
+        otherRegisters=gridPane;
     }
 
-    public void updateOwnRegister(GridPane gridPane){
-        stackTempProgramming.getChildren().add(gridPane);
-        selectStartPoint(new Group());//TODO:Check if it fonctions, i can't test it because there are some errors
+    public void updateHandCards(GridPane gridPane){
+        ownRegister=gridPane;
     }
 
 
 
     public void updateGameBoard(GridPane gridPane){
-        scrollPaneGameBoard.setContent(gridPane);
+        gameBoard=gridPane;
     }
 
     // Set AnchorPane visible at start of programming phase
@@ -114,5 +116,20 @@ public class ClientGameBasicController {
         clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
 
         System.out.println("You"+"take the Start Point" + position);
+    }
+    public void init(){
+        gameBoard=new GridPane();
+        scrollPaneGameBoard.setContent(gameBoard);
+        ownRegister=new GridPane();
+        stackOwnProgramming.getChildren().add(ownRegister);
+        otherRegisters = new GridPane();
+        scrollOtherRegisters.setContent(otherRegisters);
+        availableCards=new GridPane();
+        scrollAvailableProgramming.setContent(availableCards);
+    }
+    public void getSelectedAvailableCard(MouseEvent mouseEvent){
+        Node clicked = mouseEvent.getPickResult().getIntersectedNode();
+        System.out.println(clicked.getClass().toString());
+
     }
 }

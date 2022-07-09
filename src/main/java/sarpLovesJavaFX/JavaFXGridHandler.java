@@ -51,9 +51,9 @@ public class JavaFXGridHandler {
 
     }
 
-    public GridPane gridPaneFromCards(ArrayList<Card> cardList){
+    public GridPane gridPaneFromCards(ArrayList<Card> cardList, boolean isVisible){
         try {
-            return constructCardsList(cardList);
+            return constructCardsList(cardList, isVisible);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -76,9 +76,16 @@ public class JavaFXGridHandler {
         return temp;
     }
 
-    private void addToPane(StackPane stackPane,ImageView imageView){
-        stackPane.getChildren().add(imageView);
-        stackPane.setAlignment(imageView, Pos.CENTER);
+    private void addToPane(StackPane stackPane,ImageView imageView, boolean isVisible){
+        if(isVisible) {
+            stackPane.getChildren().add(imageView);
+            stackPane.setAlignment(imageView, Pos.CENTER);
+        }
+        else{
+            //TODO replace imageview with placeholder for full register slot
+            stackPane.getChildren().add(new ImageView());
+            stackPane.setAlignment(imageView, Pos.CENTER);
+        }
     }
 
     /**
@@ -87,7 +94,7 @@ public class JavaFXGridHandler {
      * @throws IOException
      * @author Vivian Kafadar
      */
-    private GridPane constructCardsList(ArrayList<Card> cardList) throws IOException {
+    private GridPane constructCardsList(ArrayList<Card> cardList, boolean isVisible) throws IOException {
         GridPane gridPane = new GridPane();
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
@@ -96,62 +103,62 @@ public class JavaFXGridHandler {
                     // programming cards
                     case AGAIN:
                         // add card again
-                        addToPane(stackPane, Images.AGAIN_CARD.toImageView());
+                        addToPane(stackPane, Images.AGAIN_CARD.toImageView(), isVisible);
                         break;
                     case BACK_UP:
-                        addToPane(stackPane, Images.CARD_BACK_CARD.toImageView());
+                        addToPane(stackPane, Images.CARD_BACK_CARD.toImageView(), isVisible);
                         break;
                     case LEFT_TURN:
-                        addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView());
+                        addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView(), isVisible);
                         break;
                     case MOVE_ONE:
-                        addToPane(stackPane, Images.MOVE_1_CARD.toImageView());
+                        addToPane(stackPane, Images.MOVE_1_CARD.toImageView(), isVisible);
                         break;
                     case MOVE_THREE:
-                        addToPane(stackPane, Images.MOVE_3_CARD.toImageView());
+                        addToPane(stackPane, Images.MOVE_3_CARD.toImageView(), isVisible);
                         break;
                     case MOVE_TWO:
-                        addToPane(stackPane, Images.MOVE_2_CARD.toImageView());
+                        addToPane(stackPane, Images.MOVE_2_CARD.toImageView(), isVisible);
                         break;
                     case POWER_UP:
-                        addToPane(stackPane, Images.POWER_UP_CARD.toImageView());
+                        addToPane(stackPane, Images.POWER_UP_CARD.toImageView(), isVisible);
                         break;
                     case RIGHT_TURN:
-                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toImageView());
+                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toImageView(), isVisible);
                         break;
                     case U_TURN:
-                        addToPane(stackPane, Images.U_TURN_CARD.toImageView());
+                        addToPane(stackPane, Images.U_TURN_CARD.toImageView(), isVisible);
                         break;
 
                     // special programming cards
                     case ENERGY_ROUTINE:
-                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toImageView());
+                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toImageView(), isVisible);
                         break;
                     case REPEAT_ROUTINE:
-                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toImageView());
+                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toImageView(), isVisible);
                         break;
                     case SANDBOX_ROUTINE:
-                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toImageView());
+                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toImageView(), isVisible);
                         break;
                     case SPAM_FOLDER:
-                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toImageView());
+                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toImageView(), isVisible);
                         break;
                     case WEASEL_ROUTINE:
-                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toImageView());
+                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toImageView(), isVisible);
                         break;
 
                     // damage cards
                     case SPAM:
-                        addToPane(stackPane, Images.SPAM_CARD.toImageView());
+                        addToPane(stackPane, Images.SPAM_CARD.toImageView(), isVisible);
                         break;
                     case TROJAN_HORSE:
-                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toImageView());
+                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toImageView(), isVisible);
                         break;
                     case VIRUS:
-                        addToPane(stackPane, Images.VIRUS_CARD.toImageView());
+                        addToPane(stackPane, Images.VIRUS_CARD.toImageView(), isVisible);
                         break;
                     case WORM:
-                        addToPane(stackPane, Images.WORM_CARD.toImageView());
+                        addToPane(stackPane, Images.WORM_CARD.toImageView(), isVisible);
                         break;
 
                 }

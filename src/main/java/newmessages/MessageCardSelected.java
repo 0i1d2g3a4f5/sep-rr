@@ -80,7 +80,6 @@ public class MessageCardSelected extends Message{
             for(CPlayer player:client.getGame().getPlayerList()){
                 if(player.getClientID()==clientID){
                     player.addHandCards(register);
-                    //TODO to Mark from Sarp: you stupid motherfucker, register is the index not the amount
                 }
             }
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOTHERSREGISTERS, new TaskContent()));

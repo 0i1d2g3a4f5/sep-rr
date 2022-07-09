@@ -87,7 +87,7 @@ public class TaskHandler {
                 //clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
             }
             case UPDATEOTHERSREGISTERS -> {
-                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(task));
+                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(task, false));
             }
             case ERROR -> {
 
@@ -119,7 +119,7 @@ public class TaskHandler {
     }
     */
 
-    public GridPane gridPaneFromTask(Task task){
+    public GridPane gridPaneFromTask(Task task, boolean isVisible){
         TaskJsonArray taskJsonArray = new TaskJsonArray(task);
         ArrayList<Card> cardArrayList = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -131,10 +131,10 @@ public class TaskHandler {
             }
         }
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.gridPaneFromCards(cardArrayList);
+        return javaFXGridHandler.gridPaneFromCards(cardArrayList, isVisible);
     }
 
-    public GridPane gridPaneFromMultipleCardLists(Task task){
+    public GridPane gridPaneFromMultipleCardLists(Task task, boolean isVisible){
         TaskJsonArray2Levels taskJsonArray2Levels = new TaskJsonArray2Levels(task);
         CardFactory cardFactory = new CardFactory();
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
@@ -148,7 +148,7 @@ public class TaskHandler {
                     throw new RuntimeException(e);
                 }
             }
-            result.add(javaFXGridHandler.gridPaneFromCards(cardArrayList), i, 0);
+            result.add(javaFXGridHandler.gridPaneFromCards(cardArrayList, isVisible), i, 0);
         }
         return result;
     }

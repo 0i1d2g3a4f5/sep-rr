@@ -29,7 +29,7 @@ public class Cccc extends Application {
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.RIGHT_TURN));
         cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
-        GridPane gridPane = javaFXGridHandler.gridPaneFromCards(cardArrayList);
+        GridPane gridPane = javaFXGridHandler.gridPaneFromCards(cardArrayList, true);
         scrollPane.setContent(gridPane);
         scene = new Scene(scrollPane, 1280, 720);
         stage.setScene(scene);
