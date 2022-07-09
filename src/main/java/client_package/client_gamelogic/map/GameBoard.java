@@ -78,7 +78,10 @@ public class GameBoard  {
     }
 
 
-
+    /**
+     * @author Mark Ringer
+     * @return
+     */
     @Override
     public String toString() {
         return "GameBoard{" +

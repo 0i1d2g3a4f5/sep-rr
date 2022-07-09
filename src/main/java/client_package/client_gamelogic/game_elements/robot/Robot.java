@@ -18,6 +18,8 @@ import java.io.IOException;
  */
 public class Robot extends GameElement {
 
+    private boolean isPlaced = false;
+
     //private final Color color;
 
     public final int figure;
@@ -39,6 +41,28 @@ public class Robot extends GameElement {
     public Position getPosition() {
         return position;
     }
+
+    public boolean isPlaced() {
+        return isPlaced;
+    }
+
+    /**
+     * @author Mark Ringer
+     * only use for placing the Robot the first time on GameBoard
+     * @param y
+     * @param x
+     */
+    public void placeRobot(int y, int x){
+        isPlaced = true;
+        moveRobotTo(y,x);
+    }
+
+    /**
+     * @author Mark Ringer
+     * used to set move the Robot freely on the Map
+     * @param y
+     * @param x
+     */
 
     public void moveRobotTo(int y, int x){
         if(position != null){

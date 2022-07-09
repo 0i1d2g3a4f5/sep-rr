@@ -151,9 +151,11 @@ public class GameField {
          removeAll(ElementName.ROBOT);
     }
     private void removeAll(ElementName elementName){
+        GameElement robotElement = null;
         for (GameElement element:elements) {
-            if(element.getType()==elementName) elements.remove(element);
+            if(element.getType()==elementName) robotElement = element;
         }
+        elements.remove(robotElement);
     }
 
     /**

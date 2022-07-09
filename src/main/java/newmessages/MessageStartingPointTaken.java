@@ -61,6 +61,8 @@ public class MessageStartingPointTaken extends Message{
     }
 
     /**
+     * @author Mark Ringer
+     * places the Robot and updates the Map
      * @param client
      * @param isBasic
      * @throws IOException
@@ -70,10 +72,10 @@ public class MessageStartingPointTaken extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
 
         if(client.getId()==clientID) {
-            client.getPlayer().getRobot().moveRobotTo(y, x);
+            client.getPlayer().getRobot().placeRobot(y, x);
             System.out.println("StartPoint is set to " + x + "|" + y);
 
-            System.out.println(client.getGame().getMap().toString());
+            //System.out.println(client.getGame().getMap().toString());
 
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 

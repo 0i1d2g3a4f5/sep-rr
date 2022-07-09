@@ -7,6 +7,9 @@ import gamelogic.Direction;
 
 import java.io.IOException;
 import java.io.Serializable;
+/**
+ * @author Mark Ringer
+ */
 
 public class Antenna extends GameElement implements Serializable {
 
