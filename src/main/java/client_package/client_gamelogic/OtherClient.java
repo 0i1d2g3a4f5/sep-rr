@@ -6,16 +6,18 @@ public class OtherClient implements ClientObject {
     public final int clientID;
     public final int figure;
     public final String name;
+    private final Game game;
 
     private boolean isReady = false;
 
     private CPlayer player;
 
 
-    public OtherClient(int clientID, int figure, String name) {
+    public OtherClient(Game game, int clientID, int figure, String name) {
         this.clientID = clientID;
         this.figure = figure;
         this.name = name;
+        this.game = game;
     }
 
     public int getClientID() {
@@ -36,6 +38,11 @@ public class OtherClient implements ClientObject {
 
     public void setPlayer(CPlayer player) {
         this.player = player;
+    }
+
+    @Override
+    public Game getGame() {
+        return game;
     }
 
     @Override

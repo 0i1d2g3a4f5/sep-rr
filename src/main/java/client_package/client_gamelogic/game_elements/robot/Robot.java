@@ -1,8 +1,10 @@
 package client_package.client_gamelogic.game_elements.robot;
 
 
+import client_package.ClientObject;
 import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
+import client_package.client_gamelogic.game_elements.ElementName;
 import client_package.client_gamelogic.game_elements.GameElement;
 
 import gamelogic.Direction;
@@ -27,8 +29,11 @@ public class Robot extends GameElement {
     private CPlayer player;
 
     public Robot(int figure, CPlayer player) {
+        super(ElementName.ROBOT);
         this.player = player;
         this.figure = figure;
+        this.game = player.getGame();
+
     }
 
     public Position getPosition() {
@@ -36,7 +41,10 @@ public class Robot extends GameElement {
     }
 
     public void moveRobotTo(int y, int x){
-        game.getMap().getGameField(position.getY(),position.getX()).removeRobot();
+        if(position != null){
+            game.getMap().getGameField(position.getY(),position.getX()).removeRobot();
+        }
+
         game.getMap().getGameField(y,x).removeRobot();
         game.getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
@@ -57,9 +65,9 @@ public class Robot extends GameElement {
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (Position position, Direction direction, int figure) throws IOException {
+    public Robot (ClientObject client,Position position, Direction direction, int figure) throws IOException {
         this.figure = figure;
-        game =Game.getInstance();
+        game =client.getGame();
         directionFacing = direction;
         this.position = position;
         this.orientations.add(direction);

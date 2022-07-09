@@ -17,9 +17,19 @@ public class ThisCPlayer extends CPlayer {
     public ArrayList<Card> handCards;
 
     public ThisCPlayer(Client client, Game game) {
+        super(client,game);
+
         this.client = client;
         this.robot = new Robot(client.getFigure(),this);
+        this.game = game;
 
+    }
+
+
+
+    @Override
+    public Robot getRobot() {
+        return robot;
     }
 
     public void drawDamage(){

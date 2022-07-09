@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Game {
 
     private int activeRegister;
-    private ArrayList<CPlayer> playerList;
+    private final ArrayList<CPlayer> playerList = new ArrayList<>();
     private GameBoard map;
     private Client client;
     private static Game instance;
@@ -33,9 +33,16 @@ public class Game {
     public void join(ClientObject client){
         if(!(client.getId()==this.client.getId())){
             OtherClient otherClient = (OtherClient) client;
-            CPlayer player = new CPlayer();
+            CPlayer player = new CPlayer(client,this);
 
             otherClient.setPlayer(player);
+            playerList.add(player);
+        } else {
+            Client thisClient = (Client) client;
+            ThisCPlayer player = new ThisCPlayer(thisClient,thisClient.getGame());
+
+            thisClient.setPlayer(player);
+            playerList.add(player);
         }
     }
 
@@ -43,9 +50,7 @@ public class Game {
         return playerList;
     }
 
-    public void setPlayerList(ArrayList<CPlayer> playerList) {
-        this.playerList = playerList;
-    }
+
 
     public GameBoard getMap() {
         return map;
@@ -65,7 +70,7 @@ public class Game {
 
     public Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
-        this.playerList = playerList;
+        //TODO check if needed: this.playerList = playerList;
         map = new GameBoard(mapJson);
     }
 

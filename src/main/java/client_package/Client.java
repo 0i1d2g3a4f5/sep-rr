@@ -201,7 +201,10 @@ public abstract class Client implements ClientObject{
                                  ) {
                                 System.out.println("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
-                                process(jsonObject);
+                                Thread thread = new Thread(() -> process(jsonObject));
+                                thread.setDaemon(true);
+                                thread.start();
+
 
                             }
 

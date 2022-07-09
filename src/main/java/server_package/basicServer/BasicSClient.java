@@ -140,6 +140,7 @@ public class BasicSClient extends SClient {
             setName(name);
             setFigure(figure);
             sendAll(new MessagePlayerAdded(getId(), getName(), getFigure()));
+            System.out.println("Client "+name +" | "+ id +" joined the Game");
             Game.getInstance().join(this);
         }
         else{

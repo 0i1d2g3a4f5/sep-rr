@@ -14,7 +14,6 @@ public class CPlayer {
 
     int figure;
 
-
     Game game;
     int EnergyCubes;
     int clientID;
@@ -23,16 +22,21 @@ public class CPlayer {
     private ArrayList<Card> registerCards= new ArrayList(9);
 
     public CPlayer(ClientObject clientObject, Game game){
+        System.out.println("created CPlayer");
         if(clientObject.getId() == game.getClient().getId()){
+
+            this.game = game;
             //TODO own client needs player
-            ThisCPlayer thisPlayer = new ThisCPlayer((Client)clientObject,game);
-            OtherClient client = (OtherClient) clientObject;
+            ThisCPlayer thisPlayer = (ThisCPlayer) this;
+
+            Client client = (Client) clientObject;
             this.clientID = client.getId();
             client.setPlayer(thisPlayer);
         } else {
             OtherClient client = (OtherClient) clientObject;
             this.robot = new Robot(figure,this);
             this.clientID = client.getId();
+            this.game = game;
             client.setPlayer(this);
         }
 
@@ -40,8 +44,13 @@ public class CPlayer {
 
     }
 
-    protected CPlayer() {
+
+
+
+    public Game getGame() {
+        return game;
     }
+
 
 
     public int getEnergyCubes() {
