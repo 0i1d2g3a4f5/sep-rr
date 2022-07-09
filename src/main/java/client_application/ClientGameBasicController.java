@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -39,6 +40,21 @@ public class ClientGameBasicController {
     void startButton(ActionEvent event) {
 
     }
+    @FXML
+    private TextField startingCoordinates;
+
+    @FXML
+    void submitButton(ActionEvent event) {
+        String coordinatesAsString = startingCoordinates.getText().trim();
+        String[] singleCoordinate = coordinatesAsString.split("/");
+        System.out.println("submitButton");
+        Position pos = new Position(Integer.parseInt(singleCoordinate[1]),Integer.parseInt(singleCoordinate[0]));
+        System.out.println("Starting Position: "+pos);
+        setStartPoint(pos);
+
+
+    }
+
     public void updateProgrammingCards(GridPane gridPane){
         scrollAvailableProgramming.setContent(gridPane);
     }
@@ -84,15 +100,18 @@ public class ClientGameBasicController {
 
     public void setStartPoint(Position position){
         for(Player player : Game.getInstance().playerList){
-            if(player.getRobot().getPosition() == position){
+            /*
+            if(player.getRobot().getPosition().equals(position)){
                 System.out.println("This Start Point is taken. Please choose another one.");
+                return;
             }
-            else{
-                //TODO Option for advanced
-                clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
 
-                System.out.println("The Client: "+player.getClient().getId()+ "takes the Start Point" + position);
-            }
+             */
+
         }
+        //TODO Option for advanced
+        clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position.getX(),position.getY()));
+
+        System.out.println("The Client: "+"takes the Start Point" + position);
     }
 }
