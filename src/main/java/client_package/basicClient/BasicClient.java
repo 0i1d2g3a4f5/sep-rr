@@ -69,6 +69,7 @@ public class BasicClient extends Client {
         } catch (ClientNotFoundException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("finished processing "+messageType);
     }
     @Override
     public void listen(){

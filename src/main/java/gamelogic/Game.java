@@ -202,6 +202,7 @@ public class  Game {
      * @throws InterruptedException
      */
     public void startGame() throws IOException, InterruptedException {
+        System.out.println("Game started");
         continueGame=true;
         gameLoop();
 
@@ -267,6 +268,7 @@ public class  Game {
      * Draw cards and arrange them
      */
     private synchronized void programmingPhase() throws InterruptedException {
+        System.out.println("Phase: ProgrammingPhase");
 
         programmingPhase =true;
         drawCards();

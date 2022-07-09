@@ -79,6 +79,8 @@ public class MessageStartingPointTaken extends Message{
                 //System.out.println(client.getGame().getMap().toString());
 
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+                System.out.println("is Listening: "+ client.isListening());
+
 
                 //System.out.println("The starting point " + y + ", " + x + " is taken. Please choose a different one");
                 //TODO disable place Robot Field
@@ -89,6 +91,7 @@ public class MessageStartingPointTaken extends Message{
                     if(!player.getRobot().isPlaced()){
                         player.getRobot().placeRobot(y,x);
                         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+                        System.out.println("updated");
                     }
 
                 }

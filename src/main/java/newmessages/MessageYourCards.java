@@ -77,6 +77,8 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        System.out.println("Cards You Got: "+ cardsInHand);
+        /*
 
         ArrayList<Card> handCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -88,6 +90,8 @@ public class MessageYourCards extends Message{
         client.getPlayer().setHandCards(handCards);
 
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
+
+         */
     }
 
 }

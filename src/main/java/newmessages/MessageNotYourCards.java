@@ -60,7 +60,10 @@ public class MessageNotYourCards extends Message{
      * @throws ClientNotFoundException
      */
     @Override
+
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        System.out.println("NotYourCards "+ cardsInHand);
+        /*
 
         ArrayList<CPlayer> playerList = client.getGame().getPlayerList();
 
@@ -70,6 +73,8 @@ public class MessageNotYourCards extends Message{
                 break;
             }
         }
+
+         */
 
     }
 }
