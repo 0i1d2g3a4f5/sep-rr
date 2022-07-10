@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class  Game {
 
+    public Object lock = new Object();
     private int activeRegister = -1;
     private int robotsPlaced = 0;
     private boolean programmingPhase = false;
@@ -192,6 +193,7 @@ public class  Game {
             board.getField(position).addRobot(player.getRobot());
             robotsPlaced++;
             player.getRobot().setPlaced(true);
+            player.getRobot().setPosition(position);
             return true;
         } else return false;
     }
@@ -268,7 +270,7 @@ public class  Game {
      * @author Ringer
      * Draw cards and arrange them
      */
-    private synchronized void programmingPhase() throws InterruptedException {
+    private void programmingPhase() throws InterruptedException {
         System.out.println("Phase: ProgrammingPhase");
 
         programmingPhase =true;
@@ -280,8 +282,13 @@ public class  Game {
             player.isProgramming = true;
         }
         while(programmingPhase){
-            wait();
+
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
+
+
         }
+        System.out.println("Ending Programming phase");
         endProgrammingPhase();
     }
 
@@ -294,7 +301,12 @@ public class  Game {
 
         sendToAllPlayers(new MessageTimerStarted());
         try {
-            TimeUnit.SECONDS.sleep(30);
+            for (int i = 30; i>0; i--) {
+                if(programmingPlayers().size()<=0)
+                    break;
+                TimeUnit.SECONDS.sleep(1);
+            }
+
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -317,7 +329,8 @@ public class  Game {
             player.sendMessage(new MessageCardsYouGotNow(drawnCards));
 
         }
-        programmingPhase = false;
+
+
     }
 
     private ArrayList<Player> generatePlayerActivationList(){

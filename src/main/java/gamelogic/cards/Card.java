@@ -20,8 +20,9 @@ public abstract class Card implements JsonSerializable {
     }
     public void setGame(Game game){this.game = game;}
 
-    public Card(CardName cardName){
+    public Card(Game game, CardName cardName){
         this.cardName = cardName;
+        this.game = game;
 
     }
 

@@ -32,6 +32,7 @@ public abstract class Card{
     public abstract void discard();
 
 
+
     public abstract void activateCard();
 
     public JsonElement toJson(){

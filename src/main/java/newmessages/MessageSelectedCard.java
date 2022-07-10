@@ -88,7 +88,12 @@ public class MessageSelectedCard extends Message {
         System.out.println("Register of player "+ sClient.getId()+ ": " + Arrays.toString(sClient.getPlayer().getAllRegisters()));
         if(!(utility.SearchMethods.emptyArraySpaces(sClient.getPlayer().getAllRegisters())>0)){
             System.out.println("Cards full");
-            sClient.getPlayer().getGame().endProgrammingPhase();
+            sClient.getPlayer().getGame().setProgrammingPhase(false);
+            System.out.println("Var programmingPhase: "+sClient.getPlayer().getGame().isProgramingPhase());
+
+
+
+
         }
 
     }

@@ -29,9 +29,33 @@ public class GameBoard implements JsonSerializable {
     }
 
     public GameField getField(int y, int x){
+
+        if(y <0 || y>= boardMap.get(0).size() ||x <0 || x>= boardMap.size()){
+            System.out.println("illegal Field");
+
+            GameField gameField = new GameField(this,x,y);
+            gameField.addElement(new Pit());
+            return gameField;
+
+
+        }
+
+
         return boardMap.get(x).get(y);
     }
     public GameField getField(Position position){
+
+        if(position.getY() <0 || position.getY()>= boardMap.get(0).size()||position.getX() <0 || position.getX()>= boardMap.size()){
+            System.out.println("illegal Field");
+
+            GameField gameField = new GameField(this,position.getX(),position.getY());
+            gameField.addElement(new Pit());
+            return gameField;
+
+
+        }
+
+
         return boardMap.get(position.getX()).get(position.getY());
     }
 
