@@ -97,7 +97,7 @@ public abstract class Client implements ClientObject{
             DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
-            System.out.println("SENT :: " + toSend);
+            //System.out.println("SENT :: " + toSend);
             writer.write(toSend);
             writer.write("\n");
             writer.flush();
@@ -198,7 +198,7 @@ public abstract class Client implements ClientObject{
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                                  ) {
-                                System.out.println("RECEIVED: " + inputString);
+                                //System.out.println("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

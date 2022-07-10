@@ -92,6 +92,8 @@ public class Player{
         for (int i = 0; i < 6; i++) {
             deck.add(new UTurn());
         }
+
+        Collections.shuffle(deck);
         return deck;
 
     }
@@ -324,4 +326,6 @@ public class Player{
         discardPile.clear();
         Collections.shuffle(deck);
     }
+
+
 }

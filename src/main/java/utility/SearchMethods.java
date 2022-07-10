@@ -11,6 +11,16 @@ import java.util.List;
  * @author Ringer
  */
 public class SearchMethods {
+
+    public static int emptyArraySpaces(Object[] array){
+        int emptySpaces = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == null){
+                emptySpaces++;
+            }
+        }
+        return emptySpaces;
+    }
     /**
      * @author Ringer
      * @param cardName
@@ -18,6 +28,13 @@ public class SearchMethods {
      * @return
      */
     public static Card searchCard(CardName cardName, List<Card> list){
+        for (Card card:list) {
+            if(card.getCardName()==cardName) return card;
+        }
+        return null;
+    }
+
+    public static Card searchCard(CardName cardName,Card[] list){
         for (Card card:list) {
             if(card.getCardName()==cardName) return card;
         }

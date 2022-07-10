@@ -290,10 +290,14 @@ public class  Game {
      * Informs all players, that the Timer has started and force-ends their programming Phase
      * @throws InterruptedException
      */
-    public void endProgrammingPhase() throws InterruptedException {
+    public void endProgrammingPhase()  {
 
         sendToAllPlayers(new MessageTimerStarted());
-        TimeUnit.SECONDS.sleep(30);
+        try {
+            TimeUnit.SECONDS.sleep(30);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         ArrayList<Player> programmingPlayers = programmingPlayers();
         sendToAllPlayers(new MessageTimerEnded(programmingPlayers));
 
@@ -313,6 +317,7 @@ public class  Game {
             player.sendMessage(new MessageCardsYouGotNow(drawnCards));
 
         }
+        programmingPhase = false;
     }
 
     private ArrayList<Player> generatePlayerActivationList(){

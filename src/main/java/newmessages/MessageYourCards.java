@@ -13,6 +13,8 @@ import server_package.SClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * @author Mark Ringer, Vivian Kafadar
@@ -90,7 +92,24 @@ public class MessageYourCards extends Message{
 
         client.getPlayer().setHandCards(handCards);
 
+        System.out.println(client.getPlayer().handCards);
+
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
+
+        Scanner scanner = new Scanner(System.in);
+        if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
+            System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
+            System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
+            System.out.println("please insert the position of the card you want to pick");
+            int posHand = scanner.nextInt();
+            System.out.println("please insert the position the repository");
+            int posRepository = scanner.nextInt();
+            client.getPlayer().selectCard(posHand,posRepository);
+
+        }
+
+
+
 
 
     }
