@@ -1,6 +1,7 @@
 package newmessages;
 
 import client_package.AI.AIClient;
+import client_package.client_gamelogic.cards.Card;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -47,6 +48,11 @@ public class MessageActivePhase extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         System.out.println("Active Phase: Phase "+ phase);
+
+        if(phase == 2 || phase == 3){
+            client.getPlayer().getHandCards().clear();
+            client.getPlayer().setRegisterCards(new Card[client.getPlayer().getRegisterCards().length]);
+        }
 
     }
 

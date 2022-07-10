@@ -98,6 +98,7 @@ public class JavaFXGridHandler {
         GridPane gridPane = new GridPane();
         System.out.println("ASDFK;LJJAKSDLGASDLKJGDLAK\nsdfbsdf\nsdgdsfggsd\nasdfsadfasd\nsdgsdg\nadfasdfasd\nasfsafS");
         for(Card card : cardList){
+            if(card != null)
             System.out.println("Card is: " + card.getCardName().toString());
         }
         System.out.println("CARDLIISTSIZE: " + cardList.size());

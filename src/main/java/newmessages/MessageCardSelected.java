@@ -74,12 +74,15 @@ public class MessageCardSelected extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId()){
             ThisCPlayer player = client.getPlayer();
+            /*
             client.getClientApplication().selectCard();
+
+             */
             player.getHandCards().remove(player.getSelectedCard());
             player.placeRegisterCards(player.getSelectedCard(), register);
 
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
+            //client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
+            //client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
         }
         else {
@@ -92,7 +95,7 @@ public class MessageCardSelected extends Message{
 
 
         }
-        /*Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
             System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
             System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
@@ -102,7 +105,7 @@ public class MessageCardSelected extends Message{
             int posRepository = scanner.nextInt();
             client.getPlayer().selectCard(posHand,posRepository);
 
-        }*/
+        }
 
     }
 

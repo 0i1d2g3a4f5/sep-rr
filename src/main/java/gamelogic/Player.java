@@ -67,9 +67,12 @@ public class Player{
 
     private Stack<Card> buildDeck(){
         Stack<Card> deck = new Stack<>();
+        /*
         for (int i = 0; i < 6; i++) {
             deck.add(new Again());
         }
+
+         */
         for (int i = 0; i < 6; i++) {
             deck.add(new BackUp());
         }
@@ -143,21 +146,6 @@ public class Player{
         sClient.sendSelf(message);
     }
 
-    /**
-     * @author Ringer
-     * allows cards to be placed by the CPlayer
-     * @param cardName
-     * @param position
-     * @return
-     */
-    public boolean placeCard(CardName cardName, int position){
-            Card card = searchCard(cardName,handCards);
-            if(card !=null&&addToRegister(card,position)){
-                handCards.remove(card);
-                return true;
-            }
-            return false;
-    }
     public boolean placeCard(Card card, int position){
         if(card !=null&&addToRegister(card,position)){
             handCards.remove(card);

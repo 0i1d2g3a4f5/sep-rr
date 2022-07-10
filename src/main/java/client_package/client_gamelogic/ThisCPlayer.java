@@ -15,7 +15,7 @@ public class ThisCPlayer extends CPlayer {
 
     private Robot robot;
     private Card[] registerCards = new Card[5];
-    public ArrayList<Card> handCards;
+    public ArrayList<Card> handCards = new ArrayList<>();
 
     public ThisCPlayer(Client client, Game game) {
         super(client,game);
@@ -26,7 +26,9 @@ public class ThisCPlayer extends CPlayer {
 
     }
 
-
+    public void setRegisterCards(Card[] registerCards) {
+        this.registerCards = registerCards;
+    }
 
     @Override
     public Robot getRobot() {
@@ -58,10 +60,10 @@ public class ThisCPlayer extends CPlayer {
 
     public void selectCard(int posHandcard,int posRegister){
         if(posHandcard>=0 && posHandcard <9){
-            /*
+
             Message message = new MessageSelectedCard(handCards.get(posHandcard).toString(),posRegister);
             client.sendSelf(message);
-            System.out.println("SENT: "+ message);*/
+            System.out.println("SENT: "+ message);
             selectedCard = handCards.get(posHandcard);
         }
 

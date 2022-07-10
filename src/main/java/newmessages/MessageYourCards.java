@@ -113,6 +113,7 @@ public class MessageYourCards extends Message{
             int posHand = scanner.nextInt();
             System.out.println("please insert the position the repository");
             int posRepository = scanner.nextInt();
+            System.out.println("scanned");
             client.getPlayer().selectCard(posHand,posRepository);
 
         }

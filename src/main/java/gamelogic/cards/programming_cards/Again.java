@@ -3,6 +3,8 @@ package gamelogic.cards.programming_cards;
 import gamelogic.Game;
 import gamelogic.cards.Card;
 
+import java.util.Arrays;
+
 import static gamelogic.cards.CardName.AGAIN;
 
 public class
@@ -27,7 +29,8 @@ Again extends ProgrammingCard {
         System.out.println("Again");
         //Activates the previous Register
         Card[] register = player.getAllRegisters();
-        System.out.println("Again activates: " +register[Game.getInstance().getActiveRegister()-1]);
+        System.out.println("Current Register: "+ Arrays.toString(register));
+        System.out.println("Again activates: " + register[Game.getInstance().getActiveRegister()-1]);
         register[Game.getInstance().getActiveRegister()-1].activateCard();
         //player.activateRegister(Game.getInstance().getActiveRegister()-1);
     }
