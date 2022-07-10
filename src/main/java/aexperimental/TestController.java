@@ -53,7 +53,7 @@ public class TestController {
         if(inside) {
             int x = GridPane.getColumnIndex(clicked);
             int y = GridPane.getRowIndex(clicked);
-            System.out.println(x + " " + y);
+            System.out.println("Index: " + x );
         }
 
     }

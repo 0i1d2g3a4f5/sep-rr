@@ -3,10 +3,13 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Player;
+import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import server_package.SClient;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -30,7 +33,7 @@ public class MessageSelectedCard extends Message {
         jsonObject.add("card", new JsonPrimitive(card));
         jsonObject.add("register", new JsonPrimitive(register));
         content = jsonObject;
-        System.out.println("Created SelectCard Message: " + this);
+        //System.out.println("Created SelectCard Message: " + this);
     }
 
     /**
@@ -40,7 +43,7 @@ public class MessageSelectedCard extends Message {
         super(jsonObject);
         card = content.get("card").getAsString();
         register = content.get("register").getAsInt();
-        System.out.println("Created SelectCard Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created SelectCard Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -61,6 +64,15 @@ public class MessageSelectedCard extends Message {
             else sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
         }
         else{
+
+            if(player.getRegister(register) !=null)
+                player.getHandCards().add(player.getRegister(register));
+
+            Card cardObject = utility.SearchMethods.searchCard(CardName.parseCardName(card),player.getHandCards());
+            player.getAllRegisters()[register] = cardObject;
+            sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
+
+            /*
             if (player.removeCard(register)){
                 if (player.placeCard(CardName.valueOf(card), register))
                     sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
@@ -68,7 +80,19 @@ public class MessageSelectedCard extends Message {
                     sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, false));
             }else {
                 sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
-            }
+
+             */
+
+
+        }
+        System.out.println("Register of player "+ sClient.getId()+ ": " + Arrays.toString(sClient.getPlayer().getAllRegisters()));
+        if(!(utility.SearchMethods.emptyArraySpaces(sClient.getPlayer().getAllRegisters())>0)){
+            System.out.println("Cards full");
+            sClient.getPlayer().getGame().setProgrammingPhase(false);
+            System.out.println("Var programmingPhase: "+sClient.getPlayer().getGame().isProgramingPhase());
+
+
+
 
         }
 

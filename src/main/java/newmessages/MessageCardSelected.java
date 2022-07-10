@@ -5,11 +5,14 @@ import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.AI.AIClient;
 import client_package.client_gamelogic.CPlayer;
+import client_package.client_gamelogic.ThisCPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -37,7 +40,7 @@ public class MessageCardSelected extends Message{
         jsonObject.add("register", new JsonPrimitive(register));
         jsonObject.add("filled", new JsonPrimitive(filled));
         content = jsonObject;
-        System.out.println("Created Register Message: " + this);
+        //System.out.println("Created Register Message: " + this);
     }
 
     /**
@@ -48,7 +51,7 @@ public class MessageCardSelected extends Message{
         clientID = content.get("clientID").getAsInt();
         register = content.get("register").getAsInt();
         filled = content.get("filled").getAsBoolean();
-        System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -71,7 +74,10 @@ public class MessageCardSelected extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId()){
-            client.getPlayer().placeRegisterCards(client.getPlayer().getSelectedCard(),register);
+            ThisCPlayer player = client.getPlayer();
+            player.getHandCards().remove(player.getSelectedCard());
+            player.placeRegisterCards(player.getSelectedCard(),register);
+
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
@@ -84,6 +90,17 @@ public class MessageCardSelected extends Message{
             }
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOTHERSREGISTERS, new TaskContent()));
 
+
+        }
+        Scanner scanner = new Scanner(System.in);
+        if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
+            System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
+            System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
+            System.out.println("please insert the position of the card you want to pick");
+            int posHand = scanner.nextInt();
+            System.out.println("please insert the position the repository");
+            int posRepository = scanner.nextInt();
+            client.getPlayer().selectCard(posHand,posRepository);
 
         }
     }

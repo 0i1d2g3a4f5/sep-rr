@@ -71,8 +71,9 @@ public class ClientStartBasicController {
     void createdSocket(){
         System.out.println("FFFFFFFFFFFFF");
         clientApplication.stageBasicStart.close();
-        clientApplication.launchBasicName();
         clientApplication.launchBasicChat();
+        clientApplication.launchBasicName();
+
     }
 
 

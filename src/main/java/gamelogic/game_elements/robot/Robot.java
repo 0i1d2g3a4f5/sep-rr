@@ -45,6 +45,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     public void setPosition(Position position) {
         this.position = position;
+        gameField = game.getBoard().getField(position);
     }
 
 
@@ -54,15 +55,17 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (Position position, Direction direction){
-        game =Game.getInstance();
+    public Robot (Game game,Position position, Direction direction){
+
         directionFacing = direction;
         this.position = position;
+        this.gameField = game.getBoard().getField(position);
+        this.game = game;
         this.orientations.add(direction);
 
     }
-    public Robot (){
-        game =Game.getInstance();
+    public Robot (Game game){
+        this.game =game;
         directionFacing = Direction.EAST;
         this.orientations.add(Direction.EAST);
 

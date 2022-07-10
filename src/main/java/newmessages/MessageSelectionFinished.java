@@ -45,6 +45,7 @@ public class MessageSelectionFinished extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+        /*
         try {
             if (sClient.getServer().getGame().programmingPlayers().size() == 0)
                 sClient.getServer().getGame().endProgrammingPhase();
@@ -52,6 +53,8 @@ public class MessageSelectionFinished extends Message{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+         */
 
     }
 
@@ -63,6 +66,7 @@ public class MessageSelectionFinished extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        System.out.println("Server: Player "+ clientID + " has finished programming. You have 30 seconds left");
 
     }
 }

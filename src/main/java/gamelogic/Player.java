@@ -50,7 +50,9 @@ public class Player{
     public Player(SClient sClient, Game game) {
         this.sClient = sClient;
         this.game = game;
-        setRobot(new Robot());
+        Robot robot = new Robot(game);
+        robot.setPlayer(this);
+        setRobot(robot);
     }
 
     /**
@@ -92,6 +94,9 @@ public class Player{
         for (int i = 0; i < 6; i++) {
             deck.add(new UTurn());
         }
+        deck.forEach((card)->{card.setPlayer(this); card.setGame(game);});
+
+        Collections.shuffle(deck);
         return deck;
 
     }
@@ -324,4 +329,6 @@ public class Player{
         discardPile.clear();
         Collections.shuffle(deck);
     }
+
+
 }
