@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="781.0" fitWidth="1266.0" layoutX="-5.0" layoutY="-12.0" opacity="0.7">
          <image>
-            <Image url="@images/factory3.png" />
+            <Image url="@factory3.png" />
          </image>
       </ImageView>
       <TextField fx:id="ipInput" layoutX="411.0" layoutY="349.0" prefHeight="54.0" prefWidth="600.0" AnchorPane.topAnchor="349.0" />
@@ -25,27 +25,27 @@
       </Button>
       <ImageView fitHeight="113.0" fitWidth="1268.0" layoutX="-10.0" layoutY="638.0" rotate="170.9" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1309.0" layoutX="-49.0" layoutY="637.0" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1261.0" layoutY="-6.0" rotate="4.2" y="1.0">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="85.0" fitWidth="194.0" layoutX="68.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/robo-logo.png" />
+            <Image url="@robo-logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="235.0" fitWidth="298.0" layoutX="74.0" layoutY="164.0" opacity="0.9" pickOnBounds="true">
          <image>
-            <Image url="@images/metalrectangle.jpeg" />
+            <Image url="@metalrectangle.jpeg" />
          </image>
       </ImageView>
       <Text fx:id="feedBack" layoutX="411.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">

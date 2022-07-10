@@ -9,17 +9,17 @@
     <children>
       <ImageView fitHeight="681.0" fitWidth="1200.0" layoutY="-1.0" opacity="0.8">
          <image>
-            <Image url="@images/factory2.jpeg" />
+            <Image url="@factory2.jpeg" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1200.0" layoutX="-3.0" layoutY="81.0" y="1.0">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1221.0" layoutX="-13.0" layoutY="503.0" rotate="169.0" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <TextField fx:id="passInput" layoutX="358.0" layoutY="347.0" opacity="0.8" prefHeight="45.0" prefWidth="502.0" />
@@ -36,12 +36,12 @@
       </Text>
       <ImageView fitHeight="113.0" fitWidth="1221.0" layoutX="-15.0" layoutY="523.0" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1200.0" layoutX="1.0" layoutY="-60.0" rotate="4.6" y="1.0">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="85.0" fitWidth="194.0" layoutX="58.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">

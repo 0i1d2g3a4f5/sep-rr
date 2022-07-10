@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="677.0" fitWidth="1200.0" opacity="0.8">
          <image>
-            <Image url="@images/factory2.jpeg" />
+            <Image url="@factory2.jpeg" />
          </image>
       </ImageView>
       <Text fill="#ebebeb" layoutX="332.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
@@ -82,22 +82,22 @@
       </GridPane>
       <ImageView fitHeight="85.0" fitWidth="194.0" layoutX="68.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/robo-logo.png" />
+            <Image url="@robo-logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1200.0" layoutX="11.0" layoutY="-10.0" rotate="4.2" y="1.0">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1221.0" layoutX="-5.0" layoutY="533.0" rotate="-7.9" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="113.0" fitWidth="1221.0" layoutX="-3.0" layoutY="513.0" style="-fx-opacity: 7;">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <Button layoutX="536.0" layoutY="424.0" mnemonicParsing="false" onAction="#startButton" prefHeight="52.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Start" textFill="#ebebeb" AnchorPane.leftAnchor="536.0">

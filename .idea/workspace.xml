@@ -4,39 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f19ef673-26e4-4307-8504-12c2a48d9019" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+    <list default="true" id="f19ef673-26e4-4307-8504-12c2a48d9019" name="Changes" comment="i have das Projekt gefickst">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/ThisCPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/ThisCPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/BackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/BackUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/LeftTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/LeftTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveThree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveThree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveTwo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/PowerUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/EnergySpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/EnergySpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCurrentCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCurrentCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,11 +80,41 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657471881605</updated>
-      <workItem from="1657471884251" duration="925000" />
+      <workItem from="1657471884251" duration="1240000" />
     </task>
+    <task id="LOCAL-00001" summary="i have das Projekt gefickst">
+      <created>1657472891741</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657472891741</updated>
+    </task>
+    <task id="LOCAL-00002" summary="i have das Projekt gefickst">
+      <created>1657472917152</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657472917152</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="i have das Projekt gefickst" />
+    <option name="LAST_COMMIT_MESSAGE" value="i have das Projekt gefickst" />
   </component>
 </project>
