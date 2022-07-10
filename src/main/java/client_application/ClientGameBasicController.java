@@ -3,23 +3,23 @@ package client_application;
 import gamelogic.Position;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import newmessages.MessageSelectedCard;
 import newmessages.MessageSetStartingPoint;
 
 /**
  * @author Sarp Cagin Erdogan
  */
 public class ClientGameBasicController {
-    boolean startingSubmitActive = true;
+    boolean startingSubmitActive = true, chooseProgrammingActive = false;
 
     public ClientApplication clientApplication;
-    public GridPane gameBoard;
-    public GridPane ownRegister;
-    public GridPane availableCards;
-    public GridPane otherRegisters;
+    int currentChosen;
 
     @FXML
     private ScrollPane scrollAvailableProgramming;
@@ -88,39 +88,22 @@ public class ClientGameBasicController {
     }
 
     public void updateProgrammingCards(GridPane gridPane){
-        availableCards=gridPane;
-        scrollAvailableProgramming.setContent(availableCards);
+        stackOwnProgramming.getChildren().clear();
+        stackOwnProgramming.getChildren().add(gridPane);
     }
     public void updateOtherRegisters(GridPane gridPane){
-        otherRegisters=gridPane;
-        scrollOtherRegisters.setContent(otherRegisters);
+        scrollOtherRegisters.setContent(gridPane);
     }
 
     public void updateHandCards(GridPane gridPane){
-        ownRegister=gridPane;
-        stackOwnProgramming.getChildren().clear();
-        stackOwnProgramming.getChildren().add(ownRegister);
+        scrollAvailableProgramming.setContent(gridPane);
     }
 
 
 
     public void updateGameBoard(GridPane gridPane){
-        gameBoard = gridPane;
-        scrollPaneGameBoard.setContent(gameBoard);
+        scrollPaneGameBoard.setContent(gridPane);
     }
-
-    // Set AnchorPane visible at start of programming phase
-        // if progPhase (true) then ...
-    // extract info from startingCoordinates and save
-    // display info in handCardsList
-    // have click of setCardButton add it to progCardsList
-    // confirm whole list and send to game when clicking confirmCardsButton
-
-    /*@FXML
-    AnchorPane controlCenter() {
-
-    }*/
-
     public void sendStartPoint(Position position){
         clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position));
 
@@ -129,4 +112,55 @@ public class ClientGameBasicController {
         startingCoordinates.setText("");
         startingSubmitActive=true;
     }
+    public void activateCardSelection(){
+        chooseProgrammingActive=true;
+    }
+
+    public void selectCard(){
+        GridPane gridPane = (GridPane) stackOwnProgramming.getChildren().get(0);
+        clientApplication.getClient().getPlayer().selectCard(currentChosen, gridPane.getColumnCount());
+        chooseProgrammingActive=true;
+    }
+
+    @FXML
+    public void mouseClicked(MouseEvent mouseEvent) {
+        if(chooseProgrammingActive){
+            chooseProgrammingActive=false;
+            Node clicked = mouseEvent.getPickResult().getIntersectedNode();
+            System.out.println("CLICKED NODE IS: " + clicked.toString());
+            boolean inside = true;
+            Node requestedParent = scrollAvailableProgramming.getContent();
+
+            while (clicked != null && clicked.getParent() != null && !clicked.getParent().equals(requestedParent)) {
+                inside=false;
+                //System.out.println("Current = " + clicked.toString() + " from class " + clicked.getClass().toString() + " with parent " + clicked.getParent());
+                clicked = clicked.getParent();
+                if (clicked.getParent() != null && clicked.getParent().equals(requestedParent)) {
+                    inside = true;
+                    break;
+                }
+            }
+
+            if (inside) {
+
+                int x = GridPane.getColumnIndex(clicked);
+                currentChosen=x;
+                //System.out.println("Index: " + currentChosen);
+                GridPane own = (GridPane) stackOwnProgramming.getChildren().get(0);
+                System.out.println("Chosen card is \"" + clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName() + "\" for register \"" + (own.getColumnCount()) + "\"");
+                clientApplication.getClient().sendSelf(new MessageSelectedCard(clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName().toString(), own.getColumnCount() ));
+            }
+            else{
+                chooseProgrammingActive=true;
+            }
+        }
+
+    }
+    public void init(){
+        stackOwnProgramming.getChildren().add(new GridPane());
+        scrollPaneGameBoard.setContent(new GridPane());
+        scrollAvailableProgramming.setContent(new GridPane());
+        scrollOtherRegisters.setContent(new GridPane());
+    }
+
 }

@@ -17,6 +17,7 @@ public class MoveThree extends ProgrammingCard {
 
     @Override
     public void activateCard() {
+        System.out.println("Move Three");
         // Move your robot three spaces in the direction it is facing.
         player.getRobot().forward(3);
 

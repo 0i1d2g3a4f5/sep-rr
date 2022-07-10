@@ -58,7 +58,7 @@ public class MessageYourCards extends Message{
             cardsInHand[i] =CardName.parseCardName(cardsJArray.get(i).getAsString());
         }
 
-        System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -80,7 +80,6 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        System.out.println("Cards You Got: "+ cardsInHand);
 
 
         ArrayList<Card> handCards = new ArrayList<>();
@@ -91,12 +90,12 @@ public class MessageYourCards extends Message{
         }
 
         client.getPlayer().setHandCards(handCards);
+        client.getClientApplication().activateCardSelection();
 
-        System.out.println(client.getPlayer().handCards);
 
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
             System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
             System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
@@ -107,7 +106,7 @@ public class MessageYourCards extends Message{
             client.getPlayer().selectCard(posHand,posRepository);
 
         }
-
+*/
 
 
 

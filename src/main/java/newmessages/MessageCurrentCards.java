@@ -32,7 +32,7 @@ public class MessageCurrentCards extends Message {
         type = "CurrentCards";
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
-        for (int i = 0; i < cards.size(); i++) {
+        for (int i = 0; i < (Math.min(cards.size(), players.size())); i++) {
             JsonObject infoJObject = new JsonObject();
             infoJObject.add("clientID", new JsonPrimitive(players.get(i).getClient().getId()));
             infoJObject.add("card", new JsonPrimitive(cards.get(i).toString()));

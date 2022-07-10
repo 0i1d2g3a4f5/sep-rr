@@ -31,7 +31,7 @@ public class MessageSelectedCard extends Message {
         type = "SelectedCard";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("card", new JsonPrimitive(card));
-        jsonObject.add("register", new JsonPrimitive(register));
+        jsonObject.add("register", new JsonPrimitive(register+1));
         content = jsonObject;
         //System.out.println("Created SelectCard Message: " + this);
     }
@@ -42,7 +42,7 @@ public class MessageSelectedCard extends Message {
     public MessageSelectedCard(JsonObject jsonObject) {
         super(jsonObject);
         card = content.get("card").getAsString();
-        register = content.get("register").getAsInt();
+        register = content.get("register").getAsInt()-1;
         //System.out.println("Created SelectCard Message: " + this + " from JSON: " + jsonObject);
     }
 

@@ -7,17 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="desperate_drosseln_hp" />
-        <module name="desperate.drosseln.hp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="AI" target="14" />
-      <module name="client_package" target="14" />
-      <module name="clientModule" target="18" />
-      <module name="communication" target="18" />
-      <module name="gamelogic" target="18" />
-      <module name="server_package" target="14" />
-      <module name="serverModule" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>

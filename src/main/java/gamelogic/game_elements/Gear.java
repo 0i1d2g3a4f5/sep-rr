@@ -22,6 +22,7 @@ public class Gear extends GameElement implements Activatable {
 
     @Override
     public void activate() {
+        System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
             if(gearDirection==GearDirection.CLOCKWISE){
                 gameField.getRobot().right();

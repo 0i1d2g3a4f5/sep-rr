@@ -1,5 +1,7 @@
 package gamelogic.cards.programming_cards;
 
+import gamelogic.Game;
+
 import static gamelogic.cards.CardName.AGAIN;
 
 public class
@@ -21,7 +23,8 @@ Again extends ProgrammingCard {
      */
     @Override
     public void activateCard() {
+        System.out.println("Again");
         //Activates the previous Register
-        player.activateRegister(game.getActiveRegister()-1);
+        player.activateRegister(Game.getInstance().getActiveRegister()-1);
     }
 }

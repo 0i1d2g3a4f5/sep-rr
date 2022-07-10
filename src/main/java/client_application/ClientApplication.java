@@ -50,6 +50,13 @@ public class ClientApplication extends Application {
             }
         });
     }
+    public void selectCard(){
+        clientGameBasicController.selectCard();
+    }
+    public void activateCardSelection(){
+        clientGameBasicController.activateCardSelection();
+    }
+
 
     public void launchBeginning(){
         stageSelection = new Stage();
@@ -146,6 +153,7 @@ public class ClientApplication extends Application {
             Scene scene = new Scene(fxmlLoader.load(), 1440, 810);
             clientGameBasicController=fxmlLoader.getController();
             clientGameBasicController.clientApplication=this;
+            clientGameBasicController.init();
             stageBasicGame.setScene(scene);
             stageBasicGame.show();
         } catch (IOException e) {

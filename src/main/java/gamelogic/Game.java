@@ -284,7 +284,7 @@ public class  Game {
         while(programmingPhase){
 
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
+            //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
 
 
         }
@@ -365,7 +365,10 @@ public class  Game {
             activeRegister = i;
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
-                activatedRegisters.add(player.getRegister(i));
+                Card card = player.getRegister(i);
+                if(card != null)
+                    activatedRegisters.add(card);
+                else System.out.println("Card on pos "+ i+ " is null");
 
             }
             sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));

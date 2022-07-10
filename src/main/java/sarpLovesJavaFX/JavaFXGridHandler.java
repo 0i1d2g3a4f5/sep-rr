@@ -106,7 +106,7 @@ public class JavaFXGridHandler {
                         addToPane(stackPane, Images.AGAIN_CARD.toImageView(), isVisible);
                         break;
                     case BACK_UP:
-                        addToPane(stackPane, Images.CARD_BACK_CARD.toImageView(), isVisible);
+                        addToPane(stackPane, Images.BACK_UP_CARD.toImageView(), isVisible);
                         break;
                     case LEFT_TURN:
                         addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView(), isVisible);

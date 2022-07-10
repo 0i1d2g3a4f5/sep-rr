@@ -1,13 +1,12 @@
 package client_application;
 
+import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.cards.Card;
-import client_package.client_gamelogic.cards.CardFactory;
 import client_package.client_gamelogic.map.GameBoard;
-import gamelogic.cards.CardName;
+import gamelogic.Player;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -67,28 +66,24 @@ public class TaskHandler {
 
             }
             case UPDATEGAMEBOARD -> {
-                /*TaskJsonObject taskJsonObject = new TaskJsonObject(task);
-                client_package.client_gamelogic.map.GameBoard gameBoard;
-                try {
-                    gameBoard = new client_package.client_gamelogic.map.GameBoard(taskJsonObject.jsonObject);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }*/
                 clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(this.clientApplication.basicClient.getGame().getMap()));
                 System.out.println("TaskHandler: finished updating Game board" );
             }
             case UPDATE_HANDCARDS -> {
-                //clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(this.clientApplication.basicClient.getPlayer().getHandCards()));
-                // TODO want to load handcard list for player from getHandCards() - do we need to setHandCards() somewhere?
+                clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getHandCards(), true));
+
 
             }
             case UPDATE_PROGCARDS -> {
-                //clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(this.clientApplication.basicClient.getPlayer().getRegisterCards()));
-                // TODO how to get register cards? bzw. do we need to get them?
-                //clientApplication.clientGameBasicController.updateOwnRegister(gridPaneFromCardList(task));
+                ArrayList<Card> bla = fromArrayToList(clientApplication.getClient().getPlayer().getRegisterCards());
+                clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(bla, true));
             }
             case UPDATEOTHERSREGISTERS -> {
-                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(task, false));
+                ArrayList<ArrayList<Card>> res = new ArrayList<>();
+                for(CPlayer cPlayer : clientApplication.getClient().getGame().getPlayerList()){
+                    res.add(fromArrayToList(cPlayer.getRegisterCards()));
+                }
+                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(res, false));
             }
             case ERROR -> {
 
@@ -97,6 +92,13 @@ public class TaskHandler {
 
             }
         }
+    }
+    public ArrayList<Card> fromArrayToList(Card[] inp){
+        ArrayList<Card> bla = new ArrayList<>();
+        for(int i=0; i<inp.length; i++){
+            bla.add(inp[i]);
+        }
+        return bla;
     }
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
@@ -120,38 +122,19 @@ public class TaskHandler {
     }
     */
 
-    public GridPane gridPaneFromTask(Task task, boolean isVisible){
-        TaskJsonArray taskJsonArray = new TaskJsonArray(task);
-        ArrayList<Card> cardArrayList = new ArrayList<>();
-        CardFactory cardFactory = new CardFactory();
-        for(int i = 0; i<taskJsonArray.jsonArray.size(); i++){
-            try {
-                cardArrayList.add(cardFactory.createCard(CardName.parseCardName(taskJsonArray.jsonArray.get(i).getAsString())));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+    public GridPane gridPaneFromCardList(ArrayList<Card> cardArrayList, boolean isVisible){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         return javaFXGridHandler.gridPaneFromCards(cardArrayList, isVisible);
     }
 
-    public GridPane gridPaneFromMultipleCardLists(Task task, boolean isVisible){
-        TaskJsonArray2Levels taskJsonArray2Levels = new TaskJsonArray2Levels(task);
-        CardFactory cardFactory = new CardFactory();
-        JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
+    public GridPane gridPaneFromMultipleCardLists(ArrayList<ArrayList<Card>> cardArrayList, boolean isVisible){
         GridPane result = new GridPane();
-        for(int i=0; i<taskJsonArray2Levels.stringContent.size(); i++){
-            ArrayList<Card> cardArrayList = new ArrayList<>();
-            for(int j=0; j<taskJsonArray2Levels.stringContent.get(i).size(); j++){
-                try {
-                    cardArrayList.add(cardFactory.createCard(CardName.parseCardName(taskJsonArray2Levels.stringContent.get(i).get(j))));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            result.add(javaFXGridHandler.gridPaneFromCards(cardArrayList, isVisible), i, 0);
+        for(ArrayList<Card> temp : cardArrayList){
+            GridPane tempp = gridPaneFromCardList(temp, isVisible);
+            result.getChildren().add(tempp);
         }
         return result;
+
     }
 
 }
