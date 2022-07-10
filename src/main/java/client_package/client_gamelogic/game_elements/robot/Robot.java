@@ -54,6 +54,7 @@ public class Robot extends GameElement {
      */
     public void placeRobot(int y, int x){
         isPlaced = true;
+        directionFacing = Direction.EAST;
         moveRobotTo(y,x);
     }
 

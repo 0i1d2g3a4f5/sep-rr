@@ -130,8 +130,14 @@ public class MessageTypeFactory {
             case "YourCards" ->{
                 return MessageType.YOUR_CARDS;
             }
+            case "CurrentCards" -> {
+                return MessageType.CURRENT_CARDS;
+            }
+            case "DrawDamage" -> {
+                return MessageType.DRAW_DAMAGE;
+            }
             default -> {
-                return MessageType.DEFAULT;
+                throw new IllegalArgumentException("Message "+string +" does not exist");
             }
 
 

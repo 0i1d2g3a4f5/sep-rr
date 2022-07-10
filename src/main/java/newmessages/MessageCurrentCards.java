@@ -30,35 +30,37 @@ public class MessageCurrentCards extends Message {
         this.cards = cards;
         this.players = players;
         type = "CurrentCards";
-        JsonObject jsonObject = new JsonObject();
-        JsonArray jsonArray = new JsonArray();
-        for (int i = 0; i < cards.size(); i++) {
-            JsonObject infoJObject = new JsonObject();
-            infoJObject.add("clientID", new JsonPrimitive(players.get(i).getClient().getId()));
-            infoJObject.add("card", new JsonPrimitive(cards.get(i).toString()));
-            jsonArray.add(infoJObject);
+        JsonObject messageContent = new JsonObject();
+        JsonArray pairList = new JsonArray();
+        for(int i=0; i<Math.min(cards.size(), players.size()); i++){
+            JsonObject temp = new JsonObject();
+            temp.add("clientID", new JsonPrimitive(players.get(i).getClient().getId()));
+            temp.add("card", new JsonPrimitive(cards.get(i).getCardName().toString()));
+            pairList.add(temp);
         }
-        jsonObject.add("activeCards",jsonArray);
-        content = jsonObject;
-
-        System.out.println("Created Register Message: " + this);
+        messageContent.add("activeCards", pairList);
+        content = messageContent;
     }
 
     /**
      * @param jsonObject
      * @throws IOException
      */
-    public MessageCurrentCards(JsonObject jsonObject) throws IOException {
-        JsonArray jsonArray = jsonObject.get("activeCards").getAsJsonArray();
-        ArrayList<Card> cards = new ArrayList<>();
-        ArrayList<Player> players = new ArrayList<>();
+    public MessageCurrentCards(JsonObject jsonObject) {
+        super(jsonObject);
+        ArrayList<Card> cards1 = new ArrayList<>();
+        JsonArray jsonArray = content.get("activeCards").getAsJsonArray();
         CardFactory cardFactory = new CardFactory();
-        for (int i = 0; i < cards.size(); i++) {
-            cards.add(cardFactory.createCard(CardName.valueOf(jsonArray.get(i).getAsString())));
+        for (int i = 0; i < jsonArray.size(); i++) {
+            try {
+                cards1.add(cardFactory.createCard(CardName.parseCardName(jsonArray.get(i).getAsJsonObject().get("card").getAsString())));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         this.cards = cards;
 
-        System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

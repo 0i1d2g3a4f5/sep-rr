@@ -274,17 +274,18 @@ public class  Game {
         System.out.println("Phase: ProgrammingPhase");
 
         programmingPhase =true;
-        drawCards();
+
 
         for (Player player:playerList) {
             System.out.println("send to:" + player.getClient().getName());
             player.getClient().sendSelf(new MessageActivePhase(2));
             player.isProgramming = true;
         }
+        drawCards();
         while(programmingPhase){
 
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
+            //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
 
 
         }
@@ -365,7 +366,10 @@ public class  Game {
             activeRegister = i;
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
-                activatedRegisters.add(player.getRegister(i));
+                Card card = player.getRegister(i);
+                if(card != null)
+                    activatedRegisters.add(card);
+                else System.out.println("Card on pos "+ i+ " is null");
 
             }
             sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));

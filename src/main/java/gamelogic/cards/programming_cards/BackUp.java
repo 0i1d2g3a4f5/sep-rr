@@ -17,6 +17,7 @@ public class BackUp extends ProgrammingCard {
 
     @Override
     public void activateCard() {
+        System.out.println("BackUp");
         /*
         Move your robot one space back.
         The robot does not change the direction it is facing.

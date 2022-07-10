@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Player;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardFactory;
 import gamelogic.cards.CardName;
@@ -29,18 +30,29 @@ public class MessageDrawDamage extends Message {
         //TODO check if correct
         this.clientID = clientID;
         type = "DrawDamage";
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.add("clientID", new JsonPrimitive(clientID));
-        content = jsonObject;
+        JsonObject messageContent = new JsonObject();
+        messageContent.add("clientID", new JsonPrimitive(clientID));
         JsonArray jsonArray = new JsonArray();
-        for (int i = 0; i < damageCards.size(); i++) {
-            JsonObject infoJObject = new JsonObject();
-            infoJObject.add("damageCards", new JsonPrimitive(damageCards.get(i).toString()));
-            jsonArray.add(infoJObject);
+        for(int i = 0; i<damageCards.size(); i++){
+            jsonArray.add(damageCards.get(i).toString());
         }
-        jsonObject.add("damageCards",jsonArray);
-        content = jsonObject;
-        System.out.println("Created DrawDamage Message: " + this);
+        messageContent.add("cards", jsonArray);
+        content = messageContent;
+    }
+
+    public MessageDrawDamage(JsonObject jsonObject) {
+        super(jsonObject);
+        CardFactory cardFactory = new CardFactory();
+        JsonArray jsonArray = content.get("cards").getAsJsonArray();
+        ArrayList<Card> damageCards1 = new ArrayList<>();
+        for(int i=0; i<jsonArray.size(); i++){
+            try {
+                damageCards1.add(cardFactory.createCard(CardName.parseCardName(jsonArray.get(i).getAsString())));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        damageCards=damageCards1;
     }
 
     /**
@@ -76,6 +88,5 @@ public class MessageDrawDamage extends Message {
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         client.getPlayer().drawDamage();
-
     }
 }

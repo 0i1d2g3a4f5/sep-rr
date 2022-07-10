@@ -205,7 +205,12 @@ public class Player{
      * activates the register ot position
      */
     public void activateRegister(int position){
-        register[position].activateCard();
+        if(register[position] != null){
+            register[position].activateCard();
+        }else {
+            System.out.println("register at "+position+ "is null");
+        }
+
     }
 
     public Card getRegister(int position){
@@ -303,7 +308,8 @@ public class Player{
      * @uthor Ringer
      */
     public void discardAllHandCards(){
-        for (Card card:handCards) {
+        for (int i = 0; i < handCards.size(); i++) {
+            Card card = handCards.get(i);
             handCards.remove(card);
             discardPile.add(card);
         }

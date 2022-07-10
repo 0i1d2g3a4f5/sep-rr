@@ -30,7 +30,7 @@ public class MessagePlayerTurning extends Message{
         this.rotation = rotation;
         type = "PlayerTurning";
         JsonObject jsonObject = new JsonObject();
-        jsonObject.add("clienID", new JsonPrimitive(clientID));
+        jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("rotation", new JsonPrimitive(rotation));
         content = jsonObject;
         System.out.println("Created Turn Message: " + this);

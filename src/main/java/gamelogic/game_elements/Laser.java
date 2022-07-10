@@ -100,7 +100,8 @@ public class Laser extends GameElement implements Activatable {
 
     @Override
     public void activate() {
-        laserMovement(gameField);
+        System.out.println("activate "+type);
+        //laserMovement(gameField);
     }
 
     /**

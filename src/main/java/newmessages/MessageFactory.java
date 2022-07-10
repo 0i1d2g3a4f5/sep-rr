@@ -143,6 +143,12 @@ public class MessageFactory {
             case YOUR_CARDS -> {
                 return new MessageYourCards(jsonObject);
             }
+            case CURRENT_CARDS -> {
+                return new MessageCurrentCards(jsonObject);
+            }
+            case DRAW_DAMAGE -> {
+                return new MessageDrawDamage(jsonObject);
+            }
             default -> throw new IllegalArgumentException("There is no MessageType "+messageType);
         }
 
