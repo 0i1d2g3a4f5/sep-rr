@@ -15,12 +15,12 @@
     <children>
       <ImageView fitHeight="677.0" fitWidth="1200.0" layoutY="-3.0">
          <image>
-            <Image url="@images/metalbackg.jpg" />
+            <Image url="@metalbackg.jpg" />
          </image>
       </ImageView>
         <ImageView fx:id="lowerbar" fitHeight="181.0" fitWidth="1200.0" layoutX="-4.0" layoutY="507.0" opacity="0.8" rotate="-4.0">
             <image>
-                <Image url="@images/bar.png" />
+                <Image url="@bar.png" />
             </image>
         </ImageView>
         <Button fx:id="startServer" layoutX="26.0" layoutY="576.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startServer" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #504f54; -fx-border-color: grey; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" text="Start Server" textAlignment="CENTER" textFill="#ebebeb" AnchorPane.leftAnchor="26.0">
@@ -48,12 +48,12 @@
       </ImageView>
         <ImageView fx:id="upperbar" fitHeight="85.0" fitWidth="1200.0" layoutY="106.0" opacity="0.8">
             <image>
-                <Image url="@images/bar.png" />
+                <Image url="@bar.png" />
             </image>
         </ImageView>
       <ImageView fx:id="upperbar1" fitHeight="85.0" fitWidth="1299.0" layoutX="-66.0" layoutY="124.0" opacity="0.8" rotate="166.6">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
         <TitledPane alignment="CENTER" animated="false" collapsible="false" layoutY="138.0" opacity="0.8" prefHeight="382.0" prefWidth="560.0" text="Current Players" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="138.0">
@@ -82,7 +82,7 @@
         </TitledPane>
       <ImageView fx:id="upperbar11" fitHeight="85.0" fitWidth="1299.0" layoutX="-43.0" layoutY="-42.0" opacity="0.8">
          <image>
-            <Image url="@images/bar.png" />
+            <Image url="@bar.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="85.0" fitWidth="194.0" layoutX="68.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">

@@ -96,6 +96,11 @@ public class JavaFXGridHandler {
      */
     private GridPane constructCardsList(ArrayList<Card> cardList, boolean isVisible) throws IOException {
         GridPane gridPane = new GridPane();
+        System.out.println("ASDFK;LJJAKSDLGASDLKJGDLAK\nsdfbsdf\nsdgdsfggsd\nasdfsadfasd\nsdgsdg\nadfasdfasd\nasfsafS");
+        for(Card card : cardList){
+            System.out.println("Card is: " + card.getCardName().toString());
+        }
+        System.out.println("CARDLIISTSIZE: " + cardList.size());
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             StackPane stackPane = new StackPane();
@@ -106,7 +111,7 @@ public class JavaFXGridHandler {
                         addToPane(stackPane, Images.AGAIN_CARD.toImageView(), isVisible);
                         break;
                     case BACK_UP:
-                        addToPane(stackPane, Images.CARD_BACK_CARD.toImageView(), isVisible);
+                        addToPane(stackPane, Images.BACK_UP_CARD.toImageView(), isVisible);
                         break;
                     case LEFT_TURN:
                         addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView(), isVisible);
@@ -499,7 +504,7 @@ public class JavaFXGridHandler {
             case BLUE -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView1= new ImageView(new Image("/BeltBlueUp.png"));
+                        ImageView imageView1= Images.BELT_BLUE_UP_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
@@ -523,22 +528,22 @@ public class JavaFXGridHandler {
             case GREEN -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView1= new ImageView(new Image("/BeltGreenUp.png"));
+                        ImageView imageView1= Images.BELT_GREEN_UP_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case SOUTH -> {
-                        ImageView imageView1= new ImageView(new Image("/BeltGreenDown.png"));
+                        ImageView imageView1= Images.BELT_GREEN_DOWN_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case EAST-> {
-                        ImageView imageView1 = new ImageView(new Image("/BeltGreenRight.png"));
+                        ImageView imageView1 = Images.BELT_GREEN_RIGHT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                     case WEST -> {
-                        ImageView imageView1= new ImageView(new Image("/BeltGreenLeft.png"));
+                        ImageView imageView1= Images.BELT_GREEN_LEFT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView1);
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
