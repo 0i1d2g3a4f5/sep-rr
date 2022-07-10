@@ -55,6 +55,10 @@ public class Player{
         setRobot(robot);
     }
 
+    public void setLastPlayedCard(Card lastPlayedCard) {
+        this.lastPlayedCard = lastPlayedCard;
+    }
+
     /**
      * @author Ringer
      * @param robot

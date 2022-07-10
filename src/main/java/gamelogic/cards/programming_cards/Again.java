@@ -30,8 +30,8 @@ Again extends ProgrammingCard {
         //Activates the previous Register
         Card[] register = player.getAllRegisters();
         System.out.println("Current Register: "+ Arrays.toString(register));
-        System.out.println("Again activates: " + register[Game.getInstance().getActiveRegister()-1]);
-        register[Game.getInstance().getActiveRegister()-1].activateCard();
+        System.out.println("Again activates: " + player.getLastPlayedCard());
+        player.getLastPlayedCard().activateCard();
         //player.activateRegister(Game.getInstance().getActiveRegister()-1);
     }
 }

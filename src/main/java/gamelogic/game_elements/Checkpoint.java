@@ -81,6 +81,7 @@ public class Checkpoint extends GameElement implements Activatable {
                         "try to reach checkpoint "+player.getCheckpointTokens()+1);
             }
 
+
         }
 
     }

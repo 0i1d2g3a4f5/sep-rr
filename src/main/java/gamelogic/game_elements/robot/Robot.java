@@ -11,6 +11,7 @@ import gamelogic.map.GameField;
 import newmessages.*;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Qinyi, Mark
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
+
+    public boolean movedByCBelt = false;
 
     private boolean isPlaced = false;
 
@@ -162,6 +165,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         boolean success = true;
         for (int i = 0;i<distance;i++){
             if(!move(1)){
+                try {
+                    TimeUnit.MILLISECONDS.sleep(50);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 success = false;
             }
         }

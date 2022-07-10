@@ -101,7 +101,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
             }
             case 1 ->{
 
-                this.orientations.add(targetDirection.opposite());
+                this.orientations.add(targetDirection);
             }
             case 2 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
@@ -148,6 +148,10 @@ public class ConveyorBelt extends GameElement implements Activatable {
         System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
             Robot robot = gameField.getRobot();
+            if(robot.movedByCBelt){
+                return;
+            }
+            robot.movedByCBelt=true;
 
             if(color ==Color.BLUE){
                 robot.displace(orientations.get(0));

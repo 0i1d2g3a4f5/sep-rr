@@ -357,7 +357,7 @@ public class  Game {
      *
      * Every Element is activated
      */
-    private void activationPhase(){
+    private void activationPhase() throws InterruptedException {
         sendToAllPlayers(new MessageActivePhase(3));
 
         ArrayList<Player> activationList;
@@ -367,6 +367,7 @@ public class  Game {
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
                 Card card = player.getRegister(i);
+                player.setLastPlayedCard(card);
                 if(card != null)
                     activatedRegisters.add(card);
                 else System.out.println("Card on pos "+ i+ " is null");
@@ -375,11 +376,18 @@ public class  Game {
             sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));
             for (Card card:activatedRegisters) {
                 card.activateCard();
+                TimeUnit.MILLISECONDS.sleep(100);
             }
             careEnergyCube();
 
             for (Activatable element:elementRegistry) {
                 element.activate();
+                TimeUnit.MILLISECONDS.sleep(50);
+            }
+            for (Player player:playerList
+                 ) {
+                player.getRobot().movedByCBelt=false;
+
             }
         }
         activeRegister = -1;
