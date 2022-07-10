@@ -25,8 +25,8 @@ public enum Images {
     MOVE_1_CARD("/Move1.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/Move1.png")))), "Card"),
     MOVE_2_CARD("/Move2.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/Move2.png")))), "Card"),
     MOVE_3_CARD("/Move3.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/Move3.png")))), "Card"),
-    POWER_UP_CARD("PowerUp.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/PowerUp.png")))), "Card"),
-    TURN_LEFT_CARD("TurnLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/TurnLeft.png")))), "Card"),
+    POWER_UP_CARD("/PowerUp.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/PowerUp.png")))), "Card"),
+    TURN_LEFT_CARD("/TurnLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/TurnLeft.png")))), "Card"),
     TURN_RIGHT_CARD("/TurnRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/TurnRight.png")))), "Card"),
     U_TURN_CARD("/UTurn.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/UTurn.png")))), "Card"),
 
