@@ -37,10 +37,9 @@ public class MessageCardSelected extends Message{
         type = "CardSelected";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
-        jsonObject.add("register", new JsonPrimitive(register));
+        jsonObject.add("register", new JsonPrimitive(register+1));
         jsonObject.add("filled", new JsonPrimitive(filled));
         content = jsonObject;
-        //System.out.println("Created Register Message: " + this);
     }
 
     /**
@@ -49,7 +48,7 @@ public class MessageCardSelected extends Message{
     public MessageCardSelected(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        register = content.get("register").getAsInt();
+        register = content.get("register").getAsInt()-1;
         filled = content.get("filled").getAsBoolean();
         //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
@@ -75,8 +74,9 @@ public class MessageCardSelected extends Message{
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId()){
             ThisCPlayer player = client.getPlayer();
+            client.getClientApplication().selectCard();
             player.getHandCards().remove(player.getSelectedCard());
-            player.placeRegisterCards(player.getSelectedCard(),register);
+            player.placeRegisterCards(player.getSelectedCard(), register);
 
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
@@ -92,7 +92,7 @@ public class MessageCardSelected extends Message{
 
 
         }
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
             System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
             System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
@@ -102,7 +102,8 @@ public class MessageCardSelected extends Message{
             int posRepository = scanner.nextInt();
             client.getPlayer().selectCard(posHand,posRepository);
 
-        }
+        }*/
+
     }
 
     @Override

@@ -50,7 +50,7 @@ public class ThisCPlayer extends CPlayer {
     }
 
     public void placeRegisterCards(Card card, int pos) {
-        System.out.println("Placing Card: "+card);
+        //System.out.println("Placing Card: "+card);
         registerCards[pos] = card;
         selectedCard = null;
 
@@ -58,9 +58,10 @@ public class ThisCPlayer extends CPlayer {
 
     public void selectCard(int posHandcard,int posRegister){
         if(posHandcard>=0 && posHandcard <9){
+            /*
             Message message = new MessageSelectedCard(handCards.get(posHandcard).toString(),posRegister);
             client.sendSelf(message);
-            System.out.println("SENT: "+ message);
+            System.out.println("SENT: "+ message);*/
             selectedCard = handCards.get(posHandcard);
         }
 

@@ -43,7 +43,6 @@ public class MessageYourCards extends Message{
 
         jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
-        System.out.println("Created Quantity Message: " + this);
     }
 
     /**
@@ -57,8 +56,6 @@ public class MessageYourCards extends Message{
         for (int i = 0; i < cardsJArray.size(); i++) {
             cardsInHand[i] =CardName.parseCardName(cardsJArray.get(i).getAsString());
         }
-
-        System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -96,7 +93,7 @@ public class MessageYourCards extends Message{
 
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
             System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
             System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
@@ -106,7 +103,8 @@ public class MessageYourCards extends Message{
             int posRepository = scanner.nextInt();
             client.getPlayer().selectCard(posHand,posRepository);
 
-        }
+        }*/
+        client.getClientApplication().activateCardSelection();
 
 
 
