@@ -71,34 +71,31 @@ public class Player{
 
     private Stack<Card> buildDeck(){
         Stack<Card> deck = new Stack<>();
-        /*
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 2; i++) {
             deck.add(new Again());
         }
-
-         */
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 1; i++) {
             deck.add(new BackUp());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             deck.add(new LeftTurn());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             deck.add(new MoveOne());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 1; i++) {
             deck.add(new MoveThree());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             deck.add(new MoveTwo());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 1; i++) {
             deck.add(new PowerUp());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             deck.add(new RightTurn());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 1; i++) {
             deck.add(new UTurn());
         }
         deck.forEach((card)->{card.setPlayer(this); card.setGame(game);});
