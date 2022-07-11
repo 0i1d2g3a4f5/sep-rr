@@ -62,6 +62,23 @@ public class MessageError extends Message{
         }
 
     }
+    @Override
+    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic){
+        if(isBasic){
+            System.out.println(this.error);
+            if(this.error.equals("ERROR :: Figure already taken.")){
+                if(client.getLastTriedFigure()>6){
+                    System.out.println("NO MORE AVAILABLE FIGURES");
+                }
+                else {
+                    client.setLastTriedFigure(client.getLastTriedFigure() + 1);
+                    client.sendPlayerValues();
+                }
+            }
+        } else{
+
+        }
+    }
 
 
     /**

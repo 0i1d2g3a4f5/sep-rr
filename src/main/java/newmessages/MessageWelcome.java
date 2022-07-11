@@ -75,9 +75,8 @@ public class MessageWelcome extends Message{
     @Override
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
-
             client.setId(clientID);
-            client.sendSelf(new MessagePlayerValues(client.getName(), ThreadLocalRandom.current().nextInt(1,7)));
+            client.sendPlayerValues();
         }else{
 
         }

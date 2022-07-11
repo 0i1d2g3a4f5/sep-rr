@@ -99,12 +99,12 @@ public enum Images {
     LOST_BEARINGS_MAP("/LostBearingsMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
 
     //robots
-    HAMMER_BOT("/RobotPurpleHammer.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPurpleHammer.png")))), "Robot"),
-    HULK_BOT("/RobotRedHulkx90.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotRedHulkx90.png")))), "Robot"),
-    SMASH_BOT("/RobotYellowSmash.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotYellowSmash.png")))), "Robot"),
-    SPIN_BOT("/RobotBlueSpin.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotBlueSpin.png")))), "Robot"),
-    TWONKY_BOT("/RobotOrangeTwonky.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotOrangeTwonky.png")))), "Robot"),
-    ZOOM_BOT("/RobotGreenZoom.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotGreenZoom.png")))), "Robot");
+    HAMMER_BOT("/RobotPink.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPink.png")))), "Robot"),
+    HULK_BOT("/RobotRed.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotRed.png")))), "Robot"),
+    SMASH_BOT("/RobotYellow.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotYellow.png")))), "Robot"),
+    SPIN_BOT("/RobotBlue.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotBlue.png")))), "Robot"),
+    TWONKY_BOT("/RobotOrange.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotOrange.png")))), "Robot"),
+    ZOOM_BOT("/RobotGreen.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotGreen.png")))), "Robot");
 
 
     public String string;

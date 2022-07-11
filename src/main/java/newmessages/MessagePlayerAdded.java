@@ -80,7 +80,6 @@ public class MessagePlayerAdded extends Message{
             }else{
                 OtherClient otherClient = new OtherClient(client.getGame(),this.clientID, this.figure,this.name);
                 client.getClientList().add(otherClient);
-
                 client.getGame().join(otherClient);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }

@@ -9,8 +9,8 @@ import java.net.Socket;
 
 
 public class BasicAI extends AIClient{
-    public BasicAI(boolean isBasic, AIController aiController){
-        super(isBasic, aiController);
+    public BasicAI(boolean isBasic, AIController aiController, String name){
+        super(isBasic, aiController, name);
     }
     @Override
     public void listen() {
@@ -43,6 +43,10 @@ public class BasicAI extends AIClient{
     @Override
     public void sayHello(String group, String protocol){
         sendSelf(new MessageHelloServer(getAiController().groupName,true,getAiController().protocolVersion));
+    }
+    @Override
+    public void sendPlayerValues(){
+        sendSelf(new MessagePlayerValues(getName(), getLastTriedFigure()));
     }
 
 }

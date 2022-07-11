@@ -15,7 +15,7 @@ public class AIMain {
         scanner.close();
 
         for (int i = 0; i < numberOfAIS; i++) {
-            AIController aiController = new AIController("Version 1.0","DesperateDrosseln");
+            AIController aiController = new AIController("Version 1.0","DesperateDrosseln", i);
             aiController.setDaemon(true);
             AIControllers.add(aiController);
             aiController.start();

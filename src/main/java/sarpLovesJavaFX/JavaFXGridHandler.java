@@ -202,7 +202,8 @@ public class JavaFXGridHandler {
                 ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
-                //System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
+
+                System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:
@@ -329,32 +330,32 @@ public class JavaFXGridHandler {
         Robot robot = gameElement;
         switch (robot.getFigure()){
             case 1 -> {
-                ImageView imageView8 = new ImageView(new Image("/RobotBlueSpin.png"));
+                ImageView imageView8 = Images.SPIN_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 2 -> {
-                ImageView imageView8 = new ImageView(new Image("/RobotRedHulkx90.png"));
+                ImageView imageView8 = Images.HULK_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 3 -> {
-                ImageView imageView8 = new ImageView(new Image("/RobotGreenZoom.png"));
+                ImageView imageView8 = Images.ZOOM_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 4 -> {
-                ImageView imageView8 = new ImageView(new Image("/RobotOrangeTwonky.png"));
+                ImageView imageView8 = Images.TWONKY_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 5 -> {
-                ImageView imageView8 = new ImageView(new Image("/RobotPurpleHammer.png"));
+                ImageView imageView8 = Images.HAMMER_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 6-> {
-                ImageView imageView8 = new ImageView(new Image("/RobotYellowSmash.png"));
+                ImageView imageView8 = Images.SMASH_BOT.toImageView();
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
