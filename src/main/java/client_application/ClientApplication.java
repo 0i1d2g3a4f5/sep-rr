@@ -53,8 +53,8 @@ public class ClientApplication extends Application {
     public void selectCard(){
         clientGameBasicController.selectCard();
     }
-    public void activateCardSelection(){
-        clientGameBasicController.activateCardSelection();
+    public void activateCardSelection(boolean bo){
+        clientGameBasicController.activateCardSelection(bo);
     }
 
 

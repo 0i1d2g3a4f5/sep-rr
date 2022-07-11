@@ -102,7 +102,7 @@ public class MessageYourCards extends Message{
         Thread thread = new Thread(){
             @Override
             public void run() {
-                client.getClientApplication().activateCardSelection();
+                client.getClientApplication().activateCardSelection(true);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
             }
         };

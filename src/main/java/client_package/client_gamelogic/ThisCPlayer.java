@@ -59,6 +59,9 @@ public class ThisCPlayer extends CPlayer {
     public void placeRegisterCards(Card card, int pos) {
         //System.out.println("Placing Card: "+card);
         registerCards[pos] = card;
+        if(pos==5){
+            client.getClientApplication().activateCardSelection(false);
+        }
         selectedCard = null;
 
     }
@@ -66,6 +69,7 @@ public class ThisCPlayer extends CPlayer {
     public void selectCard(int posHandcard,int posRegister){
         if(posHandcard>=0 && posHandcard <9){
             selectedCard = handCards.get(posHandcard);
+
         }
 
     }

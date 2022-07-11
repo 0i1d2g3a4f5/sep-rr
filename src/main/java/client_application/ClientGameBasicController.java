@@ -131,8 +131,10 @@ public class ClientGameBasicController {
         startingCoordinates.setText("");
         startingSubmitActive=true;
     }
-    public void activateCardSelection(){
-        chooseProgrammingActive=true;
+    public void activateCardSelection(boolean bo){
+        if(bo){
+        chooseProgrammingActive=true;} else{chooseProgrammingActive=false;}
+
     }
 
     public void selectCard(){
