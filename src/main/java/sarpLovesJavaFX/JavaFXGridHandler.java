@@ -101,15 +101,15 @@ public class JavaFXGridHandler {
      */
     private GridPane constructCardsList(ArrayList<Card> cardList, boolean isVisible) throws IOException {
         GridPane gridPane = new GridPane();
-        System.out.println("ASDFK;LJJAKSDLGASDLKJGDLAK\nsdfbsdf\nsdgdsfggsd\nasdfsadfasd\nsdgsdg\nadfasdfasd\nasfsafS");
         for(Card card : cardList){
             if(card != null)
             System.out.println("Card is: " + card.getCardName().toString());
         }
-        System.out.println("CARDLIISTSIZE: " + cardList.size());
+        System.out.println("CARDLISTSIZE: " + cardList.size());
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
-            StackPane stackPane = new StackPane();
+            if(cardList.get(i)!=null) {
+                StackPane stackPane = new StackPane();
                 switch (cardList.get(i).getCardName()) {
                     // programming cards
                     case AGAIN:
@@ -174,6 +174,7 @@ public class JavaFXGridHandler {
 
                 }
                 gridPane.add(stackPane, i, 0);
+            }
         }
         return gridPane;
         }

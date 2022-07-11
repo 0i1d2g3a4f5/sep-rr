@@ -28,7 +28,7 @@ import newmessages.MessageSetStartingPoint;
  *
  */
 public class ClientGameBasicController {
-    boolean startingSubmitActive = true, chooseProgrammingActive = false;
+    boolean startingSubmitActive, chooseProgrammingActive;
 
     public ClientApplication clientApplication;
     int currentChosen;
@@ -137,6 +137,7 @@ public class ClientGameBasicController {
 
     public void selectCard(){
         GridPane gridPane = (GridPane) stackOwnProgramming.getChildren().get(0);
+        System.out.println("Chosen: " + currentChosen + "into register: " + gridPane.getColumnCount());
         clientApplication.getClient().getPlayer().selectCard(currentChosen, gridPane.getColumnCount());
         chooseProgrammingActive=true;
     }
@@ -176,10 +177,13 @@ public class ClientGameBasicController {
 
     }
     public void init(){
+        stackOwnProgramming.getChildren().clear();
         stackOwnProgramming.getChildren().add(new GridPane());
         scrollPaneGameBoard.setContent(new GridPane());
         scrollAvailableProgramming.setContent(new GridPane());
         scrollOtherRegisters.setContent(new GridPane());
+        startingSubmitActive=true;
+        chooseProgrammingActive=false;
     }
 
     public void triggerGameFinishedScene(){

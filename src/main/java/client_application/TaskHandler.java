@@ -4,8 +4,6 @@ import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.map.GameBoard;
-import gamelogic.Game;
-import gamelogic.Player;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
 
@@ -62,17 +60,18 @@ public class TaskHandler {
             }
             case TRIGGERSTART -> {
                 clientApplication.stageBasicLobby.close();
-                if(clientApplication.stageSelection!=null) {
-                    clientApplication.stageSelection.close();
+                if(clientApplication.stageBasicMap!=null) {
+                    clientApplication.stageBasicMap.close();
                 }
                 clientApplication.launchBasicGame();
 
             }
 
             case TRIGGERFINISH -> {
+                /*
                 if(!Game.getInstance().getContinueGame()){
                     clientApplication.clientGameBasicController.triggerGameFinishedScene();
-                }
+                }*/
 
             }
             case UPDATEGAMEBOARD -> {
@@ -89,6 +88,11 @@ public class TaskHandler {
 
             }
             case UPDATE_PROGCARDS -> {
+                int i=0;
+                while (i<5){
+                    System.out.println(clientApplication.getClient().getPlayer().getRegisterCards()[i]);
+                    i++;
+                }
                 ArrayList<Card> bla = fromArrayToList(clientApplication.getClient().getPlayer().getRegisterCards());
                 clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(bla, true));
             }
@@ -110,7 +114,10 @@ public class TaskHandler {
     public ArrayList<Card> fromArrayToList(Card[] inp){
         ArrayList<Card> bla = new ArrayList<>();
         for(int i=0; i<inp.length; i++){
-            bla.add(inp[i]);
+            bla.add(null);
+            if(inp[i]!=null) {
+                bla.set(i, inp[i]);
+            }
         }
         return bla;
     }

@@ -74,7 +74,7 @@ public abstract class SClient {
                      */
 
                     //System.out.println("ToSend length: " + toSend.length());
-                    System.out.println("SENT: " + toSend);
+                    System.out.println("SENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: " + toSend);
 
                     toSendList.remove(message);
                 } catch (IOException e) {

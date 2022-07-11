@@ -80,32 +80,37 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        System.out.println("Cards You Got: "+ Arrays.toString(cardsInHand));
+        //System.out.println("Cards You Got: "+ Arrays.toString(cardsInHand));
 
 
         ArrayList<Card> handCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
-        System.out.println("Server: Program pls1 ");
+        //System.out.println("Server: Program pls1 ");
 
         for (CardName card:cardsInHand) {
             handCards.add(cardFactory.createCard(card));
         }
 
         client.getPlayer().setHandCards(handCards);
+        System.out.println("HANDCARDS: ");
+        for(Card card : handCards){
+            System.out.println(card.getCardName().toString());
+        }
 
-        System.out.println("Server: Program pls2 ");
+        //System.out.println("Server: Program pls2 ");
 
         Thread thread = new Thread(){
             @Override
             public void run() {
+                client.getClientApplication().activateCardSelection();
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
             }
         };
         thread.setDaemon(true);
         thread.start();
-        System.out.println("Server: Program pls3 ");
+        //System.out.println("Server: Program pls3 ");
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
             System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
             System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
@@ -116,7 +121,7 @@ public class MessageYourCards extends Message{
             System.out.println("scanned");
             client.getPlayer().selectCard(posHand,posRepository);
 
-        }
+        }*/
 
 
 

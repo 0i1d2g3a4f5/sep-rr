@@ -100,7 +100,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="winnerScene" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0">
+      <AnchorPane fx:id="winnerScene" disable="true" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" layoutX="1.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f2f2f" height="200.0" layoutX="517.0" layoutY="308.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />
@@ -122,7 +122,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="loserScene" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0">
+      <AnchorPane fx:id="loserScene" disable="true" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f2f2f" height="200.0" layoutX="517.0" layoutY="308.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />

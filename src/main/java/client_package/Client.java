@@ -112,9 +112,11 @@ public abstract class Client implements ClientObject{
                 count++;
             }
             dataOutputStream.flush();
-            System.out.println("SENT: " + print+"count: "+count);
 
              */
+            System.out.println("SENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: " +toSend);
+
+
             toSendList.remove(message);
         }  catch (IOException e) {
             throw new RuntimeException(e);
@@ -198,7 +200,7 @@ public abstract class Client implements ClientObject{
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                                  ) {
-                                //System.out.println("RECEIVED: " + inputString);
+                                System.out.println("RECEIVEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

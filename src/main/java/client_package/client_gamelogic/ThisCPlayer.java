@@ -65,10 +65,6 @@ public class ThisCPlayer extends CPlayer {
 
     public void selectCard(int posHandcard,int posRegister){
         if(posHandcard>=0 && posHandcard <9){
-
-            Message message = new MessageSelectedCard(handCards.get(posHandcard).toString(),posRegister);
-            client.sendSelf(message);
-            System.out.println("SENT: "+ message);
             selectedCard = handCards.get(posHandcard);
         }
 

@@ -71,7 +71,7 @@ public class BasicSClient extends SClient {
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                             ) {
-                                System.out.println("RECEIVED: " + inputString);
+                                System.out.println("RECEIVEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject, true);
                             }
