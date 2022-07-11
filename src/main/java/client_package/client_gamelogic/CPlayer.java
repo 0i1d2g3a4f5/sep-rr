@@ -36,6 +36,7 @@ public class CPlayer {
         } else {
             OtherClient client = (OtherClient) clientObject;
             try {
+                this.getRobot().setFigure(client.getFigure());
                 this.robot = new Robot(figure,this);
             } catch (IOException e) {
                 throw new RuntimeException(e);

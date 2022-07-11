@@ -22,7 +22,7 @@ public class Robot extends GameElement {
 
     //private final Color color;
 
-    public final int figure;
+    public int figure;
     private Game game = Game.getInstance();
 
     private Direction directionFacing;
@@ -36,6 +36,9 @@ public class Robot extends GameElement {
         this.figure = figure;
         this.game = Game.getInstance();
 
+    }
+    public void setFigure(int f){
+        this.figure=f;
     }
 
     public Position getPosition() {
@@ -74,7 +77,7 @@ public class Robot extends GameElement {
             Game.getInstance().getMap().getGameField(position.getY(),position.getX()).removeRobot();
         }
 
-        Game.getInstance().getMap().getGameField(y,x).removeRobot();
+        //Game.getInstance().getMap().getGameField(y,x).removeRobot();
         Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
         System.out.println("added Robot");

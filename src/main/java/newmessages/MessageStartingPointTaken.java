@@ -81,8 +81,10 @@ public class MessageStartingPointTaken extends Message{
         } else {
             System.out.println("setting other Robot");
             for (CPlayer player: client.getGame().getPlayerList()) {
+                System.out.println("checking client:" + player.getClientID());
                 if(player.getClientID() == clientID && clientID !=client.getId()){
-
+                    System.out.println("LALALALALFGADLFASDKJLSGADKLSGDAKLGFDSALK");
+                    System.out.println("figure: " +player.getRobot().getFigure());
                     player.getRobot().placeRobot(y,x);
                     client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 

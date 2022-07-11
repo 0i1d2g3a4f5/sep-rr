@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="ALLAH IS BACK AT WORK" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="day 1 : a small beginning to prevent bugs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" afterDir="false" />
+    </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,8 +83,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.client_application.ClientApplication" />
+        <item itemvalue="Application.ServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657523589754</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="day 1 : a small beginning to prevent bugs">
+      <created>1657523951406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657523951406</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +180,7 @@
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
     <MESSAGE value="ALLAH IS BACK AT WORK" />
-    <option name="LAST_COMMIT_MESSAGE" value="ALLAH IS BACK AT WORK" />
+    <MESSAGE value="day 1 : a small beginning to prevent bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="day 1 : a small beginning to prevent bugs" />
   </component>
 </project>
