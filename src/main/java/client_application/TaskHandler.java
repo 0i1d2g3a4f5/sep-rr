@@ -1,6 +1,7 @@
 package client_application;
 
 import client_package.client_gamelogic.CPlayer;
+import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.map.GameBoard;
 import gamelogic.Game;
@@ -8,6 +9,7 @@ import gamelogic.Player;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -74,8 +76,12 @@ public class TaskHandler {
 
             }
             case UPDATEGAMEBOARD -> {
-                clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(this.clientApplication.basicClient.getGame().getMap()));
-                System.out.println("TaskHandler: finished updating Game board" );
+                try {
+                    clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(Game.getInstance().getMap()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
             case UPDATE_HANDCARDS -> {
                 clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getHandCards(), true));

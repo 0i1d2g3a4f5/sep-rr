@@ -70,7 +70,12 @@ public class JavaFXGridHandler {
     */
 
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
-        GridPane temp = updateGameBoard(gameBoard);
+        GridPane temp = null;
+        try {
+            temp = updateGameBoard(gameBoard);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         temp.setScaleX(0.2);
         temp.setScaleY(0.2);
         return temp;
@@ -186,10 +191,10 @@ public class JavaFXGridHandler {
      * @throws IOException
      */
 
-    private GridPane updateGameBoard(GameBoard gameBoard){
+    private GridPane updateGameBoard(GameBoard gameBoard) throws IOException {
         GridPane input = new GridPane();
         //System.out.println("X: Y:  " + gameBoard.getDimensionX() +"| "+ gameBoard.getDimensionY());
-        for(int y=0; y<gameBoard.getDimensionY(); y++){
+        for(int y=0; y<Game.getInstance().getMap().getDimensionY(); y++){
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
                 StackPane stackPane = new StackPane();
@@ -242,6 +247,10 @@ public class JavaFXGridHandler {
                             break;
                         case RESTARTPOINT:
                             caseRestartPoint(stackPane);
+                            break;
+                        case ENERGY_CUBE:
+                            caseEnergyCube(stackPane);
+                            break;
                         case EMPTY:
                             //leer
                             break;
@@ -252,6 +261,13 @@ public class JavaFXGridHandler {
             }
         }
         return input;
+    }
+
+    private void caseEnergyCube(StackPane stackPane) {
+        ImageView imageView11 = new ImageView(new Image("/checkdisabled.png"));
+        stackPane.getChildren().add(imageView11);
+        stackPane.setAlignment(imageView11, Pos.CENTER);
+        return;
     }
 
     /**

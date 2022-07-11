@@ -79,12 +79,13 @@ public class MessageStartingPointTaken extends Message{
                 //TODO disable place Robot Field
             }
         } else {
+            System.out.println("setting other Robot");
             for (CPlayer player: client.getGame().getPlayerList()) {
-                if(player.getClientID() == clientID){
-                    if(!player.getRobot().isPlaced()){
-                        player.getRobot().placeRobot(y,x);
-                        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
-                    }
+                if(player.getClientID() == clientID && clientID !=client.getId()){
+
+                    player.getRobot().placeRobot(y,x);
+                    client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+
 
                 }
 

@@ -5,6 +5,7 @@ import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +35,11 @@ public class CPlayer {
             client.setPlayer(thisPlayer);
         } else {
             OtherClient client = (OtherClient) clientObject;
-            this.robot = new Robot(figure,this);
+            try {
+                this.robot = new Robot(figure,this);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             this.clientID = client.getId();
             this.game = game;
             client.setPlayer(this);

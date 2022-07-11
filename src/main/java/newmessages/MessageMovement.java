@@ -73,6 +73,10 @@ public class MessageMovement extends Message{
         for (CPlayer player:client.getGame().getPlayerList()) {
             if(clientID == player.getClientID()){
                 player.getRobot().moveRobotTo(y,x);
+            }else {
+                for (CPlayer cplayer:client.getGame().getPlayerList()) {
+                    cplayer.getRobot().moveRobotTo(y,x);
+                }
             }
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));

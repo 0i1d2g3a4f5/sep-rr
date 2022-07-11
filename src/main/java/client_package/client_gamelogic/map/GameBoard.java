@@ -218,7 +218,7 @@ public class GameBoard  {
             }
             boardMap.add(row);
         }
-        //System.out.println(boardMap);
+        //System.out.println(this);
 
     }
 
