@@ -1,6 +1,5 @@
 package client_package.AI;
 
-import newmessages.MessageHelloServer;
 
 public class AIController extends Thread{
     public final String groupName;

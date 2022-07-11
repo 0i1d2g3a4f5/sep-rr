@@ -28,6 +28,15 @@ public class Gear extends GameElement{
         public String toString(){
             return direction;
         }
+        static GearDirection parseGearDirection(String s){
+            for (GearDirection direction: GearDirection.values()
+            ) {
+                if(direction.toString().equalsIgnoreCase(s)){
+                    return direction;
+                }
+            }
+            throw new IllegalArgumentException();
+        }
 
         GearDirection(String direction) {
             this.direction = direction;
@@ -50,7 +59,7 @@ public class Gear extends GameElement{
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
-        GearDirection gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
+        GearDirection gearDirection = GearDirection.parseGearDirection(orientations.get(0).getAsString());
         this.gearDirection = gearDirection;
 
     }

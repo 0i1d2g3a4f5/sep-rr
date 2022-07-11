@@ -49,6 +49,7 @@ public class MessageGameFinished extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         //TODO trigger winscreen
+        System.out.println("Player "+clientID + "Won");
 
     }
 }

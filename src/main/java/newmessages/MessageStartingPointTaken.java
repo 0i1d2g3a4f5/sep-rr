@@ -85,6 +85,7 @@ public class MessageStartingPointTaken extends Message{
                 if(player.getClientID() == clientID && clientID !=client.getId()){
                     System.out.println("LALALALALFGADLFASDKJLSGADKLSGDAKLGFDSALK");
                     System.out.println("figure: " +player.getRobot().getFigure());
+
                     player.getRobot().placeRobot(y,x);
                     client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 

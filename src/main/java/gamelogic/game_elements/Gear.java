@@ -46,6 +46,16 @@ public class Gear extends GameElement implements Activatable {
             return direction;
         }
 
+        static GearDirection parseGearDirection(String s){
+            for (GearDirection direction:GearDirection.values()
+                 ) {
+                if(direction.toString().equalsIgnoreCase(s)){
+                    return direction;
+                }
+            }
+            throw new IllegalArgumentException();
+        }
+
         GearDirection(String direction) {
             this.direction = direction;
         }
@@ -74,7 +84,7 @@ public class Gear extends GameElement implements Activatable {
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         System.out.println(orientations.get(0).getAsString());
-        this.gearDirection = GearDirection.valueOf(orientations.get(0).getAsString());
+        this.gearDirection = GearDirection.parseGearDirection(orientations.get(0).getAsString());
 
 
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
@@ -94,7 +104,9 @@ public class Gear extends GameElement implements Activatable {
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));
-        jsonObject.add("orientations",gson.toJsonTree(gearDirection.toString()));
+        JsonArray array = new JsonArray();
+        array.add(gearDirection.toString());
+        jsonObject.add("orientations",array);
         return jsonObject;
     }
     @Override

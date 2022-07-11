@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="day 1 : a small beginning to prevent bugs">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="ALLAH IS BACK AT WORK">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/AIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameFinished.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -99,6 +105,8 @@
       <workItem from="1657471884251" duration="1240000" />
       <workItem from="1657482176590" duration="8784000" />
       <workItem from="1657491046553" duration="7770000" />
+      <workItem from="1657527957566" duration="302000" />
+      <workItem from="1657529259450" duration="1683000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>

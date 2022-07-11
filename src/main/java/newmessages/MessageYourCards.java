@@ -104,6 +104,7 @@ public class MessageYourCards extends Message{
             public void run() {
                 client.getClientApplication().activateCardSelection(true);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             }
         };
         thread.setDaemon(true);

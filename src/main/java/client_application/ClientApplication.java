@@ -56,6 +56,9 @@ public class ClientApplication extends Application {
     public void activateCardSelection(boolean bo){
         clientGameBasicController.activateCardSelection(bo);
     }
+    public void resetRegisterCards(){
+        clientGameBasicController.resetRegisterCards();
+    }
 
 
     public void launchBeginning(){

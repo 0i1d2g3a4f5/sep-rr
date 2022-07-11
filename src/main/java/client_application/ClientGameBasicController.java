@@ -136,6 +136,9 @@ public class ClientGameBasicController {
         chooseProgrammingActive=true;} else{chooseProgrammingActive=false;}
 
     }
+    public void resetRegisterCards() {
+    stackOwnProgramming.getChildren().clear();
+    }
 
     public void selectCard(){
         GridPane gridPane = (GridPane) stackOwnProgramming.getChildren().get(0);
