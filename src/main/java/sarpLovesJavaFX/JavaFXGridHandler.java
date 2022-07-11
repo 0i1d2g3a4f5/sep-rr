@@ -193,6 +193,7 @@ public class JavaFXGridHandler {
      */
 
     private GridPane updateGameBoard(GameBoard gameBoard) throws IOException {
+        System.out.println("updateGameBoard: "+ gameBoard);
         GridPane input = new GridPane();
         //System.out.println("X: Y:  " + gameBoard.getDimensionX() +"| "+ gameBoard.getDimensionY());
         for(int y=0; y<Game.getInstance().getMap().getDimensionY(); y++){

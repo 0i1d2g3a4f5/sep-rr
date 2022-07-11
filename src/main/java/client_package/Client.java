@@ -200,7 +200,7 @@ public abstract class Client implements ClientObject{
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                                  ) {
-                                System.out.println("RECEIVEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + inputString);
+                                System.out.println("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

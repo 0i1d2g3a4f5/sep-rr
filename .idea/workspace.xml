@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="ALLAH IS BACK AT WORK">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotBlue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotGreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotOrange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotPink.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotRed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RobotYellow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/AIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/AIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/AIMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/BasicAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/BasicAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageWelcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/EnergyCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/EnergyCube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Pit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Pit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotBlueSpin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotGreenZoom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotOrangeTwonky.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotPurpleHammer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotRedHulkx90.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotYellowSmash.png" beforeDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />

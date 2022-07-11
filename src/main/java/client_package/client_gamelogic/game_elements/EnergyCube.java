@@ -19,6 +19,7 @@ public class EnergyCube extends GameElement {
      */
 
     public EnergyCube(JsonObject jsonObject) throws IOException {
+        super(ElementName.ENERGY_CUBE);
 
     }
 

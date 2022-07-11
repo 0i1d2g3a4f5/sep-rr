@@ -56,6 +56,7 @@ public class Gear extends GameElement{
      * @throws IOException
      */
     public Gear (JsonObject jsonObject) throws IOException {
+        super(ElementName.GEAR);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 
