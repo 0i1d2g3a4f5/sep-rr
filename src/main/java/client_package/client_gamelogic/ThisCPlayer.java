@@ -6,6 +6,7 @@ import client_package.client_gamelogic.game_elements.robot.Robot;
 import newmessages.Message;
 import newmessages.MessageSelectedCard;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ThisCPlayer extends CPlayer {
@@ -21,7 +22,11 @@ public class ThisCPlayer extends CPlayer {
         super(client,game);
 
         this.client = client;
-        this.robot = new Robot(client.getFigure(),this);
+        try {
+            this.robot = new Robot(client.getFigure(),this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         this.game = game;
 
     }

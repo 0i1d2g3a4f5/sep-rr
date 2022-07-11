@@ -18,6 +18,7 @@ module desperate.drosseln.hp {
     exports gamelogic;
     exports client_package.client_gamelogic;
     exports gamelogic.game_elements;
+    exports client_package.client_gamelogic.map;
 
     opens client_application to javafx.fxml;
     opens server_application to javafx.fxml;

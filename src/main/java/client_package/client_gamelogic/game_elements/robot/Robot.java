@@ -23,18 +23,18 @@ public class Robot extends GameElement {
     //private final Color color;
 
     public final int figure;
-    private Game game;
+    private Game game = Game.getInstance();
 
     private Direction directionFacing;
     private Position position;
     private String name;
     private CPlayer player;
 
-    public Robot(int figure, CPlayer player) {
+    public Robot(int figure, CPlayer player) throws IOException {
         super(ElementName.ROBOT);
         this.player = player;
         this.figure = figure;
-        this.game = player.getGame();
+        this.game = Game.getInstance();
 
     }
 
@@ -55,7 +55,11 @@ public class Robot extends GameElement {
     public void placeRobot(int y, int x){
         isPlaced = true;
         directionFacing = Direction.EAST;
-        moveRobotTo(y,x);
+        try {
+            moveRobotTo(y,x);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -65,13 +69,13 @@ public class Robot extends GameElement {
      * @param x
      */
 
-    public void moveRobotTo(int y, int x){
+    public void moveRobotTo(int y, int x) throws IOException {
         if(position != null){
-            game.getMap().getGameField(position.getY(),position.getX()).removeRobot();
+            Game.getInstance().getMap().getGameField(position.getY(),position.getX()).removeRobot();
         }
 
-        game.getMap().getGameField(y,x).removeRobot();
-        game.getMap().getGameField(y,x).addRobot(this);
+        Game.getInstance().getMap().getGameField(y,x).removeRobot();
+        Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
 
 

@@ -3,6 +3,9 @@ package gamelogic;
 
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
+import gamelogic.game_elements.EnergyCube;
+import gamelogic.game_elements.EnergySpace;
+import gamelogic.game_elements.GameElement;
 import server_package.SClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
@@ -131,18 +134,17 @@ public class  Game {
         //DeckSerializer deckSerializer = new DeckSerializer();
         //TODO initialize player decks
         //select map
-        System.out.println("ModelLoader");
+        //System.out.println("ModelLoader");
         ModelLoader loader = new ModelLoader();
         try {
-            //TODO allow different maps
             System.out.println("load Map");
             board = loader.loadMap(String.valueOf(mapName));
-            System.out.println("Map: "+board.boardMap);
+           // System.out.println("Map: "+board.boardMap);
             System.out.println("loaded Map");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Map: "+board.boardMap);
+        //System.out.println("Map: "+board.boardMap);
         elementRegistry = board.getRegistry();
 
         //TODO special cards
@@ -176,9 +178,12 @@ public class  Game {
         }
 
          */
+        for (Activatable element: elementRegistry) {
+            if(element instanceof EnergySpace){
+                ((EnergySpace) element).getGameField().addElement(new EnergyCube());
+            }
 
-
-        //TODO place Robot
+        }
     }
 
     /**

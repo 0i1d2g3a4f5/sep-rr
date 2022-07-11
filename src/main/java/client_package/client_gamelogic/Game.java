@@ -16,14 +16,18 @@ public class Game {
     private Client client;
     private static Game instance;
 
-    public Game() {
+    private Game() {
 
     }
 
 
     public static Game getInstance() throws IOException {
         if(instance != null) return  instance;
-        else return new Game();
+        else {
+            System.out.println("NEW GAME INSTANCE!!!!!!!!!! ");
+            instance =  new Game();
+            return instance;
+        }
     }
 
     public int getActiveRegister() {
@@ -53,6 +57,7 @@ public class Game {
 
 
     public GameBoard getMap() {
+        System.out.println(map);
         return map;
     }
 
@@ -68,7 +73,7 @@ public class Game {
         this.client = client;
     }
 
-    public Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
+    private Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
         //TODO check if needed: this.playerList = playerList;
         map = new GameBoard(mapJson);
