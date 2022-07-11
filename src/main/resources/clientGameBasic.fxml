@@ -100,5 +100,49 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <AnchorPane fx:id="winnerScene" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" layoutX="1.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f2f2f" height="200.0" layoutX="517.0" layoutY="308.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#757575" height="200.0" layoutX="515.0" layoutY="306.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />
+            <Text fill="WHITE" layoutX="658.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONGRATULATIONS!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="709.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="lobbyButton" layoutX="679.0" layoutY="428.0" mnemonicParsing="false" onAction="#goLobby" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="RETURN TO LOBBY" textFill="#ebebeb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loserScene" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f2f2f" height="200.0" layoutX="517.0" layoutY="308.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#757575" height="200.0" layoutX="515.0" layoutY="306.0" stroke="#ffffff00" strokeType="INSIDE" width="456.0" />
+            <Text fill="WHITE" layoutX="658.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unfortunately, you lost.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="666.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Better luck next time!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="lobbyButton1" layoutX="679.0" layoutY="428.0" mnemonicParsing="false" onAction="#goLobby" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="RETURN TO LOBBY" textFill="#ebebeb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

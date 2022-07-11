@@ -3,6 +3,7 @@ package client_application;
 import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.map.GameBoard;
+import gamelogic.Game;
 import gamelogic.Player;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
@@ -63,6 +64,13 @@ public class TaskHandler {
                     clientApplication.stageSelection.close();
                 }
                 clientApplication.launchBasicGame();
+
+            }
+
+            case TRIGGERFINISH -> {
+                if(!Game.getInstance().getContinueGame()){
+                    clientApplication.clientGameBasicController.triggerGameFinishedScene();
+                }
 
             }
             case UPDATEGAMEBOARD -> {
