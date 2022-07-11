@@ -77,6 +77,7 @@ public class Robot extends GameElement {
         Game.getInstance().getMap().getGameField(y,x).removeRobot();
         Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
+        System.out.println("added Robot");
 
 
     }

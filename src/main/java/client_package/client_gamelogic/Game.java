@@ -24,7 +24,6 @@ public class Game {
     public static Game getInstance() throws IOException {
         if(instance != null) return  instance;
         else {
-            System.out.println("NEW GAME INSTANCE!!!!!!!!!! ");
             instance =  new Game();
             return instance;
         }

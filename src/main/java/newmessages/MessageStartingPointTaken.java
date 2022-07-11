@@ -79,6 +79,7 @@ public class MessageStartingPointTaken extends Message{
                 //TODO disable place Robot Field
             }
         } else {
+            System.out.println("setting other Robot");
             for (CPlayer player: client.getGame().getPlayerList()) {
                 if(player.getClientID() == clientID && clientID !=client.getId()){
 

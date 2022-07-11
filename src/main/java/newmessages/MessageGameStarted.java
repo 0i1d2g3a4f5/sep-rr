@@ -53,7 +53,6 @@ public class MessageGameStarted extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         Game.getInstance().setMap(new GameBoard(content));
-        System.out.println("setMap "+Game.getInstance().getMap().getGameField(1,1).getElements());
         Game game = Game.getInstance();
         for (ClientObject client2: client.getClientList()) {
             if(client2.getId() !=client.getId()){
