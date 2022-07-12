@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import newmessages.MessagePlayerTurning;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,10 +63,13 @@ public class Gear extends GameElement implements Activatable {
     }
     public Gear(GearDirection direction){
         System.out.println(direction);
+        Server.serverLogger.info("Gear direction: " + direction);
         gearDirection = direction;
         System.out.println(direction);
+        Server.serverLogger.info("Gear direction: " + direction);
         type = ElementName.GEAR;
         System.out.println(direction);
+        Server.serverLogger.info("Gear direction: " + direction);
 
     }
     boolean turnRight = false;
@@ -79,19 +83,14 @@ public class Gear extends GameElement implements Activatable {
      */
     public Gear (JsonObject jsonObject) throws IOException {
 
-
         super(ElementName.GEAR);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         System.out.println(orientations.get(0).getAsString());
+        Server.serverLogger.info(orientations.get(0).getAsString());
         this.gearDirection = GearDirection.parseGearDirection(orientations.get(0).getAsString());
 
-
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-
-
-
     }
 
     /**

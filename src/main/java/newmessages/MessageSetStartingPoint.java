@@ -5,6 +5,7 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Player;
 import gamelogic.Position;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
+        Server.serverLogger.info("Created Set Starting Point Message: " + this);
     }
     public MessageSetStartingPoint(Position position) {
         this.x = position.getX();
@@ -40,7 +42,7 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-
+        Server.serverLogger.info("Created Set Starting Point Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

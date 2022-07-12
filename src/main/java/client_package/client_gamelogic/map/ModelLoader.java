@@ -17,8 +17,8 @@ public class ModelLoader {
     public client_package.client_gamelogic.map.GameBoard loadMap(String mapName) throws IOException {
         gamelogic.map.ModelLoader helpMEEEE = new gamelogic.map.ModelLoader();
         GameBoard helpboard = helpMEEEE.loadMap(mapName);
-        JsonObject obhqawfbaeqfg = helpboard.toJson();
-        return new client_package.client_gamelogic.map.GameBoard(obhqawfbaeqfg);
+        JsonObject hbtojson = helpboard.toJson();
+        return new client_package.client_gamelogic.map.GameBoard(hbtojson);
     }
 
 

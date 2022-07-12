@@ -2,6 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -14,6 +15,7 @@ public class MessageWrongPass extends Message{
         type = "WrongPass";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
+        Server.serverLogger.info("Created Wrong Pass Message: " + this);
     }
 
     /**
@@ -21,6 +23,7 @@ public class MessageWrongPass extends Message{
      */
     public MessageWrongPass(JsonObject jsonObject){
         super(jsonObject);
+        Server.serverLogger.info("Created Wrong Pass Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

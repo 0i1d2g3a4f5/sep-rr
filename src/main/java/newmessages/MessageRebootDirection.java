@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -24,6 +25,7 @@ public class MessageRebootDirection extends Message{
         jsonObject.add("direction", new JsonPrimitive(direction));
         content = jsonObject;
         System.out.println("Created RebootDirection Message: " + this);
+        Server.serverLogger.info("Created Reboot Direction Message: " + this);
     }
 
     /**
@@ -33,6 +35,7 @@ public class MessageRebootDirection extends Message{
         super(jsonObject);
         direction = content.get("direction").getAsString();
         System.out.println("Created RebootDirection Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Reboot Direction Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

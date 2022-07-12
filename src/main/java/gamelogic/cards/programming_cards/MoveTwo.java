@@ -1,5 +1,7 @@
 package gamelogic.cards.programming_cards;
 
+import server_package.Server;
+
 import static gamelogic.cards.CardName.MOVE_TWO;
 
 public class MoveTwo extends ProgrammingCard {
@@ -18,7 +20,8 @@ public class MoveTwo extends ProgrammingCard {
     @Override
     public void activateCard() {
         // Move your robot two spaces in the direction it is facing.
-        System.out.println("move Two");
+        System.out.println("Move Two");
+        Server.serverLogger.info("Move Two");
         player.getRobot().forward(2);
 
     }

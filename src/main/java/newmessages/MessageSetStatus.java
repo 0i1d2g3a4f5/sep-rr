@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class MessageSetStatus extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
+        Server.serverLogger.info("Created Set Status Message: " + this);
     }
 
     /**
@@ -31,6 +33,7 @@ public class MessageSetStatus extends Message{
     public MessageSetStatus(JsonObject jsonObject){
         super(jsonObject);
         ready = content.get("ready").getAsBoolean();
+        Server.serverLogger.info("Created Set Status Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

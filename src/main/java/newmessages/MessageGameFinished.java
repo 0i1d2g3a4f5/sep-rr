@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -24,6 +25,7 @@ public class MessageGameFinished extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
         System.out.println("Created Finish Message: " + this);
+        Server.serverLogger.info("Created Game Finished Message: " + this);
     }
 
     /**
@@ -33,6 +35,7 @@ public class MessageGameFinished extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         System.out.println("Created Finished Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Game Finished Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -49,7 +52,8 @@ public class MessageGameFinished extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         //TODO trigger winscreen
-        System.out.println("Player "+clientID + "Won");
+        System.out.println("Player " + clientID + " won");
+        Server.serverLogger.info("Player " + clientID + " won");
 
     }
 }

@@ -7,6 +7,7 @@ import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -34,6 +35,7 @@ public class MessagePlayerTurning extends Message{
         jsonObject.add("rotation", new JsonPrimitive(rotation));
         content = jsonObject;
         System.out.println("Created Turn Message: " + this);
+        Server.serverLogger.info("Created Player Turning Message: " + this);
     }
 
     /**
@@ -44,6 +46,7 @@ public class MessagePlayerTurning extends Message{
         clientID = content.get("clientID").getAsInt();
         rotation = content.get("rotation").getAsString();
         System.out.println("Created Turn Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Player Turning Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

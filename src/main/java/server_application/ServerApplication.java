@@ -50,6 +50,8 @@ public class ServerApplication extends Application{
                 while (0 < taskList.size()) {
                     taskHandler.handleTask(taskList.get(0));
                     taskList.remove(0);
+                    //TODO (Vivian): ask Mark if this is correct usage
+                    Server.serverLogger.info("Task executed");
                 }
             }
         });

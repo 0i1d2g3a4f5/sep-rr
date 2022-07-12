@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import client_package.Client;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -27,6 +28,7 @@ public class MessageHelloClient extends Message{
         jsonObject.add("protocol", new JsonPrimitive(string));
         content=jsonObject;
         //System.out.println("Created Protocol Message: " + this);
+        Server.serverLogger.info("Created Hello Client Message: " + this);
     }
 
     /**
@@ -36,6 +38,7 @@ public class MessageHelloClient extends Message{
         super(jsonObject);
         protocol=content.get("protocol").getAsString();
         //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Hello Client Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override
@@ -54,8 +57,10 @@ public class MessageHelloClient extends Message{
         if(isBasic) {
             if (this.protocol.equals(PROTOCOL_VERSION)) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
+                Server.serverLogger.info("Correct communication protocol verified");
             } else {
                 System.out.println("ERROR :: False communication protocol.");
+                Server.serverLogger.error("False communication protocol");
             }
             // TODO do not compare global parameter "protocol_version" with itself, instead let server tell client its version
         }
@@ -67,9 +72,11 @@ public class MessageHelloClient extends Message{
         if(isBasic) {
             if (this.protocol.equals(client.getAiController().protocolVersion)) {
                 System.out.println("EVENT :: Correct communication protocol verified.");
+                Server.serverLogger.info("Correct communication protocol verified");
                 client.sayHello(client.getAiController().groupName, client.getAiController().protocolVersion);
             } else {
                 System.out.println("ERROR :: False communication protocol.");
+                Server.serverLogger.error("False communication protocol");
             }
         }
         else{

@@ -61,7 +61,9 @@ public class BasicServer extends Server {
     public void startServerSocket(){
         try {
             setServerSocket(new ServerSocket(1234));
+            Server.serverLogger.info("Server socket started");
         } catch (IOException e) {
+            Server.serverLogger.error("Server socket not started");
             throw new RuntimeException(e);
         }
         setTerminated(false);

@@ -1,5 +1,7 @@
 package gamelogic.cards.programming_cards;
 
+import server_package.Server;
+
 import static gamelogic.cards.CardName.RIGHT_TURN;
 
 public class RightTurn extends ProgrammingCard {
@@ -19,6 +21,7 @@ public class RightTurn extends ProgrammingCard {
     public void activateCard() {
         // Turn your robot 90 degrees to the right. The robot remains in its current space.
         System.out.println("rightTurn");
+        Server.serverLogger.info("Right Turn");
         player.getRobot().right();
     }
 }

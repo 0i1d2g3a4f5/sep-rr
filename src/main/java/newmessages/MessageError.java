@@ -6,6 +6,7 @@ import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class MessageError extends Message{
         jsonObject.add("error", new JsonPrimitive(error));
         content = jsonObject;
         //System.out.println("Created Error Message: " + this);
+        Server.serverLogger.info("Created Error Message: " + this);
     }
 
     /**
@@ -37,6 +39,7 @@ public class MessageError extends Message{
         super(jsonObject);
         error = content.get("error").getAsString();
         //System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Error Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

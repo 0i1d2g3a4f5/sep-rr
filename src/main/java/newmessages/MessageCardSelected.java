@@ -9,6 +9,7 @@ import client_package.client_gamelogic.ThisCPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -51,6 +52,7 @@ public class MessageCardSelected extends Message{
         register = content.get("register").getAsInt()-1;
         filled = content.get("filled").getAsBoolean();
         //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -80,6 +82,7 @@ public class MessageCardSelected extends Message{
 
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
+            Server.serverLogger.info(player + " selected " + player.getSelectedCard() + " and moved it to their register");
 
         }
         else {

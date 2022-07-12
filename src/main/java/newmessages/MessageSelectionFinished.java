@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -25,6 +26,7 @@ public class MessageSelectionFinished extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
         System.out.println("Created SelectionFinished Message: " + this);
+        Server.serverLogger.info("Created Selection Finished Message: " + this);
     }
 
     /**
@@ -34,6 +36,7 @@ public class MessageSelectionFinished extends Message{
         super(jsonObject);
         clientID = content.get("clienID").getAsInt();
         System.out.println("Created SelectionFinished Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Selection Finished Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -67,6 +70,7 @@ public class MessageSelectionFinished extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         System.out.println("Server: Player "+ clientID + " has finished programming. You have 30 seconds left");
+        Server.serverLogger.info("Server: Player " + clientID + " has finished programming. The others have 30 seconds left");
 
     }
 }

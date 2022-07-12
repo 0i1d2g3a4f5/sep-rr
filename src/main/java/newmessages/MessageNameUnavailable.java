@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 /**
@@ -22,6 +23,7 @@ public class MessageNameUnavailable extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("UnavailableName", new JsonPrimitive(string));
         content = jsonObject;
+        Server.serverLogger.info("Created Name Unavailable Message: " + this);
     }
 
     /**
@@ -30,6 +32,7 @@ public class MessageNameUnavailable extends Message{
     public MessageNameUnavailable(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("UnavailableName").getAsString();
+        Server.serverLogger.info("Created Name Unavailable Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

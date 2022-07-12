@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import gamelogic.Game;
 import newmessages.*;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.*;
 import java.net.Socket;
@@ -71,7 +72,8 @@ public class BasicSClient extends SClient {
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                             ) {
-                                System.out.println("RECEIVEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD: " + inputString);
+                                System.out.println("RECEIVED: " + inputString);
+                                Server.serverLogger.info("Listener received" + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject, true);
                             }
@@ -141,11 +143,13 @@ public class BasicSClient extends SClient {
             setName(name);
             setFigure(figure);
             sendAll(new MessagePlayerAdded(getId(), getName(), getFigure()));
-            System.out.println("Client "+name +" | "+ id +" joined the Game");
+            System.out.println("Client "+name +" | "+ id +" joined the game");
+            Server.serverLogger.info("Client " + name + " | " + id + " joined the game");
             Game.getInstance().join(this);
         }
         else{
             sendSelf(new MessageError("ERROR :: Figure already taken."));
+            Server.serverLogger.error("Chosen figure already taken");
         }
     }
     @Override

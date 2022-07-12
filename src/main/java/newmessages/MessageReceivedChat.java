@@ -6,6 +6,7 @@ import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -36,6 +37,7 @@ public class MessageReceivedChat extends Message{
         jsonObject.add("isPrivate", new JsonPrimitive(isPrivate));
         content = jsonObject;
         //System.out.println("Created Received Message: " + this);
+        Server.serverLogger.info("Created Received Chat Message: " + this);
     }
 
     /**
@@ -47,6 +49,7 @@ public class MessageReceivedChat extends Message{
         from = content.get("from").getAsInt();
         isPrivate = content.get("isPrivate").getAsBoolean();
         //System.out.println("Created Received Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Received Chat Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

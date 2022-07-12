@@ -8,6 +8,7 @@ import client_package.client_gamelogic.OtherClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -38,6 +39,7 @@ public class MessagePlayerAdded extends Message{
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
         //System.out.println("Created PlayerAdded Message: " + this);
+        Server.serverLogger.info("Created Player Added Message: " + this);
     }
 
     /**
@@ -49,6 +51,7 @@ public class MessagePlayerAdded extends Message{
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
         //System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Player Added Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

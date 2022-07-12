@@ -9,6 +9,7 @@ import gamelogic.Color;
 import newmessages.Message;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import server_package.Server;
 
 import java.io.*;
 import java.net.Socket;
@@ -114,6 +115,7 @@ public abstract class Client implements ClientObject{
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
             //System.out.println("SENT :: " + toSend);
+            Server.serverLogger.info("SENT :: " + toSend);
             writer.write(toSend);
             writer.write("\n");
             writer.flush();
@@ -130,7 +132,8 @@ public abstract class Client implements ClientObject{
             dataOutputStream.flush();
 
              */
-            System.out.println("SENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: " +toSend);
+            System.out.println("SENT: " +toSend);
+            Server.serverLogger.info("SENT: " + toSend);
 
 
             toSendList.remove(message);
@@ -217,6 +220,7 @@ public abstract class Client implements ClientObject{
                             for (String string :strings
                                  ) {
                                 System.out.println("RECEIVED: " + inputString);
+                                Server.serverLogger.info("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

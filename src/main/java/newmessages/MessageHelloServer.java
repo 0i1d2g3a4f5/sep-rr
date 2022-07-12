@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -34,6 +35,7 @@ public class MessageHelloServer extends Message {
         jsonObject.add("protocol", new JsonPrimitive(protocol));
         content = jsonObject;
         //System.out.println("Created GroupIdentification Message: " + this);
+        Server.serverLogger.info("Created Hello Server Message: " + this);
     }
 
     /**
@@ -45,6 +47,7 @@ public class MessageHelloServer extends Message {
         isAI = content.get("isAI").getAsBoolean();
         protocol = content.get("protocol").getAsString();
         //System.out.println("Created GroupIdentification Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Hello Server Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -64,6 +67,7 @@ public class MessageHelloServer extends Message {
                 sClient.sendSelf(new MessageWelcome(sClient.getId()));
 
                     System.out.println("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
+                    Server.serverLogger.info("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
 
             }
         }

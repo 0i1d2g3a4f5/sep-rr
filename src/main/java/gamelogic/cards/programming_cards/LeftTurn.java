@@ -1,5 +1,7 @@
 package gamelogic.cards.programming_cards;
 
+import server_package.Server;
+
 import static gamelogic.cards.CardName.LEFT_TURN;
 
 public class LeftTurn extends ProgrammingCard{
@@ -18,6 +20,7 @@ public class LeftTurn extends ProgrammingCard{
     @Override
     public void activateCard() {
         System.out.println("LeftTurn");
+        Server.serverLogger.info("LeftTurn");
         /*
         Turn your robot 90 degrees to the left.
         The robot remains in its current space.

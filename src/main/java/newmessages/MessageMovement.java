@@ -7,6 +7,7 @@ import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -38,6 +39,7 @@ public class MessageMovement extends Message{
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
         System.out.println("Created Move Message: " + this);
+        Server.serverLogger.info("Created Movement Message: " + this);
     }
 
     /**
@@ -49,6 +51,7 @@ public class MessageMovement extends Message{
         x= content.get("x").getAsInt();
         y = content.get("y").getAsInt();
         System.out.println("Created Move Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Movement Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

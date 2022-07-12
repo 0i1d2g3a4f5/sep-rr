@@ -25,8 +25,6 @@ public class StartPoint extends GameElement{
         Gson gson = new Gson();
         StartPoint startPoint = new StartPoint();
         startPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-
     }
 
     /**
@@ -36,7 +34,6 @@ public class StartPoint extends GameElement{
      */
     @Override
     public JsonObject toJson(){
-
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));

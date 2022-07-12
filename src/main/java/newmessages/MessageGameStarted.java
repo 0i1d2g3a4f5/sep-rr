@@ -10,6 +10,7 @@ import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -22,7 +23,8 @@ public class MessageGameStarted extends Message{
     public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
         content = jsonObject;
-        System.out.println("GameStarted content: "+content);
+        System.out.println("GameStarted content: " + content);
+        Server.serverLogger.info("Created Game Started Message: " + this);
     }
 
     /**
@@ -31,6 +33,7 @@ public class MessageGameStarted extends Message{
     public MessageGameStarted(JsonObject jsonObject) {
         super(jsonObject);
         gameMap = content.get("gameMap").getAsJsonArray();
+        Server.serverLogger.info("Created Game Started Message");
     }
 
     /**

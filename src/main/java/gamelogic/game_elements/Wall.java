@@ -31,7 +31,6 @@ public class Wall extends GameElement{
             directions.add(Direction.parseDirection(orientation.getAsString()));
         }
 
-
         for (Direction direction:directions) {
             this.orientations.add(direction);
         }

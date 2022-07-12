@@ -6,6 +6,7 @@ import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
@@ -28,6 +29,7 @@ public class MessageWelcome extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
         //System.out.println("Created Welcome Message: " + this);
+        Server.serverLogger.info("Created Welcome Message: " + this);
     }
 
     /**
@@ -37,6 +39,7 @@ public class MessageWelcome extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         //System.out.println("Created GroupIdentification Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Welcome Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

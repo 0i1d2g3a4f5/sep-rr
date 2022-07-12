@@ -5,6 +5,7 @@ import client_package.client_gamelogic.cards.Card;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -48,10 +49,12 @@ public class MessageActivePhase extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         System.out.println("Active Phase: Phase "+ phase);
+        Server.serverLogger.info("Active Phase: Phase " + phase);
 
         if(phase == 2 || phase == 3){
             client.getPlayer().getHandCards().clear();
             client.getPlayer().setRegisterCards(new Card[client.getPlayer().getRegisterCards().length]);
+            Server.serverLogger.info("Register cards set");
         }
 
     }

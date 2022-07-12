@@ -2,6 +2,7 @@ package newmessages;
 
 import com.google.gson.JsonObject;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -20,6 +21,7 @@ public class MessageTimerStarted extends Message{
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
         System.out.println("Created EndTime Message: " + this);
+        Server.serverLogger.info("Created Timer Started Message: " + this);
     }
 
     /**
@@ -28,7 +30,7 @@ public class MessageTimerStarted extends Message{
      */
     public MessageTimerStarted(JsonObject jsonObject){
         super(jsonObject);
-        System.out.println("Created EndTime Message: " + this + " from JSON: " + jsonObject);
+        System.out.println("Created Timer Started Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

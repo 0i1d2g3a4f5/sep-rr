@@ -1,5 +1,7 @@
 package gamelogic.cards.programming_cards;
 
+import server_package.Server;
+
 import static gamelogic.cards.CardName.BACK_UP;
 
 public class BackUp extends ProgrammingCard {
@@ -18,6 +20,7 @@ public class BackUp extends ProgrammingCard {
     @Override
     public void activateCard() {
         System.out.println("BackUp");
+        Server.serverLogger.info("BackUp");
         /*
         Move your robot one space back.
         The robot does not change the direction it is facing.

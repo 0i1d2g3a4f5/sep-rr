@@ -26,9 +26,6 @@ public class RestartPoint extends GameElement{
         Gson gson = new Gson();
         RestartPoint restartPoint = new RestartPoint();
         restartPoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
-
-
     }
 
     /**
@@ -38,7 +35,6 @@ public class RestartPoint extends GameElement{
      */
     @Override
     public JsonObject toJson(){
-
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type",new JsonPrimitive(type.toString()));
         jsonObject.add("isOnBoard",new JsonPrimitive(isOnBoard));

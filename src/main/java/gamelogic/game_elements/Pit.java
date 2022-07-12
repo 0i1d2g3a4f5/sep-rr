@@ -26,9 +26,7 @@ public class Pit extends GameElement{
         super(ElementName.PIT);
         Gson gson = new Gson();
 
-
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
-
     }
 
     /**

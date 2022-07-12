@@ -6,6 +6,7 @@ import gamelogic.Player;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -33,7 +34,8 @@ public class MessageSelectedCard extends Message {
         jsonObject.add("card", new JsonPrimitive(card));
         jsonObject.add("register", new JsonPrimitive(register+1));
         content = jsonObject;
-        //System.out.println("Created SelectCard Message: " + this);
+        //System.out.println("Created SelectCard Message: " + this)
+        Server.serverLogger.info("Created Selected Card Message: " + this);
     }
 
     /**
@@ -44,6 +46,7 @@ public class MessageSelectedCard extends Message {
         card = content.get("card").getAsString();
         register = content.get("register").getAsInt()-1;
         //System.out.println("Created SelectCard Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Selected Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -88,8 +91,10 @@ public class MessageSelectedCard extends Message {
         System.out.println("Register of player "+ sClient.getId()+ ": " + Arrays.toString(sClient.getPlayer().getAllRegisters()));
         if(!(utility.SearchMethods.emptyArraySpaces(sClient.getPlayer().getAllRegisters())>0)){
             System.out.println("Cards full");
+            Server.serverLogger.info("Cards full");
             sClient.getPlayer().getGame().setProgrammingPhase(false);
-            System.out.println("Var programmingPhase: "+sClient.getPlayer().getGame().isProgramingPhase());
+            System.out.println("Var programmingPhase: " + sClient.getPlayer().getGame().isProgramingPhase());
+            Server.serverLogger.info("Var programmingPhase: " + sClient.getPlayer().getGame().isProgramingPhase());
 
 
 

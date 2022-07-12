@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import newmessages.MessageGameFinished;
 import newmessages.MessageSelectedCard;
 import newmessages.MessageSetStartingPoint;
+import server_package.Server;
 
 /**
  * @author Sarp Cagin Erdogan, Qinyi, Vivian
@@ -143,6 +144,7 @@ public class ClientGameBasicController {
     public void selectCard(){
         GridPane gridPane = (GridPane) stackOwnProgramming.getChildren().get(0);
         System.out.println("Chosen: " + currentChosen + "into register: " + gridPane.getColumnCount());
+        Server.serverLogger.info("Chosen: " + currentChosen + " into register: " + gridPane.getColumnCount());
         clientApplication.getClient().getPlayer().selectCard(currentChosen, gridPane.getColumnCount());
         chooseProgrammingActive=true;
     }
@@ -153,6 +155,7 @@ public class ClientGameBasicController {
             chooseProgrammingActive=false;
             Node clicked = mouseEvent.getPickResult().getIntersectedNode();
             System.out.println("CLICKED NODE IS: " + clicked.toString());
+            Server.serverLogger.info("CLICKED NODE IS: " + clicked.toString());
             boolean inside = true;
             Node requestedParent = scrollAvailableProgramming.getContent();
 
@@ -173,6 +176,7 @@ public class ClientGameBasicController {
                 //System.out.println("Index: " + currentChosen);
                 GridPane own = (GridPane) stackOwnProgramming.getChildren().get(0);
                 System.out.println("Chosen card is \"" + clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName() + "\" for register \"" + (own.getColumnCount()) + "\"");
+                Server.serverLogger.info("Chosen card is \"" + clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName() + "\" for register \"" + (own.getColumnCount()) + "\"");
                 clientApplication.getClient().sendSelf(new MessageSelectedCard(clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName().toString(), own.getColumnCount() ));
             }
             else{

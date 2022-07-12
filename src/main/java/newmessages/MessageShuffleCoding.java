@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -24,6 +25,7 @@ public class MessageShuffleCoding extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
         System.out.println("Created Shuffle Message: " + this);
+        Server.serverLogger.info("Created Shuffle Coding Message: " + this);
     }
 
     /**
@@ -33,6 +35,7 @@ public class MessageShuffleCoding extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         System.out.println("Created Shuffle Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Shuffle Coding Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

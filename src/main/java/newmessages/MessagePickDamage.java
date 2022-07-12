@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.cards.CardFactory;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class MessagePickDamage extends Message {
         jsonObject.add("availablePiles",jsonArray);
         content = jsonObject;
         System.out.println("Created PickDamage Message: " + this);
+        Server.serverLogger.info("Created Pick Damage Message: " + this);
     }
 
     /**
@@ -57,6 +59,7 @@ public class MessagePickDamage extends Message {
         this.availablePiles = availablePiles;
 
         System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Pick Damage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

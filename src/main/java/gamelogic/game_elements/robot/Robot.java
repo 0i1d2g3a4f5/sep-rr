@@ -9,6 +9,7 @@ import gamelogic.game_elements.GameElement;
 import gamelogic.game_elements.RestartPoint;
 import gamelogic.map.GameField;
 import newmessages.*;
+import server_package.Server;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -49,6 +50,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public void setPosition(Position position) {
         this.position = position;
         gameField = game.getBoard().getField(position);
+        Server.serverLogger.info("Position set");
     }
 
 
@@ -129,7 +131,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public boolean left(){
         directionFacing = directionFacing.left();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
-
+        Server.serverLogger.info("Left turn");
         return true;
     }
 
@@ -140,6 +142,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public boolean right(){
         directionFacing = directionFacing.right();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
+        Server.serverLogger.info("Right turn");
         return true;
     }
 
@@ -152,6 +155,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         directionFacing = directionFacing.opposite();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
+        Server.serverLogger.info("U-Turn");
         return true;
     }
 
@@ -202,11 +206,13 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private boolean move(int gear){
         Direction targetDirection = gear == 1 ? directionFacing : directionFacing.opposite();
         setNextPosition(targetDirection);
-        System.out.println("robot wants to move from "+ position+ " to "+nextPosition);
+        System.out.println("Robot wants to move from " + position + " to " + nextPosition);
+        Server.serverLogger.info("Robot wants to move from " + position + " to " + nextPosition);
 
         if(checkNextPosition(targetDirection)){
             changePositionOnBoard();
-            System.out.println("robot successfully moved to "+position);
+            System.out.println("Robot successfully moved to "+position);
+            Server.serverLogger.info("Robot successfully moved to " + position);
 
         }
 

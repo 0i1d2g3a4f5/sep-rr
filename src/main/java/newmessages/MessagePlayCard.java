@@ -6,6 +6,7 @@ import client_application.TaskType;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -27,6 +28,7 @@ public class MessagePlayCard extends Message{
         jsonObject.add("card", new JsonPrimitive(card));
         content = jsonObject;
         System.out.println("Created PlayCard Message: " + this);
+        Server.serverLogger.info("Created Play Card Message: " + this);
     }
 
     /**
@@ -36,6 +38,7 @@ public class MessagePlayCard extends Message{
         super(jsonObject);
         card = content.get("card").getAsString();
         System.out.println("Created PlayCard Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Play Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

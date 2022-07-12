@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class MessageWrongName extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));
         content = jsonObject;
+        Server.serverLogger.info("Created Wrong Name Message: " + this);
     }
 
     /**
@@ -31,6 +33,7 @@ public class MessageWrongName extends Message{
     public MessageWrongName(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
+        Server.serverLogger.info("Created Wrong Name Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

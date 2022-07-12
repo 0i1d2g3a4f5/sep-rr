@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class MessageSendChat extends Message{
         jsonObject.add("message", new JsonPrimitive(message));
         jsonObject.add("to", new JsonPrimitive(to));
         content = jsonObject;
+        Server.serverLogger.info("Created Send Chat Message: " + this);
     }
 
     /**
@@ -37,6 +39,7 @@ public class MessageSendChat extends Message{
         super(jsonObject);
         message = content.get("message").getAsString();
         to = content.get("to").getAsInt();
+        Server.serverLogger.info("Created Send Chat Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -54,6 +57,7 @@ public class MessageSendChat extends Message{
                 if (sClient.getServer().clientFromID(this.to) != null) {
                     sClient.sendSingle(sClient.getServer().clientFromID(this.to), new MessageReceivedChat(this.message, sClient.getId(), true));
                 } else {
+                    Server.serverLogger.error("Invalid private message recipient");
                     sClient.sendSelf(new MessageError("ERROR :: Invalid private message recipient."));
                 }
             }

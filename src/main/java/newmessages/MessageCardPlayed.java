@@ -5,6 +5,7 @@ import client_package.client_gamelogic.cards.CardName;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -31,6 +32,7 @@ public class MessageCardPlayed extends Message{
         jsonObject.add("card", new JsonPrimitive(card));
         content = jsonObject;
         System.out.println("Created CardPlayed Message: " + this);
+        Server.serverLogger.info("Created CardPlayed Message: " + this);
     }
 
     /**
@@ -41,6 +43,7 @@ public class MessageCardPlayed extends Message{
         clientID = content.get("clientID").getAsInt();
         card = content.get("card").getAsString();
         System.out.println("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

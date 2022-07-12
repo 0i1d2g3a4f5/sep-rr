@@ -10,6 +10,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.cards.CardName;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class MessageYourCards extends Message{
         jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
         System.out.println("Created Quantity Message: " + this);
+        Server.serverLogger.info("Created Your Cards Message: " + this);
     }
 
     /**
@@ -59,6 +61,7 @@ public class MessageYourCards extends Message{
         }
 
         //System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

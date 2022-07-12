@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -29,6 +30,7 @@ public class MessageSelectedDamage extends Message {
         jsonObject.add("register", new JsonPrimitive(register));
         content = jsonObject;
         System.out.println("Created SelectDamage Message: " + this);
+        Server.serverLogger.info("Created Selected Damage Message: " + this);
     }
 
     /**
@@ -39,6 +41,7 @@ public class MessageSelectedDamage extends Message {
         damage = content.get("damage").getAsString();
         register = content.get("register").getAsInt();
         System.out.println("Created SelectDamage Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Selected Damage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

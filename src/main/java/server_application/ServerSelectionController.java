@@ -1,5 +1,6 @@
 package server_application;
 
+import server_package.Server;
 import server_package.advancedServer.AdvancedServer;
 import server_package.basicServer.BasicServer;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ public class ServerSelectionController {
             setActive(false);
             serverApplication.setAdvancedServer(new AdvancedServer(serverApplication));
             serverApplication.setIsBasic(false);
+            Server.serverLogger.info("Advanced server launched");
         }
     }
 
@@ -26,6 +28,7 @@ public class ServerSelectionController {
             setActive(false);
             serverApplication.setBasicServer(new BasicServer(serverApplication));
             serverApplication.getBasicServer().startServerSocket();
+            Server.serverLogger.info("Basic server launched");
         }
 
     }

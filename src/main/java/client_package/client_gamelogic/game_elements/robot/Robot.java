@@ -9,6 +9,7 @@ import client_package.client_gamelogic.game_elements.GameElement;
 
 import gamelogic.Direction;
 import gamelogic.Position;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -80,7 +81,8 @@ public class Robot extends GameElement {
         //Game.getInstance().getMap().getGameField(y,x).removeRobot();
         Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
-        System.out.println("added Robot");
+        System.out.println("Added robot");
+        Server.serverLogger.info("Added robot");
 
 
     }

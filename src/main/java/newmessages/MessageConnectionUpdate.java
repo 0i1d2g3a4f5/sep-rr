@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -45,6 +46,7 @@ public class MessageConnectionUpdate extends Message{
         isConnected = content.get("isConnected").getAsBoolean();
         action = content.get("content").getAsString();
         System.out.println("Created ConnectionUpdate Message: " + this +" from Json" + jsonObject);
+        Server.serverLogger.info("Created ConnectionUpdate Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

@@ -9,6 +9,7 @@ import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameField;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -101,6 +102,7 @@ public class Laser extends GameElement implements Activatable {
     @Override
     public void activate() {
         System.out.println("activate "+type);
+        Server.serverLogger.info("Activate " + type);
         //laserMovement(gameField);
     }
 

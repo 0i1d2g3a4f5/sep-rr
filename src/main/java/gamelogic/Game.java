@@ -15,6 +15,7 @@ import gamelogic.map.MapName;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.*;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.*;
@@ -138,9 +139,12 @@ public class  Game {
         ModelLoader loader = new ModelLoader();
         try {
             System.out.println("load Map");
+            Server.serverLogger.info("Load map");
             board = loader.loadMap(String.valueOf(mapName));
            // System.out.println("Map: "+board.boardMap);
+            Server.serverLogger.info("Map: " + board.boardMap);
             System.out.println("loaded Map");
+            Server.serverLogger.info("Loaded map");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -291,10 +295,12 @@ public class  Game {
 
             TimeUnit.SECONDS.sleep(1);
             //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
+            Server.serverLogger.info("GameLoop still alive - ProgrammingPhase" + programmingPhase);
 
 
         }
         System.out.println("Ending Programming phase");
+        Server.serverLogger.info("Ending programming phase");
         endProgrammingPhase();
     }
 

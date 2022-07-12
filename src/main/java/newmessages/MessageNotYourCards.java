@@ -4,6 +4,7 @@ import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class MessageNotYourCards extends Message{
         jsonObject.add("cardsInHand", new JsonPrimitive(cardsInHand));
         content = jsonObject;
         System.out.println("Created Quantity Message: " + this);
+        Server.serverLogger.info("Created Not Your Cards Message: " + this);
     }
 
     /**
@@ -40,6 +42,7 @@ public class MessageNotYourCards extends Message{
         clientID = content.get("clientID").getAsInt();
         cardsInHand = content.get("cardsInHand").getAsInt();
         System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Not Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -63,6 +66,7 @@ public class MessageNotYourCards extends Message{
 
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         System.out.println("NotYourCards "+ cardsInHand);
+        Server.serverLogger.info("NotYourCards" + cardsInHand);
         /*
 
         ArrayList<CPlayer> playerList = client.getGame().getPlayerList();

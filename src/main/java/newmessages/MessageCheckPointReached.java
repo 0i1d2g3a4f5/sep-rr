@@ -4,6 +4,7 @@ import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -30,6 +31,7 @@ public class MessageCheckPointReached extends Message{
         jsonObject.add("number", new JsonPrimitive(number));
         content = jsonObject;
         System.out.println("Created CheckPoint Message: " + this);
+        Server.serverLogger.info("Created Check Point Reached Message: " + this);
     }
 
     /**
@@ -40,6 +42,7 @@ public class MessageCheckPointReached extends Message{
         clientID = content.get("clientID").getAsInt();
         number = content.get("number").getAsInt();
         System.out.println("Created CheckPoint Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Check Point Reached Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

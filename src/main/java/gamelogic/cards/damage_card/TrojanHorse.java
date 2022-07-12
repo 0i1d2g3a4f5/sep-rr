@@ -1,6 +1,7 @@
 package gamelogic.cards.damage_card;
 
 import gamelogic.Game;
+import server_package.Server;
 
 import static gamelogic.cards.CardName.*;
 
@@ -33,5 +34,6 @@ public class TrojanHorse extends DamageCard {
         player.placeCard(player.drawCard(), game.getActiveRegister());
         player.activateRegister(game.getActiveRegister());
         //remove card from register and replace it with a new one.
+        Server.serverLogger.info("Trojan Horse");
     }
 }

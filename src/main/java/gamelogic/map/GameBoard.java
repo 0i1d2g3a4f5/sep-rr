@@ -8,6 +8,7 @@ import gamelogic.JsonSerializable;
 import gamelogic.Position;
 import gamelogic.game_elements.*;
 import javafx.util.Pair;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class GameBoard implements JsonSerializable {
 
         if(y <0 || y>= boardMap.get(0).size() ||x <0 || x>= boardMap.size()){
             System.out.println("illegal Field");
+            Server.serverLogger.info("Illegal field");
 
             GameField gameField = new GameField(this,x,y);
             gameField.addElement(new Pit());
@@ -47,6 +49,7 @@ public class GameBoard implements JsonSerializable {
 
         if(position.getY() <0 || position.getY()>= boardMap.get(0).size()||position.getX() <0 || position.getX()>= boardMap.size()){
             System.out.println("illegal Field");
+            Server.serverLogger.info("Illegal field");
 
             GameField gameField = new GameField(this,position.getX(),position.getY());
             gameField.addElement(new Pit());
@@ -263,6 +266,7 @@ public class GameBoard implements JsonSerializable {
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
                         //System.out.println("Element in Board.toJson: "+element);
+                        //Server.serverLogger.info("Element in Board.toJson");
                         jsonArrayLVL3.add(element.toJson());
                     }
                 } else {

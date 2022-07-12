@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ public class MessageHashedCode extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("HashedCode", new JsonPrimitive(hashedCode));
         content=jsonObject;
+        Server.serverLogger.info("Created Hashed Code Message: " + this);
     }
 
     /**
@@ -30,6 +32,7 @@ public class MessageHashedCode extends Message{
     public MessageHashedCode(JsonObject jsonObject){
         super(jsonObject);
         hashedCode=content.get("HashedCode").getAsString();
+        Server.serverLogger.info("Created Hashed Code Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

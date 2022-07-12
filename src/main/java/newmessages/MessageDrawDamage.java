@@ -8,6 +8,7 @@ import gamelogic.cards.Card;
 import gamelogic.cards.CardFactory;
 import gamelogic.cards.CardName;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,6 +71,7 @@ public class MessageDrawDamage extends Message {
         this.damageCards = damageCards;
 
         System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created DrawDamage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

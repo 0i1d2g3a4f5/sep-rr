@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import gamelogic.Player;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class MessageTimerEnded extends Message{
         jsonObject.add("clientIDs",jsonArray);
         content = jsonObject;
         System.out.println("Created StartTime Message: " + this);
+        Server.serverLogger.info("Created Timer Ended Message: " + this);
 
     }
 
@@ -38,6 +40,7 @@ public class MessageTimerEnded extends Message{
     public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
         System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Timer Ended Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

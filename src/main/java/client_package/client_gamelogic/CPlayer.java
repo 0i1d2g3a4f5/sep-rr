@@ -4,6 +4,7 @@ import client_package.Client;
 import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class CPlayer {
 
     public CPlayer(ClientObject clientObject, Game game){
         System.out.println("created CPlayer");
+        Server.serverLogger.info("Created CPlayer");
         if(clientObject.getId() == game.getClient().getId()){
 
             this.game = game;

@@ -6,6 +6,7 @@ import client_application.TaskType;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -27,6 +28,7 @@ public class MessageSelectMap extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("availableMaps", jsonArray);
         content=jsonObject;
+        Server.serverLogger.info("Created Select Map Message: " + this);
     }
 
     /**
@@ -35,6 +37,7 @@ public class MessageSelectMap extends Message{
     public MessageSelectMap(JsonObject jsonObject){
         super(jsonObject);
         availableMaps=content.get("availableMaps").getAsJsonArray();
+        Server.serverLogger.info("Created Select Map Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

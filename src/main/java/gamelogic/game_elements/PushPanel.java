@@ -6,6 +6,8 @@ import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.game_elements.robot.Robot;
+import server_package.Server;
+
 import java.io.IOException;
 import java.util.ArrayList;
 public class PushPanel extends GameElement implements Activatable {
@@ -54,6 +56,7 @@ public class PushPanel extends GameElement implements Activatable {
         for (int register:activateRegisters) {
             jsonArrayRegisters.add(register);
         }
+
         jsonObject.add("registers",jsonArrayRegisters);
         return jsonObject;
     }
@@ -63,6 +66,7 @@ public class PushPanel extends GameElement implements Activatable {
     @Override
     public void activate() {
         System.out.println("activate "+type);
+        Server.serverLogger.info("Activate " + type);
         if(gameField.contains(ElementName.ROBOT)&& (activateRegisters.contains(Game.getInstance().getActiveRegister()+1))){
             Robot robot = gameField.getRobot();
             robot.displace(orientations.get(0));

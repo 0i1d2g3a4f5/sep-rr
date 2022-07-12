@@ -7,6 +7,7 @@ import gamelogic.map.GameBoard;
 import gamelogic.map.MapName;
 import gamelogic.map.ModelLoader;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -27,6 +28,7 @@ public class MessageMapSelected extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("map", new JsonPrimitive(map));
         content = jsonObject;
+        Server.serverLogger.info("Created Map Selected Message: " + this);
     }
 
     /**
@@ -35,6 +37,7 @@ public class MessageMapSelected extends Message{
     public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
         map = content.get("map").getAsString();
+        Server.serverLogger.info("Created Map Selected Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -57,6 +60,7 @@ public class MessageMapSelected extends Message{
                 throw new RuntimeException(e);
             }
             System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
+            Server.serverLogger.info("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             sClient.sendAll(this);
             //TODO select position, revert to get gameBoard
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));

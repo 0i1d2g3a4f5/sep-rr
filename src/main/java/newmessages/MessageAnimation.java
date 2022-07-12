@@ -4,6 +4,7 @@ import client_package.AI.AIClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -36,6 +37,7 @@ public class MessageAnimation extends Message{
         super(jsonObject);
         animationType = content.get("type").getAsString();
         System.out.println("Created Animation Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Animation Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

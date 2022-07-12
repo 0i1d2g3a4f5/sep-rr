@@ -1,5 +1,7 @@
 package client_package.client_gamelogic.cards;
 
+import server_package.Server;
+
 import java.io.IOException;
 
 public enum CardName {
@@ -70,11 +72,10 @@ public enum CardName {
     public static CardName parseCardName(String cardName) throws IOException {
         for (CardName  name:CardName.values()){
             cardName =cardName.replaceAll("\"","");
-            /*System.out.println("Wanted: "+cardName);
-            System.out.println("Actual: "+name.toString());
-
-             */
-
+            // System.out.println("Wanted: "+cardName);
+            Server.serverLogger.info("Wanted: " + cardName);
+            // System.out.println("Actual: "+name.toString());
+            Server.serverLogger.info("Actual: " + name.toString());
 
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }

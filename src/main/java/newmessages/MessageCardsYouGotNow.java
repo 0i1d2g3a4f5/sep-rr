@@ -7,6 +7,7 @@ import gamelogic.cards.Card;
 import gamelogic.cards.CardFactory;
 import gamelogic.cards.CardName;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class MessageCardsYouGotNow extends Message{
 
         content = jsonObject;
         System.out.println("Created Register Message: " + this);
+        Server.serverLogger.info("Created Cards You Got Know Message: " + this);
     }
 
     /**
@@ -54,6 +56,7 @@ public class MessageCardsYouGotNow extends Message{
         this.cards = cards;
 
         System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Cards You Got Know Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

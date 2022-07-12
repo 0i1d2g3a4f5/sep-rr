@@ -1,6 +1,7 @@
 package gamelogic.cards.programming_cards;
 
 import newmessages.MessageEnergy;
+import server_package.Server;
 
 import static gamelogic.cards.CardName.POWER_UP;
 
@@ -24,6 +25,7 @@ public class PowerUp extends ProgrammingCard {
     public void activateCard() {
         // Take one energy cube, and place it on your player mat.
         System.out.println("PowerUp");
+        Server.serverLogger.info("PowerUp");
         player.addEnergyCube();
         player.getClient().sendAll(new MessageEnergy(player.getClient().getId(),1,"EnergyCube"));
     }

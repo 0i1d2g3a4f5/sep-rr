@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -18,10 +19,12 @@ public class MessageFigureUnavailable extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Figure", new JsonPrimitive(i));
         content = jsonObject;
+        Server.serverLogger.info("Created Figure Unavailable Message: " + this);
     }
     public MessageFigureUnavailable(JsonObject jsonObject){
         super(jsonObject);
         figure=content.get("Figure").getAsInt();
+        Server.serverLogger.info("Created Figure Unavailable Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

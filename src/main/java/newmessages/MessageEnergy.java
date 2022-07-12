@@ -3,6 +3,7 @@ package newmessages;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
+import server_package.Server;
 
 import java.io.IOException;
 
@@ -33,6 +34,7 @@ public class MessageEnergy extends Message{
         jsonObject.add("source", new JsonPrimitive(source));
         content = jsonObject;
         System.out.println("Created Energy Message: " + this);
+        Server.serverLogger.info("Created Energy Message: " + this);
     }
 
     /**
@@ -44,6 +46,7 @@ public class MessageEnergy extends Message{
         count = content.get("count").getAsInt();
         source = content.get("source").getAsString();
         System.out.println("Created Energy Message: " + this + " from JSON: " + jsonObject);
+        Server.serverLogger.info("Created Energy Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

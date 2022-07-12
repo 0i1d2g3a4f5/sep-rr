@@ -1,5 +1,7 @@
 package gamelogic.cards.damage_card;
 
+import server_package.Server;
+
 import static gamelogic.cards.CardName.*;
 
 /**
@@ -25,6 +27,7 @@ public class Worm extends DamageCard {
         game.getWormDrawPile().add(this);
         player.placeCard(player.drawCard(), game.getActiveRegister());
         player.activateRegister(game.getActiveRegister());
+        Server.serverLogger.info("Worm");
     }
 
 }

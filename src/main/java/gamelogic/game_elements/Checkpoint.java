@@ -9,6 +9,7 @@ import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.Player;
 import gamelogic.game_elements.robot.Robot;
+import server_package.Server;
 import utility.SearchMethods;
 
 import java.io.IOException;
@@ -77,8 +78,10 @@ public class Checkpoint extends GameElement implements Activatable {
                     Game.getInstance().endGame(player);
                 }
             } else{
-                System.out.println("wrong order of Checkpoints: This is Checkpoint "+count+",\n" +
+                System.out.println("wrong order of Checkpoints: This is Checkpoint "+count+";\n" +
                         "try to reach checkpoint "+player.getCheckpointTokens()+1);
+                Server.serverLogger.info("Wrong order of checkpoints: This is checkpoint " + count + ";\n" +
+                        "try to reach checkpoint " + player.getCheckpointTokens() + 1);
             }
 
 

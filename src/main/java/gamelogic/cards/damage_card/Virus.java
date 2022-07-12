@@ -2,6 +2,7 @@ package gamelogic.cards.damage_card;
 
 import gamelogic.Game;
 import gamelogic.Player;
+import server_package.Server;
 import utility.MyMath;
 
 import static gamelogic.cards.CardName.*;
@@ -36,6 +37,7 @@ public class Virus extends DamageCard {
         game.getVirusDrawPile().add(this);
         player.placeCard(player.drawCard(), game.getActiveRegister());
         player.activateRegister(game.getActiveRegister());
+        Server.serverLogger.info("Virus");
 
     }
 }
