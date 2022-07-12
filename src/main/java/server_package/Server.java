@@ -1,16 +1,35 @@
 package server_package;
 
 import gamelogic.Game;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import server_application.ServerApplication;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
 /**
  * @author Sarp Cagin Erdogan
  */
 
 public abstract class Server {
+
+    public static Logger serverLogger = Logger.getLogger("Server");
+
+    static {
+        try {
+            Properties properties= new Properties();
+            properties.load(new FileInputStream("log4j-server.properties"));
+            PropertyConfigurator.configure(properties);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
     protected int maxClients, currentClients, currentIndex, startingAmount;

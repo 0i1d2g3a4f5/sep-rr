@@ -7,17 +7,33 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
 import newmessages.Message;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sarp Cagin Erdogan
  */
 public abstract class Client implements ClientObject{
+
+    public static Logger clientLogger = Logger.getLogger("Client");
+
+    static {
+        try {
+            Properties properties= new Properties();
+            properties.load(new FileInputStream("log4j-client.properties"));
+            PropertyConfigurator.configure(properties);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
         toSendList.add(message);

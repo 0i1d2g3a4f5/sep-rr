@@ -1,5 +1,7 @@
 package server_application;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.PropertyConfigurator;
 import server_package.Server;
 import server_package.advancedServer.AdvancedServer;
 import server_package.basicServer.BasicServer;
@@ -8,14 +10,22 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger ;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import static server_package.Server.serverLogger;
+
 /**
  * @author Sarp Cagin Erdogan
  */
 public class ServerApplication extends Application{
+
+
     private BasicServer basicServer;
     private AdvancedServer advancedServer;
     private boolean isBasic;
@@ -26,6 +36,9 @@ public class ServerApplication extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
+
+
+        serverLogger.info("Server started");
         taskHandler = new TaskHandler(this);
         taskList = new ArrayList<>();
         launchBeginning();

@@ -31,6 +31,7 @@ public class ClientApplication extends Application {
     public boolean lobbyActive;
     @Override
     public void start(Stage stage) throws Exception {
+        Client.clientLogger.info("Client Started");
         lobbyActive=false;
         taskHandler = new TaskHandler(this);
         taskList = new ArrayList<>();

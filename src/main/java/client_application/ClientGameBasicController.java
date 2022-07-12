@@ -194,6 +194,7 @@ public class ClientGameBasicController {
 
     public void triggerGameFinishedScene(){
         //TODO: Check how to get the clientID of the winner
+        /*
         MessageGameFinished messageGameFinished = new MessageGameFinished(0);
         for(Player player:Game.getInstance().getPlayerList()) {
             if (messageGameFinished.clientID == player.getClient().getId()) {
@@ -202,6 +203,8 @@ public class ClientGameBasicController {
                 loserScene.setVisible(true);
             }
         }
+
+         */
     }
 
     public void goLobby(ActionEvent event){

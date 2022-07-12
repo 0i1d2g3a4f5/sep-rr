@@ -14,6 +14,7 @@ module desperate.drosseln.hp {
     requires javafx.fxml;
     requires com.google.gson;
     requires javafx.controls;
+    requires log4j;
 
     exports gamelogic;
     exports client_package.client_gamelogic;
