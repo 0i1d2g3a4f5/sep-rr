@@ -13,6 +13,7 @@ public enum CardName {
     TROJAN_HORSE("TrojanHorse"),
     VIRUS("Virus"),
     WORM("Worm"),
+
     // Programming Cards
     AGAIN("Again"),
     BACK_UP("BackUp"),
@@ -23,6 +24,7 @@ public enum CardName {
     POWER_UP("PowerUp"),
     RIGHT_TURN("RightTurn"),
     U_TURN("UTurn"),
+
     // Permanent Upgrade Cards
     ADMIN_PRIVILEGE("AdminPrivilege"),
     CORRUPTION_WAVE("CorruptionWave"),
@@ -48,6 +50,7 @@ public enum CardName {
     TROJAN_NEEDLER("TrojanNeedler"),
     TELEPORTER("Teleporter"),
     VIRUS_MODULE("VirusModule"),
+
     // Temporary Upgrade Cards
     BOINK("Boink"),
     HACK("Hack"),
@@ -73,7 +76,7 @@ public enum CardName {
     private String cardName;
     public static CardName parseCardName(String cardName) {
         for (CardName  name:CardName.values()){
-            cardName =cardName.replaceAll("\"","");
+            cardName = cardName.replaceAll("\"","");
             // System.out.println("Wanted: "+cardName);
             Server.serverLogger.info("Wanted: " + cardName);
             // System.out.println("Actual: "+name.toString());
@@ -81,7 +84,7 @@ public enum CardName {
 
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }
-        throw new IllegalArgumentException("Card "+cardName+" not found");
+        throw new IllegalArgumentException("Card " + cardName + " not found");
     }
     public String toString(){
         return cardName;

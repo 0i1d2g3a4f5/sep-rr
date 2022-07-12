@@ -141,14 +141,14 @@ public enum Images {
     }
     public ImageView handleCard(ImageView imageView){
         imageView.setSmooth(true);
-        imageView.setFitHeight(200);
-        imageView.setFitWidth(130);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(65);
         return imageView;
     }
     public ImageView handleMapElement(ImageView imageView){
         imageView.setSmooth(true);
-        imageView.setFitHeight(100);
-        imageView.setFitWidth(100);
+        imageView.setFitHeight(297);
+        imageView.setFitWidth(297);
         return imageView;
     }
 
@@ -162,8 +162,8 @@ public enum Images {
 
     public ImageView handleRobot(ImageView imageView){
         imageView.setSmooth(true);
-        imageView.setFitHeight(100);
-        imageView.setFitWidth(100);
+        imageView.setFitHeight(260);
+        imageView.setFitWidth(297);
         return imageView;
     }
 
