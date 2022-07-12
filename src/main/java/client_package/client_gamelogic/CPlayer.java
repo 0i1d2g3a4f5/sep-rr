@@ -25,7 +25,7 @@ public class CPlayer {
 
     public CPlayer(ClientObject clientObject, Game game){
         System.out.println("created CPlayer");
-        Server.serverLogger.info("Created CPlayer");
+        Client.clientLogger.info("Created CPlayer");
         if(clientObject.getId() == game.getClient().getId()){
 
             this.game = game;

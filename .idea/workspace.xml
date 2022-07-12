@@ -4,103 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="day 4 : began creating sentient lifeforms (basic structure of AI). Allah is tired, probably gonna take some break.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="logging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/neat/Neat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/neat/Neat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/AI/TestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/ModelLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/BackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/BackUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/LeftTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/LeftTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveThree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveThree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/MoveTwo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/PowerUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/RightTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/RightTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Checkpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Gear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Pit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Pit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/RestartPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/RestartPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/StartPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/StartPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageActivePhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageActivePhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageAlive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageAlive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardPlayed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardsYouGotNow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCardsYouGotNow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCheckPointReached.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCheckPointReached.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageConnectionUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageConnectionUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageCurrentPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageCurrentPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageDrawDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageDrawDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageEnergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageEnergy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageFigureUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageFigureUnavailable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameFinished.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameStarted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageHashedCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageHashedCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageHelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageHelloClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageHelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageHelloServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageMapSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageNameUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageNameUnavailable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageNotYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageNotYourCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePickDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePickDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerTurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerTurning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerValues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageRebootDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageRebootDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReceivedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReceivedChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReplaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReplaceCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectionFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectionFinished.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSendChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSendChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStartingPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStartingPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageShuffleCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageShuffleCoding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageTimerEnded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageTimerEnded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageTimerStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageTimerStarted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageValuesAccepted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageValuesAccepted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageWelcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageWrongName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageWrongName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageWrongPass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageWrongPass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageYourCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotBlue.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotBlue.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotGreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotGreen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotOrange.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotOrange.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotPink.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotPink.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotRed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotRed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RobotYellow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RobotYellow.png" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -137,6 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -154,6 +65,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -217,7 +129,7 @@
       <workItem from="1657491046553" duration="7770000" />
       <workItem from="1657527957566" duration="302000" />
       <workItem from="1657529259450" duration="1683000" />
-      <workItem from="1657633975598" duration="10049000" />
+      <workItem from="1657633975598" duration="10903000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -282,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657623630807</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="logging">
+      <created>1657644549414</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657644549415</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +227,7 @@
     <MESSAGE value="ALLAH IS BACK AT WORK" />
     <MESSAGE value="day 1 : a small beginning to prevent bugs" />
     <MESSAGE value="enabled Logging with Log4j" />
-    <option name="LAST_COMMIT_MESSAGE" value="enabled Logging with Log4j" />
+    <MESSAGE value="logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="logging" />
   </component>
 </project>

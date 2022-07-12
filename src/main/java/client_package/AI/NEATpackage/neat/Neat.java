@@ -3,6 +3,7 @@ package client_package.AI.NEATpackage.neat;
 import client_package.AI.NEATpackage.genome.Genome;
 import client_package.AI.NEATpackage.genome.ConnectionGene;
 import client_package.AI.NEATpackage.genome.NodeGene;
+import client_package.Client;
 import server_package.Server;
 
 import java.util.ArrayList;
@@ -143,7 +144,7 @@ public class Neat {
         Neat neat = new Neat(3,3,100);
         Genome genome = neat.emptyGenome();
         System.out.println(genome.getNodes().size());
-        Server.serverLogger.info(genome.getNodes().size());
+        Client.clientLogger.info(genome.getNodes().size());
 
     }
 

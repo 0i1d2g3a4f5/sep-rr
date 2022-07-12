@@ -115,7 +115,7 @@ public abstract class Client implements ClientObject{
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
             //System.out.println("SENT :: " + toSend);
-            Server.serverLogger.info("SENT :: " + toSend);
+            Client.clientLogger.info("SENT :: " + toSend);
             writer.write(toSend);
             writer.write("\n");
             writer.flush();
@@ -133,7 +133,7 @@ public abstract class Client implements ClientObject{
 
              */
             System.out.println("SENT: " +toSend);
-            Server.serverLogger.info("SENT: " + toSend);
+            Client.clientLogger.info("SENT: " + toSend);
 
 
             toSendList.remove(message);
@@ -220,7 +220,7 @@ public abstract class Client implements ClientObject{
                             for (String string :strings
                                  ) {
                                 System.out.println("RECEIVED: " + inputString);
-                                Server.serverLogger.info("RECEIVED: " + inputString);
+                                Client.clientLogger.info("RECEIVED: " + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

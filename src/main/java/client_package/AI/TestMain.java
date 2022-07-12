@@ -1,5 +1,6 @@
 package client_package.AI;
 
+import client_package.Client;
 import server_package.Server;
 
 public class TestMain {
@@ -8,6 +9,6 @@ public class TestMain {
 
         ExampleEnum exampleEnum1 = ExampleEnum.valueOf("by");
         System.out.println(exampleEnum1);
-        Server.serverLogger.info(exampleEnum1);
+        Client.clientLogger.info(exampleEnum1);
     }
 }
