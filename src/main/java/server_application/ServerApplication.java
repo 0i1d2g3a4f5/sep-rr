@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import static server_package.Server.serverLogger;
 
 /**
  * @author Sarp Cagin Erdogan
@@ -37,8 +36,7 @@ public class ServerApplication extends Application{
     @Override
     public void start(Stage stage) throws Exception {
 
-
-        serverLogger.info("Server started");
+        Server.serverLogger.info("Server started");
         taskHandler = new TaskHandler(this);
         taskList = new ArrayList<>();
         launchBeginning();

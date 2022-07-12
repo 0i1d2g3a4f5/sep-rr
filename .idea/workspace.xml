@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="ALLAH IS BACK AT WORK">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log4j-client.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log4j-server.properties" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="enabled Logging with Log4j">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -187,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657523951406</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="enabled Logging with Log4j">
+      <created>1657623630807</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657623630807</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +212,7 @@
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
     <MESSAGE value="ALLAH IS BACK AT WORK" />
     <MESSAGE value="day 1 : a small beginning to prevent bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="day 1 : a small beginning to prevent bugs" />
+    <MESSAGE value="enabled Logging with Log4j" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabled Logging with Log4j" />
   </component>
 </project>
