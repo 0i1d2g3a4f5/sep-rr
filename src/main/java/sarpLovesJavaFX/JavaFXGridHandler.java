@@ -1,6 +1,7 @@
 package sarpLovesJavaFX;
 
 
+import client_package.Client;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.Checkpoint;
 import client_package.client_gamelogic.game_elements.ConveyorBelt;
@@ -8,6 +9,7 @@ import client_package.client_gamelogic.game_elements.GameElement;
 import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
+
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -103,9 +105,9 @@ public class JavaFXGridHandler {
         GridPane gridPane = new GridPane();
         for(Card card : cardList){
             if(card != null)
-            System.out.println("Card is: " + card.getCardName().toString());
+            Client.clientLogger.debug("Card is: " + card.getCardName().toString());
         }
-        System.out.println("CARDLISTSIZE: " + cardList.size());
+        Client.clientLogger.debug("CARDLISTSIZE: " + cardList.size());
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
             if(cardList.get(i)!=null) {
@@ -193,7 +195,14 @@ public class JavaFXGridHandler {
      */
 
     private GridPane updateGameBoard(GameBoard gameBoard) throws IOException {
-        System.out.println("updateGameBoard: "+ gameBoard);
+        //System.out.println("updateGameBoard: "+ gameBoard);
+        Client.clientLogger.info("updated Game board");
+        Client.clientLogger.info("Robot Informations:");
+        for (CPlayer player:Game.getInstance().getPlayerList()) {
+            if(player.getRobot()!=null){
+                Client.clientLogger.debug("Player = "+player.getClientID()+"Robot="+player.getRobot().figure+ " Position="+player.getRobot().getPosition());
+            }
+        }
         GridPane input = new GridPane();
         //System.out.println("X: Y:  " + gameBoard.getDimensionX() +"| "+ gameBoard.getDimensionY());
         for(int y=0; y<Game.getInstance().getMap().getDimensionY(); y++){
@@ -204,7 +213,7 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
 
-                System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
+                //System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:

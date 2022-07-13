@@ -129,7 +129,7 @@ public class  Game {
      * card Decks
      */
     public void setup(MapName mapName) throws IOException, InterruptedException {
-        System.out.println("Game Setup");
+        Server.serverLogger.info("Game Setup");
         this.mapName = mapName;
         sendToAllPlayers(new MessageActivePhase(0));
         //DeckSerializer deckSerializer = new DeckSerializer();
@@ -139,11 +139,10 @@ public class  Game {
         ModelLoader loader = new ModelLoader();
         try {
             System.out.println("load Map");
-            Server.serverLogger.info("Load map");
+            //Server.serverLogger.info("Load map");
             board = loader.loadMap(String.valueOf(mapName));
-           // System.out.println("Map: "+board.boardMap);
-            Server.serverLogger.info("Map: " + board.boardMap);
-            System.out.println("loaded Map");
+            //System.out.println("Map: "+board.boardMap);
+            //Server.serverLogger.info("Map: " + board.boardMap);
             Server.serverLogger.info("Loaded map");
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -213,7 +212,7 @@ public class  Game {
      * @throws InterruptedException
      */
     public void startGame() throws IOException, InterruptedException {
-        System.out.println("Game started");
+        Server.serverLogger.info("Game started");
         sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
         gameLoop();
@@ -382,7 +381,7 @@ public class  Game {
                 player.setCardImPlaying(card);
                 if(card != null)
                     activatedRegisters.add(card);
-                else System.out.println("Card on pos "+ i+ " is null");
+                else Server.serverLogger.error("Card on pos "+ i+ " is null");
 
             }
             Server.serverLogger.debug("ActivationList="+activationList);

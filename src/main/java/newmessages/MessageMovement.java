@@ -78,7 +78,11 @@ public class MessageMovement extends Message{
                 player.getRobot().moveRobotTo(y,x);
             }else {
                 for (CPlayer cplayer:client.getGame().getPlayerList()) {
-                    cplayer.getRobot().moveRobotTo(y,x);
+                    if(cplayer.getClientID()==clientID){
+                        cplayer.getRobot().moveRobotTo(y,x);
+
+                    }
+
                 }
             }
         }
