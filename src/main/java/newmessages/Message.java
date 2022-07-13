@@ -60,7 +60,7 @@ public abstract class Message{
 
     Message(String type){
         this.type = type;
-        messageLogger.info("New message created: " +type);
+        messageLogger.info("New message created: " + type);
     }
     Message(){
 
