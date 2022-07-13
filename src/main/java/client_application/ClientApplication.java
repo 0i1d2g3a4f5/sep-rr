@@ -66,7 +66,7 @@ public class ClientApplication extends Application {
         stageSelection = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientSelection.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 500);
             clientSelectionController=fxmlLoader.getController();
             clientSelectionController.clientApplication=this;
             stageSelection.setScene(scene);
@@ -108,7 +108,7 @@ public class ClientApplication extends Application {
         stageBasicChat = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientChatBasic.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 600, 675);
             clientChatBasicController=fxmlLoader.getController();
             clientChatBasicController.clientApplication=this;
             stageBasicChat.setScene(scene);
@@ -122,7 +122,7 @@ public class ClientApplication extends Application {
         stageBasicLobby = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientLobbyBasic.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 600, 675);
             clientLobbyBasicController=fxmlLoader.getController();
             clientLobbyBasicController.clientApplication=this;
             stageBasicLobby.setScene(scene);
@@ -138,7 +138,7 @@ public class ClientApplication extends Application {
         stageBasicMap = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientMapBasic.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 600, 675);
             clientMapBasicController=fxmlLoader.getController();
             clientMapBasicController.clientApplication=this;
             stageBasicMap.setScene(scene);
