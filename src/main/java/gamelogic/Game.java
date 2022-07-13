@@ -372,21 +372,25 @@ public class  Game {
         sendToAllPlayers(new MessageActivePhase(3));
 
         ArrayList<Player> activationList;
-        ArrayList<Card> activatedRegisters = new ArrayList<>();
+
         for(int i = 0; i < 5;i++){
+            ArrayList<Card> activatedRegisters = new ArrayList<>();
             activeRegister = i;
             activationList = generatePlayerActivationList();
             for (Player player:activationList) {
                 Card card = player.getRegister(i);
-                player.setLastPlayedCard(card);
+                player.setCardImPlaying(card);
                 if(card != null)
                     activatedRegisters.add(card);
                 else System.out.println("Card on pos "+ i+ " is null");
 
             }
+            Server.serverLogger.debug("ActivationList="+activationList);
+            Server.serverLogger.debug("ActivatedRegisters="+activatedRegisters);
             sendToAllPlayers(new MessageCurrentCards(activatedRegisters,activationList));
             for (Card card:activatedRegisters) {
                 card.activateCard();
+
                 TimeUnit.MILLISECONDS.sleep(100);
             }
             careEnergyCube();
@@ -397,6 +401,8 @@ public class  Game {
             }
             for (Player player:playerList
                  ) {
+                player.setLastPlayedCard(player.getCardImPlaying());
+                player.setCardImPlaying(null);
                 player.getRobot().movedByCBelt=false;
 
             }

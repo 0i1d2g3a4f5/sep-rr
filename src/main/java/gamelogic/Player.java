@@ -7,8 +7,10 @@ import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
+import server_package.Server;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Stack;
 
@@ -22,6 +24,8 @@ public class Player{
    // ClientHandler sClient;
 
     private int EnergyCube;
+
+    private Card cardImPlaying;
     private Card lastPlayedCard;
     private Game game;
     private Card[] register= new Card[5];
@@ -36,6 +40,14 @@ public class Player{
 
     //only for testing
     Player() {
+    }
+
+    public Card getCardImPlaying() {
+        return cardImPlaying;
+    }
+
+    public void setCardImPlaying(Card cardImPlaying) {
+        this.cardImPlaying = cardImPlaying;
     }
 
     public SClient getClient() {
@@ -211,11 +223,22 @@ public class Player{
      * moves all cards from registry to discardPile
      */
     public void clearAllRegister(){
+        Server.serverLogger.debug("Before ClearAllRegisters: \n" +
+                "   Register: "+ Arrays.toString(register)+"\n" +
+                "   DiscardPile: "+ discardPile);
         for (int i = 0;i< register.length;i++) {
+
             Card card = register[i];
-            discardPile.add(card);
-            register[i] = null;
+            if(card !=null){
+                discardPile.add(card);
+                register[i] = null;
+            }
+
+
         }
+        Server.serverLogger.debug("After ClearAllRegisters: \n" +
+                "   Register: "+ Arrays.toString(register)+"\n" +
+                "   DiscardPile: "+discardPile);
     }
 
     public void clearThisRegister(int pos){
@@ -323,7 +346,13 @@ public class Player{
         deck = discardPile;
         discardPile= new Stack<>();
         Collections.shuffle(deck);
+        Server.serverLogger.debug("Refilled deck"+ deck);
     }
 
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "sClient=" + sClient +
+                '}';
+    }
 }
