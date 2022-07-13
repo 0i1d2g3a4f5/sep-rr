@@ -321,7 +321,7 @@ public class Player{
     private void refillDeck(){
 
         deck = discardPile;
-        discardPile.clear();
+        discardPile= new Stack<>();
         Collections.shuffle(deck);
     }
 

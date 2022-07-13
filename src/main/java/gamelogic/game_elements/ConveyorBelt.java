@@ -147,6 +147,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
     public void activate() {
         System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
+            /*
+
             Robot robot = gameField.getRobot();
             if(robot.movedByCBelt){
                 return;
@@ -166,6 +168,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
             }
             robot.displace(orientations.get(0));
+
+             */
 
         }
     }

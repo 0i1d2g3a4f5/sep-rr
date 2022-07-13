@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="logging">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="enabled Logging with Log4j">
+      <change afterPath="$PROJECT_DIR$/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log4j-client.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log4j-server.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageGameStarted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessagePlayerAdded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -204,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657644549415</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="enabled Logging with Log4j">
+      <created>1657705067113</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657705067113</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,8 +238,8 @@
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
     <MESSAGE value="ALLAH IS BACK AT WORK" />
     <MESSAGE value="day 1 : a small beginning to prevent bugs" />
-    <MESSAGE value="enabled Logging with Log4j" />
     <MESSAGE value="logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="logging" />
+    <MESSAGE value="enabled Logging with Log4j" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabled Logging with Log4j" />
   </component>
 </project>
