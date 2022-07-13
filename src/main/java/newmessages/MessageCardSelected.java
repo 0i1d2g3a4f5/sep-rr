@@ -52,7 +52,7 @@ public class MessageCardSelected extends Message{
         register = content.get("register").getAsInt()-1;
         filled = content.get("filled").getAsBoolean();
         //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Register Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

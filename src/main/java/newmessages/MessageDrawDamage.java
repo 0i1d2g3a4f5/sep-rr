@@ -70,8 +70,8 @@ public class MessageDrawDamage extends Message {
         }
         this.damageCards = damageCards;
 
-        System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created DrawDamage Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created DrawDamage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

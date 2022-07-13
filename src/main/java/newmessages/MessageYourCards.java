@@ -44,8 +44,8 @@ public class MessageYourCards extends Message{
 
         jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
-        System.out.println("Created Quantity Message: " + this);
-        Server.serverLogger.info("Created Your Cards Message: " + this);
+        //System.out.println("Created Quantity Message: " + this);
+        //Server.serverLogger.info("Created Your Cards Message: " + this);
     }
 
     /**
@@ -61,7 +61,7 @@ public class MessageYourCards extends Message{
         }
 
         //System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Your Cards Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

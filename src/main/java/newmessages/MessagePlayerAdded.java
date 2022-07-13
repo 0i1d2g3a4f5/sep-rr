@@ -42,7 +42,7 @@ public class MessagePlayerAdded extends Message{
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
         //System.out.println("Created PlayerAdded Message: " + this);
-        Server.serverLogger.info("Created Player Added Message: " + this);
+        //Server.serverLogger.info("Created Player Added Message: " + this);
     }
 
     /**
@@ -54,7 +54,7 @@ public class MessagePlayerAdded extends Message{
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
         //System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Player Added Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Player Added Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -79,12 +79,12 @@ public class MessagePlayerAdded extends Message{
         if(isBasic) {
             System.out.println("activating playerAdded");
             Client.clientLogger.info("activating playerAdded");
-            if (this.clientID == client.getId() || client.getId() == -1){
+            if (this.clientID == client.getId()){
                 client.setName(this.name);
                 client.setFigure(this.figure);
                 client.getGame().join(client);
                 Client.clientLogger.info("This client:\n" +
-                        "ID:="+client +"\n"+
+                        "ID:="+client.getId() +"\n"+
                         "Name:="+name +"\n" +
                         "Figure:=" +figure);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
@@ -92,7 +92,7 @@ public class MessagePlayerAdded extends Message{
             }else{
                 OtherClient otherClient = new OtherClient(client.getGame(),this.clientID, this.figure,this.name);
                 Client.clientLogger.info("New client:\n" +
-                        "ID="+client +"\n"+
+                        "ID="+otherClient.getClientID() +"\n"+
                         "Name="+name +"\n" +
                         "Figure=" +figure);
                 client.getClientList().add(otherClient);

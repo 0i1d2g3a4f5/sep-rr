@@ -29,7 +29,7 @@ public class MessageSendChat extends Message{
         jsonObject.add("message", new JsonPrimitive(message));
         jsonObject.add("to", new JsonPrimitive(to));
         content = jsonObject;
-        Server.serverLogger.info("Created Send Chat Message: " + this);
+        //Server.serverLogger.info("Created Send Chat Message: " + this);
     }
 
     /**
@@ -39,7 +39,7 @@ public class MessageSendChat extends Message{
         super(jsonObject);
         message = content.get("message").getAsString();
         to = content.get("to").getAsInt();
-        Server.serverLogger.info("Created Send Chat Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Send Chat Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

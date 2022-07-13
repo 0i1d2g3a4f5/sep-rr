@@ -38,8 +38,8 @@ public class MessageCardsYouGotNow extends Message{
         jsonObject.add("cards",jsonArray);
 
         content = jsonObject;
-        System.out.println("Created Register Message: " + this);
-        Server.serverLogger.info("Created Cards You Got Know Message: " + this);
+        //System.out.println("Created Register Message: " + this);
+        //Server.serverLogger.info("Created Cards You Got Know Message: " + this);
     }
 
     /**
@@ -55,8 +55,8 @@ public class MessageCardsYouGotNow extends Message{
         }
         this.cards = cards;
 
-        System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Cards You Got Know Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Cards You Got Know Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

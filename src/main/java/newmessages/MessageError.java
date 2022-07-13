@@ -29,7 +29,7 @@ public class MessageError extends Message{
         jsonObject.add("error", new JsonPrimitive(error));
         content = jsonObject;
         //System.out.println("Created Error Message: " + this);
-        Server.serverLogger.info("Created Error Message: " + this);
+        //Server.serverLogger.info("Created Error Message: " + this);
     }
 
     /**
@@ -39,7 +39,7 @@ public class MessageError extends Message{
         super(jsonObject);
         error = content.get("error").getAsString();
         //System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Error Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Error Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

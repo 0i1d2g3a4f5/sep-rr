@@ -28,8 +28,8 @@ public class MessageReplaceCard extends Message {
         jsonObject.add("newCard", new JsonPrimitive(String.valueOf(card)));
         jsonObject.add("clientID",new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created ReplaceCard Message: " + this);
-        Server.serverLogger.info("Created Replace Card Message: " + this);
+        //System.out.println("Created ReplaceCard Message: " + this);
+        //Server.serverLogger.info("Created Replace Card Message: " + this);
     }
 
     /**
@@ -39,8 +39,8 @@ public class MessageReplaceCard extends Message {
         super(jsonObject);
         card = content.get("card").getAsString();
         register = content.get("register").getAsInt();
-        System.out.println("Created ReplaceCard Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Replace Card Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created ReplaceCard Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Replace Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

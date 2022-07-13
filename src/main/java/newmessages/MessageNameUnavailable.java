@@ -23,7 +23,7 @@ public class MessageNameUnavailable extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("UnavailableName", new JsonPrimitive(string));
         content = jsonObject;
-        Server.serverLogger.info("Created Name Unavailable Message: " + this);
+        //Server.serverLogger.info("Created Name Unavailable Message: " + this);
     }
 
     /**
@@ -32,7 +32,7 @@ public class MessageNameUnavailable extends Message{
     public MessageNameUnavailable(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("UnavailableName").getAsString();
-        Server.serverLogger.info("Created Name Unavailable Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Name Unavailable Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

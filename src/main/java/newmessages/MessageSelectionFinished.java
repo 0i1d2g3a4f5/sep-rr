@@ -25,8 +25,8 @@ public class MessageSelectionFinished extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created SelectionFinished Message: " + this);
-        Server.serverLogger.info("Created Selection Finished Message: " + this);
+        //System.out.println("Created SelectionFinished Message: " + this);
+        //Server.serverLogger.info("Created Selection Finished Message: " + this);
     }
 
     /**
@@ -35,8 +35,8 @@ public class MessageSelectionFinished extends Message{
     public MessageSelectionFinished(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clienID").getAsInt();
-        System.out.println("Created SelectionFinished Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Selection Finished Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created SelectionFinished Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Selection Finished Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

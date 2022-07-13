@@ -27,7 +27,7 @@ public class MessageAnimation extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("type", new JsonPrimitive(animationType));
         content = jsonObject;
-        System.out.println("Created Animation Message: " + this);
+        //System.out.println("Created Animation Message: " + this);
     }
 
     /**
@@ -36,8 +36,8 @@ public class MessageAnimation extends Message{
     public MessageAnimation(JsonObject jsonObject){
         super(jsonObject);
         animationType = content.get("type").getAsString();
-        System.out.println("Created Animation Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Animation Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created Animation Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Animation Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

@@ -28,7 +28,7 @@ public class MessageSelectMap extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("availableMaps", jsonArray);
         content=jsonObject;
-        Server.serverLogger.info("Created Select Map Message: " + this);
+        //Server.serverLogger.info("Created Select Map Message: " + this);
     }
 
     /**
@@ -37,7 +37,7 @@ public class MessageSelectMap extends Message{
     public MessageSelectMap(JsonObject jsonObject){
         super(jsonObject);
         availableMaps=content.get("availableMaps").getAsJsonArray();
-        Server.serverLogger.info("Created Select Map Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Select Map Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

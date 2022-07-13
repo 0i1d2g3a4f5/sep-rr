@@ -25,7 +25,7 @@ public class MessageValuesAccepted extends Message{
         jsonObject.add("Name", new JsonPrimitive(name));
         jsonObject.add("Figure", new JsonPrimitive(figure));
         content=jsonObject;
-        Server.serverLogger.info("Created Values Accepted Message: " + this);
+        //Server.serverLogger.info("Created Values Accepted Message: " + this);
     }
 
     /**
@@ -35,7 +35,7 @@ public class MessageValuesAccepted extends Message{
         super(jsonObject);
         name=content.get("Name").getAsString();
         figure=content.get("Figure").getAsInt();
-        Server.serverLogger.info("Created Values Accepted Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Values Accepted Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

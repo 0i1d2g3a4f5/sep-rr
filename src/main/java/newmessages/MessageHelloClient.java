@@ -28,7 +28,7 @@ public class MessageHelloClient extends Message{
         jsonObject.add("protocol", new JsonPrimitive(string));
         content=jsonObject;
         //System.out.println("Created Protocol Message: " + this);
-        Server.serverLogger.info("Created Hello Client Message: " + this);
+        //Server.serverLogger.info("Created Hello Client Message: " + this);
     }
 
     /**
@@ -38,7 +38,7 @@ public class MessageHelloClient extends Message{
         super(jsonObject);
         protocol=content.get("protocol").getAsString();
         //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Hello Client Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Hello Client Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

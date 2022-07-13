@@ -27,7 +27,7 @@ public class MessageReconnect extends Message{
         jsonObject.add("Name", new JsonPrimitive(name));
         jsonObject.add("Hash", new JsonPrimitive(hash));
         content = jsonObject;
-        Server.serverLogger.info("Created Message Reconnect Message: " + this);
+        //Server.serverLogger.info("Created Message Reconnect Message: " + this);
     }
 
     /**
@@ -37,7 +37,7 @@ public class MessageReconnect extends Message{
         super(jsonObject);
         name=content.get("Name").getAsString();
         hash=content.get("Hash").getAsString();
-        Server.serverLogger.info("Created Message Reconnect Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Message Reconnect Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

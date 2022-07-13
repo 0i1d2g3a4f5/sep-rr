@@ -30,8 +30,8 @@ public class MessageNotYourCards extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("cardsInHand", new JsonPrimitive(cardsInHand));
         content = jsonObject;
-        System.out.println("Created Quantity Message: " + this);
-        Server.serverLogger.info("Created Not Your Cards Message: " + this);
+        //System.out.println("Created Quantity Message: " + this);
+        //Server.serverLogger.info("Created Not Your Cards Message: " + this);
     }
 
     /**

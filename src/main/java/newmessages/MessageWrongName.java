@@ -24,7 +24,7 @@ public class MessageWrongName extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));
         content = jsonObject;
-        Server.serverLogger.info("Created Wrong Name Message: " + this);
+        //Server.serverLogger.info("Created Wrong Name Message: " + this);
     }
 
     /**
@@ -33,7 +33,7 @@ public class MessageWrongName extends Message{
     public MessageWrongName(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
-        Server.serverLogger.info("Created Wrong Name Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Wrong Name Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

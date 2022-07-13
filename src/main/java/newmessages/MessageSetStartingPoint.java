@@ -32,7 +32,7 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        Server.serverLogger.info("Created Set Starting Point Message: " + this);
+        //Server.serverLogger.info("Created Set Starting Point Message: " + this);
     }
     public MessageSetStartingPoint(Position position) {
         this.x = position.getX();
@@ -42,7 +42,7 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        Server.serverLogger.info("Created Set Starting Point Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Set Starting Point Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

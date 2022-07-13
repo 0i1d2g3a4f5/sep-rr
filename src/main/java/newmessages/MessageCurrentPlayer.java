@@ -36,8 +36,8 @@ public class MessageCurrentPlayer extends Message{
     public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        System.out.println("Created CPlayer Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created CurrentPlayer Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created CPlayer Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created CurrentPlayer Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

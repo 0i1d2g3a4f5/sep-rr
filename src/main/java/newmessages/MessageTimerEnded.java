@@ -29,8 +29,8 @@ public class MessageTimerEnded extends Message{
         }
         jsonObject.add("clientIDs",jsonArray);
         content = jsonObject;
-        System.out.println("Created StartTime Message: " + this);
-        Server.serverLogger.info("Created Timer Ended Message: " + this);
+        //System.out.println("Created StartTime Message: " + this);
+        //Server.serverLogger.info("Created Timer Ended Message: " + this);
 
     }
 
@@ -39,8 +39,8 @@ public class MessageTimerEnded extends Message{
      */
     public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
-        System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Timer Ended Message: " + this + " from JSON: " + jsonObject);
+        //System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Timer Ended Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

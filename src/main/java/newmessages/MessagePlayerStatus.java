@@ -34,7 +34,7 @@ public class MessagePlayerStatus extends Message {
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
         //System.out.println("Created Status Message: " + this);
-        Server.serverLogger.info("Created Player Status Message: " + this);
+        //Server.serverLogger.info("Created Player Status Message: " + this);
     }
 
     /**
@@ -45,7 +45,7 @@ public class MessagePlayerStatus extends Message {
         clientID = content.get("clientID").getAsInt();
         ready = content.get("ready").getAsBoolean();
         //System.out.println("Created Status Message: " + this + " from JSON: " + jsonObject);
-        Server.serverLogger.info("Created Player Status Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Player Status Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

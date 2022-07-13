@@ -37,7 +37,7 @@ public class MessageStartingPointTaken extends Message{
         jsonObject.add("y", new JsonPrimitive(y));
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        Server.serverLogger.info("Created Starting Point Taken Message: " + this);
+        //Server.serverLogger.info("Created Starting Point Taken Message: " + this);
     }
 
     /**
@@ -48,7 +48,7 @@ public class MessageStartingPointTaken extends Message{
         x = content.get("x"). getAsInt();
         y = content.get("y"). getAsInt();
         clientID = content.get("clientID"). getAsInt();
-        Server.serverLogger.info("Created Starting Point Taken Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Starting Point Taken Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
