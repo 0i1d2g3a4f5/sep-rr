@@ -3,6 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.Client;
 import client_package.ClientObject;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.ThisCPlayer;
@@ -55,6 +56,7 @@ public class MessageGameStarted extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        Client.clientLogger.info("Game Started");
         Game.getInstance().setMap(new GameBoard(content));
         Game game = Game.getInstance();
         for (ClientObject client2: client.getClientList()) {

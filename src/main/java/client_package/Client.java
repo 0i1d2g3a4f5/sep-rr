@@ -25,16 +25,6 @@ public abstract class Client implements ClientObject{
 
     public static Logger clientLogger = Logger.getLogger("Client");
 
-    static {
-        try {
-            Properties properties= new Properties();
-            properties.load(new FileInputStream("log4j-client.properties"));
-            PropertyConfigurator.configure(properties);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
         toSendList.add(message);
@@ -58,7 +48,7 @@ public abstract class Client implements ClientObject{
 
     protected String group;
     protected String name = "";
-    protected int figure, id;
+    protected int figure, id=-1;
     protected Socket socket;
     protected boolean isListening, isReady, isForList, isBasic;
     public Client(){
@@ -115,7 +105,7 @@ public abstract class Client implements ClientObject{
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
             //System.out.println("SENT :: " + toSend);
-            Client.clientLogger.info("SENT :: " + toSend);
+
             writer.write(toSend);
             writer.write("\n");
             writer.flush();
@@ -133,7 +123,7 @@ public abstract class Client implements ClientObject{
 
              */
             System.out.println("SENT: " +toSend);
-            Client.clientLogger.info("SENT: " + toSend);
+
 
 
             toSendList.remove(message);
@@ -220,7 +210,7 @@ public abstract class Client implements ClientObject{
                             for (String string :strings
                                  ) {
                                 System.out.println("RECEIVED: " + inputString);
-                                Client.clientLogger.info("RECEIVED: " + inputString);
+
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject);
 

@@ -3,6 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.Client;
 import client_package.basicClient.BasicClient;
 import client_package.client_gamelogic.OtherClient;
 import com.google.gson.JsonObject;
@@ -11,6 +12,7 @@ import server_package.SClient;
 import server_package.Server;
 
 import java.io.IOException;
+
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -29,6 +31,7 @@ public class MessagePlayerAdded extends Message{
      * @param figure
      */
     public MessagePlayerAdded(int clientID, String name, int figure) {
+        super();
         this.clientID = clientID;
         this.name = name;
         this.figure = figure;
@@ -72,17 +75,29 @@ public class MessagePlayerAdded extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            if (this.clientID == client.getId()){
+            System.out.println("activating playerAdded");
+            Client.clientLogger.info("activating playerAdded");
+            if (this.clientID == client.getId() || client.getId() == -1){
                 client.setName(this.name);
                 client.setFigure(this.figure);
                 client.getGame().join(client);
+                Client.clientLogger.info("This client:\n" +
+                        "ID:="+client +"\n"+
+                        "Name:="+name +"\n" +
+                        "Figure:=" +figure);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }else{
                 OtherClient otherClient = new OtherClient(client.getGame(),this.clientID, this.figure,this.name);
+                Client.clientLogger.info("New client:\n" +
+                        "ID="+client +"\n"+
+                        "Name="+name +"\n" +
+                        "Figure=" +figure);
                 client.getClientList().add(otherClient);
+                Client.clientLogger.debug("New Client added to "+ client + "client.clientList");
+                Client.clientLogger.debug("client.clientList:= "+ client.getClientList());
                 client.getGame().join(otherClient);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }

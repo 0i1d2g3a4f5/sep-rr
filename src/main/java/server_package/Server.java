@@ -23,7 +23,7 @@ public abstract class Server {
     static {
         try {
             Properties properties= new Properties();
-            properties.load(new FileInputStream("log4j-server.properties"));
+            properties.load(new FileInputStream("log4j.properties"));
             PropertyConfigurator.configure(properties);
 
         } catch (IOException e) {

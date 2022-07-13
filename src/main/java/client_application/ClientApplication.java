@@ -119,7 +119,6 @@ public class ClientApplication extends Application {
 
     }
     public void launchBasicLobby(){
-        stageBasicName.close();
         stageBasicLobby = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientLobbyBasic.fxml"));
         try {
