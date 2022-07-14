@@ -92,20 +92,10 @@ public class MapCreator {
 
         try {
             file = new File(filePath);
-            PrintWriter printWriter = new PrintWriter(new FileWriter(file));
 
-
-           Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.add("gameMap",board.toJson());
-
-            String fileContent =  gson.toJson(jsonObject);
-
-            printWriter.println(fileContent);
-            printWriter.flush();
             BufferedReader reader;
             try {
-                reader= new BufferedReader(new FileReader(file));
+                reader = new BufferedReader(new FileReader(file));
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -114,17 +104,15 @@ public class MapCreator {
             String input;
             while (true) {
                 try {
-                    if (!((input=reader.readLine())!=null)) break;
-                    json+=input;
+                    if (!((input = reader.readLine()) != null)) break;
+                    json += input;
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
 
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
 
         /*
         MapDeserializer deserializer = new MapDeserializer();
@@ -135,8 +123,9 @@ public class MapCreator {
         System.out.println(after);
 
          */
-        return board;
-
-
+            return board;
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
