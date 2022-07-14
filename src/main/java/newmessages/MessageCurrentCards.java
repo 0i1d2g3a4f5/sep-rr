@@ -59,8 +59,6 @@ public class MessageCurrentCards extends Message {
             }
         }
         this.cards = cards;
-
-        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

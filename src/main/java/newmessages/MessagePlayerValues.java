@@ -31,7 +31,6 @@ public class MessagePlayerValues extends Message{
         jsonObject.add("name", new JsonPrimitive(name));
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
-        //System.out.println("Created SetName Message: " + this);
         //Server.serverLogger.info("Created Player Values Message: " + this);
     }
 
@@ -42,7 +41,6 @@ public class MessagePlayerValues extends Message{
         super(jsonObject);
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
-        //System.out.println("Created SetName Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Player Values Message: " + this + " from JSON: " + jsonObject);
     }
 

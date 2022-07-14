@@ -23,7 +23,6 @@ public class Gear extends GameElement implements Activatable {
 
     @Override
     public void activate() {
-        System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
             if(gearDirection==GearDirection.CLOCKWISE){
                 gameField.getRobot().right();
@@ -62,13 +61,10 @@ public class Gear extends GameElement implements Activatable {
         }
     }
     public Gear(GearDirection direction){
-        System.out.println(direction);
         Server.serverLogger.info("Gear direction: " + direction);
         gearDirection = direction;
-        System.out.println(direction);
         Server.serverLogger.info("Gear direction: " + direction);
         type = ElementName.GEAR;
-        System.out.println(direction);
         Server.serverLogger.info("Gear direction: " + direction);
 
     }
@@ -86,7 +82,6 @@ public class Gear extends GameElement implements Activatable {
         super(ElementName.GEAR);
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
-        System.out.println(orientations.get(0).getAsString());
         Server.serverLogger.info(orientations.get(0).getAsString());
         this.gearDirection = GearDirection.parseGearDirection(orientations.get(0).getAsString());
 

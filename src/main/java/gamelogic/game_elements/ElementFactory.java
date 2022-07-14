@@ -7,7 +7,6 @@ import java.io.IOException;
 public class ElementFactory {
 
     private GameElement constructElement(ElementName name, JsonObject jsonObject) throws IOException {
-        //System.out.println("Factory will create: "+jsonObject);
         switch (name){
             case ANTENNA -> {
                 return new Antenna(jsonObject);

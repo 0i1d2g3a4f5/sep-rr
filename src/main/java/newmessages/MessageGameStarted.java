@@ -24,7 +24,6 @@ public class MessageGameStarted extends Message{
     public MessageGameStarted(JsonObject jsonObject, boolean a){
         type = "GameStarted";
         content = jsonObject;
-        //System.out.println("GameStarted content: " + content);
         //Server.serverLogger.info("Created Game Started Message: " + this);
     }
 

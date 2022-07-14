@@ -39,7 +39,6 @@ public class MessageTimerEnded extends Message{
      */
     public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
-        //System.out.println("Created StartTime Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Timer Ended Message: " + this + " from JSON: " + jsonObject);
     }
 

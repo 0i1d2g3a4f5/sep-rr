@@ -32,7 +32,6 @@ public class GameBoard implements JsonSerializable {
     public GameField getField(int y, int x){
 
         if(y <0 || y>= boardMap.get(0).size() ||x <0 || x>= boardMap.size()){
-            System.out.println("illegal Field");
             Server.serverLogger.info("Illegal field");
 
             GameField gameField = new GameField(this,x,y);
@@ -48,7 +47,6 @@ public class GameBoard implements JsonSerializable {
     public GameField getField(Position position){
 
         if(position.getY() <0 || position.getY()>= boardMap.get(0).size()||position.getX() <0 || position.getX()>= boardMap.size()){
-            System.out.println("illegal Field");
             Server.serverLogger.info("Illegal field");
 
             GameField gameField = new GameField(this,position.getX(),position.getY());
@@ -224,12 +222,10 @@ public class GameBoard implements JsonSerializable {
         for (int i=0; i<arrayLVL1.getAsJsonArray().size();i++) {
             ArrayList<GameField> row = new ArrayList<GameField>();
             for (int j=0; j<arrayLVL1.get(i).getAsJsonArray().size(); j++) {
-                //System.out.println("Y :: " + j + " :: " + arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray().toString());
                 GameField gameField = new GameField(this,j,i);
 
                 for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
-                    //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
 
                     if(element.getType() == ElementName.RESTARTPOINT){
@@ -243,7 +239,6 @@ public class GameBoard implements JsonSerializable {
             }
             boardMap.add(row);
         }
-        //System.out.println(toJson());
 
     }
 
@@ -265,7 +260,6 @@ public class GameBoard implements JsonSerializable {
                 JsonArray jsonArrayLVL3 = new JsonArray();
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
-                        //System.out.println("Element in Board.toJson: "+element);
                         //Server.serverLogger.info("Element in Board.toJson");
                         jsonArrayLVL3.add(element.toJson());
                     }

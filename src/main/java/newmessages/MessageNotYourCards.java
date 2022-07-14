@@ -30,7 +30,6 @@ public class MessageNotYourCards extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("cardsInHand", new JsonPrimitive(cardsInHand));
         content = jsonObject;
-        //System.out.println("Created Quantity Message: " + this);
         //Server.serverLogger.info("Created Not Your Cards Message: " + this);
     }
 
@@ -41,7 +40,6 @@ public class MessageNotYourCards extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         cardsInHand = content.get("cardsInHand").getAsInt();
-        System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
         Server.serverLogger.info("Created Not Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -65,7 +63,6 @@ public class MessageNotYourCards extends Message{
     @Override
 
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        System.out.println("NotYourCards "+ cardsInHand);
         Server.serverLogger.info("NotYourCards" + cardsInHand);
         /*
 

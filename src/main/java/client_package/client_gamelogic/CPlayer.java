@@ -26,7 +26,6 @@ public class CPlayer {
     private ArrayList<Card> registerCards= new ArrayList(9);
 
     public CPlayer(ClientObject clientObject, Game game){
-        System.out.println("created CPlayer");
         Client.clientLogger.info("Created CPlayer");
         if(clientObject.getId() == game.getClient().getId()){
 

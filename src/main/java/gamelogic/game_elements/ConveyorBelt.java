@@ -145,7 +145,6 @@ public class ConveyorBelt extends GameElement implements Activatable {
      */
     @Override
     public void activate() {
-        System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
 
             Robot robot = gameField.getRobot();

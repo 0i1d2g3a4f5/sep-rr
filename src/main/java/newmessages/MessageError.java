@@ -3,6 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.Client;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -28,7 +29,6 @@ public class MessageError extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("error", new JsonPrimitive(error));
         content = jsonObject;
-        //System.out.println("Created Error Message: " + this);
         //Server.serverLogger.info("Created Error Message: " + this);
     }
 
@@ -38,7 +38,6 @@ public class MessageError extends Message{
     public MessageError(JsonObject jsonObject) {
         super(jsonObject);
         error = content.get("error").getAsString();
-        //System.out.println("Created Error Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Error Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -56,7 +55,7 @@ public class MessageError extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic){
-            System.out.println(this.error);
+            Client.clientLogger.info(this.error);
             if(this.error.equals("ERROR :: Figure already taken.")){
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.FIGURETAKEN, new TaskContent()));
             }

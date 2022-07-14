@@ -41,7 +41,6 @@ public class MessagePlayerAdded extends Message{
         jsonObject.add("name", new JsonPrimitive(name));
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
-        //System.out.println("Created PlayerAdded Message: " + this);
         //Server.serverLogger.info("Created Player Added Message: " + this);
     }
 
@@ -53,7 +52,6 @@ public class MessagePlayerAdded extends Message{
         clientID = content.get("clientID").getAsInt();
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
-        //System.out.println("Created NameSet Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Player Added Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -77,7 +75,6 @@ public class MessagePlayerAdded extends Message{
     @Override
     public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
-            System.out.println("activating playerAdded");
             Client.clientLogger.info("activating playerAdded");
             if (this.clientID == client.getId()){
                 client.setName(this.name);

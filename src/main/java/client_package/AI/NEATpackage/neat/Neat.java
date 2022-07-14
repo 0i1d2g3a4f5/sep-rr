@@ -143,7 +143,6 @@ public class Neat {
     public static void main(String[] args){
         Neat neat = new Neat(3,3,100);
         Genome genome = neat.emptyGenome();
-        System.out.println(genome.getNodes().size());
         Client.clientLogger.info(genome.getNodes().size());
 
     }

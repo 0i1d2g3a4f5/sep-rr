@@ -1,5 +1,6 @@
 package gamelogic;
 
+import client_package.Client;
 import gamelogic.cards.programming_cards.*;
 import newmessages.*;
 import server_package.SClient;
@@ -209,7 +210,7 @@ public class Player{
         if(register[position] != null){
             register[position].activateCard();
         }else {
-            System.out.println("register at "+position+ "is null");
+            Client.clientLogger.info("Register at " + position + " is null");
         }
 
     }

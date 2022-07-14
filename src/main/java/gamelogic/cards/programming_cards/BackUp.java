@@ -19,7 +19,6 @@ public class BackUp extends ProgrammingCard {
 
     @Override
     public void activateCard() {
-        System.out.println("BackUp");
         Server.serverLogger.info("BackUp");
         /*
         Move your robot one space back.

@@ -73,8 +73,6 @@ public abstract class SClient {
 
                      */
 
-                    //System.out.println("ToSend length: " + toSend.length());
-                    System.out.println("SENT: " + toSend);
                     Server.serverLogger.info("Listener sent" + toSend);
 
                     toSendList.remove(message);

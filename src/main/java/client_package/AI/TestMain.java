@@ -8,7 +8,6 @@ public class TestMain {
         ExampleEnum exampleEnum =ExampleEnum.HALLO;
 
         ExampleEnum exampleEnum1 = ExampleEnum.valueOf("by");
-        System.out.println(exampleEnum1);
         Client.clientLogger.info(exampleEnum1);
     }
 }

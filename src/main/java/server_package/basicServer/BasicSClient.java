@@ -72,7 +72,6 @@ public class BasicSClient extends SClient {
                             String[] strings = inputString.split("\n");
                             for (String string :strings
                             ) {
-                                System.out.println("RECEIVED: " + inputString);
                                 Server.serverLogger.info("Listener received" + inputString);
                                 JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
                                 process(jsonObject, true);
@@ -143,7 +142,6 @@ public class BasicSClient extends SClient {
             setName(name);
             setFigure(figure);
             sendAll(new MessagePlayerAdded(getId(), getName(), getFigure()));
-            System.out.println("Client "+name +" | "+ id +" joined the game");
             Server.serverLogger.info("Client " + name + " | " + id + " joined the game");
             Game.getInstance().join(this);
         }
@@ -156,7 +154,6 @@ public class BasicSClient extends SClient {
     public void sendPreviousInfo(){
         for(SClient sClient : getServer().getClientList()){
             if(sClient.getIsNamed() && sClient.getId()!=this.getId()){
-                System.out.println(sClient.getId() + sClient.getName() + sClient.getFigure() +  sClient.getIsReady());
                 sendSelf(new MessagePlayerAdded(sClient.getId(), sClient.getName(), sClient.getFigure()));
                 sendSelf(new MessagePlayerStatus(sClient.getId(), sClient.getIsReady()));
             }

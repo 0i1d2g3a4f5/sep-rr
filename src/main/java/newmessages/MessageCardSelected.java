@@ -51,7 +51,6 @@ public class MessageCardSelected extends Message{
         clientID = content.get("clientID").getAsInt();
         register = content.get("register").getAsInt()-1;
         filled = content.get("filled").getAsBoolean();
-        //System.out.println("Created Register Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Register Message: " + this + " from JSON: " + jsonObject);
     }
 

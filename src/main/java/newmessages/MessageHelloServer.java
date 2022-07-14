@@ -34,7 +34,6 @@ public class MessageHelloServer extends Message {
         jsonObject.add("isAI", new JsonPrimitive(isAI));
         jsonObject.add("protocol", new JsonPrimitive(protocol));
         content = jsonObject;
-        //System.out.println("Created GroupIdentification Message: " + this);
         //Server.serverLogger.info("Created Hello Server Message: " + this);
     }
 
@@ -46,7 +45,6 @@ public class MessageHelloServer extends Message {
         group = content.get("group").getAsString();
         isAI = content.get("isAI").getAsBoolean();
         protocol = content.get("protocol").getAsString();
-        //System.out.println("Created GroupIdentification Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Hello Server Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -66,7 +64,6 @@ public class MessageHelloServer extends Message {
                 sClient.setGroup(this.group);
                 sClient.sendSelf(new MessageWelcome(sClient.getId()));
 
-                    System.out.println("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
                     Server.serverLogger.info("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
 
             }

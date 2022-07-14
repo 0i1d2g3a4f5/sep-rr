@@ -31,7 +31,6 @@ public class MessageCardPlayed extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("card", new JsonPrimitive(card));
         content = jsonObject;
-        //System.out.println("Created CardPlayed Message: " + this);
         //Server.serverLogger.info("Created CardPlayed Message: " + this);
     }
 
@@ -42,7 +41,6 @@ public class MessageCardPlayed extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         card = content.get("card").getAsString();
-        //System.out.println("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
     }
 

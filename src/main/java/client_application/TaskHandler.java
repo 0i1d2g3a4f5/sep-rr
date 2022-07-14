@@ -90,6 +90,7 @@ public class TaskHandler {
             case UPDATE_PROGCARDS -> {
                 int i=0;
                 while (i<5){
+                    //TODO (Vivian): Mark, should this be removed or not?
                     System.out.println(clientApplication.getClient().getPlayer().getRegisterCards()[i]);
                     i++;
                 }

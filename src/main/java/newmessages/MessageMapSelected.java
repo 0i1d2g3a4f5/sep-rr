@@ -59,7 +59,6 @@ public class MessageMapSelected extends Message{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             Server.serverLogger.info("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             sClient.sendAll(this);
             //TODO select position, revert to get gameBoard

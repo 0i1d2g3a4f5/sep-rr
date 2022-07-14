@@ -78,8 +78,6 @@ public class Checkpoint extends GameElement implements Activatable {
                     Game.getInstance().endGame(player);
                 }
             } else{
-                System.out.println("wrong order of Checkpoints: This is Checkpoint "+count+";\n" +
-                        "try to reach checkpoint "+player.getCheckpointTokens()+1);
                 Server.serverLogger.info("Wrong order of checkpoints: This is checkpoint " + count + ";\n" +
                         "try to reach checkpoint " + player.getCheckpointTokens() + 1);
             }
