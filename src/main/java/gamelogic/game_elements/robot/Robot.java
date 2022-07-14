@@ -129,9 +129,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean left(){
+        Direction oldDirection = directionFacing;
         directionFacing = directionFacing.left();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
         Server.serverLogger.info("Left turn");
+        Server.serverLogger.debug("Right turn:" + oldDirection +"->"+directionFacing);
         return true;
     }
 
@@ -140,9 +142,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean right(){
+        Direction oldDirection = directionFacing;
         directionFacing = directionFacing.right();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         Server.serverLogger.info("Right turn");
+        Server.serverLogger.debug("Right turn:" + oldDirection +"->"+directionFacing);
         return true;
     }
 
@@ -167,14 +171,16 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public boolean forward(int distance){
         Position oldPos = position.clone();
         boolean success = true;
+
         for (int i = 0;i<distance;i++){
             if(!move(1)){
-                try {
-                    TimeUnit.MILLISECONDS.sleep(50);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+
                 success = false;
+            }
+            try {
+                TimeUnit.MILLISECONDS.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
         game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX(), position.getY()));
@@ -266,9 +272,13 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         GameField currentField = game.board.getField(position);
         GameField nextField = game.board.getField(nextPosition);
 
-        if (currentField.checkWall(targetDirection) || nextField.checkWall(targetDirection.opposite()))
+        if (currentField.checkWall(targetDirection) || nextField.checkWall(targetDirection.opposite())){
+            Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure() +"buped into a Wall");
             return false;
+        }
+
         if(nextField.contains(ElementName.PIT)||nextField==null){
+            Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure() +"fell into a Pit -> Reboot");
             reboot();
             return false;
         }

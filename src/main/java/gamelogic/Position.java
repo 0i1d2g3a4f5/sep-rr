@@ -38,7 +38,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Pos(" + x + '|' + y + ')';
+        return "Pos(" + y + '|' + x + ')';
     }
 
     public int getY() {

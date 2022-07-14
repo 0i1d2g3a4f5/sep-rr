@@ -4,6 +4,7 @@ import gamelogic.Direction;
 import gamelogic.Position;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.game_elements.*;
+import server_package.Server;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -100,7 +101,10 @@ public class GameField {
      */
     public boolean checkWall(Direction direction){
         for (GameElement element:elements) {
-            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction.toString())) return true;
+            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction)){
+
+                return true;
+            }
         }
         return false;
     }

@@ -16,6 +16,8 @@ public class CPlayer {
 
     int figure;
 
+    private ClientObject client;
+
     Game game;
     int EnergyCubes;
     int clientID;
@@ -35,6 +37,7 @@ public class CPlayer {
             Client client = (Client) clientObject;
             this.clientID = client.getId();
             client.setPlayer(thisPlayer);
+            this.client = client;
         } else {
             OtherClient client = (OtherClient) clientObject;
             try {
@@ -47,6 +50,7 @@ public class CPlayer {
             this.clientID = client.getId();
             this.game = game;
             client.setPlayer(this);
+            this.client = client;
         }
 
 
@@ -86,6 +90,11 @@ public class CPlayer {
 
     public void setHandCards(int handCards) {
         this.handCards = handCards;
+    }
+
+    @Override
+    public String toString() {
+        return client.toString();
     }
 
     public int getClientID() {

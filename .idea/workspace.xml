@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Both robots are visible and can de moved seperatly, need testing with more clients">
+      <change afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/clientSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/reconnect.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/dizzy_highway.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/dizzy_highway.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gamelogic/map/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gamelogic/map/GameBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utility/SearchMethodsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/utility/SearchMethodsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />

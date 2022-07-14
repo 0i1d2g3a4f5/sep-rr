@@ -3,6 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.Client;
 import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -74,17 +75,11 @@ public class MessageMovement extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         for (CPlayer player:client.getGame().getPlayerList()) {
-            if(clientID == player.getClientID()){
-                player.getRobot().moveRobotTo(y,x);
-            }else {
-                for (CPlayer cplayer:client.getGame().getPlayerList()) {
-                    if(cplayer.getClientID()==clientID){
-                        cplayer.getRobot().moveRobotTo(y,x);
-
-                    }
-
-                }
+            if(clientID == player.getClientID()) {
+                Client.clientLogger.info("Player: "+ player + " moves his Robot to ("+y+"|"+x+")");
+                player.getRobot().moveRobotTo(y, x);
             }
+
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
     }

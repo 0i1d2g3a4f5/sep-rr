@@ -11,9 +11,12 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SearchMethodsTest {
+    /*
 
     @Property
+
     void propertySearchCard(@ForAll("deck") ArrayList<Card> deck, @ForAll CardName cardName) throws IOException {
+
         //System.out.println(utility.SearchMethods.searchCard(cardName,deck));
         CardFactory cardFactory = new CardFactory();
         boolean statementCardsAreEqual = (cardFactory.createCard(cardName)).equals(SearchMethods.searchCard(cardName,deck));
@@ -29,10 +32,14 @@ class SearchMethodsTest {
 
         assertTrue((statementCardsAreEqual && statementDeckContainsCard)||(statementDeckDoesntContainCard&&statementCardIsNull));
 
+
+
     }
 
+     */
 
 
+/*
 
     @Provide
     Arbitrary<ArrayList<Card>> deck() throws IOException {
@@ -61,4 +68,6 @@ class SearchMethodsTest {
     void testDeckTest() throws IOException {
         //System.out.println(deck());
     }
+
+ */
 }

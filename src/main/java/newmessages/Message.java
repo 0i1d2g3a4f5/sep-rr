@@ -15,9 +15,7 @@ import java.util.Properties;
  */
 
 public abstract class Message{
-
     public static Logger messageLogger = Logger.getLogger("Message");
-
     static {
         try {
             Properties properties= new Properties();
@@ -28,14 +26,10 @@ public abstract class Message{
             throw new RuntimeException(e);
         }
     }
-
     public String type;
     public JsonObject content;
     public MessageType messageType;
-
     private Server server;
-
-
     public Message(JsonObject jsonObject){
 
         type = jsonObject.get("messageType").getAsString();
@@ -45,14 +39,11 @@ public abstract class Message{
                 "Type="+type + "\n" +
                 "Content="+content);
     }
-
-
     public abstract void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
     public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException{
         activateMessageInFrontend(client,isBasic);
     }
-
     @Override
     public String toString() {
         return new GsonBuilder().setPrettyPrinting().create().toJson(toJSON());
@@ -65,14 +56,10 @@ public abstract class Message{
     Message(){
 
     }
-
     public JsonObject toJSON(){
         JsonObject result = new JsonObject();
         result.add("messageType", new JsonPrimitive(type));
         result.add("messageBody", content);
         return result;
     }
-
-
-
 }

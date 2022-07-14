@@ -336,4 +336,13 @@ public abstract class Client implements ClientObject{
     public ThisCPlayer getPlayer() {
       return player;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", figure=" + figure +
+                ", id=" + id +
+                '}';
+    }
 }
