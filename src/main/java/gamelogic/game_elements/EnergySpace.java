@@ -66,7 +66,6 @@ public class EnergySpace extends GameElement implements Activatable {
      */
     @Override
     public void activate() {
-        System.out.println("activate "+type);
         if(gameField.contains(ElementName.ROBOT)){
             Robot robot =(Robot) gameField.getElement(ElementName.ROBOT);
             robot.getPlayer().addEnergyCube();

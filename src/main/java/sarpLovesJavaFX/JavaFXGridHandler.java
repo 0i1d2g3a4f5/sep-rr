@@ -195,16 +195,14 @@ public class JavaFXGridHandler {
      */
 
     private GridPane updateGameBoard(GameBoard gameBoard) throws IOException {
-        //System.out.println("updateGameBoard: "+ gameBoard);
-        Client.clientLogger.info("updated Game board");
-        Client.clientLogger.info("Robot Informations:");
+        Client.clientLogger.info("Updated game board");
+        Client.clientLogger.info("Robot Information:");
         for (CPlayer player:Game.getInstance().getPlayerList()) {
             if(player.getRobot()!=null){
                 Client.clientLogger.debug("Player = "+player.getClientID()+"Robot="+player.getRobot().figure+ " Position="+player.getRobot().getPosition());
             }
         }
         GridPane input = new GridPane();
-        //System.out.println("X: Y:  " + gameBoard.getDimensionX() +"| "+ gameBoard.getDimensionY());
         for(int y=0; y<Game.getInstance().getMap().getDimensionY(); y++){
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
@@ -213,7 +211,6 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
 
-                //System.out.println("y:"+y +"| x:"+x +" elements: "+temp.getElements().toString());
                 for(GameElement gameElement : temp.getElements()){
                     switch (gameElement.getType()){
                         case LASER:
@@ -588,7 +585,6 @@ public class JavaFXGridHandler {
      */
     private void caseCheckpoint(StackPane stackPane, Checkpoint gameElement) {
         Checkpoint checkpoint = gameElement;
-        //System.out.println("ASDFGLJKFASDGKJSGDJKFKJSGD" + checkpoint.getCount());
         switch (checkpoint.getCount()){
             case 1,0 -> {
                 ImageView imageViewcheck = new ImageView(new Image("/CheckPoint1.png"));

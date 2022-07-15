@@ -29,7 +29,6 @@ public class MessageSelectedDamage extends Message {
         jsonObject.add("damage", new JsonPrimitive(damage));
         jsonObject.add("register", new JsonPrimitive(register));
         content = jsonObject;
-        //System.out.println("Created SelectDamage Message: " + this);
         //Server.serverLogger.info("Created Selected Damage Message: " + this);
     }
 
@@ -40,7 +39,6 @@ public class MessageSelectedDamage extends Message {
         super(jsonObject);
         damage = content.get("damage").getAsString();
         register = content.get("register").getAsInt();
-        //System.out.println("Created SelectDamage Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Selected Damage Message: " + this + " from JSON: " + jsonObject);
     }
 

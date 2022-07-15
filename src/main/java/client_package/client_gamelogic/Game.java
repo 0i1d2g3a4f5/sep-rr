@@ -56,7 +56,6 @@ public class Game {
 
 
     public GameBoard getMap() {
-        //System.out.println(map);
         return map;
     }
 

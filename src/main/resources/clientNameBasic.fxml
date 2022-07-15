@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -19,13 +20,14 @@
             <Image url="@factory2.jpeg" />
          </image>
       </ImageView>
-      <Text fill="#ebebeb" layoutX="332.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000078" height="322.0" layoutX="108.0" layoutY="171.0" stroke="#ffffff00" strokeType="INSIDE" width="990.0" />
+      <Text fill="#ebebeb" layoutX="135.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="nameInput" layoutX="420.0" layoutY="188.0" opacity="0.8" prefHeight="52.0" prefWidth="486.0" />
-      <Text fill="#ebebeb" layoutX="329.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Figure:" textAlignment="RIGHT" AnchorPane.bottomAnchor="292.78125" AnchorPane.topAnchor="358.6640625">
+      <TextField fx:id="nameInput" layoutX="223.0" layoutY="201.0" opacity="0.8" prefHeight="52.0" prefWidth="846.0" />
+      <Text fill="WHITE" layoutX="133.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Figure:" textAlignment="RIGHT" AnchorPane.bottomAnchor="327.78125" AnchorPane.topAnchor="323.6640625">
          <font>
             <Font size="20.0" />
          </font>
@@ -35,14 +37,14 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <GridPane fx:id="checkGrid" layoutX="408.0" layoutY="323.0" prefHeight="100.0" prefWidth="479.0" AnchorPane.bottomAnchor="252.0">
+      <GridPane fx:id="checkGrid" layoutX="176.0" layoutY="289.0" prefHeight="100.0" prefWidth="479.0" AnchorPane.bottomAnchor="286.0">
         <columnConstraints>
-          <ColumnConstraints fillWidth="false" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="80.0" prefWidth="50.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="80.0" prefWidth="50.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="80.0" prefWidth="80.0" />
-            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="80.0" prefWidth="80.0" />
+          <ColumnConstraints fillWidth="false" halignment="LEFT" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -63,7 +65,7 @@
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="check4" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose4" prefHeight="100.0" prefWidth="100.0" text="4" textFill="#ebebeb" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <CheckBox fx:id="check4" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose4" prefHeight="100.0" prefWidth="100.0" textFill="#ebebeb" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -73,7 +75,7 @@
                   <Font size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="check6" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose6" prefHeight="100.0" prefWidth="100.0" text="6" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <CheckBox fx:id="check6" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#choose6" prefHeight="100.0" prefWidth="100.0" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,10 +102,40 @@
             <Image url="@bar.png" />
          </image>
       </ImageView>
-      <Button layoutX="536.0" layoutY="424.0" mnemonicParsing="false" onAction="#startButton" prefHeight="52.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Start" textFill="#ebebeb" AnchorPane.leftAnchor="536.0">
+      <Button layoutX="503.0" layoutY="418.0" mnemonicParsing="false" onAction="#startButton" prefHeight="52.0" prefWidth="222.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Start" textFill="#ebebeb" AnchorPane.leftAnchor="503.0">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="86.0" fitWidth="107.0" layoutX="257.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotBlueSingle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="78.0" fitWidth="107.0" layoutX="402.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotRedSingle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="89.0" layoutX="554.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotGreenSingle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="78.0" fitWidth="89.0" layoutX="677.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotOrangeSingle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="89.0" layoutX="833.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotPinkSingle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="101.0" fitWidth="103.0" layoutX="976.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@RobotYellowSingle.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

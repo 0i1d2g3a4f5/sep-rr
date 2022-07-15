@@ -24,7 +24,6 @@ public class PowerUp extends ProgrammingCard {
     @Override
     public void activateCard() {
         // Take one energy cube, and place it on your player mat.
-        System.out.println("PowerUp");
         Server.serverLogger.info("PowerUp");
         player.addEnergyCube();
         player.getClient().sendAll(new MessageEnergy(player.getClient().getId(),1,"EnergyCube"));

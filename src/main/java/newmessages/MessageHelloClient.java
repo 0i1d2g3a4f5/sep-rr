@@ -27,7 +27,6 @@ public class MessageHelloClient extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("protocol", new JsonPrimitive(string));
         content=jsonObject;
-        //System.out.println("Created Protocol Message: " + this);
         //Server.serverLogger.info("Created Hello Client Message: " + this);
     }
 
@@ -37,7 +36,6 @@ public class MessageHelloClient extends Message{
     public MessageHelloClient(JsonObject jsonObject){
         super(jsonObject);
         protocol=content.get("protocol").getAsString();
-        //System.out.println("Created Protocol Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Hello Client Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -56,10 +54,8 @@ public class MessageHelloClient extends Message{
     public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (this.protocol.equals(PROTOCOL_VERSION)) {
-                System.out.println("EVENT :: Correct communication protocol verified.");
                 Server.serverLogger.info("Correct communication protocol verified");
             } else {
-                System.out.println("ERROR :: False communication protocol.");
                 Server.serverLogger.error("False communication protocol");
             }
             // TODO do not compare global parameter "protocol_version" with itself, instead let server tell client its version
@@ -71,11 +67,9 @@ public class MessageHelloClient extends Message{
     public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(isBasic) {
             if (this.protocol.equals(client.getAiController().protocolVersion)) {
-                System.out.println("EVENT :: Correct communication protocol verified.");
                 Server.serverLogger.info("Correct communication protocol verified");
                 client.sayHello(client.getAiController().groupName, client.getAiController().protocolVersion);
             } else {
-                System.out.println("ERROR :: False communication protocol.");
                 Server.serverLogger.error("False communication protocol");
             }
         }

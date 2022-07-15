@@ -26,7 +26,6 @@ public class MessageCurrentPlayer extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        System.out.println("Created CPlayer Message: " + this);
         Server.serverLogger.info("Created CurrentPlayer Message: " + this);
     }
 
@@ -36,7 +35,6 @@ public class MessageCurrentPlayer extends Message{
     public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //System.out.println("Created CPlayer Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created CurrentPlayer Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -54,7 +52,6 @@ public class MessageCurrentPlayer extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
         if(client.getSocket().isConnected()){
-            System.out.println("Current player is " + client.getName() + "," +client.getId());
             Server.serverLogger.info("Current player is " + client.getName() + "," + client.getId());
         }
     }

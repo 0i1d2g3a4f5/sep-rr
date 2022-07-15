@@ -20,7 +20,6 @@ public class MessageTimerStarted extends Message{
         type = "TimerStarted";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
-       // System.out.println("Created EndTime Message: " + this);
        // Server.serverLogger.info("Created Timer Started Message: " + this);
     }
 
@@ -30,7 +29,6 @@ public class MessageTimerStarted extends Message{
      */
     public MessageTimerStarted(JsonObject jsonObject){
         super(jsonObject);
-       // System.out.println("Created Timer Started Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

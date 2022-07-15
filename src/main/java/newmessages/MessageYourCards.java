@@ -44,7 +44,6 @@ public class MessageYourCards extends Message{
 
         jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
-        //System.out.println("Created Quantity Message: " + this);
         //Server.serverLogger.info("Created Your Cards Message: " + this);
     }
 
@@ -60,7 +59,6 @@ public class MessageYourCards extends Message{
             cardsInHand[i] =CardName.parseCardName(cardsJArray.get(i).getAsString());
         }
 
-        //System.out.println("Created Quantity Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
@@ -83,24 +81,20 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        //System.out.println("Cards You Got: "+ Arrays.toString(cardsInHand));
-
 
         ArrayList<Card> handCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
-        //System.out.println("Server: Program pls1 ");
 
         for (CardName card:cardsInHand) {
             handCards.add(cardFactory.createCard(card));
         }
 
         client.getPlayer().setHandCards(handCards);
+        //TODO (Vivian): Mark, should we keep this?
         System.out.println("HANDCARDS: ");
         for(Card card : handCards){
             System.out.println(card.getCardName().toString());
         }
-
-        //System.out.println("Server: Program pls2 ");
 
         Thread thread = new Thread(){
             @Override

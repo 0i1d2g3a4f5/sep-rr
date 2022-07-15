@@ -19,7 +19,6 @@ public class LeftTurn extends ProgrammingCard{
 
     @Override
     public void activateCard() {
-        System.out.println("LeftTurn");
         Server.serverLogger.info("LeftTurn");
         /*
         Turn your robot 90 degrees to the left.

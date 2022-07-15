@@ -20,7 +20,6 @@ public class Antenna extends GameElement implements Serializable {
     public Antenna(Direction direction){
         super(ElementName.ANTENNA);
         type = ElementName.ANTENNA;
-        System.out.println(toJson());
         orientations.add(direction);
 
     }

@@ -24,7 +24,6 @@ public class MessageRebootDirection extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("direction", new JsonPrimitive(direction));
         content = jsonObject;
-        //System.out.println("Created RebootDirection Message: " + this);
         //Server.serverLogger.info("Created Reboot Direction Message: " + this);
     }
 
@@ -34,7 +33,6 @@ public class MessageRebootDirection extends Message{
     public MessageRebootDirection(JsonObject jsonObject){
         super(jsonObject);
         direction = content.get("direction").getAsString();
-        //System.out.println("Created RebootDirection Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Reboot Direction Message: " + this + " from JSON: " + jsonObject);
     }
 

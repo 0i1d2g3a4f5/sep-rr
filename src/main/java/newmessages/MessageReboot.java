@@ -24,7 +24,6 @@ public class MessageReboot extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //System.out.println("Created RoboReboot Message: " + this);
         //Server.serverLogger.info("Created Robo Reboot Message: " + this);
     }
 
@@ -34,7 +33,6 @@ public class MessageReboot extends Message{
     public MessageReboot(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //System.out.println("Created RoboReboot Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Robo Reboot Message: " + this + " from JSON: " + jsonObject);
     }
 

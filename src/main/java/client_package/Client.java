@@ -104,7 +104,6 @@ public abstract class Client implements ClientObject{
             DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
             String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
-            //System.out.println("SENT :: " + toSend);
 
             writer.write(toSend);
             writer.write("\n");
@@ -122,9 +121,6 @@ public abstract class Client implements ClientObject{
             dataOutputStream.flush();
 
              */
-            System.out.println("SENT: " +toSend);
-
-
 
             toSendList.remove(message);
         }  catch (IOException e) {
@@ -160,9 +156,7 @@ public abstract class Client implements ClientObject{
 
                 while(isListening){
 
-
                     TimeUnit.MILLISECONDS.sleep(10);
-                    //System.out.println("LASFDLKASDFGLAFSDG");
                     String inputString = "";
                     boolean isEnded = false;
                     int readChars =dataInputStream.available();

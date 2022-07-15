@@ -28,7 +28,6 @@ public class MessageWelcome extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //System.out.println("Created Welcome Message: " + this);
         //Server.serverLogger.info("Created Welcome Message: " + this);
     }
 
@@ -38,7 +37,6 @@ public class MessageWelcome extends Message{
     public MessageWelcome(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //System.out.println("Created GroupIdentification Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Welcome Message: " + this + " from JSON: " + jsonObject);
     }
 

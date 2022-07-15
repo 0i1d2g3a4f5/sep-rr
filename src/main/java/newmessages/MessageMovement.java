@@ -38,7 +38,6 @@ public class MessageMovement extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        //System.out.println("Created Move Message: " + this);
         //Server.serverLogger.info("Created Movement Message: " + this);
     }
 
@@ -50,7 +49,6 @@ public class MessageMovement extends Message{
         clientID = content.get("clientID").getAsInt();
         x= content.get("x").getAsInt();
         y = content.get("y").getAsInt();
-        //System.out.println("Created Move Message: " + this + " from JSON: " + jsonObject);
         //Server.serverLogger.info("Created Movement Message: " + this + " from JSON: " + jsonObject);
     }
 

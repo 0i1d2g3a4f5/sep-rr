@@ -214,12 +214,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private boolean move(int gear){
         Direction targetDirection = gear == 1 ? directionFacing : directionFacing.opposite();
         setNextPosition(targetDirection);
-        System.out.println("Robot wants to move from " + position + " to " + nextPosition);
         Server.serverLogger.info("Robot wants to move from " + position + " to " + nextPosition);
 
         if(checkNextPosition(targetDirection)){
             changePositionOnBoard();
-            System.out.println("Robot successfully moved to "+position);
             Server.serverLogger.info("Robot successfully moved to " + position);
 
         }
@@ -390,6 +388,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     @Override
     public void activate() {
+        //TODO (Vivian): Mark, do we keep this in?
         System.out.println("activate "+type);
         //TODO activate Robot Lasers
     }

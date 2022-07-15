@@ -2,12 +2,39 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane onKeyPressed="#submitKey" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientChatBasicController">
+<AnchorPane maxHeight="675.0" maxWidth="600.0" minHeight="675.0" minWidth="600.0" onKeyPressed="#submitKey" prefHeight="675.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientChatBasicController">
    <children>
-      <Button layoutX="437.0" layoutY="340.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="42.0" prefWidth="112.0" text="Submit" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="335.0" />
-      <TextArea fx:id="chatArea" editable="false" layoutX="46.0" layoutY="14.0" prefHeight="315.0" prefWidth="524.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
-      <TextArea fx:id="inputArea" layoutX="46.0" layoutY="336.0" prefHeight="50.0" prefWidth="423.0" promptText="&quot;/chatall &quot; for general chat and &quot;/chatprivate PlayerID&quot; for private chat" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="335.0" />
+      <ImageView fitHeight="747.0" fitWidth="1254.0" layoutX="-653.0" layoutY="-1.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@factory1.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="upperbar11" fitHeight="93.0" fitWidth="600.0" layoutX="1.0" opacity="0.8" rotate="3.7" y="1.0">
+         <image>
+            <Image url="@bar.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="inputArea" layoutX="30.0" layoutY="608.0" opacity="0.9" prefHeight="45.0" prefWidth="396.0" promptText="&quot;/chatall &quot; for general chat and &quot;/chatprivate PlayerID&quot; for private chat" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="608.0" />
+      <ImageView fitHeight="70.0" fitWidth="151.0" layoutX="32.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" rotate="-11.7">
+         <image>
+            <Image url="@robotwarning.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="upperbar1" fitHeight="77.0" fitWidth="600.0" layoutX="-1.0" layoutY="73.0" opacity="0.8" rotate="-4.6">
+         <image>
+            <Image url="@bar.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="chatArea" editable="false" layoutX="32.0" layoutY="123.0" opacity="0.6" prefHeight="471.0" prefWidth="535.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" />
+      <Button layoutX="438.0" layoutY="607.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: darkgrey; -fx-border-width: 2; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5;" text="Send" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

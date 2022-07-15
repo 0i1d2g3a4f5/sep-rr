@@ -3,6 +3,7 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.Client;
 import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -82,12 +83,11 @@ public class MessageStartingPointTaken extends Message{
                 //TODO disable place Robot Field
             }
         } else {
-            System.out.println("setting other Robot");
+            Client.clientLogger.info("Setting other robot");
             for (CPlayer player: client.getGame().getPlayerList()) {
-                System.out.println("checking client:" + player.getClientID());
+                Client.clientLogger.info("Checking client:" + player.getClientID());
                 if(player.getClientID() == clientID && clientID !=client.getId()){
-                    System.out.println("LALALALALFGADLFASDKJLSGADKLSGDAKLGFDSALK");
-                    System.out.println("figure: " +player.getRobot().getFigure());
+                    Client.clientLogger.info("Figure: " +player.getRobot().getFigure());
 
                     player.getRobot().placeRobot(y,x);
                     client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));

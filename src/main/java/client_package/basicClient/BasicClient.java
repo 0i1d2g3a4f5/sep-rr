@@ -30,6 +30,7 @@ public class BasicClient extends Client {
         setFigure(figure);
         setIsForList(true);
         setIsReady(false);
+        setIsReady(false);
         setIsListening(false);
     }
     public void startClient(String ip, int port, String groupName){
