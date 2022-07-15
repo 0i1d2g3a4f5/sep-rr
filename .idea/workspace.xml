@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="robot can reboot now, but only to his startPoint">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Lasers should work properly now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/GameElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/GameElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -229,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657891274386</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Lasers should work properly now">
+      <created>1657898462873</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657898462873</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +269,7 @@
     <MESSAGE value="solved a critical bug with card activation" />
     <MESSAGE value="Both robots are visible and can de moved seperatly, need testing with more clients" />
     <MESSAGE value="robot can reboot now, but only to his startPoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="robot can reboot now, but only to his startPoint" />
+    <MESSAGE value="Lasers should work properly now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lasers should work properly now" />
   </component>
 </project>

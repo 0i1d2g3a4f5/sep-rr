@@ -115,6 +115,7 @@ public class Laser extends GameElement implements Activatable {
     private void laserMovement(GameField gameField){
         if(gameField != null){
             if(gameField.contains(ElementName.ROBOT)){
+                Server.serverLogger.info("Laser hits Robot "+gameField.getRobot());
                 Robot robot = (Robot) gameField.getElement(ElementName.ROBOT);
                 robot.takeDamage(count);
             }else{

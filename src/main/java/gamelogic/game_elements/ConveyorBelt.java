@@ -165,14 +165,15 @@ public class ConveyorBelt extends GameElement implements Activatable {
                 GameElement element;
                 if((element = robot.getGameField().getElement(ElementName.CONVEYORBELT)) !=null){
                     ConveyorBelt nextBelt = (ConveyorBelt) element;
+
                     robot.displace(nextBelt.orientations.get(0));
                 } else {
                     robot.displace(orientations.get(0));
                 }
             } else{
-
+                robot.displace(orientations.get(0));
             }
-            robot.displace(orientations.get(0));
+
         }
         try {
             TimeUnit.MILLISECONDS.sleep(40);
