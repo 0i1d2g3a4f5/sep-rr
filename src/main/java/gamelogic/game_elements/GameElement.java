@@ -7,6 +7,7 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.JsonSerializable;
+import gamelogic.Position;
 import gamelogic.map.GameField;
 
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.util.Objects;
 public abstract class GameElement implements JsonSerializable {
 
 
-
+    protected Position position;
     protected GameField gameField;
     public List<Direction> orientations = new ArrayList<Direction>();
 
@@ -30,7 +31,7 @@ public abstract class GameElement implements JsonSerializable {
 
 
 
-    protected String isOnBoard = "B1";
+    protected String isOnBoard;
 
     protected Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -51,8 +52,9 @@ public abstract class GameElement implements JsonSerializable {
     }
 
 
-    public GameElement(ElementName elementName ){
+    public GameElement(ElementName elementName){
         this.type = elementName;
+        this.isOnBoard = isOnBoard;
 
     }
 
@@ -85,11 +87,11 @@ public abstract class GameElement implements JsonSerializable {
 
     @Override
     public String toString() {
-        return "GameElement{" +
-                "orientations=" + orientations +
-                ", type=" + type +
-                ", isOnBoard='" + isOnBoard + '\'' +
-                '}';
+        return "GameElement:=§(" +
+                "orientations=" + orientations +"|"+
+                ", type=" + type +"|"+
+                ", isOnBoard='" + isOnBoard +
+                ")§";
     }
 
     @Override
@@ -98,4 +100,7 @@ public abstract class GameElement implements JsonSerializable {
     }
 
 
+    public void setPosition(int y, int x) {
+        this.position = new Position(y,x);
+    }
 }

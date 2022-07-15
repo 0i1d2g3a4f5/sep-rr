@@ -12,6 +12,15 @@ import java.util.Objects;
 public class GameField {
     private Position position;
     private GameBoard board;
+    protected String isOnBoard;
+
+    public String getIsOnBoard() {
+        return isOnBoard;
+    }
+
+    public void setIsOnBoard(String isOnBoard) {
+        this.isOnBoard = isOnBoard;
+    }
 
     public boolean isActive() {
         return isActive;
@@ -25,14 +34,9 @@ public class GameField {
 
 
 
-     public GameField(GameBoard board, Position position) {
-         this.board = board;
-         elements.add(new Empty());
-         this.position = position;
 
-    }
 
-    public GameField(GameBoard board, int x, int y) {
+    public GameField(GameBoard board, int y, int x) {
         this.board = board;
         elements.add(new Empty());
         this.position = new Position(y,x);
@@ -143,15 +147,30 @@ public class GameField {
          removeAll(ElementName.ROBOT);
     }
     private void removeAll(ElementName elementName){
-        for (GameElement element:elements) {
+        for (int i = 0; i < elements.size() ; i++) {
+            GameElement element = elements.get(i);
             if(element.getType()==elementName) elements.remove(element);
         }
     }
     @Override
     public String toString(){
         String result = "";
-        for(GameElement yaaa : getElements()){
-            result.concat(" + " + yaaa.getType().toString());
+        ArrayList<GameElement> elements = getElements();
+        result+="Position: "+position;
+        result+="Elements: ";
+
+        for (int i = 0; i < elements.size(); i++) {
+            if(i != 0){
+                result+="|";
+            }else
+                result+="[";
+            if(elements.get(i).getType()==null)
+                Server.serverLogger.error("ElementType at Field "+position+ " is null");
+            else
+                result+=elements.get(i).getType().toString();
+            if(i== elements.size()-1)
+                result+="]";
+
         }
         return result;
 

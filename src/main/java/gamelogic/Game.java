@@ -390,13 +390,17 @@ public class  Game {
             for (Card card:activatedRegisters) {
                 card.activateCard();
 
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(40);
             }
             careEnergyCube();
+            TimeUnit.MILLISECONDS.sleep(70);
 
             for (Activatable element:elementRegistry) {
+                if(element.getGameField()==null){
+                    Server.serverLogger.error("Element "+element.toString() + "Has no GameField");
+                }
                 element.activate();
-                TimeUnit.MILLISECONDS.sleep(50);
+                TimeUnit.MILLISECONDS.sleep(40);
             }
             for (Player player:playerList
                  ) {
@@ -405,6 +409,7 @@ public class  Game {
                 player.getRobot().movedByCBelt=false;
 
             }
+            TimeUnit.MILLISECONDS.sleep(80);
         }
         activeRegister = -1;
         for (Player player:playerList) {

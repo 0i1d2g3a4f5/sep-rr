@@ -23,8 +23,8 @@ public class EnergyCube extends GameElement{
         super(ElementName.ENERGY_CUBE);
         Gson gson = new Gson();
 
-        EnergyCube energyCube = new EnergyCube();
-        energyCube.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
     }
 

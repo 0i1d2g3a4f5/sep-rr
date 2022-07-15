@@ -8,7 +8,6 @@ import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
-import server_package.Server;
 
 import java.io.IOException;
 
@@ -26,10 +25,10 @@ public class MessageMovement extends Message{
 
     /**
      * @param clientID
-     * @param x
      * @param y
+     * @param x
      */
-    public MessageMovement(int clientID, int x, int y){
+    public MessageMovement(int clientID, int y, int x){
         this.clientID = clientID;
         this.x = x;
         this.y = y;

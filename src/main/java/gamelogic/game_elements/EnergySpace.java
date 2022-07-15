@@ -41,8 +41,8 @@ public class EnergySpace extends GameElement implements Activatable {
         super(ElementName.ENERGYSPACE);
         Gson gson = new Gson();
 
-        EnergySpace energySpace = new EnergySpace(jsonObject.get("count").getAsInt());
-        energySpace.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+        count = jsonObject.get("count").getAsInt();
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
 
 
     }

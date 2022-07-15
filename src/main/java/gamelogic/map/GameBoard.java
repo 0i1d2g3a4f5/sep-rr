@@ -35,7 +35,7 @@ public class GameBoard implements JsonSerializable {
             System.out.println("illegal Field");
             Server.serverLogger.info("Illegal field");
 
-            GameField gameField = new GameField(this,x,y);
+            GameField gameField = new GameField(this,y,x);
             gameField.addElement(new Pit());
             return gameField;
 
@@ -51,7 +51,7 @@ public class GameBoard implements JsonSerializable {
             System.out.println("illegal Field");
             Server.serverLogger.info("Illegal field");
 
-            GameField gameField = new GameField(this,position.getX(),position.getY());
+            GameField gameField = new GameField(this,position.getY(),position.getX());
             gameField.addElement(new Pit());
             return gameField;
 
@@ -100,6 +100,8 @@ public class GameBoard implements JsonSerializable {
     public boolean addElement(int y, int x,GameElement element){
         GameField field = boardMap.get(x).get(y);
 
+        element.setGameField(field);
+        element.setPosition(y,x);
 
         return field.addElement(element);
     }
@@ -160,7 +162,7 @@ public class GameBoard implements JsonSerializable {
         for(int x = 0;x<dimensionX;x++){
             boardMap.add(new ArrayList<GameField>());
             for (int y = 0;y<dimensionY;y++){
-                boardMap.get(x).add(new GameField(this, x, y));
+                boardMap.get(x).add(new GameField(this, y, x));
             }
         }
 
@@ -229,6 +231,9 @@ public class GameBoard implements JsonSerializable {
 
                 for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
+                    element.setGameField(gameField);
+                    gameField.isOnBoard=element.getIsOnBoard();
+
                     //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
 

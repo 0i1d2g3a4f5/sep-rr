@@ -61,6 +61,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * update the location of the robot
      */
     public Robot (Game game,Position position, Direction direction){
+        super(ElementName.ROBOT);
 
         directionFacing = direction;
         this.position = position;
@@ -70,6 +71,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     }
     public Robot (Game game){
+        super(ElementName.ROBOT);
         this.game =game;
         directionFacing = Direction.EAST;
         this.orientations.add(Direction.EAST);
@@ -183,7 +185,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 throw new RuntimeException(e);
             }
         }
-        game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX(), position.getY()));
+        game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
         return success;
     }
 
@@ -247,16 +249,20 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private boolean changePositionOnBoard() {
 
         Game game = Game.getInstance();
-        GameField currentField = game.board.getField(position);
+        GameField currentField = gameField;
         GameField nextField = game.board.getField(nextPosition);
 
         if(!nextField.addRobot(this)) return false;
         currentField.removeRobot();
         position = nextPosition;
         nextPosition = null;
-        gameField = game.board.getField(position);
+        gameField.removeRobot();
+        gameField = nextField;
+        gameField.addRobot(this);
+        Server.serverLogger.debug("Robot "+this.getPlayer().getClient().getFigure()+" is placed on GameField "+gameField.toString());
 
-        player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
+
+        player.getClient().sendAll(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
 
         return true;
     }
@@ -294,8 +300,18 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         takeDamage(2);
         player.discardAllHandCards();
         player.clearAllRegister();
-
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
+        for (RestartPoint restartPoint:game.getBoard().restartPoints) {
+            if(isOnBoard==restartPoint.getIsOnBoard()){
+                position=restartPoint.getGameField().getPosition();
+                gameField.removeRobot();
+                gameField=restartPoint.getGameField();
+                game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
+            }
+        }
+
+
+
         //TODO case not answered
 
     }
@@ -313,7 +329,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 gameField = restartPoint.getGameField();
                 position = gameField.getPosition();
                 directionFacing = direction;
-                player.getClient().sendAll(new MessageMovement(player.getClient().getId(),position.getX(),position.getY()));
+                player.getClient().sendAll(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
 
             }
         }
@@ -330,8 +346,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private boolean setNextPosition(Direction targetDirection) {
         switch (targetDirection){
 
-            case NORTH -> nextPosition = new Position(position.getY()+1, position.getX());
-            case SOUTH -> nextPosition = new Position(position.getY()-1, position.getX());
+            case NORTH -> nextPosition = new Position(position.getY()-1, position.getX());
+            case SOUTH -> nextPosition = new Position(position.getY()+1, position.getX());
             case EAST -> nextPosition = new Position(position.getY(), position.getX()+1);
 
             case WEST -> nextPosition = new Position(position.getY(), position.getX()-1);

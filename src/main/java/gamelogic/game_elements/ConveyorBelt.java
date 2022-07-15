@@ -9,9 +9,11 @@ import gamelogic.Color;
 import gamelogic.Direction;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameField;
+import server_package.Server;
 
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 public class ConveyorBelt extends GameElement implements Activatable {
@@ -145,11 +147,15 @@ public class ConveyorBelt extends GameElement implements Activatable {
      */
     @Override
     public void activate() {
-        System.out.println("activate "+type);
-        if(gameField.contains(ElementName.ROBOT)){
+        Server.serverLogger.info("checking "+ type +" "+color+ " at "+ gameField.getPosition());
+        Server.serverLogger.debug("Game-field of this ConveyorBelt: "+gameField.toString());
 
+        if(gameField.contains(ElementName.ROBOT)){
+            Server.serverLogger.info("activate "+ type +" "+color+ " at "+ gameField.getPosition());
+            Server.serverLogger.debug("ConveyorBelt orientations: "+ orientations);
             Robot robot = gameField.getRobot();
             if(robot.movedByCBelt){
+                Server.serverLogger.debug("Robot already moved by conveyor Belt");
                 return;
             }
             robot.movedByCBelt=true;
@@ -167,6 +173,11 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
             }
             robot.displace(orientations.get(0));
+        }
+        try {
+            TimeUnit.MILLISECONDS.sleep(40);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

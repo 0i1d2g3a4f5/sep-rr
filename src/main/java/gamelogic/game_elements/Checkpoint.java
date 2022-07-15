@@ -40,8 +40,8 @@ public class Checkpoint extends GameElement implements Activatable {
         super(ElementName.CHECKPOINT);
         Gson gson = new Gson();
 
-        Checkpoint checkpoint = new Checkpoint(jsonObject.get("count").getAsInt());
-        checkpoint.isOnBoard = jsonObject.get("isOnBoard").getAsString();
+        count = jsonObject.get("count").getAsInt();
+        isOnBoard = jsonObject.get("isOnBoard").getAsString();
     }
 
     /**
