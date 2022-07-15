@@ -2,10 +2,7 @@ package gamelogic;
 
 
 import gamelogic.cards.CardName;
-import gamelogic.game_elements.ElementName;
-import gamelogic.game_elements.EnergyCube;
-import gamelogic.game_elements.EnergySpace;
-import gamelogic.game_elements.GameElement;
+import gamelogic.game_elements.*;
 import server_package.SClient;
 import gamelogic.cards.Card;
 import gamelogic.cards.DeckSerializer;
@@ -196,12 +193,14 @@ public class  Game {
      * @return
      */
     public synchronized boolean placeRobot(Player player,Position position){
+
         if(board.getField(position).contains(ElementName.ROBOT)) return false;
         else if(board.getField(position).contains(ElementName.STARTPOINT)){
             board.getField(position).addRobot(player.getRobot());
             robotsPlaced++;
             player.getRobot().setPlaced(true);
             player.getRobot().setPosition(position);
+            player.getRobot().setStartPoint((StartPoint) board.getField(position).getElement(ElementName.STARTPOINT));
             return true;
         } else return false;
     }

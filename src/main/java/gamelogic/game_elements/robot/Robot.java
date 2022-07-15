@@ -7,6 +7,7 @@ import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
 import gamelogic.game_elements.GameElement;
 import gamelogic.game_elements.RestartPoint;
+import gamelogic.game_elements.StartPoint;
 import gamelogic.map.GameField;
 import newmessages.*;
 import server_package.Server;
@@ -21,6 +22,8 @@ import java.util.concurrent.TimeUnit;
 public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
+
+    private StartPoint startPoint;
 
     public boolean movedByCBelt = false;
 
@@ -76,6 +79,14 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         directionFacing = Direction.EAST;
         this.orientations.add(Direction.EAST);
 
+    }
+
+    public StartPoint getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(StartPoint startPoint) {
+        this.startPoint = startPoint;
     }
 
     public void takeDamage(int count) {
@@ -295,18 +306,26 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @uthor Ringer
      */
     public void reboot() {
+        Server.serverLogger.info("rebooting "+ this);
+        Server.serverLogger.debug("Reboot points: "+game.board.restartPoints);
         takeDamage(2);
         player.discardAllHandCards();
         player.clearAllRegister();
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
+        GameElement restartingPoint= null;
         for (RestartPoint restartPoint:game.getBoard().restartPoints) {
             if(isOnBoard==restartPoint.getIsOnBoard()){
-                position=restartPoint.getGameField().getPosition();
-                gameField.removeRobot();
-                gameField=restartPoint.getGameField();
-                game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
+                restartingPoint = restartPoint;
+
             }
         }
+        if(restartingPoint==null){
+            restartingPoint =startPoint;
+        }
+        position=restartingPoint.getGameField().getPosition();
+        gameField.removeRobot();
+        gameField=restartingPoint.getGameField();
+        game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
 
 
 
@@ -376,7 +395,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     public String toString(){
-        return this.name;
+        return String.valueOf(this.getPlayer().getClient().getFigure());
     }
     /**
      * @return the max Lives of a robot
