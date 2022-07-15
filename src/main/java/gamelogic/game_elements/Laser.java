@@ -7,6 +7,7 @@ import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
 import gamelogic.Color;
 import gamelogic.Direction;
+import gamelogic.Game;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameField;
 import server_package.Server;
@@ -102,7 +103,7 @@ public class Laser extends GameElement implements Activatable {
     @Override
     public void activate() {
         Server.serverLogger.info("Activate " + type);
-        //laserMovement(gameField);
+        laserMovement(gameField);
     }
 
     /**
@@ -118,8 +119,9 @@ public class Laser extends GameElement implements Activatable {
                 robot.takeDamage(count);
             }else{
                 GameField nextField = gameField.getNeighbor(direction);
-                if(nextField !=null)
-                    if(!gameField.checkWall(direction)&&!nextField.checkWall(direction.opposite())) laserMovement(nextField);
+                if(nextField.getPosition().getY() <0 || nextField.getPosition().getY()>= Game.getInstance().board.getBoardMap().get(0).size() ||nextField.getPosition().getX() <0 || nextField.getPosition().getX()>= Game.getInstance().board.getBoardMap().size())
+                    return;
+                else if(!gameField.checkWall(direction)&&!nextField.checkWall(direction.opposite())) laserMovement(nextField);
             }
         }
     }

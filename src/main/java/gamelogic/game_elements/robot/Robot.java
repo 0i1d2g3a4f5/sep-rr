@@ -4,10 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.*;
 import gamelogic.cards.CardName;
-import gamelogic.game_elements.ElementName;
-import gamelogic.game_elements.GameElement;
-import gamelogic.game_elements.RestartPoint;
-import gamelogic.game_elements.StartPoint;
+import gamelogic.game_elements.*;
 import gamelogic.map.GameField;
 import newmessages.*;
 import server_package.Server;
@@ -23,6 +20,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
 
+    private boolean rebootedThisTurn = false;
     private StartPoint startPoint;
 
     public boolean movedByCBelt = false;
@@ -90,6 +88,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     public void takeDamage(int count) {
+        Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure()+" takes damage");
         ArrayList<CardName> damageCards = new ArrayList<>();
 
         if(game.getSpamDrawPile().size()>=count){
@@ -142,6 +141,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean left(){
+        //if(rebootedThisTurn) return false;
         Direction oldDirection = directionFacing;
         directionFacing = directionFacing.left();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
@@ -155,6 +155,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean right(){
+        //if(rebootedThisTurn) return false;
         Direction oldDirection = directionFacing;
         directionFacing = directionFacing.right();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
@@ -169,6 +170,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      */
 
     public boolean uTurn(){
+        //if(rebootedThisTurn) return false;
         directionFacing = directionFacing.opposite();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
@@ -182,6 +184,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return
      */
     public boolean forward(int distance){
+        //if(rebootedThisTurn) return false;
         Position oldPos = position.clone();
         boolean success = true;
 
@@ -206,6 +209,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return
      */
     public boolean backward(int distance){
+        //if(rebootedThisTurn) return false;
         Position oldPos = position.clone();
         boolean success = true;
         for (int i = 0;i<distance;i++){
@@ -263,6 +267,14 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
         if(!nextField.addRobot(this)) return false;
         currentField.removeRobot();
+        if(currentField.getElements().size()==0){
+            Empty empty = new Empty();
+            empty.setGameField(currentField);
+            empty.setIsOnBoard(currentField.getIsOnBoard());
+            currentField.addElement(empty);
+
+        }
+
         position = nextPosition;
         nextPosition = null;
         gameField.removeRobot();
@@ -302,6 +314,14 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    public boolean isRebootedThisTurn() {
+        return rebootedThisTurn;
+    }
+
+    public void setRebootedThisTurn(boolean rebootedThisTurn) {
+        this.rebootedThisTurn = rebootedThisTurn;
+    }
+
     /**
      * @uthor Ringer
      */
@@ -311,21 +331,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         takeDamage(2);
         player.discardAllHandCards();
         player.clearAllRegister();
+        rebootedThisTurn = true;
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
-        GameElement restartingPoint= null;
-        for (RestartPoint restartPoint:game.getBoard().restartPoints) {
-            if(isOnBoard==restartPoint.getIsOnBoard()){
-                restartingPoint = restartPoint;
-
-            }
-        }
-        if(restartingPoint==null){
-            restartingPoint =startPoint;
-        }
-        position=restartingPoint.getGameField().getPosition();
-        gameField.removeRobot();
-        gameField=restartingPoint.getGameField();
-        game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
+        finishReboot(Direction.EAST);
 
 
 
@@ -338,18 +346,33 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @author Mark Ringer
      */
     public void finishReboot(Direction direction){
+
+        isOnBoard = gameField.getIsOnBoard();
+        Server.serverLogger.debug("Robot "+getPlayer().getClient().getFigure()+ " IsOnBoard: "+isOnBoard);
         //TODO case field blocked
-        for(RestartPoint restartPoint:game.board.restartPoints){
-            if(restartPoint.getIsOnBoard()==isOnBoard){
-                getGameField().removeRobot();
-                restartPoint.getGameField().addRobot(this);
-                gameField = restartPoint.getGameField();
-                position = gameField.getPosition();
-                directionFacing = direction;
-                player.getClient().sendAll(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
+        GameElement restartingPoint= null;
+        for (RestartPoint restartPoint:game.getBoard().restartPoints) {
+            if(isOnBoard.equals(restartPoint.getIsOnBoard())){
+                restartingPoint = restartPoint;
 
             }
         }
+        if(restartingPoint==null){
+            restartingPoint =startPoint;
+        }
+        position=restartingPoint.getGameField().getPosition();
+        gameField.removeRobot();
+        if(gameField.getElements().size()==0){
+            Empty empty = new Empty();
+            empty.setGameField(gameField);
+            empty.setIsOnBoard(gameField.getIsOnBoard());
+            gameField.addElement(empty);
+        }
+        gameField=restartingPoint.getGameField();
+        while(directionFacing != direction){
+            right();
+        }
+        game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
     }
 
 

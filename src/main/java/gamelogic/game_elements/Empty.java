@@ -11,7 +11,8 @@ import java.io.IOException;
 public class Empty extends GameElement{
 
     public Empty(){
-        type = ElementName.EMPTY;
+        super(ElementName.EMPTY);
+
     }
 
     @Override
@@ -40,4 +41,9 @@ public class Empty extends GameElement{
 
 
     }
+
+    public void setIsOnBoard(String isOnBoard){
+        this.isOnBoard = isOnBoard;
+    }
+
 }

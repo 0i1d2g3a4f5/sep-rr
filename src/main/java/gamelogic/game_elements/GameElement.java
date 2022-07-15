@@ -90,7 +90,7 @@ public abstract class GameElement implements JsonSerializable {
         return "GameElement:=§(" +
                 "orientations=" + orientations +"|"+
                 ", type=" + type +"|"+
-                ", isOnBoard='" + isOnBoard +
+                ", isOnBoard=" + isOnBoard +
                 ")§";
     }
 

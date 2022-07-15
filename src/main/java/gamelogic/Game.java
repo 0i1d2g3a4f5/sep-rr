@@ -414,6 +414,7 @@ public class  Game {
         for (Player player:playerList) {
             player.clearAllRegister();
             player.discardAllHandCards();
+            player.getRobot().setRebootedThisTurn(false);
         }
     }
 
