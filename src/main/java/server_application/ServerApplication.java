@@ -61,7 +61,7 @@ public class ServerApplication extends Application{
         Stage selectionStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("serverSelection.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 1200, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 500);
             serverSelectionController=fxmlLoader.getController();
             serverSelectionController.setServerApplication(this);
             selectionStage.setScene(scene);
