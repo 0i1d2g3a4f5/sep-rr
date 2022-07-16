@@ -1,6 +1,10 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.AI.AIClient;
+import client_package.Client;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import gamelogic.cards.Card;
@@ -16,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class MessageCardsYouGotNow extends Message{
-    ArrayList<CardName> cards;
+    ArrayList<CardName> cards = new ArrayList<>();
 
     /**
      * @param cards
@@ -32,7 +36,7 @@ public class MessageCardsYouGotNow extends Message{
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
         for (int i = 0; i < cards.size(); i++) {
-            jsonArray.add(cards.toString());
+            jsonArray.add(cards.get(i).toString());
 
         }
         jsonObject.add("cards",jsonArray);
@@ -45,7 +49,8 @@ public class MessageCardsYouGotNow extends Message{
      * @param jsonObject
      * @throws IOException
      */
-    public MessageCardsYouGotNow(JsonObject jsonObject) throws IOException {
+    public MessageCardsYouGotNow(JsonObject jsonObject) {
+        super(jsonObject);
         JsonArray jsonArray = jsonObject.get("cards").getAsJsonArray();
         ArrayList<CardName> cards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -76,15 +81,21 @@ public class MessageCardsYouGotNow extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+        Client.clientLogger.debug("CardsYouGotNow activated");
         client_package.client_gamelogic.cards.CardFactory cardFactory = new client_package.client_gamelogic.cards.CardFactory();
-
+        Client.clientLogger.info("CardsYouGotNow: "+ cards);
         for (int i = 0; i < client.getPlayer().getRegisterCards().length; i++) {
             if(client.getPlayer().getRegisterCards()[i] == null){
                 client.getPlayer().placeRegisterCards(cardFactory.createCard(cards.get(0)),i);
                 cards.remove(0);
             }
         }
+        Client.clientLogger.debug("Your Register: "+ client.getPlayer().getRegisterCards());
+
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
     }
+
 
     @Override
     public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {

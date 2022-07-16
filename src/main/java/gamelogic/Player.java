@@ -336,6 +336,9 @@ public class Player{
             sClient.getServer().getGame().sendToAllPlayers(new MessageShuffleCoding(sClient.getId()));
         }
         Card card = deck.pop();
+        if(card == null){
+            throw new NullPointerException("Card missing in deck");
+        }
         return card;
     }
 

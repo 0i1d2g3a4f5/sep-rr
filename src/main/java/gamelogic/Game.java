@@ -288,12 +288,13 @@ public class  Game {
             player.getClient().sendSelf(new MessageActivePhase(2));
             player.isProgramming = true;
         }
+        programmingPlayers();
         drawCards();
         while(programmingPhase){
 
             TimeUnit.SECONDS.sleep(1);
             //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
-            Server.serverLogger.info("GameLoop still alive - ProgrammingPhase" + programmingPhase);
+            Server.serverLogger.debug("GameLoop still alive - ProgrammingPhase" + programmingPhase);
 
 
         }
@@ -309,21 +310,28 @@ public class  Game {
      */
     public void endProgrammingPhase()  {
 
+
         sendToAllPlayers(new MessageTimerStarted());
+        Server.serverLogger.info("Timer started");
         try {
             for (int i = 30; i>0; i--) {
-                if(programmingPlayers().size()<=0)
+                if(programmingPlayers().size()<=0){
+                    Server.serverLogger.debug("Timer Index: "+i);
                     break;
+                }
+
                 TimeUnit.SECONDS.sleep(1);
             }
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        Server.serverLogger.info("Timer finished");
         ArrayList<Player> programmingPlayers = programmingPlayers();
         sendToAllPlayers(new MessageTimerEnded(programmingPlayers));
 
         for (Player player:programmingPlayers) {
+            Server.serverLogger.info("Player "+player.getClient().getId() + " draws new Cards");
             player.discardAllHandCards();
 
             Card[] register = player.getAllRegisters();
@@ -332,6 +340,7 @@ public class  Game {
             for (int i = 0; i < register.length; i++) {
                 if(register[i]==null) {
                     Card drawnCard = player.drawCard();
+
                     drawnCards.add(drawnCard);
                     register[i] = drawnCard;
                 }
@@ -516,8 +525,9 @@ public class  Game {
     public synchronized ArrayList<Player> programmingPlayers(){
         ArrayList<Player> programmingPlayers = new ArrayList<>();
         for (Player otherPlayer:playerList) {
-            if(!otherPlayer.isProgramming) programmingPlayers.add(otherPlayer);
+            if(otherPlayer.isProgramming) programmingPlayers.add(otherPlayer);
         }
+        Server.serverLogger.debug("Programming players: "+programmingPlayers);
         return programmingPlayers;
     }
 

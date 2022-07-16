@@ -88,6 +88,7 @@ public class MessageSelectedCard extends Message {
         }
         if(!(utility.SearchMethods.emptyArraySpaces(sClient.getPlayer().getAllRegisters())>0)){
             Server.serverLogger.info("Cards full");
+            sClient.getPlayer().isProgramming = false;
             sClient.getPlayer().getGame().setProgrammingPhase(false);
             Server.serverLogger.info("Var programmingPhase: " + sClient.getPlayer().getGame().isProgramingPhase());
 

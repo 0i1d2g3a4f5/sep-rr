@@ -47,7 +47,10 @@ public enum MessageType {
     WRONG_PASS,
     GAME_STARTED,
     YOUR_CARDS,
-    CURRENT_CARDS, DRAW_DAMAGE;
+    CURRENT_CARDS,
+
+    DRAW_DAMAGE,
+    CARDS_YOU_GOT_NOW;
 
 }
 
