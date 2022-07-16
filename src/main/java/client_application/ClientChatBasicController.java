@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import newmessages.MessageSendChat;
 /**
@@ -14,19 +15,20 @@ public class ClientChatBasicController {
     ClientApplication clientApplication;
     boolean active = true;
     String def = "\"/chatall \" for general chat and \"/chatprivate PlayerID\" for private chat";
-
     @FXML
     private TextArea chatArea;
-
     @FXML
     private TextArea inputArea;
-    
-
     @FXML
     void submitButton(ActionEvent event) {
         submit();
 
     }
+
+    @FXML
+    private static AnchorPane chatWindow;
+
+    // ClientChatBasicController.chatWindow.setResizable(false);
 
     @FXML
     void submitKey(KeyEvent event) {

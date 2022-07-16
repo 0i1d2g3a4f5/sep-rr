@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="675.0" maxWidth="600.0" minHeight="675.0" minWidth="600.0" onKeyPressed="#submitKey" prefHeight="675.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientChatBasicController">
+<AnchorPane fx:id="chatWindow" maxHeight="675.0" maxWidth="600.0" minHeight="675.0" minWidth="600.0" onKeyPressed="#submitKey" prefHeight="675.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientChatBasicController">
    <children>
       <ImageView fitHeight="747.0" fitWidth="1254.0" layoutX="-653.0" layoutY="-1.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>

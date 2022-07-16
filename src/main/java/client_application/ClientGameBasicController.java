@@ -23,24 +23,21 @@ import newmessages.MessageGameFinished;
 import newmessages.MessageSelectedCard;
 import newmessages.MessageSetStartingPoint;
 import server_package.Server;
+import gamelogic.Direction;
+
+
+import java.io.IOException;
 
 /**
  * @author Sarp Cagin Erdogan, Qinyi, Vivian
  *
  */
 public class ClientGameBasicController {
-    boolean startingSubmitActive, chooseProgrammingActive;
+    boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive;
 
     public ClientApplication clientApplication;
     int currentChosen;
 
-    @FXML
-    private AnchorPane winnerScene;
-    @FXML
-    private AnchorPane loserScene;
-
-    @FXML
-    private Button lobbyButton;
     @FXML
     private ScrollPane scrollAvailableProgramming;
 
@@ -53,6 +50,8 @@ public class ClientGameBasicController {
     @FXML
     private StackPane stackOwnProgramming;
 
+    @FXML
+    private AnchorPane rebootWindow;
 
     @FXML
     void startButton(ActionEvent event) {
@@ -60,6 +59,7 @@ public class ClientGameBasicController {
     }
     @FXML
     private TextField startingCoordinates;
+
 
     @FXML
     void submitButton(ActionEvent event) {
@@ -74,13 +74,13 @@ public class ClientGameBasicController {
                 }
             }
             if(!formatGood){
-                startingCoordinates.setText("GIVE PROPER COORDINATE BVITCH ");
+                startingCoordinates.setText("Please submit coordinates in the proper format");
             }
             else {
                 singleCoordinate = toCheck.split("/");
 
                 if (singleCoordinate.length != 2) {
-                    startingCoordinates.setText("GIVE PROPER COORDINATE BVITCH ");
+                    startingCoordinates.setText("Please submit coordinates in the proper format");
                 } else {
                     boolean proper = false;
                     int x = -1, y = -1;
@@ -89,7 +89,7 @@ public class ClientGameBasicController {
                         y = Integer.parseInt(singleCoordinate[1]);
                         proper=true;
                     } catch (NumberFormatException e) {
-                        startingCoordinates.setText("write number idiot");
+                        startingCoordinates.setText("Please submit the starting coordinates");
                     }
                     if(proper) {
                         Position pos = new Position(y, x);
@@ -189,6 +189,9 @@ public class ClientGameBasicController {
         scrollOtherRegisters.setContent(new GridPane());
         startingSubmitActive=true;
         chooseProgrammingActive=false;
+        chooseDirectionActive=false;
+        rebootWindow.setVisible(false);
+        rebootWindow.setDisable(true);
     }
 
     public void triggerGameFinishedScene(){
@@ -206,9 +209,45 @@ public class ClientGameBasicController {
          */
     }
 
-    public void goLobby(ActionEvent event){
-        clientApplication.launchBasicLobby();
+    public void goLobby(ActionEvent event){clientApplication.launchBasicLobby();}
+
+    @FXML
+    void rebootDown(MouseEvent event) {
+        setRebootDirection(Direction.SOUTH);
+        stopChoosingDirection();
     }
 
+    @FXML
+    void rebootLeft(MouseEvent event) {
+        setRebootDirection(Direction.WEST);
+        stopChoosingDirection();
+    }
 
+    @FXML
+    void rebootRight(MouseEvent event) {
+        setRebootDirection(Direction.EAST);
+        stopChoosingDirection();
+    }
+
+    @FXML
+    void rebootUp(MouseEvent event) {
+        setRebootDirection(Direction.NORTH);
+        stopChoosingDirection();
+    }
+
+    public void startChoosingDirection(){
+        chooseDirectionActive=true;
+        rebootWindow.setDisable(false);
+        rebootWindow.setVisible(true);
+    }
+
+    public void stopChoosingDirection(){
+        chooseDirectionActive=false;
+        rebootWindow.setDisable(true);
+        rebootWindow.setVisible(false);
+    }
+
+    public void setRebootDirection(Direction direction){
+        clientApplication.basicClient.sendSelf(new MessageRebootDirection(direction.toString()));
+    }
 }

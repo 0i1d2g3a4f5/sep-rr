@@ -144,5 +144,41 @@
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="rebootWindow" layoutX="100.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="401.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="293.0" stroke="#979595" strokeType="INSIDE" strokeWidth="5.0" width="404.0" />
+            <ImageView fitHeight="288.0" fitWidth="394.0" layoutX="5.0" layoutY="5.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@matrix.gif" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282a2c" height="68.0" layoutX="22.0" layoutY="22.0" stroke="TRANSPARENT" strokeType="INSIDE" width="356.0" />
+            <Text fill="#b2b2b2" layoutX="53.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose the direction in which you want your robot to reboot." textAlignment="CENTER" wrappingWidth="295.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="226.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.rightAnchor="124.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="176.0" layoutY="109.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootUp" prefHeight="50.0" prefWidth="50.0" rotate="-90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="176.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="124.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootLeft" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="124.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="174.0" layoutY="209.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootDown" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="174.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

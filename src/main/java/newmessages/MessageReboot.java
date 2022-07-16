@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.Client;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -44,7 +45,13 @@ public class MessageReboot extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-        //TODO add message that sends coordinates of the reboot position, client notes position of bot
+        // Roboter wird nach oben / norden ausgerichtet
+        // Koordinaten des Rebootfeldes werden per "Movement"-Nachricht verschickt
+        // Client quittiert Nachricht mit der Richtung in d. d. Bot ausgerichtet werden soll (top, right, bottom, left)
+
+        // Startet ein Roboter auf Startfeld neu, während anderer auf Neustart Feld
+            // Neustartender Roboter schiebt Roboter der das Feld besetzt in Richtung des Pfeils auf dem Neustart-Feld weg
+            // Wenn Roboter zwischen Wand & Startfeld steht dann soll Roboter auf einem anderen freien Startfeld rebooten
     }
 
     /**

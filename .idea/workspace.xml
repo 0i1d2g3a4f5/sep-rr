@@ -4,10 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Lasers should work properly now">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="interface revamp">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBBlueBottomRightToLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBBlueLeftBottomToTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBBlueLeftTopToRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBBlueTopRightToBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBGreenBottomRightToLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBGreenLeftTopToRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBGreenTopRightToBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CBLeftBottomToTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Reboot.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Laser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientChatBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientChatBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientChatBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientChatBasic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
+    </list>
+    <list id="bd23bcf8-6dc9-4e2c-9178-e76feccab3e9" name="Changes by Mark" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -26,6 +45,27 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java">
+      <ranges>
+        <range start1="3" end1="6" start2="3" end2="4" changelist="bd23bcf8-6dc9-4e2c-9178-e76feccab3e9" />
+        <range start1="7" end1="10" start2="5" end2="6" changelist="bd23bcf8-6dc9-4e2c-9178-e76feccab3e9" />
+        <range start1="20" end1="22" start2="16" end2="17" changelist="bd23bcf8-6dc9-4e2c-9178-e76feccab3e9" />
+        <range start1="25" end1="25" start2="20" end2="24" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="31" end1="32" start2="30" end2="31" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="36" end1="43" start2="35" end2="35" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="55" end1="55" start2="47" end2="49" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="62" end1="62" start2="56" end2="57" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="76" end1="77" start2="71" end2="72" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="82" end1="83" start2="77" end2="78" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="91" end1="92" start2="86" end2="87" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="191" end1="191" start2="186" end2="189" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="208" end1="210" start2="206" end2="246" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="211" end1="213" start2="247" end2="247" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="214" end1="215" start2="248" end2="248" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,6 +106,7 @@
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project\src\main\java" />
     </key>
@@ -127,6 +168,7 @@
       <workItem from="1657527957566" duration="302000" />
       <workItem from="1657529259450" duration="1683000" />
       <workItem from="1657633975598" duration="10903000" />
+      <workItem from="1657974540535" duration="2812000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>

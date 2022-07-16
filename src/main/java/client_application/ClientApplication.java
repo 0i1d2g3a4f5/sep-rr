@@ -70,6 +70,7 @@ public class ClientApplication extends Application {
             clientSelectionController=fxmlLoader.getController();
             clientSelectionController.clientApplication=this;
             stageSelection.setScene(scene);
+            stageSelection.setResizable(false);
             stageSelection.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -84,6 +85,7 @@ public class ClientApplication extends Application {
             clientStartBasicController=fxmlLoader.getController();
             clientStartBasicController.clientApplication=this;
             stageBasicStart.setScene(scene);
+            stageBasicStart.setResizable(false);
             stageBasicStart.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -98,6 +100,7 @@ public class ClientApplication extends Application {
             clientNameBasicController=fxmlLoader.getController();
             clientNameBasicController.clientApplication=this;
             stageBasicName.setScene(scene);
+            stageBasicName.setResizable(false);
             stageBasicName.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -112,6 +115,7 @@ public class ClientApplication extends Application {
             clientChatBasicController=fxmlLoader.getController();
             clientChatBasicController.clientApplication=this;
             stageBasicChat.setScene(scene);
+            stageBasicChat.setResizable(false);
             stageBasicChat.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -126,6 +130,7 @@ public class ClientApplication extends Application {
             clientLobbyBasicController=fxmlLoader.getController();
             clientLobbyBasicController.clientApplication=this;
             stageBasicLobby.setScene(scene);
+            stageBasicLobby.setResizable(false);
             stageBasicLobby.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -142,6 +147,7 @@ public class ClientApplication extends Application {
             clientMapBasicController=fxmlLoader.getController();
             clientMapBasicController.clientApplication=this;
             stageBasicMap.setScene(scene);
+            stageBasicMap.setResizable(false);
             stageBasicMap.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -158,6 +164,7 @@ public class ClientApplication extends Application {
             clientGameBasicController.clientApplication=this;
             clientGameBasicController.init();
             stageBasicGame.setScene(scene);
+            stageBasicGame.setResizable(false);
             stageBasicGame.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
