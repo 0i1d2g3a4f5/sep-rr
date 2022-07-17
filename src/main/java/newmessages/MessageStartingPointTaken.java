@@ -5,6 +5,7 @@ import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.Client;
 import client_package.client_gamelogic.CPlayer;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -54,12 +55,11 @@ public class MessageStartingPointTaken extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
@@ -67,12 +67,11 @@ public class MessageStartingPointTaken extends Message{
      * @author Mark Ringer
      * places the Robot and updates the Map
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
 
 
@@ -97,6 +96,10 @@ public class MessageStartingPointTaken extends Message{
 
             }
         }
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 

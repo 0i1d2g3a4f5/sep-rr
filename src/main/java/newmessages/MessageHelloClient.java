@@ -1,6 +1,6 @@
 package newmessages;
 
-import client_package.AI.AIClient;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import client_package.Client;
@@ -40,42 +40,31 @@ public class MessageHelloClient extends Message{
     }
 
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic) {
-            if (this.protocol.equals(PROTOCOL_VERSION)) {
-                Server.serverLogger.info("Correct communication protocol verified");
-            } else {
-                Server.serverLogger.error("False communication protocol");
-            }
-            // TODO do not compare global parameter "protocol_version" with itself, instead let server tell client its version
-        }
-        else{
-            //ADVANCED
-        }
+    public void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException {
+
+
     }
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic) {
-            if (this.protocol.equals(client.getAiController().protocolVersion)) {
-                Server.serverLogger.info("Correct communication protocol verified");
-                client.sayHello(client.getAiController().groupName, client.getAiController().protocolVersion);
-            } else {
-                Server.serverLogger.error("False communication protocol");
-            }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        if(protocol.equals(sentientClient.getProtocolVersion())){
+            sentientClient.getLogger().info("Correct communication protocol verified : " + protocol + ".");
+            sentientClient.sayHelloToServer();
         }
         else{
-            //ADVANCED
+            sentientClient.getLogger().error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + sentientClient.getProtocolVersion());
         }
+
+
     }
 
 }

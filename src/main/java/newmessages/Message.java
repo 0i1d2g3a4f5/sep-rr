@@ -1,5 +1,7 @@
 package newmessages;
 
+import client_package.Client;
+import client_package.sentient.SentientClient;
 import com.google.gson.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -35,15 +37,13 @@ public abstract class Message{
         type = jsonObject.get("messageType").getAsString();
         messageType = new MessageTypeFactory().fromString(type);
         content = jsonObject.get("messageBody").getAsJsonObject();
-        messageLogger.info("New message fromJson: \n" +
+        /*messageLogger.info("New message fromJson: \n" +
                 "Type="+type + "\n" +
-                "Content="+content);
+                "Content="+content);*/
     }
-    public abstract void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException;
-    public abstract void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException;
-    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException{
-        activateMessageInFrontend(client,isBasic);
-    }
+    public abstract void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException;
     @Override
     public String toString() {
         return new GsonBuilder().setPrettyPrinting().create().toJson(toJSON());

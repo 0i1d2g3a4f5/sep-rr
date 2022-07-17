@@ -3,8 +3,8 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
-import client_package.AI.AIClient;
 import client_package.Client;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import gamelogic.cards.Card;
@@ -64,23 +64,21 @@ public class MessageCardsYouGotNow extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         Client.clientLogger.debug("CardsYouGotNow activated");
         client_package.client_gamelogic.cards.CardFactory cardFactory = new client_package.client_gamelogic.cards.CardFactory();
         Client.clientLogger.info("CardsYouGotNow: "+ cards);
@@ -98,7 +96,7 @@ public class MessageCardsYouGotNow extends Message{
 
 
     @Override
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

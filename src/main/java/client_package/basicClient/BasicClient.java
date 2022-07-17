@@ -4,9 +4,11 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.Client;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import newmessages.*;
+import utility.GlobalParameters;
 
 
 import java.io.*;
@@ -20,11 +22,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class BasicClient extends Client {
     public BasicClient(ClientApplication clientApplication){
-        super(clientApplication, true);
+        super(clientApplication);
     }
     public BasicClient(int id, String name, int figure){
         super();
-        setIsBasic(true);
         setId(id);
         setName(name);
         setFigure(figure);
@@ -57,17 +58,17 @@ public class BasicClient extends Client {
     }
     void socketCreationSuccessful(){
         listen();
-        sendSelf(new MessageHelloServer(group, false, "Version 1.0"));
+        sendSelf(new MessageHelloServer(group, false, GlobalParameters.PROTOCOL_VERSION));
     }
     @Override
-    public void process(JsonObject jsonObject){
+    public void process(JsonObject jsonObject, Client client){
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
                 Message message = new MessageFactory().createMessage(messageType, jsonObject);
                 try {
-                    message.activateMessageInFrontend(clientApplication.getClient(), true);
+                    message.activateMessageInFrontend(client);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 } catch (ClientNotFoundException e) {
@@ -79,11 +80,77 @@ public class BasicClient extends Client {
         thread.setDaemon(true);
         thread.start();
     }
+
     @Override
-    public void listen(){
+    public void sendSelf(Message temp) {
+        toSendList.add(temp);
+        handleToBeSent();
+    }
+    public void handleToBeSent(){
+        while(toSendList.size()>0){
+            Message message = toSendList.get(0);
+            String string = message.toJSON().toString();
+            string+="\n";
+            BufferedWriter bufferedWriter;
+            try {
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(getSocket().getOutputStream())));
+                bufferedWriter.write(string);
+                bufferedWriter.flush();
+                Client.clientLogger.info("Sent message: " + string);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            toSendList.remove(0);
+        }
+    }
+
+    @Override
+    public void listen() {
         setIsListening(true);
-        Thread thread = new Thread(basicListener);
-        thread.setDaemon(true);
-        thread.start();
+        Thread listenerThread = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                BufferedReader bufferedReader;
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(getSocket().getInputStream()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                while (isListening) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        while(bufferedReader.ready()) {
+                            String received = bufferedReader.readLine();
+                            receivedMessages.add(received);
+                            Client.clientLogger.info("Recevied message: " + received);
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    handleReceivedMessages();
+
+
+                }
+            }
+        });
+        listenerThread.start();
+
+    }
+    public void handleReceivedMessages(){
+        while (receivedMessages.size()>0){
+            /*String text ="\nCurrent messages:\n";
+            for(int i=0; i<receivedMessages.size(); i++){
+                text+=(i + " : " + receivedMessages.get(i) + "\n");
+            }
+            getLogger().info(text);*/
+            String string = receivedMessages.get(0);
+            JsonObject jsonObject = new Gson().fromJson(string, JsonObject.class);
+            process(jsonObject, this);
+            receivedMessages.remove(0);
+        }
     }
 }

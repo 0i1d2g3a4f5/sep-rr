@@ -1,10 +1,8 @@
 package client_package.client_gamelogic;
 
 import client_package.Client;
-import client_package.ClientObject;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.game_elements.robot.Robot;
-import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,29 +14,36 @@ public class CPlayer {
 
     int figure;
 
-    private ClientObject client;
+    private Client client;
 
     Game game;
     int EnergyCubes;
     int clientID;
     private Robot robot;
-    private int handCards = 0;
-    private ArrayList<Card> registerCards= new ArrayList(9);
+    private int handCardsAmount = 0;
+    private Card selectedCard;
 
-    public CPlayer(ClientObject clientObject, Game game){
+    public Card getSelectedCard() {
+        return selectedCard;
+    }
+
+    public void setSelectedCard(Card selectedCard) {
+        this.selectedCard = selectedCard;
+    }
+
+    private ArrayList<Card> handCards= new ArrayList(5);
+    private Card[] registerCards = new Card[5];
+
+    public CPlayer(Client client, Game game){
         Client.clientLogger.info("Created CPlayer");
-        if(clientObject.getId() == game.getClient().getId()){
+        if(client.getId() == game.getClient().getId()){
 
             this.game = game;
             //TODO own client needs player
-            ThisCPlayer thisPlayer = (ThisCPlayer) this;
-
-            Client client = (Client) clientObject;
             this.clientID = client.getId();
-            client.setPlayer(thisPlayer);
+            client.setPlayer(this);
             this.client = client;
         } else {
-            OtherClient client = (OtherClient) clientObject;
             try {
                 this.robot = new Robot(figure,this);
                 this.getRobot().setFigure(client.getFigure());
@@ -55,9 +60,39 @@ public class CPlayer {
 
 
     }
+    public void placeRegisterCards(Card card, int pos) {
+        registerCards[pos] = card;
+        if(pos==5){
+            client.getClientApplication().activateCardSelection(false);
+        }
+        selectedCard = null;
+
+    }
+
+    public void selectCard(int posHandcard,int posRegister){
+        if(posHandcard>=0 && posHandcard <9){
+            selectedCard = handCards.get(posHandcard);
+
+        }
+
+    }
+    public void setRegisterCards(Card[] registerCards) {
+        this.registerCards = registerCards;
+    }
+
+    public void drawDamage(){
+        //TODO draw Damage handeling
+    }
 
 
 
+    public ArrayList<Card> getHandCards() {
+        return handCards;
+    }
+
+    public void setHandCards(ArrayList<Card> handCards) {
+        this.handCards = handCards;
+    }
 
     public Game getGame() {
         return game;
@@ -73,22 +108,22 @@ public class CPlayer {
     }
 
     public void registerCard(Card card, int position){
-        registerCards.add(position,card);
+        registerCards[position]=card;
     }
     public Card[] getRegisterCards(){
-        return registerCards.toArray(new Card[0]);
+        return registerCards;
     }
 
     public int getHandCardsCount() {
-        return handCards;
+        return handCardsAmount;
     }
 
     public void addHandCards(int count){
-        handCards += count;
+        handCardsAmount += count;
     }
 
-    public void setHandCards(int handCards) {
-        this.handCards = handCards;
+    public void setHandCardsAmount(int handCardsAmount) {
+        this.handCardsAmount = handCardsAmount;
     }
 
     @Override

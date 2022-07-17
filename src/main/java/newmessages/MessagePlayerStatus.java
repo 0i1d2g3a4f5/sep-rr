@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskBoolean;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -48,62 +49,45 @@ public class MessagePlayerStatus extends Message {
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic){
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             if(this.clientID==client.getId()) {
                 client.setIsReady(this.ready);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEREADYBUTTON, new TaskBoolean(this.ready)));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
             else{
-                client.clientFromId(this.clientID).setIsReady(this.ready);
+                client.handleReady(this.ready, this.clientID);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
-
-        }
-        else{
-
-        }
-
     }
 
     /**
-     * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic){
-            if(this.clientID==client.getId()) {
-                client.setIsReady(this.ready);
-                boolean isFirst = false;
-            }
-            else{
-                client.clientFromId(this.clientID).setIsReady(this.ready);
-
-            }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        if(clientID==sentientClient.getId()){
+            sentientClient.setIsReady(ready);
         }
         else{
-
+            sentientClient.handleReady(ready, clientID);
         }
+        //sentientClient.displayClientList();
 
     }
 }

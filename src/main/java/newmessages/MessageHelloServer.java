@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -50,13 +51,11 @@ public class MessageHelloServer extends Message {
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic) {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
             if (!this.protocol.equals(PROTOCOL_VERSION)) {
                 sClient.sendSelf(new MessageError("ERROR :: False communication protocol."));
             } else {
@@ -67,23 +66,19 @@ public class MessageHelloServer extends Message {
                     Server.serverLogger.info("SClient "+ ", with ID: " + sClient.getId() + ", joined group " + this.group + " with protocol version " + this.protocol + ".");
 
             }
-        }
-        else{
-            //ADVANCED
-        }
+
 
 
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
     }
     @Override
-    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
-
 
 
 }

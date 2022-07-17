@@ -33,16 +33,14 @@ public class Game {
         return activeRegister;
     }
 
-    public void join(ClientObject client){
+    public void join(Client client){
         if(!(client.getId()==this.client.getId())){
-            OtherClient otherClient = (OtherClient) client;
             CPlayer player = new CPlayer(client,this);
-
-            otherClient.setPlayer(player);
+            client.setPlayer(player);
             playerList.add(player);
         } else {
             Client thisClient = (Client) client;
-            ThisCPlayer player = new ThisCPlayer(thisClient,thisClient.getGame());
+            CPlayer player = new CPlayer(thisClient,thisClient.getGame());
 
             thisClient.setPlayer(player);
             playerList.add(player);

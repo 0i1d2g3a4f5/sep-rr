@@ -1,26 +1,26 @@
 package server_application;
 
-import server_package.Server;
-import server_package.advancedServer.AdvancedServer;
-import server_package.basicServer.BasicServer;
+import client_application.ClientApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-/**
- * @author Sarp Cagin Erdogan
- */
+import javafx.scene.image.ImageView;
+import server_package.Server;
+import server_package.basicServer.BasicServer;
+
 public class ServerSelectionController {
+
     private ServerApplication serverApplication;
     private boolean isActive=true;
 
+
     @FXML
-    void launchAdvanced(ActionEvent event) {
-        if(isActive) {
-            setActive(false);
-            serverApplication.setAdvancedServer(new AdvancedServer(serverApplication));
-            serverApplication.setIsBasic(false);
-            Server.serverLogger.info("Advanced server launched");
-        }
-    }
+    private ImageView upperbar1;
+
+    @FXML
+    private ImageView upperbar2;
+
+    @FXML
+    private ImageView upperbar3;
 
     @FXML
     void launchBasic(ActionEvent event) {
@@ -32,13 +32,6 @@ public class ServerSelectionController {
         }
 
     }
-    /* GETTER SETTER
-    *
-    *
-    *
-    *
-    *
-     */
     public ServerApplication getServerApplication(){
         return this.serverApplication;
     }
@@ -54,4 +47,6 @@ public class ServerSelectionController {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+
 }

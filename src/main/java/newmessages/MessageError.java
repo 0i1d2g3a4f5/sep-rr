@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.Client;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -43,42 +44,27 @@ public class MessageError extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic){
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             Client.clientLogger.info(this.error);
-            if(this.error.equals("ERROR :: Figure already taken.")){
+            if(this.error.equals("ERROR :: Figure already taken.")) {
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.FIGURETAKEN, new TaskContent()));
             }
-        } else{
 
-        }
 
     }
     @Override
-    public void activateMessageInAIFrontend(client_package.AI.AIClient client, boolean isBasic){
-        if(isBasic){
-            System.out.println(this.error);
-            if(this.error.equals("ERROR :: Figure already taken.")){
-                if(client.getLastTriedFigure()>6){
-                    System.out.println("NO MORE AVAILABLE FIGURES");
-                }
-                else {
-                    client.setLastTriedFigure(client.getLastTriedFigure() + 1);
-                    client.sendPlayerValues();
-                }
-            }
-        } else{
-
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        if(this.error.equals("Figure is already taken")) {
+            sentientClient.retryFigure();
         }
     }
 

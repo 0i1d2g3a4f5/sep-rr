@@ -3,17 +3,14 @@ package newmessages;
 import client_application.Task;
 import client_application.TaskContent;
 import client_application.TaskType;
-import client_package.AI.AIClient;
 import client_package.client_gamelogic.CPlayer;
-import client_package.client_gamelogic.ThisCPlayer;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
 import server_package.Server;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
@@ -56,25 +53,23 @@ public class MessageCardSelected extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
     }
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId()){
-            ThisCPlayer player = client.getPlayer();
+            CPlayer player = client.getPlayer();
             client.getClientApplication().selectCard();
             player.getHandCards().remove(player.getSelectedCard());
             player.placeRegisterCards(player.getSelectedCard(), register);
@@ -109,7 +104,7 @@ public class MessageCardSelected extends Message{
     }
 
     @Override
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

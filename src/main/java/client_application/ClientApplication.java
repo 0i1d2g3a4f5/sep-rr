@@ -1,7 +1,6 @@
 package client_application;
 
 import client_package.Client;
-import client_package.advancedClient.AdvancedClient;
 import client_package.basicClient.BasicClient;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -17,10 +16,8 @@ import java.util.List;
  */
 public class ClientApplication extends Application {
     BasicClient basicClient;
-    AdvancedClient advancedClient;
     List<Task> taskList;
     TaskHandler taskHandler;
-    ClientSelectionController clientSelectionController;
     ClientStartBasicController clientStartBasicController;
     ClientNameBasicController clientNameBasicController;
     ClientChatBasicController clientChatBasicController;
@@ -35,7 +32,8 @@ public class ClientApplication extends Application {
         lobbyActive=false;
         taskHandler = new TaskHandler(this);
         taskList = new ArrayList<>();
-        launchBeginning();
+        basicClient = new BasicClient(this);
+        launchBasicStart();
 
 
     }
@@ -61,22 +59,6 @@ public class ClientApplication extends Application {
         clientGameBasicController.resetRegisterCards();
     }
 
-
-    public void launchBeginning(){
-        stageSelection = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientSelection.fxml"));
-        try {
-            Scene scene = new Scene(fxmlLoader.load(), 400, 500);
-            clientSelectionController=fxmlLoader.getController();
-            clientSelectionController.clientApplication=this;
-            stageSelection.setScene(scene);
-            stageSelection.setResizable(false);
-            stageSelection.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
     public void launchBasicStart(){
         stageBasicStart = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientStartBasic.fxml"));
@@ -123,6 +105,7 @@ public class ClientApplication extends Application {
 
     }
     public void launchBasicLobby(){
+        stageBasicName.close();
         stageBasicLobby = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientLobbyBasic.fxml"));
         try {
@@ -173,15 +156,7 @@ public class ClientApplication extends Application {
 
     }
     public Client getClient(){
-        if(basicClient!=null){
-            return basicClient;
-        }
-        if(advancedClient!=null){
-            return advancedClient;
-        }
-        else {
-            throw new NullPointerException("CLIENT NOT FOUND");
-        }
+        return basicClient;
 
     }
     public void launchMapView(Scene scene){

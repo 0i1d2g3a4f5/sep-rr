@@ -1,6 +1,7 @@
 package client_package.client_gamelogic.game_elements.robot;
 
 
+import client_package.Client;
 import client_package.ClientObject;
 import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
@@ -99,7 +100,7 @@ public class Robot extends GameElement {
      * @author Ringer
      * update the location of the robot
      */
-    public Robot (ClientObject client,Position position, Direction direction, int figure) throws IOException {
+    public Robot (Client client, Position position, Direction direction, int figure) throws IOException {
         this.figure = figure;
         game =client.getGame();
         directionFacing = direction;

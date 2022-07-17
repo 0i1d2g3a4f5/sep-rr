@@ -1,7 +1,7 @@
 package newmessages;
-
-import client_package.AI.AIClient;
+import client_package.Client;
 import client_package.client_gamelogic.cards.CardName;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -46,11 +46,10 @@ public class MessageCardPlayed extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @author Ringer
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         /*
         if (sClient != null) {
             sClient.getPlayer().placeCard(CardName.parseCardName(card), 1);
@@ -63,12 +62,12 @@ public class MessageCardPlayed extends Message{
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
     }
 
     @Override
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

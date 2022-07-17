@@ -24,7 +24,7 @@ public class BasicSClient extends SClient {
         setListening(false);
         setReady(false);
     }
-    Runnable listener = new Runnable() {
+    /*Runnable listener = new Runnable() {
         @Override
         public void run() {
             int counter = 0;
@@ -57,7 +57,7 @@ public class BasicSClient extends SClient {
                     }
 
                     if(inputString !="")
-                    /*
+                    *//*
                     while (!isEnded && dataInputStream.available() > 0) {
                         char a = (char)dataInputStream.readInt();
                         if((int) a == 10){
@@ -66,7 +66,7 @@ public class BasicSClient extends SClient {
                         inputString+=String.valueOf(a);
                     }
 
-                     */
+                     *//*
                     if(!inputString.equals("")){
 
                             String[] strings = inputString.split("\n");
@@ -96,6 +96,61 @@ public class BasicSClient extends SClient {
         Thread thread = new Thread(listener);
         thread.setDaemon(true);
         thread.start();
+    }*/
+    @Override
+    public void listen() {
+        setListening(true);
+        Thread listenerThread = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                BufferedReader bufferedReader;
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(getSocket().getInputStream()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                while (isListening) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(10);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        while(bufferedReader.ready()) {
+                            String received = bufferedReader.readLine();
+                            receivedMessages.add(received);
+                            Server.serverLogger.info("Recevied message: " + received);
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    handleReceivedMessages();
+
+
+                }
+            }
+        });
+        listenerThread.start();
+
+    }
+    public void handleReceivedMessages(){
+        while (receivedMessages.size()>0){
+            /*String text ="\nCurrent messages:\n";
+            for(int i=0; i<receivedMessages.size(); i++){
+                text+=(i + " : " + receivedMessages.get(i) + "\n");
+            }
+            getLogger().info(text);*/
+            String string = receivedMessages.get(0);
+            JsonObject jsonObject = new Gson().fromJson(string, JsonObject.class);
+            try {
+                process(jsonObject);
+            } catch (ClientNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            receivedMessages.remove(0);
+        }
     }
     @Override
     public void sendProtocolCheck(){
@@ -124,8 +179,8 @@ public class BasicSClient extends SClient {
     }
 
     @Override
-    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
-        super.process(jsonObject, true);
+    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
+        super.process(jsonObject);
     }
 
     @Override

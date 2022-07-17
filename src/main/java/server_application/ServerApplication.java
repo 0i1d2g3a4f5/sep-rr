@@ -3,7 +3,6 @@ package server_application;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.PropertyConfigurator;
 import server_package.Server;
-import server_package.advancedServer.AdvancedServer;
 import server_package.basicServer.BasicServer;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -26,7 +25,6 @@ public class ServerApplication extends Application{
 
 
     private BasicServer basicServer;
-    private AdvancedServer advancedServer;
     private boolean isBasic;
     private List<Task> taskList;
     private TaskHandler taskHandler;
@@ -97,13 +95,5 @@ public class ServerApplication extends Application{
 
     public void setBasicServer(BasicServer basicServer) {
         this.basicServer = basicServer;
-    }
-
-    public AdvancedServer getAdvancedServer() {
-        return advancedServer;
-    }
-
-    public void setAdvancedServer(AdvancedServer advancedServer) {
-        this.advancedServer = advancedServer;
     }
 }

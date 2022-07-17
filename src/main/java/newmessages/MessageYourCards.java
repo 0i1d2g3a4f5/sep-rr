@@ -5,17 +5,15 @@ import client_application.TaskContent;
 import client_application.TaskType;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.cards.CardFactory;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.cards.CardName;
 import server_package.SClient;
-import server_package.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * @author Mark Ringer, Vivian Kafadar
@@ -69,18 +67,17 @@ public class MessageYourCards extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient aClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient aClient) throws IOException, ClientNotFoundException {
 
     }
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
         ArrayList<Card> handCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -124,6 +121,10 @@ public class MessageYourCards extends Message{
 
 
 
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 

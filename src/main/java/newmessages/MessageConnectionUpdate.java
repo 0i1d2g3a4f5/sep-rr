@@ -1,6 +1,5 @@
 package newmessages;
-
-import client_package.AI.AIClient;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
@@ -56,7 +55,7 @@ public class MessageConnectionUpdate extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient client, boolean isBasic) throws IOException, ClientNotFoundException{
+    public void activateMessageInBackend(SClient client) throws IOException, ClientNotFoundException{
 
 
     }
@@ -64,24 +63,20 @@ public class MessageConnectionUpdate extends Message{
     /**
      *
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
     }
 
     /**
-     *
-     * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

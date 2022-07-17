@@ -20,6 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import newmessages.MessageGameFinished;
+import newmessages.MessageRebootDirection;
 import newmessages.MessageSelectedCard;
 import newmessages.MessageSetStartingPoint;
 import server_package.Server;

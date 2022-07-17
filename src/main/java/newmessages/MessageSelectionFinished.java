@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -40,12 +41,11 @@ public class MessageSelectionFinished extends Message{
     /**
      * @author Ringer
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         /*
         try {
             if (sClient.getServer().getGame().programmingPlayers().size() == 0)
@@ -61,13 +61,16 @@ public class MessageSelectionFinished extends Message{
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         Server.serverLogger.info("Server: Player " + clientID + " has finished programming. The others have 30 seconds left");
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

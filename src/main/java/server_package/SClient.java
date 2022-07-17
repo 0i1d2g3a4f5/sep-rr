@@ -3,7 +3,6 @@ package server_package;
 import com.google.gson.JsonObject;
 import gamelogic.Player;
 import newmessages.*;
-import server_package.advancedServer.AdvancedSClient;
 
 import java.io.*;
 import java.net.Socket;
@@ -26,6 +25,7 @@ public abstract class SClient {
     protected int id;
     protected String name;
     protected Socket socket;
+    protected ArrayList<String> receivedMessages = new ArrayList<>();
     protected boolean isReady, isListening, isNamed, isAI, isBasic;
 
 
@@ -39,8 +39,29 @@ public abstract class SClient {
     public SClient(){
 
     }
+    public void sendSingle(SClient sClient, Message temp) {
+        toSendList.add(temp);
+        handleToBeSent(sClient);
+    }
+    public void handleToBeSent(SClient sClient){
+        while(toSendList.size()>0){
+            Message message = toSendList.get(0);
+            String string = message.toJSON().toString();
+            string+="\n";
+            BufferedWriter bufferedWriter;
+            try {
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(sClient.getSocket().getOutputStream())));
+                bufferedWriter.write(string);
+                bufferedWriter.flush();
+                Server.serverLogger.info("Sent message: " + string);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            toSendList.remove(0);
+        }
+    }
 
-    public void sendSingle(SClient sClient, Message temp){
+    /*public void sendSingle(SClient sClient, Message temp){
         addToSendList(temp);
         while (toSendList.size() > 0){
             Message message = toSendList.get(0);
@@ -60,7 +81,7 @@ public abstract class SClient {
                     writer.flush();
 
 
-                    /*
+                    *//*
                     char[] arr = toSend.toCharArray();
                     String print = "";
                     int count = 0;
@@ -71,7 +92,7 @@ public abstract class SClient {
                         dataOutputStream.flush();
                     }
 
-                     */
+                     *//*
 
                     Server.serverLogger.info("Listener sent" + toSend);
 
@@ -89,7 +110,7 @@ public abstract class SClient {
             }
         }
 
-    }
+    }*/
 
     public void setPlayer(Player player) {
         this.player = player;
@@ -103,12 +124,6 @@ public abstract class SClient {
         for(SClient sClient : server.getClientList()){
             if(sClient.isListening)
                 sendSingle(sClient, message);
-        }
-    }
-
-    void sendList(List<AdvancedSClient> clients, Message message) {
-        for (AdvancedSClient client : clients) {
-            sendSingle(client, message);
         }
     }
 
@@ -218,9 +233,9 @@ public abstract class SClient {
     public abstract void checkValues(String name, int figure);
 
     public abstract void sendPreviousInfo();
-    public void process(JsonObject jsonObject, boolean isBasic) throws ClientNotFoundException, IOException {
+    public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);
-        message.activateMessageInBackend(this, isBasic);
+        message.activateMessageInBackend(this);
     }
 }

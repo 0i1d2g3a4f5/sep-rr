@@ -2,7 +2,7 @@ package client_package;
 
 import client_application.ClientApplication;
 import client_package.client_gamelogic.Game;
-import client_package.client_gamelogic.ThisCPlayer;
+import client_package.client_gamelogic.CPlayer;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
@@ -17,25 +17,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 /**
  * @author Sarp Cagin Erdogan
  */
-public abstract class Client implements ClientObject{
+public class Client{
 
     public static Logger clientLogger = Logger.getLogger("Client");
+    protected ArrayList<String> receivedMessages = new ArrayList<>();
 
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
         toSendList.add(message);
     }
+    protected ArrayList<Client> clientList = new ArrayList<>();
 
-    protected List<ClientObject> clientList;
-    //TODO playerlist as filter for clients that are playing
-    protected List<ClientObject> playerList;
+    protected ArrayList<Client> playerList = new ArrayList<>();
     protected ClientApplication clientApplication;
 
-    protected ThisCPlayer player;
+    protected CPlayer player;
     protected Game game;
 
     {
@@ -50,8 +51,19 @@ public abstract class Client implements ClientObject{
     protected String name = "";
     protected int figure, id=-1;
     protected Socket socket;
-    protected boolean isListening, isReady, isForList, isBasic;
+    protected boolean isListening, isReady, isForList;
     public Client(){
+    }
+    public Client(int id, String name, int figure){
+        setId(id);
+        setName(name);
+        setFigure(figure);
+    }
+    public Client(Game game, int id, int figure, String name){
+        setGame(game);
+        setId(id);
+        setName(name);
+        setFigure(figure);
     }
 
     public Color getRoboColor(){
@@ -75,17 +87,16 @@ public abstract class Client implements ClientObject{
         }
     }
 
-    public Client(ClientApplication clientApplication, boolean isBasic){
+    public Client(ClientApplication clientApplication){
         setClientApplication(clientApplication);
-        setIsBasic(isBasic);
         setClientList(new ArrayList<>());
         game.setClient(this);
     }
 
 
 
-    public ClientObject clientFromId(int inp){
-        for(ClientObject client : this.clientList){
+    public Client clientFromId(int inp){
+        for(Client client : this.clientList){
             if(client.getId()==inp){
                 return client;
             }
@@ -95,48 +106,18 @@ public abstract class Client implements ClientObject{
 
 
     public void sendSelf(Message temp){
-        addToSendList(temp);
-        Message message = toSendList.get(0);
 
-        try {
-            OutputStream outputStream = socket.getOutputStream();
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-            DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
-            String toSend = message.toJSON().toString().replaceAll("\n","").trim() + "\n";
-
-            writer.write(toSend);
-            writer.write("\n");
-            writer.flush();
-
-            /*
-            char[] arr = toSend.toCharArray();
-            String print = "";
-            int count = 0;
-            for (char c:arr) {
-                dataOutputStream.writeInt((int)c);
-                print+=c;
-                count++;
-            }
-            dataOutputStream.flush();
-
-             */
-
-            toSendList.remove(message);
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
-    public List<ClientObject> getPlayerList() {
+    public List<Client> getPlayerList() {
         return playerList;
     }
 
-    public void setPlayerList(List<ClientObject> playerList) {
+    public void setPlayerList(ArrayList<Client> playerList) {
         this.playerList = playerList;
     }
 
-    public void setPlayer(ThisCPlayer player) {
+    public void setPlayer(CPlayer player) {
         this.player = player;
     }
 
@@ -144,9 +125,42 @@ public abstract class Client implements ClientObject{
         this.game = game;
     }
 
-    public abstract void listen();
-    public abstract void process(JsonObject jsonObject);
-    protected Runnable basicListener = new Runnable() {
+    public void listen(){
+
+    }
+    public void process(JsonObject jsonObject, Client client){
+
+    }
+    public void handleReady(boolean ready, int id){
+        if(ready){
+            for(int i=0; i<clientList.size(); i++){
+                Client temp = clientList.get(i);
+                if(temp.getId()==id){
+                    temp.setIsReady(ready);
+                    playerList.add(temp);
+                    break;
+                }
+            }
+        }
+        else{
+            for(int i=0; i<playerList.size(); i++){
+                Client temp = playerList.get(i);
+                if(temp.getId()==id){
+                    temp.setIsReady(ready);
+                    playerList.remove(ready);
+                    break;
+                }
+            }
+            for(int i=0; i<clientList.size(); i++){
+                Client temp = clientList.get(i);
+                if(temp.getId()==id){
+                    temp.setIsReady(ready);
+                    break;
+                }
+            }
+        }
+    }
+    /*protected Runnable basicListener = new Runnable() {
         @Override
         public void run() {
             try {
@@ -173,7 +187,7 @@ public abstract class Client implements ClientObject{
                     }
 
                     if(inputString!="")
-                    /*
+                    *//*
                     if(dataInputStream.available()>0)
                     System.out.println("waiting Chars: "+ dataInputStream.available());
                     while (!isEnded && dataInputStream.available() > 0) {
@@ -197,7 +211,7 @@ public abstract class Client implements ClientObject{
                     System.out.println("still aviable in socket: " +socket.getInputStream().available());
                     if (inputString.length()>0)
                     System.out.println("message length: "+inputString.length());
-                     */
+                     *//*
                     if(!inputString.equals("")){
 
                             String[] strings = inputString.split("\n");
@@ -221,7 +235,7 @@ public abstract class Client implements ClientObject{
                 throw new RuntimeException(e);
             }
         }
-    };
+    };*/
 
 
 
@@ -240,10 +254,10 @@ public abstract class Client implements ClientObject{
         return game;
     }
 
-    public List<ClientObject> getClientList(){
+    public ArrayList<Client> getClientList(){
         return this.clientList;
     }
-    public void setClientList(List<ClientObject> clientList){
+    public void setClientList(ArrayList<Client> clientList){
         this.clientList =clientList;
     }
 
@@ -318,16 +332,8 @@ public abstract class Client implements ClientObject{
     }
 
 
-    public boolean isBasic() {
-        return isBasic;
-    }
 
-    public void setIsBasic(boolean basic) {
-        isBasic = basic;
-    }
-
-
-    public ThisCPlayer getPlayer() {
+    public CPlayer getPlayer() {
       return player;
     }
 

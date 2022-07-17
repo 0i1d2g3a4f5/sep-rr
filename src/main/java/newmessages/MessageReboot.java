@@ -1,6 +1,7 @@
 package newmessages;
 
 import client_package.Client;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
@@ -39,12 +40,11 @@ public class MessageReboot extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         // Roboter wird nach oben / norden ausgerichtet
         // Koordinaten des Rebootfeldes werden per "Movement"-Nachricht verschickt
         // Client quittiert Nachricht mit der Richtung in d. d. Bot ausgerichtet werden soll (top, right, bottom, left)
@@ -56,12 +56,15 @@ public class MessageReboot extends Message{
 
     /**
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }

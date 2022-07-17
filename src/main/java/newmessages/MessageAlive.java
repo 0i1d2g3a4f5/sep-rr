@@ -1,6 +1,7 @@
 package newmessages;
 
-import client_package.AI.AIClient;
+import client_package.Client;
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import server_package.SClient;
 import server_package.Server;
@@ -25,27 +26,18 @@ public class MessageAlive extends Message{
     }
 
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         Server.serverLogger.info("SClient " + sClient.getId() + " is still connected to server");
-        //TODO server sends message every 5 seconds an ist not answering on sClient messages
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic){
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             client.sendSelf(new MessageAlive());
-        } else{
-
-        }
 
     }
     @Override
-    public void activateMessageInAIFrontend(AIClient client, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic){
-            client.sendSelf(new MessageAlive());
-        } else{
-
-        }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        sentientClient.sendSelf(new MessageAlive());
 
     }
 }

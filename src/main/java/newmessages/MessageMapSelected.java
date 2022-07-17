@@ -1,5 +1,6 @@
 package newmessages;
 
+import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Game;
@@ -42,15 +43,13 @@ public class MessageMapSelected extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      * @uthor Ringer
      */
 
     @Override
-    public void activateMessageInBackend(SClient sClient, boolean isBasic) throws IOException, ClientNotFoundException {
-        if(isBasic) {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
             //Game.getInstance().setMapName(MapName.valueOf(map));
             ModelLoader modelLoader = new ModelLoader();
             GameBoard gameBoard = modelLoader.loadMap(map);
@@ -64,20 +63,20 @@ public class MessageMapSelected extends Message{
             //TODO select position, revert to get gameBoard
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
 
-        }
-        else {
-            //ADVANCED
-        }
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client, boolean isBasic) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         /*TODO check if needed
         client_package.client_gamelogic.map.ModelLoader modelLoader = new client_package.client_gamelogic.map.ModelLoader();
         client.getGame().setMap(modelLoader.loadMap(map));
 
          */
 
+
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
 }
