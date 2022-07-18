@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static client_package.client_gamelogic.cards.CardName.MOVE_ONE;
+import static client_package.client_gamelogic.cards.CardName.MOVEI;
 
 public class MoveOne extends ProgrammingCard {
 
@@ -8,7 +8,7 @@ public class MoveOne extends ProgrammingCard {
      * @author Kafadar
      */
 
-    public MoveOne() {super(MOVE_ONE);}
+    public MoveOne() {super(MOVEI);}
 
     @Override
     public void discard() {

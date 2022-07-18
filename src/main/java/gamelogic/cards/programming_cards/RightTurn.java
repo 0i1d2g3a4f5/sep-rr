@@ -2,7 +2,7 @@ package gamelogic.cards.programming_cards;
 
 import server_package.Server;
 
-import static gamelogic.cards.CardName.RIGHT_TURN;
+import static gamelogic.cards.CardName.TURNRIGHT;
 
 public class RightTurn extends ProgrammingCard {
 
@@ -10,7 +10,7 @@ public class RightTurn extends ProgrammingCard {
      * @author Kafadar
      */
 
-    public RightTurn() {super(RIGHT_TURN);}
+    public RightTurn() {super(TURNRIGHT);}
 
     @Override
     public void discard() {

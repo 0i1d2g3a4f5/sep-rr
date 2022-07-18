@@ -2,7 +2,7 @@ package gamelogic.cards.programming_cards;
 
 import server_package.Server;
 
-import static gamelogic.cards.CardName.LEFT_TURN;
+import static gamelogic.cards.CardName.TURNLEFT;
 
 public class LeftTurn extends ProgrammingCard{
 
@@ -10,7 +10,7 @@ public class LeftTurn extends ProgrammingCard{
      * @author Kafadar
      */
 
-    public LeftTurn() {super(LEFT_TURN);}
+    public LeftTurn() {super(TURNLEFT);}
 
     @Override
     public void discard() {

@@ -26,6 +26,16 @@ import java.util.concurrent.TimeUnit;
 public class  Game {
 
     public Object lock = new Object();
+
+    public int getLastCurrentPlayer() {
+        return lastCurrentPlayer;
+    }
+
+    public void setLastCurrentPlayer(int lastCurrentPlayer) {
+        this.lastCurrentPlayer = lastCurrentPlayer;
+    }
+
+    private int lastCurrentPlayer;
     private int activeRegister = -1;
     private int robotsPlaced = 0;
     private boolean programmingPhase = false;
@@ -212,7 +222,8 @@ public class  Game {
      */
     public void startGame() throws IOException, InterruptedException {
         Server.serverLogger.info("Game started");
-        sendToAllPlayers(new MessageActivePhase(2));
+
+        //sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
         gameLoop();
 
@@ -269,7 +280,7 @@ public class  Game {
                 if(player.getClient().getId()!= otherPlayer.getClient().getId())
                     player.sendMessage(new MessageNotYourCards(player.getClient().getId(), cardNames.length));
             }
-            player.sendMessage(new MessageYourCards(player.getClient().getId(),cardNames));
+            player.sendMessage(new MessageYourCards(cardNames));
         }
     }
 
@@ -415,6 +426,7 @@ public class  Game {
                 player.setLastPlayedCard(player.getCardImPlaying());
                 player.setCardImPlaying(null);
                 player.getRobot().movedByCBelt=false;
+                player.getRobot().waitingForDirection=false;
 
             }
             TimeUnit.MILLISECONDS.sleep(80);

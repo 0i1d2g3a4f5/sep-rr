@@ -34,7 +34,7 @@ public class MessageSelectionFinished extends Message{
      */
     public MessageSelectionFinished(JsonObject jsonObject){
         super(jsonObject);
-        clientID = content.get("clienID").getAsInt();
+        clientID = content.get("clientID").getAsInt();
         //Server.serverLogger.info("Created Selection Finished Message: " + this + " from JSON: " + jsonObject);
     }
 

@@ -3,6 +3,7 @@ package newmessages;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Direction;
 import server_package.SClient;
 import server_package.Server;
 
@@ -44,6 +45,11 @@ public class MessageRebootDirection extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
+        if(sClient.getPlayer().getRobot().waitingForDirection){
+            Direction direction = Direction.parseDirection(this.direction);
+            sClient.getPlayer().getRobot().setDirectionFacing(direction);
+            Server.serverLogger.info("Rebooted Robot "+sClient.getFigure()+" wit Direction "+direction.toString());
+        }
 
     }
 

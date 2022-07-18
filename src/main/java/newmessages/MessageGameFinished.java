@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -51,6 +54,12 @@ public class MessageGameFinished extends Message{
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         //TODO trigger winscreen
         Server.serverLogger.info("Player " + clientID + " won");
+        if(clientID==client.getId()){
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.WIN, new TaskContent()));
+        } else {
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.LOSE, new TaskContent()));
+        }
+
 
     }
     @Override

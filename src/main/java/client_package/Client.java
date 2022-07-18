@@ -95,8 +95,8 @@ public class Client{
 
 
 
-    public Client clientFromId(int inp){
-        for(Client client : this.clientList){
+    public Client playerFromId(int inp){
+        for(Client client : this.playerList){
             if(client.getId()==inp){
                 return client;
             }
@@ -134,27 +134,25 @@ public class Client{
     public void handleReady(boolean ready, int id){
         if(ready){
             for(int i=0; i<clientList.size(); i++){
-                Client temp = clientList.get(i);
-                if(temp.getId()==id){
-                    temp.setIsReady(ready);
-                    playerList.add(temp);
+                if(clientList.get(i).getId()==id){
+                    clientList.get(i).setIsReady(ready);
+                    playerList.add(clientList.get(i));
+                    clientList.get(i).setPlayer(new CPlayer(clientList.get(i), this.game, false));
                     break;
                 }
             }
         }
         else{
             for(int i=0; i<playerList.size(); i++){
-                Client temp = playerList.get(i);
-                if(temp.getId()==id){
-                    temp.setIsReady(ready);
-                    playerList.remove(ready);
+                if(playerList.get(i).getId()==id){
+                    playerList.remove(i);
                     break;
                 }
             }
             for(int i=0; i<clientList.size(); i++){
-                Client temp = clientList.get(i);
-                if(temp.getId()==id){
-                    temp.setIsReady(ready);
+                if(clientList.get(i).getId()==id){
+                    clientList.get(i).setIsReady(ready);
+                    clientList.get(i).setPlayer(null);
                     break;
                 }
             }

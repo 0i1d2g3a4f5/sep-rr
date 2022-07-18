@@ -1,5 +1,6 @@
 package utility;
 
+import gamelogic.Direction;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,6 +18,8 @@ public enum Images {
     //TODO edit*/
 
     //cards
+    YESCARD("/YesCard.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/YesCard.png")))), "Card"),
+    NOCARD("/NoCard.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/NoCard.png")))), "Card"),
     CARD_BACK_CARD("/CardBack.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CardBack.png")))), "Card"),
 
     //programmingCards
@@ -133,25 +136,26 @@ public enum Images {
     public String toString(){
         return this.string;
     }
+    public ImageView toAvailableCardsView(){
+        return null;
+    }
 
     public ImageView toImageView() {
-        ImageView imageView = new ImageView(this.imageView.getImage());
         switch (this.type){
-            case "Card" ->{
-                return handleCard(imageView);
-            }
             case "MapElement" ->{
-                return handleMapElement(imageView);
+                return handleMapElement(new ImageView(new Image(this.toString())));
             }
             case "Map" ->{
-                return handleMap(imageView);
+                return handleMap(new ImageView(new Image(this.toString())));
             }
-            case "Robot" ->{
-                return handleRobot(imageView);
+            default -> {
+                return new ImageView(new Image(this.toString()));
             }
 
         }
-        return this.imageView;
+    }
+    public ImageView toImageView(Direction direction) {
+        return handleRobot(imageView, direction);
     }
     public ImageView handleCard(ImageView imageView){
         imageView.setSmooth(true);
@@ -174,7 +178,22 @@ public enum Images {
         return imageView;
     }
 
-    public ImageView handleRobot(ImageView imageView){
+    public ImageView handleRobot(ImageView imageView, Direction direction){
+        switch (direction){
+
+            case NORTH -> {
+                imageView.setRotate(270);
+
+            }
+            case SOUTH -> {
+                imageView.setRotate(90);
+            }
+            case EAST -> {
+            }
+            case WEST -> {
+                imageView.setRotate(180);
+            }
+        }
         imageView.setSmooth(true);
         imageView.setFitHeight(260);
         imageView.setFitWidth(297);

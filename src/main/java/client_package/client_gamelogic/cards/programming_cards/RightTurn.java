@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static client_package.client_gamelogic.cards.CardName.RIGHT_TURN;
+import static client_package.client_gamelogic.cards.CardName.TURNRIGHT;
 
 public class RightTurn extends ProgrammingCard {
 
@@ -8,7 +8,7 @@ public class RightTurn extends ProgrammingCard {
      * @author Kafadar
      */
 
-    public RightTurn() {super(RIGHT_TURN);}
+    public RightTurn() {super(TURNRIGHT);}
 
     @Override
     public void discard() {

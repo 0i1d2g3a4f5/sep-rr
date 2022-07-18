@@ -19,23 +19,23 @@ public class SandboxRoutine extends SpecialCard {
     public void activateCard(){
         //TODO player message, player choose a card
         switch (cardName){
-            case MOVE_ONE:
+            case MOVEI:
                 player.getRobot().forward(1);
                 break;
-            case MOVE_TWO:
+            case MOVEII:
                 player.getRobot().forward(2);
 
                 break;
-            case MOVE_THREE:
+            case MOVEIII:
                 player.getRobot().forward(3);
                 break;
             case BACK_UP:
                 player.getRobot().backward(1);
                 break;
-            case LEFT_TURN :
+            case TURNLEFT:
                 player.getRobot().left();
                 break;
-            case RIGHT_TURN:
+            case TURNRIGHT:
                 player.getRobot().right();
                 break;
             case U_TURN:

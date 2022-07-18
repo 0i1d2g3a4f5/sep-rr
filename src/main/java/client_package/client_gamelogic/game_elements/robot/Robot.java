@@ -27,6 +27,14 @@ public class Robot extends GameElement {
     public int figure;
     private Game game = Game.getInstance();
 
+    public Direction getDirectionFacing() {
+        return directionFacing;
+    }
+
+    public void setDirectionFacing(Direction directionFacing) {
+        this.directionFacing = directionFacing;
+    }
+
     private Direction directionFacing;
     private Position position;
     private String name;
@@ -82,7 +90,7 @@ public class Robot extends GameElement {
         //Game.getInstance().getMap().getGameField(y,x).removeRobot();
         Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
-        Server.serverLogger.info("Moved Robot "+this.figure + "to" +position);
+        //Server.serverLogger.info("Moved Robot "+this.figure + "to" +position);
 
 
     }

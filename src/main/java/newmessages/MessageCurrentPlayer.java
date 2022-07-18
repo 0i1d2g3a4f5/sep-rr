@@ -1,4 +1,8 @@
 package newmessages;
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskString1;
+import client_application.TaskType;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -49,8 +53,11 @@ public class MessageCurrentPlayer extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        if(client.getSocket().isConnected()){
-            Server.serverLogger.info("Current player is " + client.getName() + "," + client.getId());
+        if(clientID==client.getId()){
+            if(client.getGame().getPhase()==0){
+                client.getClientApplication().waitForGame();
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.CHOOSE_STARTING_POINT, new TaskContent()));
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package newmessages;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Game;
 import gamelogic.Player;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
@@ -59,7 +60,7 @@ public class MessageSelectedCard extends Message {
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         Player player = sClient.getPlayer();
-        if (card == "Null"){
+        if (card.equals("Null")){
             if (player.removeCard(register))
                 sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, false));
             else sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
@@ -86,15 +87,25 @@ public class MessageSelectedCard extends Message {
 
 
         }
-        if(!(utility.SearchMethods.emptyArraySpaces(sClient.getPlayer().getAllRegisters())>0)){
+        System.out.println("BISHER: ");
+        boolean allFull = true;
+        for(int j=0; j<Game.getInstance().getPlayerList().size(); j++){
+            Player player1 = Game.getInstance().getPlayerList().get(j);
+            for(int i=0; i<5; i++){
+                if(player1.getRegister(i)!=null){
+                    System.out.println(i + " : " + player1.getRegister(i).getCardName().toString());
+                }
+                else {
+                    allFull=false;
+                    break;
+                }
+            }
+        }
+        if(allFull){
             Server.serverLogger.info("Cards full");
             sClient.getPlayer().isProgramming = false;
             sClient.getPlayer().getGame().setProgrammingPhase(false);
             Server.serverLogger.info("Var programmingPhase: " + sClient.getPlayer().getGame().isProgramingPhase());
-
-
-
-
         }
 
     }

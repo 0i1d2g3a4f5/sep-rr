@@ -70,29 +70,17 @@ public class MessagePlayerAdded extends Message{
      */
     @Override
     public void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException {
-            Client.clientLogger.info("activating playerAdded");
-            if (this.clientID == client.getId()){
-                client.setName(this.name);
-                client.setFigure(this.figure);
-                client.getGame().setClient(client);
-                Client.clientLogger.info("This client:\n" +
-                        "ID:="+client.getId() +"\n"+
-                        "Name:="+name +"\n" +
-                        "Figure:=" +figure);
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
-            }else{
-                Client otherClient = new Client(client.getGame(),this.clientID, this.figure,this.name);
-                Client.clientLogger.info("New client:\n" +
-                        "ID="+otherClient.getId() +"\n"+
-                        "Name="+name +"\n" +
-                        "Figure=" +figure);
-                client.getClientList().add(otherClient);
-                /*
-                Client.clientLogger.debug("New Client added to "+ client + "client.clientList");
-                Client.clientLogger.debug("client.clientList:= "+ client.getClientList());*/
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
-            }
+        if(clientID!=client.getId()){
+            client.getClientList().add(new Client(clientID, name, figure));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+        }
+        else{
+            client.setId(clientID);
+            client.setName(name);
+            client.setFigure(figure);
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.LAUNCHLOBBY, new TaskContent()));
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+        }
 
     }
 
@@ -104,9 +92,11 @@ public class MessagePlayerAdded extends Message{
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID!=sentientClient.getId()) {
             sentientClient.getClientList().add(new Client(clientID, name, figure));
-            //sentientClient.displayClientList();
         }
         else{
+            sentientClient.setId(clientID);
+            sentientClient.setName(name);
+            sentientClient.setFigure(figure);
             sentientClient.sendSelf(new MessageSetStatus(true));
         }
     }

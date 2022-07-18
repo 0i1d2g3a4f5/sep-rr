@@ -72,10 +72,17 @@ public class MessageStartingPointTaken extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+        if(clientID==client.getId()){
+            client.getPlayer().getRobot().placeRobot(y, x);
+        }
+        else{
+            client.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
+        }
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 
 
 
-        if(client.getId()==clientID) {
+        /*if(client.getId()==clientID) {
             if(!client.getPlayer().getRobot().isPlaced()) {
                 client.getPlayer().getRobot().placeRobot(y, x);
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
@@ -95,12 +102,17 @@ public class MessageStartingPointTaken extends Message{
                 }
 
             }
-        }
+        }*/
 
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        if(clientID==sentientClient.getId()){
+            sentientClient.getPlayer().getRobot().placeRobot(y, x);
+        }
+        else{
+            sentientClient.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
+        }
     }
 
 }

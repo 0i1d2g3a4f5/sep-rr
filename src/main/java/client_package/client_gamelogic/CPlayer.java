@@ -2,7 +2,10 @@ package client_package.client_gamelogic;
 
 import client_package.Client;
 import client_package.client_gamelogic.cards.Card;
+import client_package.client_gamelogic.cards.CardFactory;
+import client_package.client_gamelogic.cards.CardName;
 import client_package.client_gamelogic.game_elements.robot.Robot;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,73 +14,193 @@ import java.util.ArrayList;
  * @author Mark Ringer
  */
 public class CPlayer {
-
+    private boolean self;
     int figure;
-
     private Client client;
-
     Game game;
     int EnergyCubes;
     int clientID;
     private Robot robot;
-    private int handCardsAmount = 0;
-    private Card selectedCard;
+    private Pair<Integer, Card> ownSelectedCard;
+    private Pair<Integer, Card> ownToBeRemovedCard;
 
-    public Card getSelectedCard() {
-        return selectedCard;
-    }
+    private ArrayList<Card> registerCardsOwn = new ArrayList();
+    private ArrayList<Card> availableCardsOwn = new ArrayList<>();
+    private ArrayList<Boolean> registerCardsOther = new ArrayList<Boolean>();
+    private int availableCardsOther;
 
-    public void setSelectedCard(Card selectedCard) {
-        this.selectedCard = selectedCard;
-    }
 
-    private ArrayList<Card> handCards= new ArrayList(5);
-    private Card[] registerCards = new Card[5];
-
-    public CPlayer(Client client, Game game){
-        Client.clientLogger.info("Created CPlayer");
-        if(client.getId() == game.getClient().getId()){
-
-            this.game = game;
-            //TODO own client needs player
-            this.clientID = client.getId();
-            client.setPlayer(this);
-            this.client = client;
-        } else {
-            try {
-                this.robot = new Robot(figure,this);
-                this.getRobot().setFigure(client.getFigure());
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+    public CPlayer(Client client, Game game, boolean self){
+        this.self=self;
+        this.client=client;
+        this.game=game;
+        this.figure=client.getFigure();
+        this.clientID=client.getId();
+        try {
+            this.robot=new Robot(figure, this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if(self){
+            for(int i=0; i<5; i++){
+                registerCardsOwn.add(i, null);
             }
-            this.clientID = client.getId();
-            this.game = game;
-            client.setPlayer(this);
-            this.client = client;
+            for(int i=0; i<9; i++){
+                availableCardsOwn.add(i, null);
+            }
+
+        }
+        else{
+            for(int i=0; i<5; i++){
+                registerCardsOther.add(i, false);
+            }
+            availableCardsOther=0;
         }
 
 
 
+
     }
-    public void placeRegisterCards(Card card, int pos) {
-        registerCards[pos] = card;
-        if(pos==5){
-            client.getClientApplication().activateCardSelection(false);
+    public void setAvailableCardsOwn(Card[] input){
+        if(input.length != 9){
+            throw new RuntimeException("Not 9 available cards.");
         }
-        selectedCard = null;
-
+        for(int i=0; i<input.length; i++){
+            availableCardsOwn.set(i, input[i]);
+        }
     }
+    public void resetRegisterOwn(){
+        for(int i=0; i<5; i++){
+            registerCardsOwn.set(i, null);
+        }
+    }
+    public void resetAvailableOwn(){
+        for(int i=0; i<9; i++){
+            availableCardsOwn.set(i, null);
+        }
+    }
+    public void resetRegisterOther(){
+        for(int i=0; i<5; i++){
+            registerCardsOther.set(i, false);
+        }
+    }
+    public void resetAvailableOther(){
+        availableCardsOther=0;
+    }
+    public void phaseReset(){
+        resetRegisterOwn();
+        resetAvailableOwn();
 
-    public void selectCard(int posHandcard,int posRegister){
-        if(posHandcard>=0 && posHandcard <9){
-            selectedCard = handCards.get(posHandcard);
-
+        for(int i=0; i<client.getPlayerList().size(); i++){
+            client.getPlayerList().get(i).getPlayer().resetRegisterOther();
+            client.getPlayerList().get(i).getPlayer().resetAvailableOther();
+        }
+        client.getClientApplication().activateAvailableProgrammingSelection(true);
+        client.getClientApplication().activateRegisterSelection(true);
+    }
+    public int selectCardOwn(int position){
+        ownSelectedCard = new Pair<>(position, availableCardsOwn.get(position));
+        int empty=-1;
+        for(int i=0; i<5; i++){
+            if(registerCardsOwn.get(i)==null){
+                empty=i;
+                break;
+            }
+        }
+        return empty;
+    }
+    public void selectToBeRemovedCardOwn(int position){
+        ownToBeRemovedCard = new Pair<>(position, registerCardsOwn.get(position));
+    }
+    public void placeSelectedToRegisterOwn(){
+        for(int i=0; i<5; i++){
+            if(registerCardsOwn.get(i)==null){
+                registerCardsOwn.set(i, ownSelectedCard.getValue());
+                availableCardsOwn.set(ownSelectedCard.getKey(), null);
+                ownSelectedCard=null;
+                client.getClientApplication().activateAvailableProgrammingSelection(true);
+                break;
+            }
+        }
+        boolean allFull = true;
+        for(int i=0; i<5; i++){
+            if(registerCardsOwn.get(i)==null){
+                allFull=false;
+                break;
+            }
+        }
+        if(allFull){
+            client.getClientApplication().activateAvailableProgrammingSelection(false);
+            client.getClientApplication().activateRegisterSelection(false);
         }
 
     }
-    public void setRegisterCards(Card[] registerCards) {
-        this.registerCards = registerCards;
+    public void removeCardFromRegisterOwn(){
+        registerCardsOwn.set(ownToBeRemovedCard.getKey(), null);
+        for(int i=0; i<availableCardsOwn.size(); i++){
+            if(availableCardsOwn.get(i)==null){
+                availableCardsOwn.set(i, ownToBeRemovedCard.getValue());
+                ownToBeRemovedCard=null;
+                client.getClientApplication().activateRegisterSelection(true);
+                break;
+            }
+        }
+    }
+    public void updateCardOfRegisterOther(int position, boolean bool){
+        registerCardsOther.set(position, bool);
+    }
+    public void autofill(ArrayList<String> list){
+        for(int i=0; i<5; i++){
+            if(registerCardsOwn.get(i)==null){
+                try {
+                    registerCardsOwn.set(i, new CardFactory().createCard(CardName.parseCardName(list.get(0))));
+                    list.remove(0);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+
+    public ArrayList<Card> getRegisterCardsOwn() {
+        return registerCardsOwn;
+    }
+
+    public void setRegisterCardsOwn(ArrayList<Card> registerCardsOwn) {
+        this.registerCardsOwn = registerCardsOwn;
+    }
+
+    public ArrayList<Card> getAvailableCardsOwn() {
+        return availableCardsOwn;
+    }
+
+    public void setAvailableCardsOwn(ArrayList<Card> availableCardsOwn) {
+        this.availableCardsOwn = availableCardsOwn;
+    }
+
+    public ArrayList<Boolean> getRegisterCardsOther() {
+        return registerCardsOther;
+    }
+
+    public void setRegisterCardsOther(ArrayList<Boolean> registerCardsOther) {
+        this.registerCardsOther = registerCardsOther;
+    }
+
+    public int getAvailableCardsOther() {
+        return availableCardsOther;
+    }
+
+    public void setAvailableCardsOther(int availableCardsOther) {
+        this.availableCardsOther = availableCardsOther;
+    }
+
+    public Pair<Integer, Card> getOwnSelectedCard() {
+        return ownSelectedCard;
+    }
+
+    public void setOwnSelectedCard(Pair<Integer, Card> ownSelectedCard) {
+        this.ownSelectedCard = ownSelectedCard;
     }
 
     public void drawDamage(){
@@ -86,13 +209,7 @@ public class CPlayer {
 
 
 
-    public ArrayList<Card> getHandCards() {
-        return handCards;
-    }
 
-    public void setHandCards(ArrayList<Card> handCards) {
-        this.handCards = handCards;
-    }
 
     public Game getGame() {
         return game;
@@ -107,25 +224,6 @@ public class CPlayer {
         return robot;
     }
 
-    public void registerCard(Card card, int position){
-        registerCards[position]=card;
-    }
-    public Card[] getRegisterCards(){
-        return registerCards;
-    }
-
-    public int getHandCardsCount() {
-        return handCardsAmount;
-    }
-
-    public void addHandCards(int count){
-        handCardsAmount += count;
-    }
-
-    public void setHandCardsAmount(int handCardsAmount) {
-        this.handCardsAmount = handCardsAmount;
-    }
-
     @Override
     public String toString() {
         return client.toString();
@@ -133,5 +231,13 @@ public class CPlayer {
 
     public int getClientID() {
         return clientID;
+    }
+
+    public boolean isSelf() {
+        return self;
+    }
+
+    public void setSelf(boolean self) {
+        this.self = self;
     }
 }

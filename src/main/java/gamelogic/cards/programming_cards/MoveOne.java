@@ -2,7 +2,7 @@ package gamelogic.cards.programming_cards;
 
 import server_package.Server;
 
-import static gamelogic.cards.CardName.MOVE_ONE;
+import static gamelogic.cards.CardName.MOVEI;
 
 public class MoveOne extends ProgrammingCard {
 
@@ -10,7 +10,7 @@ public class MoveOne extends ProgrammingCard {
      * @author Kafadar
      */
 
-    public MoveOne() {super(MOVE_ONE);}
+    public MoveOne() {super(MOVEI);}
 
     @Override
     public void discard() {

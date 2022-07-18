@@ -1,10 +1,5 @@
 package gamelogic.cards;
 
-import gamelogic.cards.damage_card.TrojanHorse;
-import server_package.Server;
-
-import java.io.IOException;
-
 public enum CardName {
     TURN_LEFT_CARD("TurnLeft"),
 
@@ -17,12 +12,12 @@ public enum CardName {
     // Programming Cards
     AGAIN("Again"),
     BACK_UP("BackUp"),
-    LEFT_TURN("LeftTurn"),
-    MOVE_ONE("MoveOne"),
-    MOVE_TWO("MoveTwo"),
-    MOVE_THREE("MoveThree"),
+    TURNLEFT("TurnLeft"),
+    MOVEI("MoveI"),
+    MOVEII("MoveII"),
+    MOVEIII("MoveIII"),
     POWER_UP("PowerUp"),
-    RIGHT_TURN("RightTurn"),
+    TURNRIGHT("TurnRight"),
     U_TURN("UTurn"),
 
     // Permanent Upgrade Cards

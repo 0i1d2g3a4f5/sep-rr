@@ -35,7 +35,12 @@ Again extends ProgrammingCard {
         Server.serverLogger.info("Current Register: " + Arrays.toString(register));
 
         Server.serverLogger.info("Again activates: " + player.getLastPlayedCard());
-        player.getLastPlayedCard().activateCard();
+        if(player.getLastPlayedCard()!=null && player.getLastPlayedCard().getCardName()!=AGAIN)
+            player.getLastPlayedCard().activateCard();
+        else{
+            Server.serverLogger.error("Card Again could not be activated");
+        }
+
         //player.activateRegister(Game.getInstance().getActiveRegister()-1);
     }
 }

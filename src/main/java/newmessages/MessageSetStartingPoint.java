@@ -5,8 +5,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Player;
 import gamelogic.Position;
+import gamelogic.game_elements.ElementName;
 import server_package.SClient;
 import server_package.Server;
+import utility.GlobalParameters;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,7 +67,13 @@ public class MessageSetStartingPoint extends Message{
         //TODO insert
         Position position = new Position(y,x);
         if(sClient.getPlayer().placeRobot(position)){
-            sClient.sendAll(new MessageStartingPointTaken(x,y, sClient.getId()));
+
+                sClient.sendAll(new MessageStartingPointTaken(x, y, sClient.getId()));
+                if (sClient.getPlayer().getGame().getPlayerList().size() - 1 > sClient.getPlayer().getGame().getLastCurrentPlayer()) {
+                    sClient.getPlayer().getGame().setLastCurrentPlayer(sClient.getPlayer().getGame().getLastCurrentPlayer() + 1);
+                    sClient.sendAll(new MessageCurrentPlayer(sClient.getPlayer().getGame().getPlayerList().get(sClient.getPlayer().getGame().getLastCurrentPlayer()).getClient().getId()));
+                }
+
         }
 
        // sClient.sendSelf(new MessageSendChat("Server: checking if you already placed your Robot", sClient.getId()));
@@ -81,12 +89,12 @@ public class MessageSetStartingPoint extends Message{
             }
         }
 
-        sClient.sendSelf(new MessageSendChat("Server: all placed "+ allPlaced, sClient.getId()));
+        //sClient.sendSelf(new MessageSendChat("Server: all placed "+ allPlaced, sClient.getId()));
 
         if(allPlaced){
 
 
-                sClient.sendSelf(new MessageSendChat("Server: Initializing Game", sClient.getId()));
+                //sClient.sendSelf(new MessageSendChat("Server: Initializing Game", sClient.getId()));
                 Thread thread = new Thread(){
                     @Override
                     public void run() {

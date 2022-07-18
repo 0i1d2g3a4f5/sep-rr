@@ -4,6 +4,7 @@ import client_application.Task;
 import client_application.TaskBoolean;
 import client_application.TaskContent;
 import client_application.TaskType;
+import client_package.client_gamelogic.CPlayer;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -66,6 +67,7 @@ public class MessagePlayerStatus extends Message {
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             if(this.clientID==client.getId()) {
                 client.setIsReady(this.ready);
+                client.setPlayer(new CPlayer(client, client.getGame(), true));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEREADYBUTTON, new TaskBoolean(this.ready)));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
@@ -87,7 +89,6 @@ public class MessagePlayerStatus extends Message {
         else{
             sentientClient.handleReady(ready, clientID);
         }
-        //sentientClient.displayClientList();
 
     }
 }

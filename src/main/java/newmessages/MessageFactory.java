@@ -150,8 +150,11 @@ public class MessageFactory {
                 return new MessageDrawDamage(jsonObject);
             }
             case CARDS_YOU_GOT_NOW -> {
-                Message.messageLogger.debug("Created new CardsYouGot");
-                return new MessageCardsYouGotNow(jsonObject);
+                Message.messageLogger.debug("Created new CardsYouGotNow");
+                MessageCardsYouGotNow message = new MessageCardsYouGotNow(jsonObject);
+                Message.messageLogger.warn("message "+ message);
+                return message;
+
             }
             default -> throw new IllegalArgumentException("There is no MessageType "+messageType);
         }

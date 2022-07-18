@@ -24,7 +24,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private StartPoint startPoint;
 
     public boolean movedByCBelt = false;
-
+    public boolean waitingForDirection = false;
     private boolean isPlaced = false;
 
     private Game game;
@@ -32,8 +32,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private Direction directionFacing;
     private Position position;
     private String name;
-
-    private boolean isAlive;
 
     private Player player;
 
@@ -78,6 +76,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.orientations.add(Direction.EAST);
 
     }
+    public void setDirectionFacing(Direction directionFacing) {
+        this.directionFacing = directionFacing;
+    }
+
 
     public StartPoint getStartPoint() {
         return startPoint;
@@ -235,7 +237,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
             changePositionOnBoard();
             Server.serverLogger.info("Robot successfully moved to " + position);
 
-        }
+        }else{
+        Server.serverLogger.info("Path is blocked, turn ends");
+        player.clearAllRegister();
+    }
+
 
 
         return true;
@@ -309,6 +315,18 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
             reboot();
             return false;
         }
+        if(nextField.contains(ElementName.ROBOT)){
+            Server.serverLogger.info("Blocking Robot");
+            Robot blockingRobot = nextField.getRobot();
+            if(blockingRobot.displace(directionFacing)){
+                Server.serverLogger.debug("displaced Robot because it was blocking");
+                return true;
+
+            }else {
+                return false;
+            }
+        }
+
 
 
         return true;
@@ -332,13 +350,30 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         player.discardAllHandCards();
         player.clearAllRegister();
         rebootedThisTurn = true;
+        gameField.removeRobot();
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
-        finishReboot(Direction.EAST);
+        waitingForDirection = true;
+        finishReboot(Direction.NORTH);
+
 
 
 
         //TODO case not answered
 
+    }
+    private void laserMovement(GameField gameField){
+        if(gameField != null){
+            if(gameField.contains(ElementName.ROBOT)){
+                Server.serverLogger.info("Laser hits Robot "+gameField.getRobot());
+                Robot robot = (Robot) gameField.getElement(ElementName.ROBOT);
+                robot.takeDamage(1);
+            }else{
+                GameField nextField = gameField.getNeighbor(directionFacing);
+                if(nextField.getPosition().getY() <0 || nextField.getPosition().getY()>= Game.getInstance().board.getBoardMap().get(0).size() ||nextField.getPosition().getX() <0 || nextField.getPosition().getX()>= Game.getInstance().board.getBoardMap().size())
+                    return;
+                else if(!nextField.contains(ElementName.ANTENNA)&&!gameField.checkWall(directionFacing)&&!nextField.checkWall(directionFacing.opposite())) laserMovement(nextField);
+            }
+        }
     }
 
 
@@ -360,6 +395,17 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         if(restartingPoint==null){
             restartingPoint =startPoint;
         }
+        if(restartingPoint.getGameField().contains(ElementName.ROBOT)){
+            if(restartingPoint instanceof RestartPoint){
+                if(restartingPoint.orientations.size()>0)
+                    restartingPoint.getGameField().getRobot().displace(restartingPoint.orientations.get(0));
+                else
+                    restartingPoint.getGameField().getRobot().displace(restartingPoint.getGameField().getRobot().directionFacing);
+            } else {
+                restartingPoint.getGameField().getRobot().displace(restartingPoint.getGameField().getRobot().directionFacing);
+            }
+        }
+
         position=restartingPoint.getGameField().getPosition();
         gameField.removeRobot();
         if(gameField.getElements().size()==0){

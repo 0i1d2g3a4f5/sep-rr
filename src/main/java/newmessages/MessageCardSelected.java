@@ -68,43 +68,44 @@ public class MessageCardSelected extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        if(clientID ==client.getId()){
-            CPlayer player = client.getPlayer();
-            client.getClientApplication().selectCard();
-            player.getHandCards().remove(player.getSelectedCard());
-            player.placeRegisterCards(player.getSelectedCard(), register);
-
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
+        if(clientID==client.getId()){
+            if(filled){
+                client.getPlayer().placeSelectedToRegisterOwn();
+            }
+            else{
+                client.getPlayer().removeCardFromRegisterOwn();
+            }
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
-            Server.serverLogger.info(player + " selected " + player.getSelectedCard() + " and moved it to their register");
-
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
         }
-        else {
-            for(CPlayer player:client.getGame().getPlayerList()){
-                if(player.getClientID()==clientID){
-                    player.addHandCards(register);
-                }
+        else{
+            System.out.println("OTHER");
+            if(filled){
+                System.out.println("OTHER FILLED");
+                client.playerFromId(clientID).getPlayer().getRegisterCardsOther().set(register, true);
+            }
+            else{
+                System.out.println("OTHER EMPTY");
+                client.playerFromId(clientID).getPlayer().getRegisterCardsOther().set(register, false);
             }
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOTHERSREGISTERS, new TaskContent()));
-
-
         }
-       /* Scanner scanner = new Scanner(System.in);
-        if (utility.SearchMethods.emptyArraySpaces(client.getPlayer().getRegisterCards())>0){
-            System.out.println("Your Hand Cards: "+ client.getPlayer().getHandCards());
-            System.out.println("Your Register: "+ Arrays.toString(client.getPlayer().getRegisterCards()));
-            System.out.println("please insert the position of the card you want to pick");
-            int posHand = scanner.nextInt();
-            System.out.println("please insert the position the repository");
-            int posRepository = scanner.nextInt();
-            client.getPlayer().selectCard(posHand,posRepository);
 
-        }*/
 
     }
 
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        if(clientID==sentientClient.getId()){
+            if(filled){
+                sentientClient.getPlayer().placeSelectedToRegisterOwn();
+            }
+            else{
+                sentientClient.getPlayer().removeCardFromRegisterOwn();
+            }
+        }
+        else{
+            sentientClient.playerFromId(clientID).getPlayer().updateCardOfRegisterOther(register, filled);
+        }
     }
 }

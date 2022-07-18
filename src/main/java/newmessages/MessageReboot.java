@@ -1,5 +1,8 @@
 package newmessages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
 import client_package.Client;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
@@ -61,7 +64,7 @@ public class MessageReboot extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.REBOOTDIRECTION, new TaskContent()));
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {

@@ -1,17 +1,11 @@
 package client_application;
 
 import client_package.Client;
-import com.google.gson.JsonObject;
-import gamelogic.Game;
-import gamelogic.Player;
 import gamelogic.Position;
-import gamelogic.game_elements.Checkpoint;
-import gamelogic.game_elements.ElementName;
-import gamelogic.game_elements.robot.Robot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -19,25 +13,23 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import newmessages.MessageGameFinished;
-import newmessages.MessageRebootDirection;
-import newmessages.MessageSelectedCard;
-import newmessages.MessageSetStartingPoint;
-import server_package.Server;
+import newmessages.*;
 import gamelogic.Direction;
-
-
-import java.io.IOException;
 
 /**
  * @author Sarp Cagin Erdogan, Qinyi, Vivian
  *
  */
 public class ClientGameBasicController {
-    boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive;
+    boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive, chooseRegisterActive, winningSceneActive, losingSceneActive;;
 
     public ClientApplication clientApplication;
-    int currentChosen;
+
+    @FXML
+    private AnchorPane winnerScene;
+
+    @FXML
+    private AnchorPane loserScene;
 
     @FXML
     private ScrollPane scrollAvailableProgramming;
@@ -107,16 +99,22 @@ public class ClientGameBasicController {
 
 
     }
+    public void setStartingText(String s){
+        startingCoordinates.setText(s);
+    }
 
     public void updateProgrammingCards(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
         stackOwnProgramming.getChildren().clear();
         stackOwnProgramming.getChildren().add(gridPane);
     }
     public void updateOtherRegisters(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
         scrollOtherRegisters.setContent(gridPane);
     }
 
     public void updateHandCards(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
         scrollAvailableProgramming.setContent(gridPane);
     }
 
@@ -133,19 +131,21 @@ public class ClientGameBasicController {
         startingCoordinates.setText("");
         startingSubmitActive=true;
     }
-    public void activateCardSelection(boolean bo){
-        if(bo){
-        chooseProgrammingActive=true;} else{chooseProgrammingActive=false;}
-
+    public void activateProgrammingSelection(boolean bo){
+        chooseProgrammingActive=bo;
+    }
+    public void activateStartingPoint(boolean bo){
+        startingSubmitActive=bo;
+    }
+    public void activateRegisterSelection(boolean bo){
+        chooseRegisterActive=bo;
     }
     public void resetRegisterCards() {
     stackOwnProgramming.getChildren().clear();
     }
 
     public void selectCard(){
-        GridPane gridPane = (GridPane) stackOwnProgramming.getChildren().get(0);
-        Client.clientLogger.info("Chosen: " + currentChosen + " into register: " + gridPane.getColumnCount());
-        clientApplication.getClient().getPlayer().selectCard(currentChosen, gridPane.getColumnCount());
+        clientApplication.getClient().getPlayer().placeSelectedToRegisterOwn();
         chooseProgrammingActive=true;
     }
 
@@ -167,16 +167,55 @@ public class ClientGameBasicController {
                 }
             }
 
-            if (inside) {
-
+            if (GridPane.getColumnIndex(clicked)!=null && inside) {
                 int x = GridPane.getColumnIndex(clicked);
-                currentChosen=x;
-                GridPane own = (GridPane) stackOwnProgramming.getChildren().get(0);
-                Client.clientLogger.info("Chosen card is \"" + clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName() + "\" for register \"" + (own.getColumnCount()) + "\"");
-                clientApplication.getClient().sendSelf(new MessageSelectedCard(clientApplication.getClient().getPlayer().getHandCards().get(currentChosen).getCardName().toString(), own.getColumnCount() ));
+                if(clientApplication.getClient().getPlayer().getAvailableCardsOwn().get(x)==null){
+                    chooseProgrammingActive=true;
+                }
+                else{
+                    int emptyRegister = clientApplication.getClient().getPlayer().selectCardOwn(x);
+                    clientApplication.getClient().sendSelf(new MessageSelectedCard(clientApplication.getClient().getPlayer().getOwnSelectedCard().getValue().toString(), emptyRegister));
+                }
             }
             else{
                 chooseProgrammingActive=true;
+            }
+        }
+        if(chooseRegisterActive){
+            chooseRegisterActive=false;
+            Node requestedParent = stackOwnProgramming.getChildren().get(0);
+            Node clicked = mouseEvent.getPickResult().getIntersectedNode();
+            if(clicked.getParent()!=null){
+                if(clicked.getParent().getParent()!=null){
+                }
+            }
+
+            boolean inside = true;
+
+
+            while (clicked != null && clicked.getParent() != null && !clicked.getParent().equals(requestedParent)) {
+                inside=false;
+                clicked = clicked.getParent();
+                if (clicked.getParent() != null){
+                }
+                if (clicked.getParent() != null && clicked.getParent().equals(requestedParent)) {
+                    inside = true;
+                    break;
+                }
+            }
+
+            if (inside) {
+                int x = GridPane.getColumnIndex(clicked);
+                if(clientApplication.getClient().getPlayer().getRegisterCardsOwn().get(x)==null){
+                    chooseRegisterActive=true;
+                }
+                else{
+                    clientApplication.getClient().getPlayer().selectToBeRemovedCardOwn(x);
+                    clientApplication.getClient().sendSelf(new MessageSelectedCard("Null", x));
+                }
+            }
+            else{
+                chooseRegisterActive=true;
             }
         }
         
@@ -188,9 +227,16 @@ public class ClientGameBasicController {
         scrollPaneGameBoard.setContent(new GridPane());
         scrollAvailableProgramming.setContent(new GridPane());
         scrollOtherRegisters.setContent(new GridPane());
-        startingSubmitActive=true;
+        startingSubmitActive=false;
         chooseProgrammingActive=false;
+        chooseRegisterActive=false;
         chooseDirectionActive=false;
+        winningSceneActive=false;
+        losingSceneActive=false;
+        winnerScene.setVisible(false);
+        winnerScene.setDisable(true);
+        loserScene.setVisible(false);
+        winnerScene.setDisable(true);
         rebootWindow.setVisible(false);
         rebootWindow.setDisable(true);
     }
@@ -210,7 +256,23 @@ public class ClientGameBasicController {
          */
     }
 
-    public void goLobby(ActionEvent event){clientApplication.launchBasicLobby();}
+    public void startWinnerScene(){
+        winnerScene.setDisable(false);
+        winnerScene.setVisible(true);
+    }
+
+    public void startLoserScene(){
+        loserScene.setDisable(false);
+        loserScene.setVisible(true);
+    }
+
+    public void goLobby(ActionEvent event){
+        winnerScene.setDisable(true);
+        winnerScene.setVisible(false);
+        loserScene.setDisable(true);
+        loserScene.setVisible(false);
+    }
+
 
     @FXML
     void rebootDown(MouseEvent event) {

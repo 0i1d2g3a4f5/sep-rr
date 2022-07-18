@@ -83,30 +83,49 @@ public class TaskHandler {
 
             }
             case UPDATE_HANDCARDS -> {
-                clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getHandCards(), true));
+                clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getAvailableCardsOwn(), 1) );
 
 
             }
             case UPDATE_PROGCARDS -> {
-                int i=0;
-                while (i<5){
-                    //TODO (Vivian): Mark, should this be removed or not?
-                    System.out.println(clientApplication.getClient().getPlayer().getRegisterCards()[i]);
-                    i++;
-                }
-                ArrayList<Card> bla = fromArrayToList(clientApplication.getClient().getPlayer().getRegisterCards());
-                clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(bla, true));
+                clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getRegisterCardsOwn(), 2));
             }
             case UPDATEOTHERSREGISTERS -> {
-                ArrayList<ArrayList<Card>> res = new ArrayList<>();
-                for(CPlayer cPlayer : clientApplication.getClient().getGame().getPlayerList()){
-                    res.add(fromArrayToList(cPlayer.getRegisterCards()));
+                System.out.println("TASK UPDATE OTHER");
+                ArrayList<ArrayList<Boolean>> list = new ArrayList<>();
+                for(int i=0; i<clientApplication.getClient().getPlayerList().size(); i++){
+                    System.out.println("ADDED REGISTER OF PLAYER " + i);
+                    list.add(clientApplication.getClient().getPlayerList().get(i).getPlayer().getRegisterCardsOther());
                 }
-                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleCardLists(res, false));
+                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleBoolLists(list, 3));
+            }
+            case STARTING_POINT_NOT_AVAILABLE -> {
+                clientApplication.clientGameBasicController.setStartingText("This point was taken by another player :(");
+                clientApplication.activateStartingPoint(true);
+            }
+            case STARTING_POINT_INVALID-> {
+                clientApplication.clientGameBasicController.setStartingText("This point IS NOT A STARTING POINT YOU BLIND STUPID PIECE OF SHIT :(");
+                clientApplication.activateStartingPoint(true);
+            }
+            case CHOOSE_STARTING_POINT -> {
+                clientApplication.clientGameBasicController.setStartingText("Choose a starting point now :)");
+                clientApplication.activateStartingPoint(true);
             }
             case ERROR -> {
 
             }
+            case REBOOTDIRECTION ->{
+                clientApplication.clientGameBasicController.startChoosingDirection();
+            }
+
+            case WIN -> {
+                clientApplication.clientGameBasicController.startWinnerScene();
+            }
+
+            case LOSE -> {
+                clientApplication.clientGameBasicController.startLoserScene();
+            }
+
             default -> {
 
             }
@@ -144,16 +163,21 @@ public class TaskHandler {
     }
     */
 
-    public GridPane gridPaneFromCardList(ArrayList<Card> cardArrayList, boolean isVisible){
+    public GridPane gridPaneFromCardList(ArrayList<Card> cardArrayList, int type){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.gridPaneFromCards(cardArrayList, isVisible);
+        return javaFXGridHandler.gridPaneFromCards(cardArrayList, type);
     }
 
-    public GridPane gridPaneFromMultipleCardLists(ArrayList<ArrayList<Card>> cardArrayList, boolean isVisible){
+    public GridPane gridPaneFromMultipleBoolLists(ArrayList<ArrayList<Boolean>> boolArrayList, int type){
         GridPane result = new GridPane();
-        for(ArrayList<Card> temp : cardArrayList){
-            GridPane tempp = gridPaneFromCardList(temp, isVisible);
-            result.getChildren().add(tempp);
+        JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
+        for(int i=0; i<boolArrayList.size(); i++){
+            ArrayList<Boolean> temp = boolArrayList.get(i);
+            try {
+                result.add(javaFXGridHandler.gridPaneFromBooleanList(temp, type), i, 0);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return result;
 

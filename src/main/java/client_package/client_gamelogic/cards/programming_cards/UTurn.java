@@ -1,6 +1,6 @@
 package client_package.client_gamelogic.cards.programming_cards;
 
-import static client_package.client_gamelogic.cards.CardName.U_TURN;
+import static client_package.client_gamelogic.cards.CardName.UTURN;
 
 public class UTurn extends ProgrammingCard {
 
@@ -8,7 +8,7 @@ public class UTurn extends ProgrammingCard {
      * @author Kafadar
      */
 
-    public UTurn() {super(U_TURN);}
+    public UTurn() {super(UTURN);}
 
     @Override
     public void discard() {

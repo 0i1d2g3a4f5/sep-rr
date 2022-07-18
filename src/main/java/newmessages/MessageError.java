@@ -9,6 +9,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import server_package.SClient;
 import server_package.Server;
+import utility.GlobalParameters;
 
 import java.io.IOException;
 
@@ -55,15 +56,21 @@ public class MessageError extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             Client.clientLogger.info(this.error);
-            if(this.error.equals("ERROR :: Figure already taken.")) {
+            if(this.error.equals(GlobalParameters.FIGURE_ERROR)) {
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.FIGURETAKEN, new TaskContent()));
             }
+            if(this.error.equals(GlobalParameters.STARTING_POINT_TAKEN_ERROR)) {
+                client.getClientApplication().addAndExecuteTask(new Task(TaskType.STARTING_POINT_NOT_AVAILABLE, new TaskContent()));
+            }
+        if(this.error.equals(GlobalParameters.STARTING_POINT_INVALID_ERROR)) {
+            client.getClientApplication().addAndExecuteTask(new Task(TaskType.STARTING_POINT_INVALID, new TaskContent()));
+        }
 
 
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-        if(this.error.equals("Figure is already taken")) {
+        if(this.error.equals(GlobalParameters.FIGURE_ERROR)) {
             sentientClient.retryFigure();
         }
     }

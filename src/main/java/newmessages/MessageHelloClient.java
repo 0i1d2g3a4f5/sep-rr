@@ -6,6 +6,7 @@ import com.google.gson.JsonPrimitive;
 import client_package.Client;
 import server_package.SClient;
 import server_package.Server;
+import utility.GlobalParameters;
 
 import java.io.IOException;
 
@@ -51,17 +52,22 @@ public class MessageHelloClient extends Message{
      */
     @Override
     public void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException {
-
+        if(protocol.equals(PROTOCOL_VERSION)){
+            Client.clientLogger.info("Correct communication protocol verified : " + protocol + ".");
+        }
+        else{
+            Client.clientLogger.error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + PROTOCOL_VERSION);
+        }
 
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-        if(protocol.equals(sentientClient.getProtocolVersion())){
+        if(protocol.equals(PROTOCOL_VERSION)){
             sentientClient.getLogger().info("Correct communication protocol verified : " + protocol + ".");
             sentientClient.sayHelloToServer();
         }
         else{
-            sentientClient.getLogger().error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + sentientClient.getProtocolVersion());
+            sentientClient.getLogger().error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + PROTOCOL_VERSION);
         }
 
 

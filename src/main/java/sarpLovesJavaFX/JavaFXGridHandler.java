@@ -53,9 +53,9 @@ public class JavaFXGridHandler {
 
     }
 
-    public GridPane gridPaneFromCards(ArrayList<Card> cardList, boolean isVisible){
+    public GridPane gridPaneFromCards(ArrayList<Card> cardList, int type){
         try {
-            return constructCardsList(cardList, isVisible);
+            return gridPaneFromCardList(cardList, type);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -83,101 +83,90 @@ public class JavaFXGridHandler {
         return temp;
     }
 
-    private void addToPane(StackPane stackPane,ImageView imageView, boolean isVisible){
-        if(isVisible) {
-            stackPane.getChildren().add(imageView);
-            stackPane.setAlignment(imageView, Pos.CENTER);
-        }
-        else{
-            //TODO replace imageview with placeholder for full register slot
-            stackPane.getChildren().add(new ImageView());
-            stackPane.setAlignment(imageView, Pos.CENTER);
-        }
-    }
+    private void addToPane(StackPane stackPane,ImageView imageView, int type){
 
-    /**
-     * @param cardList
-     * @return
-     * @throws IOException
-     * @author Vivian Kafadar
-     */
-    private GridPane constructCardsList(ArrayList<Card> cardList, boolean isVisible) throws IOException {
-        GridPane gridPane = new GridPane();
-        for(Card card : cardList){
-            if(card != null)
-            Client.clientLogger.debug("Card is: " + card.getCardName().toString());
-        }
-        Client.clientLogger.debug("CARDLISTSIZE: " + cardList.size());
-        // get card list length, add image in gridpanes at needed locations
-        for(int i=0; i<cardList.size(); i++){
-            if(cardList.get(i)!=null) {
-                StackPane stackPane = new StackPane();
-                switch (cardList.get(i).getCardName()) {
-                    // programming cards
-                    case AGAIN:
-                        // add card again
-                        addToPane(stackPane, Images.AGAIN_CARD.toImageView(), isVisible);
-                        break;
-                    case BACK_UP:
-                        addToPane(stackPane, Images.BACK_UP_CARD.toImageView(), isVisible);
-                        break;
-                    case LEFT_TURN:
-                        addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView(), isVisible);
-                        break;
-                    case MOVE_ONE:
-                        addToPane(stackPane, Images.MOVE_1_CARD.toImageView(), isVisible);
-                        break;
-                    case MOVE_THREE:
-                        addToPane(stackPane, Images.MOVE_3_CARD.toImageView(), isVisible);
-                        break;
-                    case MOVE_TWO:
-                        addToPane(stackPane, Images.MOVE_2_CARD.toImageView(), isVisible);
-                        break;
-                    case POWER_UP:
-                        addToPane(stackPane, Images.POWER_UP_CARD.toImageView(), isVisible);
-                        break;
-                    case RIGHT_TURN:
-                        addToPane(stackPane, Images.TURN_RIGHT_CARD.toImageView(), isVisible);
-                        break;
-                    case U_TURN:
-                        addToPane(stackPane, Images.U_TURN_CARD.toImageView(), isVisible);
-                        break;
+        switch (type){
+            case 1 -> {
+                imageView.setFitWidth(64);
+                imageView.setFitHeight(98);
+                break;
+            }
+            case 2 -> {
+                imageView.setFitWidth(124);
+                imageView.setFitHeight(198);
+                break;
+            }
+            case 3 -> {
+                imageView.setFitWidth(90);
+                imageView.setFitHeight(158);
+                break;
+            }
+            default -> {
+                imageView.setFitWidth(512);
+                imageView.setFitHeight(512);
+                break;
 
-                    // special programming cards
-                    case ENERGY_ROUTINE:
-                        addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toImageView(), isVisible);
-                        break;
-                    case REPEAT_ROUTINE:
-                        addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toImageView(), isVisible);
-                        break;
-                    case SANDBOX_ROUTINE:
-                        addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toImageView(), isVisible);
-                        break;
-                    case SPAM_FOLDER:
-                        addToPane(stackPane, Images.SPAM_FOLDER_CARD.toImageView(), isVisible);
-                        break;
-                    case WEASEL_ROUTINE:
-                        addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toImageView(), isVisible);
-                        break;
-
-                    // damage cards
-                    case SPAM:
-                        addToPane(stackPane, Images.SPAM_CARD.toImageView(), isVisible);
-                        break;
-                    case TROJAN_HORSE:
-                        addToPane(stackPane, Images.TROJAN_HORSE_CARD.toImageView(), isVisible);
-                        break;
-                    case VIRUS:
-                        addToPane(stackPane, Images.VIRUS_CARD.toImageView(), isVisible);
-                        break;
-                    case WORM:
-                        addToPane(stackPane, Images.WORM_CARD.toImageView(), isVisible);
-                        break;
-
-                }
-                gridPane.add(stackPane, i, 0);
             }
         }
+        stackPane.getChildren().add(imageView);
+        stackPane.setAlignment(imageView, Pos.CENTER);
+    }
+    public GridPane gridPaneFromBooleanList(ArrayList<Boolean> boolList, int type) throws IOException {
+        GridPane gridPane = new GridPane();
+        for(int i=0; i<boolList.size(); i++){
+            StackPane stackPane = new StackPane();
+            if(boolList.get(i)){
+                addToPane(stackPane, Images.YESCARD.toImageView(), 3);
+            }
+            else{
+                addToPane(stackPane, Images.NOCARD.toImageView(),  3);
+            }
+            gridPane.add(stackPane, i, 0);
+        }
+        return gridPane;
+    }
+    private GridPane gridPaneFromCardList(ArrayList<Card> cardList, int type) throws IOException {
+        GridPane gridPane = new GridPane();
+        //Client.clientLogger.debug("CARDLISTSIZE: " + cardList.size());
+        // get card list length, add image in gridpanes at needed locations
+        for(int i=0; i<cardList.size(); i++){
+                if (cardList.get(i) != null) {
+                    StackPane stackPane = new StackPane();
+                    switch (cardList.get(i).getCardName()) {
+                        // programming cards
+                        case AGAIN -> addToPane(stackPane, Images.AGAIN_CARD.toImageView(), type);
+                        case BACK_UP -> addToPane(stackPane, Images.BACK_UP_CARD.toImageView(), type);
+                        case TURNLEFT -> addToPane(stackPane, Images.TURN_LEFT_CARD.toImageView(), type);
+                        case MOVEI -> addToPane(stackPane, Images.MOVE_1_CARD.toImageView(), type);
+                        case MOVEIII -> addToPane(stackPane, Images.MOVE_3_CARD.toImageView(), type);
+                        case MOVEII -> addToPane(stackPane, Images.MOVE_2_CARD.toImageView(), type);
+                        case POWER_UP -> addToPane(stackPane, Images.POWER_UP_CARD.toImageView(), type);
+                        case TURNRIGHT -> addToPane(stackPane, Images.TURN_RIGHT_CARD.toImageView(), type);
+                        case UTURN -> addToPane(stackPane, Images.U_TURN_CARD.toImageView(), type);
+
+
+                        // special programming cards
+                        case ENERGY_ROUTINE -> addToPane(stackPane, Images.ENERGY_ROUTINE_CARD.toImageView(), type);
+                        case REPEAT_ROUTINE -> addToPane(stackPane, Images.REPEAT_ROUTINE_CARD.toImageView(), type);
+                        case SANDBOX_ROUTINE -> addToPane(stackPane, Images.SANDBOX_ROUTINE_CARD.toImageView(), type);
+                        case SPAM_FOLDER -> addToPane(stackPane, Images.SPAM_FOLDER_CARD.toImageView(), type);
+                        case WEASEL_ROUTINE -> addToPane(stackPane, Images.WEASEL_ROUTINE_CARD.toImageView(), type);
+
+
+                        // damage cards
+                        case SPAM -> addToPane(stackPane, Images.SPAM_CARD.toImageView(), type);
+                        case TROJAN_HORSE -> addToPane(stackPane, Images.TROJAN_HORSE_CARD.toImageView(), type);
+                        case VIRUS -> addToPane(stackPane, Images.VIRUS_CARD.toImageView(), type);
+                        case WORM -> addToPane(stackPane, Images.WORM_CARD.toImageView(), type);
+                    }
+                    gridPane.add(stackPane, i, 0);
+                } else {
+                    StackPane stackPane = new StackPane();
+                    addToPane(stackPane, Images.NOCARD.toImageView(), type);
+                    gridPane.add(stackPane, i, 0);
+                }
+            }
+
         return gridPane;
         }
 
@@ -211,7 +200,8 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
 
-                for(GameElement gameElement : temp.getElements()){
+                for(int i=0; i<temp.getElements().size(); i++){
+                    GameElement gameElement = temp.getElements().get(i);
                     switch (gameElement.getType()){
                         case LASER:
                             caseLaser(stackPane, gameElement);
@@ -333,36 +323,36 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    private  void caseRobot(StackPane stackPane, Robot gameElement) {
+    public void caseRobot(StackPane stackPane, Robot gameElement) {
         Robot robot = gameElement;
         switch (robot.getFigure()){
             case 1 -> {
-                ImageView imageView8 = Images.SPIN_BOT.toImageView();
+                ImageView imageView8 = Images.SPIN_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 2 -> {
-                ImageView imageView8 = Images.HULK_BOT.toImageView();
+                ImageView imageView8 = Images.HULK_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 3 -> {
-                ImageView imageView8 = Images.ZOOM_BOT.toImageView();
+                ImageView imageView8 = Images.HAMMER_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 4 -> {
-                ImageView imageView8 = Images.TWONKY_BOT.toImageView();
+                ImageView imageView8 = Images.TWONKY_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 5 -> {
-                ImageView imageView8 = Images.HAMMER_BOT.toImageView();
+                ImageView imageView8 = Images.HAMMER_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 6-> {
-                ImageView imageView8 = Images.SMASH_BOT.toImageView();
+                ImageView imageView8 = Images.SMASH_BOT.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }

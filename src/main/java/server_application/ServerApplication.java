@@ -23,6 +23,9 @@ import java.util.Properties;
  */
 public class ServerApplication extends Application{
 
+    public static void main(String[] args){
+        launch(args);
+    }
 
     private BasicServer basicServer;
     private boolean isBasic;

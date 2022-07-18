@@ -16,10 +16,10 @@ import java.io.IOException;
  */
 public class CardFactory {
 
-    public Card createCard(gamelogic.cards.CardName cardName) throws IOException {
+    public Card createCard(CardName cardName) throws IOException {
         return buildCard(cardName);
     }
-    private Card buildCard(gamelogic.cards.CardName cardName) throws IOException {
+    private Card buildCard(CardName cardName) throws IOException {
         switch (cardName){
             case SPAM -> {
                 return new Spam();
@@ -39,25 +39,25 @@ public class CardFactory {
             case BACK_UP -> {
                 return new BackUp();
             }
-            case LEFT_TURN -> {
+            case TURNLEFT -> {
                 return new LeftTurn();
             }
-            case MOVE_ONE -> {
+            case MOVEI -> {
                 return new MoveOne();
             }
-            case MOVE_TWO -> {
+            case MOVEII -> {
                 return new MoveTwo();
             }
-            case MOVE_THREE -> {
+            case MOVEIII -> {
                 return new MoveThree();
             }
             case POWER_UP -> {
                 return new PowerUp();
             }
-            case RIGHT_TURN -> {
+            case TURNRIGHT -> {
                 return new RightTurn();
             }
-            case U_TURN -> {
+            case UTURN -> {
                 return new UTurn();
             }
             case ADMIN_PRIVILEGE -> {

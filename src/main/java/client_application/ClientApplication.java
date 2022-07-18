@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -52,11 +54,26 @@ public class ClientApplication extends Application {
     public void selectCard(){
         clientGameBasicController.selectCard();
     }
-    public void activateCardSelection(boolean bo){
-        clientGameBasicController.activateCardSelection(bo);
+    public void activateStartingPoint(boolean bo){
+        clientGameBasicController.activateStartingPoint(bo);
+    }
+    public void activateAvailableProgrammingSelection(boolean bo){
+        clientGameBasicController.activateProgrammingSelection(bo);
+    }
+    public void activateRegisterSelection(boolean bo){
+        clientGameBasicController.activateRegisterSelection(bo);
     }
     public void resetRegisterCards(){
         clientGameBasicController.resetRegisterCards();
+    }
+    public void waitForGame(){
+        while (clientGameBasicController==null){
+            try {
+                TimeUnit.MILLISECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void launchBasicStart(){

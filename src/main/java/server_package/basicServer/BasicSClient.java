@@ -201,7 +201,7 @@ public class BasicSClient extends SClient {
             Game.getInstance().join(this);
         }
         else{
-            sendSelf(new MessageError("ERROR :: Figure already taken."));
+            sendSelf(new MessageError("Figure is already taken"));
             Server.serverLogger.error("Chosen figure already taken");
         }
     }

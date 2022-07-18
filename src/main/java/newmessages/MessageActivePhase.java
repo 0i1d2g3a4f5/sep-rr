@@ -48,10 +48,11 @@ public class MessageActivePhase extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         Server.serverLogger.info("Active Phase: Phase " + phase);
+        client.getGame().setPhase(phase);
+
 
         if(phase == 2 || phase == 3){
-            client.getPlayer().getHandCards().clear();
-            client.getPlayer().setRegisterCards(new Card[client.getPlayer().getRegisterCards().length]);
+            client.getPlayer().phaseReset();
             Server.serverLogger.info("Register cards set");
         }
 

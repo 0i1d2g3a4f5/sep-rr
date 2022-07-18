@@ -13,13 +13,13 @@ public enum CardName {
     // Programming Cards
     AGAIN("Again"),
     BACK_UP("BackUp"),
-    LEFT_TURN("LeftTurn"),
-    MOVE_ONE("MoveOne"),
-    MOVE_TWO("MoveTwo"),
-    MOVE_THREE("MoveThree"),
+    TURNLEFT("TurnLeft"),
+    MOVEI("MoveI"),
+    MOVEII("MoveII"),
+    MOVEIII("MoveIII"),
     POWER_UP("PowerUp"),
-    RIGHT_TURN("RightTurn"),
-    U_TURN("UTurn"),
+    TURNRIGHT("TurnRight"),
+    UTURN("UTurn"),
     // Permanent Upgrade Cards
     ADMIN_PRIVILEGE("AdminPrivilege"),
     CORRUPTION_WAVE("CorruptionWave"),
@@ -72,8 +72,8 @@ public enum CardName {
     public static CardName parseCardName(String cardName) throws IOException {
         for (CardName  name:CardName.values()){
             cardName =cardName.replaceAll("\"","");
-            Server.serverLogger.info("Wanted: " + cardName);
-            Server.serverLogger.info("Actual: " + name.toString());
+            //Server.serverLogger.info("Wanted: " + cardName);
+            //Server.serverLogger.info("Actual: " + name.toString());
 
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }

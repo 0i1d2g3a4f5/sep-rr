@@ -29,13 +29,13 @@ public class TestController {
         CardFactory cardFactory = new CardFactory();
         ArrayList<Card> cardArrayList = new ArrayList<>();
         try {
-            cardArrayList.add(cardFactory.createCard(CardName.LEFT_TURN));
-            cardArrayList.add(cardFactory.createCard(CardName.RIGHT_TURN));
-            cardArrayList.add(cardFactory.createCard(CardName.U_TURN));
+            cardArrayList.add(cardFactory.createCard(client_package.client_gamelogic.cards.CardName.SPAM_FOLDER));
+            cardArrayList.add(cardFactory.createCard(client_package.client_gamelogic.cards.CardName.SPAM_FOLDER));
+            cardArrayList.add(cardFactory.createCard(client_package.client_gamelogic.cards.CardName.SPAM_FOLDER));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        gridPane = javaFXGridHandler.gridPaneFromCards(cardArrayList, true);
+        gridPane = javaFXGridHandler.gridPaneFromCards(cardArrayList, 1);
         scrollPane.setContent(gridPane);
     }
     @FXML

@@ -10,7 +10,23 @@ import java.util.ArrayList;
 
 public class Game {
 
-    private int activeRegister;
+    public int getPhase() {
+        return phase;
+    }
+
+    public void setPhase(int phase) {
+        this.phase = phase;
+    }
+
+    public int getActiveRegister() {
+        return activeRegister;
+    }
+
+    public void setActiveRegister(int activeRegister) {
+        this.activeRegister = activeRegister;
+    }
+
+    private int activeRegister, phase;
     private final ArrayList<CPlayer> playerList = new ArrayList<>();
     private GameBoard map;
     private Client client;
@@ -29,11 +45,8 @@ public class Game {
         }
     }
 
-    public int getActiveRegister() {
-        return activeRegister;
-    }
 
-    public void join(Client client){
+   /* public void join(Client client){
         if(!(client.getId()==this.client.getId())){
             CPlayer player = new CPlayer(client,this);
             client.setPlayer(player);
@@ -45,7 +58,7 @@ public class Game {
             thisClient.setPlayer(player);
             playerList.add(player);
         }
-    }
+    }*/
 
     public ArrayList<CPlayer> getPlayerList() {
         return playerList;

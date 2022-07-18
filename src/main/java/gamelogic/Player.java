@@ -2,6 +2,7 @@ package gamelogic;
 
 import client_package.Client;
 import gamelogic.cards.programming_cards.*;
+import gamelogic.game_elements.ElementName;
 import newmessages.*;
 import server_package.SClient;
 import gamelogic.cards.Card;
@@ -9,6 +10,7 @@ import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
 import server_package.Server;
+import utility.GlobalParameters;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -170,7 +172,10 @@ public class Player{
 
     public void drawSpam(int count){
         for (int i = 0; i < count; i++) {
-            discardPile.add(game.getSpamDrawPile().pop());
+            Card card = game.getSpamDrawPile().pop();
+            card.setPlayer(this);
+            discardPile.add(card);
+
         }
 
     }
@@ -183,12 +188,15 @@ public class Player{
 
 
     public boolean removeCard(int position){
+        System.out.println("LALALALAL");
         Card card = register[position];
         if(card != null){
+            System.out.println("NULLLL");
             handCards.add(card);
             register[position]=null;
             return true;
         }
+        System.out.println("DEGIL");
         return false;
     }
 
@@ -302,7 +310,12 @@ public class Player{
      * @author Ringer
      */
     public boolean placeRobot(Position position) {
-        return game.placeRobot(this,position);
+        if(getGame().getBoard().getGameField(position.getY(), position.getX()).contains(ElementName.STARTPOINT)) {
+        return game.placeRobot(this,position);}
+        else{
+            sClient.sendSelf(new MessageError(GlobalParameters.STARTING_POINT_INVALID_ERROR));
+        }
+        return false;
     }
 
     /**

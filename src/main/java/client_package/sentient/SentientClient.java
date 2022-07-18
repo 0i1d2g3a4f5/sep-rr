@@ -258,10 +258,6 @@ public class SentientClient extends Client {
         Game.getInstance().setMap(new GameBoard(jsonObject));
         Game game = Game.getInstance();
         game.setClient(this);
-        displayPlayerList();
-        for (int i=0; i< playerList.size(); i++) {
-            game.join(playerList.get(i));
-        }
         setGame(game);
     }
     public Logger getLogger() {

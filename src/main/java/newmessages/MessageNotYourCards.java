@@ -41,7 +41,7 @@ public class MessageNotYourCards extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         cardsInHand = content.get("cardsInHand").getAsInt();
-        Server.serverLogger.info("Created Not Your Cards Message: " + this + " from JSON: " + jsonObject);
+        //Server.serverLogger.info("Created Not Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -61,23 +61,20 @@ public class MessageNotYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        Server.serverLogger.info("NotYourCards" + cardsInHand);
-        /*
-
-        ArrayList<CPlayer> playerList = client.getGame().getPlayerList();
-
-        for (CPlayer player:playerList) {
-            if(player.getClientID()==clientID){
-                player.setHandCards(cardsInHand);
+        for(int i=0; i<client.getPlayerList().size(); i++){
+            if(clientID==client.getPlayerList().get(i).getId()){
+                client.getPlayerList().get(i).getPlayer().setAvailableCardsOther(cardsInHand);
                 break;
             }
         }
-
-         */
-
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        for(int i=0; i<sentientClient.getPlayerList().size(); i++){
+            if(clientID==sentientClient.getPlayerList().get(i).getId()){
+                sentientClient.getPlayerList().get(i).getPlayer().setAvailableCardsOther(cardsInHand);
+                break;
+            }
+        }
     }
 }

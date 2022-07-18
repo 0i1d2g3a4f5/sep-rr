@@ -1,7 +1,5 @@
 package gamelogic.cards.special_cards;
 
-import gamelogic.cards.CardName.*;
-
 import static gamelogic.cards.CardName.*;
 
 public class WeaselRoutine extends SpecialCard {
@@ -20,10 +18,10 @@ public class WeaselRoutine extends SpecialCard {
     public void activateCard(){
         //TODO PlayerMessage, player choose a card
         switch (cardName){
-            case LEFT_TURN :
+            case TURNLEFT:
                 player.getRobot().left();
                 break;
-            case RIGHT_TURN:
+            case TURNRIGHT:
                 player.getRobot().right();
                 break;
             case U_TURN:

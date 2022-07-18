@@ -70,12 +70,11 @@ public class MessageMovement extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        for (CPlayer player:client.getGame().getPlayerList()) {
-            if(clientID == player.getClientID()) {
-                Client.clientLogger.info("Player: "+ player + " moves his Robot to ("+y+"|"+x+")");
-                player.getRobot().moveRobotTo(y, x);
-            }
-
+        if(clientID==client.getId()){
+            client.getPlayer().getRobot().moveRobotTo(y, x);
+        }
+        else{
+            client.playerFromId(clientID).getPlayer().getRobot().moveRobotTo(y, x);
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
     }
