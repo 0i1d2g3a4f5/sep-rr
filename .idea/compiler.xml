@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="desperate_drosseln_hp" />
+        <module name="46bcabf904f5cdc31aa07e91331222a29a7ae0bc" />
       </profile>
     </annotationProcessing>
   </component>
