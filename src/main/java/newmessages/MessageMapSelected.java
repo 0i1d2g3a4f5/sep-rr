@@ -62,6 +62,8 @@ public class MessageMapSelected extends Message{
             sClient.sendAll(this);
             //TODO select position, revert to get gameBoard
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
+            Game.getInstance().setStartPoints();
+
 
     }
 

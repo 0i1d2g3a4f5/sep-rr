@@ -13,6 +13,7 @@ import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
 import newmessages.*;
 import server_package.Server;
+import utility.GlobalParameters;
 
 import java.io.IOException;
 import java.util.*;
@@ -38,6 +39,7 @@ public class  Game {
     private int lastCurrentPlayer;
     private int activeRegister = -1;
     private int robotsPlaced = 0;
+    public boolean ready_to_set_startpoint = false;
     private boolean programmingPhase = false;
     private boolean continueGame = true;
     private ArrayList<Activatable> elementRegistry;
@@ -194,6 +196,38 @@ public class  Game {
             }
 
         }
+
+
+    }
+
+    public void setStartPoints(){
+        lastCurrentPlayer=0;
+        playerList.get(lastCurrentPlayer).getClient().sendAll(new MessageCurrentPlayer(playerList.get(lastCurrentPlayer).getClient().getId()));
+        /*
+        for (Player player:playerList) {
+            player.getClient().sendAll(new MessageCurrentPlayer(player.getClient().getId()));
+            boolean allPlaced = true;
+            for (Player player2: playerList) {
+
+                if(!player2.getRobot().isPlaced()){
+                    allPlaced = false;
+                }
+            }
+
+            while (!ready_to_set_startpoint){
+                Server.serverLogger.debug("Waiting for Startpoint "+ ready_to_set_startpoint);
+                if(allPlaced)
+                    break;
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(allPlaced)
+                break;
+            ready_to_set_startpoint=false;
+        }*/
     }
 
     /**
@@ -204,7 +238,10 @@ public class  Game {
      */
     public synchronized boolean placeRobot(Player player,Position position){
 
-        if(board.getField(position).contains(ElementName.ROBOT)) return false;
+        if(board.getField(position).contains(ElementName.ROBOT)) {
+            player.sendMessage(new MessageError(GlobalParameters.STARTING_POINT_TAKEN_ERROR));
+            return false;
+        }
         else if(board.getField(position).contains(ElementName.STARTPOINT)){
             board.getField(position).addRobot(player.getRobot());
             robotsPlaced++;
@@ -225,6 +262,7 @@ public class  Game {
 
         //sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
+
         gameLoop();
 
     }
