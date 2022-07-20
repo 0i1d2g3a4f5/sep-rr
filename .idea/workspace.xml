@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -25,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -51,7 +58,7 @@
     "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Sarp/Desktop/Intellij-Projects/aaa/46bcabf904f5cdc31aa07e91331222a29a7ae0bc",
+    "last_opened_file_path": "C:/Users/Mark/IdeaProjects/aaa/desperate_drosseln_hp",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -93,7 +100,7 @@
     </configuration>
     <configuration name="ClientApplication" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="client_application.ClientApplication" />
-      <module name="46bcabf904f5cdc31aa07e91331222a29a7ae0bc" />
+      <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client_application.*" />
@@ -104,12 +111,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SentientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_package.sentient.SentientApplication" />
+    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server_application.ServerApplication" />
       <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client_package.sentient.*" />
+          <option name="PATTERN" value="server_application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,12 +124,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server_application.ServerApplication" />
-      <module name="46bcabf904f5cdc31aa07e91331222a29a7ae0bc" />
+    <configuration name="client_application.ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client_application.ClientMain" />
+      <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server_application.*" />
+          <option name="PATTERN" value="client_application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,8 +151,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.client_application.ClientMain" />
       <item itemvalue="Application.Cccc" />
-      <item itemvalue="Application.SentientApplication" />
       <item itemvalue="Application.client_package.sentient.SentientLauncher" />
       <item itemvalue="Application.ClientApplication" />
       <item itemvalue="Application.ServerApplication" />
@@ -154,9 +161,9 @@
       <list>
         <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
+        <item itemvalue="Application.client_application.ClientMain" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
-        <item itemvalue="Application.SentientApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +187,8 @@
       <workItem from="1658082947822" duration="399000" />
       <workItem from="1658107544465" duration="33398000" />
       <workItem from="1658147685944" duration="1043000" />
+      <workItem from="1658315282393" duration="598000" />
+      <workItem from="1658316258422" duration="2292000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>

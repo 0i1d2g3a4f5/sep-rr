@@ -64,7 +64,8 @@ public class MessageReboot extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        client.getClientApplication().addAndExecuteTask(new Task(TaskType.REBOOTDIRECTION, new TaskContent()));
+        if(clientID ==client.getId())
+             client.getClientApplication().addAndExecuteTask(new Task(TaskType.REBOOTDIRECTION, new TaskContent()));
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {

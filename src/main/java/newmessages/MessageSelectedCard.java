@@ -87,20 +87,21 @@ public class MessageSelectedCard extends Message {
 
 
         }
-        System.out.println("BISHER: ");
+        Server.serverLogger.info("BISHER: ");
         boolean allFull = true;
-        for(int j=0; j<Game.getInstance().getPlayerList().size(); j++){
-            Player player1 = Game.getInstance().getPlayerList().get(j);
+
+
             for(int i=0; i<5; i++){
-                if(player1.getRegister(i)!=null){
-                    System.out.println(i + " : " + player1.getRegister(i).getCardName().toString());
+                allFull = true;
+                if(player.getRegister(i)!=null){
+                    Server.serverLogger.info(i + " : " + player.getRegister(i).getCardName().toString());
                 }
                 else {
                     allFull=false;
                     break;
                 }
             }
-        }
+
         if(allFull){
             Server.serverLogger.info("Cards full");
             sClient.getPlayer().isProgramming = false;
