@@ -10,6 +10,7 @@ import client_package.client_gamelogic.game_elements.Gear;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 
+import gamelogic.Direction;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -326,7 +327,9 @@ public class JavaFXGridHandler {
      * @param gameElement
      */
     public void caseRobot(StackPane stackPane, Robot gameElement) {
+        System.out.println("SGDKL;JGSEDJLKSGDFJLKFGLSJDEKSJLKGEDFJLKGSDFJLKGSDFLJK\n\n\n\n\n\nASDFG;LKK;JLSGDKJ;GLSDJLKSGDKLJGSDJKLSFGDLJK\nDSGJK;LJKGL;DFSJKLGSDJKLSGDJKL\nASKGL;JDJKLGDSKJLSGDKJSLKJSGDKLJ\nSDGJ;LSDGKJ;LSDGKJL;");
         Robot robot = gameElement;
+        System.out.println("YONUI BURAISAI: " + robot.getDirectionFacing().toString());
         switch (robot.getFigure()){
             case 1 -> {
                 ImageView imageView8 = Images.SPIN_BOT.toImageView(robot.getDirectionFacing());

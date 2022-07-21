@@ -131,7 +131,7 @@ public class Robot extends GameElement {
      */
     public boolean left(){
         //TODO Animation
-        directionFacing.left();
+        directionFacing=directionFacing.left();
         return true;
     }
 
@@ -141,7 +141,7 @@ public class Robot extends GameElement {
      */
     public boolean right(){
         //TODO Animation
-        directionFacing.right();
+        directionFacing=directionFacing.right();
         return true;
     }
 
@@ -152,8 +152,8 @@ public class Robot extends GameElement {
 
     public boolean uTurn(){
         //TODO Animation
-        directionFacing.right();
-        directionFacing.right();
+        directionFacing=directionFacing.right();
+        directionFacing=directionFacing.right();
         return true;
     }
 

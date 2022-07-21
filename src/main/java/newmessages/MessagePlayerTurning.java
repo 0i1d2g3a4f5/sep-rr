@@ -65,14 +65,29 @@ public class MessagePlayerTurning extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+        if(clientID==client.getId()){
+            if (rotation.equals("clockwise")){
+                client.getPlayer().getRobot().right();
+            }
+            else{
+                client.getPlayer().getRobot().left();
+            }
+        }
+        else {
 
-        for (CPlayer player:client.getGame().getPlayerList())
-        //TODO check if rotation gets clockwise{
-            if(clientID == player.getClientID()){
-                if(rotation=="clockwise"){
-                    player.getRobot().right();
-                }else {
-                    player.getRobot().left();
+            for (int i = 0; i < client.getPlayerList().size(); i++) {
+
+                if(clientID==client.getPlayerList().get(i).getId()){
+                    if (rotation.equals("clockwise")){
+                        client.getPlayerList().get(i).getPlayer().getRobot().right();
+                    }
+                    else{
+                        client.getPlayerList().get(i).getPlayer().getRobot().left();
+                    }
+
+                }
+
+
             }
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));

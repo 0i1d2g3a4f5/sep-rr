@@ -29,18 +29,12 @@ import java.util.ArrayList;
 public class Cccc extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene;
+
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        ArrayList<Card> cardArrayList = new ArrayList<>();
-        cardArrayList.add(new CardFactory().createCard(CardName.MOVEI));
-        cardArrayList.add(new CardFactory().createCard(CardName.MOVEII));
-        cardArrayList.add(new CardFactory().createCard(CardName.MOVEIII));
-        cardArrayList.add(new CardFactory().createCard(CardName.TURNLEFT));
-        cardArrayList.add(new CardFactory().createCard(CardName.TURNRIGHT));
-        cardArrayList.add(new CardFactory().createCard(CardName.BACK_UP));
-
-
-        scene = new Scene(javaFXGridHandler.gridPaneFromCards(cardArrayList, 2), 1280, 720);
+        Robot robot = new Robot(new Client(), new Position(0, 0), Direction.EAST, 2);
+        StackPane stackPane = new StackPane();
+        javaFXGridHandler.caseRobot(stackPane, robot);
+        Scene scene= new Scene(stackPane,1000, 1000);
         stage.setScene(scene);
         stage.show();
 
