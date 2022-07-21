@@ -32,7 +32,7 @@ public class ServerApplication extends Application{
     private List<Task> taskList;
     private TaskHandler taskHandler;
 
-    private ServerSelectionController serverSelectionController;
+    public ServerSelectionController serverSelectionController;
 
     @Override
     public void start(Stage stage) throws Exception {
