@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="I think the bug regarding the last register card is solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageReboot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSelectedCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -29,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sarpisallah" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +57,7 @@
     "TODO_SCOPE": "All Places",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Mark/IdeaProjects/aaa/desperate_drosseln_hp",
+    "last_opened_file_path": "C:/Users/Mark/IdeaProjects/bbb/desperate_drosseln_hp",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -189,6 +188,7 @@
       <workItem from="1658147685944" duration="1043000" />
       <workItem from="1658315282393" duration="598000" />
       <workItem from="1658316258422" duration="2292000" />
+      <workItem from="1658332995080" duration="804000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>

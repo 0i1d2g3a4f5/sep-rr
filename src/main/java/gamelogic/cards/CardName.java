@@ -1,8 +1,6 @@
 package gamelogic.cards;
 
 public enum CardName {
-    TURN_LEFT_CARD("TurnLeft"),
-
     // Damage Cards
     SPAM("Spam"),
     TROJAN_HORSE("TrojanHorse"),

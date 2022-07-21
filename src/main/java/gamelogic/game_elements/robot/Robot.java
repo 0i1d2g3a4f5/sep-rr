@@ -20,6 +20,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     int activationOrder = 6;
 
+    private boolean interrupted = false;
+
     private boolean rebootedThisTurn = false;
     private StartPoint startPoint;
 
@@ -180,6 +182,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    public void interrupt(){
+
+    }
+
     /**
      * @author Ringer
      * @param distance
@@ -191,6 +197,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         boolean success = true;
 
         for (int i = 0;i<distance;i++){
+            if(interrupted)return false;
             if(!move(1)){
 
                 success = false;
@@ -202,6 +209,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
             }
         }
         game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
+        interrupted = false;
         return success;
     }
 
@@ -353,6 +361,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         gameField.removeRobot();
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
         waitingForDirection = true;
+        interrupt();
         finishReboot(Direction.NORTH);
 
 
@@ -478,6 +487,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public void activate() {
         //TODO (Vivian): Mark, do we keep this in?
         System.out.println("activate "+type);
+        laserMovement(gameField.getNeighbor(directionFacing));
         //TODO activate Robot Lasers
     }
 
