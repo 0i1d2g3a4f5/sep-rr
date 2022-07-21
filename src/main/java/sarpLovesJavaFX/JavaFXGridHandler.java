@@ -506,8 +506,10 @@ public class JavaFXGridHandler {
      */
     private void caseEnergySpace(StackPane stackPane) {
         ImageView imageView2 = Images.ENERGY_SPACE_GREEN_ELEMENT.toImageView();
-        stackPane.getChildren().add(imageView2);
+        ImageView imageview = Images.ENERGY_CUBE.toImageView();
+        stackPane.getChildren().addAll(imageView2,imageview);
         stackPane.setAlignment(imageView2,Pos.CENTER);
+        stackPane.setAlignment(imageview,Pos.CENTER);
         return;
     }
 
