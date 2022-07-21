@@ -192,6 +192,8 @@ public class JavaFXGridHandler {
             }
         }
         GridPane input = new GridPane();
+        input.setMaxSize(0,0);
+        input.setMinSize(0,0);
         for(int y=0; y<Game.getInstance().getMap().getDimensionY(); y++){
             for(int x=0; x<gameBoard.getDimensionX(); x++){
                 GameField temp = gameBoard.getGameField(y, x);
