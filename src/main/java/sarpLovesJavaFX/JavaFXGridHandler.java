@@ -518,18 +518,57 @@ public class JavaFXGridHandler {
      */
     private void caseConveyorBelt(StackPane stackPane, GameElement gameElement) {
         ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
-        switch (conveyorBelt.getColor()){
-            case BLUE -> {
+            /*case BLUE -> {
                 switch (gameElement.orientations.get(0)){
                     case NORTH -> {
-                        ImageView imageView1= Images.BELT_BLUE_UP_ELEMENT.toImageView();
-                        stackPane.getChildren().add(imageView1);
-                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                        if (gameElement.orientations.get(1) != null) {
+                            switch (gameElement.orientations.get(1)){
+
+                                case NORTH-> {
+                                }
+                                case SOUTH -> {
+                                    ImageView imageView1= Images.BELT_BLUE_UP_ELEMENT.toImageView();
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                                case EAST -> {
+                                    ImageView imageView1= Images.BELT_BLUE_UP_TO_LEFT_ELEMENT.imageView;
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                                case WEST -> {
+                                    ImageView imageView1= Images.BELT_BLUE_UP_TO_RIGHT_ELEMENT.imageView;
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                            }
+                        }
+
                     }
                     case SOUTH -> {
-                        ImageView imageView1= new ImageView(new Image("/BeltBlueDown.png"));
-                        stackPane.getChildren().add(imageView1);
-                        stackPane.setAlignment(imageView1, Pos.CENTER);
+                        if (gameElement.orientations.get(1) != null) {
+                            switch (gameElement.orientations.get(1)){
+
+                                case NORTH-> {
+
+                                    ImageView imageView1= Images.BELT_BLUE_DOWN_ELEMENT.toImageView();
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                                case SOUTH -> {
+                                }
+                                case EAST -> {
+                                    ImageView imageView1= Images.BELT_BLUE_UP_TO_LEFT_ELEMENT.imageView;
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                                case WEST -> {
+                                    ImageView imageView1= Images.BELT_BLUE_UP_TO_RIGHT_ELEMENT.imageView;
+                                    stackPane.getChildren().add(imageView1);
+                                    stackPane.setAlignment(imageView1, Pos.CENTER);
+                                }
+                            }
+                        }
                     }
                     case EAST-> {
                         ImageView imageView1= new ImageView(new Image("/BeltBlueRight.png"));
@@ -566,8 +605,8 @@ public class JavaFXGridHandler {
                         stackPane.setAlignment(imageView1, Pos.CENTER);
                     }
                 }
-            }
-        }
+            }*/
+
     }
 
     /**

@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="automatically center game grid pane when starting game">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="I think the bug regarding the last register card is solved">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageSetStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -195,6 +190,7 @@
       <workItem from="1658315282393" duration="598000" />
       <workItem from="1658316258422" duration="2292000" />
       <workItem from="1658332995080" duration="804000" />
+      <workItem from="1658434731208" duration="460000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -315,21 +311,7 @@
       <option name="project" value="LOCAL" />
       <updated>1658020560018</updated>
     </task>
-    <task id="LOCAL-00018" summary="Add info message to serverSelection scene">
-      <created>1658425093515</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1658425093515</updated>
-    </task>
-    <task id="LOCAL-00019" summary="automatically center game grid pane when starting game">
-      <created>1658426809325</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1658426809325</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,8 +351,6 @@
     <MESSAGE value="Lasers tested, it works as it should" />
     <MESSAGE value="enormous great giant large massive vast extensive tremendous immense mega&#10;jumbo gigantic monumental bulky colossal mountainous stellar prodigious stupendous gargantuan elephantine ginormous update" />
     <MESSAGE value="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind" />
-    <MESSAGE value="Add info message to serverSelection scene" />
-    <MESSAGE value="automatically center game grid pane when starting game" />
-    <option name="LAST_COMMIT_MESSAGE" value="automatically center game grid pane when starting game" />
+    <option name="LAST_COMMIT_MESSAGE" value="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind" />
   </component>
 </project>
