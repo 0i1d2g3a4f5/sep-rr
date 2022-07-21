@@ -18,7 +18,6 @@ public class ServerSelectionController {
     @FXML
     private ListView<String> serverPlayerList;
 
-
     @FXML
     private Text textfield;
 
@@ -65,7 +64,7 @@ public class ServerSelectionController {
         serverPlayerList.getItems().clear();
         for (int i = 1; i < serverApplication.getBasicServer().getClientList().size() + 1; i++) {
             SClient temp = serverApplication.getBasicServer().getClientList().get(i - 1);
-            serverPlayerList.getItems().add(i, "{" + temp.getId() + "} " + temp.getName() + " [" + temp.getIsReady() + "]");
+            serverPlayerList.getItems().add(i -1, "{" + temp.getId() + "} " + temp.getName() + " [" + temp.getIsReady() + "]");
         }
     }
 

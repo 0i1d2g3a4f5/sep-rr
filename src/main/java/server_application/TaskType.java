@@ -4,7 +4,8 @@ package server_application;
  */
 public enum TaskType {
 
-    ERROR;
+    ERROR,
+    UPDATELOBBYLIST;
 
 
 

@@ -3,6 +3,9 @@ package newmessages;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import server_application.Task;
+import server_application.TaskContent;
+import server_application.TaskType;
 import server_package.SClient;
 import server_package.Server;
 
@@ -45,6 +48,7 @@ public class MessageSetStatus extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
             sClient.setReady(this.ready);
+            sClient.getServer().getServerApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             sClient.sendAll(new MessagePlayerStatus(sClient.getId(), sClient.getIsReady()));
             if(sClient.getIsReady()){
                 sClient.getServer().getReadyList().add(sClient);

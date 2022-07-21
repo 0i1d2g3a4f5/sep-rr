@@ -65,6 +65,7 @@ public class ServerApplication extends Application{
             Scene scene = new Scene(fxmlLoader.load(), 400, 500);
             serverSelectionController=fxmlLoader.getController();
             serverSelectionController.setServerApplication(this);
+            selectionStage.setResizable(false);
             selectionStage.setScene(scene);
             selectionStage.show();
         } catch (IOException e) {

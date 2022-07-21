@@ -12,6 +12,9 @@ public class TaskHandler {
             case ERROR -> {
 
             }
+            case UPDATELOBBYLIST -> {
+                serverApplication.serverSelectionController.updateServerList();
+            }
             default -> {
 
             }

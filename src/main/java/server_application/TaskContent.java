@@ -7,6 +7,10 @@ import com.google.gson.JsonPrimitive;
  */
 public class TaskContent {
     public JsonObject content;
+
+    public TaskContent() {
+        content=new JsonObject();
+    }
     public TaskContent(String string1){
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("String1", new JsonPrimitive(string1));
