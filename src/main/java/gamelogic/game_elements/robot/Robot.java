@@ -74,8 +74,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     public Robot (Game game){
         super(ElementName.ROBOT);
         this.game =game;
-        directionFacing = Direction.EAST;
-        this.orientations.add(Direction.EAST);
+        directionFacing = Direction.RIGHT;
+        this.orientations.add(Direction.RIGHT);
 
     }
     public void setDirectionFacing(Direction directionFacing) {
@@ -362,7 +362,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
         waitingForDirection = true;
         interrupt();
-        finishReboot(Direction.NORTH);
+        finishReboot(Direction.TOP);
 
 
 
@@ -441,11 +441,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private boolean setNextPosition(Direction targetDirection) {
         switch (targetDirection){
 
-            case NORTH -> nextPosition = new Position(position.getY()-1, position.getX());
-            case SOUTH -> nextPosition = new Position(position.getY()+1, position.getX());
-            case EAST -> nextPosition = new Position(position.getY(), position.getX()+1);
+            case TOP -> nextPosition = new Position(position.getY()-1, position.getX());
+            case BOTTOM -> nextPosition = new Position(position.getY()+1, position.getX());
+            case RIGHT -> nextPosition = new Position(position.getY(), position.getX()+1);
 
-            case WEST -> nextPosition = new Position(position.getY(), position.getX()-1);
+            case LEFT -> nextPosition = new Position(position.getY(), position.getX()-1);
 
             default -> {
                 return false;

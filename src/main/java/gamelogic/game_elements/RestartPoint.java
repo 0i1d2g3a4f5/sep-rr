@@ -37,7 +37,7 @@ public class RestartPoint extends GameElement{
         }
 
         else
-            orientations.add(Direction.NORTH);
+            orientations.add(Direction.TOP);
 
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
     }

@@ -2,7 +2,6 @@ package client_package.client_gamelogic.game_elements.robot;
 
 
 import client_package.Client;
-import client_package.ClientObject;
 import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.game_elements.ElementName;
@@ -10,7 +9,6 @@ import client_package.client_gamelogic.game_elements.GameElement;
 
 import gamelogic.Direction;
 import gamelogic.Position;
-import server_package.Server;
 
 import java.io.IOException;
 
@@ -67,7 +65,7 @@ public class Robot extends GameElement {
      */
     public void placeRobot(int y, int x){
         isPlaced = true;
-        directionFacing = Direction.EAST;
+        directionFacing = Direction.RIGHT;
         try {
             moveRobotTo(y,x);
         } catch (IOException e) {

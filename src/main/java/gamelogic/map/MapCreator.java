@@ -1,8 +1,5 @@
 package gamelogic.map;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import gamelogic.game_elements.*;
 
 
@@ -33,54 +30,54 @@ public class MapCreator {
         }
 
         //board.addField(0,0,new ConveyorBelt(GREEN,EAST));
-        board.addElement(0,2,new ConveyorBelt(GREEN,EAST));
-        board.addElement(0,4,new ConveyorBelt(BLUE,SOUTH));
-        board.addElement(0,6,new ConveyorBelt(BLUE,SOUTH));
+        board.addElement(0,2,new ConveyorBelt(GREEN, RIGHT));
+        board.addElement(0,4,new ConveyorBelt(BLUE, BOTTOM));
+        board.addElement(0,6,new ConveyorBelt(BLUE, BOTTOM));
         board.addElement(0,12,new EnergySpace(1));
-        board.addElement(1,4,new ConveyorBelt(BLUE,SOUTH));
+        board.addElement(1,4,new ConveyorBelt(BLUE, BOTTOM));
         for(int i =5;i<13;i++)
-        board.addElement(1,i,new ConveyorBelt(BLUE,WEST));
-        board.addElement(2,1,new Wall(new ArrayList<>() { {add(NORTH);}}));
+        board.addElement(1,i,new ConveyorBelt(BLUE, LEFT));
+        board.addElement(2,1,new Wall(new ArrayList<>() { {add(TOP);}}));
         for(int i = 2;i<8;i++)
-        board.addElement(i,4,new ConveyorBelt(BLUE,SOUTH));
+        board.addElement(i,4,new ConveyorBelt(BLUE, BOTTOM));
         board.addElement(2,5,new EnergySpace(1));
         for(int i = 2;i<10;i++)
-        board.addElement(i,11,new ConveyorBelt(BLUE,NORTH));
-        board.addElement(2,12,new ConveyorBelt(BLUE,WEST));
+        board.addElement(i,11,new ConveyorBelt(BLUE, TOP));
+        board.addElement(2,12,new ConveyorBelt(BLUE, LEFT));
 
-        board.addElement(3,6,new Wall(new ArrayList<>() { {add(NORTH);}}));
-        board.addElement(3,8,new Wall(new ArrayList<>() { {add(WEST);}}));
-        board.addElement(3,8,new Laser(EAST,1));
-        board.addElement(3,9,new Wall(new ArrayList<>() { {add(EAST);}}));
+        board.addElement(3,6,new Wall(new ArrayList<>() { {add(TOP);}}));
+        board.addElement(3,8,new Wall(new ArrayList<>() { {add(LEFT);}}));
+        board.addElement(3,8,new Laser(RIGHT,1));
+        board.addElement(3,9,new Wall(new ArrayList<>() { {add(RIGHT);}}));
 
         board.addElement(3,12, new Checkpoint(1));
 
-        board.addElement(4,2,new Wall(new ArrayList<>() { {add(EAST);}}));
-        board.addElement(4,6,new Wall(new ArrayList<>() { {add(SOUTH);}}));
-        board.addElement(4,6,new Laser(NORTH,1));
+        board.addElement(4,2,new Wall(new ArrayList<>() { {add(RIGHT);}}));
+        board.addElement(4,6,new Wall(new ArrayList<>() { {add(BOTTOM);}}));
+        board.addElement(4,6,new Laser(TOP,1));
 
         board.addElement(4,8,new EnergySpace(1));
-        board.addElement(5,2,new Wall(new ArrayList<>() { {add(EAST);}}));
+        board.addElement(5,2,new Wall(new ArrayList<>() { {add(RIGHT);}}));
         board.addElement(5,7,new EnergySpace(1));
-        board.addElement(5,9,new Wall(new ArrayList<>() { {add(NORTH);}}));
-        board.addElement(5,9,new Laser(SOUTH,1));
+        board.addElement(5,9,new Wall(new ArrayList<>() { {add(TOP);}}));
+        board.addElement(5,9,new Laser(BOTTOM,1));
 
-        board.addElement(6,6,new Wall(new ArrayList<>() { {add(WEST);}}));
+        board.addElement(6,6,new Wall(new ArrayList<>() { {add(LEFT);}}));
 
-        board.addElement(6,7,new Wall(new ArrayList<>() { {add(WEST);}}));
-        board.addElement(6,7,new Laser(WEST,1));
-        board.addElement(6,9,new Wall(new ArrayList<>() { {add(SOUTH);}}));
+        board.addElement(6,7,new Wall(new ArrayList<>() { {add(LEFT);}}));
+        board.addElement(6,7,new Laser(LEFT,1));
+        board.addElement(6,9,new Wall(new ArrayList<>() { {add(BOTTOM);}}));
 
-        board.addElement(7,1,new Wall(new ArrayList<>() { {add(SOUTH);}}));
-        board.addElement(7,3,new ConveyorBelt(BLUE,EAST));
+        board.addElement(7,1,new Wall(new ArrayList<>() { {add(BOTTOM);}}));
+        board.addElement(7,3,new ConveyorBelt(BLUE, RIGHT));
         board.addElement(7,10,new EnergySpace(1));
 
-        board.addElement(8,3,new ConveyorBelt(BLUE,EAST));
+        board.addElement(8,3,new ConveyorBelt(BLUE, RIGHT));
 
-        board.addElement(9,2,new ConveyorBelt(GREEN,EAST));
+        board.addElement(9,2,new ConveyorBelt(GREEN, RIGHT));
         board.addElement(9,3,new EnergySpace(1));
-        board.addElement(9,10,new ConveyorBelt(BLUE,NORTH));
-        board.addElement(9,11,new ConveyorBelt(BLUE,NORTH));
+        board.addElement(9,10,new ConveyorBelt(BLUE, TOP));
+        board.addElement(9,11,new ConveyorBelt(BLUE, TOP));
 
 
         String before = board.toString();

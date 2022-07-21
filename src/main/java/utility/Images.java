@@ -59,13 +59,23 @@ public enum Images {
     BELT_BLUE_DOWN_ELEMENT("/BeltBlueDown.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueDown.png")))), "MapElement"),
     BELT_BLUE_LEFT_ELEMENT("/BeltBlueLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueLeft.png")))), "MapElement"),
     BELT_BLUE_RIGHT_ELEMENT("/BeltBlueRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueRight.png")))), "MapElement"),
-    BELT_BLUE_UP_ELEMENT("/BeltBlueUp.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueUp.png")))), "MapElement"),
-    BELT_BLUE_UP_TO_LEFT_ELEMENT("/BeltBlueUpToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueUpToLeft.png")))), "MapElement"),
-    BELT_BLUE_UP_TO_RIGHT_ELEMENT("/BeltBlueUpToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueUpToRight.png")))), "MapElement"),
-    BELT_BLUE_MERGE_UP_ELEMENT("/CBBlueBottomRightToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueBottomRightToLeft.png")))), "MapElement"),
-    BELT_BLUE_MERGE_LEFT_ELEMENT("/CBBlueTopRightToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopRightToBottom.png")))), "MapElement"),
-    BELT_BLUE_MERGE_RIGHT_ELEMENT("/CBBlueLeftBottomToTop.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueLeftBottomToTop.png")))), "MapElement"),
-    BELT_BLUE_MERGE_DOWN_ELEMENT("/CBBlueLeftTopToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueLeftTopToRight.png")))), "MapElement"),
+    BELT_BLUE_RIGHT_TO_UP("/BeltBlueRightToUp.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueRightToUp.png")))), "MapElement"),
+    BELT_BLUE_UP_ELEMENT("/BeltBlueTop.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueTop.png")))), "MapElement"),
+    BELT_BLUE_LEFT_TO_BOTTOM("/BeltBlueLeftToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueLeftToBottom.png")))), "MapElement"),
+    BELT_BLUE_RIGHT_TO_BOTTOM("/BeltBlueRightToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueRightToBottom.png")))), "MapElement"),
+    BELT_BLUE_TOP_TO_RIGHT_ELEMENT("/BeltBlueTopToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueTopToRight.png")))), "MapElement"),
+    BELT_BLUE_LEFT_TO_UP_ELEMENT("/BeltBlueLeftToUp.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueLeftToUp.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_TO_LEFT_ELEMENT("/BeltBlueBottomToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueBottomToLeft.png")))), "MapElement"),
+    BELT_BLUE_TOP_TO_LEFT_ELEMENT("/BeltBlueTopToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueTopToLeft.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_TO_RIGHT_ELEMENT("/BeltBlueBottomToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltBlueBottomToRight.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_RIGHT_TO_LEFT_ELEMENT("/CBBlueBottomRightToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueBottomRightToLeft.png")))), "MapElement"),
+    BELT_BLUE_TOP_RIGHT_TO_BOTTOM_ELEMENT("/CBBlueTopRightToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopRightToBottom.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_LEFT_TO_TOP_ELEMENT("/CBBlueBottomLeftToTop.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueBottomLeftToTop.png")))), "MapElement"),
+    BELT_BLUE_TOP_LEFT_TO_RIGHT_ELEMENT("/CBBlueTopLeftToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopLeftToRight.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_LEFT_TO_RIGHT_ELEMENT("/CBBlueBottomLeftToRight.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueBottomLeftToRight.png")))), "MapElement"),
+    BELT_BLUE_BOTTOM_RIGHT_TO_TOP_ELEMENT("/CBBlueBottomRightToTop.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueBottomRightToTop.png")))), "MapElement"),
+    BELT_BLUE_TOP_LEFT_TO_BOTTOM_ELEMENT("/CBBlueTopLeftToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopLeftToBottom.png")))), "MapElement"),
+    BELT_BLUE_TOP_RIGHT_TO_LEFT_ELEMENT("/CBBlueTopRightToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopRightToLeft.png")))), "MapElement"),
 
     //green conveyor belts
     BELT_GREEN_DOWN_ELEMENT("/BeltGreenDown.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenDown.png")))), "MapElement"),
@@ -181,16 +191,16 @@ public enum Images {
     public ImageView handleRobot(ImageView imageView, Direction direction){
         switch (direction){
 
-            case NORTH -> {
+            case TOP -> {
                 imageView.setRotate(270);
 
             }
-            case SOUTH -> {
+            case BOTTOM -> {
                 imageView.setRotate(90);
             }
-            case EAST -> {
+            case RIGHT -> {
             }
-            case WEST -> {
+            case LEFT -> {
                 imageView.setRotate(180);
             }
         }

@@ -50,16 +50,16 @@ public class GameField {
      */
     public GameField getNeighbor(Direction direction){
          switch (direction){
-             case NORTH -> {
+             case TOP -> {
                  return board.getField(position.getY()-1, position.getX());
              }
-             case SOUTH -> {
+             case BOTTOM -> {
                  return board.getField(position.getY()+1, position.getX());
              }
-             case EAST -> {
+             case RIGHT -> {
                  return board.getField(position.getY(), position.getX()+1);
              }
-             case WEST -> {
+             case LEFT -> {
                  return board.getField(position.getY(), position.getX()-1);
              }
              default -> {

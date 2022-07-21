@@ -7,58 +7,58 @@ import java.io.IOException;
  * to make the direction of the robot's approaching clear
  */
 public enum Direction{
-    NORTH("top"){
+    TOP("top"){
         public Direction left(){
-            return WEST;
+            return LEFT;
         }
 
         public Direction right(){
-            return EAST;
+            return RIGHT;
         }
 
         public Direction opposite(){
-            return SOUTH;
+            return BOTTOM;
         }
     },
 
-    SOUTH("bottom"){
+    BOTTOM("bottom"){
         public Direction left(){
-            return EAST;
+            return RIGHT;
         }
 
         public Direction right(){
-            return WEST;
+            return LEFT;
         }
 
         public Direction opposite(){
-            return NORTH;
+            return TOP;
         }
     },
 
-    EAST("right"){
+    RIGHT("right"){
         public Direction left(){
-            return NORTH;
+            return TOP;
         }
 
         public Direction right(){
-            return SOUTH;
+            return BOTTOM;
         }
 
         public Direction opposite(){
-            return WEST;
+            return LEFT;
         }
     },
-    WEST("left"){
+    LEFT("left"){
         public Direction left(){
-            return SOUTH;
+            return BOTTOM;
         }
 
         public Direction right(){
-            return NORTH;
+            return TOP;
         }
 
         public Direction opposite(){
-            return EAST;
+            return RIGHT;
         }
     };
 
@@ -70,16 +70,16 @@ public enum Direction{
     public static Direction parseDirection(String directionString) throws IOException {
         switch (directionString){
             case "top" -> {
-                return NORTH;
+                return TOP;
             }
             case "bottom" -> {
-                return SOUTH;
+                return BOTTOM;
             }
             case "right" -> {
-                return EAST;
+                return RIGHT;
             }
             case "left" -> {
-                return WEST;
+                return LEFT;
             }
             default -> throw new IOException("Direction "+directionString+" not found");
         }
