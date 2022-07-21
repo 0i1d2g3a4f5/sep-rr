@@ -317,6 +317,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
             Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure() +"buped into a Wall");
             return false;
         }
+        if(nextField.contains(ElementName.ANTENNA)) {
+            Server.serverLogger.info("Robot " + getPlayer().getClient().getFigure() + " Bumped into the Antenna");
+            return false;
+        }
+
 
         if(nextField.contains(ElementName.PIT)||nextField==null){
             Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure() +"fell into a Pit -> Reboot");
@@ -485,7 +490,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     @Override
     public void activate() {
-        //TODO (Vivian): Mark, do we keep this in?
+
         System.out.println("activate "+type);
         laserMovement(gameField.getNeighbor(directionFacing));
         //TODO activate Robot Lasers

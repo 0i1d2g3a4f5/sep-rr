@@ -97,6 +97,7 @@ public enum Images {
     CHECKPOINT_3_ELEMENT("/CheckPoint3.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CheckPoint3.png")))), "MapElement"),
     CHECKPOINT_4_ELEMENT("/CheckPoint4.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CheckPoint4.png")))), "MapElement"),
     ENERGY_SPACE_GREEN_ELEMENT("/EnergySpaceGreen.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/EnergySpaceGreen.png")))), "MapElement"),
+    ENERGY_CUBE("/EnergyCube.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/EnergyCube.png")))), "MapElement"),
     GEAR_CLOCKWISE_ELEMENT("/GearClockwise.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/GearClockwise.png")))), "MapElement"),
     GEAR_COUNTERCLOCKWISE_ELEMENT("/GearCounterclockwise.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/GearCounterclockwise.png")))), "MapElement"),
     LASER_DOWN_ELEMENT("/LaserDown.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserDown.png")))), "MapElement"),
