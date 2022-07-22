@@ -3,12 +3,9 @@ package gamelogic.game_elements;
 import gamelogic.Color;
 import gamelogic.Direction;
 import net.jqwik.api.Example;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConveyorBeltTest {
 
@@ -18,7 +15,7 @@ class ConveyorBeltTest {
         list.add("top");
         list.add("right");
         list.add("bottom");
-        ConveyorBelt belt = new ConveyorBelt(Color.BLUE, Direction.NORTH,Direction.SOUTH);
+        ConveyorBelt belt = new ConveyorBelt(Color.BLUE, Direction.TOP,Direction.BOTTOM);
         belt.isOnBoard = "1B";
         System.out.println(belt.toJson());
     }

@@ -2,11 +2,8 @@ package gamelogic.game_elements;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import gamelogic.Direction;
 import net.jqwik.api.Example;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -42,7 +39,7 @@ class AntennaTest {
     @Example
     void toJson() {
 
-        Antenna antenna = new Antenna(Direction.EAST);
+        Antenna antenna = new Antenna(Direction.RIGHT);
         antenna.isOnBoard = "Start A";
 
         String jsonString = gson.toJson(antenna.toJson());

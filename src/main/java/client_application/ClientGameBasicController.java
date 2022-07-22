@@ -5,14 +5,12 @@ import gamelogic.Position;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import newmessages.*;
 import gamelogic.Direction;
 
@@ -276,25 +274,25 @@ public class ClientGameBasicController {
 
     @FXML
     void rebootDown(MouseEvent event) {
-        setRebootDirection(Direction.SOUTH);
+        setRebootDirection(Direction.BOTTOM);
         stopChoosingDirection();
     }
 
     @FXML
     void rebootLeft(MouseEvent event) {
-        setRebootDirection(Direction.WEST);
+        setRebootDirection(Direction.LEFT);
         stopChoosingDirection();
     }
 
     @FXML
     void rebootRight(MouseEvent event) {
-        setRebootDirection(Direction.EAST);
+        setRebootDirection(Direction.RIGHT);
         stopChoosingDirection();
     }
 
     @FXML
     void rebootUp(MouseEvent event) {
-        setRebootDirection(Direction.NORTH);
+        setRebootDirection(Direction.TOP);
         stopChoosingDirection();
     }
 
