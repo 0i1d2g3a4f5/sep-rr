@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add blue-conveyorbelt handling to JavaFXGridHandler&#10;Add images of many blue conveyorbelts to resources and add enums for them">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenBottomToLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenBottomToRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenLeftToBottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenLeftToUp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenRightToBottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenRightToUp.png" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add green conveyorBelt Images to Resources and create enums in images class">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenTopToLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenTopToRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
     </list>
@@ -324,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658435333942</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add green conveyorBelt Images to Resources and create enums in images class">
+      <created>1658485850787</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658485850787</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +369,7 @@
     <MESSAGE value="enormous great giant large massive vast extensive tremendous immense mega&#10;jumbo gigantic monumental bulky colossal mountainous stellar prodigious stupendous gargantuan elephantine ginormous update" />
     <MESSAGE value="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind" />
     <MESSAGE value="isabel macht conveyorbelt (hoffentlich). projekt wird nicht kaputt. auf keinen fall" />
-    <option name="LAST_COMMIT_MESSAGE" value="isabel macht conveyorbelt (hoffentlich). projekt wird nicht kaputt. auf keinen fall" />
+    <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add green conveyorBelt Images to Resources and create enums in images class" />
   </component>
 </project>

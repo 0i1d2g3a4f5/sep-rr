@@ -767,9 +767,9 @@ public class JavaFXGridHandler {
                 throw new IllegalArgumentException("Green ConveyorBelt with just one orientation");
             }
             else if (gameElement.orientations.size() == 2){
-                switch(gameElement.orientations.get(1)){
+                switch(gameElement.orientations.get(0)){
                     case TOP -> {
-                        switch(gameElement.orientations.get(2)){
+                        switch(gameElement.orientations.get(1)){
                             case TOP -> {
                             }
                             case BOTTOM -> {
@@ -778,42 +778,75 @@ public class JavaFXGridHandler {
                                 stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case RIGHT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_RIGHT_TO_UP_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case LEFT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_LEFT_TO_UP_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                         }
                     }
                     case BOTTOM -> {
-                        switch(gameElement.orientations.get(2)){
+                        switch(gameElement.orientations.get(1)){
                             case TOP -> {
+                                ImageView imageView1 = Images.BELT_GREEN_BOTTOM_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case BOTTOM -> {
                             }
                             case RIGHT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_RIGHT_TO_BOTTOM_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case LEFT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_LEFT_TO_BOTTOM_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                         }
                     }
                     case RIGHT -> {
-                        switch(gameElement.orientations.get(2)){
+                        switch(gameElement.orientations.get(1)){
                             case TOP -> {
+                                ImageView imageView1 = Images.BELT_GREEN_TOP_TO_RIGHT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case BOTTOM -> {
+                                ImageView imageView1 = Images.BELT_GREEN_BOTTOM_TO_RIGHT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case RIGHT -> {
                             }
                             case LEFT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_RIGHT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                         }
                     }
                     case LEFT -> {
-                        switch(gameElement.orientations.get(2)){
+                        switch(gameElement.orientations.get(1)){
                             case TOP -> {
+                                ImageView imageView1 = Images.BELT_GREEN_TOP_TO_LEFT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case BOTTOM -> {
+                                ImageView imageView1 = Images.BELT_GREEN_BOTTOM_TO_LEFT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case RIGHT -> {
+                                ImageView imageView1 = Images.BELT_GREEN_LEFT_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
                             }
                             case LEFT -> {
                             }

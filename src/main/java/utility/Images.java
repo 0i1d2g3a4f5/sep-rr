@@ -88,8 +88,8 @@ public enum Images {
     BELT_GREEN_LEFT_TO_BOTTOM_ELEMENT("/BeltGreenLeftToBottom.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenLeftToBottom.png")))), "MapElement"),
     BELT_GREEN_RIGHT_TO_BOTTOM_ELEMENT("/BeltGreenRightToBottom.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenRightToBottom.png")))), "MapElement"),
     BELT_GREEN_BOTTOM_TO_LEFT_ELEMENT("/BeltGreenBottomToLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenBottomToLeft.png")))), "MapElement"),
-    BELT_GREEN_UP_TO_LEFT_ELEMENT("/BeltGreenUpToLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenUpToLeft.png")))), "MapElement"),
-    BELT_GREEN_UP_TO_RIGHT_ELEMENT("/BeltGreenUpToRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenUpToRight.png")))), "MapElement"),
+    BELT_GREEN_TOP_TO_LEFT_ELEMENT("/BeltGreenTopToLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenUpToLeft.png")))), "MapElement"),
+    BELT_GREEN_TOP_TO_RIGHT_ELEMENT("/BeltGreenTopToRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenUpToRight.png")))), "MapElement"),
     BELT_GREEN_BOTTOM_TO_RIGHT_ELEMENT("/BeltGreenBottomToRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenBottomToRight.png")))), "MapElement"),
     BELT_2X8_ELEMENT("/Board2x8.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/Board2x8.png")))), "MapElement"),
 
