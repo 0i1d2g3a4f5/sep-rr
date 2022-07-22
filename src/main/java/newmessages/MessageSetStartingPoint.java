@@ -66,6 +66,12 @@ public class MessageSetStartingPoint extends Message{
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         //TODO insert
         Position position = new Position(y,x);
+
+        if(sClient.getPlayer().getGame().board.getField(position).contains(ElementName.ROBOT)){
+            sClient.sendSelf(new MessageError(GlobalParameters.STARTING_POINT_TAKEN_ERROR));
+            return;
+        }
+
         if(sClient.getPlayer().placeRobot(position)){
 
                 sClient.sendAll(new MessageStartingPointTaken(x, y, sClient.getId()));
