@@ -31,7 +31,7 @@ public class Cccc extends Application {
     public void start(Stage stage) throws Exception {
 
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        Robot robot = new Robot(new Client(), new Position(0, 0), Direction.EAST, 2);
+        Robot robot = new Robot(new Client(), new Position(0, 0), Direction.LEFT, 2);
         StackPane stackPane = new StackPane();
         javaFXGridHandler.caseRobot(stackPane, robot);
         Scene scene= new Scene(stackPane,1000, 1000);

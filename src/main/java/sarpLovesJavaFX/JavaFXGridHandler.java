@@ -297,22 +297,22 @@ public class JavaFXGridHandler {
      */
     private  void caseAntenna(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
-            case NORTH -> {
+            case TOP -> {
                 ImageView imageView9 = Images.ANTENNA_NORTH_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
-            case SOUTH -> {
+            case BOTTOM -> {
                 ImageView imageView9 = Images.ANTENNA_SOUTH_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
-            case WEST -> {
+            case LEFT -> {
                 ImageView imageView9 = Images.ANTENNA_WEST_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
             }
-            case EAST -> {
+            case RIGHT -> {
                 ImageView imageView9 = Images.ANTENNA_EAST_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView9);
                 stackPane.setAlignment(imageView9, Pos.CENTER);
@@ -372,22 +372,22 @@ public class JavaFXGridHandler {
     private void caseWall(StackPane stackPane, GameElement gameElement) {
 
         switch (gameElement.orientations.get(0)){
-            case NORTH ->{
+            case TOP ->{
                 ImageView imageView7 = Images.WALL_TOP_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
-            case SOUTH -> {
+            case BOTTOM-> {
                 ImageView imageView7 = Images.WALL_BOTTOM_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
-            case WEST -> {
+            case LEFT -> {
                 ImageView imageView7 = Images.WALL_LEFT_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
             }
-            case EAST -> {
+            case RIGHT -> {
                 ImageView imageView7 = Images.WALL_RIGHT_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageView7);
                 stackPane.setAlignment(imageView7,Pos.CENTER);
@@ -453,22 +453,22 @@ public class JavaFXGridHandler {
             }
             case 2,4 ->{
                 switch (gameElement.orientations.get(0)){
-                    case NORTH -> {
+                    case TOP -> {
                         ImageView imageView4 = Images.PUSH_PANEL_24_TOP_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
-                    case SOUTH -> {
+                    case BOTTOM -> {
                         ImageView imageView4 = Images.PUSH_PANEL_24_BOTTOM_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
-                    case EAST -> {
+                    case RIGHT -> {
                         ImageView imageView4 = Images.PUSH_PANEL_24_RIGHT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
                     }
-                    case WEST -> {
+                    case LEFT -> {
                         ImageView imageView4 = Images.PUSH_PANEL_24_LEFT_ELEMENT.toImageView();
                         stackPane.getChildren().add(imageView4);
                         stackPane.setAlignment(imageView4,Pos.CENTER);
