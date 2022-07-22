@@ -513,7 +513,7 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @author Isabel Muhm
      * @param stackPane
      * @param gameElement
      */
@@ -521,7 +521,7 @@ public class JavaFXGridHandler {
         ConveyorBelt conveyorBelt = (ConveyorBelt) gameElement;
         if(conveyorBelt.getColor().equals(Color.BLUE)){
             if (gameElement.orientations.size() == 1) {
-                throw new IllegalArgumentException("Fucking idiot, just one conveyorbelt orientation");
+                throw new IllegalArgumentException("Blue ConveyorBelt with just one orientation");
             } else if (gameElement.orientations.size() == 2) {
                 switch (gameElement.orientations.get(0)) {
                     case TOP -> {
@@ -756,6 +756,66 @@ public class JavaFXGridHandler {
                                         stackPane.setAlignment(imageView1, Pos.CENTER);
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else if(conveyorBelt.getColor().equals(Color.GREEN)){
+            if(gameElement.orientations.size() == 1){
+                throw new IllegalArgumentException("Green ConveyorBelt with just one orientation");
+            }
+            else if (gameElement.orientations.size() == 2){
+                switch(gameElement.orientations.get(1)){
+                    case TOP -> {
+                        switch(gameElement.orientations.get(2)){
+                            case TOP -> {
+                            }
+                            case BOTTOM -> {
+                                ImageView imageView1 = Images.BELT_GREEN_UP_ELEMENT.toImageView();
+                                stackPane.getChildren().add(imageView1);
+                                stackPane.setAlignment(imageView1, Pos.CENTER);
+                            }
+                            case RIGHT -> {
+                            }
+                            case LEFT -> {
+                            }
+                        }
+                    }
+                    case BOTTOM -> {
+                        switch(gameElement.orientations.get(2)){
+                            case TOP -> {
+                            }
+                            case BOTTOM -> {
+                            }
+                            case RIGHT -> {
+                            }
+                            case LEFT -> {
+                            }
+                        }
+                    }
+                    case RIGHT -> {
+                        switch(gameElement.orientations.get(2)){
+                            case TOP -> {
+                            }
+                            case BOTTOM -> {
+                            }
+                            case RIGHT -> {
+                            }
+                            case LEFT -> {
+                            }
+                        }
+                    }
+                    case LEFT -> {
+                        switch(gameElement.orientations.get(2)){
+                            case TOP -> {
+                            }
+                            case BOTTOM -> {
+                            }
+                            case RIGHT -> {
+                            }
+                            case LEFT -> {
                             }
                         }
                     }
