@@ -13,6 +13,7 @@ import server_package.Server;
 
 
 import java.io.IOException;
+import java.lang.reflect.MalformedParametersException;
 import java.util.concurrent.TimeUnit;
 
 
@@ -99,11 +100,13 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
         switch (orientations.size()){
             case 0 ->{
-
+                throw new MalformedParametersException("ConveyorBelt has 0 orientations");
             }
             case 1 ->{
 
                 this.orientations.add(targetDirection);
+                originDirection1 = targetDirection.opposite();
+                this.orientations.add(originDirection1);
             }
             case 2 ->{
                 originDirection1 = Direction.parseDirection(orientations.get(1).getAsString());
@@ -160,18 +163,36 @@ public class ConveyorBelt extends GameElement implements Activatable {
             }
             robot.movedByCBelt=true;
 
+            GameField nextField = gameField.getNeighbor(orientations.get(0));
+
+            handleConveyorTurnsRobot(robot, nextField);
+
+
+            //robot.setEnteredConveyorBelt(orientations.get(0).opposite());
             if(color ==Color.BLUE){
+
                 robot.displace(orientations.get(0));
                 GameElement element;
                 if((element = robot.getGameField().getElement(ElementName.CONVEYORBELT)) !=null){
-                    ConveyorBelt nextBelt = (ConveyorBelt) element;
 
+                    ConveyorBelt nextBelt = (ConveyorBelt) element;
+                    nextField = nextField.getNeighbor(nextBelt.orientations.get(0));
+
+                    handleConveyorTurnsRobot(robot, nextField);
+
+                    //robot.setEnteredConveyorBelt(nextBelt.orientations.get(0).opposite());
                     robot.displace(nextBelt.orientations.get(0));
+                    if((robot.getGameField().getElement(ElementName.CONVEYORBELT)) ==null){
+                        robot.setEnteredConveyorBelt(null);
+                    }
+
                 } else {
-                    robot.displace(orientations.get(0));
+                    robot.setEnteredConveyorBelt(null);
+                   // robot.displace(orientations.get(0));
                 }
             } else{
                 robot.displace(orientations.get(0));
+
             }
 
         }
@@ -179,6 +200,18 @@ public class ConveyorBelt extends GameElement implements Activatable {
             TimeUnit.MILLISECONDS.sleep(40);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void handleConveyorTurnsRobot(Robot robot, GameField nextField) {
+        Server.serverLogger.debug("handleConveyorTurn: "+nextField);
+        if(nextField.contains(ElementName.CONVEYORBELT)){
+            ConveyorBelt nextBelt = (ConveyorBelt) nextField.getElement(ElementName.CONVEYORBELT);
+            if(orientations.get(0).left() == nextBelt.orientations.get(0)){
+                robot.left();
+            }else if(orientations.get(0).right() == nextBelt.orientations.get(0)){
+                robot.right();
+            }
         }
     }
 

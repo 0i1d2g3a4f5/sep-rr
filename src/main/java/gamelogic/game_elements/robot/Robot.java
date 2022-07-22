@@ -35,6 +35,8 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     private Position position;
     private String name;
 
+    private Direction enteredConveyorBelt = null;
+
     private Player player;
 
     private Position nextPosition;
@@ -253,6 +255,14 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
 
         return true;
+    }
+
+    public Direction getEnteredConveyorBelt() {
+        return enteredConveyorBelt;
+    }
+
+    public void setEnteredConveyorBelt(Direction enteredConveyorBelt) {
+        this.enteredConveyorBelt = enteredConveyorBelt;
     }
 
     /**
