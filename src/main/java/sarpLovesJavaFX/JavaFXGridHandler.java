@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Isabel Muhm
  * @author Qinyi
  */
 
@@ -284,7 +284,8 @@ public class JavaFXGridHandler {
      * @param stackPane
      */
     private static void caseRestartPoint(StackPane stackPane) {
-        ImageView imageView10 = new ImageView(new Image("/Reboot.png"));
+        ImageView imageView10 = Images.REBOOT_ELEMENT.toImageView();
+        //new ImageView(new Image("/Reboot.png"));
         stackPane.getChildren().add(imageView10);
         stackPane.setAlignment(imageView10, Pos.CENTER);
         return;
@@ -866,22 +867,22 @@ public class JavaFXGridHandler {
         Checkpoint checkpoint = gameElement;
         switch (checkpoint.getCount()){
             case 1,0 -> {
-                ImageView imageViewcheck = new ImageView(new Image("/CheckPoint1.png"));
+                ImageView imageViewcheck = Images.CHECKPOINT_1_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 2 ->{
-                ImageView imageViewcheck = new ImageView(new Image("/CheckPoint2.png"));
+                ImageView imageViewcheck = Images.CHECKPOINT_2_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 3->{
-                ImageView imageViewcheck = new ImageView(new Image("/CheckPoint3.png"));
+                ImageView imageViewcheck = Images.CHECKPOINT_3_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
             case 4->{
-                ImageView imageViewcheck = new ImageView(new Image("/CheckPoint4.png"));
+                ImageView imageViewcheck = Images.CHECKPOINT_4_ELEMENT.toImageView();
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }

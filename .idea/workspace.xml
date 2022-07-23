@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add green conveyorBelt Images to Resources and create enums in images class">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenTopToLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/BeltGreenTopToRight.png" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Handle green conveyorbelts in JavaFXGridHandler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -328,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658485850787</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Handle green conveyorbelts in JavaFXGridHandler">
+      <created>1658486803074</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658486803074</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +376,7 @@
     <MESSAGE value="huuuuge shocking update you won't believe what incredible enormous new features are added with this gamebreaking update do not miss this once in a lifetime opportunity to see the most important update ever known to mankind" />
     <MESSAGE value="isabel macht conveyorbelt (hoffentlich). projekt wird nicht kaputt. auf keinen fall" />
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add green conveyorBelt Images to Resources and create enums in images class" />
+    <MESSAGE value="Handle green conveyorbelts in JavaFXGridHandler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Handle green conveyorbelts in JavaFXGridHandler" />
   </component>
 </project>
