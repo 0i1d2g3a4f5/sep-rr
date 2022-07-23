@@ -55,8 +55,8 @@ public class ClientGameBasicController {
     @FXML
     private TextField startingCoordinates;
 
-    private Timeline Time;
-    private String S = "";
+    private Timeline time;
+    private String s = "";
     private int tmp = 30;
 
     @FXML
@@ -65,24 +65,24 @@ public class ClientGameBasicController {
     public ClientGameBasicController() {
         Timerlabel.setFont(javafx.scene.text.Font.font(20));
 
-        Time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
-        Time.setCycleCount(Timeline.INDEFINITE);
+        time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
+        time.setCycleCount(Timeline.INDEFINITE);
     }
 
     public void timelabel() {
         tmp--;
-        S = "0:" + tmp + "";
+        s = "0:" + tmp + "";
         if(tmp == 0){
            //TODO: the player will be forced to end the programming phase
         }
-        Timerlabel.setText(S);
+        Timerlabel.setText(s);
     }
 
 
 
     @FXML
     void submitButton(ActionEvent event) {
-        Time.play();
+        time.play();
         if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
             String[] singleCoordinate ={};
             String toCheck =startingCoordinates.getText().trim();
