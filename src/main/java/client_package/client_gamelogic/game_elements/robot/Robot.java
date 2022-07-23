@@ -1,6 +1,7 @@
 package client_package.client_gamelogic.game_elements.robot;
 
 
+import client_application.ClientApplication;
 import client_package.Client;
 import client_package.client_gamelogic.CPlayer;
 import client_package.client_gamelogic.Game;

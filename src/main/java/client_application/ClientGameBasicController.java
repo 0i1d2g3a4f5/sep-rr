@@ -7,16 +7,21 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import newmessages.*;
 import gamelogic.Direction;
+import utility.Images;
 
 /**
  * @author Sarp Cagin Erdogan, Qinyi, Vivian
@@ -32,6 +37,12 @@ public class ClientGameBasicController {
 
     @FXML
     private AnchorPane loserScene;
+
+    @FXML
+    private Button buttonSubmit;
+
+    @FXML
+    private ImageView roboImage;
 
     @FXML
     private ScrollPane scrollAvailableProgramming;
@@ -52,6 +63,13 @@ public class ClientGameBasicController {
     void startButton(ActionEvent event) {
 
     }
+
+    @FXML
+    private Text startPosText;
+
+    @FXML
+    private Text playerName;
+
     @FXML
     private TextField startingCoordinates;
 
@@ -125,6 +143,47 @@ public class ClientGameBasicController {
 
 
     }
+
+    public void visibilityStartingChoose(Boolean visible) {
+        startPosText.setVisible(visible);
+        buttonSubmit.setVisible(visible);
+        startingCoordinates.setVisible(visible);
+    }
+
+    public void visibilityPlayerDetails(Boolean visible){
+        playerName.setText(clientApplication.getClient().getName());
+        playerName.setVisible(visible);
+        roboImage.setVisible(visible);
+        System.out.println("Figure is: " + clientApplication.getClient().getFigure());
+        switch(clientApplication.getClient().getFigure()) {
+            case 1 -> {
+                roboImage.setImage(new Image(Images.SPIN_BOT.toString()));
+                System.out.println("Figure one taken why isnt it showing");
+                //return Color.RED;Images.HULK_BOT.toString()
+            }
+            case 2 -> {
+                    roboImage.setImage(new Image(Images.HULK_BOT.toString()));
+            //return Color.BLUE;
+            }
+            case 3 -> {
+                roboImage.setImage(new Image(Images.ZOOM_BOT.toString()));
+                //return Color.GREEN;
+            }
+            case 4 -> {
+                roboImage.setImage(new Image(Images.TWONKY_BOT.toString()));
+                //return Color.ORANGE;
+            }
+            case 5 -> {
+                roboImage.setImage(new Image(Images.HAMMER_BOT.toString()));
+                //return Color.PURPLE;
+            }
+            case 6 -> {
+                roboImage.setImage(new Image(Images.SMASH_BOT.toString()));
+                //return Color.YELLOW;
+            }
+        }
+    }
+
     public void setStartingText(String s){
         startingCoordinates.setText(s);
     }
@@ -265,6 +324,7 @@ public class ClientGameBasicController {
         winnerScene.setDisable(true);
         rebootWindow.setVisible(false);
         rebootWindow.setDisable(true);
+
     }
 
     public void triggerGameFinishedScene(){

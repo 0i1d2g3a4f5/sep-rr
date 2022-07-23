@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" onMouseClicked="#mouseClicked" prefHeight="810.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientGameBasicController">
+<AnchorPane maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" onMouseClicked="#mouseClicked" prefHeight="810.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientGameBasicController">
    <children>
       <ImageView fitHeight="822.0" fitWidth="1484.0" layoutX="-22.0" opacity="0.8" pickOnBounds="true">
          <image>
@@ -36,7 +45,7 @@
       <ScrollPane fx:id="scrollOtherRegisters" layoutX="7.0" layoutY="637.0" prefHeight="160.0" prefWidth="1423.0" />
       <AnchorPane layoutX="6.0" layoutY="259.0" prefHeight="123.0" prefWidth="606.0" style="-fx-background-color: grey;">
          <children>
-            <ScrollPane fx:id="scrollAvailableProgramming" layoutX="9.0" layoutY="13.0" prefHeight="100.0" prefWidth="589.0">
+            <ScrollPane fx:id="scrollAvailableProgramming" layoutX="13.0" layoutY="13.0" prefHeight="100.0" prefWidth="580.0">
                <content>
                   <GridPane prefHeight="100.0" prefWidth="65.0">
                     <columnConstraints>
@@ -85,8 +94,8 @@
       <Group fx:id="startingPosGroup" layoutX="11.0" layoutY="198.0">
          <children>
             <TextField fx:id="startingCoordinates" layoutY="24.0" prefHeight="26.0" prefWidth="465.0" />
-            <Text fill="WHITE" layoutX="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
-            <Button layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Submit" textFill="#ebebeb">
+            <Text fx:id="startPosText" fill="WHITE" layoutX="3.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
+            <Button fx:id="buttonSubmit" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Submit" textFill="#ebebeb">
                <font>
                   <Font size="14.0" />
                </font>
@@ -173,5 +182,11 @@
             </Button>
          </children>
       </AnchorPane>
+      <ImageView fx:id="roboImage" fitHeight="78.0" fitWidth="107.0" layoutX="10.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <Text fx:id="playerName" fill="WHITE" layoutX="100.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="488.0101623535156">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

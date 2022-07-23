@@ -182,4 +182,7 @@ public class ClientApplication extends Application {
         stageMapView.show();
     }
 
+    public ClientGameBasicController getGameController() {
+        return clientGameBasicController;
+    }
 }
