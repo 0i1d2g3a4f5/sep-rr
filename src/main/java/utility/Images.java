@@ -106,6 +106,8 @@ public enum Images {
     LASER_LEFT_ELEMENT("/LaserLeft.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserLeft.png")))), "MapElement"),
     LASER_RIGHT_ELEMENT("/LaserRight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserRight.png")))), "MapElement"),
     LASER_UP_ELEMENT("/LaserUp.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserUp.png")))), "MapElement"),
+    LASER_BEAM_HORI("/LaserBeam.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserBeam.png")))), "MapElement"),
+    LASER_BEAM_VERTI("/LaserBeamI.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LaserBeamI.png")))), "MapElement"),
     PIT_ELEMENT("/Pit.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/Pit.png")))), "MapElement"),
     PUSH_PANEL_24_BOTTOM_ELEMENT("/PushPanel24Bottom.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/PushPanel24Bottom.png")))), "MapElement"),
     PUSH_PANEL_24_LEFT_ELEMENT("/PushPanel24Left.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/PushPanel24Left.png")))), "MapElement"),

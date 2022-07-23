@@ -206,6 +206,9 @@ public class JavaFXGridHandler {
                         case LASER:
                             caseLaser(stackPane, gameElement);
                             break;
+                        case LASERBEAM:
+                            caseLASERBEAM(stackPane, gameElement);
+                            break;
                         case CHECKPOINT:
                             caseCheckpoint(stackPane, (Checkpoint) gameElement);
                             break;
@@ -915,6 +918,22 @@ public class JavaFXGridHandler {
                 ImageView imageView0 = new ImageView(new Image("/LaserRight.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0, Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    private void caseLASERBEAM(StackPane stackPane, GameElement gameElement) {
+        switch (gameElement.orientations.get(0)){
+            case LEFT,RIGHT -> {
+                ImageView imageView01 = new ImageView(new Image("/LaserBeam.png"));
+                stackPane.getChildren().add(imageView01);
+                stackPane.setAlignment(imageView01, Pos.CENTER);
+            }
+            case TOP,BOTTOM -> {
+                ImageView imageView01 = new ImageView(new Image("/LaserBeamI.png"));
+                stackPane.getChildren().add(imageView01);
+                stackPane.setAlignment(imageView01, Pos.CENTER);
             }
         }
         return;
