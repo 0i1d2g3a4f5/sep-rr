@@ -41,7 +41,7 @@
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="Timerlabel" layoutX="21.0" layoutY="400.0" text="0:30" textFill="#f7e8e8" />
+      <Label fx:id="timerlabel" layoutX="21.0" layoutY="400.0" text="0:30" textFill="#f7e8e8" />
       <ScrollPane fx:id="scrollOtherRegisters" layoutX="7.0" layoutY="637.0" prefHeight="160.0" prefWidth="1423.0" />
       <AnchorPane layoutX="6.0" layoutY="259.0" prefHeight="123.0" prefWidth="606.0" style="-fx-background-color: grey;">
          <children>
