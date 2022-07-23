@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public enum ElementName {
     LASER("Laser"),
+    LASERBEAM("LaserBeam"),
     CHECKPOINT("CheckPoint"),
     CONVEYORBELT("ConveyorBelt"),
     ENERGYSPACE("EnergySpace"),

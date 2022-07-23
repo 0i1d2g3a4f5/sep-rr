@@ -2,15 +2,19 @@ package client_application;
 
 import client_package.Client;
 import gamelogic.Position;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import newmessages.*;
 import gamelogic.Direction;
 
@@ -51,10 +55,34 @@ public class ClientGameBasicController {
     @FXML
     private TextField startingCoordinates;
 
+    private Timeline Time;
+    private String S = "";
+    private int tmp = 30;
+
+    @FXML
+    private Label Timerlabel = new Label("0:30");
+
+    public ClientGameBasicController() {
+        Timerlabel.setFont(javafx.scene.text.Font.font(20));
+
+        Time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
+        Time.setCycleCount(Timeline.INDEFINITE);
+    }
+
+    public void timelabel() {
+        tmp--;
+        S = "0:" + tmp + "";
+        if(tmp == 0){
+           //TODO: the player will be forced to end the programming phase
+        }
+        Timerlabel.setText(S);
+    }
+
+
 
     @FXML
     void submitButton(ActionEvent event) {
-
+        Time.play();
         if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
             String[] singleCoordinate ={};
             String toCheck =startingCoordinates.getText().trim();
@@ -240,7 +268,6 @@ public class ClientGameBasicController {
     }
 
     public void triggerGameFinishedScene(){
-        //TODO: Check how to get the clientID of the winner
         /*
         MessageGameFinished messageGameFinished = new MessageGameFinished(0);
         for(Player player:Game.getInstance().getPlayerList()) {

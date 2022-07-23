@@ -3,10 +3,7 @@ package sarpLovesJavaFX;
 
 import client_package.Client;
 import client_package.client_gamelogic.cards.Card;
-import client_package.client_gamelogic.game_elements.Checkpoint;
-import client_package.client_gamelogic.game_elements.ConveyorBelt;
-import client_package.client_gamelogic.game_elements.GameElement;
-import client_package.client_gamelogic.game_elements.Gear;
+import client_package.client_gamelogic.game_elements.*;
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import client_package.client_gamelogic.map.GameBoard;
 
@@ -209,6 +206,9 @@ public class JavaFXGridHandler {
                         case LASER:
                             caseLaser(stackPane, gameElement);
                             break;
+                        case LASERBEAM:
+                            caseLASERBEAM(stackPane, gameElement);
+                            break;
                         case CHECKPOINT:
                             caseCheckpoint(stackPane, (Checkpoint) gameElement);
                             break;
@@ -217,9 +217,10 @@ public class JavaFXGridHandler {
                             break;
 
                         case ENERGYSPACE:
-
                             caseEnergySpace(stackPane);
+                            caseEnergyCube(stackPane);
                             break;
+
                         case GEAR:
                             caseGear(stackPane, (Gear) gameElement);
                             break;
@@ -266,7 +267,7 @@ public class JavaFXGridHandler {
     }
 
     private void caseEnergyCube(StackPane stackPane) {
-        ImageView imageView11 = new ImageView(new Image("/checkdisabled.png"));
+        ImageView imageView11 = new ImageView(new Image("/EnergyCube.png"));
         stackPane.getChildren().add(imageView11);
         stackPane.setAlignment(imageView11, Pos.CENTER);
         return;
@@ -508,8 +509,10 @@ public class JavaFXGridHandler {
      */
     private void caseEnergySpace(StackPane stackPane) {
         ImageView imageView2 = Images.ENERGY_SPACE_GREEN_ELEMENT.toImageView();
-        stackPane.getChildren().add(imageView2);
+        ImageView imageview = Images.ENERGY_CUBE.toImageView();
+        stackPane.getChildren().addAll(imageView2,imageview);
         stackPane.setAlignment(imageView2,Pos.CENTER);
+        stackPane.setAlignment(imageview, Pos.CENTER);
         return;
     }
 
@@ -916,6 +919,22 @@ public class JavaFXGridHandler {
                 ImageView imageView0 = new ImageView(new Image("/LaserRight.png"));
                 stackPane.getChildren().add(imageView0);
                 stackPane.setAlignment(imageView0, Pos.CENTER);
+            }
+        }
+        return;
+    }
+
+    private void caseLASERBEAM(StackPane stackPane, GameElement gameElement) {
+        switch (gameElement.orientations.get(0)){
+            case LEFT,RIGHT -> {
+                ImageView imageView01 = new ImageView(new Image("/LaserBeam.png"));
+                stackPane.getChildren().add(imageView01);
+                stackPane.setAlignment(imageView01, Pos.CENTER);
+            }
+            case TOP,BOTTOM -> {
+                ImageView imageView01 = new ImageView(new Image("/LaserBeamI.png"));
+                stackPane.getChildren().add(imageView01);
+                stackPane.setAlignment(imageView01, Pos.CENTER);
             }
         }
         return;
