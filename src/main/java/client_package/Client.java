@@ -69,9 +69,9 @@ public class Client{
     public Color getRoboColor(){
         switch (figure){
             case 1:
-                return Color.RED;
-            case 2:
                 return Color.BLUE;
+            case 2:
+                return Color.RED;
             case 3:
                 return Color.GREEN;
             case 4:

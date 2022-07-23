@@ -107,6 +107,7 @@ public class BasicServer extends Server {
                 jsonArray.add("dizzy_highway");
                 jsonArray.add("extra_crispy");
                 jsonArray.add("lost_bearings");
+                jsonArray.add("twister");
                 getReadyList().get(i).sendSelf(new MessageSelectMap(jsonArray));
                 break;
             }

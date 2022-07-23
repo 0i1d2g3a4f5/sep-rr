@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Fix size of game elements in maps, edit feedback texts in several scenes">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add visualisation of own name and robot to game scene&#10;Add enums to BotSingle images&#10;Small fix in caseRobot from JavaFXGridHandler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/MapName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/MapName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />

@@ -4,7 +4,8 @@ public enum MapName {
     DIZZY_HIGHWAY("dizzy_highway"),
     DEATH_TRAP("death_trap"),
     EXTRA_CRISPY("extra_crispy"),
-    LOST_BEARINGS("lost_bearings");
+    LOST_BEARINGS("lost_bearings"),
+    TWISTER("twister");
 
 
     @Override

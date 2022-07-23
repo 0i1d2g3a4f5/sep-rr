@@ -126,9 +126,9 @@ public enum Images {
 
     //racing courses
     DEATH_TRAP_MAP("/DeathTrapMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
-    DIZZY_HIGHWAY_MAP("/DizzyHighwayMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
-    EXTRA_CRISPY_MAP("/ExtraCrispyMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
-    LOST_BEARINGS_MAP("/LostBearingsMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
+    DIZZY_HIGHWAY_MAP("/DizzyHighwayMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DizzyHighwayMap.png")))), "Map"),
+    EXTRA_CRISPY_MAP("/ExtraCrispyMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/ExtraCrispyMap.png")))), "Map"),
+    LOST_BEARINGS_MAP("/LostBearingsMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LostBearingsMap.png")))), "Map"),
 
     //robots, BEV: bird eye view
     HAMMER_BOT_BEV("/RobotPink.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPink.png")))), "Robot"),
