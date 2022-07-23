@@ -78,10 +78,10 @@ public class ClientGameBasicController {
     private int tmp = 30;
 
     @FXML
-    private Label Timerlabel = new Label("0:30");
+    private Label timerlabel = new Label("0:30");
 
     public ClientGameBasicController() {
-        Timerlabel.setFont(javafx.scene.text.Font.font(20));
+        timerlabel.setFont(javafx.scene.text.Font.font(20));
 
         time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
         time.setCycleCount(Timeline.INDEFINITE);
@@ -93,7 +93,7 @@ public class ClientGameBasicController {
         if(tmp == 0){
            //TODO: the player will be forced to end the programming phase
         }
-        Timerlabel.setText(s);
+        timerlabel.setText(s);
     }
 
 
