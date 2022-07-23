@@ -335,6 +335,7 @@ public class Client{
       return player;
     }
 
+
     @Override
     public String toString() {
         return "Client{" +

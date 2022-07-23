@@ -130,13 +130,19 @@ public enum Images {
     EXTRA_CRISPY_MAP("/ExtraCrispyMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
     LOST_BEARINGS_MAP("/LostBearingsMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DeathTrapMap.png")))), "Map"),
 
-    //robots
-    HAMMER_BOT("/RobotPink.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPink.png")))), "Robot"),
-    HULK_BOT("/RobotRed.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotRed.png")))), "Robot"),
-    SMASH_BOT("/RobotYellow.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotYellow.png")))), "Robot"),
-    SPIN_BOT("/RobotBlue.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotBlue.png")))), "Robot"),
-    TWONKY_BOT("/RobotOrange.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotOrange.png")))), "Robot"),
-    ZOOM_BOT("/RobotGreen.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotGreen.png")))), "Robot");
+    //robots, BEV: bird eye view
+    HAMMER_BOT_BEV("/RobotPink.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPink.png")))), "Robot"),
+    HULK_BOT_BEV("/RobotRed.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotRed.png")))), "Robot"),
+    SMASH_BOT_BEV("/RobotYellow.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotYellow.png")))), "Robot"),
+    SPIN_BOT_BEV("/RobotBlue.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotBlue.png")))), "Robot"),
+    TWONKY_BOT_BEV("/RobotOrange.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotOrange.png")))), "Robot"),
+    ZOOM_BOT_BEV("/RobotGreen.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotGreen.png")))), "Robot"),
+    HAMMER_BOT("/RobotPinkSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPinkSingle.png")))), "Robot"),
+    HULK_BOT("/RobotRedSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotRedSingle.png")))), "Robot"),
+    SMASH_BOT("/RobotYellowSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotYellowSingle.png")))), "Robot"),
+    SPIN_BOT("/RobotBlueSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotBlueSingle.png")))), "Robot"),
+    TWONKY_BOT("/RobotOrangeSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotOrangeSingle.png")))), "Robot"),
+    ZOOM_BOT("/RobotGreenSingle.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotGreenSingle.png")))), "Robot");
 
 
     public String string;

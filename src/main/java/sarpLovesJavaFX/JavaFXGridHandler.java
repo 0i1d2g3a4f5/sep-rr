@@ -332,32 +332,32 @@ public class JavaFXGridHandler {
         Robot robot = gameElement;
         switch (robot.getFigure()){
             case 1 -> {
-                ImageView imageView8 = Images.SPIN_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.SPIN_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 2 -> {
-                ImageView imageView8 = Images.HULK_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.HULK_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 3 -> {
-                ImageView imageView8 = Images.HAMMER_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.ZOOM_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 4 -> {
-                ImageView imageView8 = Images.TWONKY_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.TWONKY_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 5 -> {
-                ImageView imageView8 = Images.HAMMER_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.HAMMER_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }
             case 6-> {
-                ImageView imageView8 = Images.SMASH_BOT.toImageView(robot.getDirectionFacing());
+                ImageView imageView8 = Images.SMASH_BOT_BEV.toImageView(robot.getDirectionFacing());
                 stackPane.getChildren().add(imageView8);
                 stackPane.setAlignment(imageView8, Pos.CENTER);
             }

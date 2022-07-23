@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Handle green conveyorbelts in JavaFXGridHandler">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Fix size of game elements in maps, edit feedback texts in several scenes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newmessages/MessageStartingPointTaken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
@@ -334,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658486803074</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fix size of game elements in maps, edit feedback texts in several scenes">
+      <created>1658594344607</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658594344608</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +390,7 @@
     <MESSAGE value="isabel macht conveyorbelt (hoffentlich). projekt wird nicht kaputt. auf keinen fall" />
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Handle green conveyorbelts in JavaFXGridHandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Handle green conveyorbelts in JavaFXGridHandler" />
+    <MESSAGE value="Fix size of game elements in maps, edit feedback texts in several scenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix size of game elements in maps, edit feedback texts in several scenes" />
   </component>
 </project>

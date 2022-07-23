@@ -12,9 +12,9 @@
             <Image url="@factory3.png" />
          </image>
       </ImageView>
+      <TextField fx:id="groupInput" layoutX="409.0" layoutY="237.0" prefHeight="57.0" prefWidth="600.0" AnchorPane.topAnchor="237.0" />
       <TextField fx:id="ipInput" layoutX="411.0" layoutY="349.0" prefHeight="54.0" prefWidth="600.0" text="localhost" AnchorPane.topAnchor="349.0" />
       <TextField fx:id="portInput" layoutX="409.0" layoutY="455.0" prefHeight="57.0" prefWidth="600.0" text="1234" AnchorPane.topAnchor="455.0" />
-      <TextField fx:id="groupInput" layoutX="409.0" layoutY="237.0" prefHeight="57.0" prefWidth="600.0" AnchorPane.topAnchor="237.0" />
       <Button layoutX="564.0" layoutY="560.0" mnemonicParsing="false" onAction="#connectButton" prefHeight="67.0" prefWidth="239.0" style="-fx-background-color: #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Connect" textFill="#f8f8f8">
          <font>
             <Font size="18.0" />

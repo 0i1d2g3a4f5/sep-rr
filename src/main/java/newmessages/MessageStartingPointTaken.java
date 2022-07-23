@@ -74,6 +74,8 @@ public class MessageStartingPointTaken extends Message{
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         if(clientID==client.getId()){
             client.getPlayer().getRobot().placeRobot(y, x);
+            client.getClientApplication().getGameController().visibilityStartingChoose(false);
+            client.getClientApplication().getGameController().visibilityPlayerDetails(true);
         }
         else{
             client.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
