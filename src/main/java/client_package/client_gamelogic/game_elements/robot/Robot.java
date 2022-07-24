@@ -129,8 +129,12 @@ public class Robot extends GameElement {
      * @return boolean
      */
     public boolean left(){
+
+        Client.clientLogger.info("Robot "+figure+" turns left");
+        Client.clientLogger.debug("Robot "+ figure+" direction before turn= "+directionFacing);
         //TODO Animation
         directionFacing=directionFacing.left();
+        Client.clientLogger.debug("Robot "+ figure+" direction after turn= "+directionFacing);
         return true;
     }
 
@@ -139,8 +143,11 @@ public class Robot extends GameElement {
      * @return boolean
      */
     public boolean right(){
+        Client.clientLogger.info("Robot "+figure+" turns right");
+        Client.clientLogger.debug("Robot "+ figure+" direction before turn= "+directionFacing);
         //TODO Animation
         directionFacing=directionFacing.right();
+        Client.clientLogger.debug("Robot "+ figure+" direction after turn= "+directionFacing);
         return true;
     }
 
