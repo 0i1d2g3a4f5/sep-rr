@@ -400,6 +400,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         }
     }
 
+    public void rotateTo(Direction direction){
+        while (directionFacing != direction){
+            right();
+
+        }
+    }
 
     /**
      * @author Mark Ringer

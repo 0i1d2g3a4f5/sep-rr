@@ -45,11 +45,12 @@ public class MessageRebootDirection extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-        if(sClient.getPlayer().getRobot().waitingForDirection){
+        Server.serverLogger.debug("RebootDirection");
+
             Direction direction = Direction.parseDirection(this.direction);
-            sClient.getPlayer().getRobot().setDirectionFacing(direction);
+            sClient.getPlayer().getRobot().rotateTo(direction);
             Server.serverLogger.info("Rebooted Robot "+sClient.getFigure()+" wit Direction "+direction.toString());
-        }
+
 
     }
 
