@@ -50,7 +50,8 @@ public enum MessageType {
     CURRENT_CARDS,
 
     DRAW_DAMAGE,
-    CARDS_YOU_GOT_NOW;
+    CARDS_YOU_GOT_NOW,
+    REPLACE_CARD;
 
 }
 

@@ -325,7 +325,7 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer, Isabel
      * @param stackPane
      * @param gameElement
      */

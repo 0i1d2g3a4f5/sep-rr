@@ -21,7 +21,7 @@ public class MessageReplaceCard extends Message {
     public MessageReplaceCard(int register, CardName card, int clientID) {
         this.card = String.valueOf(card);
         this.register = register;
-        type = "SelectedCard";
+        type = "ReplaceCard";
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("register", new JsonPrimitive(register));
 
