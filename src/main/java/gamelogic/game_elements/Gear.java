@@ -5,11 +5,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
-import newmessages.MessagePlayerTurning;
+import messages.MessagePlayerTurning;
 import server_package.Server;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Gear extends GameElement implements Activatable {
 

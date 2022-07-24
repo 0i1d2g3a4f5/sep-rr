@@ -1,11 +1,10 @@
 package client_application;
 
 import client_package.Client;
-import client_package.ClientObject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import newmessages.MessageSetStatus;
+import messages.MessageSetStatus;
 /**
  * @author Sarp Cagin Erdogan
  */

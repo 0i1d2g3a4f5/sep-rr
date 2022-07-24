@@ -1,7 +1,7 @@
 package server_package.basicServer;
 
 import com.google.gson.JsonArray;
-import newmessages.MessageSelectMap;
+import messages.MessageSelectMap;
 import server_application.ServerApplication;
 import server_package.SClient;
 import server_package.Server;

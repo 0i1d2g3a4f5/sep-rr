@@ -6,7 +6,7 @@ import gamelogic.*;
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.*;
 import gamelogic.map.GameField;
-import newmessages.*;
+import messages.*;
 import server_package.Server;
 
 import java.util.ArrayList;

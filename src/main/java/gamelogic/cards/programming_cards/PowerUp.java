@@ -1,6 +1,6 @@
 package gamelogic.cards.programming_cards;
 
-import newmessages.MessageEnergy;
+import messages.MessageEnergy;
 import server_package.Server;
 
 import static gamelogic.cards.CardName.POWER_UP;

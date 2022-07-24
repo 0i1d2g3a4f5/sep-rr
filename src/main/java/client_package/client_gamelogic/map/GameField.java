@@ -2,6 +2,7 @@ package client_package.client_gamelogic.map;
 
 
 
+import client_package.Client;
 import client_package.client_gamelogic.game_elements.ElementName;
 import client_package.client_gamelogic.game_elements.Empty;
 import client_package.client_gamelogic.game_elements.GameElement;
@@ -36,7 +37,7 @@ public class GameField {
 
     }
 
-    public GameField(GameBoard board, int x, int y) {
+    public GameField(GameBoard board, int y, int x) {
         this.board = board;
         elements.add(new Empty());
         this.position = new Position(y,x);
@@ -113,7 +114,14 @@ public class GameField {
      */
     public boolean checkWall(Direction direction){
         for (GameElement element:elements) {
-            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction.toString())) return true;
+            if(element.getType()==ElementName.WALL&& element.orientations.contains(direction)) return true;
+            /*
+            if(element.getType()==ElementName.WALL) {
+                Client.clientLogger.debug("Laser Hit Wall bot orientation fails");
+                return true;
+            }
+
+             */
         }
         return false;
     }

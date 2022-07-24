@@ -3,7 +3,7 @@ package server_package.basicServer;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gamelogic.Game;
-import newmessages.*;
+import messages.*;
 import server_application.Task;
 import server_application.TaskContent;
 import server_application.TaskType;

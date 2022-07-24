@@ -3,10 +3,9 @@ package gamelogic;
 import client_package.Client;
 import gamelogic.cards.programming_cards.*;
 import gamelogic.game_elements.ElementName;
-import newmessages.*;
+import messages.*;
 import server_package.SClient;
 import gamelogic.cards.Card;
-import gamelogic.cards.CardName;
 import gamelogic.cards.PlayableInRegister;
 import gamelogic.game_elements.robot.Robot;
 import server_package.Server;
@@ -25,9 +24,7 @@ import static utility.SearchMethods.searchCard;
 public class Player{
     public boolean isProgramming;
    // ClientHandler sClient;
-
     private int EnergyCube;
-
     private Card cardImPlaying;
     private Card lastPlayedCard;
     private Game game;

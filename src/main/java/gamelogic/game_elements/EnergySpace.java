@@ -1,13 +1,11 @@
 package gamelogic.game_elements;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import gamelogic.Activatable;
-import gamelogic.Direction;
 import gamelogic.game_elements.robot.Robot;
-import newmessages.MessageEnergy;
+import messages.MessageEnergy;
 
 import java.io.IOException;
 

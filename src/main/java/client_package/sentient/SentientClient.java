@@ -1,18 +1,16 @@
 package client_package.sentient;
 
 import client_package.Client;
-import client_package.ClientObject;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import newmessages.*;
+import messages.*;
 import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 

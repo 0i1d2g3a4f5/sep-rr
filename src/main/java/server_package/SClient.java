@@ -2,13 +2,11 @@ package server_package;
 
 import com.google.gson.JsonObject;
 import gamelogic.Player;
-import newmessages.*;
+import messages.*;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sarp Cagin Erdogan

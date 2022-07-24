@@ -2,6 +2,8 @@ package client_package.client_gamelogic.map;
 
 
 
+import client_package.Client;
+import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.game_elements.*;
 import com.google.gson.*;
 
@@ -32,11 +34,14 @@ public class GameBoard  {
         this.dimensionX = dimensionX;
     }
 
+    public ArrayList<Laser> laserList = new ArrayList<>();
+
     public ArrayList<GameField> getColumn(int column){
         return boardMap.get(column);
     }
 
     public GameField getField(int y, int x){
+        if(y <0 || y>= getBoardMap().get(0).size() ||x <0 || x>= getBoardMap().size()) return null;
         return boardMap.get(x).get(y);
     }
     public GameField getField(Position position){
@@ -201,17 +206,21 @@ public class GameBoard  {
         this.setDimensionX(arrayLVL1.getAsJsonArray().size());
         this.setDimensionY(arrayLVL1.get(0).getAsJsonArray().size());
 
-        int x=0;
-        int y=0;
-        for (int i=0; i<arrayLVL1.getAsJsonArray().size();i++) {
-            ArrayList<GameField> row = new ArrayList<GameField>();
-            for (int j=0; j<arrayLVL1.get(i).getAsJsonArray().size(); j++) {
-                GameField gameField = new GameField(this,j,i);
 
-                for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
+        for (int x=0; x<arrayLVL1.getAsJsonArray().size();x++) {
+            ArrayList<GameField> row = new ArrayList<GameField>();
+            for (int y=0; y<arrayLVL1.get(x).getAsJsonArray().size(); y++) {
+                GameField gameField = new GameField(this,y,x);
+
+                for (JsonElement elementLVL3: arrayLVL1.get(x).getAsJsonArray().get(y).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
                     //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
+                    element.setGameField(gameField);
+                    if(element instanceof Laser){
+                        laserList.add((Laser) element);
+                    }
+
 
                 }
                 row.add(gameField);
@@ -226,6 +235,8 @@ public class GameBoard  {
         GameField gameField = getGameField(y,x);
         return gameField.getElements();
     }
+
+
 
 
     /**
@@ -246,6 +257,19 @@ public class GameBoard  {
     public int createDimensionY(){
         setDimensionY(boardMap.get(1).size());
         return boardMap.get(1).size();
+    }
+
+    /**
+     * @author Mark Ringer
+     */
+    public void constructLaserBeams() throws IOException {
+        Client.clientLogger.debug("methodConstructLaser: "+ laserList);
+        for (Laser laser:laserList
+             ) {
+            Client.clientLogger.debug("constructLaser "+ laser.getGameField().getPosition());
+            laser.laserMovement(laser.getGameField().getNeighbor(laser.orientations.get(0)));
+        }
+
     }
 
     @Override

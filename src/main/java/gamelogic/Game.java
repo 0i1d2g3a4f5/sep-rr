@@ -5,13 +5,12 @@ import gamelogic.cards.CardName;
 import gamelogic.game_elements.*;
 import server_package.SClient;
 import gamelogic.cards.Card;
-import gamelogic.cards.DeckSerializer;
 import gamelogic.cards.damage_card.*;
 import gamelogic.cards.damage_card.TrojanHorse;
 import gamelogic.map.MapName;
 import gamelogic.map.GameBoard;
 import gamelogic.map.ModelLoader;
-import newmessages.*;
+import messages.*;
 import server_package.Server;
 import utility.GlobalParameters;
 

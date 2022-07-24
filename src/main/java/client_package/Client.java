@@ -3,24 +3,18 @@ package client_package;
 import client_application.ClientApplication;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.CPlayer;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
-import newmessages.Message;
+import messages.Message;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import server_package.Server;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Stream;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Mark Ringer
  */
 public class Client{
 

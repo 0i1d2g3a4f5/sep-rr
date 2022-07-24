@@ -1,9 +1,7 @@
 package gamelogic.cards.damage_card;
 
-import gamelogic.Game;
 import gamelogic.cards.Card;
-import gamelogic.cards.CardName.*;
-import newmessages.MessageReplaceCard;
+import messages.MessageReplaceCard;
 import server_package.Server;
 
 import static gamelogic.cards.CardName.*;

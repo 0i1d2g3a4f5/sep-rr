@@ -6,16 +6,13 @@ import client_application.TaskType;
 import client_package.Client;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import newmessages.*;
+import messages.*;
 import utility.GlobalParameters;
 
 
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 /**
  * @author Sarp Cagin Erdogan
