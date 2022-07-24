@@ -42,7 +42,7 @@ public class MessageReplaceCard extends Message {
      */
     public MessageReplaceCard(JsonObject jsonObject) {
         super(jsonObject);
-        card = content.get("card").getAsString();
+        card = content.get("newCard").getAsString();
         register = content.get("register").getAsInt();
         //Server.serverLogger.info("Created Replace Card Message: " + this + " from JSON: " + jsonObject);
     }
