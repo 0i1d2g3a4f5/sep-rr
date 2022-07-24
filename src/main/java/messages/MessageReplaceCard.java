@@ -1,5 +1,10 @@
 package messages;
 
+import client_application.Task;
+import client_application.TaskContent;
+import client_application.TaskType;
+import client_package.client_gamelogic.cards.Card;
+import client_package.client_gamelogic.cards.CardFactory;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -7,6 +12,7 @@ import gamelogic.cards.CardName;
 import server_package.SClient;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MessageReplaceCard extends Message {
 
@@ -49,6 +55,13 @@ public class MessageReplaceCard extends Message {
 
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+        ArrayList<Card> registers = client.getPlayer().getRegisterCardsOwn();
+        Card card = new CardFactory().createCard(client_package.client_gamelogic.cards.CardName.parseCardName(this.card));
+
+        registers.remove(register);
+        registers.add(register,card);
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
+
 
     }
     @Override

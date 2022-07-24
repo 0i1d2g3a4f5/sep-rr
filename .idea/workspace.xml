@@ -7,10 +7,7 @@
     <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Lasers are shown">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
