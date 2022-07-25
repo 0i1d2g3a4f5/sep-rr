@@ -116,7 +116,7 @@
       [{"type":"Empty","isOnBoard":"6B"}],
       [{"type":"Empty","isOnBoard":"6B"}],
       [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["right","bottom"]}],
-      [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["top","bottom"]}],
+      [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["top","bottom"]},{"type":"CheckPoint","isOnBoard":"6B","count":4}],
       [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["top","right"]}],
       [{"type":"Empty","isOnBoard":"6B"}]
     ],
@@ -128,7 +128,7 @@
       [{"type":"Empty","isOnBoard":"6B"}],
       [{"type":"Empty","isOnBoard":"6B"}],
       [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["right","left"]}],
-      [{"type":"EnergySpace","isOnBoard":"6B","count":1},{"type":"CheckPoint","isOnBoard":"6B","count":4}],
+      [{"type":"EnergySpace","isOnBoard":"6B","count":1}],
       [{"type":"ConveyorBelt","isOnBoard":"6B","speed":2,"orientations":["left","right"]}],
       [{"type":"Empty","isOnBoard":"6B"}]
     ],

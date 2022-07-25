@@ -22,8 +22,8 @@
             <Image url="@roboaction.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#64707aa6" height="66.0" layoutX="58.0" layoutY="185.0" stroke="TRANSPARENT" strokeType="INSIDE" width="270.0" />
-      <ImageView fx:id="upperbar2" fitHeight="85.0" fitWidth="600.0" layoutX="-6.0" layoutY="102.0" opacity="0.8" y="1.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#64707aa6" height="66.0" layoutX="58.0" layoutY="189.0" stroke="TRANSPARENT" strokeType="INSIDE" width="270.0" />
+      <ImageView fx:id="upperbar2" fitHeight="85.0" fitWidth="600.0" layoutX="-6.0" layoutY="92.0" opacity="0.8" y="1.0">
          <image>
             <Image url="@bar.png" />
          </image>
@@ -38,29 +38,29 @@
             <Image url="@bar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="upperbar3" fitHeight="85.0" fitWidth="631.0" layoutX="-19.0" layoutY="-3.0" opacity="0.8" rotate="-9.9">
+      <ImageView fx:id="upperbar3" fitHeight="85.0" fitWidth="631.0" layoutX="-19.0" layoutY="-10.0" opacity="0.8" rotate="-9.9">
          <image>
             <Image url="@bar.png" />
          </image>
       </ImageView>
-      <Button layoutX="99.0" layoutY="264.0" maxHeight="48.0" maxWidth="194.0" minHeight="48.0" minWidth="194.0" mnemonicParsing="false" onAction="#launchBasic" prefHeight="48.0" prefWidth="194.0" stylesheets="@BlackButton.css" text="Start Game Server" textFill="#434343">
+      <Button layoutX="99.0" layoutY="267.0" maxHeight="48.0" maxWidth="194.0" minHeight="48.0" minWidth="194.0" mnemonicParsing="false" onAction="#launchBasic" prefHeight="48.0" prefWidth="194.0" stylesheets="@BlackButton.css" text="Start Game Server" textFill="#434343">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Text fx:id="textfield" fill="WHITE" layoutX="100.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="194.39999999999986">
+      <Text fx:id="textfield" fill="WHITE" layoutX="26.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="348.0000366210936">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <ListView fx:id="serverPlayerList" layoutX="65.0" layoutY="325.0" opacity="0.8" prefHeight="160.0" prefWidth="264.0" />
-      <Text fill="WHITE" layoutX="62.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of AI-Players:">
+      <ListView fx:id="serverPlayerList" layoutX="65.0" layoutY="328.0" opacity="0.8" prefHeight="160.0" prefWidth="264.0" />
+      <Text fill="WHITE" layoutX="62.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of AI-Players:">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="nonAIText" layoutX="227.0" layoutY="190.0" prefHeight="26.0" prefWidth="95.0" />
-      <TextField fx:id="aiText" layoutX="227.0" layoutY="220.0" prefHeight="26.0" prefWidth="95.0" />
-      <Text fill="WHITE" layoutX="62.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of non-AI-Players:">
+      <TextField fx:id="nonAIText" layoutX="227.0" layoutY="194.0" prefHeight="26.0" prefWidth="95.0" />
+      <TextField fx:id="aiText" layoutX="227.0" layoutY="224.0" prefHeight="26.0" prefWidth="95.0" />
+      <Text fill="WHITE" layoutX="62.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of non-AI-Players:">
          <font>
             <Font size="14.0" />
          </font>
