@@ -131,6 +131,7 @@ public enum Images {
     DIZZY_HIGHWAY_MAP("/DizzyHighwayMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/DizzyHighwayMap.png")))), "Map"),
     EXTRA_CRISPY_MAP("/ExtraCrispyMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/ExtraCrispyMap.png")))), "Map"),
     LOST_BEARINGS_MAP("/LostBearingsMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/LostBearingsMap.png")))), "Map"),
+    TWISTER_MAP("/TwisterMap.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/TwisterMap.png")))), "Map"),
 
     //robots, BEV: bird eye view
     HAMMER_BOT_BEV("/RobotPink.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/RobotPink.png")))), "Robot"),

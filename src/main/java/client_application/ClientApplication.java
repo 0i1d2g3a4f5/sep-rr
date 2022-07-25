@@ -153,7 +153,7 @@ public class ClientApplication extends Application {
         stageBasicMap = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientMapBasic.fxml"));
         try {
-            Scene scene = new Scene(fxmlLoader.load(), 600, 675);
+            Scene scene = new Scene(fxmlLoader.load(), 632, 675);
             clientMapBasicController=fxmlLoader.getController();
             clientMapBasicController.clientApplication=this;
             stageBasicMap.setScene(scene);
