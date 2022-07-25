@@ -68,10 +68,10 @@ public class PushPanel extends GameElement implements Activatable {
     @Override
     public void activate() {
 
-        if(gameField.contains(ElementName.ROBOT)/*&& (activateRegisters.contains(Game.getInstance().getActiveRegister()+1))*/){
+        if(gameField.contains(ElementName.ROBOT)&& (activateRegisters.contains(Game.getInstance().getActiveRegister()+1))){
             Server.serverLogger.info("Activate " + type);
             Robot robot = gameField.getRobot();
-            robot.displace(orientations.get(0));
+            robot.displace(orientations.get(0).opposite());
         }
     }
     @Override
