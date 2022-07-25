@@ -51,6 +51,7 @@ public class MessageMapSelected extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
             //Game.getInstance().setMapName(MapName.valueOf(map));
+        sClient.getServer().setGameStarted(true);
             ModelLoader modelLoader = new ModelLoader();
             GameBoard gameBoard = modelLoader.loadMap(map);
             try {
@@ -60,6 +61,7 @@ public class MessageMapSelected extends Message{
             }
             Server.serverLogger.info("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             sClient.sendAll(this);
+            sClient.getServer().setGameStarted(true);
             //TODO select position, revert to get gameBoard
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
             Game.getInstance().setStartPoints();

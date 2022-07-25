@@ -57,7 +57,7 @@ public class MessageCardsYouGotNow extends Message{
         CardFactory cardFactory = new CardFactory();
         for (int i = 0; i < jsonArray.size(); i++) {
             names.add(jsonArray.get(i).getAsString());
-            cards.add(CardName.valueOf(jsonArray.get(i).getAsString()));
+            cards.add(CardName.parseCardName(jsonArray.get(i).getAsString()));
         }
         this.names = names;
         this.cards = cards;

@@ -101,6 +101,11 @@ public class ClientApplication extends Application {
             stageBasicName.setScene(scene);
             stageBasicName.setResizable(false);
             stageBasicName.show();
+            stageBasicName.setOnCloseRequest(e -> {
+                getClient().disconnect();
+                Platform.exit();
+                System.exit(0);
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -132,6 +137,11 @@ public class ClientApplication extends Application {
             stageBasicLobby.setScene(scene);
             stageBasicLobby.setResizable(false);
             stageBasicLobby.show();
+            stageBasicLobby.setOnCloseRequest(e -> {
+                getClient().disconnect();
+                Platform.exit();
+                System.exit(0);
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -149,6 +159,11 @@ public class ClientApplication extends Application {
             stageBasicMap.setScene(scene);
             stageBasicMap.setResizable(false);
             stageBasicMap.show();
+            stageBasicMap.setOnCloseRequest(e -> {
+                getClient().disconnect();
+                Platform.exit();
+                System.exit(0);
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -166,6 +181,11 @@ public class ClientApplication extends Application {
             stageBasicGame.setScene(scene);
             stageBasicGame.setResizable(false);
             stageBasicGame.show();
+            stageBasicGame.setOnCloseRequest(e -> {
+                getClient().disconnect();
+                Platform.exit();
+                System.exit(0);
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

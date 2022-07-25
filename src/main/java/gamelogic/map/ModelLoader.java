@@ -29,8 +29,9 @@ public class ModelLoader {
     }
 
     public String readFile(String fileName){
-
-        String filePath = "src/main/resources/MapModels/"+fileName+".json";
+        String resourceName = "/MapModels/"+fileName+".json";
+        String filePath = getClass().getResource(resourceName).getFile();
+        System.out.println("FILEPATH" + filePath);
         return new JsonReader().readFile(filePath);
     }
 

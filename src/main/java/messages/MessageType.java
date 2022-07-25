@@ -4,6 +4,7 @@ package messages;
  */
 public enum MessageType {
     DEFAULT,
+    CONNECTION_UPDATE,
     ACTIVE_PHASE,
     ALIVE,
     ANIMATION,

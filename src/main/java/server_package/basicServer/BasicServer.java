@@ -38,17 +38,19 @@ public class BasicServer extends Server {
         public void run() {
             while (!getIsTerminated()){
                 try {
-                    if(getCurrentClients()<getMaxClients()){
+                    if(getCurrentClients()<getMaxClients() && !gameStarted){
                         Socket socket = null;
                         socket = getServerSocket().accept();
-                        BasicSClient client = new BasicSClient(getServerApplication().getBasicServer(),getCurrentIndex(), socket);
-                        getClientList().add(client);
-                        setCurrentIndex(getCurrentIndex()+1);
-                        setCurrentClients(getCurrentClients()+1);
-                        client.listen();
+                        if(!gameStarted) {
+                            BasicSClient client = new BasicSClient(getServerApplication().getBasicServer(), getCurrentIndex(), socket);
+                            getClientList().add(client);
+                            setCurrentIndex(getCurrentIndex() + 1);
+                            setCurrentClients(getCurrentClients() + 1);
+                            client.listen();
 
-                        client.sendProtocolCheck();
-                        client.sendPreviousInfo();
+                            client.sendProtocolCheck();
+                            client.sendPreviousInfo();
+                        }
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -57,6 +59,13 @@ public class BasicServer extends Server {
         }
     };
     void shutDownServer(){
+        isTerminated=true;
+        while(getClientList().size()>0){
+            sClientList.get(0).disconnect();
+            sClientList.remove(0);
+            serverApplication.serverSelectionControllerVM.updateServerList();
+
+        }
 
 
     }

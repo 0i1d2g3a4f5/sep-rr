@@ -142,6 +142,9 @@ public class MessageTypeFactory {
             case "ReplaceCard" -> {
                 return MessageType.REPLACE_CARD;
             }
+            case "ConnectionUpdate" -> {
+                return MessageType.CONNECTION_UPDATE;
+            }
             default -> {
                 throw new IllegalArgumentException("Message "+string +" does not exist");
             }

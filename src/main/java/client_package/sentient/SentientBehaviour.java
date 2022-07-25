@@ -178,6 +178,8 @@ public class SentientBehaviour {
     }
     public void chooseAllCards(){
         allChosen=sentientClient.getPlayer().registerFull();
+        directionHandled=false;
+        triedToHandle=false;
         while(!allChosen){
             try {
                 Thread.sleep(1);

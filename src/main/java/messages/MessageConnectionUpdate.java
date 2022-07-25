@@ -42,20 +42,24 @@ public class MessageConnectionUpdate extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         isConnected = content.get("isConnected").getAsBoolean();
-        action = content.get("content").getAsString();
+        action = content.get("action").getAsString();
         //Server.serverLogger.info("Created ConnectionUpdate Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
      *
      * @param client
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
     public void activateMessageInBackend(SClient client) throws IOException, ClientNotFoundException{
-
+        for(int i=0; i<client.getServer().getClientList().size(); i++){
+            if(client.getServer().getClientList().get(i).getId()==clientID){
+                client.getServer().getClientList().get(i).disconnect();
+            }
+        }
+        client.sendAll(new MessageConnectionUpdate(clientID, false, "Disconnect"));
 
     }
 
@@ -67,6 +71,16 @@ public class MessageConnectionUpdate extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+        for(int i=0; i<client.getClientList().size(); i++){
+            if (client.getClientList().get(i).getId() == clientID) {
+                client.getClientList().remove(i);
+            }
+        }
+        for(int i=0; i<client.getPlayerList().size(); i++){
+            if (client.getPlayerList().get(i).getId() == clientID) {
+                client.getPlayerList().remove(i);
+            }
+        }
 
     }
 
@@ -76,6 +90,15 @@ public class MessageConnectionUpdate extends Message{
      */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        for(int i=0; i<sentientClient.getClientList().size(); i++){
+            if (sentientClient.getClientList().get(i).getId() == clientID) {
+                sentientClient.getClientList().remove(i);
+            }
+        }
+        for(int i=0; i<sentientClient.getPlayerList().size(); i++){
+            if (sentientClient.getPlayerList().get(i).getId() == clientID) {
+                sentientClient.getPlayerList().remove(i);
+            }
+        }
     }
 }
