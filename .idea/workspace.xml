@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="connection to running game not possible anymore, disconnectiong from game handled">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add PushPanels to DeathTrap Map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
-    </list>
-    <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/PushPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -38,17 +31,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="7adc4fde-b32a-46bd-b2ee-476339425771" />
-        <range start1="4" end1="4" start2="5" end2="6" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="32" end1="32" start2="34" end2="35" changelist="7adc4fde-b32a-46bd-b2ee-476339425771" />
-        <range start1="33" end1="33" start2="36" end2="38" changelist="7adc4fde-b32a-46bd-b2ee-476339425771" />
-        <range start1="44" end1="44" start2="49" end2="52" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -363,7 +345,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add PushPanels to DeathTrap Map">
+      <created>1658756892703</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658756892703</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Changes by Mark">
+      <created>1658756909271</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658756909271</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +403,8 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
+    <MESSAGE value="Add PushPanels to DeathTrap Map" />
+    <MESSAGE value="Changes by Mark" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Mark" />
   </component>
 </project>
