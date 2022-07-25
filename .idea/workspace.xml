@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add PushPanels to DeathTrap Map">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add CheckPoints to Twister Map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -87,7 +92,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -359,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658756909271</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add CheckPoints to Twister Map">
+      <created>1658758208958</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658758208958</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +417,7 @@
     <MESSAGE value="CHANGED EVERYHTING" />
     <MESSAGE value="Add PushPanels to DeathTrap Map" />
     <MESSAGE value="Changes by Mark" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Mark" />
+    <MESSAGE value="Add CheckPoints to Twister Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CheckPoints to Twister Map" />
   </component>
 </project>
