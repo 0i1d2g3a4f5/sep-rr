@@ -12,24 +12,16 @@ import server_package.basicServer.BasicServer;
 
 public class ServerSelectionController {
 
-    private ServerApplication serverApplication;
-    private boolean isActive=true;
+    public ServerSelectionControllerVM serverSelectionControllerVM;
+
+    public ServerApplication serverApplication;
+    public boolean isActive=true;
 
     @FXML
-    private ListView<String> serverPlayerList;
+    public ListView<String> serverPlayerList;
 
     @FXML
-    private Text textfield;
-
-    @FXML
-    private ImageView upperbar1;
-
-    @FXML
-    private ImageView upperbar2;
-
-    @FXML
-    private ImageView upperbar3;
-
+    public Text textfield;
     @FXML
     void launchBasic(ActionEvent event) {
         if(isActive){
@@ -40,32 +32,11 @@ public class ServerSelectionController {
         }
 
     }
-    public ServerApplication getServerApplication(){
-        return this.serverApplication;
-    }
 
-    public void setServerApplication(ServerApplication serverApplication) {
-        this.serverApplication = serverApplication;
+    void init(ServerSelectionControllerVM serverSelectionControllerVM) {
+        this.serverSelectionControllerVM = serverSelectionControllerVM;
+        this.textfield.textProperty().bindBidirectional(serverSelectionControllerVM.textFieldCopy.textProperty());
+        this.serverPlayerList.cellFactoryProperty().bindBidirectional(serverSelectionControllerVM.serverPlayerListCopy.cellFactoryProperty());
+        this.serverPlayerList.itemsProperty().bindBidirectional(serverSelectionControllerVM.serverPlayerListCopy.itemsProperty());
     }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public void setTextfield(String text){
-        this.textfield.setText(text);
-    }
-
-    public void updateServerList() {
-        serverPlayerList.getItems().clear();
-        for (int i = 1; i < serverApplication.getBasicServer().getClientList().size() + 1; i++) {
-            SClient temp = serverApplication.getBasicServer().getClientList().get(i - 1);
-            serverPlayerList.getItems().add(i -1, "{" + temp.getId() + "} " + temp.getName() + " [" + temp.getIsReady() + "]");
-        }
-    }
-
 }
