@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add CheckPoints to Twister Map">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="updated workspace.xml to avoid errors">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientMapBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientMapBasic.fxml" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -55,26 +53,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-    &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/isabe/IdeaProjects/desperate_drosseln_hp/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
-    }
-    }</component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/isabe/IdeaProjects/desperate_drosseln_hp/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
@@ -82,6 +80,7 @@
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project\src\main\java" />
@@ -92,7 +91,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.ClientApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -371,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658758208958</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="updated workspace.xml to avoid errors">
+      <created>1658760680614</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658760680614</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,6 +424,7 @@
     <MESSAGE value="Add PushPanels to DeathTrap Map" />
     <MESSAGE value="Changes by Mark" />
     <MESSAGE value="Add CheckPoints to Twister Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CheckPoints to Twister Map" />
+    <MESSAGE value="updated workspace.xml to avoid errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated workspace.xml to avoid errors" />
   </component>
 </project>
