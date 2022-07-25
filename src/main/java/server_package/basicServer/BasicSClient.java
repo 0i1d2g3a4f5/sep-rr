@@ -199,7 +199,7 @@ public class BasicSClient extends SClient {
             setNamed(true);
             setName(name);
             setFigure(figure);
-            server.getServerApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+            getServer().getServerApplication().serverSelectionControllerVM.updateServerList();
             sendAll(new MessagePlayerAdded(getId(), getName(), getFigure()));
             Server.serverLogger.info("Client " + name + " | " + id + " joined the game");
             Game.getInstance().join(this);

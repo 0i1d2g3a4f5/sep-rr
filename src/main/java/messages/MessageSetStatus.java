@@ -47,7 +47,7 @@ public class MessageSetStatus extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
             sClient.setReady(this.ready);
-            sClient.getServer().getServerApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
+            sClient.getServer().getServerApplication().serverSelectionControllerVM.updateServerList();
             sClient.sendAll(new MessagePlayerStatus(sClient.getId(), sClient.getIsReady()));
             if(sClient.getIsReady()){
                 sClient.getServer().getReadyList().add(sClient);

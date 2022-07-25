@@ -25,7 +25,7 @@ public class ServerSelectionController {
     @FXML
     void launchBasic(ActionEvent event) {
         if(isActive){
-            setActive(false);
+            isActive=false;
             serverApplication.setBasicServer(new BasicServer(serverApplication));
             serverApplication.getBasicServer().startServerSocket();
             Server.serverLogger.info("Basic server launched");

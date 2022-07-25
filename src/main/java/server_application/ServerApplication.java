@@ -33,6 +33,7 @@ public class ServerApplication extends Application{
     private TaskHandler taskHandler;
 
     public ServerSelectionController serverSelectionController;
+    public ServerSelectionControllerVM serverSelectionControllerVM;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -64,7 +65,9 @@ public class ServerApplication extends Application{
         try {
             Scene scene = new Scene(fxmlLoader.load(), 400, 500);
             serverSelectionController=fxmlLoader.getController();
-            serverSelectionController.setServerApplication(this);
+            serverSelectionController.serverApplication=this;
+            serverSelectionControllerVM = new ServerSelectionControllerVM(serverSelectionController);
+            serverSelectionController.init(serverSelectionControllerVM);
             selectionStage.setResizable(false);
             selectionStage.setScene(scene);
             selectionStage.show();
