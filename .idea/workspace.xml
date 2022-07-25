@@ -7,6 +7,7 @@
     <list default="true" id="b633f268-0681-4620-a6f4-53685d5c336e" name="Changes" comment="CheckPoint5.png">
       <change afterPath="$PROJECT_DIR$/src/main/resources/BlackButton.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/GreyButton.css" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Add CheckPoints to Twister Map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
@@ -18,6 +19,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientNameBasic.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientStartBasic.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Bottom.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PushPanel24Top.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +85,7 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
@@ -86,7 +93,6 @@
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project\src\main\java" />
@@ -97,7 +103,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -363,6 +369,21 @@
       <updated>1658751720726</updated>
     </task>
     <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Changes by Mark">
+      <created>1658756909271</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658756909271</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add CheckPoints to Twister Map">
+      <created>1658758208958</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658758208958</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,5 +429,9 @@
     <MESSAGE value="CHANGED EVERYHTING" />
     <MESSAGE value="CheckPoint5.png" />
     <option name="LAST_COMMIT_MESSAGE" value="CheckPoint5.png" />
+    <MESSAGE value="Add PushPanels to DeathTrap Map" />
+    <MESSAGE value="Changes by Mark" />
+    <MESSAGE value="Add CheckPoints to Twister Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CheckPoints to Twister Map" />
   </component>
 </project>
