@@ -33,7 +33,7 @@ public class Cccc extends Application {
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         Robot robot = new Robot(new Client(), new Position(0, 0), Direction.LEFT, 2);
         StackPane stackPane = new StackPane();
-        javaFXGridHandler.caseRobot(stackPane, robot);
+        javaFXGridHandler.caseRobot(stackPane, robot, 1);
         Scene scene= new Scene(stackPane,1000, 1000);
         stage.setScene(scene);
         stage.show();

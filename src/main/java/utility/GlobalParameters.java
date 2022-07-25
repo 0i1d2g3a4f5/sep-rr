@@ -1,5 +1,9 @@
 package utility;
 
+import gamelogic.Position;
+
+import java.util.ArrayList;
+
 public class GlobalParameters {
     public static final String PROTOCOL_VERSION = "Version 2.0";
     public static final String FIGURE_ERROR = "Figure is already taken";

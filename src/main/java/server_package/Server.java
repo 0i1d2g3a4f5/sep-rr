@@ -32,7 +32,7 @@ public abstract class Server {
     }
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
-    protected int maxClients, currentClients, currentIndex, startingAmount;
+    protected int maxClients, currentClients, currentIndex, startingNonAIAmount, startingAIAmount;
     protected List<SClient> sClientList;
     protected List<SClient> readyList;
     protected boolean isTerminated, isBasic;
@@ -104,12 +104,20 @@ public abstract class Server {
         this.currentIndex = currentIndex;
     }
 
-    public int getStartingAmount() {
-        return startingAmount;
+    public int getStartingAIAmount() {
+        return startingAIAmount;
     }
 
-    public void setStartingAmount(int startingAmount) {
-        this.startingAmount = startingAmount;
+    public void setStartingAIAmount(int startingAIAmount) {
+        this.startingAIAmount = startingAIAmount;
+    }
+
+    public int getStartingNonAIAmount() {
+        return startingNonAIAmount;
+    }
+
+    public void setStartingNonAIAmount(int startingNonAIAmount) {
+        this.startingNonAIAmount = startingNonAIAmount;
     }
 
     public List<SClient> getReadyList() {

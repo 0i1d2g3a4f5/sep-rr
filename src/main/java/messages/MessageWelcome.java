@@ -67,7 +67,7 @@ public class MessageWelcome extends Message{
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         sentientClient.setId(clientID);
-        sentientClient.sendOwnInfo();
+        sentientClient.getSentientBehaviour().sendOwnInfo();
 
     }
 }

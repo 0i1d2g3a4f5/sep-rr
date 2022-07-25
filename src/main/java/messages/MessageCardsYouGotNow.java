@@ -52,7 +52,7 @@ public class MessageCardsYouGotNow extends Message{
      */
     public MessageCardsYouGotNow(JsonObject jsonObject) {
         super(jsonObject);
-        JsonArray jsonArray = jsonObject.get("cards").getAsJsonArray();
+        JsonArray jsonArray = content.get("cards").getAsJsonArray();
         ArrayList<CardName> cards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
         for (int i = 0; i < jsonArray.size(); i++) {

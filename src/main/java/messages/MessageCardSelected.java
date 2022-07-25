@@ -97,6 +97,8 @@ public class MessageCardSelected extends Message{
         if(clientID==sentientClient.getId()){
             if(filled){
                 sentientClient.getPlayer().placeSelectedToRegisterOwn();
+                sentientClient.getSentientBehaviour().setAllChosen(sentientClient.getPlayer().registerFull());
+                sentientClient.getSentientBehaviour().setCanChooseNext(true);
             }
             else{
                 sentientClient.getPlayer().removeCardFromRegisterOwn();

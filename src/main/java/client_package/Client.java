@@ -90,6 +90,7 @@ public class Client{
 
 
     public Client playerFromId(int inp){
+        displayPlayerList();
         for(Client client : this.playerList){
             if(client.getId()==inp){
                 return client;
@@ -97,7 +98,43 @@ public class Client{
         }
         return null;
     }
-
+    public Client clientFromId(int inp){
+        displayClientList();
+        for(Client client : this.clientList){
+            if(client.getId()==inp){
+                return client;
+            }
+        }
+        return null;
+    }
+    public void displayClientList(){
+        String text = "\nCurrent opponents in lobby:\n";
+        for(int i=0; i<clientList.size(); i++){
+            Client client = clientList.get(i);
+            text+=(client.getId() + " : \"" + client.getName() + "\" with figure " + client.getFigure());
+            if(client.isReady()){
+                text+=" is ready.\n";
+            }
+            else {
+                text+=" is not ready.\n";
+            }
+        }
+        Client.clientLogger.info(text);
+    }
+    public void displayPlayerList(){
+        String text = "\nCurrent opponents in game:\n";
+        for(int i=0; i<playerList.size(); i++){
+            Client client = playerList.get(i);
+            text+=(client.getId() + " : \"" + client.getName() + "\" with figure " + client.getFigure());
+            if(client.isReady()){
+                text+=" is ready.\n";
+            }
+            else {
+                text+=" is not ready.\n";
+            }
+        }
+        Client.clientLogger.info(text);
+    }
 
     public void sendSelf(Message temp){
 
@@ -131,7 +168,7 @@ public class Client{
                 if(clientList.get(i).getId()==id){
                     clientList.get(i).setIsReady(ready);
                     playerList.add(clientList.get(i));
-                    clientList.get(i).setPlayer(new CPlayer(clientList.get(i), this.game, false));
+                    clientList.get(i).setPlayer(new CPlayer(clientList.get(i), false));
                     break;
                 }
             }
@@ -152,6 +189,7 @@ public class Client{
             }
         }
     }
+
     /*protected Runnable basicListener = new Runnable() {
         @Override
         public void run() {

@@ -88,7 +88,6 @@ public class MessageSetStartingPoint extends Message{
         ArrayList<Player> players = sClient.getPlayer().getGame().getPlayerList();
 
         for (Player player: players) {
-            player.sendMessage(new MessageSendChat("Server: checking if you already placed your Robot", sClient.getId()));
             Server.serverLogger.info("Placed: " +player.getRobot().isPlaced());
             if(!player.getRobot().isPlaced()){
                 allPlaced = false;

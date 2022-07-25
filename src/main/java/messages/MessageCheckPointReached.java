@@ -63,6 +63,9 @@ public class MessageCheckPointReached extends Message{
 
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        if(clientID==sentientClient.getId()){
+            sentientClient.getSentientBehaviour().nextCheckPoint();
+        }
 
     }
 

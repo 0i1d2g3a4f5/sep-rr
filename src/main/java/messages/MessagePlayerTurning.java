@@ -75,27 +75,34 @@ public class MessagePlayerTurning extends Message{
             }
         }
         else {
-
-            for (int i = 0; i < client.getPlayerList().size(); i++) {
-
-                if(clientID==client.getPlayerList().get(i).getId()){
                     if (rotation.equals("clockwise")){
-                        client.getPlayerList().get(i).getPlayer().getRobot().right();
+                       client.playerFromId(clientID).getPlayer().getRobot().right();
                     }
                     else{
-                        client.getPlayerList().get(i).getPlayer().getRobot().left();
+                        client.playerFromId(clientID).getPlayer().getRobot().left();
                     }
 
-                }
-
-
-            }
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
 
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        if(clientID==sentientClient.getId()){
+            if (rotation.equals("clockwise")){
+                sentientClient.getPlayer().getRobot().right();
+            }
+            else{
+                sentientClient.getPlayer().getRobot().left();
+            }
+        }
+        else{
+            if (rotation.equals("clockwise")){
+                sentientClient.playerFromId(clientID).getPlayer().getRobot().right();
+            }
+            else{
+                sentientClient.playerFromId(clientID).getPlayer().getRobot().left();
+            }
+        }
     }
 }

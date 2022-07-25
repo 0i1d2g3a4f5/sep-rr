@@ -66,7 +66,7 @@ public class MessagePlayerStatus extends Message {
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             if(this.clientID==client.getId()) {
                 client.setIsReady(this.ready);
-                client.setPlayer(new CPlayer(client, client.getGame(), true));
+                client.setPlayer(new CPlayer(client, true));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEREADYBUTTON, new TaskBoolean(this.ready)));
                 client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATELOBBYLIST, new TaskContent()));
             }
@@ -84,6 +84,12 @@ public class MessagePlayerStatus extends Message {
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){
             sentientClient.setIsReady(ready);
+            if(sentientClient.isReady()){
+                sentientClient.setPlayer(new CPlayer(sentientClient, true));
+            }
+            else{
+                sentientClient.setPlayer(null);
+            }
         }
         else{
             sentientClient.handleReady(ready, clientID);

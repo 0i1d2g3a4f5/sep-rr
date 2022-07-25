@@ -55,23 +55,13 @@ public class MessageGameStarted extends Message{
 
         Game game = Game.getInstance();
         game.getMap().constructLaserBeams();
-        for (Client client2: client.getClientList()) {
-            if(client2.getId() !=client.getId()){
-                //TODO check if this needs to be done here or somewhere else
-                //game.join(client2);
-                //client_package.client_gamelogic.Game.getInstance().getPlayerList().add(new CPlayer(client2.getId(),client2.getRoboColor()));
-            } else {
-
-            }
-        }
-            client.setGame(game);
-
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+        client.setGame(game);
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-        sentientClient.triggerGameStart(content);
+        sentientClient.getSentientBehaviour().triggerGameStart(content);
     }
 }

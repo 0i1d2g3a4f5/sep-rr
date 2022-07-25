@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
+import javafx.scene.text.Text;
 import utility.Images;
 
 import java.io.IOException;
@@ -69,16 +70,41 @@ public class JavaFXGridHandler {
     }
     */
 
-    public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
+    public GridPane gridPaneFromGameBoard(GameBoard gameBoard, int ownFigure){
         GridPane temp = null;
         try {
-            temp = updateGameBoard(gameBoard);
+            temp = updateGameBoard(gameBoard, ownFigure);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         temp.setScaleX(0.2);
         temp.setScaleY(0.2);
         return temp;
+    }
+    public ImageView robotPic(int figure){
+        switch (figure){
+            case 1 -> {
+                return Images.SPIN_BOT.toImageView();
+            }
+            case 2 -> {
+                return Images.HULK_BOT.toImageView();
+            }
+            case 3 -> {
+                return Images.ZOOM_BOT.toImageView();
+            }
+            case 4 -> {
+                return Images.TWONKY_BOT.toImageView();
+            }
+            case 5 -> {
+                return Images.HAMMER_BOT.toImageView();
+            }
+            case 6-> {
+                return Images.SMASH_BOT.toImageView();
+            }
+            default -> {
+            }
+        }
+        return null;
     }
 
     private void addToPane(StackPane stackPane,ImageView imageView, int type){
@@ -109,7 +135,7 @@ public class JavaFXGridHandler {
         stackPane.getChildren().add(imageView);
         stackPane.setAlignment(imageView, Pos.CENTER);
     }
-    public GridPane gridPaneFromBooleanList(ArrayList<Boolean> boolList, int type) throws IOException {
+    public GridPane gridPaneFromBooleanList(ArrayList<Boolean> boolList, String name, Integer figure, int type) throws IOException {
         GridPane gridPane = new GridPane();
         for(int i=0; i<boolList.size(); i++){
             StackPane stackPane = new StackPane();
@@ -119,6 +145,14 @@ public class JavaFXGridHandler {
             else{
                 addToPane(stackPane, Images.NOCARD.toImageView(),  3);
             }
+            Text nameText = new Text(name);
+            stackPane.getChildren().add(nameText);
+            stackPane.setAlignment(nameText, Pos.BOTTOM_LEFT);
+            ImageView imageView = robotPic(figure);
+            imageView.setFitHeight(25);
+            imageView.setFitWidth(25);
+            stackPane.getChildren().add(imageView);
+            stackPane.setAlignment(imageView, Pos.BOTTOM_RIGHT);
             gridPane.add(stackPane, i, 0);
         }
         return gridPane;
@@ -181,7 +215,7 @@ public class JavaFXGridHandler {
      * @throws IOException
      */
 
-    private GridPane updateGameBoard(GameBoard gameBoard) throws IOException {
+    private GridPane updateGameBoard(GameBoard gameBoard, int ownFigure) throws IOException {
         Client.clientLogger.info("Updated game board");
         Client.clientLogger.info("Robot Information:");
         for (CPlayer player:Game.getInstance().getPlayerList()) {
@@ -244,7 +278,7 @@ public class JavaFXGridHandler {
                             caseWall(stackPane, gameElement);
                             break;
                         case ROBOT:
-                            caseRobot(stackPane, (Robot) gameElement);
+                            caseRobot(stackPane, (Robot) gameElement, ownFigure);
                             break;
                         case ANTENNA:
                             caseAntenna(stackPane, gameElement);
@@ -329,8 +363,13 @@ public class JavaFXGridHandler {
      * @param stackPane
      * @param gameElement
      */
-    public void caseRobot(StackPane stackPane, Robot gameElement) {
+    public void caseRobot(StackPane stackPane, Robot gameElement, int ownFigure) {
         Robot robot = gameElement;
+        if(robot.getFigure()==ownFigure){
+            ImageView imageView = Images.SELF_HIGHLIGHT.toImageView();
+            stackPane.getChildren().add(imageView);
+            stackPane.setAlignment(imageView, Pos.CENTER);
+        }
         switch (robot.getFigure()){
             case 1 -> {
                 ImageView imageView8 = Images.SPIN_BOT_BEV.toImageView(robot.getDirectionFacing());

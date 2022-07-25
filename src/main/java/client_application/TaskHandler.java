@@ -76,7 +76,14 @@ public class TaskHandler {
             }
             case UPDATEGAMEBOARD -> {
                 try {
-                    clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(Game.getInstance().getMap()));
+                    while (clientApplication.clientGameBasicController==null){
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    clientApplication.clientGameBasicController.updateGameBoard(gridPaneFromGameBoard(Game.getInstance().getMap(), clientApplication.basicClient.getFigure()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -91,13 +98,15 @@ public class TaskHandler {
                 clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getRegisterCardsOwn(), 2));
             }
             case UPDATEOTHERSREGISTERS -> {
-                System.out.println("TASK UPDATE OTHER");
                 ArrayList<ArrayList<Boolean>> list = new ArrayList<>();
+                ArrayList<String> names = new ArrayList<>();
+                ArrayList<Integer> figures = new ArrayList<>();
                 for(int i=0; i<clientApplication.getClient().getPlayerList().size(); i++){
-                    System.out.println("ADDED REGISTER OF PLAYER " + i);
+                    names.add(clientApplication.getClient().getPlayerList().get(i).getName());
+                    figures.add(clientApplication.getClient().getPlayerList().get(i).getFigure());
                     list.add(clientApplication.getClient().getPlayerList().get(i).getPlayer().getRegisterCardsOther());
                 }
-                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleBoolLists(list, 3));
+                clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleBoolLists(list, names, figures, 3));
             }
             case STARTING_POINT_NOT_AVAILABLE -> {
                 clientApplication.clientGameBasicController.setStartingText("This point was taken by another player :(");
@@ -141,9 +150,9 @@ public class TaskHandler {
         }
         return bla;
     }
-    public GridPane gridPaneFromGameBoard(GameBoard gameBoard){
+    public GridPane gridPaneFromGameBoard(GameBoard gameBoard, int ownFigure){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
+        return javaFXGridHandler.gridPaneFromGameBoard(gameBoard, ownFigure);
     }
 
     /*
@@ -168,13 +177,13 @@ public class TaskHandler {
         return javaFXGridHandler.gridPaneFromCards(cardArrayList, type);
     }
 
-    public GridPane gridPaneFromMultipleBoolLists(ArrayList<ArrayList<Boolean>> boolArrayList, int type){
+    public GridPane gridPaneFromMultipleBoolLists(ArrayList<ArrayList<Boolean>> boolArrayList, ArrayList<String> names, ArrayList<Integer> figures, int type){
         GridPane result = new GridPane();
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         for(int i=0; i<boolArrayList.size(); i++){
             ArrayList<Boolean> temp = boolArrayList.get(i);
             try {
-                result.add(javaFXGridHandler.gridPaneFromBooleanList(temp, type), i, 0);
+                result.add(javaFXGridHandler.gridPaneFromBooleanList(temp, names.get(i), figures.get(i), type), i, 0);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

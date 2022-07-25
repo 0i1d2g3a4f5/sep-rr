@@ -62,7 +62,7 @@ public class MessageHelloClient extends Message{
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(protocol.equals(PROTOCOL_VERSION)){
             sentientClient.getLogger().info("Correct communication protocol verified : " + protocol + ".");
-            sentientClient.sayHelloToServer();
+            sentientClient.getSentientBehaviour().sayHelloToServer();
         }
         else{
             sentientClient.getLogger().error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + PROTOCOL_VERSION);

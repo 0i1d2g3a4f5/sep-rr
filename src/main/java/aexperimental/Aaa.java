@@ -30,7 +30,7 @@ public class Aaa extends Application {
 
 
         System.out.println("edfsfds");
-        GridPane gridPane = javaFXGridHandler.gridPaneFromGameBoard(gameBoard);
+        GridPane gridPane = javaFXGridHandler.gridPaneFromGameBoard(gameBoard, 1);
         System.out.println("d");
         scrollPane.setContent(gridPane);
         System.out.println("e");

@@ -67,14 +67,13 @@ public class MessageYourCards extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        System.out.println("GOT YOURCARDS. CARDS ARE: ");
+            /*System.out.println("GOT YOURCARDS. CARDS ARE: ");*/
             for(int i=0; i<cardsInHand.length; i++){
-
                 client.getPlayer().getAvailableCardsOwn().set(i, new CardFactory().createCard(client_package.client_gamelogic.cards.CardName.parseCardName(cardsInHand[i].toString())));
             }
-            for(int i=0; i<client.getPlayer().getAvailableCardsOwn().size(); i++){
+            /*for(int i=0; i<client.getPlayer().getAvailableCardsOwn().size(); i++){
                 System.out.println("Card " + i + " is " + client.getPlayer().getAvailableCardsOwn().get(i).getCardName().toString());
-            }
+            }*/
             client.getClientApplication().activateAvailableProgrammingSelection(true);
             client.getClientApplication().activateRegisterSelection(true);
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
@@ -108,7 +107,11 @@ public class MessageYourCards extends Message{
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        for(int i=0; i<cardsInHand.length; i++){
+            sentientClient.getPlayer().getAvailableCardsOwn().set(i, new CardFactory().createCard(client_package.client_gamelogic.cards.CardName.parseCardName(cardsInHand[i].toString())));
+        }
+        sentientClient.getSentientBehaviour().setCanChooseNext(true);
+        sentientClient.getSentientBehaviour().chooseAllCards();
     }
 
 }

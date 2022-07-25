@@ -109,6 +109,13 @@ public class MessageStartingPointTaken extends Message{
             sentientClient.getPlayer().getRobot().placeRobot(y, x);
         }
         else{
+            while(sentientClient.playerFromId(clientID).getPlayer()==null){
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
             sentientClient.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
         }
     }

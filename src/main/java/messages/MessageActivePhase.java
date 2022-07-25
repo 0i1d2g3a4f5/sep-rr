@@ -1,4 +1,5 @@
 package messages;
+import client_package.Client;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -45,19 +46,23 @@ public class MessageActivePhase extends Message{
 
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        Server.serverLogger.info("Active Phase: Phase " + phase);
+        Client.clientLogger.info("Active Phase: Phase " + phase);
         client.getGame().setPhase(phase);
 
 
         if(phase == 2 || phase == 3){
             client.getPlayer().phaseReset();
-            Server.serverLogger.info("Register cards set");
+            Client.clientLogger.info("Register cards set");
         }
 
     }
 
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        sentientClient.getGame().setPhase(phase);
+        if(phase == 2 || phase == 3){
+            sentientClient.getPlayer().phaseReset();
+        }
 
     }
 }

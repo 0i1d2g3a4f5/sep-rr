@@ -67,6 +67,9 @@ public class MessageReboot extends Message{
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        if(clientID==sentientClient.getId()){
+            sentientClient.getSentientBehaviour().chooseRebootDirection();
+        }
 
     }
 }

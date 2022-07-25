@@ -84,6 +84,7 @@ public class MessageDrawDamage extends Message {
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        sentientClient.getPlayer().drawDamage();
     }
 
 }

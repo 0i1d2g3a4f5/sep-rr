@@ -78,6 +78,11 @@ public class MessageMovement extends Message{
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
+        if(clientID==sentientClient.getId()){
+            sentientClient.getPlayer().getRobot().moveRobotTo(y, x);
+        }
+        else{
+            sentientClient.playerFromId(clientID).getPlayer().getRobot().moveRobotTo(y, x);
+        }
     }
 }

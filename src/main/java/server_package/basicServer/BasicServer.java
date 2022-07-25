@@ -1,5 +1,6 @@
 package server_package.basicServer;
 
+import client_package.Client;
 import com.google.gson.JsonArray;
 import messages.MessageSelectMap;
 import server_application.ServerApplication;
@@ -16,13 +17,15 @@ import java.net.Socket;
 public class BasicServer extends Server {
 
 
-    public BasicServer(ServerApplication serverApplication){
+    public BasicServer(ServerApplication serverApplication, int nonAI, int aI){
         super(serverApplication);
         setTerminated(true);
         setMaxClients(6);
         setCurrentClients(0);
         setCurrentIndex(1);
-        setStartingAmount(1);
+        setStartingNonAIAmount(1);
+        setStartingNonAIAmount(nonAI);
+        setStartingAIAmount(aI);
     }
     Runnable shutDownActions = new Runnable() {
         @Override
@@ -78,20 +81,32 @@ public class BasicServer extends Server {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                boolean allAI = true;
+                int aiCount = 0, nonAiCount = 0;
+                for(SClient sClient : getReadyList()){
+                    if(sClient.getIsAI()){
+                        aiCount++;
+                    }
+                    else {
+                        nonAiCount++;
+                    }
+                }
+                if(aiCount>=startingAIAmount && nonAiCount>=startingNonAIAmount){
+                    mapSelect();
+                }
+                /*boolean allAI = true;
                 for(SClient client : getClientList()){
                     if(!client.getIsAI()){
                         allAI=false;
                     }
                 }
                 if(!allAI){
-                    if(getReadyList().size()==getClientList().size() && getReadyList().size()>=startingAmount){
+                    if(getReadyList().size()==getClientList().size() && getReadyList().size()>= startingNonAIAmount){
                         mapSelect();
                     }
                 }
-                else if(getClientList().size()>getStartingAmount()){
+                else if(getClientList().size()> getStartingNonAIAmount()){
                     //TRIGGER START
-                }
+                }*/
             }
         };
         Thread thread = new Thread(runnable);

@@ -48,6 +48,7 @@ public enum Images {
     WEASEL_ROUTINE_CARD("/WeaselRoutine.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/WeaselRoutine.png")))), "Card"),
 
     //board elements
+    SELF_HIGHLIGHT("/SelfHighlight.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/SelfHighlight.png")))), "MapElement" ),
     //antennae
     ANTENNA_EAST_ELEMENT("/AntennaEast.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/AntennaEast.png")))), "MapElement"),
     ANTENNA_NORTH_ELEMENT("/AntennaNorth.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/AntennaNorth.png")))), "MapElement"),

@@ -1,9 +1,11 @@
 package server_application;
 
 import client_application.ClientApplication;
+import gamelogic.Position;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import server_package.SClient;
@@ -16,7 +18,11 @@ public class ServerSelectionController {
 
     public ServerApplication serverApplication;
     public boolean isActive=true;
+    @FXML
+    private TextField aiText;
 
+    @FXML
+    private TextField nonAIText;
     @FXML
     public ListView<String> serverPlayerList;
 
@@ -24,11 +30,24 @@ public class ServerSelectionController {
     public Text textfield;
     @FXML
     void launchBasic(ActionEvent event) {
-        if(isActive){
+        if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
             isActive=false;
-            serverApplication.setBasicServer(new BasicServer(serverApplication));
-            serverApplication.getBasicServer().startServerSocket();
-            Server.serverLogger.info("Basic server launched");
+            boolean proper = false;
+            int x = -1, y = -1;
+            try {
+                x = Integer.parseInt(aiText.getText().trim());
+                y = Integer.parseInt(nonAIText.getText().trim());
+                proper=true;
+            } catch (NumberFormatException e) {
+                isActive=true;
+                textfield.setText("Please choose proper starting amounts.");
+            }
+            if(proper) {
+                serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
+                serverApplication.getBasicServer().startServerSocket();
+                Server.serverLogger.info("Basic server launched");
+            }
+
         }
 
     }

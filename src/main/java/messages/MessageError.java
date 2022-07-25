@@ -70,7 +70,7 @@ public class MessageError extends Message{
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(this.error.equals(GlobalParameters.FIGURE_ERROR)) {
-            sentientClient.retryFigure();
+            sentientClient.getSentientBehaviour().retryFigure();
         }
     }
 

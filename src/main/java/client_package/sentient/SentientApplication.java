@@ -10,8 +10,8 @@ public class SentientApplication {
             sentientController.start("DisabledDegenerate");
         }
         else{
-            //sentientController.start("DisabledDegenerate", "localhost" , 1234, "DesperateDrosseln");
-            sentientController.start("DisabledDegenerate", "sep21.dbs.ifi.lmu.de" , 52020, "DesperateDrosseln");
+            sentientController.start("DisabledDegenerate", "localhost" , 1234, "DesperateDrosseln");
+            //sentientController.start("DisabledDegenerate", "sep21.dbs.ifi.lmu.de" , 52020, "DesperateDrosseln");
 
         }
     }

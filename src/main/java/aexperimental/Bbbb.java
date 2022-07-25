@@ -19,7 +19,7 @@ public class Bbbb {
 
  */
         JavaFXGridHandler jfg = new JavaFXGridHandler();
-        gridPane =jfg.gridPaneFromGameBoard(gameBoard);
+        gridPane =jfg.gridPaneFromGameBoard(gameBoard, 1);
 
     }
 }

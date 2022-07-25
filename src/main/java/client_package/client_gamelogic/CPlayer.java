@@ -17,7 +17,6 @@ public class CPlayer {
     private boolean self;
     int figure;
     private Client client;
-    Game game;
     int EnergyCubes;
     int clientID;
     private Robot robot;
@@ -30,10 +29,9 @@ public class CPlayer {
     private int availableCardsOther;
 
 
-    public CPlayer(Client client, Game game, boolean self){
+    public CPlayer(Client client, boolean self){
         this.self=self;
         this.client=client;
-        this.game=game;
         this.figure=client.getFigure();
         this.clientID=client.getId();
         try {
@@ -95,8 +93,10 @@ public class CPlayer {
             client.getPlayerList().get(i).getPlayer().resetRegisterOther();
             client.getPlayerList().get(i).getPlayer().resetAvailableOther();
         }
-        client.getClientApplication().activateAvailableProgrammingSelection(true);
-        client.getClientApplication().activateRegisterSelection(true);
+        if(client.getClientApplication()!=null) {
+            client.getClientApplication().activateAvailableProgrammingSelection(true);
+            client.getClientApplication().activateRegisterSelection(true);
+        }
     }
     public int selectCardOwn(int position){
         ownSelectedCard = new Pair<>(position, availableCardsOwn.get(position));
@@ -112,13 +112,24 @@ public class CPlayer {
     public void selectToBeRemovedCardOwn(int position){
         ownToBeRemovedCard = new Pair<>(position, registerCardsOwn.get(position));
     }
+    public ArrayList<Integer> availableIndexes(){
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int i=0; i<availableCardsOwn.size(); i++){
+            if(availableCardsOwn.get(i)!=null){
+                result.add(i);
+            }
+        }
+        return result;
+    }
     public void placeSelectedToRegisterOwn(){
         for(int i=0; i<5; i++){
             if(registerCardsOwn.get(i)==null){
                 registerCardsOwn.set(i, ownSelectedCard.getValue());
                 availableCardsOwn.set(ownSelectedCard.getKey(), null);
                 ownSelectedCard=null;
-                client.getClientApplication().activateAvailableProgrammingSelection(true);
+                if(client.getClientApplication()!=null) {
+                    client.getClientApplication().activateAvailableProgrammingSelection(true);
+                }
                 break;
             }
         }
@@ -130,8 +141,10 @@ public class CPlayer {
             }
         }
         if(allFull){
-            client.getClientApplication().activateAvailableProgrammingSelection(false);
-            client.getClientApplication().activateRegisterSelection(false);
+            if(client.getClientApplication()!=null) {
+                client.getClientApplication().activateAvailableProgrammingSelection(false);
+                client.getClientApplication().activateRegisterSelection(false);
+            }
         }
 
     }
@@ -141,7 +154,9 @@ public class CPlayer {
             if(availableCardsOwn.get(i)==null){
                 availableCardsOwn.set(i, ownToBeRemovedCard.getValue());
                 ownToBeRemovedCard=null;
-                client.getClientApplication().activateRegisterSelection(true);
+                if(client.getClientApplication()!=null) {
+                    client.getClientApplication().activateRegisterSelection(true);
+                }
                 break;
             }
         }
@@ -162,6 +177,14 @@ public class CPlayer {
         }
     }
 
+    public boolean registerFull(){
+        for(int i=0; i<5; i++){
+            if(registerCardsOwn.get(i)==null){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public ArrayList<Card> getRegisterCardsOwn() {
         return registerCardsOwn;
@@ -211,9 +234,6 @@ public class CPlayer {
 
 
 
-    public Game getGame() {
-        return game;
-    }
 
 
 

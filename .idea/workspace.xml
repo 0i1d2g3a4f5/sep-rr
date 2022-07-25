@@ -4,23 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionControllerVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Anfangsbuchstaben von Variablen bitte klein xD 2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/SelfHighlight.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-    </list>
-    <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
-    <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aexperimental/Bbbb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aexperimental/Bbbb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aexperimental/Cccc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aexperimental/Cccc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageActivePhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageActivePhase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardSelected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointReached.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointReached.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageWelcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageYourCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/GlobalParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/GlobalParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" afterDir="false" />
     </list>
+    <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
+    <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +70,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java">
-      <ranges>
-        <range start1="14" end1="16" start2="14" end2="18" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="18" end1="19" start2="20" end2="21" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="21" end1="32" start2="23" end2="24" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="35" end1="36" start2="27" end2="28" changelist="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" />
-        <range start1="42" end1="57" start2="34" end2="34" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="58" end1="68" start2="35" end2="42" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-        <range start1="69" end1="70" start2="43" end2="43" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -68,9 +81,6 @@
     </option>
   </component>
   <component name="ProjectId" id="2BlDfJCvW7ZARmxXcZVKDn5WCd0" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -188,10 +198,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientApplication" />
+        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_application.ClientMain" />
-        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
       </list>
     </recent_temporary>
   </component>
@@ -220,6 +230,7 @@
       <workItem from="1658332995080" duration="804000" />
       <workItem from="1658434731208" duration="3599000" />
       <workItem from="1658661722186" duration="9731000" />
+      <workItem from="1658732192954" duration="1132000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
