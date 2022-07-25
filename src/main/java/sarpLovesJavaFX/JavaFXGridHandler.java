@@ -934,6 +934,11 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageViewcheck);
                 stackPane.setAlignment(imageViewcheck, Pos.CENTER);
             }
+            case 5 -> {
+                ImageView imageViewcheck = Images.CHECKPOINT_5_ELEMENT.toImageView();
+                stackPane.getChildren().add(imageViewcheck);
+                stackPane.setAlignment(imageViewcheck, Pos.CENTER);
+            }
         }
         return;
     }
