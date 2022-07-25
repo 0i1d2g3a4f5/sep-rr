@@ -89,7 +89,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ServerApplication">
+  <component name="RunManager" selected="Application.ClientApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -164,8 +164,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.ClientApplication" />
+        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_application.ClientMain" />
