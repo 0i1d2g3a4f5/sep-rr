@@ -17,6 +17,7 @@ public class PushPanel extends GameElement implements Activatable {
     public PushPanel(Direction direction, ArrayList<Integer> activationRegisters){
         super(ElementName.PUSHPANEL);
         this.direction=direction;
+        this.orientations.add(direction);
         this.activateRegisters=activationRegisters;
 
     }
@@ -39,6 +40,7 @@ public class PushPanel extends GameElement implements Activatable {
 
         this.activateRegisters = activationRegisters;
         this.direction = direction;
+        this.orientations.add(direction);
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
     }
     /**
