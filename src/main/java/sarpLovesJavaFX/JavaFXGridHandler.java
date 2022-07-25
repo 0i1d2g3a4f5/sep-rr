@@ -17,6 +17,7 @@ import client_package.client_gamelogic.*;
 import client_package.client_gamelogic.map.*;
 import javafx.scene.text.Text;
 import utility.Images;
+import utility.SearchMethods;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -468,8 +469,10 @@ public class JavaFXGridHandler {
      * @param gameElement
      */
     private void casePushPanel(StackPane stackPane, GameElement gameElement) throws IOException {
-        switch(Game.getInstance().getActiveRegister()){
-            case 1,3,5 -> {
+        Client.clientLogger.debug("push panel activated " + gameElement.getGameField().getPosition());
+        System.out.println("push panel activated");
+        PushPanel pushPanel = (PushPanel) gameElement;
+        if(SearchMethods.listContainsAll(pushPanel.getActivateRegisters(), 1,3,5)){
                 switch (gameElement.orientations.get(0)){
                     case TOP -> {
                         ImageView imageView4 = Images.PUSH_PANEL_135_TOP_ELEMENT.toImageView();
@@ -493,7 +496,7 @@ public class JavaFXGridHandler {
                     }
                 }
             }
-            case 2,4 ->{
+        else if(SearchMethods.listContainsAll(pushPanel.getActivateRegisters(), 2,4)){
                 switch (gameElement.orientations.get(0)){
                     case TOP -> {
                         ImageView imageView4 = Images.PUSH_PANEL_24_TOP_ELEMENT.toImageView();
@@ -517,10 +520,12 @@ public class JavaFXGridHandler {
                     }
                 }
             }
+        else {
+            Client.clientLogger.error("PushPanel without correct activateRegisters list, list is: " + pushPanel.getActivateRegisters() + "on position " + pushPanel.getGameField().getPosition());
+            throw new IllegalArgumentException("PushPanel without correct activateRegisters list, list is: " + pushPanel.getActivateRegisters() + "on position " + pushPanel.getGameField().getPosition());
+        }
         }
 
-        return;
-    }
     /**
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
