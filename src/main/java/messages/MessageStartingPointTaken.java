@@ -7,6 +7,7 @@ import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+import gamelogic.Position;
 import server_package.SClient;
 
 import java.io.IOException;
@@ -117,6 +118,8 @@ public class MessageStartingPointTaken extends Message{
                 }
             }
             sentientClient.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
+            sentientClient.getSentientBehaviour().setThereIsStartingToRemove(true);
+            sentientClient.getSentientBehaviour().removeStartingPoint(new Position(y, x));
         }
     }
 

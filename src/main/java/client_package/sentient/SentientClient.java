@@ -7,6 +7,7 @@ import client_package.client_gamelogic.map.GameBoard;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import gamelogic.Position;
+import javafx.geometry.Pos;
 import messages.*;
 import org.apache.log4j.Logger;
 import utility.GlobalParameters;
@@ -21,8 +22,10 @@ import java.util.concurrent.TimeUnit;
 
 public class SentientClient extends Client {
     HashMap<Integer, Position> nextCheckPoints;
+    ArrayList<Position> startingPoints = new ArrayList<>();
     int currentGoal;
     SentientBehaviour sentientBehaviour;
+
     int lastTriedFigure = 1;
     SentientController sentientController;
     public SentientClient(SentientController sentientController){

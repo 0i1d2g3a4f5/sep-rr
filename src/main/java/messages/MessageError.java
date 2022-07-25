@@ -72,6 +72,9 @@ public class MessageError extends Message{
         if(this.error.equals(GlobalParameters.FIGURE_ERROR)) {
             sentientClient.getSentientBehaviour().retryFigure();
         }
+        if(this.error.equals(GlobalParameters.STARTING_POINT_TAKEN_ERROR)) {
+            sentientClient.getSentientBehaviour().chooseStartingPoint();
+        }
     }
 
 
