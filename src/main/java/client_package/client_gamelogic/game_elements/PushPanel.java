@@ -2,6 +2,7 @@ package client_package.client_gamelogic.game_elements;
 
 import client_package.client_gamelogic.game_elements.robot.Robot;
 import com.google.gson.*;
+import gamelogic.Activatable;
 import gamelogic.Direction;
 import gamelogic.Game;
 
@@ -41,6 +42,9 @@ public class PushPanel extends GameElement {
 
         this.activateRegisters = activationRegisters;
 
+    }
+    public ArrayList<Integer> getActivateRegisters(){
+        return activateRegisters;
     }
 }
 
