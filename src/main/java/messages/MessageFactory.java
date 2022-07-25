@@ -159,6 +159,9 @@ public class MessageFactory {
             case REPLACE_CARD -> {
                 return new MessageReplaceCard(jsonObject);
             }
+            case CONNECTION_UPDATE-> {
+                return new MessageConnectionUpdate(jsonObject);
+            }
             default -> throw new IllegalArgumentException("There is no MessageType "+messageType);
         }
 

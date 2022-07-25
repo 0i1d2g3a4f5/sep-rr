@@ -177,7 +177,7 @@ public enum Images {
         }
     }
     public ImageView toImageView(Direction direction) {
-        return handleRobot(imageView, direction);
+        return handleRobot(new ImageView(new Image(string)), direction);
     }
     public ImageView handleCard(ImageView imageView){
         imageView.setSmooth(true);

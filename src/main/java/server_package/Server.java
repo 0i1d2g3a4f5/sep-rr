@@ -30,6 +30,7 @@ public abstract class Server {
             throw new RuntimeException(e);
         }
     }
+    protected boolean gameStarted;
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
     protected int maxClients, currentClients, currentIndex, startingNonAIAmount, startingAIAmount;
@@ -50,6 +51,7 @@ public abstract class Server {
         setServerApplication(serverApplication);
         setClientList(new ArrayList<>());
         setReadyList(new ArrayList<>());
+        gameStarted=false;
     }
 
 
@@ -156,5 +158,11 @@ public abstract class Server {
         currentClients=i;
     }
 
+    public boolean isGameStarted() {
+        return gameStarted;
+    }
 
+    public void setGameStarted(boolean gameStarted) {
+        this.gameStarted = gameStarted;
+    }
 }

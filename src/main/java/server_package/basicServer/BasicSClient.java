@@ -169,6 +169,15 @@ public class BasicSClient extends SClient {
                 throw new RuntimeException(e);
             }
         }
+        getServer().getClientList().remove(this);
+        for(int i=0; i<Game.getInstance().getPlayerList().size(); i++){
+            if(Game.getInstance().getPlayerList().get(i).getClient().getId()==this.getId()){
+                Game.getInstance().getPlayerList().remove(i);
+                break;
+            }
+        }
+        server.getServerApplication().serverSelectionControllerVM.updateServerList();
+        getServer().setCurrentClients(getServer().getCurrentClients()-1);
     }
     @Override
     public void removeClientFromList(){
@@ -218,4 +227,5 @@ public class BasicSClient extends SClient {
             }
         }
     }
+
 }

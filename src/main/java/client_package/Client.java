@@ -5,7 +5,9 @@ import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
+import javafx.application.Platform;
 import messages.Message;
+import messages.MessageConnectionUpdate;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -106,6 +108,10 @@ public class Client{
             }
         }
         return null;
+    }
+    public void disconnect(){
+        sendSelf(new MessageConnectionUpdate(getId(), false, "Remove"));
+        Platform.exit();
     }
     public void displayClientList(){
         String text = "\nCurrent opponents in lobby:\n";
