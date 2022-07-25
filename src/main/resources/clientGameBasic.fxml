@@ -16,14 +16,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" onMouseClicked="#mouseClicked" prefHeight="810.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientGameBasicController">
+<AnchorPane maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" onMouseClicked="#mouseClicked" prefHeight="810.0" prefWidth="1440.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client_application.ClientGameBasicController">
    <children>
       <ImageView fitHeight="822.0" fitWidth="1484.0" layoutX="-22.0" opacity="0.8" pickOnBounds="true">
          <image>
             <Image url="@factory3.png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrollPaneGameBoard" layoutX="650.0" layoutY="29.0" prefHeight="599.0" prefWidth="778.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#64707aa6" height="631.0" layoutX="624.0" layoutY="10.0" stroke="TRANSPARENT" strokeType="INSIDE" width="26.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#64707aa6" height="26.0" layoutX="622.0" layoutY="11.0" stroke="TRANSPARENT" strokeType="INSIDE" width="809.0" />
+      <ScrollPane fx:id="scrollPaneGameBoard" layoutX="653.0" layoutY="40.0" prefHeight="599.0" prefWidth="778.0" style="-fx-background-color: transparent;">
          <content>
             <GridPane>
                <columnConstraints>
@@ -35,50 +37,17 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="6.0" layoutY="393.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="552.0" layoutY="389.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
       <ImageView fitHeight="153.0" fitWidth="423.0" layoutX="108.0" layoutY="17.0">
          <image>
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="timerlabel" layoutX="21.0" layoutY="400.0" text="0:30" textFill="#f7e8e8" />
-      <ScrollPane fx:id="scrollOtherRegisters" layoutX="7.0" layoutY="637.0" prefHeight="160.0" prefWidth="1423.0" />
-      <AnchorPane layoutX="6.0" layoutY="259.0" prefHeight="123.0" prefWidth="606.0" style="-fx-background-color: grey;">
+      <Label fx:id="timerlabel" layoutX="568.0" layoutY="397.0" text="0:30" textFill="#f7e8e8" />
+      <ScrollPane fx:id="scrollOtherRegisters" layoutX="8.0" layoutY="674.0" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="1423.0" style="-fx-background-color: transparent;" />
+      <StackPane fx:id="stackOwnProgramming" layoutX="8.0" layoutY="429.0" prefHeight="200.0" prefWidth="606.0" style="-fx-background-color: transparent;">
          <children>
-            <ScrollPane fx:id="scrollAvailableProgramming" layoutX="13.0" layoutY="13.0" prefHeight="100.0" prefWidth="580.0">
-               <content>
-                  <GridPane prefHeight="100.0" prefWidth="65.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
-         </children>
-      </AnchorPane>
-      <Button layoutX="483.0" layoutY="392.0" mnemonicParsing="false" onAction="#startButton" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Confirm" textFill="#ebebeb">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="72.0" layoutY="393.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="200.0" />
-      <Text fill="#d3d3d3" layoutX="121.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# Reboot Tokens">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="277.0" layoutY="393.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="200.0" />
-      <Text fill="#d3d3d3" layoutX="317.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# Checkpoint Tokens">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <StackPane fx:id="stackOwnProgramming" layoutX="6.0" layoutY="429.0" prefHeight="200.0" prefWidth="606.0" style="-fx-background-color: white;">
-         <children>
-            <ScrollPane fx:id="scrollChosenProgramming" prefHeight="200.0" prefWidth="605.0">
+            <ScrollPane fx:id="scrollChosenProgramming" prefHeight="200.0" prefWidth="594.0" style="-fx-background-color: transparent;">
                <content>
                   <GridPane maxHeight="200.0" maxWidth="121.0" minHeight="200.0" minWidth="121.0" prefHeight="200.0" prefWidth="121.0">
                     <columnConstraints>
@@ -93,9 +62,9 @@
          </children></StackPane>
       <Group fx:id="startingPosGroup" layoutX="11.0" layoutY="198.0">
          <children>
-            <TextField fx:id="startingCoordinates" layoutY="24.0" prefHeight="26.0" prefWidth="465.0" />
-            <Text fx:id="startPosText" fill="WHITE" layoutX="3.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
-            <Button fx:id="buttonSubmit" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="129.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Submit" textFill="#ebebeb">
+            <TextField fx:id="startingCoordinates" layoutX="10.0" layoutY="24.0" prefHeight="26.0" prefWidth="454.0" />
+            <Text fx:id="startPosText" fill="WHITE" layoutX="10.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
+            <Button fx:id="buttonSubmit" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="114.0" stylesheets="@GreyButton.css" text="Submit" textFill="#ebebeb">
                <font>
                   <Font size="14.0" />
                </font>
@@ -146,6 +115,98 @@
             </Button>
          </children>
       </AnchorPane>
+      <ImageView fx:id="roboImage" fitHeight="78.0" fitWidth="107.0" layoutX="10.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <Text fx:id="playerName" fill="WHITE" layoutX="100.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="488.0101623535156">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#ffeeee" layoutX="22.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Hand Cards" />
+      <Text fill="#ffeeee" layoutX="15.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Programming Cards" />
+      <ScrollPane fx:id="scrollAvailableProgramming" layoutX="25.0" layoutY="285.0" prefHeight="100.0" prefWidth="581.0" style="-fx-background-color: transparent;">
+         <content>
+            <GridPane prefHeight="100.0" prefWidth="65.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Text fill="#ffeeee" layoutX="12.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Player's Programming Cards" />
+      <GridPane layoutX="678.0" layoutY="9.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1" GridPane.columnIndex="1" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2" GridPane.columnIndex="2" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" GridPane.columnIndex="3" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="4" GridPane.columnIndex="4" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="5" GridPane.columnIndex="5" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="6" GridPane.columnIndex="6" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="7" GridPane.columnIndex="7" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="8" GridPane.columnIndex="8" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="9" GridPane.columnIndex="9" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="10" GridPane.columnIndex="10" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="11" GridPane.columnIndex="11" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="12" GridPane.columnIndex="12" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="628.0" layoutY="40.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="60.0" prefHeight="60.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="1" GridPane.rowIndex="1" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="2" GridPane.rowIndex="2" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" GridPane.rowIndex="3" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="4" GridPane.rowIndex="4" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="5" GridPane.rowIndex="5" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="6" GridPane.rowIndex="6" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="7" GridPane.rowIndex="7" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="8" GridPane.rowIndex="8" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="9" GridPane.rowIndex="9" />
+         </children>
+      </GridPane>
+      <Text fill="WHITE" layoutX="644.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x" />
+      <Text fill="WHITE" layoutX="633.0" layoutY="34.0" rotate="-33.7" strokeType="OUTSIDE" strokeWidth="0.0" text="\\">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="627.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="y" />
       <AnchorPane fx:id="rebootWindow" layoutX="100.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="401.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="293.0" stroke="#979595" strokeType="INSIDE" strokeWidth="5.0" width="404.0" />
@@ -182,11 +243,5 @@
             </Button>
          </children>
       </AnchorPane>
-      <ImageView fx:id="roboImage" fitHeight="78.0" fitWidth="107.0" layoutX="10.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <Text fx:id="playerName" fill="WHITE" layoutX="100.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="488.0101623535156">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

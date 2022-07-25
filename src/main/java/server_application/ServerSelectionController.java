@@ -31,6 +31,7 @@ public class ServerSelectionController {
     @FXML
     void launchBasic(ActionEvent event) {
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
+            System.out.println("Clicked");
             isActive=false;
             boolean proper = false;
             int x = -1, y = -1;
