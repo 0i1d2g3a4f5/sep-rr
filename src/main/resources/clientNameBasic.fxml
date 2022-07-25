@@ -32,7 +32,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="feedBack" fill="WHITE" layoutX="304.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text fx:id="feedBack" fill="WHITE" layoutX="341.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -102,7 +102,7 @@
             <Image url="@bar.png" />
          </image>
       </ImageView>
-      <Button layoutX="503.0" layoutY="434.0" mnemonicParsing="false" onAction="#startButton" prefHeight="52.0" prefWidth="222.0" style="-fx-background-color: #504f54 #504f54 #504f54 #504f54; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-width: 2;" text="Start" textFill="#ebebeb" AnchorPane.leftAnchor="503.0">
+      <Button layoutX="503.0" layoutY="434.0" mnemonicParsing="false" onAction="#startButton" prefHeight="52.0" prefWidth="222.0" stylesheets="@GreyButton.css" text="Start" textFill="#ebebeb" AnchorPane.leftAnchor="503.0">
          <font>
             <Font size="20.0" />
          </font>

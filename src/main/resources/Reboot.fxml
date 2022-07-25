@@ -22,22 +22,22 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button layoutX="226.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.rightAnchor="124.0">
+      <Button layoutX="226.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootRight" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" stylesheets="@BlackButton.css" text="&gt;" textFill="#b2b2b2" AnchorPane.rightAnchor="124.0">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="176.0" layoutY="109.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootUp" prefHeight="50.0" prefWidth="50.0" rotate="-90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="176.0">
+      <Button layoutX="176.0" layoutY="109.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootUp" prefHeight="50.0" prefWidth="50.0" rotate="-90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" stylesheets="@BlackButton.css" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="176.0">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="124.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootLeft" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="124.0">
+      <Button layoutX="124.0" layoutY="159.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootLeft" prefHeight="50.0" prefWidth="50.0" rotate="180.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" stylesheets="@BlackButton.css" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="124.0">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="174.0" layoutY="209.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootDown" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="174.0">
+      <Button layoutX="174.0" layoutY="209.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#rebootDown" prefHeight="50.0" prefWidth="50.0" rotate="90.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: grey;" stylesheets="@BlackButton.css" text="&gt;" textFill="#b2b2b2" AnchorPane.leftAnchor="174.0">
          <font>
             <Font size="18.0" />
          </font>

@@ -31,7 +31,7 @@
          </image>
       </ImageView>
       <TextArea fx:id="chatArea" editable="false" layoutX="32.0" layoutY="123.0" opacity="0.6" prefHeight="471.0" prefWidth="535.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" />
-      <Button layoutX="438.0" layoutY="607.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: darkgrey; -fx-border-width: 2; -fx-border-color: grey; -fx-border-radius: 5; -fx-background-radius: 5;" text="Send" textFill="WHITE">
+      <Button layoutX="438.0" layoutY="607.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="46.0" prefWidth="130.0" stylesheets="@GreyButton.css" text="Send" textFill="WHITE">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>

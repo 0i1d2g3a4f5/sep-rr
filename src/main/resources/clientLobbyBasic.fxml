@@ -33,7 +33,7 @@
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="ready" layoutX="239.0" layoutY="569.0" mnemonicParsing="false" onAction="#clicked" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: #282a2c#282a2c; -fx-border-width: 2; -fx-border-color: black;" text="Ready" textFill="#b2b2b2">
+      <Button fx:id="ready" layoutX="239.0" layoutY="569.0" mnemonicParsing="false" onAction="#clicked" prefHeight="48.0" prefWidth="143.0" stylesheets="@BlackButton.css" text="Ready" textFill="#b2b2b2">
          <font>
             <Font size="18.0" />
          </font></Button>
