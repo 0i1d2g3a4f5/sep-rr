@@ -31,7 +31,8 @@ public class SentientBehaviour {
         thereIsStartingToRemove=false;
     }
 
-    public void start(String name){
+    public void start(String name, String group) {
+        sentientClient.setGroup(group);
         int i = 1+ (int) ( Math.random() * 9999);
         String str = String.valueOf(i);
         sentientClient.setName(name+str);
