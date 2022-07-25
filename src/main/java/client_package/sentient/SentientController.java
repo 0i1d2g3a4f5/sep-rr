@@ -20,8 +20,8 @@ public class SentientController {
     }
 
 
-    public void start(String name){
-       sentientClient.sentientBehaviour.start(name);
+    public void start(String name, String group){
+       sentientClient.sentientBehaviour.start(name, group);
     }
 
     public void start(String name, String string, int port, String group){

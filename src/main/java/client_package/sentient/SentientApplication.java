@@ -7,10 +7,10 @@ public class SentientApplication {
         SentientController sentientController = new SentientController();
         boolean manual = this.getInfo();
         if(manual){
-            sentientController.start("DisabledDegenerate");
+            sentientController.start("DD AI", "DesperateDrosseln");
         }
         else{
-            sentientController.start("DisabledDegenerate", "localhost" , 1234, "DesperateDrosseln");
+            sentientController.start("DD AI", "localhost" , 1234, "DesperateDrosseln");
             //sentientController.start("DisabledDegenerate", "sep21.dbs.ifi.lmu.de" , 52020, "DesperateDrosseln");
 
         }

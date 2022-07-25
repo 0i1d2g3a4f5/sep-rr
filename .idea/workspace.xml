@@ -1,55 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="desperate_drosseln_hp:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="sarp out">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/desperate_drosseln_hp_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/desperate_drosseln_hp_jar2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/desperate_drosseln_hp_jar3.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/AIMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/BasicAI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/ExampleEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/calculations/Calculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/calculations/Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/calculations/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/data_structure/RandomHashSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/data_structure/RandomSelector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/genome/ConnectionGene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/genome/Gene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/genome/Genome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/genome/NodeGene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/neat/Neat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/NEATpackage/package-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/Net.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/Neuron.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/Sample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/TestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/AI/Trainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/dizzy_highway.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/dizzy_highway.json" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -87,6 +48,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2BlDfJCvW7ZARmxXcZVKDn5WCd0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,7 +69,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
@@ -126,7 +90,6 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:resolve" />
-      <command value="mvn clean package" />
     </option>
   </component>
   <component name="RunManager" selected="Application.ClientApplication">
@@ -205,8 +168,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientApplication" />
-        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
+        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_application.ClientMain" />
       </list>
@@ -238,7 +201,7 @@
       <workItem from="1658434731208" duration="3599000" />
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
-      <workItem from="1658749146557" duration="1009000" />
+      <workItem from="1658744146122" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -431,7 +394,6 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <MESSAGE value="sarp out" />
-    <option name="LAST_COMMIT_MESSAGE" value="sarp out" />
+    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
   </component>
 </project>
