@@ -28,8 +28,24 @@ public class ServerSelectionController {
 
     @FXML
     public Text textfield;
+
+    /**
+     * checks if minimal amount of AI/nonAI players is set, if yes it launches the server
+     * @author Sarp, Isabel
+     * @param event
+     */
     @FXML
     void launchBasic(ActionEvent event) {
+        if(aiText.getText().trim().equals("") && nonAIText.getText().trim().equals("")) {
+            textfield.setText("Please set min amount of AIs and non AIs first");
+        }
+        else if(aiText.getText().trim().equals("")){
+            textfield.setText("Please set minimal amount of AIs first");
+        }
+        else if(nonAIText.getText().trim().equals("")){
+            textfield.setText("Please set minimal amount of non AIs first");
+        }
+
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
             System.out.println("Clicked");
             isActive=false;

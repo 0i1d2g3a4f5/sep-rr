@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="updated workspace.xml to avoid errors">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Move checkpoint to right position in twister, checked every map for correctness">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -375,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658760680614</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Move checkpoint to right position in twister, checked every map for correctness">
+      <created>1658764360655</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658764360655</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +430,7 @@
     <MESSAGE value="Changes by Mark" />
     <MESSAGE value="Add CheckPoints to Twister Map" />
     <MESSAGE value="updated workspace.xml to avoid errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated workspace.xml to avoid errors" />
+    <MESSAGE value="Move checkpoint to right position in twister, checked every map for correctness" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move checkpoint to right position in twister, checked every map for correctness" />
   </component>
 </project>

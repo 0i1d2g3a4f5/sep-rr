@@ -20,7 +20,7 @@
             <Image url="@factory2.jpeg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000078" height="322.0" layoutX="109.0" layoutY="188.0" stroke="#ffffff00" strokeType="INSIDE" width="990.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000078" height="312.0" layoutX="109.0" layoutY="194.0" stroke="#ffffff00" strokeType="INSIDE" width="990.0" />
       <Text fill="#ebebeb" layoutX="135.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" textAlignment="RIGHT">
          <font>
             <Font size="20.0" />
@@ -32,7 +32,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="feedBack" fill="WHITE" layoutX="341.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text fx:id="feedBack" fill="WHITE" layoutX="341.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.0">
          <font>
             <Font size="36.0" />
          </font>
