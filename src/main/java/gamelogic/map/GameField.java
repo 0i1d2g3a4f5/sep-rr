@@ -185,6 +185,11 @@ public class GameField {
          } else return false;
     }
 
+    public void removeElement(GameElement element){
+        elements.remove(element);
+
+    }
+
     /**
      * @author Ringer
      */

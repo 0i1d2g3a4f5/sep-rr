@@ -153,6 +153,51 @@ public class ConveyorBelt extends GameElement implements Activatable {
         Server.serverLogger.info("checking "+ type +" "+color+ " at "+ gameField.getPosition());
         Server.serverLogger.debug("Game-field of this ConveyorBelt: "+gameField.toString());
 
+        if(gameField.contains(ElementName.CHECKPOINT)){
+            Server.serverLogger.info("activate "+ type +" "+color+ " at "+ gameField.getPosition());
+            Server.serverLogger.debug("ConveyorBelt orientations: "+ orientations);
+            Checkpoint checkPoint = (Checkpoint) gameField.getElement(ElementName.CHECKPOINT);
+
+            if(checkPoint.movedByCBelt){
+                Server.serverLogger.debug("Checkpoint already moved by conveyor Belt");
+                return;
+            }
+
+
+            checkPoint.movedByCBelt=true;
+
+            GameField nextField = gameField.getNeighbor(orientations.get(0));
+
+
+
+
+            //checkPoint.setEnteredConveyorBelt(orientations.get(0).opposite());
+            if(color ==Color.BLUE){
+
+                checkPoint.displace(orientations.get(0));
+                GameElement element;
+                if((element = checkPoint.getGameField().getElement(ElementName.CONVEYORBELT)) !=null){
+
+                    ConveyorBelt nextBelt = (ConveyorBelt) element;
+                    nextField = nextField.getNeighbor(nextBelt.orientations.get(0));
+
+
+
+                    //checkPoint.setEnteredConveyorBelt(nextBelt.orientations.get(0).opposite());
+                    checkPoint.displace(nextBelt.orientations.get(0));
+
+
+                } else {
+
+                    // checkPoint.displace(orientations.get(0));
+                }
+            } else{
+                checkPoint.displace(orientations.get(0));
+
+            }
+
+        }
+
         if(gameField.contains(ElementName.ROBOT)){
             Server.serverLogger.info("activate "+ type +" "+color+ " at "+ gameField.getPosition());
             Server.serverLogger.debug("ConveyorBelt orientations: "+ orientations);
