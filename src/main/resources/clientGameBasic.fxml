@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -36,18 +37,19 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="552.0" layoutY="389.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="542.0" layoutY="425.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
       <ImageView fitHeight="153.0" fitWidth="423.0" layoutX="108.0" layoutY="17.0">
          <image>
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrollOtherRegisters" layoutX="8.0" layoutY="674.0" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="1423.0" style="-fx-background-color: transparent;" />
-      <StackPane fx:id="stackOwnProgramming" layoutX="8.0" layoutY="429.0" prefHeight="200.0" prefWidth="606.0" style="-fx-background-color: transparent;">
+      <Label fx:id="timerlabel" layoutX="559.0" layoutY="433.0" text="0:30" textFill="#f7e8e8" />
+      <ScrollPane fx:id="scrollOtherRegisters" layoutX="24.0" layoutY="677.0" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="1407.0" style="-fx-background-color: transparent;" />
+      <StackPane fx:id="stackOwnProgramming" layoutX="25.0" layoutY="464.0" prefHeight="175.0" prefWidth="578.0" style="-fx-background-color: transparent;">
          <children>
-            <ScrollPane fx:id="scrollChosenProgramming" prefHeight="200.0" prefWidth="594.0" style="-fx-background-color: transparent;">
+            <ScrollPane fx:id="scrollChosenProgramming" maxHeight="179.0" maxWidth="578.0" minWidth="578.0" prefHeight="179.0" prefWidth="578.0" style="-fx-background-color: transparent; -fx-background-image: transparent;">
                <content>
-                  <GridPane maxHeight="200.0" maxWidth="121.0" minHeight="200.0" minWidth="121.0" prefHeight="200.0" prefWidth="121.0">
+                  <GridPane maxHeight="200.0" maxWidth="115.6" minHeight="174.0" minWidth="115.6" prefHeight="174.0" prefWidth="115.6">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -60,9 +62,8 @@
          </children></StackPane>
       <Group fx:id="startingPosGroup" layoutX="11.0" layoutY="198.0">
          <children>
-            <TextField fx:id="startingCoordinates" layoutX="10.0" layoutY="24.0" prefHeight="26.0" prefWidth="454.0" />
-            <Text fx:id="startPosText" fill="WHITE" layoutX="10.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
-            <Button fx:id="buttonSubmit" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="114.0" stylesheets="@GreyButton.css" text="Submit" textFill="#ebebeb">
+            <TextField fx:id="startingCoordinates" layoutX="18.0" layoutY="26.0" prefHeight="26.0" prefWidth="265.0" />
+            <Button fx:id="buttonSubmit" layoutX="298.0" layoutY="22.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="32.0" prefWidth="114.0" stylesheets="@GreyButton.css" text="Submit" textFill="#ebebeb">
                <font>
                   <Font size="14.0" />
                </font>
@@ -119,9 +120,9 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#ffeeee" layoutX="22.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Hand Cards" />
-      <Text fill="#ffeeee" layoutX="15.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Programming Cards" />
-      <ScrollPane fx:id="scrollAvailableProgramming" layoutX="25.0" layoutY="285.0" prefHeight="100.0" prefWidth="581.0" style="-fx-background-color: transparent;">
+      <Text fill="#ffeeee" layoutX="28.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Hand Cards" />
+      <Text fill="#ffeeee" layoutX="28.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Programming Cards" />
+      <ScrollPane fx:id="scrollAvailableProgramming" layoutX="25.0" layoutY="320.0" maxWidth="578.0" minWidth="578.0" prefHeight="100.0" prefWidth="578.0" style="-fx-background-image: transparent;">
          <content>
             <GridPane prefHeight="100.0" prefWidth="65.0">
               <columnConstraints>
@@ -133,7 +134,7 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Text fill="#ffeeee" layoutX="12.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Player's Programming Cards" />
+      <Text fill="#ffeeee" layoutX="25.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Players' Programming Cards" />
       <GridPane layoutX="678.0" layoutY="9.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
@@ -241,6 +242,6 @@
             </Button>
          </children>
       </AnchorPane>
-      <Text fx:id="timer" fill="WHITE" layoutX="571.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0:30" />
+      <Text fx:id="startPosText" fill="WHITE" layoutX="29.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
    </children>
 </AnchorPane>
