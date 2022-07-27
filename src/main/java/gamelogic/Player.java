@@ -185,15 +185,12 @@ public class Player{
 
 
     public boolean removeCard(int position){
-        System.out.println("LALALALAL");
         Card card = register[position];
         if(card != null){
-            System.out.println("NULLLL");
             handCards.add(card);
             register[position]=null;
             return true;
         }
-        System.out.println("DEGIL");
         return false;
     }
 

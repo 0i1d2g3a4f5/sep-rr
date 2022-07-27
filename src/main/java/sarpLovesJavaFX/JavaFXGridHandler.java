@@ -470,7 +470,6 @@ public class JavaFXGridHandler {
      */
     private void casePushPanel(StackPane stackPane, GameElement gameElement) throws IOException {
         Client.clientLogger.debug("push panel activated " + gameElement.getGameField().getPosition());
-        System.out.println("push panel activated");
         PushPanel pushPanel = (PushPanel) gameElement;
         if(SearchMethods.listContainsAll(pushPanel.getActivateRegisters(), 1,3,5)){
                 switch (gameElement.orientations.get(0)){

@@ -7,6 +7,7 @@ import gamelogic.cards.CardName;
 import gamelogic.game_elements.*;
 import gamelogic.map.GameField;
 import messages.*;
+import server_package.SClient;
 import server_package.Server;
 
 import java.util.ArrayList;

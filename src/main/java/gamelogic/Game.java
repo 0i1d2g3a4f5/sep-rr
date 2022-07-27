@@ -1,6 +1,7 @@
 package gamelogic;
 
 
+import client_application.ClientGameBasicController;
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.*;
 import server_package.SClient;
@@ -80,6 +81,7 @@ public class  Game {
     public ArrayList<Player> getPlayerList(){
         return playerList;
     }
+
     public MapName getMapName() {
         return mapName;
     }
@@ -358,23 +360,8 @@ public class  Game {
      */
     public void endProgrammingPhase()  {
 
+        startTimer();
 
-        sendToAllPlayers(new MessageTimerStarted());
-        Server.serverLogger.info("Timer started");
-        try {
-            for (int i = 30; i>0; i--) {
-                if(programmingPlayers().size()<=0){
-                    Server.serverLogger.debug("Timer Index: "+i);
-                    break;
-                }
-
-                TimeUnit.SECONDS.sleep(1);
-            }
-
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        Server.serverLogger.info("Timer finished");
         ArrayList<Player> programmingPlayers = programmingPlayers();
         sendToAllPlayers(new MessageTimerEnded(programmingPlayers));
 
@@ -398,6 +385,31 @@ public class  Game {
         }
 
 
+    }
+    /**
+     * starts 30 seconds timer
+     *
+     * @authors Mark
+     */
+
+    private void startTimer(){
+        sendToAllPlayers(new MessageTimerStarted());
+        Server.serverLogger.info("Timer started");
+        try {
+            for (int i = 30; i>0; i--) {
+                if(programmingPlayers().size()<=0){
+                    Server.serverLogger.debug("Timer Index: "+i);
+                    break;
+                }
+                TimeUnit.SECONDS.sleep(1);
+            }
+
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Server.serverLogger.info("Timer finished");
+        ArrayList<Player> programmingPlayers = programmingPlayers();
+        sendToAllPlayers(new MessageTimerEnded(programmingPlayers));
     }
 
     private ArrayList<Player> generatePlayerActivationList(){

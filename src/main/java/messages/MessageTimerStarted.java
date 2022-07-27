@@ -47,8 +47,9 @@ public class MessageTimerStarted extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException, InterruptedException {
+        client.getClientApplication().getGameController().startTimer();
+        System.out.println("startTimer in GameController activated");
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {

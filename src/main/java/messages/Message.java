@@ -42,7 +42,7 @@ public abstract class Message{
                 "Content="+content);*/
     }
     public abstract void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException;
-    public abstract void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException;
+    public abstract void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException, InterruptedException;
     public abstract void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException;
     @Override
     public String toString() {

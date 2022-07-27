@@ -1,6 +1,7 @@
 package client_application;
 
 import client_package.Client;
+import gamelogic.Game;
 import gamelogic.Position;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -21,7 +22,10 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import messages.*;
 import gamelogic.Direction;
+import server_package.Server;
 import utility.Images;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Sarp Cagin Erdogan, Qinyi, Vivian
@@ -31,6 +35,7 @@ public class ClientGameBasicController {
     boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive, chooseRegisterActive, winningSceneActive, losingSceneActive;;
 
     public ClientApplication clientApplication;
+    boolean timerCounting;
 
     @FXML
     private AnchorPane winnerScene;
@@ -73,14 +78,11 @@ public class ClientGameBasicController {
     @FXML
     private TextField startingCoordinates;
 
-    private Timeline time;
-    private String s = "";
-    private int tmp = 30;
 
     @FXML
-    private Label timerlabel = new Label("0:30");
+    private Text timer;
 
-    public ClientGameBasicController() {
+    /*public ClientGameBasicController() {
         timerlabel.setFont(javafx.scene.text.Font.font(20));
 
         time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
@@ -94,13 +96,12 @@ public class ClientGameBasicController {
            //TODO: the player will be forced to end the programming phase
         }
         timerlabel.setText(s);
-    }
+    }*/
 
 
 
     @FXML
     void submitButton(ActionEvent event) {
-        time.play();
         if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
             String[] singleCoordinate ={};
             String toCheck =startingCoordinates.getText().trim();
@@ -154,32 +155,24 @@ public class ClientGameBasicController {
         playerName.setText(clientApplication.getClient().getName());
         playerName.setVisible(visible);
         roboImage.setVisible(visible);
-        System.out.println("Figure is: " + clientApplication.getClient().getFigure());
         switch(clientApplication.getClient().getFigure()) {
             case 1 -> {
                 roboImage.setImage(new Image(Images.SPIN_BOT.toString()));
-                System.out.println("Figure one taken why isnt it showing");
-                //return Color.RED;Images.HULK_BOT.toString()
             }
             case 2 -> {
                     roboImage.setImage(new Image(Images.HULK_BOT.toString()));
-            //return Color.BLUE;
             }
             case 3 -> {
                 roboImage.setImage(new Image(Images.ZOOM_BOT.toString()));
-                //return Color.GREEN;
             }
             case 4 -> {
                 roboImage.setImage(new Image(Images.TWONKY_BOT.toString()));
-                //return Color.ORANGE;
             }
             case 5 -> {
                 roboImage.setImage(new Image(Images.HAMMER_BOT.toString()));
-                //return Color.PURPLE;
             }
             case 6 -> {
                 roboImage.setImage(new Image(Images.SMASH_BOT.toString()));
-                //return Color.YELLOW;
             }
         }
     }
@@ -398,4 +391,25 @@ public class ClientGameBasicController {
     public void setRebootDirection(Direction direction){
         clientApplication.basicClient.sendSelf(new MessageRebootDirection(direction.toString()));
     }
+
+    public void startTimer() throws InterruptedException {
+        timerCounting = true;
+            for (int i = 30; i > 0 && timerCounting; i--) {
+                if(i >= 10) {
+                    timer.setText("0:" + i);
+                }
+                else if(i<10){
+                    timer.setText("0:0" + i);
+                }
+                TimeUnit.SECONDS.sleep(1);
+            }
+    }
+
+    public void endTimer() throws InterruptedException {
+        timerCounting = false;
+        TimeUnit.SECONDS.sleep(1);
+        timer.setText("0:00");
+    }
 }
+
+

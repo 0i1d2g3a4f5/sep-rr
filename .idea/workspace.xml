@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Move checkpoint to right position in twister, checked every map for correctness">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Updates in Feedback Texts of Server Window and Name Window">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTimerEnded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTimerEnded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTimerStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTimerStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/serverSelection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionControllerVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionControllerVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
     </list>
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -199,6 +211,7 @@
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
       <workItem from="1658744146122" duration="596000" />
+      <workItem from="1658934719263" duration="10145000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>

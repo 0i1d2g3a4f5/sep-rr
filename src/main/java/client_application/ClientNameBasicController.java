@@ -134,6 +134,7 @@ public class ClientNameBasicController {
             }
         }
     }
+
     void selectAndUncheckCurrent(int index){
         CheckBox temp1 = (CheckBox) checkGrid.getChildren().get(index-1);
         temp1.setSelected(true);
@@ -143,6 +144,7 @@ public class ClientNameBasicController {
         }
         currentFigure = index;
     }
+
     void unselect(CheckBox checkBox){
         checkBox.setSelected(false);
         currentFigure=7;
@@ -153,4 +155,5 @@ public class ClientNameBasicController {
     public void activate(){
         active=true;
     }
+
 }

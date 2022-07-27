@@ -39,6 +39,5 @@ public class ServerSelectionControllerVM {
             SClient temp = serverSelectionController.serverApplication.getBasicServer().getClientList().get(i);
             serverPlayerListCopy.getItems().add(i, "{" + temp.getId() + "} " + temp.getName() + " [" + temp.getIsReady() + "]");
         }
-        System.out.println("ALALALALALALA");
     }
 }

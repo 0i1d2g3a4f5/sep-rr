@@ -45,9 +45,10 @@ public class ServerSelectionController {
         else if(nonAIText.getText().trim().equals("")){
             textfield.setText("Please set minimal amount of non AIs first");
         }
-
+        /*else if(Integer.parseInt(nonAIText.getText())+ Integer.parseInt(aiText.getText()) < 2) {
+            textfield.setText("The amount of minimal all in all players is 2");
+        }*/
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
-            System.out.println("Clicked");
             isActive=false;
             boolean proper = false;
             int x = -1, y = -1;
