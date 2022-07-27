@@ -12,6 +12,7 @@ public class Checkpoint extends GameElement {
     int count;
     public Checkpoint(int count){
         super(ElementName.CHECKPOINT);
+        visualOrder = 3;
         this.count =count;
     }
 
@@ -29,6 +30,7 @@ public class Checkpoint extends GameElement {
 
     public Checkpoint(JsonObject jsonObject) throws IOException {
         super(ElementName.CHECKPOINT);
+        visualOrder = 3;
         this.count =jsonObject.get("count").getAsInt();
 
     }

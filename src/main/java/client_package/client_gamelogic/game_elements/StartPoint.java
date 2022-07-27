@@ -8,6 +8,7 @@ import java.io.IOException;
 public class StartPoint extends GameElement {
     public StartPoint(){
         super(ElementName.STARTPOINT);
+        visualOrder = 2;
     }
 
     /**
@@ -18,7 +19,9 @@ public class StartPoint extends GameElement {
      * @throws IOException
      */
     public StartPoint(JsonObject jsonObject) throws IOException {
+
         this();
+        visualOrder = 2;
     }
 
 

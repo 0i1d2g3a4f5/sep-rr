@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Wall extends GameElement {
     public Wall(ArrayList<Direction> orientations){
         super(ElementName.WALL);
+        visualOrder = 5;
         for (Direction direction:orientations) {
             this.orientations.add(direction);
         }
@@ -24,6 +25,7 @@ public class Wall extends GameElement {
      */
     public Wall(JsonObject jsonObject) throws IOException {
         super(ElementName.WALL);
+        visualOrder = 5;
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 

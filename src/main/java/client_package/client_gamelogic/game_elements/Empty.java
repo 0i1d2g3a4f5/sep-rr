@@ -6,8 +6,11 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 
 public class Empty extends GameElement {
+
+
     public Empty(){
         super(ElementName.EMPTY);
+        visualOrder = 0;
     }
 
     /**
@@ -19,6 +22,7 @@ public class Empty extends GameElement {
      */
 
     public Empty (JsonObject jsonObject) throws IOException {
+        visualOrder = 0;
         Gson gson = new Gson();
         Empty empty = new Empty();
     }

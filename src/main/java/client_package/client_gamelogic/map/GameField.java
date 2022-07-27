@@ -12,6 +12,8 @@ import gamelogic.Direction;
 import gamelogic.Position;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class GameField {
@@ -44,6 +46,17 @@ public class GameField {
 
     }
 
+    private void sortElements(){
+        Collections.sort(elements, (o1, o2) -> {
+            if(o1.visualOrder >o2.visualOrder)
+                return -1;
+            else if(o2.visualOrder > o1.visualOrder)
+                return 1;
+            else return 0;
+        });
+        Collections.reverse(elements);
+    }
+
     /**
      * @auther Ringer
      * @param direction
@@ -72,6 +85,7 @@ public class GameField {
 
 
     public ArrayList<GameElement> getElements() {
+        sortElements();
         return elements;
     }
 
