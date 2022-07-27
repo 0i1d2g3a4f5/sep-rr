@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Lasers are shown">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="enabled push panels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/RotationDirection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/death_trap.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/death_trap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/dizzy_highway.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dizzy_highway.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/extra_crispy.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/extra_crispy.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/lost_bearings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lost_bearings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MapModels/twister.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/twister.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -79,6 +94,7 @@
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark\IdeaProjects\bbb\desperate_drosseln_hp\src\main\resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
@@ -89,9 +105,10 @@
     <option name="myCommands">
       <command value="mvn dependency:resolve" />
       <command value="mvn stash" />
+      <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -131,19 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client_application.ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_application.ClientMain" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client_application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="client_package.sentient.SentientLauncher" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client_package.sentient.SentientLauncher" />
       <module name="desperate_drosseln_hp" />
@@ -157,20 +161,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="desperate_drosseln_hp-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.client_application.ClientMain" />
       <item itemvalue="Application.Cccc" />
       <item itemvalue="Application.client_package.sentient.SentientLauncher" />
       <item itemvalue="Application.ClientApplication" />
       <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
-        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.Cccc" />
-        <item itemvalue="Application.client_application.ClientMain" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +209,11 @@
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
       <workItem from="1658744146122" duration="596000" />
+      <workItem from="1658780569882" duration="1812000" />
+      <workItem from="1658841220327" duration="305000" />
+      <workItem from="1658852533349" duration="1134000" />
+      <workItem from="1658864854334" duration="3112000" />
+      <workItem from="1658936319085" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -377,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658760680614</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="enabled push panels">
+      <created>1658779924675</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658779924675</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +445,7 @@
     <MESSAGE value="Changes by Mark" />
     <MESSAGE value="Add CheckPoints to Twister Map" />
     <MESSAGE value="updated workspace.xml to avoid errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated workspace.xml to avoid errors" />
+    <MESSAGE value="enabled push panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="enabled push panels" />
   </component>
 </project>

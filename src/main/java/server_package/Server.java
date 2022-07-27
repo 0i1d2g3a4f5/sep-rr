@@ -20,16 +20,16 @@ public abstract class Server {
 
     public static Logger serverLogger = Logger.getLogger("Server");
 
-    static {
+    /*static {
         try {
             Properties properties= new Properties();
-            properties.load(new FileInputStream("log4j.properties"));
+            properties.load(Server.class.getResourceAsStream("log4j.properties"));
             PropertyConfigurator.configure(properties);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
     protected boolean gameStarted;
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
