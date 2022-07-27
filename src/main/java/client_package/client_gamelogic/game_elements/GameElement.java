@@ -17,6 +17,7 @@ import java.util.Objects;
  */
 public abstract class GameElement {
 
+    public int visualOrder;
 
     protected GameField gameField;
     public List<Direction> orientations = new ArrayList<Direction>();

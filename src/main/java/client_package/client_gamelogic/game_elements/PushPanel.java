@@ -15,6 +15,7 @@ public class PushPanel extends GameElement {
     ArrayList<Integer> activateRegisters;
 
     public PushPanel(Direction direction, ArrayList<Integer> activationRegisters) {
+        visualOrder = 2;
         this.direction = direction;
         orientations.add(direction);
         this.activateRegisters = activationRegisters;
@@ -30,6 +31,7 @@ public class PushPanel extends GameElement {
      */
     public PushPanel(JsonObject jsonObject) throws IOException {
         super(ElementName.PUSHPANEL);
+        visualOrder = 2;
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         if(orientations.size()>0){
 

@@ -43,6 +43,7 @@ public class Gear extends GameElement{
         }
     }
     public Gear(GearDirection direction){
+        visualOrder = 1;
         gearDirection = direction;
         type = ElementName.GEAR;
     }
@@ -57,6 +58,7 @@ public class Gear extends GameElement{
      */
     public Gear (JsonObject jsonObject) throws IOException {
         super(ElementName.GEAR);
+        visualOrder = 1;
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
 

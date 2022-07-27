@@ -18,6 +18,7 @@ import java.util.Properties;
 
 public abstract class Message{
     public static Logger messageLogger = Logger.getLogger("Message");
+    /*
     static {
         try {
             Properties properties= new Properties();
@@ -28,6 +29,8 @@ public abstract class Message{
             throw new RuntimeException(e);
         }
     }
+
+     */
     public String type;
     public JsonObject content;
     public MessageType messageType;

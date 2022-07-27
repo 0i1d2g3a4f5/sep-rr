@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Pit extends GameElement {
 
     public Pit(){
-        
+        visualOrder = 1;
     }
 
     /**
@@ -21,6 +21,7 @@ public class Pit extends GameElement {
 
     public Pit(JsonObject jsonObject) throws IOException {
         super(ElementName.PIT);
+        visualOrder = 1;
         Gson gson = new Gson();
         Pit pit = new Pit();
     }

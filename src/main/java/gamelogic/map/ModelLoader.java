@@ -29,9 +29,31 @@ public class ModelLoader {
     }
 
     public String readFile(String fileName){
-        String resourceName = "/MapModels/"+fileName+".json";
-        String filePath = getClass().getResource(resourceName).getFile();
-        System.out.println("FILEPATH" + filePath);
+        String filePath;
+
+        switch (fileName){
+            case "dizzy_highway"->{
+                filePath = "dizzy_highway.json";
+            }
+            case "death_trap" ->{
+                filePath = "death_trap.json";
+            }
+            case "extra_crispy" -> {
+                filePath = "extra_crispy.json";
+            }
+            case "lost_bearings" -> {
+                filePath = "lost_bearings.json";
+            }
+            case "twister" ->{
+                filePath = "twister.json";
+            }
+            default -> {
+                throw new IllegalArgumentException();
+            }
+        }
+        //String resourceName = "dizzy_highway";
+        //String filePath = getClass().getResource(resourceName).getFile();
+        //System.out.println("FILEPATH" + filePath);
         return new JsonReader().readFile(filePath);
     }
 

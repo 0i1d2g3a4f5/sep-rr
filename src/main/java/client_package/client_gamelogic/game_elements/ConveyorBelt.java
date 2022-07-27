@@ -18,6 +18,7 @@ public class ConveyorBelt extends GameElement{
      * @author Ringer
      */
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
+        visualOrder = 1;
         orientations.add(targetDirection);
         orientations.add(originDirection1);
         orientations.add(originDirection2);
@@ -34,6 +35,7 @@ public class ConveyorBelt extends GameElement{
      * @author Ringer
      */
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
+        visualOrder = 1;
 
         orientations.add(targetDirection);
         orientations.add(originDirection);
@@ -47,6 +49,7 @@ public class ConveyorBelt extends GameElement{
      * @author Ringer
      */
     public ConveyorBelt(Color color,Direction targetDirection) throws IOException {
+        visualOrder = 1;
 
         orientations.add(targetDirection);
         orientations.add(targetDirection.opposite());
@@ -64,7 +67,9 @@ public class ConveyorBelt extends GameElement{
      * @throws IOException
      */
     public ConveyorBelt(JsonObject jsonObject) throws IOException {
+
         super(ElementName.CONVEYORBELT);
+        visualOrder = 1;
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         Direction targetDirection = null;

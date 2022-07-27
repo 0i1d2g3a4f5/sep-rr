@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Qinyi, Mark
  * creates a robot character for every player
+ * @author Qinyi, Mark
+ *
  */
 public class Robot extends GameElement implements RobotMovement, Activatable {
 
@@ -443,6 +444,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
             Empty empty = new Empty();
             empty.setGameField(gameField);
             empty.setIsOnBoard(gameField.getIsOnBoard());
+
             gameField.addElement(empty);
         }
         gameField=restartingPoint.getGameField();

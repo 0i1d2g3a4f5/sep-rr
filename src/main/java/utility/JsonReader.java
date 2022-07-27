@@ -1,6 +1,8 @@
 package utility;
 
 import java.io.*;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author Ringer
@@ -8,6 +10,15 @@ import java.io.*;
 public class JsonReader {
 
     public String readFile(String filePath){
+
+
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
+        InputStreamReader inputStreamReader = new InputStreamReader(Objects.requireNonNull(inputStream));
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String string = bufferedReader.lines().collect(Collectors.joining("\n"));
+
+         /*
+
         File file= new File(filePath);
         BufferedReader reader;
         try {
@@ -28,5 +39,10 @@ public class JsonReader {
             }
         }
         return jsonString;
+
+          */
+
+
+        return string;
     }
 }

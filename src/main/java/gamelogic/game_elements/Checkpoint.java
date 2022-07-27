@@ -9,12 +9,16 @@ import gamelogic.Direction;
 import gamelogic.Game;
 import gamelogic.Player;
 import gamelogic.game_elements.robot.Robot;
+import gamelogic.map.GameField;
 import server_package.Server;
 import utility.SearchMethods;
 
 import java.io.IOException;
 
 public class Checkpoint extends GameElement implements Activatable {
+
+
+    public boolean movedByCBelt = false;
     int activationOrder = 8;
     public static int numberOfCheckpoints;
     int count;
@@ -86,6 +90,16 @@ public class Checkpoint extends GameElement implements Activatable {
         }
 
     }
+
+    public boolean displace(Direction targetDirection){
+        GameField nextField = gameField.getNeighbor(targetDirection);
+        position = nextField.getPosition();
+        nextField.addElement(this);
+        gameField.removeElement(this);
+        gameField = nextField;
+        return true;
+    }
+
     @Override
     public int getActivationOrder() {
         return activationOrder;

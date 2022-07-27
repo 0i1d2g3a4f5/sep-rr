@@ -46,6 +46,7 @@ public class Laser extends GameElement  {
      * @param direction
      */
     public Laser(Direction direction, int count ) throws IOException {
+        visualOrder = 3;
         this.direction = direction;
         orientations.add(direction);
         if(count>3||count<1)
@@ -65,6 +66,7 @@ public class Laser extends GameElement  {
 
     public Laser(JsonObject jsonObject) throws IOException {
         super(ElementName.LASER);
+        visualOrder = 4;
         Gson gson = new Gson();
         JsonArray orientations = gson.fromJson(jsonObject.get("orientations"), JsonArray.class);
         if(orientations.size()>0){

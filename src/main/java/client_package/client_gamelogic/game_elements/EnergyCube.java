@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class EnergyCube extends GameElement {
     public EnergyCube(){
+        visualOrder = 3;
 
     }
 
@@ -20,6 +21,7 @@ public class EnergyCube extends GameElement {
 
     public EnergyCube(JsonObject jsonObject) throws IOException {
         super(ElementName.ENERGY_CUBE);
+        visualOrder = 3;
 
     }
 

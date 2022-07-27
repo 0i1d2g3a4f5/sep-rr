@@ -13,7 +13,7 @@ public class Spam extends DamageCard{
     }
 
     /**
-     * @author Qinyi
+     * @author Mark Ringer, Qinyi
      */
     @Override
     public void discard() {

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Created-By: Apache Maven 3.8.1
 Built-By: Desperate Drosseln
-Main-Class: client_application.ClientMain
+Main-Class: client_package.sentient.SentientLauncher
 

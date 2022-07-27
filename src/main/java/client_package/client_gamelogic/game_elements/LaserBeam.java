@@ -6,7 +6,9 @@ public class LaserBeam extends GameElement {
     int numberBeams;
     Direction direction;
     public LaserBeam(Direction direction, int numberBeams){
+
         super(ElementName.LASERBEAM);
+        visualOrder = 4;
         this.numberBeams = numberBeams;
         this.direction = direction;
         this.orientations.add(direction);

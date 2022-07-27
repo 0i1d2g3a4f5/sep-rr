@@ -9,7 +9,7 @@ module desperate.drosseln.hp {
     */
 
 
-    requires neat;
+
     requires javafx.graphics;
     requires javafx.fxml;
     requires com.google.gson;

@@ -10,6 +10,7 @@ public class RestartPoint extends GameElement {
 
     public RestartPoint(){
         super(ElementName.RESTARTPOINT);
+        visualOrder = 2;
     }
 
     /**
@@ -22,5 +23,6 @@ public class RestartPoint extends GameElement {
 
     public RestartPoint(JsonObject jsonObject) throws IOException {
         this();
+        visualOrder = 2;
     }
 }

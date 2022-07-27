@@ -22,6 +22,7 @@ public class EnergySpace extends GameElement {
         this.count = count;
     }
     public EnergySpace(int count){
+        visualOrder = 1;
         this.count = count;
         type = ElementName.ENERGYSPACE;
     }
@@ -35,6 +36,7 @@ public class EnergySpace extends GameElement {
      */
     public EnergySpace (JsonObject jsonObject) throws IOException {
         super(ElementName.ENERGYSPACE);
+        visualOrder = 1;
         this.count = jsonObject.get("count").getAsInt();
     }
 
