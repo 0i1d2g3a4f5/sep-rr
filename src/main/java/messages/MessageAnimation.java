@@ -16,7 +16,10 @@ public class MessageAnimation extends Message{
     public String animationType;
 
     /**
+     * converts Message to json
+     *
      * @param animationType
+     * @author Isabel Muhm
      */
     public MessageAnimation(String animationType){
 
@@ -28,12 +31,14 @@ public class MessageAnimation extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageAnimation(JsonObject jsonObject){
         super(jsonObject);
         animationType = content.get("type").getAsString();
-        //Server.serverLogger.info("Created Animation Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

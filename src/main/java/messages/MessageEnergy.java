@@ -18,9 +18,12 @@ public class MessageEnergy extends Message{
     public String source;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param count
      * @param source
+     * @author Isabel Muhm
      */
     public MessageEnergy(int clientID, int count, String source){
 
@@ -37,7 +40,10 @@ public class MessageEnergy extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageEnergy(JsonObject jsonObject){
         super(jsonObject);
@@ -49,7 +55,6 @@ public class MessageEnergy extends Message{
 
     /**
      * @param sClient
-     * @param isBasic
      * @throws IOException
      * @throws ClientNotFoundException
      */
@@ -66,11 +71,5 @@ public class MessageEnergy extends Message{
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 
     }
-
-    /**
-     * @param server
-     * @throws IOException
-     * @throws ClientNotFoundException
-     */
 
 }

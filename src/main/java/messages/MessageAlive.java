@@ -14,16 +14,34 @@ import java.io.IOException;
 
 public class MessageAlive extends Message{
 
+    /**
+     * converts message to JSON
+     *
+     * @author Isabel Muhm
+     */
     public MessageAlive() {
         type = "Alive";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
     }
 
+    /**
+     * converts json to Message
+     *
+     * @param jsonObject
+     * @author Isabel Muhm
+     */
     public MessageAlive(JsonObject jsonObject){
         super(jsonObject);
     }
 
+    /**
+     * documents, that server is still connected to client
+     *
+     * @param sClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         Server.serverLogger.info("SClient " + sClient.getId() + " is still connected to server");

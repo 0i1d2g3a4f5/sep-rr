@@ -20,6 +20,12 @@ public class ClientMapBasicController {
     @FXML
     private ListView<String> mapList;
 
+
+    /**
+     * sends selected map choice to server
+     *
+     * @param event
+     */
     @FXML
     void clicked(ActionEvent event) {
         if(!mapList.getSelectionModel().getSelectedItem().equals(null)){
@@ -28,6 +34,12 @@ public class ClientMapBasicController {
         }
 
     }
+
+    /**
+     * shows all available maps on clickable list
+     *
+     * @param jsonArray
+     */
     void initializeMaps(JsonArray jsonArray){
         mapList.getItems().clear();
         for(JsonElement temp : jsonArray){

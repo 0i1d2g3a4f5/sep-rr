@@ -17,8 +17,11 @@ public class MessageCheckPointReached extends Message{
     public int number;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param number
+     * @author Isabel Muhm
      */
     public MessageCheckPointReached(int clientID, int number){
         this.clientID = clientID;
@@ -32,7 +35,10 @@ public class MessageCheckPointReached extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageCheckPointReached(JsonObject jsonObject){
         super(jsonObject);
@@ -61,6 +67,13 @@ public class MessageCheckPointReached extends Message{
 
     }
 
+    /**
+     * informs AI that it reached a checkpoint and now has to reach the next one
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){

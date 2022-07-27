@@ -22,9 +22,12 @@ public class MessageCardSelected extends Message{
     public boolean filled;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param register
      * @param filled
+     * @author Isabel Muhm
      */
     public MessageCardSelected(int clientID, int register, boolean filled){
         this.clientID = clientID;
@@ -39,7 +42,10 @@ public class MessageCardSelected extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageCardSelected(JsonObject jsonObject){
         super(jsonObject);
@@ -60,6 +66,8 @@ public class MessageCardSelected extends Message{
     }
 
     /**
+     * fills or clears register depending on if the card was chosen from progamming deck or available programming cards
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
@@ -92,6 +100,13 @@ public class MessageCardSelected extends Message{
 
     }
 
+    /**
+     * lets AI fill its registers with selected cards
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){
