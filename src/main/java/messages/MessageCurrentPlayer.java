@@ -20,7 +20,10 @@ public class MessageCurrentPlayer extends Message{
     public int clientID;
 
     /**
+     * converts message to json
+     *
      * @param clientID
+     * @author Isabel Muhm
      */
     public MessageCurrentPlayer(int clientID) {
         this.clientID = clientID;
@@ -32,7 +35,10 @@ public class MessageCurrentPlayer extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageCurrentPlayer(JsonObject jsonObject) {
         super(jsonObject);
@@ -50,6 +56,13 @@ public class MessageCurrentPlayer extends Message{
 
     }
 
+    /**
+     * activates starting point chose in game scene
+     *
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         if(clientID==client.getId()){

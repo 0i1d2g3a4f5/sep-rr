@@ -117,13 +117,13 @@ public class JavaFXGridHandler {
                 break;
             }
             case 2 -> {
-                imageView.setFitWidth(124);
-                imageView.setFitHeight(198);
+                imageView.setFitWidth(115.6);
+                imageView.setFitHeight(175);
                 break;
             }
             case 3 -> {
-                imageView.setFitWidth(90);
-                imageView.setFitHeight(158);
+                imageView.setFitWidth(65);
+                imageView.setFitHeight(100);
                 break;
             }
             default -> {

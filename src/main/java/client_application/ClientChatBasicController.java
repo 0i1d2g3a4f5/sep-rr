@@ -34,6 +34,10 @@ public class ClientChatBasicController {
         if(event.getCode()== KeyCode.ENTER)
             submit();
     }
+
+    /**
+     * checks the purpose of a sent chat message and sends it properly
+     */
     void submit(){
         if(active) {
             if (!inputArea.getText().trim().equals("")) {
@@ -50,12 +54,25 @@ public class ClientChatBasicController {
             }
         }
     }
+
+    /**
+     * sends messages in public chat
+     *
+     * @param s
+     */
     void chatAll(String s){
             clientApplication.basicClient.sendSelf(new MessageSendChat(s, -1));
             inputArea.setText("");
             inputArea.setPromptText(def);
             active = true;
     }
+
+    /**
+     * splits messages to receiver ID and message itself and sends messages in private chat
+     *
+     * @param s
+     */
+
     void chatPrivate(String s){
         String[] subs = s.split(" ");
         int i=0;

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Cagin Erdogan, Mark Ringer, Isabel Muhm
  */
 public class ClientApplication extends Application {
     BasicClient basicClient;

@@ -17,8 +17,11 @@ public class MessageCardPlayed extends Message{
     public String card;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param card
+     * @author Isabel Muhm
      */
     public MessageCardPlayed(int clientID, String card){
         this.clientID = clientID;
@@ -32,7 +35,10 @@ public class MessageCardPlayed extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageCardPlayed(JsonObject jsonObject){
         super(jsonObject);
@@ -48,6 +54,7 @@ public class MessageCardPlayed extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         /*
+        TBD
         if (sClient != null) {
             sClient.getPlayer().placeCard(CardName.parseCardName(card), 1);
             // TODO check if okay

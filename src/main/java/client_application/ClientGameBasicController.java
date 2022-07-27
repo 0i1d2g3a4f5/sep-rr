@@ -334,6 +334,12 @@ public class ClientGameBasicController {
          */
     }
 
+    /**
+     * the following 2 methods start showing the winner and loser scene after a player won the game
+     *
+     * @author Sarp Cagin Erdogan
+     */
+
     public void startWinnerScene(){
         winnerScene.setDisable(false);
         winnerScene.setVisible(true);
@@ -351,7 +357,12 @@ public class ClientGameBasicController {
         loserScene.setVisible(false);
     }
 
-
+    /**
+     * the following 4 methods handle reboot directions of a robot
+     *
+     * @param event
+     * @author Vivian Kafadar
+     */
     @FXML
     void rebootDown(MouseEvent event) {
         setRebootDirection(Direction.BOTTOM);
@@ -376,11 +387,23 @@ public class ClientGameBasicController {
         stopChoosingDirection();
     }
 
+    /**
+     * starts showing direction choose field for reboots
+     *
+     * @author Vivian Kafadar
+     */
+
     public void startChoosingDirection(){
         chooseDirectionActive=true;
         rebootWindow.setDisable(false);
         rebootWindow.setVisible(true);
     }
+
+    /**
+     * ends showing direction choose field for reboots
+     *
+     * @author Vivian Kafadar
+     */
 
     public void stopChoosingDirection(){
         chooseDirectionActive=false;
@@ -391,6 +414,13 @@ public class ClientGameBasicController {
     public void setRebootDirection(Direction direction){
         clientApplication.basicClient.sendSelf(new MessageRebootDirection(direction.toString()));
     }
+
+    /**
+     * starts 30 seconds timer
+     *
+     * @throws InterruptedException
+     * @author Isabel Muhm
+     */
 
     public void startTimer() throws InterruptedException {
         timerCounting = true;
@@ -405,6 +435,12 @@ public class ClientGameBasicController {
             }
     }
 
+    /**
+     * resets 30 seconds timer to 0:00 and ends startTimer method
+     *
+     * @throws InterruptedException
+     * @author Isabel Muhm
+     */
     public void endTimer() throws InterruptedException {
         timerCounting = false;
         TimeUnit.SECONDS.sleep(1);

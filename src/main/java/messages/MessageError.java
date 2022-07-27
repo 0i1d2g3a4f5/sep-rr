@@ -22,7 +22,10 @@ public class MessageError extends Message{
     public String error;
 
     /**
+     * converts message to json
+     *
      * @param error
+     * @author Isabel Muhm
      */
     public MessageError(String error){
         this.error = error;
@@ -34,7 +37,10 @@ public class MessageError extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageError(JsonObject jsonObject) {
         super(jsonObject);
@@ -52,6 +58,13 @@ public class MessageError extends Message{
 
     }
 
+    /**
+     * informs client about current error
+     *
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             Client.clientLogger.info(this.error);

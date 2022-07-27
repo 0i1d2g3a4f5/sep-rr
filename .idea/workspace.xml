@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="WIP moving Checkpoints">
-      <change afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckpointMoved.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="fixed laser visual bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/Checkpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -211,7 +201,6 @@
       <workItem from="1658852533349" duration="1134000" />
       <workItem from="1658864854334" duration="3112000" />
       <workItem from="1658936319085" duration="1566000" />
-      <workItem from="1658948317743" duration="8540000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -402,14 +391,7 @@
       <option name="project" value="LOCAL" />
       <updated>1658941966982</updated>
     </task>
-    <task id="LOCAL-00028" summary="WIP moving Checkpoints">
-      <created>1658943812941</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1658943812941</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,6 +415,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Game is buggy but playable" />
     <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
@@ -457,7 +440,6 @@
     <MESSAGE value="updated workspace.xml to avoid errors" />
     <MESSAGE value="enabled push panels" />
     <MESSAGE value="fixed laser visual bug" />
-    <MESSAGE value="WIP moving Checkpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP moving Checkpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed laser visual bug" />
   </component>
 </project>

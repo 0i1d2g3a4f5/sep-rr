@@ -121,6 +121,7 @@ public class ClientNameBasicController {
     void startButton(ActionEvent event) {
         submit();
     }
+    
     void submit(){
         if(active){
             if (currentFigure == 7) {
@@ -135,6 +136,11 @@ public class ClientNameBasicController {
         }
     }
 
+    /**
+     * selects new checkbox of selected robot and unselects current selected (if it exists)
+     *
+     * @param index
+     */
     void selectAndUncheckCurrent(int index){
         CheckBox temp1 = (CheckBox) checkGrid.getChildren().get(index-1);
         temp1.setSelected(true);
@@ -149,10 +155,14 @@ public class ClientNameBasicController {
         checkBox.setSelected(false);
         currentFigure=7;
     }
-    public void setFeedback(String string){
+
+    public void setFeedback(String string)
+    {
         feedBack.setText(string);
     }
-    public void activate(){
+
+    public void activate()
+    {
         active=true;
     }
 

@@ -31,6 +31,13 @@ public class BasicClient extends Client {
         setIsReady(false);
         setIsListening(false);
     }
+
+    /**
+     * starts new client
+     * @param ip
+     * @param port
+     * @param groupName
+     */
     public void startClient(String ip, int port, String groupName){
         Runnable socketCreation = new Runnable() {
             @Override
@@ -57,6 +64,12 @@ public class BasicClient extends Client {
         listen();
         sendSelf(new MessageHelloServer(group, false, GlobalParameters.PROTOCOL_VERSION));
     }
+
+    /**
+     * processes incoming messages
+     * @param jsonObject
+     * @param client
+     */
     @Override
     public void process(JsonObject jsonObject, Client client){
         Runnable runnable = new Runnable() {

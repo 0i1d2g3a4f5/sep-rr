@@ -19,6 +19,7 @@ public class MessageActivePhase extends Message{
 
     /**
      * @param phase
+     * @author Isabel Muhm
      */
     public MessageActivePhase(int phase){
         this.phase = phase;
@@ -30,6 +31,7 @@ public class MessageActivePhase extends Message{
 
     /**
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageActivePhase(JsonObject jsonObject) {
         super(jsonObject);
