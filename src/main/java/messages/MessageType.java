@@ -52,6 +52,8 @@ public enum MessageType {
 
     DRAW_DAMAGE,
     CARDS_YOU_GOT_NOW,
+
+    CHECKPOINT_MOVED,
     REPLACE_CARD;
 
 }

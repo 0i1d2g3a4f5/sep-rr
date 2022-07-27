@@ -145,7 +145,13 @@ public class GameField {
     public void removeRobot() {
          removeAll(ElementName.ROBOT);
     }
-    private void removeAll(ElementName elementName){
+
+    /**
+     * removes All elements with this Name
+     * @author Mark Ringer
+     * @param elementName
+     */
+    public void removeAll(ElementName elementName){
         for (int i = 0; i < elements.size() ; i++) {
             GameElement element = elements.get(i);
             if(element.getType()==elementName) elements.remove(element);

@@ -1,5 +1,6 @@
 package utility;
 
+import client_package.client_gamelogic.game_elements.Checkpoint;
 import gamelogic.cards.Card;
 import gamelogic.cards.CardName;
 import gamelogic.game_elements.ElementName;
@@ -51,6 +52,16 @@ public class SearchMethods {
     public static GameElement searchElement(ElementName elementName, List<GameElement> list){
         for (GameElement element:list) {
             if(element.getType() == elementName) return element;
+        }
+        return null;
+    }
+
+    public static Checkpoint searchCheckpoint(int ID, ArrayList<Checkpoint> list){
+        for (Checkpoint checkpoint:list
+             ) {
+            if(checkpoint.getCount()==ID){
+                return checkpoint;
+            }
         }
         return null;
     }

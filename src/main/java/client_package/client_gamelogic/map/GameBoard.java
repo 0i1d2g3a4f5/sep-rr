@@ -20,6 +20,8 @@ public class GameBoard  {
     protected int dimensionY;
     protected int dimensionX;
 
+    private ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
+
     public ArrayList<ArrayList<GameField>> boardMap;
     public ArrayList<ArrayList<GameField>> getBoardMap() {
         return boardMap;
@@ -33,6 +35,7 @@ public class GameBoard  {
     public void setDimensionX(int dimensionX) {
         this.dimensionX = dimensionX;
     }
+
 
     public ArrayList<Laser> laserList = new ArrayList<>();
 
@@ -115,6 +118,12 @@ public class GameBoard  {
     }
 
 
+    public void addCheckpoint(Checkpoint checkpoint){
+        checkpoints.add(checkpoint);
+    }
+    public ArrayList<Checkpoint> getCheckpoints(){
+        return checkpoints;
+    }
 
 
     /**
@@ -219,6 +228,9 @@ public class GameBoard  {
                     element.setGameField(gameField);
                     if(element instanceof Laser){
                         laserList.add((Laser) element);
+                    }
+                    if(element instanceof Checkpoint){
+                        addCheckpoint((Checkpoint) element);
                     }
 
 

@@ -162,6 +162,9 @@ public class MessageFactory {
             case CONNECTION_UPDATE-> {
                 return new MessageConnectionUpdate(jsonObject);
             }
+            case CHECKPOINT_MOVED -> {
+                return new MessageCheckpointMoved(jsonObject);
+            }
             default -> throw new IllegalArgumentException("There is no MessageType "+messageType);
         }
 

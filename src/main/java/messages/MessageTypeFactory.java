@@ -145,6 +145,9 @@ public class MessageTypeFactory {
             case "ConnectionUpdate" -> {
                 return MessageType.CONNECTION_UPDATE;
             }
+            case "CheckpointMoved" ->{
+                return MessageType.CHECKPOINT_MOVED;
+            }
             default -> {
                 throw new IllegalArgumentException("Message "+string +" does not exist");
             }

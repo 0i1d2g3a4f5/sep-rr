@@ -4,12 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import gamelogic.Activatable;
-import gamelogic.Direction;
-import gamelogic.Game;
-import gamelogic.Player;
+import gamelogic.*;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameField;
+import javafx.geometry.Pos;
+import messages.MessageCheckpointMoved;
+import messages.MessageMovement;
 import server_package.Server;
 import utility.SearchMethods;
 
@@ -92,11 +92,23 @@ public class Checkpoint extends GameElement implements Activatable {
     }
 
     public boolean displace(Direction targetDirection){
+        Position oldPos = position;
+        GameField oldField =gameField;
         GameField nextField = gameField.getNeighbor(targetDirection);
         position = nextField.getPosition();
         nextField.addElement(this);
-        gameField.removeElement(this);
+        oldField.removeAll(ElementName.CHECKPOINT);
+        if(gameField.getElements().size()==0){
+            Empty empty = new Empty();
+            empty.setGameField(gameField);
+            empty.setIsOnBoard(gameField.getIsOnBoard());
+            gameField.addElement(empty);
+
+        }
         gameField = nextField;
+        Game.getInstance().getPlayerList().get(0).getClient().sendAll(new MessageCheckpointMoved(count, position.getY(), position.getX()));
+        Server.serverLogger.debug("Moved Checkpoint "+count+ " from "+oldPos+" to "+position+". Old Gamefield: "+oldField );
+
         return true;
     }
 

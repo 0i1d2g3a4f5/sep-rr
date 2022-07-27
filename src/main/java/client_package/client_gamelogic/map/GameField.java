@@ -30,7 +30,10 @@ public class GameField {
 
     private ArrayList<GameElement> elements = new ArrayList<>();
 
+    public void removeElement(GameElement element){
+        elements.remove(element);
 
+    }
 
      public GameField(GameBoard board, Position position) {
          this.board = board;
@@ -172,7 +175,13 @@ public class GameField {
     public void removeRobot() {
          removeAll(ElementName.ROBOT);
     }
-    private void removeAll(ElementName elementName){
+
+    /**
+     * removes all elements with this Name
+     * @author Mark Ringer
+     * @param elementName
+     */
+    public void removeAll(ElementName elementName){
         GameElement robotElement = null;
         for (GameElement element:elements) {
             if(element.getType()==elementName) robotElement = element;

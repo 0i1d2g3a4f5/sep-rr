@@ -20,6 +20,7 @@ public class GameBoard implements JsonSerializable {
     protected int dimensionX;
     private Antenna antenna;
 
+    private ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
     public ArrayList<ArrayList<GameField>> boardMap;
     public ArrayList<ArrayList<GameField>> getBoardMap() {
         return boardMap;
@@ -74,6 +75,12 @@ public class GameBoard implements JsonSerializable {
         return dimensionY;
     }
 
+    public void addCheckpoint(Checkpoint checkpoint){
+        checkpoints.add(checkpoint);
+    }
+    public ArrayList<Checkpoint> getCheckpoints(){
+        return checkpoints;
+    }
 
 
     @Override
@@ -242,6 +249,9 @@ public class GameBoard implements JsonSerializable {
                     }
                     if(element.getType() == ElementName.ANTENNA){
                         setAntenna((Antenna) element);
+                    }
+                    if(element instanceof Checkpoint){
+                        addCheckpoint((Checkpoint) element);
                     }
                 }
                 row.add(gameField);

@@ -478,6 +478,9 @@ public class  Game {
                 player.getRobot().waitingForDirection=false;
 
             }
+            for (Checkpoint checkpoint:board.getCheckpoints()){
+                checkpoint.movedByCBelt = false;
+            }
             TimeUnit.MILLISECONDS.sleep(80);
         }
         activeRegister = -1;
