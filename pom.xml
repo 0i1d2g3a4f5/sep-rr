@@ -24,7 +24,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>client_package.sentient.SentientLauncher</mainClass>
+                                    <mainClass>server_application.ServerMain</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -50,7 +50,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>client_package/sentient/SentientLauncher.java</mainClass>
+                            <mainClass>server_application/ServerMain.java</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

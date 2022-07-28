@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="made transparent background to scrollpanes of gamescene">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="fixed placing robots after it was not possible after a cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -91,22 +91,10 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:resolve" />
+      <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.client_package.sentient.SentientLauncher">
-    <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aexperimental.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar">
     <configuration name="ClientApplication" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="client_application.ClientApplication" />
       <module name="desperate_drosseln_hp" />
@@ -159,20 +147,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="desperate_drosseln_hp-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.ServerMain" />
-      <item itemvalue="Application.Cccc" />
       <item itemvalue="Application.client_package.sentient.SentientLauncher" />
       <item itemvalue="Application.ClientApplication" />
       <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.desperate_drosseln_hp-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.Cccc" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed placing robots after it was not possible after a cleanup">
+      <created>1659050795780</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659050795780</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +406,7 @@
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
     <MESSAGE value="made transparent background to scrollpanes of gamescene" />
-    <option name="LAST_COMMIT_MESSAGE" value="made transparent background to scrollpanes of gamescene" />
+    <MESSAGE value="fixed placing robots after it was not possible after a cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed placing robots after it was not possible after a cleanup" />
   </component>
 </project>
