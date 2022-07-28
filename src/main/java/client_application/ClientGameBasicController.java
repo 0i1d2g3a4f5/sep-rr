@@ -1,15 +1,10 @@
 package client_application;
 
 import client_package.Client;
-import gamelogic.Game;
 import gamelogic.Position;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -19,10 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 import messages.*;
 import gamelogic.Direction;
-import server_package.Server;
 import utility.Images;
 
 import java.util.concurrent.TimeUnit;
@@ -82,186 +75,12 @@ public class ClientGameBasicController {
     @FXML
     private Text timer;
 
-    @FXML
-    void submitButton(ActionEvent event) {
-        if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
-            String[] singleCoordinate ={};
-            String toCheck =startingCoordinates.getText().trim();
-            boolean formatGood = false;
-            for(int i = 0; i<toCheck.length(); i++){
-                if(toCheck.charAt(i)=='/'){
-                    formatGood=true;
-                }
-            }
-            if(!formatGood){
-                startingCoordinates.setText("Please submit coordinates in the proper format");
-            }
-            else {
-                singleCoordinate = toCheck.split("/");
-
-                if (singleCoordinate.length != 2) {
-                    startingCoordinates.setText("Please submit coordinates in the proper format");
-                } else {
-                    boolean proper = false;
-                    int x = -1, y = -1;
-                    try {
-                        x = Integer.parseInt(singleCoordinate[0]);
-                        y = Integer.parseInt(singleCoordinate[1]);
-                        proper=true;
-                    } catch (NumberFormatException e) {
-                        startingCoordinates.setText("Please submit the starting coordinates");
-                    }
-                    if(proper) {
-                        Position pos = new Position(y, x);
-
-                        startingSubmitActive=false;
-                        sendStartPoint(pos);
-                    }
-
-                }
-            }
-
-
-        }
-
-    }
-
     /**
-     * initializes Game scene
-     */
-    public void init(){
-        stackOwnProgramming.getChildren().clear();
-        stackOwnProgramming.getChildren().add(new GridPane());
-        scrollPaneGameBoard.setContent(new GridPane());
-        scrollAvailableProgramming.setContent(new GridPane());
-        scrollOtherRegisters.setContent(new GridPane());
-        startingSubmitActive=false;
-        chooseProgrammingActive=false;
-        chooseRegisterActive=false;
-        chooseDirectionActive=false;
-        winningSceneActive=false;
-        losingSceneActive=false;
-        chooseStartActive=false;
-        winnerScene.setVisible(false);
-        winnerScene.setDisable(true);
-        loserScene.setVisible(false);
-        winnerScene.setDisable(true);
-        rebootWindow.setVisible(false);
-        rebootWindow.setDisable(true);
-        startPosText.setVisible(true);
-        scrollOtherRegisters.setStyle("-fx-background: #8a8584");
-        scrollAvailableProgramming.setStyle("-fx-background: #8a8584");
-        scrollChosenProgramming.setStyle("-fx-background: #8a8584");
-        stackOwnProgramming.setOpacity(1);
-        scrollOtherRegisters.setOpacity(0.8);
-        scrollAvailableProgramming.setOpacity(0.8);
-        scrollChosenProgramming.setOpacity(0.8);
-    }
-
-    public GridPane yoWhatsUmbrella(){
-        return (GridPane) scrollPaneGameBoard.getContent();
-    }
-
-    /**
-     * starts or ends the visibility of the starting position info text
+     * reacts on mouseklick on chosen gamecard, gets it and adds it to active register
      *
-     * @param visible
-     * @author Isabel Muhm
+     * @param mouseEvent
+     * @author Sarp Cagin Erdogan
      */
-    public void visibilityStartingChoose(Boolean visible) {
-        startPosText.setVisible(visible);
-    }
-
-    public void setTextStartPos(String text) {
-        startPosText.setText(text);
-    }
-
-    /**
-     * shows picture of own bot in game scene to identify
-     *
-     * @param visible
-     * @author Isabel Muhm
-     */
-    public void visibilityPlayerDetails(Boolean visible){
-        playerName.setText(clientApplication.getClient().getName());
-        playerName.setVisible(visible);
-        roboImage.setVisible(visible);
-        switch(clientApplication.getClient().getFigure()) {
-            case 1 -> {
-                roboImage.setImage(new Image(Images.SPIN_BOT.toString()));
-            }
-            case 2 -> {
-                    roboImage.setImage(new Image(Images.HULK_BOT.toString()));
-            }
-            case 3 -> {
-                roboImage.setImage(new Image(Images.ZOOM_BOT.toString()));
-            }
-            case 4 -> {
-                roboImage.setImage(new Image(Images.TWONKY_BOT.toString()));
-            }
-            case 5 -> {
-                roboImage.setImage(new Image(Images.HAMMER_BOT.toString()));
-            }
-            case 6 -> {
-                roboImage.setImage(new Image(Images.SMASH_BOT.toString()));
-            }
-        }
-    }
-
-    public void setStartingText(String s){
-        startingCoordinates.setText(s);
-    }
-
-    public void updateProgrammingCards(GridPane gridPane){
-        gridPane.setGridLinesVisible(true);
-        stackOwnProgramming.getChildren().clear();
-        stackOwnProgramming.getChildren().add(gridPane);
-    }
-    public void updateOtherRegisters(GridPane gridPane){
-        gridPane.setGridLinesVisible(true);
-        scrollOtherRegisters.setContent(gridPane);
-    }
-
-    public void updateHandCards(GridPane gridPane){
-        gridPane.setGridLinesVisible(true);
-        scrollAvailableProgramming.setContent(gridPane);
-    }
-
-
-
-    public void updateGameBoard(GridPane gridPane){
-        scrollPaneGameBoard.setContent(gridPane);
-    }
-    public void sendStartPoint(Position position){
-        clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position));
-
-    }
-    public void resetSubmitStartingPoint(){
-        startingCoordinates.setText("");
-        startingSubmitActive=true;
-    }
-
-    public void activateProgrammingSelection(boolean bo){
-        chooseProgrammingActive=bo;
-    }
-    public void activateStartingPoint(boolean bo){
-        startingSubmitActive=bo;
-    }
-    public void activateRegisterSelection(boolean bo){
-        chooseRegisterActive=bo;
-    }
-    public void resetRegisterCards() {
-    stackOwnProgramming.getChildren().clear();
-    }
-
-    public void selectCard(){
-        clientApplication.getClient().getPlayer().placeSelectedToRegisterOwn();
-        chooseProgrammingActive=true;
-    }
-    public void setStartingChooseVisualActive(boolean bool){
-        chooseStartActive=bool;
-    }
-
     @FXML
     public void mouseClicked(MouseEvent mouseEvent) {
         if(chooseProgrammingActive){
@@ -377,23 +196,222 @@ public class ClientGameBasicController {
                 chooseStartActive=true;
             }
         }
-        
+
 
     }
 
-
-    public void triggerGameFinishedScene(){
-        /*
-        MessageGameFinished messageGameFinished = new MessageGameFinished(0);
-        for(Player player:Game.getInstance().getPlayerList()) {
-            if (messageGameFinished.clientID == player.getClient().getId()) {
-                winnerScene.setVisible(true);
-            } else {
-                loserScene.setVisible(true);
+    @FXML
+    void submitButton(ActionEvent event) {
+        if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
+            String[] singleCoordinate ={};
+            String toCheck =startingCoordinates.getText().trim();
+            boolean formatGood = false;
+            for(int i = 0; i<toCheck.length(); i++){
+                if(toCheck.charAt(i)=='/'){
+                    formatGood=true;
+                }
             }
+            if(!formatGood){
+                startingCoordinates.setText("Please submit coordinates in the proper format");
+            }
+            else {
+                singleCoordinate = toCheck.split("/");
+
+                if (singleCoordinate.length != 2) {
+                    startingCoordinates.setText("Please submit coordinates in the proper format");
+                } else {
+                    boolean proper = false;
+                    int x = -1, y = -1;
+                    try {
+                        x = Integer.parseInt(singleCoordinate[0]);
+                        y = Integer.parseInt(singleCoordinate[1]);
+                        proper=true;
+                    } catch (NumberFormatException e) {
+                        startingCoordinates.setText("Please submit the starting coordinates");
+                    }
+                    if(proper) {
+                        Position pos = new Position(y, x);
+
+                        startingSubmitActive=false;
+                        sendStartPoint(pos);
+                    }
+
+                }
+            }
+
+
         }
 
-         */
+    }
+
+    /**
+     * initializes Game scene
+     *
+     * @author Sarp Cagin Erdogan, Isabel Muhm
+     */
+    public void init(){
+        stackOwnProgramming.getChildren().clear();
+        stackOwnProgramming.getChildren().add(new GridPane());
+        scrollPaneGameBoard.setContent(new GridPane());
+        scrollAvailableProgramming.setContent(new GridPane());
+        scrollOtherRegisters.setContent(new GridPane());
+        startingSubmitActive=false;
+        chooseProgrammingActive=false;
+        chooseRegisterActive=false;
+        chooseDirectionActive=false;
+        winningSceneActive=false;
+        losingSceneActive=false;
+        chooseStartActive=false;
+        winnerScene.setVisible(false);
+        winnerScene.setDisable(true);
+        loserScene.setVisible(false);
+        winnerScene.setDisable(true);
+        rebootWindow.setVisible(false);
+        rebootWindow.setDisable(true);
+        startPosText.setVisible(true);
+        scrollOtherRegisters.setStyle("-fx-background: #8a8584");
+        scrollAvailableProgramming.setStyle("-fx-background: #8a8584");
+        scrollChosenProgramming.setStyle("-fx-background: #8a8584");
+        stackOwnProgramming.setOpacity(1);
+        scrollOtherRegisters.setOpacity(0.8);
+        scrollAvailableProgramming.setOpacity(0.8);
+        scrollChosenProgramming.setOpacity(0.8);
+    }
+
+    /**
+     * returns content of actual GameBoard/Map
+     *
+     * @return
+     */
+    public GridPane getGameBoardContent(){
+        return (GridPane) scrollPaneGameBoard.getContent();
+    }
+
+    /**
+     * starts or ends the visibility of the starting position info text
+     *
+     * @param visible
+     * @author Isabel Muhm
+     */
+    public void visibilityStartingChoose(Boolean visible) {
+        startPosText.setVisible(visible);
+    }
+
+    /**
+     * sets text of starting point info text
+     *
+     * @param text
+     * @author Isabel Muhm
+     */
+    public void setTextStartPos(String text) {
+        startPosText.setText(text);
+    }
+
+    /**
+     * shows picture of own bot in game scene to identify it
+     *
+     * @param visible
+     * @author Isabel Muhm
+     */
+    public void visibilityPlayerDetails(Boolean visible){
+        playerName.setText(clientApplication.getClient().getName());
+        playerName.setVisible(visible);
+        roboImage.setVisible(visible);
+        switch(clientApplication.getClient().getFigure()) {
+            case 1 -> {
+                roboImage.setImage(new Image(Images.SPIN_BOT.toString()));
+            }
+            case 2 -> {
+                    roboImage.setImage(new Image(Images.HULK_BOT.toString()));
+            }
+            case 3 -> {
+                roboImage.setImage(new Image(Images.ZOOM_BOT.toString()));
+            }
+            case 4 -> {
+                roboImage.setImage(new Image(Images.TWONKY_BOT.toString()));
+            }
+            case 5 -> {
+                roboImage.setImage(new Image(Images.HAMMER_BOT.toString()));
+            }
+            case 6 -> {
+                roboImage.setImage(new Image(Images.SMASH_BOT.toString()));
+            }
+        }
+    }
+
+    /**
+     * updates showing of programming cards by adding it to programming-stackPane
+     *
+     * @param gridPane
+     */
+    public void updateProgrammingCards(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
+        stackOwnProgramming.getChildren().clear();
+        stackOwnProgramming.getChildren().add(gridPane);
+    }
+
+    /**
+     * updates showing of amount of programming registers from other clients
+     *
+     * @param gridPane
+     * @author Sarp Cagin Erdogan
+     */
+    public void updateOtherRegisters(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
+        scrollOtherRegisters.setContent(gridPane);
+    }
+
+    /**
+     * updates showing of aown hand cards by adding it to scroll pane
+     *
+     * @param gridPane
+     * @author Sarp Cagin Erdogan
+     */
+    public void updateHandCards(GridPane gridPane){
+        gridPane.setGridLinesVisible(true);
+        scrollAvailableProgramming.setContent(gridPane);
+    }
+
+
+    /**
+     * updates complete gameboard setup by loading new grid pane into current
+     *
+     * @param gridPane
+     */
+    public void updateGameBoard(GridPane gridPane){
+        scrollPaneGameBoard.setContent(gridPane);
+    }
+
+    /**
+     * sends chosen starting point to server
+     *
+     * @param position
+     */
+    public void sendStartPoint(Position position){
+        clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position));
+    }
+
+    public void resetSubmitStartingPoint(){
+        startingCoordinates.setText("");
+        startingSubmitActive=true;
+    }
+
+    public void activateProgrammingSelection(boolean bo){
+        chooseProgrammingActive=bo;
+    }
+    public void activateStartingPoint(boolean bo){
+        startingSubmitActive=bo;
+    }
+    public void activateRegisterSelection(boolean bo){
+        chooseRegisterActive=bo;
+    }
+    public void resetRegisterCards() {
+    stackOwnProgramming.getChildren().clear();
+    }
+
+    public void selectCard(){
+        clientApplication.getClient().getPlayer().placeSelectedToRegisterOwn();
+        chooseProgrammingActive=true;
     }
 
     /**
@@ -401,7 +419,6 @@ public class ClientGameBasicController {
      *
      * @author Sarp Cagin Erdogan
      */
-
     public void startWinnerScene(){
         winnerScene.setDisable(false);
         winnerScene.setVisible(true);

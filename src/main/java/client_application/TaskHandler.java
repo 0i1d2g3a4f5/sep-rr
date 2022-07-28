@@ -3,7 +3,6 @@ package client_application;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.cards.Card;
 import client_package.client_gamelogic.map.GameBoard;
-import com.google.gson.JsonArray;
 import gamelogic.Position;
 import javafx.scene.layout.GridPane;
 import sarpLovesJavaFX.JavaFXGridHandler;
@@ -95,7 +94,7 @@ public class TaskHandler {
                 JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
                 while (tomorrowPower.size()>0){
                     Position opportunity = tomorrowPower.get(0);
-                    javaFXGridHandler.applesAndBananas(clientApplication.clientGameBasicController.yoWhatsUmbrella(), opportunity.getX(), opportunity.getY(), clientApplication.getClient().getGame().getMap(), clientApplication.getClient().getFigure() );
+                    javaFXGridHandler.applesAndBananas(clientApplication.clientGameBasicController.getGameBoardContent(), opportunity.getX(), opportunity.getY(), clientApplication.getClient().getGame().getMap(), clientApplication.getClient().getFigure() );
                     tomorrowPower.remove(0);
                 }
 
@@ -131,7 +130,6 @@ public class TaskHandler {
             case CHOOSE_STARTING_POINT -> {
                 clientApplication.clientGameBasicController.setTextStartPos("Please select a starting position by clicking on a starting point");
                 clientApplication.activateStartingPoint(true);
-                clientApplication.clientGameBasicController.setStartingChooseVisualActive(true);
             }
             case ERROR -> {
 
