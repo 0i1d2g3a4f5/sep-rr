@@ -149,7 +149,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
      * @author Ringer
      */
     @Override
-    public void activate() {
+    public void activate() throws InterruptedException {
         Server.serverLogger.info("checking "+ type +" "+color+ " at "+ gameField.getPosition());
         Server.serverLogger.debug("Game-field of this ConveyorBelt: "+gameField.toString());
 
@@ -180,6 +180,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
                     ConveyorBelt nextBelt = (ConveyorBelt) element;
                     nextField = nextField.getNeighbor(nextBelt.orientations.get(0));
+
+                    TimeUnit.MILLISECONDS.sleep(10);
 
 
 
@@ -226,6 +228,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
                     handleConveyorTurnsRobot(robot, nextField);
 
                     //robot.setEnteredConveyorBelt(nextBelt.orientations.get(0).opposite());
+                    TimeUnit.MILLISECONDS.sleep(10);
                     robot.displace(nextBelt.orientations.get(0));
                     if((robot.getGameField().getElement(ElementName.CONVEYORBELT)) ==null){
                         robot.setEnteredConveyorBelt(null);

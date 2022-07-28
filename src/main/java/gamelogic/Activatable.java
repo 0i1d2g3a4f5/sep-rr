@@ -8,7 +8,7 @@ public interface Activatable extends Comparable<Activatable> {
 
 
     int getActivationOrder();
-    void activate();
+    void activate() throws InterruptedException;
 
     GameField getGameField();
 

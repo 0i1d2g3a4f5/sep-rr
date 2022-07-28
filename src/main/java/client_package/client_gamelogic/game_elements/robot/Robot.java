@@ -82,7 +82,7 @@ public class Robot extends GameElement {
      * @param x
      */
 
-    public void moveRobotTo(int y, int x) throws IOException {
+    public synchronized void moveRobotTo(int y, int x) throws IOException {
         if(position != null){
             Game.getInstance().getMap().getGameField(position.getY(),position.getX()).removeRobot();
         }
