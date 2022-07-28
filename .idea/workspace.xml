@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="feedback messages for server launch">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/BB_Betatest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/CC_Betatest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_17_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_17_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_17_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_17_0_2.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="fixed Cards, now we can't run out of cards anymore and some other cool stuff you will like and enjoy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desperate_drosseln_hp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desperate_drosseln_hp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -48,6 +45,9 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
   </component>
   <component name="ProjectId" id="2BlDfJCvW7ZARmxXcZVKDn5WCd0" />
   <component name="ProjectLevelVcsManager">
@@ -94,7 +94,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="Application.client_package.sentient.SentientLauncher">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -134,12 +134,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client_application.ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_application.ClientMain" />
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server_application.ServerMain" />
       <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client_application.*" />
+          <option name="PATTERN" value="server_application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,7 +161,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.client_application.ClientMain" />
+      <item itemvalue="Application.ServerMain" />
       <item itemvalue="Application.Cccc" />
       <item itemvalue="Application.client_package.sentient.SentientLauncher" />
       <item itemvalue="Application.ClientApplication" />
@@ -169,11 +169,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
-        <item itemvalue="Application.client_package.sentient.SentientLauncher" />
+        <item itemvalue="Application.ServerMain" />
         <item itemvalue="Application.Cccc" />
-        <item itemvalue="Application.client_application.ClientMain" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +203,7 @@
       <workItem from="1658434731208" duration="3599000" />
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
+      <workItem from="1659046349713" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -351,21 +352,7 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <task id="LOCAL-00022" summary="updated game window">
-      <created>1659034014946</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1659034014946</updated>
-    </task>
-    <task id="LOCAL-00023" summary="feedback messages for server launch">
-      <created>1659044250822</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1659044250822</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,8 +396,6 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <MESSAGE value="updated game window" />
-    <MESSAGE value="feedback messages for server launch" />
-    <option name="LAST_COMMIT_MESSAGE" value="feedback messages for server launch" />
+    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
   </component>
 </project>

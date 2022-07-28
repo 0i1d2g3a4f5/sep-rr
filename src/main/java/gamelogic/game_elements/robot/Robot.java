@@ -144,6 +144,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.player = player;
     }
 
+
+    public void disinterrupt() {
+        this.interrupted = false;
+    }
+
     /**
      * @author Ringer
      * @return boolean
@@ -187,10 +192,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     public void interrupt(){
-
+        interrupted = true;
     }
 
     /**
+     * moves robot the distance
      * @author Ringer
      * @param distance
      * @return
@@ -369,6 +375,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @uthor Ringer
      */
     public void reboot() {
+        interrupt();
         Server.serverLogger.info("rebooting "+ this);
         Server.serverLogger.debug("Reboot points: "+game.board.restartPoints);
         takeDamage(2);
@@ -378,10 +385,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         gameField.removeRobot();
         game.sendToAllPlayers(new MessageReboot(player.getClient().getId()));
         waitingForDirection = true;
-        interrupt();
-        finishReboot(Direction.TOP);
 
-
+        try {
+            finishReboot(Direction.TOP);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
 
         //TODO case not answered
@@ -412,7 +421,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     /**
      * @author Mark Ringer
      */
-    public void finishReboot(Direction direction){
+    public void finishReboot(Direction direction) throws InterruptedException {
 
         isOnBoard = gameField.getIsOnBoard();
         Server.serverLogger.debug("Robot "+getPlayer().getClient().getFigure()+ " IsOnBoard: "+isOnBoard);
@@ -450,6 +459,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         gameField=restartingPoint.getGameField();
         while(directionFacing != direction){
             right();
+            TimeUnit.MILLISECONDS.sleep(10);
         }
         game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getY(), position.getX()));
     }

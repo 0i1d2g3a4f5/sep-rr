@@ -472,7 +472,7 @@ public class  Game {
                     Server.serverLogger.error("Element "+element.toString() + "Has no GameField");
                 }
                 element.activate();
-                TimeUnit.MILLISECONDS.sleep(40);
+                TimeUnit.MILLISECONDS.sleep(10);
             }
             for (Player player:playerList
                  ) {
@@ -492,6 +492,7 @@ public class  Game {
             player.clearAllRegister();
             player.discardAllHandCards();
             player.getRobot().setRebootedThisTurn(false);
+            player.getRobot().disinterrupt();
         }
     }
 
