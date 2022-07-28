@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * @author Qinyi
- * update the status the client, leaved or rejioning
+ * update the status the client, leaved or rejoining
  */
 public class MessageConnectionUpdate extends Message{
     public int clientID;
@@ -19,7 +19,9 @@ public class MessageConnectionUpdate extends Message{
     public String action;
 
 
+
     /**
+     * converts message to json
      *
      * @param clientID
      * @param isConnected

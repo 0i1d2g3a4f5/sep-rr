@@ -23,9 +23,12 @@ public class MessageMovement extends Message{
     public int y;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param y
      * @param x
+     * @author Isabel Muhm
      */
     public MessageMovement(int clientID, int y, int x){
         this.clientID = clientID;
@@ -41,7 +44,10 @@ public class MessageMovement extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageMovement(JsonObject jsonObject){
         super(jsonObject);
@@ -61,10 +67,13 @@ public class MessageMovement extends Message{
 
     }
 
-    /**@author Mark Ringer
+    /**
+     * moves robot of moving client to new position and updates gameboard to show movement in game scene
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
+     * @author Mark Ringer
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
@@ -76,6 +85,14 @@ public class MessageMovement extends Message{
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
     }
+
+    /**
+     * moves robot of moving AI to new position
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){

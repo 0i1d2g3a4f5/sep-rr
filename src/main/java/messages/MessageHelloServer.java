@@ -21,9 +21,12 @@ public class MessageHelloServer extends Message {
     public String protocol;
 
     /**
+     * converts message to json
+     *
      * @param group
      * @param isAI
      * @param protocol
+     * @author Isabel Muhm
      */
     public MessageHelloServer(String group, boolean isAI, String protocol) {
         this.group = group;
@@ -39,7 +42,10 @@ public class MessageHelloServer extends Message {
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageHelloServer(JsonObject jsonObject) {
         super(jsonObject);
@@ -50,9 +56,12 @@ public class MessageHelloServer extends Message {
     }
 
     /**
+     * checks if servers protocol version equals to clients protocol version and sends welcome message to client
+     *
      * @param sClient
      * @throws IOException
      * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
      */
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {

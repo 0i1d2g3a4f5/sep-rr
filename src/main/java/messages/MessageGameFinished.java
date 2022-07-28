@@ -20,7 +20,10 @@ public class MessageGameFinished extends Message{
     public int clientID;
 
     /**
+     * converts message to json
+     *
      * @param clientID
+     * @author Isabel Muhm
      */
     public MessageGameFinished(int clientID){
         this.clientID =clientID;
@@ -32,7 +35,10 @@ public class MessageGameFinished extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageGameFinished(JsonObject jsonObject) {
         super(jsonObject);
@@ -50,18 +56,24 @@ public class MessageGameFinished extends Message{
 
     }
 
+    /**
+     * creates task to trigger winning and losing scene on clients screen
+     *
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        //TODO trigger winscreen
         Server.serverLogger.info("Player " + clientID + " won");
         if(clientID==client.getId()){
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.WIN, new TaskContent()));
         } else {
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.LOSE, new TaskContent()));
         }
-
-
     }
+
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 

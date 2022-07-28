@@ -67,6 +67,7 @@ public class BasicClient extends Client {
 
     /**
      * processes incoming messages
+     *
      * @param jsonObject
      * @param client
      */

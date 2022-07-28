@@ -16,7 +16,10 @@ public class MessagePlayCard extends Message{
     public String card;
 
     /**
+     * converts message to json
+     *
      * @param card
+     * @author Isabel Muhm
      */
     public MessagePlayCard(String card){
         this.card = card;
@@ -28,7 +31,10 @@ public class MessagePlayCard extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessagePlayCard(JsonObject jsonObject){
         super(jsonObject);

@@ -21,9 +21,11 @@ public class MessagePickDamage extends Message {
     private JsonObject jsonObject;
 
     /**
+     * converts message to json
      *
      * @param remainingToDraw
      * @param availablePiles
+     * @author Isabel Muhm
      */
     public MessagePickDamage(int remainingToDraw, ArrayList<String> availablePiles) {
         //TODO check if correct
@@ -44,8 +46,11 @@ public class MessagePickDamage extends Message {
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
      * @throws IOException
+     * @author Isabel Muhm
      */
     public void MessagePickDamage(JsonObject jsonObject) throws IOException {
         //TODO check if correct - please fix

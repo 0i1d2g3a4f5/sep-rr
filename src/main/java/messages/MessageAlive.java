@@ -47,11 +47,26 @@ public class MessageAlive extends Message{
         Server.serverLogger.info("SClient " + sClient.getId() + " is still connected to server");
     }
 
+    /**
+     * returns message to server to show client is alive
+     *
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         client.sendSelf(new MessageAlive());
-
     }
+    /**
+     * returns message to server to show AI is alive
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         sentientClient.sendSelf(new MessageAlive());

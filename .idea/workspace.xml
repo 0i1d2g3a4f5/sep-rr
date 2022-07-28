@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="CHANGED EVERYHTING">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="documentation/commenting of public methods in code">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageAlive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageAlive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFigureUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFigureUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameFinished.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHashedCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHashedCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHelloServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -44,6 +64,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2BlDfJCvW7ZARmxXcZVKDn5WCd0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -85,7 +108,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -160,8 +183,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
+        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_application.ClientMain" />

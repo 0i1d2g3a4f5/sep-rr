@@ -44,6 +44,8 @@ public class MessageGameStarted extends Message{
     }
 
     /**
+     * creates task to start the game (and game scene) and to update the gameboard
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
@@ -60,6 +62,15 @@ public class MessageGameStarted extends Message{
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
 
     }
+
+    /**
+     * triggers game start of AI
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @auhor Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         sentientClient.getSentientBehaviour().triggerGameStart(content);

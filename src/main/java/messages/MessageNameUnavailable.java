@@ -16,8 +16,10 @@ public class MessageNameUnavailable extends Message{
     public String name;
 
     /**
+     * converts message to json
      *
      * @param string
+     * @author Isabel Muhm
      */
     public MessageNameUnavailable(String string){
         type="NameUnavailable";
@@ -28,7 +30,10 @@ public class MessageNameUnavailable extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageNameUnavailable(JsonObject jsonObject){
         super(jsonObject);
