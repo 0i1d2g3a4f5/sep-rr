@@ -9,6 +9,7 @@ import gamelogic.map.GameField;
 import messages.*;
 import server_package.SClient;
 import server_package.Server;
+import utility.MyMath;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -128,6 +129,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
     }
 
+
+    public double distance(Position position2){
+        return MyMath.pythagoras(position,position2);
+
+    }
+
     public boolean isPlaced() {
         return isPlaced;
     }
@@ -160,6 +167,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
         Server.serverLogger.info("Left turn");
         Server.serverLogger.debug("Right turn:" + oldDirection +"->"+directionFacing);
+        try {
+            TimeUnit.MILLISECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 
@@ -174,6 +186,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         Server.serverLogger.info("Right turn");
         Server.serverLogger.debug("Right turn:" + oldDirection +"->"+directionFacing);
+        try {
+            TimeUnit.MILLISECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 
@@ -186,8 +203,18 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         //if(rebootedThisTurn) return false;
         directionFacing = directionFacing.opposite();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
+        try {
+            TimeUnit.MILLISECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         Server.serverLogger.info("U-Turn");
+        try {
+            TimeUnit.MILLISECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 

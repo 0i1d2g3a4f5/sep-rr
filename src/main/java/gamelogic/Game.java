@@ -448,6 +448,11 @@ public class  Game {
             ArrayList<Card> activatedRegisters = new ArrayList<>();
             activeRegister = i;
             activationList = generatePlayerActivationList();
+            Collections.sort(activationList, (Player o1, Player o2) -> {
+                if(o1.getRobot().distance(board.getAntenna().getGameField().getPosition())>o2.getRobot().distance(board.getAntenna().getGameField().getPosition())) return 1;
+                else if(o2.getRobot().distance(board.getAntenna().getGameField().getPosition())>o1.getRobot().distance(board.getAntenna().getGameField().getPosition())) return -1;
+                else return 0;
+            });
             for (Player player:activationList) {
                 Card card = player.getRegister(i);
                 player.setCardImPlaying(card);
@@ -472,7 +477,7 @@ public class  Game {
                     Server.serverLogger.error("Element "+element.toString() + "Has no GameField");
                 }
                 element.activate();
-                TimeUnit.MILLISECONDS.sleep(10);
+                TimeUnit.MILLISECONDS.sleep(35);
             }
             for (Player player:playerList
                  ) {

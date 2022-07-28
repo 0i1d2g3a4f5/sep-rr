@@ -24,14 +24,32 @@ public class Spam extends DamageCard{
      * @author Mark Ringer
      */
     public void activateCard(){
+
+        Server.serverLogger.debug("Before Spam:");
         //TODO notify CPlayer
+        for (int i =0;i<player.getAllRegisters().length;i++) {
+            if(player.getAllRegisters()[i]!=null){
+                if(player.getAllRegisters()[i].getCardName()==SPAM) {
+                    Spam spam = (Spam) player.getAllRegisters()[i];
+                    player.getAllRegisters()[i] = null;
+                    Card card = player.drawCard();
+                    player.placeCard(card, i);
+                    player.sendMessage(new MessageReplaceCard(i, card.getCardName(), player.getClient().getId()));
+                    player.activateRegister(i);
+                }
+            }
+        }
+
+        /*
         player.clearThisRegister(game.getActiveRegister());
         game.getSpamDrawPile().add(this);
-        Card card = player.drawCard();
+
         int activeRegister = game.getActiveRegister();
-        player.placeCard(card,activeRegister);
-        player.sendMessage(new MessageReplaceCard(activeRegister,card.getCardName(),player.getClient().getId()));
-        player.activateRegister(game.getActiveRegister());
+
+
+
+
+         */
         Server.serverLogger.info("Spam");
     }
 

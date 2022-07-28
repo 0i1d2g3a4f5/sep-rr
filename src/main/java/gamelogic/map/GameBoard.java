@@ -48,7 +48,18 @@ public class GameBoard implements JsonSerializable {
     }
     public GameField getField(Position position){
 
+        if(position == null){
+            System.out.println("illegal Field");
+            Server.serverLogger.info("Illegal field");
+
+            GameField gameField = new GameField(this,position.getY(),position.getX());
+            gameField.addElement(new Pit());
+            return gameField;
+        }
+
+
         if(position.getY() <0 || position.getY()>= boardMap.get(0).size()||position.getX() <0 || position.getX()>= boardMap.size()){
+
             System.out.println("illegal Field");
             Server.serverLogger.info("Illegal field");
 
