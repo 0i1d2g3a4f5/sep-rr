@@ -37,6 +37,6 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="notReady" disable="true" layoutX="239.0" layoutY="568.0" mnemonicParsing="false" onAction="#notClicked" prefHeight="48.0" prefWidth="143.0" style="-fx-background-color: #282a2c; -fx-border-width: 2; -fx-border-color: black;" text="Not Ready" visible="false" />
+      <Button fx:id="notReady" disable="true" layoutX="239.0" layoutY="568.0" mnemonicParsing="false" onAction="#notClicked" prefHeight="48.0" prefWidth="143.0" stylesheets="@BlackButton.css" text="Not Ready" visible="false" />
    </children>
 </AnchorPane>
