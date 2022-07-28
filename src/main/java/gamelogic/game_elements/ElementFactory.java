@@ -4,8 +4,17 @@ import com.google.gson.JsonObject;
 
 import java.io.IOException;
 
+
 public class ElementFactory {
 
+    /**
+     * creates new elements from Element Names accordingly
+     * @author Mark Ringer
+     * @param name
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
     private GameElement constructElement(ElementName name, JsonObject jsonObject) throws IOException {
         switch (name){
             case ANTENNA -> {

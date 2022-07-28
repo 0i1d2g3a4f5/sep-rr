@@ -135,6 +135,7 @@ public class Player{
 
     public void addCheckpointToken() {
         this.checkpointTokens++;
+        Server.serverLogger.info("Player "+this+" reached Checkpoint "+checkpointTokens);
     }
 
     /**
@@ -245,8 +246,14 @@ public class Player{
     }
 
     public void clearThisRegister(int pos){
+        Server.serverLogger.debug("Before ClearThisRegister: \n" +
+                "   Register: "+ Arrays.toString(register)+"\n" +
+                "   DiscardPile: "+ discardPile);
         if((register.length >pos )&&( pos>0))
         register[pos] = null;
+        Server.serverLogger.debug("After ClearThisRegister: \n" +
+                "   Register: "+ Arrays.toString(register)+"\n" +
+                "   DiscardPile: "+discardPile);
     }
 
     /**
@@ -324,15 +331,24 @@ public class Player{
 
 
 
-    /**
+    /**discards all HandCards
      * @uthor Ringer
      */
     public void discardAllHandCards(){
-        for (int i = 0; i < handCards.size(); i++) {
-            Card card = handCards.get(i);
+        Server.serverLogger.debug("Before discardAllHandCards: \n" +
+                "   HandCards: "+ handCards+"\n" +
+                "   DiscardPile: "+ discardPile);
+
+
+
+        while (handCards.size()>0) {
+            Card card = handCards.get(0);
             handCards.remove(card);
             discardPile.add(card);
         }
+        Server.serverLogger.debug("After discardAllHandCards: \n" +
+                "   HandCards: "+ handCards+"\n" +
+                "   DiscardPile: "+ discardPile);
     }
     /**
      * @author Ringer
@@ -342,6 +358,7 @@ public class Player{
             refillDeck();
             sClient.getServer().getGame().sendToAllPlayers(new MessageShuffleCoding(sClient.getId()));
         }
+        Server.serverLogger.debug("Player "+ getClient().getFigure()+" Deck: "+deck);
         Card card = deck.pop();
         if(card == null){
             throw new NullPointerException("Card missing in deck");

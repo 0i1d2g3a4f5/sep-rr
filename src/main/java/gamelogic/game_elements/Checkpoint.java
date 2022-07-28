@@ -21,12 +21,12 @@ public class Checkpoint extends GameElement implements Activatable {
 
     public boolean movedByCBelt = false;
     int activationOrder = 8;
-    public static int numberOfCheckpoints;
+    public static int numberOfCheckpoints=0;
     int count;
     public Checkpoint(int count){
         super(ElementName.CHECKPOINT);
         this.count =count;
-        numberOfCheckpoints++;
+
     }
 
     public int getCount(){
@@ -47,6 +47,7 @@ public class Checkpoint extends GameElement implements Activatable {
 
         count = jsonObject.get("count").getAsInt();
         isOnBoard = jsonObject.get("isOnBoard").getAsString();
+
     }
 
     /**
@@ -79,6 +80,7 @@ public class Checkpoint extends GameElement implements Activatable {
             Player player = robot.getPlayer();
             if(player.getCheckpointTokens()==count-1){
                 player.addCheckpointToken();
+                Server.serverLogger.debug("Player reached Checkpoint");
                 if(player.getCheckpointTokens()>=numberOfCheckpoints){
                     Game.getInstance().endGame(player);
                 }
@@ -92,6 +94,12 @@ public class Checkpoint extends GameElement implements Activatable {
 
     }
 
+    /**
+     * displaces element one field in targetDirection
+     * @author Mark Ringer
+     * @param targetDirection
+     * @return
+     */
     public boolean displace(Direction targetDirection){
         Position oldPos = position;
         GameField oldField =gameField;
