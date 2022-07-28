@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="Fixed Reboot">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="made transparent background to scrollpanes of gamescene">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -204,7 +201,7 @@
       <workItem from="1658434731208" duration="3599000" />
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
-      <workItem from="1659046349713" duration="3574000" />
+      <workItem from="1659046349713" duration="662000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -353,14 +350,7 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <task id="LOCAL-00022" summary="Fixed Reboot">
-      <created>1659047159213</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1659047159213</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +365,17 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/snapshot1.0" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
@@ -404,7 +405,7 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <MESSAGE value="Fixed Reboot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Reboot" />
+    <MESSAGE value="made transparent background to scrollpanes of gamescene" />
+    <option name="LAST_COMMIT_MESSAGE" value="made transparent background to scrollpanes of gamescene" />
   </component>
 </project>
