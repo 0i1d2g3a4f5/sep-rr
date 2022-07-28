@@ -19,8 +19,11 @@ public class MessagePlayerValues extends Message{
     public int figure;
 
     /**
+     * converts message to json
+     *
      * @param name
      * @param figure
+     * @author Isabel Muhm
      */
     public MessagePlayerValues(String name, int figure) {
         this.name = name;
@@ -34,7 +37,10 @@ public class MessagePlayerValues extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessagePlayerValues(JsonObject jsonObject){
         super(jsonObject);

@@ -22,8 +22,11 @@ public class MessagePlayerTurning extends Message{
     public String rotation;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param rotation
+     * @author Isabel Muhm
      */
     public MessagePlayerTurning(int clientID, String rotation){
 
@@ -38,7 +41,10 @@ public class MessagePlayerTurning extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessagePlayerTurning(JsonObject jsonObject) {
         super(jsonObject);
@@ -58,6 +64,8 @@ public class MessagePlayerTurning extends Message{
     }
 
     /**
+     * turns own or other clients robot and updates game board
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
@@ -75,17 +83,24 @@ public class MessagePlayerTurning extends Message{
             }
         }
         else {
-                    if (rotation.equals("clockwise")){
-                       client.playerFromId(clientID).getPlayer().getRobot().right();
-                    }
-                    else{
-                        client.playerFromId(clientID).getPlayer().getRobot().left();
-                    }
+            if (rotation.equals("clockwise")){
+                client.playerFromId(clientID).getPlayer().getRobot().right();
+            }
+            else{
+                client.playerFromId(clientID).getPlayer().getRobot().left();
+            }
 
         }
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
 
     }
+
+    /**
+     * turns AIs or other clients robot
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){
