@@ -77,6 +77,8 @@ public class MessageStartingPointTaken extends Message{
         else{
             client.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
         }
+        client.setThereIsStartingToRemove(true);
+        client.removeStartingPoint(new Position(y, x));
         client.getHighSlumber().add(new Position(y, x));
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARDPARTS, new TaskContent()));
 
@@ -119,8 +121,8 @@ public class MessageStartingPointTaken extends Message{
                 }
             }
             sentientClient.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
-            sentientClient.getSentientBehaviour().setThereIsStartingToRemove(true);
-            sentientClient.getSentientBehaviour().removeStartingPoint(new Position(y, x));
+            sentientClient.setThereIsStartingToRemove(true);
+            sentientClient.removeStartingPoint(new Position(y, x));
         }
     }
 

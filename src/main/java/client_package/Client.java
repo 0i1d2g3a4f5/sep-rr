@@ -3,12 +3,15 @@ package client_package;
 import client_application.ClientApplication;
 import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.CPlayer;
+import client_package.client_gamelogic.game_elements.ElementName;
+import client_package.client_gamelogic.game_elements.GameElement;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
 import gamelogic.Position;
 import javafx.application.Platform;
 import messages.Message;
 import messages.MessageConnectionUpdate;
+import messages.MessageSetStartingPoint;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -20,9 +23,70 @@ import java.util.List;
  * @author Sarp Cagin Erdogan, Mark Ringer
  */
 public class Client{
+    protected boolean startingPointsReady, thereIsStartingToRemove;
+
+    public boolean isStartingPointsReady() {
+        return startingPointsReady;
+    }
+    public void chooseStartingPoint(){
+        while (!isStartingPointsReady() || isThereIsStartingToRemove()){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        int random = (int) Math.random()*getStartingPoints().size();
+        Position position = getStartingPoints().get(random);
+        sendSelf(new MessageSetStartingPoint(position.getX(), position.getY()));
+    }
+    public void removeStartingPoint(Position position){
+        getStartingPoints().remove(position);
+        setThereIsStartingToRemove(false);
+
+    }
+    public void setStartingPointsReady(boolean startingPointsReady) {
+        this.startingPointsReady = startingPointsReady;
+    }
+
+    public boolean isThereIsStartingToRemove() {
+        return thereIsStartingToRemove;
+    }
+
+    public void setThereIsStartingToRemove(boolean thereIsStartingToRemove) {
+        this.thereIsStartingToRemove = thereIsStartingToRemove;
+    }
 
     public static Logger clientLogger = Logger.getLogger("Client");
     protected ArrayList<String> receivedMessages = new ArrayList<>();
+    protected ArrayList<Position> startingPoints = new ArrayList<>();
+
+    public ArrayList<Position> getStartingPoints() {
+        return startingPoints;
+    }
+    public void initializeStartingPoints(){
+        while (getGame().getMap()==null){
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        for(int x = 0; x<getGame().getMap().getDimensionX(); x++){
+            for(int y = 0; y<getGame().getMap().getDimensionY(); y++){
+                for(GameElement gameElement : getGame().getMap().getGameField(y, x).getElements()){
+                    if(gameElement.getType().equals(ElementName.STARTPOINT)){
+                        getStartingPoints().add(new Position(y, x));
+                    }
+                }
+            }
+        }
+        startingPointsReady=true;
+    }
+    public void setStartingPoints(ArrayList<Position> startingPoints) {
+        this.startingPoints = startingPoints;
+    }
 
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
@@ -64,12 +128,18 @@ public class Client{
         setId(id);
         setName(name);
         setFigure(figure);
+
+        startingPointsReady=false;
+        thereIsStartingToRemove=false;
     }
     public Client(Game game, int id, int figure, String name){
         setGame(game);
         setId(id);
         setName(name);
         setFigure(figure);
+
+        startingPointsReady=false;
+        thereIsStartingToRemove=false;
     }
 
     public Color getRoboColor(){

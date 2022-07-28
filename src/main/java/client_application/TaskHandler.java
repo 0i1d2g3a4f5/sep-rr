@@ -129,8 +129,9 @@ public class TaskHandler {
                 clientApplication.activateStartingPoint(true);
             }
             case CHOOSE_STARTING_POINT -> {
-                clientApplication.clientGameBasicController.setStartingText("Please choose a starting point");
+                clientApplication.clientGameBasicController.setStartingText("Choose a starting point by CLICKING ON MAP NEW FUNCTION VERY COOOOL or write");
                 clientApplication.activateStartingPoint(true);
+                clientApplication.clientGameBasicController.setStartingChooseVisualActive(true);
             }
             case ERROR -> {
 

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public class ClientGameBasicController {
-    boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive, chooseRegisterActive, winningSceneActive, losingSceneActive;;
+    boolean startingSubmitActive, chooseProgrammingActive, chooseDirectionActive, chooseRegisterActive, winningSceneActive, losingSceneActive, chooseStartActive;
 
     public ClientApplication clientApplication;
     boolean timerCounting;
@@ -229,6 +229,9 @@ public class ClientGameBasicController {
         clientApplication.getClient().getPlayer().placeSelectedToRegisterOwn();
         chooseProgrammingActive=true;
     }
+    public void setStartingChooseVisualActive(boolean bool){
+        chooseStartActive=bool;
+    }
 
     @FXML
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -299,6 +302,52 @@ public class ClientGameBasicController {
                 chooseRegisterActive=true;
             }
         }
+        if(chooseStartActive){
+            chooseStartActive=false;
+            Node requestedParent = scrollPaneGameBoard.getContent();
+            Node clicked = mouseEvent.getPickResult().getIntersectedNode();
+            if(clicked.getParent()!=null){
+                if(clicked.getParent().getParent()!=null){
+                }
+            }
+
+            boolean inside = true;
+
+
+            while (clicked != null && clicked.getParent() != null && !clicked.getParent().equals(requestedParent)) {
+                inside=false;
+                clicked = clicked.getParent();
+                if (clicked.getParent() != null){
+                }
+                if (clicked.getParent() != null && clicked.getParent().equals(requestedParent)) {
+                    inside = true;
+                    break;
+                }
+            }
+
+            if (inside) {
+                int x = GridPane.getColumnIndex(clicked);
+                int y = GridPane.getRowIndex(clicked);
+                boolean sarcasm = false;
+                for(int i=0; i<clientApplication.getClient().getStartingPoints().size(); i++){
+                    Position wakaanda = clientApplication.getClient().getStartingPoints().get(i);
+                    if(x== wakaanda.getX() && y == wakaanda.getY()){
+                        sarcasm=true;
+                        break;
+                    }
+                }
+                if(sarcasm){
+                    clientApplication.getClient().sendSelf(new MessageSetStartingPoint(new Position(y, x)));
+
+                }
+                else {
+                    chooseStartActive=true;
+                }
+            }
+            else{
+                chooseStartActive=true;
+            }
+        }
         
 
     }
@@ -314,12 +363,14 @@ public class ClientGameBasicController {
         chooseDirectionActive=false;
         winningSceneActive=false;
         losingSceneActive=false;
+        chooseStartActive=false;
         winnerScene.setVisible(false);
         winnerScene.setDisable(true);
         loserScene.setVisible(false);
         winnerScene.setDisable(true);
         rebootWindow.setVisible(false);
         rebootWindow.setDisable(true);
+
 
     }
 

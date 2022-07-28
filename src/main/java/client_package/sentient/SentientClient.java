@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SentientClient extends Client {
     HashMap<Integer, Position> nextCheckPoints;
-    ArrayList<Position> startingPoints = new ArrayList<>();
+
     int currentGoal;
     SentientBehaviour sentientBehaviour;
 
@@ -36,6 +36,7 @@ public class SentientClient extends Client {
 
         getLogger().info("Created new SentientClient for this controller.");
     }
+
 
 
 

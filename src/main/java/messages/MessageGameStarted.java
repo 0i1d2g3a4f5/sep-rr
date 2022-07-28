@@ -58,6 +58,7 @@ public class MessageGameStarted extends Message{
         Game game = Game.getInstance();
         game.getMap().constructLaserBeams();
         client.setGame(game);
+        client.initializeStartingPoints();
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.TRIGGERSTART, new TaskContent()));
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEFULLGAMEBOARD, new TaskContent()));
 

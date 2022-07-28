@@ -77,7 +77,7 @@ public class MessageCurrentPlayer extends Message{
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){
             if(sentientClient.getGame().getPhase()==0){
-                sentientClient.getSentientBehaviour().chooseStartingPoint();
+                sentientClient.chooseStartingPoint();
             }
         }
     }

@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class SentientBehaviour {
     SentientClient sentientClient;
-    boolean canChooseNext, allChosen, directionHandled, triedToHandle, canMoveForward, startingPointsReady, thereIsStartingToRemove;
+    boolean canChooseNext, allChosen, directionHandled, triedToHandle, canMoveForward;
     public SentientBehaviour(SentientClient sentientClient){
         this.sentientClient = sentientClient;
         canChooseNext = false;
@@ -27,8 +27,6 @@ public class SentientBehaviour {
         directionHandled=false;
         triedToHandle=false;
         canMoveForward=true;
-        startingPointsReady=false;
-        thereIsStartingToRemove=false;
     }
 
     public void start(String name, String group) {
@@ -137,46 +135,11 @@ public class SentientBehaviour {
         Game game = Game.getInstance();
         game.setMap(new GameBoard(jsonObject));
         sentientClient.setGame(game);
-        initializeStartingPoints();
+        sentientClient.initializeStartingPoints();
         initializeCheckPoints();
     }
-    public void initializeStartingPoints(){
-        while (sentientClient.getGame().getMap()==null){
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
 
-        for(int x = 0; x<sentientClient.getGame().getMap().getDimensionX(); x++){
-            for(int y = 0; y<sentientClient.getGame().getMap().getDimensionY(); y++){
-                for(GameElement gameElement : sentientClient.getGame().getMap().getGameField(y, x).getElements()){
-                    if(gameElement.getType().equals(ElementName.STARTPOINT)){
-                        sentientClient.startingPoints.add(new Position(y, x));
-                    }
-                }
-            }
-        }
-        startingPointsReady=true;
-    }
-    public void chooseStartingPoint(){
-        while (!startingPointsReady || thereIsStartingToRemove){
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        int random = (int) Math.random()*sentientClient.startingPoints.size();
-        Position position = sentientClient.startingPoints.get(random);
-        sentientClient.sendSelf(new MessageSetStartingPoint(position.getX(), position.getY()));
-    }
-    public void removeStartingPoint(Position position){
-        sentientClient.startingPoints.remove(position);
-        thereIsStartingToRemove=false;
 
-    }
     public void chooseAllCards(){
         allChosen=sentientClient.getPlayer().registerFull();
         directionHandled=false;
@@ -371,21 +334,5 @@ public class SentientBehaviour {
 
     public void setAllChosen(boolean allChosen) {
         this.allChosen = allChosen;
-    }
-
-    public boolean isStartingPointsReady() {
-        return startingPointsReady;
-    }
-
-    public void setStartingPointsReady(boolean startingPointsReady) {
-        this.startingPointsReady = startingPointsReady;
-    }
-
-    public boolean isThereIsStartingToRemove() {
-        return thereIsStartingToRemove;
-    }
-
-    public void setThereIsStartingToRemove(boolean thereIsStartingToRemove) {
-        this.thereIsStartingToRemove = thereIsStartingToRemove;
     }
 }
