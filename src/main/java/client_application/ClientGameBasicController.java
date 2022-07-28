@@ -56,6 +56,9 @@ public class ClientGameBasicController {
     private ScrollPane scrollPaneGameBoard;
 
     @FXML
+    private ScrollPane scrollChosenProgramming;
+
+    @FXML
     private StackPane stackOwnProgramming;
 
     @FXML
@@ -122,6 +125,39 @@ public class ClientGameBasicController {
         }
 
     }
+
+    /**
+     * initializes Game scene
+     */
+    public void init(){
+        stackOwnProgramming.getChildren().clear();
+        stackOwnProgramming.getChildren().add(new GridPane());
+        scrollPaneGameBoard.setContent(new GridPane());
+        scrollAvailableProgramming.setContent(new GridPane());
+        scrollOtherRegisters.setContent(new GridPane());
+        startingSubmitActive=false;
+        chooseProgrammingActive=false;
+        chooseRegisterActive=false;
+        chooseDirectionActive=false;
+        winningSceneActive=false;
+        losingSceneActive=false;
+        chooseStartActive=false;
+        winnerScene.setVisible(false);
+        winnerScene.setDisable(true);
+        loserScene.setVisible(false);
+        winnerScene.setDisable(true);
+        rebootWindow.setVisible(false);
+        rebootWindow.setDisable(true);
+        startPosText.setVisible(true);
+        scrollOtherRegisters.setStyle("-fx-background: #8a8584");
+        scrollAvailableProgramming.setStyle("-fx-background: #8a8584");
+        scrollChosenProgramming.setStyle("-fx-background: #8a8584");
+        stackOwnProgramming.setOpacity(1);
+        scrollOtherRegisters.setOpacity(0.8);
+        scrollAvailableProgramming.setOpacity(0.8);
+        scrollChosenProgramming.setOpacity(0.8);
+    }
+
     public GridPane yoWhatsUmbrella(){
         return (GridPane) scrollPaneGameBoard.getContent();
     }
@@ -344,28 +380,7 @@ public class ClientGameBasicController {
         
 
     }
-    public void init(){
-        stackOwnProgramming.getChildren().clear();
-        stackOwnProgramming.getChildren().add(new GridPane());
-        scrollPaneGameBoard.setContent(new GridPane());
-        scrollAvailableProgramming.setContent(new GridPane());
-        scrollOtherRegisters.setContent(new GridPane());
-        startingSubmitActive=false;
-        chooseProgrammingActive=false;
-        chooseRegisterActive=false;
-        chooseDirectionActive=false;
-        winningSceneActive=false;
-        losingSceneActive=false;
-        chooseStartActive=false;
-        winnerScene.setVisible(false);
-        winnerScene.setDisable(true);
-        loserScene.setVisible(false);
-        winnerScene.setDisable(true);
-        rebootWindow.setVisible(false);
-        rebootWindow.setDisable(true);
-        startPosText.setVisible(true);
 
-    }
 
     public void triggerGameFinishedScene(){
         /*

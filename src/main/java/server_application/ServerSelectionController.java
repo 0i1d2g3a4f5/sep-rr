@@ -12,6 +12,10 @@ import server_package.SClient;
 import server_package.Server;
 import server_package.basicServer.BasicServer;
 
+/**
+ * @authors Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
+ */
+
 public class ServerSelectionController {
 
     public ServerSelectionControllerVM serverSelectionControllerVM;

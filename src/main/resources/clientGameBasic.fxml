@@ -34,18 +34,18 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="542.0" layoutY="425.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a8584cf" height="32.0" layoutX="542.0" layoutY="426.0" stroke="TRANSPARENT" strokeType="INSIDE" style="-fx-opacity: 0.8;" width="60.0" />
       <ImageView fitHeight="153.0" fitWidth="423.0" layoutX="108.0" layoutY="17.0">
          <image>
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrollOtherRegisters" layoutX="24.0" layoutY="677.0" maxHeight="101.0" minHeight="101.0" prefHeight="101.0" prefWidth="1407.0" style="-fx-background-color: transparent;" />
-      <StackPane fx:id="stackOwnProgramming" layoutX="25.0" layoutY="464.0" prefHeight="175.0" prefWidth="578.0" style="-fx-background-color: transparent;">
+      <ScrollPane fx:id="scrollOtherRegisters" layoutX="24.0" layoutY="677.0" prefHeight="102.0" prefWidth="1407.0" style="-fx-background-color: transparent; -fx-border-width: 0;" />
+      <StackPane fx:id="stackOwnProgramming" layoutX="25.0" layoutY="464.0" prefHeight="175.0" prefWidth="578.0" style="-fx-opacity: 1;">
          <children>
             <ScrollPane fx:id="scrollChosenProgramming" maxHeight="179.0" maxWidth="578.0" minWidth="578.0" prefHeight="179.0" prefWidth="578.0">
                <content>
-                  <GridPane maxHeight="200.0" maxWidth="115.6" minHeight="174.0" minWidth="115.6" prefHeight="174.0" prefWidth="115.6">
+                  <GridPane fx:id="gridOwnProgramming" maxHeight="200.0" maxWidth="115.6" minHeight="174.0" minWidth="115.6" prefHeight="174.0" prefWidth="115.6">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -74,9 +74,9 @@
       </Text>
       <Text fill="#ffeeee" layoutX="28.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Hand Cards" />
       <Text fill="#ffeeee" layoutX="28.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Programming Cards" />
-      <ScrollPane fx:id="scrollAvailableProgramming" layoutX="25.0" layoutY="320.0" maxWidth="578.0" minWidth="578.0" prefHeight="100.0" prefWidth="578.0" style="-fx-background-image: transparent;">
+      <ScrollPane fx:id="scrollAvailableProgramming" layoutX="25.0" layoutY="320.0" maxWidth="578.0" minWidth="578.0" prefHeight="100.0" prefWidth="578.0" style="-fx-background-image: transparent; -fx-border-width: 0;">
          <content>
-            <GridPane prefHeight="100.0" prefWidth="65.0">
+            <GridPane fx:id="gridHandCards" prefHeight="100.0" prefWidth="65.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -123,7 +123,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Text fx:id="timer" fill="WHITE" layoutX="557.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
+      <Text fx:id="timer" fill="WHITE" layoutX="558.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
       <AnchorPane fx:id="winnerScene" disable="true" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" layoutX="1.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
