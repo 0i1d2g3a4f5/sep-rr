@@ -15,7 +15,10 @@ public class MessageHashedCode extends Message{
     public String hashedCode;
 
     /**
+     * converts message to json
+     *
      * @param string
+     * @author Isabel Muhm
      */
     public MessageHashedCode(String string){
         hashedCode=string;
@@ -27,7 +30,10 @@ public class MessageHashedCode extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageHashedCode(JsonObject jsonObject){
         super(jsonObject);
