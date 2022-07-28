@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="CHANGED EVERYHTING">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
@@ -98,7 +86,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClientApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="Cccc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aexperimental.Cccc" />
       <module name="desperate_drosseln_hp" />
@@ -173,9 +161,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.client_package.sentient.SentientLauncher" />
+        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="Application.Cccc" />
         <item itemvalue="Application.client_application.ClientMain" />
       </list>
@@ -355,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED">
+      <created>1659027509570</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659027509570</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,6 +394,7 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
+    <MESSAGE value="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED" />
+    <option name="LAST_COMMIT_MESSAGE" value="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED" />
   </component>
 </project>

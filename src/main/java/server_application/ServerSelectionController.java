@@ -45,9 +45,6 @@ public class ServerSelectionController {
         else if(nonAIText.getText().trim().equals("")){
             textfield.setText("Please set minimal amount of non AIs first");
         }
-        /*else if(Integer.parseInt(nonAIText.getText())+ Integer.parseInt(aiText.getText()) < 2) {
-            textfield.setText("The amount of minimal all in all players is 2");
-        }*/
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
             isActive=false;
             boolean proper = false;
@@ -61,9 +58,14 @@ public class ServerSelectionController {
                 textfield.setText("Please choose proper starting amounts.");
             }
             if(proper) {
-                serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
-                serverApplication.getBasicServer().startServerSocket();
-                Server.serverLogger.info("Basic server launched");
+                if(x+y<2){
+                    textfield.setText("The amount of minimal all in all players is 2");
+                }
+                else {
+                    serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
+                    serverApplication.getBasicServer().startServerSocket();
+                    Server.serverLogger.info("Basic server launched");
+                }
             }
 
         }
