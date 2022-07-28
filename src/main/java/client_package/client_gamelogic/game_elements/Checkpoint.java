@@ -39,7 +39,7 @@ public class Checkpoint extends GameElement {
 
     }
 
-    public void moveCheckpointTo(int y, int x) throws IOException {
+    public synchronized void moveCheckpointTo(int y, int x) throws IOException {
         gameField.removeElement(this);
 
         GameField oldField = gameField;

@@ -235,6 +235,8 @@ public class JavaFXGridHandler {
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
 
+                //Client.clientLogger.debug(temp.getPosition()+" :: "+temp.getElements());
+
                 for(int i=0; i<temp.getElements().size(); i++){
                     GameElement gameElement = temp.getElements().get(i);
                     switch (gameElement.getType()){
