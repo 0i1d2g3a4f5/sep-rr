@@ -157,6 +157,8 @@ public class  Game {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        Server.serverLogger.info("Map Loaded, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
         //System.out.println("Map: "+board.boardMap);
         elementRegistry = board.getRegistry();
 
@@ -259,10 +261,11 @@ public class  Game {
      * @throws InterruptedException
      */
     public void startGame() throws IOException, InterruptedException {
-        Server.serverLogger.info("Game started");
+        Server.serverLogger.info("Game started, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
 
         //sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
+
 
         gameLoop();
 
@@ -273,6 +276,7 @@ public class  Game {
      * @throws InterruptedException
      */
     public void gameLoop() throws InterruptedException {
+        Server.serverLogger.info("Game started, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
         while (continueGame){
 
             /*

@@ -16,7 +16,11 @@ import static gamelogic.map.MapName.DIZZY_HIGHWAY;
 
 public class Antenna extends GameElement implements Serializable {
 
-
+    /**
+     * standard Constructor
+     * @author Mark Ringer
+     * @param direction
+     */
     public Antenna(Direction direction){
         super(ElementName.ANTENNA);
         type = ElementName.ANTENNA;

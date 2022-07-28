@@ -145,7 +145,7 @@ public class ConveyorBelt extends GameElement implements Activatable {
         return jsonObject;
 
     }
-    /**
+    /**moves all Robots and Checkpoints on this field in the according direction
      * @author Ringer
      */
     @Override
@@ -163,13 +163,9 @@ public class ConveyorBelt extends GameElement implements Activatable {
                 return;
             }
 
-
             checkPoint.movedByCBelt=true;
 
             GameField nextField = gameField.getNeighbor(orientations.get(0));
-
-
-
 
             //checkPoint.setEnteredConveyorBelt(orientations.get(0).opposite());
             if(color ==Color.BLUE){
@@ -251,6 +247,12 @@ public class ConveyorBelt extends GameElement implements Activatable {
         }
     }
 
+    /**
+     * handles the case that the robot is turned on the Conveyor Belt
+     * @author Mark Ringer
+     * @param robot
+     * @param nextField
+     */
     private void handleConveyorTurnsRobot(Robot robot, GameField nextField) {
         Server.serverLogger.debug("handleConveyorTurn: "+nextField);
         if(nextField.contains(ElementName.CONVEYORBELT)){

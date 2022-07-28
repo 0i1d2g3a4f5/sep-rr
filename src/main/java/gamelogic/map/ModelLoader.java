@@ -2,6 +2,7 @@ package gamelogic.map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import gamelogic.game_elements.Checkpoint;
 import utility.JsonReader;
 
 import java.io.*;
@@ -25,6 +26,22 @@ public class ModelLoader {
         mapJson = gson.fromJson(jsonString,JsonObject.class);
 
         board =new GameBoard(mapJson);
+
+        switch (mapName){
+            case "dizzy_highway"->{
+                Checkpoint.numberOfCheckpoints = 1;
+            }
+            case "extra_crispy","lost_bearings","twister" -> {
+                Checkpoint.numberOfCheckpoints = 4;
+            }
+            case "death_trap" ->{
+                Checkpoint.numberOfCheckpoints = 5;
+            }
+            default -> {
+                throw new IllegalArgumentException();
+            }
+            }
+
         return board;
     }
 

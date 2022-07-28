@@ -41,7 +41,7 @@ public class Robot extends GameElement {
 
     public Robot(int figure, CPlayer player) throws IOException {
         super(ElementName.ROBOT);
-        visualOrder = 3;
+        visualOrder = 7;
         this.player = player;
         this.figure = figure;
         this.game = Game.getInstance();
