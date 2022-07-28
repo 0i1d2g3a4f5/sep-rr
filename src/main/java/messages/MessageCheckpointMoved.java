@@ -21,16 +21,9 @@ import java.util.ArrayList;
 
 public class MessageCheckpointMoved extends Message{
 
-
-
-
-
-
-
     public int checkpointID;
     public int x;
     public int y;
-
 
     public MessageCheckpointMoved(int checkpointID,int y, int x){
         this.checkpointID = checkpointID;

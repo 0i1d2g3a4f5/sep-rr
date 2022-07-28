@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="CHANGED EVERYHTING">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="moved finish screen to front">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -44,6 +44,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2BlDfJCvW7ZARmxXcZVKDn5WCd0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -342,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="moved finish screen to front">
+      <created>1659006919831</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659006919831</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,6 +396,7 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
+    <MESSAGE value="moved finish screen to front" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved finish screen to front" />
   </component>
 </project>
