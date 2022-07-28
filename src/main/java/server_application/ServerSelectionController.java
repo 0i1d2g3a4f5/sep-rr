@@ -38,13 +38,13 @@ public class ServerSelectionController {
     void launchBasic(ActionEvent event) {
         System.out.println("tries to launch");
         if(aiText.getText().trim().equals("") && nonAIText.getText().trim().equals("")) {
-            textfield.setText("Please set min amount of AIs and non AIs first");
+            textfield.setText("Please set the minimum amount of AI and non AI players first");
         }
         else if(aiText.getText().trim().equals("")){
-            textfield.setText("Please set minimal amount of AIs first");
+            textfield.setText("Please set the minimum amount of AI players first");
         }
         else if(nonAIText.getText().trim().equals("")){
-            textfield.setText("Please set minimal amount of non AIs first");
+            textfield.setText("Please set the minimum amount of non AI players first");
         }
         System.out.println("aktiv: " + isActive);
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
