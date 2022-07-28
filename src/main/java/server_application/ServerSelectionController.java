@@ -64,6 +64,7 @@ public class ServerSelectionController {
                 else {
                     serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
                     serverApplication.getBasicServer().startServerSocket();
+                    disableSelection();
                     Server.serverLogger.info("Basic server launched");
                 }
             }
@@ -77,5 +78,10 @@ public class ServerSelectionController {
         this.textfield.textProperty().bindBidirectional(serverSelectionControllerVM.textFieldCopy.textProperty());
         this.serverPlayerList.cellFactoryProperty().bindBidirectional(serverSelectionControllerVM.serverPlayerListCopy.cellFactoryProperty());
         this.serverPlayerList.itemsProperty().bindBidirectional(serverSelectionControllerVM.serverPlayerListCopy.itemsProperty());
+    }
+
+    void disableSelection(){
+        nonAIText.setDisable(true);
+        aiText.setDisable(true);
     }
 }
