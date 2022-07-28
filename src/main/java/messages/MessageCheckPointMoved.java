@@ -21,73 +21,66 @@ public class MessageCheckPointMoved extends Message {
      */
 
 
+    public int checkpointID;
+    public int x;
+    public int y;
 
 
+    public MessageCheckPointMoved(int checkpointID,int y, int x){
+        this.checkpointID = checkpointID;
+        this.x = x;
+        this.y = y;
+        type = "CheckpointMoved";
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("checkpointID", new JsonPrimitive(this.checkpointID));
+        jsonObject.add("x", new JsonPrimitive(x));
+        jsonObject.add("y", new JsonPrimitive(y));
+        content = jsonObject;
+        //Server.serverLogger.info("Created Movement Message: " + this);
+    }
 
+    /**
+     * @param jsonObject
+     */
+    public MessageCheckPointMoved(JsonObject jsonObject){
+        super(jsonObject);
+        checkpointID = content.get("checkpointID").getAsInt();
+        x= content.get("x").getAsInt();
+        y = content.get("y").getAsInt();
+        //Server.serverLogger.info("Created Movement Message: " + this + " from JSON: " + jsonObject);
+    }
 
+    /**
+     * @param sClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
 
+    }
 
+    /**@author Mark Ringer
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
+    @Override
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
-        public int checkpointID;
-        public int x;
-        public int y;
+        ArrayList<Checkpoint> checkpointList = Game.getInstance().getMap().getCheckpoints();
 
-
-        public MessageCheckPointMoved(int checkpointID,int y, int x){
-            this.checkpointID = checkpointID;
-            this.x = x;
-            this.y = y;
-            type = "CheckpointMoved";
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.add("checkpointID", new JsonPrimitive(this.checkpointID));
-            jsonObject.add("x", new JsonPrimitive(x));
-            jsonObject.add("y", new JsonPrimitive(y));
-            content = jsonObject;
-            //Server.serverLogger.info("Created Movement Message: " + this);
+        Checkpoint checkpoint = SearchMethods.searchCheckpoint(checkpointID,checkpointList);
+        if(checkpoint != null){
+            checkpoint.moveCheckpointTo(y,x);
+        }else {
+            Client.clientLogger.error("Checkpoint not found");
         }
 
-        /**
-         * @param jsonObject
-         */
-        public MessageCheckPointMoved(JsonObject jsonObject){
-            super(jsonObject);
-            checkpointID = content.get("checkpointID").getAsInt();
-            x= content.get("x").getAsInt();
-            y = content.get("y").getAsInt();
-            //Server.serverLogger.info("Created Movement Message: " + this + " from JSON: " + jsonObject);
-        }
-
-        /**
-         * @param sClient
-         * @throws IOException
-         * @throws ClientNotFoundException
-         */
-        @Override
-        public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-
-        }
-
-        /**@author Mark Ringer
-         * @param client
-         * @throws IOException
-         * @throws ClientNotFoundException
-         */
-        @Override
-        public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-
-            ArrayList<Checkpoint> checkpointList = Game.getInstance().getMap().getCheckpoints();
-
-            Checkpoint checkpoint = SearchMethods.searchCheckpoint(checkpointID,checkpointList);
-            if(checkpoint != null){
-                checkpoint.moveCheckpointTo(y,x);
-            }else {
-                Client.clientLogger.error("Checkpoint not found");
-            }
-
-            client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
-        }
-        @Override
-        public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
+    }
+    @Override
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         /*
         if(checkpointID ==sentientClient.getId()){
             sentientClient.getPlayer().getRobot().moveRobotTo(y, x);
@@ -97,7 +90,7 @@ public class MessageCheckPointMoved extends Message {
         }
 
          */
-        }
+    }
 }
 
 
