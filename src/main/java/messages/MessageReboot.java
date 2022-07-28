@@ -6,6 +6,7 @@ import client_application.TaskType;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Direction;
 import server_package.SClient;
 
 import java.io.IOException;
@@ -63,6 +64,7 @@ public class MessageReboot extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         if(clientID ==client.getId())
+
              client.getClientApplication().addAndExecuteTask(new Task(TaskType.REBOOTDIRECTION, new TaskContent()));
     }
     @Override
