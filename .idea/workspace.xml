@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="made transparent background to scrollpanes of gamescene">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="comment almost all public methods in ClientGameBasicController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -350,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="comment almost all public methods in ClientGameBasicController">
+      <created>1659049127097</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1659049127097</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +378,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/snapshot1.0" />
+                        <option value="origin/Uncorrupted_branch_pushes_only_after_pull" />
                       </list>
                     </value>
                   </entry>
@@ -406,6 +412,7 @@
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
     <MESSAGE value="made transparent background to scrollpanes of gamescene" />
-    <option name="LAST_COMMIT_MESSAGE" value="made transparent background to scrollpanes of gamescene" />
+    <MESSAGE value="comment almost all public methods in ClientGameBasicController" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment almost all public methods in ClientGameBasicController" />
   </component>
 </project>
