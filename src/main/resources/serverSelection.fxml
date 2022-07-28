@@ -65,6 +65,6 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="terminateServer" disable="true" layoutX="98.0" layoutY="267.0" mnemonicParsing="false" onAction="#notClicked" prefHeight="48.0" prefWidth="194.0" stylesheets="@BlackButton.css" text="Terminate Game Server" visible="false" />
+      <Button disable="true" layoutX="98.0" layoutY="267.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="194.0" stylesheets="@BlackButton.css" text="Terminate Game Server" visible="false" />
    </children>
 </AnchorPane>
