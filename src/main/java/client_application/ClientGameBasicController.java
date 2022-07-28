@@ -200,6 +200,10 @@ public class ClientGameBasicController {
 
     }
 
+    public void setStartingChooseVisualActive(boolean bool){
+        chooseStartActive=bool;
+    }
+
     @FXML
     void submitButton(ActionEvent event) {
         if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {

@@ -130,6 +130,7 @@ public class TaskHandler {
             case CHOOSE_STARTING_POINT -> {
                 clientApplication.clientGameBasicController.setTextStartPos("Please select a starting position by clicking on a starting point");
                 clientApplication.activateStartingPoint(true);
+                clientApplication.clientGameBasicController.setStartingChooseVisualActive(true);
             }
             case ERROR -> {
 
