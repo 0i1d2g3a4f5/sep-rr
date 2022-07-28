@@ -123,8 +123,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Text fx:id="startPosText" fill="WHITE" layoutX="29.0" layoutY="209.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please set your starting position in the format: x / y" wrappingWidth="330.0" />
-      <Text fx:id="timer" fill="WHITE" layoutX="554.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
+      <Text fx:id="timer" fill="WHITE" layoutX="557.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
       <AnchorPane fx:id="winnerScene" disable="true" maxHeight="810.0" maxWidth="1440.0" minHeight="810.0" minWidth="1440.0" prefHeight="810.0" prefWidth="1440.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#545d65" height="810.0" layoutX="1.0" opacity="0.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1440.0" />
@@ -159,5 +158,10 @@
             </Text>
          </children>
       </AnchorPane>
+      <Text fx:id="startPosText" fill="WHITE" layoutX="72.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a starting position by clicking on a starting point">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -36,6 +36,7 @@ public class ServerSelectionController {
      */
     @FXML
     void launchBasic(ActionEvent event) {
+        System.out.println("tries to launch");
         if(aiText.getText().trim().equals("") && nonAIText.getText().trim().equals("")) {
             textfield.setText("Please set min amount of AIs and non AIs first");
         }
@@ -45,6 +46,7 @@ public class ServerSelectionController {
         else if(nonAIText.getText().trim().equals("")){
             textfield.setText("Please set minimal amount of non AIs first");
         }
+        System.out.println("aktiv: " + isActive);
         if(isActive && !aiText.getText().trim().equals("") && !nonAIText.getText().trim().equals("")){
             isActive=false;
             boolean proper = false;
@@ -57,14 +59,17 @@ public class ServerSelectionController {
                 isActive=true;
                 textfield.setText("Please choose proper starting amounts.");
             }
+            System.out.println("x: " + x + ", y: " + y);
             if(proper) {
                 if(x+y<2){
+                    isActive = true;
                     textfield.setText("The amount of minimal all in all players is 2");
                 }
                 else {
                     serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
                     serverApplication.getBasicServer().startServerSocket();
                     disableSelection();
+                    textfield.setText("Server started");
                     Server.serverLogger.info("Basic server launched");
                 }
             }

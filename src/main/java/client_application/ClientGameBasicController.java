@@ -82,24 +82,6 @@ public class ClientGameBasicController {
     @FXML
     private Text timer;
 
-    /*public ClientGameBasicController() {
-        timerlabel.setFont(javafx.scene.text.Font.font(20));
-
-        time = new Timeline(new KeyFrame(Duration.millis(1000), e -> timelabel()));
-        time.setCycleCount(Timeline.INDEFINITE);
-    }
-
-    public void timelabel() {
-        tmp--;
-        s = "0:" + tmp + "";
-        if(tmp == 0){
-           //TODO: the player will be forced to end the programming phase
-        }
-        timerlabel.setText(s);
-    }*/
-
-
-
     @FXML
     void submitButton(ActionEvent event) {
         if(startingCoordinates.getText().trim()!="" && startingSubmitActive) {
@@ -148,10 +130,13 @@ public class ClientGameBasicController {
         return (GridPane) scrollPaneGameBoard.getContent();
     }
 
+    /**
+     * starts or ends the visibility of the starting
+     * @param visible
+     * @author Isabel Muhm
+     */
     public void visibilityStartingChoose(Boolean visible) {
         startPosText.setVisible(visible);
-        buttonSubmit.setVisible(visible);
-        startingCoordinates.setVisible(visible);
     }
 
     public void visibilityPlayerDetails(Boolean visible){
@@ -370,7 +355,7 @@ public class ClientGameBasicController {
         winnerScene.setDisable(true);
         rebootWindow.setVisible(false);
         rebootWindow.setDisable(true);
-
+        startPosText.setVisible(true);
 
     }
 
