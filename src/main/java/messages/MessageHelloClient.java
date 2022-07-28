@@ -18,7 +18,10 @@ public class MessageHelloClient extends Message{
     public String protocol;
 
     /**
+     * converts message to json
+     *
      * @param string
+     * @author Isabel Muhm
      */
     public MessageHelloClient(String string){
         protocol=string;
@@ -30,7 +33,10 @@ public class MessageHelloClient extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageHelloClient(JsonObject jsonObject){
         super(jsonObject);
@@ -44,9 +50,12 @@ public class MessageHelloClient extends Message{
     }
 
     /**
+     * checks if clients protocol version equals with servers protocol version
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
+     * @author Isabel Muhm, Sarp Cagin Erdogan
      */
     @Override
     public void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException {
@@ -58,6 +67,14 @@ public class MessageHelloClient extends Message{
         }
 
     }
+    /**
+     * checks if AIs protocol version equals with servers protocol version
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @author Isabel Muhm, Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(protocol.equals(PROTOCOL_VERSION)){
@@ -67,8 +84,6 @@ public class MessageHelloClient extends Message{
         else{
             sentientClient.getLogger().error("Communication protocol doesn't match with server.\nServer's protocol: " + protocol + "\nYour protocol: " + PROTOCOL_VERSION);
         }
-
-
     }
 
 }

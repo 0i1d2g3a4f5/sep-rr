@@ -13,6 +13,11 @@ import java.io.IOException;
 
 public class MessageFigureUnavailable extends Message{
     public int figure;
+
+    /**
+     * converts message to json
+     * @param i
+     */
     public MessageFigureUnavailable(int i){
         this.
         type="FigureUnavailable";
@@ -21,6 +26,13 @@ public class MessageFigureUnavailable extends Message{
         content = jsonObject;
         //Server.serverLogger.info("Created Figure Unavailable Message: " + this);
     }
+
+    /**
+     * converts json to message
+     *
+     * @param jsonObject
+     * @author Isabel
+     */
     public MessageFigureUnavailable(JsonObject jsonObject){
         super(jsonObject);
         figure=content.get("Figure").getAsInt();

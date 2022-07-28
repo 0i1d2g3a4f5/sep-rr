@@ -2,6 +2,8 @@ package messages;
 
 import com.google.gson.JsonObject;
 /**
+ * handles message enums from incoming client messages and creates/returns corresponding messages
+ *
  * @author Sarp Cagin Erdogan, Mark Ringer
  */
 
@@ -154,7 +156,6 @@ public class MessageFactory {
                 MessageCardsYouGotNow message = new MessageCardsYouGotNow(jsonObject);
                 Message.messageLogger.warn("message "+ message);
                 return message;
-
             }
             case REPLACE_CARD -> {
                 return new MessageReplaceCard(jsonObject);

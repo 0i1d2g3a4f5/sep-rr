@@ -23,8 +23,11 @@ public class MessagePlayerStatus extends Message {
     public boolean ready;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param ready
+     * @author Isabel Muhm
      */
     public MessagePlayerStatus(int clientID, boolean ready){
         this.clientID = clientID;
@@ -38,7 +41,10 @@ public class MessagePlayerStatus extends Message {
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessagePlayerStatus(JsonObject jsonObject) {
         super(jsonObject);
@@ -58,6 +64,8 @@ public class MessagePlayerStatus extends Message {
     }
 
     /**
+     * sets status of given client to ready and creates task to update lobbylist in lobby scene
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException

@@ -17,8 +17,11 @@ public class MessageNotYourCards extends Message{
     public int cardsInHand;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param cardsInHand
+     * @author Isabel Muhm
      */
     public MessageNotYourCards(int clientID, int cardsInHand) {
         this.clientID = clientID;
@@ -32,7 +35,10 @@ public class MessageNotYourCards extends Message{
     }
 
     /**
+     * converts string to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageNotYourCards(JsonObject jsonObject){
         super(jsonObject);
@@ -52,9 +58,12 @@ public class MessageNotYourCards extends Message{
     }
 
     /**
+     * informs about number of available cards of other client
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
@@ -65,6 +74,15 @@ public class MessageNotYourCards extends Message{
             }
         }
     }
+
+    /**
+     * informs AI about number of available cards of other clients
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     * @author Sarp Cagin Erdogan
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         for(int i=0; i<sentientClient.getPlayerList().size(); i++){

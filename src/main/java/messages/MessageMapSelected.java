@@ -21,7 +21,10 @@ public class MessageMapSelected extends Message{
     public String map;
 
     /**
+     * converts message to json
+     *
      * @param map
+     * @author Isabel Muhm
      */
     public MessageMapSelected(String map) {
         this.map = map;
@@ -33,7 +36,10 @@ public class MessageMapSelected extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
@@ -42,6 +48,8 @@ public class MessageMapSelected extends Message{
     }
 
     /**
+     * sets map in gamelogic to selected map, starts game and informs clients about game start
+     *
      * @param sClient
      * @throws IOException
      * @throws ClientNotFoundException

@@ -59,7 +59,7 @@ public class MessageError extends Message{
     }
 
     /**
-     * informs client about current error
+     * creates task to inform client about current error
      *
      * @param client
      * @throws IOException

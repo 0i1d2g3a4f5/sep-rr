@@ -24,9 +24,12 @@ public class MessagePlayerAdded extends Message{
     public int figure;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      * @param name
      * @param figure
+     * @author Isabel Muhm
      */
     public MessagePlayerAdded(int clientID, String name, int figure) {
         super();
@@ -43,7 +46,10 @@ public class MessagePlayerAdded extends Message{
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessagePlayerAdded(JsonObject jsonObject) {
         super(jsonObject);
@@ -64,6 +70,9 @@ public class MessagePlayerAdded extends Message{
     }
 
     /**
+     * adds new client to ClientList or sets name, figure and id of existing client
+     * creates tasks to launch lobby for new client and to update lobby list
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
@@ -85,6 +94,9 @@ public class MessagePlayerAdded extends Message{
     }
 
     /**
+     * adds new AI to ClientList or sets name, figure and ID of existing AI client
+     * sends message to server to set AIs ready status to true
+     *
      * @throws IOException
      * @throws ClientNotFoundException
      */
