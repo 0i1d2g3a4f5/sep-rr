@@ -28,7 +28,7 @@ import utility.Images;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Sarp Cagin Erdogan, Qinyi, Vivian
+ * @author Sarp Cagin Erdogan, Isabel, Vivian
  *
  */
 public class ClientGameBasicController {
@@ -42,9 +42,6 @@ public class ClientGameBasicController {
 
     @FXML
     private AnchorPane loserScene;
-
-    @FXML
-    private Button buttonSubmit;
 
     @FXML
     private ImageView roboImage;
@@ -124,14 +121,14 @@ public class ClientGameBasicController {
 
         }
 
-
     }
     public GridPane yoWhatsUmbrella(){
         return (GridPane) scrollPaneGameBoard.getContent();
     }
 
     /**
-     * starts or ends the visibility of the starting
+     * starts or ends the visibility of the starting position info text
+     *
      * @param visible
      * @author Isabel Muhm
      */
@@ -139,6 +136,16 @@ public class ClientGameBasicController {
         startPosText.setVisible(visible);
     }
 
+    public void setTextStartPos(String text) {
+        startPosText.setText(text);
+    }
+
+    /**
+     * shows picture of own bot in game scene to identify
+     *
+     * @param visible
+     * @author Isabel Muhm
+     */
     public void visibilityPlayerDetails(Boolean visible){
         playerName.setText(clientApplication.getClient().getName());
         playerName.setVisible(visible);
@@ -197,6 +204,7 @@ public class ClientGameBasicController {
         startingCoordinates.setText("");
         startingSubmitActive=true;
     }
+
     public void activateProgrammingSelection(boolean bo){
         chooseProgrammingActive=bo;
     }

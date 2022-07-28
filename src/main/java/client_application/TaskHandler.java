@@ -121,15 +121,15 @@ public class TaskHandler {
                 clientApplication.clientGameBasicController.updateOtherRegisters(gridPaneFromMultipleBoolLists(list, names, figures, 3));
             }
             case STARTING_POINT_NOT_AVAILABLE -> {
-                clientApplication.clientGameBasicController.setStartingText("This point is already taken by another player");
+                clientApplication.clientGameBasicController.setTextStartPos("This point is already taken by another player");
                 clientApplication.activateStartingPoint(true);
             }
             case STARTING_POINT_INVALID-> {
-                clientApplication.clientGameBasicController.setStartingText("The point you have chosen is not a starting code - try again :)");
+                clientApplication.clientGameBasicController.setTextStartPos("The point you have chosen is not a starting code - try again :)");
                 clientApplication.activateStartingPoint(true);
             }
             case CHOOSE_STARTING_POINT -> {
-                clientApplication.clientGameBasicController.setStartingText("Choose a starting point by CLICKING ON MAP NEW FUNCTION VERY COOOOL or write");
+                clientApplication.clientGameBasicController.setTextStartPos("Please select a starting position by clicking on a starting point");
                 clientApplication.activateStartingPoint(true);
                 clientApplication.clientGameBasicController.setStartingChooseVisualActive(true);
             }

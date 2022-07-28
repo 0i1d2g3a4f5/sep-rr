@@ -150,6 +150,7 @@ public class ClientApplication extends Application {
 
     }
     public void launchBasicMap(){
+        System.out.println("tries to launch map");
         stageBasicMap = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientMapBasic.fxml"));
         try {
@@ -171,6 +172,7 @@ public class ClientApplication extends Application {
 
     }
     public void launchBasicGame(){
+        System.out.println("trie to launch game");
         stageBasicGame = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientGameBasic.fxml"));
         try {

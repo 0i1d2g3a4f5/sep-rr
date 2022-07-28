@@ -65,6 +65,10 @@ public class ServerSelectionController {
                     isActive = true;
                     textfield.setText("The amount of minimal all in all players is 2");
                 }
+                else if(x+y>6){
+                    isActive = true;
+                    textfield.setText("The amount of maximal players is 6");
+                }
                 else {
                     serverApplication.setBasicServer(new BasicServer(serverApplication, y, x));
                     serverApplication.getBasicServer().startServerSocket();

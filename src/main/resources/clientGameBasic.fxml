@@ -40,7 +40,7 @@
             <Image url="@robo-logo.png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrollOtherRegisters" layoutX="24.0" layoutY="677.0" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="1407.0" style="-fx-background-color: transparent;" />
+      <ScrollPane fx:id="scrollOtherRegisters" layoutX="24.0" layoutY="677.0" maxHeight="101.0" minHeight="101.0" prefHeight="101.0" prefWidth="1407.0" style="-fx-background-color: transparent;" />
       <StackPane fx:id="stackOwnProgramming" layoutX="25.0" layoutY="464.0" prefHeight="175.0" prefWidth="578.0" style="-fx-background-color: transparent;">
          <children>
             <ScrollPane fx:id="scrollChosenProgramming" maxHeight="179.0" maxWidth="578.0" minWidth="578.0" prefHeight="179.0" prefWidth="578.0">
@@ -158,7 +158,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <Text fx:id="startPosText" fill="WHITE" layoutX="72.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select a starting position by clicking on a starting point">
+      <Text fx:id="startPosText" fill="WHITE" layoutX="50.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="528.7999572753906">
          <font>
             <Font size="18.0" />
          </font>
