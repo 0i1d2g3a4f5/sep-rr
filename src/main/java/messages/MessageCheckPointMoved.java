@@ -9,6 +9,7 @@ import client_package.client_gamelogic.game_elements.Checkpoint;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Position;
 import server_package.SClient;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -71,13 +72,17 @@ public class MessageCheckPointMoved extends Message {
         ArrayList<Checkpoint> checkpointList = Game.getInstance().getMap().getCheckpoints();
 
         Checkpoint checkpoint = SearchMethods.searchCheckpoint(checkpointID,checkpointList);
+        Position eins = checkpoint.getGameField().getPosition();
+        Position zwei = new Position(y, x);
+        client.getHighSlumber().add(eins);
+        client.getHighSlumber().add(zwei);
         if(checkpoint != null){
             checkpoint.moveCheckpointTo(y,x);
         }else {
             Client.clientLogger.error("Checkpoint not found");
         }
 
-        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARDPARTS,new TaskContent()));
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {

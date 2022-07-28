@@ -29,8 +29,73 @@ import java.util.ArrayList;
  */
 
 public class JavaFXGridHandler {
-    void rotate(ImageView imageView,int direction){
-        imageView.setRotate(imageView.getRotate()+direction*90);
+    public void applesAndBananas(GridPane desmondBind, int x, int y, GameBoard pute, int qwerty){
+        GameField hurricaneCatcher = pute.getGameField(y, x);
+        StackPane orangutanKebab= (StackPane) desmondBind.getChildren().get(y*desmondBind.getColumnCount() + x);
+        ImageView whatDaFuk = new ImageView(new Image("TBDtile.png"));
+        orangutanKebab.getChildren().add(whatDaFuk);
+        orangutanKebab.setAlignment(whatDaFuk, Pos.CENTER);
+
+        for(int i=0; i<hurricaneCatcher.getElements().size(); i++){
+            GameElement gameElement = hurricaneCatcher.getElements().get(i);
+            switch (gameElement.getType()){
+                case LASER:
+                    caseLaser(orangutanKebab, gameElement);
+                    break;
+                case LASERBEAM:
+                    Client.clientLogger.debug("caseLaserBeam");
+                    caseLaserBeam(orangutanKebab, gameElement);
+                    break;
+                case CHECKPOINT:
+                    caseCheckpoint(orangutanKebab, (Checkpoint) gameElement);
+                    break;
+                case CONVEYORBELT:
+                    caseConveyorBelt(orangutanKebab, gameElement);
+                    break;
+
+                case ENERGYSPACE:
+                    caseEnergySpace(orangutanKebab);
+                    caseEnergyCube(orangutanKebab);
+                    break;
+
+                case GEAR:
+                    caseGear(orangutanKebab, (Gear) gameElement);
+                    break;
+
+                case PUSHPANEL:
+                    try {
+                        casePushPanel(orangutanKebab, gameElement);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case PIT:
+                    casePit(orangutanKebab);
+                    break;
+                case STARTPOINT:
+                    caseStartPoint(orangutanKebab);
+
+                    break;
+                case WALL:
+                    caseWall(orangutanKebab, gameElement);
+                    break;
+                case ROBOT:
+                    caseRobot(orangutanKebab, (Robot) gameElement, qwerty);
+                    break;
+                case ANTENNA:
+                    caseAntenna(orangutanKebab, gameElement);
+                    break;
+                case RESTARTPOINT:
+                    caseRestartPoint(orangutanKebab);
+                    break;
+                case ENERGY_CUBE:
+                    caseEnergyCube(orangutanKebab);
+                    break;
+                case EMPTY:
+                    //leer
+                    break;
+            }
+        }
     }
 
     /**

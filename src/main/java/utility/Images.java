@@ -78,6 +78,7 @@ public enum Images {
     BELT_BLUE_TOP_LEFT_TO_BOTTOM_ELEMENT("/CBBlueTopLeftToBottom.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopLeftToBottom.png")))), "MapElement"),
     BELT_BLUE_TOP_RIGHT_TO_LEFT_ELEMENT("/CBBlueTopRightToLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/CBBlueTopRightToLeft.png")))), "MapElement"),
 
+    BACKGROUND("/TBDtile.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/TBDtile.png")))), "MapElement"),
     //green conveyor belts
 
     BELT_GREEN_LEFT_ELEMENT("/BeltGreenLeft.png",new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/BeltGreenLeft.png")))), "MapElement"),

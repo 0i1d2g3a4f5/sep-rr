@@ -5,6 +5,7 @@ import client_package.client_gamelogic.Game;
 import client_package.client_gamelogic.CPlayer;
 import com.google.gson.JsonObject;
 import gamelogic.Color;
+import gamelogic.Position;
 import javafx.application.Platform;
 import messages.Message;
 import messages.MessageConnectionUpdate;
@@ -34,6 +35,15 @@ public class Client{
 
     protected CPlayer player;
     protected Game game;
+    protected ArrayList<Position> highSlumber = new ArrayList<>();
+
+    public ArrayList<Position> getHighSlumber() {
+        return highSlumber;
+    }
+
+    public void setHighSlumber(ArrayList<Position> highSlumber) {
+        this.highSlumber = highSlumber;
+    }
 
     {
         try {

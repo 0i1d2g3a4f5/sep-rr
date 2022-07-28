@@ -6,6 +6,7 @@ import client_application.TaskType;
 import client_package.sentient.SentientClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import gamelogic.Position;
 import server_package.SClient;
 
 import java.io.IOException;
@@ -77,13 +78,19 @@ public class MessageMovement extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+        Position eins;
         if(clientID==client.getId()){
+            eins=client.getPlayer().getRobot().getPosition();
             client.getPlayer().getRobot().moveRobotTo(y, x);
         }
         else{
+            eins=client.playerFromId(clientID).getPlayer().getRobot().getPosition();
             client.playerFromId(clientID).getPlayer().getRobot().moveRobotTo(y, x);
         }
-        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD,new TaskContent()));
+        Position zwei = new Position(y, x);
+        client.getHighSlumber().add(eins);
+        client.getHighSlumber().add(zwei);
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARDPARTS,new TaskContent()));
     }
 
     /**

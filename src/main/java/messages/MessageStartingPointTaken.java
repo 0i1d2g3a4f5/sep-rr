@@ -77,7 +77,8 @@ public class MessageStartingPointTaken extends Message{
         else{
             client.playerFromId(clientID).getPlayer().getRobot().placeRobot(y, x);
         }
-        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
+        client.getHighSlumber().add(new Position(y, x));
+        client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARDPARTS, new TaskContent()));
 
 
 

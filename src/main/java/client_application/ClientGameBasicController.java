@@ -144,6 +144,9 @@ public class ClientGameBasicController {
 
 
     }
+    public GridPane yoWhatsUmbrella(){
+        return (GridPane) scrollPaneGameBoard.getContent();
+    }
 
     public void visibilityStartingChoose(Boolean visible) {
         startPosText.setVisible(visible);
