@@ -8,7 +8,8 @@ import gamelogic.*;
 import gamelogic.game_elements.robot.Robot;
 import gamelogic.map.GameField;
 import javafx.geometry.Pos;
-import messages.MessageCheckpointMoved;
+
+import messages.MessageCheckPointMoved;
 import messages.MessageMovement;
 import server_package.Server;
 import utility.SearchMethods;
@@ -106,7 +107,7 @@ public class Checkpoint extends GameElement implements Activatable {
 
         }
         gameField = nextField;
-        Game.getInstance().getPlayerList().get(0).getClient().sendAll(new MessageCheckpointMoved(count, position.getY(), position.getX()));
+        Game.getInstance().getPlayerList().get(0).getClient().sendAll(new MessageCheckPointMoved(count, position.getY(), position.getX()));
         Server.serverLogger.debug("Moved Checkpoint "+count+ " from "+oldPos+" to "+position+". Old Gamefield: "+oldField );
 
         return true;
