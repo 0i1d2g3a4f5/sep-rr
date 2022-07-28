@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="sdg;&#10;jklwsetgr p;j'oragewb lhokij;sgar dekljnb;sgaed kl;hnjwef lk;ntimer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer">
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="CHANGED EVERYHTING">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aexperimental/Aaa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/clientGameBasic.fxml" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
@@ -203,7 +207,6 @@
       <workItem from="1658434731208" duration="3599000" />
       <workItem from="1658661722186" duration="9731000" />
       <workItem from="1658732192954" duration="2286000" />
-      <workItem from="1659028721849" duration="1344000" />
     </task>
     <task id="LOCAL-00001" summary="i have das Projekt gefickst">
       <created>1657472891741</created>
@@ -352,21 +355,7 @@
       <option name="project" value="LOCAL" />
       <updated>1658733365754</updated>
     </task>
-    <task id="LOCAL-00022" summary="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED">
-      <created>1659027509570</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1659027509570</updated>
-    </task>
-    <task id="LOCAL-00023" summary="sdg;&#10;jklwsetgr p;j'oragewb lhokij;sgar dekljnb;sgaed kl;hnjwef lk;ntimer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer">
-      <created>1659028548646</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1659028548646</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,8 +399,6 @@
     <MESSAGE value="Add green conveyorBelt Images to Resources and create enums in images class" />
     <MESSAGE value="Lasers are shown" />
     <MESSAGE value="CHANGED EVERYHTING" />
-    <MESSAGE value="HUGE IMMERSIVE MASSIVE ESTREMELEY IMPORTANT GRAPHICAL OPTIMIZATION PROCESS ACTUALKLY MAKES THE GAME PLKAYABLE WITHOUT LAG AND GIVES THE BEATIFUL EXPERIENCE OF HIGH FRAMERATTES WITH GOOD VIUSALS YES VERY GOOD IMPLEMENTED" />
-    <MESSAGE value="sdg;&#10;jklwsetgr p;j'oragewb lhokij;sgar dekljnb;sgaed kl;hnjwef lk;ntimer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="sdg;&#10;jklwsetgr p;j'oragewb lhokij;sgar dekljnb;sgaed kl;hnjwef lk;ntimer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="CHANGED EVERYHTING" />
   </component>
 </project>
