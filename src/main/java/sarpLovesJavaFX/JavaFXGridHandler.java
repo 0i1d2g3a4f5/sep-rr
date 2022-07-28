@@ -201,6 +201,17 @@ public class JavaFXGridHandler {
         stackPane.getChildren().add(imageView);
         stackPane.setAlignment(imageView, Pos.CENTER);
     }
+
+    /**
+     * creates gridpane with cards (card set/not set) by reading a booolean Array (true for card set, false for card not set)
+     *
+     * @param boolList
+     * @param name
+     * @param figure
+     * @param type
+     * @return
+     * @throws IOException
+     */
     public GridPane gridPaneFromBooleanList(ArrayList<Boolean> boolList, String name, Integer figure, int type) throws IOException {
         GridPane gridPane = new GridPane();
         for(int i=0; i<boolList.size(); i++){
@@ -223,6 +234,15 @@ public class JavaFXGridHandler {
         }
         return gridPane;
     }
+
+    /**
+     * creates gridPane with cards from given card array
+     *
+     * @param cardList
+     * @param type
+     * @return
+     * @throws IOException
+     */
     private GridPane gridPaneFromCardList(ArrayList<Card> cardList, int type) throws IOException {
         GridPane gridPane = new GridPane();
         //Client.clientLogger.debug("CARDLISTSIZE: " + cardList.size());
@@ -475,6 +495,8 @@ public class JavaFXGridHandler {
     }
 
     /**
+     * handles
+     *
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      * @param gameElement
