@@ -50,7 +50,7 @@ public class MessageActivePhase extends Message{
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         Client.clientLogger.info("Active Phase: Phase " + phase);
         client.getGame().setPhase(phase);
-
+        client.getClientApplication().getGameController().stopChoosingDirection();
 
         if(phase == 2 || phase == 3){
             client.getPlayer().phaseReset();
