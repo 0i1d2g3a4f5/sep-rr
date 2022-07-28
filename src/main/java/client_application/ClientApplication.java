@@ -14,7 +14,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Sarp Cagin Erdogan, Mark Ringer, Isabel Muhm
+ * @author Sarp Cagin Erdogan, Mark Ringer
+ * includes
+ *      launcher methods for all the client-based windows
+ *      activation methods for all user inputs (e.g. starting point, register cards, etc.)
  */
 public class ClientApplication extends Application {
     BasicClient basicClient;
@@ -27,18 +30,28 @@ public class ClientApplication extends Application {
     ClientMapBasicController clientMapBasicController;
     ClientGameBasicController clientGameBasicController;
     Stage stageSelection, stageBasicStart, stageBasicName, stageBasicChat, stageBasicLobby, stageBasicMap, stageMapView, stageBasicGame;
+
     public boolean lobbyActive;
+
+    /**
+     * lobby launch
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
-        Client.clientLogger.info("Client Started");
-        lobbyActive=false;
+        Client.clientLogger.info("Client started");
+        lobbyActive = false;
         taskHandler = new TaskHandler(this);
         taskList = new ArrayList<>();
         basicClient = new BasicClient(this);
         launchBasicStart();
-
-
     }
+
+    /**
+     * add task to taskHandler queue by adding to taskList, execute task and consequently remove from taskList
+     * @param task
+     */
     public void addAndExecuteTask(Task task){
         this.taskList.add(task);
         Platform.runLater(new Runnable() {
@@ -51,21 +64,27 @@ public class ClientApplication extends Application {
             }
         });
     }
+
     public void selectCard(){
         clientGameBasicController.selectCard();
     }
+
     public void activateStartingPoint(boolean bo){
         clientGameBasicController.activateStartingPoint(bo);
     }
+
     public void activateAvailableProgrammingSelection(boolean bo){
         clientGameBasicController.activateProgrammingSelection(bo);
     }
+
     public void activateRegisterSelection(boolean bo){
         clientGameBasicController.activateRegisterSelection(bo);
     }
+
     public void resetRegisterCards(){
         clientGameBasicController.resetRegisterCards();
     }
+
     public void waitForGame(){
         while (clientGameBasicController==null){
             try {
@@ -76,6 +95,9 @@ public class ClientApplication extends Application {
         }
     }
 
+    /**
+     * launch clientStartBasic.fxml to insert
+     */
     public void launchBasicStart(){
         stageBasicStart = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientStartBasic.fxml"));
@@ -91,6 +113,10 @@ public class ClientApplication extends Application {
         }
 
     }
+
+    /**
+     * @author Mark Ringer, Isabel Muhm
+     */
     public void launchBasicName(){
         stageBasicName = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientNameBasic.fxml"));
@@ -111,6 +137,10 @@ public class ClientApplication extends Application {
         }
 
     }
+
+    /**
+     * @author Mark Ringer, Vivian Kafadar
+     */
     public void launchBasicChat(){
         stageBasicChat = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientChatBasic.fxml"));
@@ -126,6 +156,10 @@ public class ClientApplication extends Application {
         }
 
     }
+
+    /**
+     * @author Mark Ringer, Vivian Kafadar
+     */
     public void launchBasicLobby(){
         stageBasicName.close();
         stageBasicLobby = new Stage();
@@ -149,6 +183,10 @@ public class ClientApplication extends Application {
 
 
     }
+
+    /**
+     * @author Mark Ringer, Isabel Muhm
+     */
     public void launchBasicMap(){
         System.out.println("tries to launch map");
         stageBasicMap = new Stage();
@@ -169,10 +207,13 @@ public class ClientApplication extends Application {
             throw new RuntimeException(e);
         }
 
-
     }
+
+    /**
+     * @author Mark Ringer, Isabel Muhm
+     */
     public void launchBasicGame(){
-        System.out.println("trie to launch game");
+        System.out.println("tried to launch game");
         stageBasicGame = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("clientGameBasic.fxml"));
         try {
@@ -192,18 +233,27 @@ public class ClientApplication extends Application {
             throw new RuntimeException(e);
         }
 
-
     }
+
+    /**
+     * @author Sarp Erdogan
+     * @return
+     */
     public Client getClient(){
         return basicClient;
 
     }
+
     public void launchMapView(Scene scene){
         stageMapView = new Stage();
         stageMapView.setScene(scene);
         stageMapView.show();
     }
 
+    /**
+     * @author Isabel Muhm
+     * @return
+     */
     public ClientGameBasicController getGameController() {
         return clientGameBasicController;
     }
