@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="changed directory to abgabe" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="added README.md" />
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
     <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
@@ -61,7 +61,7 @@
     &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/isabe/IdeaProjects/desperate_drosseln_hp/src/main/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mark/IdeaProjects/bbb/desperate_drosseln_hp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -74,6 +74,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mark\IdeaProjects\bbb\desperate_drosseln_hp" />
       <recent name="C:\Users\isabe\IdeaProjects\desperate_drosseln_hp\src\main\resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\Mark\IdeaProjects\desperate_drosseln_main_project" />
@@ -350,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659052117076</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added README.md">
+      <created>1659052238837</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659052238837</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i have das Projekt gefickst" />
     <MESSAGE value="Game is buggy but playable" />
     <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
@@ -410,6 +417,7 @@
     <MESSAGE value="pom" />
     <MESSAGE value="added Jars" />
     <MESSAGE value="changed directory to abgabe" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed directory to abgabe" />
+    <MESSAGE value="added README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="added README.md" />
   </component>
 </project>
