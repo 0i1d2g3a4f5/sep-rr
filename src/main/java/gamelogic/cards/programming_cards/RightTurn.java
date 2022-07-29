@@ -16,7 +16,10 @@ public class RightTurn extends ProgrammingCard {
     public void discard() {
 
     }
-
+    /**
+     * activates the CardEffect
+     * @author Ringer
+     */
     @Override
     public void activateCard() {
         // Turn your robot 90 degrees to the right. The robot remains in its current space.

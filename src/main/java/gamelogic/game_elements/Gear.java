@@ -20,6 +20,10 @@ public class Gear extends GameElement implements Activatable {
 
     GearDirection gearDirection;
 
+    /**
+     * turns robot if on top
+     * @author Mark Ringer
+     */
     @Override
     public void activate() {
         if(gameField.contains(ElementName.ROBOT)){
@@ -59,6 +63,11 @@ public class Gear extends GameElement implements Activatable {
             this.direction = direction;
         }
     }
+
+    /**
+     * Constructor
+     * @param direction
+     */
     public Gear(GearDirection direction){
         Server.serverLogger.info("Gear direction: " + direction);
         gearDirection = direction;

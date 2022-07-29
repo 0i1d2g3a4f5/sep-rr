@@ -39,6 +39,11 @@ public abstract class Card implements JsonSerializable {
         return new JsonPrimitive(cardName.toString());
     }
 
+    /**
+     * compares the CardNames
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

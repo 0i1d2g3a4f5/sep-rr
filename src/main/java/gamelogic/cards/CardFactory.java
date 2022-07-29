@@ -16,6 +16,13 @@ import java.io.IOException;
  */
 public class CardFactory {
 
+    /**
+     * creates new Card from CardName
+     * @author Mark Ringer
+     * @param cardName
+     * @return
+     * @throws IOException
+     */
     public Card createCard(CardName cardName) throws IOException {
         return buildCard(cardName);
     }

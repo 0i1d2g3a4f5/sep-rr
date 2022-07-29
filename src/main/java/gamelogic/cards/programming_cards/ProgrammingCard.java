@@ -10,6 +10,7 @@ public abstract class ProgrammingCard extends Card implements PlayableInRegister
         super(Game.getInstance(), cardName);
     }
 
+
     @Override
     public void discard(){
         //TODO Check if needed

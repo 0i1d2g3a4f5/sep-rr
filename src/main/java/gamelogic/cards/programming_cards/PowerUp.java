@@ -19,7 +19,8 @@ public class PowerUp extends ProgrammingCard {
     }
 
     /**
-     * @author Mark Ringer
+     * activates the CardEffect
+     * @author Ringer
      */
     @Override
     public void activateCard() {

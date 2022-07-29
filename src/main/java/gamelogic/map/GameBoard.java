@@ -30,6 +30,13 @@ public class GameBoard implements JsonSerializable {
         return boardMap.get(column);
     }
 
+    /**
+     * gets game field at coordinates
+     * @param y
+     * @param x
+     * @return
+     * @author Mark Ringer
+     */
     public GameField getField(int y, int x){
 
         if(y <0 || y>= boardMap.get(0).size() ||x <0 || x>= boardMap.size()){
@@ -46,6 +53,13 @@ public class GameBoard implements JsonSerializable {
 
         return boardMap.get(x).get(y);
     }
+
+    /**
+     * gets gameField at position
+     * @param position
+     * @return
+     * @author Mark Ringer
+     */
     public GameField getField(Position position){
 
         if(position == null){

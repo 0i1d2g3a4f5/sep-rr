@@ -23,6 +23,7 @@ Again extends ProgrammingCard {
     }
 
     /**
+     * activates the CardEffect
      * @author Ringer
      */
     @Override

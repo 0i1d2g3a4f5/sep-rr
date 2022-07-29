@@ -90,7 +90,7 @@ public class GameField {
     }
 
 
-    /**
+    /**checks if element with this name is contained in elements
      * @author Ringer
      */
     public boolean contains(ElementName elementName){
@@ -101,6 +101,8 @@ public class GameField {
     }
 
     /**
+     * checks, if gamefield contains a wall with this direction
+     *
      * @author Ringer
      */
     public boolean checkWall(Direction direction){
@@ -112,7 +114,7 @@ public class GameField {
         }
         return false;
     }
-    /**
+    /**adds element to elements
      * @author Ringer
      */
 
@@ -182,7 +184,11 @@ public class GameField {
     }
 
     /**
-     * @author Ringer
+     * adds robot to elements
+     *
+     * @param robot
+     * @return
+     * @author Mark Ringer
      */
     public boolean addRobot(Robot robot) {
          if(getRobot()==null){

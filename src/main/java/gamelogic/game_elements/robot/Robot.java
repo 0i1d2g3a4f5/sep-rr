@@ -53,6 +53,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return activationOrder;
     }
 
+
     public void setPosition(Position position) {
         this.position = position;
         gameField = game.getBoard().getField(position);
@@ -61,10 +62,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
 
     /**
+     * update the location of the robot
+     *
      * @param position
      * @param direction
      * @author Ringer
-     * update the location of the robot
+     *
      */
     public Robot (Game game,Position position, Direction direction){
         super(ElementName.ROBOT);
@@ -96,16 +99,19 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.startPoint = startPoint;
     }
 
+    /**
+     * handles the case if a Robot takes damage
+     *
+     * @param count
+     * @author Mark Ringer
+     */
     public void takeDamage(int count) {
         Server.serverLogger.info("Robot "+getPlayer().getClient().getFigure()+" takes damage");
         ArrayList<CardName> damageCards = new ArrayList<>();
-
         if(game.getSpamDrawPile().size()>=count){
             player.drawSpam(count);
             for (int i = 0; i < count; i++) {
-
                 damageCards.add(CardName.SPAM);
-
             }
             game.sendToAllPlayers(new MessageDrawDamage(player.getClient().getId(),damageCards));
         }else {
@@ -121,20 +127,24 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 aviablePiles.add("Worm");
             }
             player.sendMessage(new MessagePickDamage(remainingToDraw,aviablePiles));
-
         }
-
-
-
-
     }
 
-
+    /**
+     * casculates the distance between position2 and the position of the Robot
+     * @param position2
+     * @return
+     * @author Mark Ringer
+     */
     public double distance(Position position2){
         return MyMath.pythagoras(position,position2);
 
     }
 
+    /**
+     * return if robot is placed
+     * @return
+     */
     public boolean isPlaced() {
         return isPlaced;
     }
@@ -151,12 +161,15 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         this.player = player;
     }
 
-
+    /**
+     * setter Method
+     */
     public void disinterrupt() {
         this.interrupted = false;
     }
 
-    /**
+    /**robot performs left-turn
+     *
      * @author Ringer
      * @return boolean
      */
@@ -175,7 +188,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
-    /**
+    /**robot performs right-turn
      * @author Ringer
      * @return boolean
      */
@@ -195,6 +208,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * robot performs u-turn
      * @author Ringer
      * @return boolean
      */
@@ -218,6 +232,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return true;
     }
 
+    /**
+     * setter
+     */
     public void interrupt(){
         interrupted = true;
     }
@@ -250,7 +267,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return success;
     }
 
-    /**
+    /**robot moves backwards
      * @author Ringer
      * @param distance
      * @return
@@ -269,6 +286,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * moves the robot by one, direction depending on gear
      * @auther Ringer
      * @param gear is The Direction
      * @return
@@ -301,6 +319,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * displaces robot according to the direction
      * @author Ringer
      * @param targetDirection
      * @return
@@ -315,6 +334,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * changes position of robot
      * @author Ringer
      * @return
      */
@@ -348,6 +368,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * checks next position
      * @author Ringer
      * @param targetDirection
      * @return
@@ -394,11 +415,16 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return rebootedThisTurn;
     }
 
+    /**
+     * setter
+     * @param rebootedThisTurn
+     */
     public void setRebootedThisTurn(boolean rebootedThisTurn) {
         this.rebootedThisTurn = rebootedThisTurn;
     }
 
     /**
+     * starts a Robot reboot by adding damage and announcing a reboot to all players
      * @uthor Ringer
      */
     public void reboot() {
@@ -423,6 +449,13 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         //TODO case not answered
 
     }
+
+    /**
+     * shoots a laser from the robot in the direction it is facing
+     *
+     * @param gameField
+     * @author Mark Ringer
+     */
     private void laserMovement(GameField gameField){
         if(gameField != null){
             if(gameField.contains(ElementName.ROBOT)){
@@ -438,6 +471,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         }
     }
 
+    /**
+     * rotates Robot in the Direction direction
+     * @param direction
+     * @author Mark Ringer
+     */
     public void rotateTo(Direction direction){
         while (directionFacing != direction){
             right();
@@ -446,6 +484,10 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * finishes reboot and turns the Robot according to the parameter
+     *
+     * @param direction
+     * @throws InterruptedException
      * @author Mark Ringer
      */
     public void finishReboot(Direction direction) throws InterruptedException {
@@ -494,8 +536,9 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
 
     /**
-     * @author Ringer
      * set the next Position if a robot meet the gear
+     * @author Ringer
+     *
      * @param targetDirection
      * @return
      */
@@ -543,7 +586,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return 3;
     }
 
-
+    /**
+     * activates the Robot Laser
+     *
+     * @author Mark Ringer
+     */
     @Override
     public void activate() {
 
@@ -553,8 +600,11 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
     }
 
     /**
+     * compare to Methode
+     *
      * @param o the object to be compared.
      * @return
+     * @author Mark Ringer
      */
     @Override
     public int compareTo(Activatable o) {

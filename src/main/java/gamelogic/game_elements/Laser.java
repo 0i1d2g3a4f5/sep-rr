@@ -100,6 +100,10 @@ public class Laser extends GameElement implements Activatable {
         return jsonObject;
     }
 
+    /**
+     * activates element
+     * @author Mark Ringer
+     */
     @Override
     public void activate() {
         Server.serverLogger.info("Activate " + type);

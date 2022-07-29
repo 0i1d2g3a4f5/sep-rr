@@ -63,7 +63,7 @@ public class Antenna extends GameElement implements Serializable {
         return jsonObject;
 
     }
-    /**
+    /**calculates the distance between robot and the Antenna
      * @author Ringer
      */
     public double calculateDistance(Robot robot){

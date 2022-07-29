@@ -1,5 +1,8 @@
 package gamelogic.cards;
 
+/**
+ * Enum of CardNames
+ */
 public enum CardName {
     // Damage Cards
     SPAM("Spam"),
@@ -67,6 +70,14 @@ public enum CardName {
 
 
     private String cardName;
+
+    /**
+     * parses a string to a cardname
+     *
+     * @param cardName
+     * @return
+     * @author Mark Ringer
+     */
     public static CardName parseCardName(String cardName) {
         for (CardName  name:CardName.values()){
             cardName = cardName.replaceAll("\"","");
