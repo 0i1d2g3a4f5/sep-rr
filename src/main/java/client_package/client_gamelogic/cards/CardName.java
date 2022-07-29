@@ -5,6 +5,8 @@ import server_package.Server;
 import java.io.IOException;
 
 /**
+ * enum of CardNames
+ *
  * @author Vivian Kafadar
  */
 public enum CardName {

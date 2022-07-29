@@ -42,6 +42,12 @@ public class Gear extends GameElement{
             this.direction = direction;
         }
     }
+
+    /**
+     * Constructor
+     * @param direction
+     * @author Mark Ringer
+     */
     public Gear(GearDirection direction){
         visualOrder = 1;
         gearDirection = direction;
@@ -50,8 +56,10 @@ public class Gear extends GameElement{
     boolean turnRight = false;
 
     /**
-     * @author Ringer
      * builds an Object from a JsonObject
+     *
+     * @author Ringer
+     *
      * @param jsonObject
      * @return
      * @throws IOException

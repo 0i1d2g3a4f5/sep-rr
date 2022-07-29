@@ -43,6 +43,13 @@ public class GameBoard  {
         return boardMap.get(column);
     }
 
+    /**
+     * returns at y|x
+     * @param y
+     * @param x
+     * @return
+     * @author Mark Ringer
+     */
     public GameField getField(int y, int x){
         if(y <0 || y>= getBoardMap().get(0).size() ||x <0 || x>= getBoardMap().size()) return null;
         return boardMap.get(x).get(y);
@@ -51,6 +58,12 @@ public class GameBoard  {
         return boardMap.get(position.getX()).get(position.getY());
     }
 
+    /**
+     * toJson methode
+     * @return
+     * @author Mark Ringer, Sarp Cagain Erdogan;
+     *
+     */
     public JsonObject toJson(){
         JsonObject jsonMap = new JsonObject();
 
@@ -108,7 +121,14 @@ public class GameBoard  {
      * @return
      */
 
-
+    /**
+     * adds Element at y|x
+     * @param y
+     * @param x
+     * @param element
+     * @return
+     * @author Mark Ringer
+     */
     public boolean addElement(int y, int x,GameElement element){
         GameField field = boardMap.get(x).get(y);
 
@@ -116,7 +136,10 @@ public class GameBoard  {
         return field.addElement(element);
     }
 
-
+    /**
+     * adds a checkpoint to internal Checkpoint List
+     * @param checkpoint
+     */
     public void addCheckpoint(Checkpoint checkpoint){
         checkpoints.add(checkpoint);
     }
@@ -159,6 +182,13 @@ public class GameBoard  {
 
     }
 
+    /**
+     * returns Game-field at y|x
+     * @param y
+     * @param x
+     * @return
+     * @author Mark Ringer
+     */
     public GameField getGameField(int y, int x){
         return boardMap.get(x).get(y);
 
@@ -168,6 +198,7 @@ public class GameBoard  {
      * Method is used to receive the dimensions of the Map if they are not available
      * @param arrayLVL1
      * @return
+     * @author Mark Ringer
      */
     private static Pair<Integer,Integer> getDimensions(JsonArray arrayLVL1){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -192,12 +223,15 @@ public class GameBoard  {
      * @throws IOException
      */
     /**
-     * @author Ringer
+     *
      * overloaded Constructor
      * builds the game board from the JsonObject
+     *
      * @param json
      * @return
      * @throws IOException
+     * @author Ringer
+     *
      */
 
     public GameBoard (JsonObject json) throws IOException {
@@ -243,7 +277,7 @@ public class GameBoard  {
         return gameField.getElements();
     }
 
-    /**
+    /**equals methode
      * @author Ringer
      */
     @Override
@@ -264,6 +298,8 @@ public class GameBoard  {
     }
 
     /**
+     * constructs the laser beams that are shown
+     *
      * @author Mark Ringer
      */
     public void constructLaserBeams() throws IOException {

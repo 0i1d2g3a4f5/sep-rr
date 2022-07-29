@@ -15,9 +15,11 @@ import java.util.List;
 public class SearchMethods {
 
     /**
+     * searches a Card with the CardName in a List
      * @param cardName
      * @param list
      * @return
+     * @author Mark Ringer
      */
     public static Card searchCard(CardName cardName, List<Card> list){
         for (Card card:list) {
@@ -27,9 +29,12 @@ public class SearchMethods {
     }
 
     /**
+     * searches a Card with the CardName in an Array
+     *
      * @param cardName
      * @param list
      * @return
+     * @author Mark Ringer
      */
     public static Card searchCard(CardName cardName,Card[] list){
         for (Card card:list) {
@@ -39,10 +44,12 @@ public class SearchMethods {
     }
 
     /**
-     * @author Ringer
+     * search Element from ElementName in List
+     *
      * @param elementName
      * @param list
      * @return
+     * @author Mark Ringer
      */
     public static GameElement searchElement(ElementName elementName, List<GameElement> list){
         for (GameElement element:list) {
@@ -51,6 +58,13 @@ public class SearchMethods {
         return null;
     }
 
+    /**
+     * searches Checkpoint with matching id in List of Checkpoints
+     * @param ID
+     * @param list
+     * @return
+     * @author Mark Ringer
+     */
     public static Checkpoint searchCheckpoint(int ID, ArrayList<Checkpoint> list){
         for (Checkpoint checkpoint:list
              ) {
@@ -61,6 +75,13 @@ public class SearchMethods {
         return null;
     }
 
+    /**
+     * checks, if list of Integers contains all parameters, returns only true if all are found
+     *
+     * @param list
+     * @param params
+     * @return
+     */
     public static boolean listContainsAll(ArrayList<Integer> list, int... params) {
         for (int param : params) {
             if (!list.contains(param))

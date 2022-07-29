@@ -9,6 +9,11 @@ import java.util.stream.Collectors;
  */
 public class JsonReader {
 
+    /**
+     * reads a Json File at the filePath
+     * @param filePath
+     * @return
+     */
     public String readFile(String filePath){
 
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);

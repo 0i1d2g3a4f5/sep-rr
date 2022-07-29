@@ -41,6 +41,8 @@ public class Laser extends GameElement  {
     }
 
     /**
+     * Constructor
+     *
      * @author Ringer
      * @param count
      * @param direction
@@ -57,8 +59,9 @@ public class Laser extends GameElement  {
     }
 
     /**
-     * @author Ringer
      * builds an Object from a JsonObject
+     * @author Ringer
+     *
      * @param jsonObject
      * @return
      * @throws IOException
@@ -88,9 +91,10 @@ public class Laser extends GameElement  {
     }
 
     /**
+     * adds LaserBeams to the gamefield
      * @author Mark Ringer
      *
-     * adds LaserBeams to the gamefield
+     *
      *
      * @param gameField
      */

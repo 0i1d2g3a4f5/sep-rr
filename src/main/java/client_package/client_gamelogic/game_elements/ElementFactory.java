@@ -49,6 +49,15 @@ public class ElementFactory {
         }
     }
 
+    /**
+     * Constructor
+     *
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     *
+     * @author Mark Ringer
+     */
     public GameElement createElement(JsonObject jsonObject) throws IOException {
         ElementName name = ElementName.parseElementName(jsonObject.get("type").getAsString());
         return constructElement(name,jsonObject);

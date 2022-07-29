@@ -38,11 +38,13 @@ public class ConveyorBelt extends GameElement{
         else throw new IOException("Color not found");
     }
 
-    /**
+    /**Constructor
+     *
      * @param color
      * @param targetDirection
      * @param originDirection
      * @throws IOException
+     * @author Mark Ringer
      */
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
         visualOrder = 1;
@@ -76,6 +78,7 @@ public class ConveyorBelt extends GameElement{
      * @param jsonObject
      * @return
      * @throws IOException
+     * @author Mark Ringer
      */
     public ConveyorBelt(JsonObject jsonObject) throws IOException {
 

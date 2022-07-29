@@ -17,8 +17,10 @@ public class Wall extends GameElement {
     }
 
     /**
-     * @author Ringer
      * builds an Object from a JsonObject
+     *
+     * @author Ringer
+     *
      * @param jsonObject
      * @return
      * @throws IOException

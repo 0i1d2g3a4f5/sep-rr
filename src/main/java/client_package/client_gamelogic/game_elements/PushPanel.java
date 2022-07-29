@@ -22,12 +22,12 @@ public class PushPanel extends GameElement {
         type = ElementName.PUSHPANEL;
     }
 
-    /**
+    /**builds an Object from a JsonObject
      * @param jsonObject
      * @return
      * @throws IOException
      * @author Ringer
-     * builds an Object from a JsonObject
+     *
      */
     public PushPanel(JsonObject jsonObject) throws IOException {
         super(ElementName.PUSHPANEL);

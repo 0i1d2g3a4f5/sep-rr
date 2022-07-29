@@ -16,6 +16,13 @@ import java.io.IOException;
 public class Checkpoint extends GameElement {
 
     int count;
+
+    /**
+     * Constructor
+     *
+     * @param count
+     * @author Mark Ringer
+     */
     public Checkpoint(int count){
         super(ElementName.CHECKPOINT);
         visualOrder = 3;
@@ -39,9 +46,14 @@ public class Checkpoint extends GameElement {
     }
 
     /**
+     * moves Checkpoint to the coordinates y|x
+     *
+     *
      * @param y
      * @param x
      * @throws IOException
+     *
+     * @author Mark Ringer
      */
     public synchronized void moveCheckpointTo(int y, int x) throws IOException {
         gameField.removeElement(this);

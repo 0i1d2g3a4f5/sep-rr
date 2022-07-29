@@ -15,7 +15,9 @@ import java.io.IOException;
 
 /**
  * @author Mark Ringer, Qinyi Hui
- * creates a robot character for every player
+ * creates a robot character for every player.
+ * this class is part of the clientside Gamestate, so it mirrors the serverside gamelogic in most its
+ * metodes but serves only for visual representation
  */
 public class Robot extends GameElement {
 
@@ -107,6 +109,7 @@ public class Robot extends GameElement {
     }
 
     /**
+     * performs a left-turn
      * @author Mark Ringer
      * @return boolean
      */

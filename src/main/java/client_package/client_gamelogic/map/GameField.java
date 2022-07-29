@@ -30,11 +30,22 @@ public class GameField {
 
     private ArrayList<GameElement> elements = new ArrayList<>();
 
+    /**
+     * removes element from internal Element List
+     * @param element
+     * @author Mark Ringer
+     */
     public void removeElement(GameElement element){
         elements.remove(element);
 
     }
 
+    /**
+     * Constructor
+     * @param board
+     * @param position
+     * @author Mark Ringer
+     */
      public GameField(GameBoard board, Position position) {
          this.board = board;
          elements.add(new Empty());
@@ -42,6 +53,13 @@ public class GameField {
 
     }
 
+    /**
+     * Constructor
+     * @param board
+     * @param y
+     * @param x
+     * @author Mark Ringer
+     */
     public GameField(GameBoard board, int y, int x) {
         this.board = board;
         elements.add(new Empty());
@@ -49,6 +67,10 @@ public class GameField {
 
     }
 
+    /**
+     * sorts the Elements in the order they should be displayed
+     * @author Mark Ringer
+     */
     private void sortElements(){
         Collections.sort(elements, (o1, o2) -> {
             if(o1.visualOrder >o2.visualOrder)
@@ -61,9 +83,11 @@ public class GameField {
     }
 
     /**
-     * @auther Ringer
+     * returns the next Game-field in the Direction direction
+     *
      * @param direction
      * @return
+     * @auther Ringer
      */
     public GameField getNeighbor(Direction direction){
          switch (direction){
@@ -101,6 +125,9 @@ public class GameField {
     }
 
     /**
+     * returns an element with the matching ElementName
+     * if it is contained in the GameField
+     *
      * @author Ringer
      */
     public GameElement getElement(ElementName elementName){
@@ -117,6 +144,7 @@ public class GameField {
 
 
     /**
+     * checks if GameField contains an element with the matching ElementName
      * @author Ringer
      */
     public boolean contains(ElementName elementName){
@@ -126,7 +154,7 @@ public class GameField {
         return false;
     }
 
-    /**
+    /**checks if a wall is placed with the matching direction
      * @author Ringer
      */
     public boolean checkWall(Direction direction){
@@ -142,7 +170,7 @@ public class GameField {
         }
         return false;
     }
-    /**
+    /**adds an element to the GameField
      * @author Ringer
      */
 
@@ -159,6 +187,13 @@ public class GameField {
         return position;
     }
 
+    /**
+     * eauals method
+     *
+     * @param o
+     * @return
+     * @author Mark Ringer
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -190,6 +225,7 @@ public class GameField {
     }
 
     /**
+     * adds a Robot to the Game-field, returns false if there is already a Robot
      * @author Ringer
      */
     public boolean addRobot(Robot robot) {

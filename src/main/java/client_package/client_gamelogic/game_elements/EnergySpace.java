@@ -41,8 +41,10 @@ public class EnergySpace extends GameElement {
     }
 
     /**
-     * @author Ringer
      * transforms the object to a jsonObject
+     *
+     * @author Ringer
+     *
      * @return
      */
     public JsonObject toJson(){
@@ -52,11 +54,4 @@ public class EnergySpace extends GameElement {
         jsonObject.add("count",new JsonPrimitive(count));
         return jsonObject;
     }
-
-
-    /**@author Ringer
-     * @param o the object to be compared.
-     * @return
-     */
-
 }

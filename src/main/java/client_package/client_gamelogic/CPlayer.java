@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * represents the Player Client-Side
  * @author Mark Ringer
  */
 public class CPlayer {
@@ -29,6 +30,12 @@ public class CPlayer {
     private int availableCardsOther;
 
 
+    /**
+     * Constructor
+     * @param client
+     * @param self
+     * @author Mark Ringer, Sarp Cagin Erdogan
+     */
     public CPlayer(Client client, boolean self){
         this.self=self;
         this.client=client;
@@ -67,11 +74,21 @@ public class CPlayer {
             availableCardsOwn.set(i, input[i]);
         }
     }
+
+    /**
+     * Resets registerCards
+     * @author Sarp Cagain Erdogan
+     */
     public void resetRegisterOwn(){
         for(int i=0; i<5; i++){
             registerCardsOwn.set(i, null);
         }
     }
+
+    /**
+     * resets Handcards
+     * @author Sarp Cagain Erdogan
+     */
     public void resetAvailableOwn(){
         for(int i=0; i<9; i++){
             availableCardsOwn.set(i, null);
@@ -85,6 +102,11 @@ public class CPlayer {
     public void resetAvailableOther(){
         availableCardsOther=0;
     }
+
+    /**
+     * cleaning Methode
+     * @author Sarp Cagain Erdogan
+     */
     public void phaseReset(){
         resetRegisterOwn();
         resetAvailableOwn();

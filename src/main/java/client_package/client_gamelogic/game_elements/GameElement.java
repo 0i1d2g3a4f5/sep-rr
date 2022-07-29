@@ -59,12 +59,12 @@ public abstract class GameElement {
     }
 
     /**
+     * compares GameElements
+     *
      * @author Ringer
-     * transforms the object to a jsonObject
+     *
      * @return
      */
-
-
 
     @Override
     public boolean equals(Object o) {

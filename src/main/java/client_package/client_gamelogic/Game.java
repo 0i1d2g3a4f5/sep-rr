@@ -8,6 +8,14 @@ import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This class represents the Game-State clientside.
+ * its contains  methods that mirror the gamelogic
+ * and serves as connection between
+ * the different parts of the Game.Game class
+ * it serves only for visual Representation.
+ */
+
 public class Game {
 
     public int getPhase() {
@@ -39,6 +47,12 @@ public class Game {
     private Game() {
     }
 
+    /**
+     * returns the only instance of Game
+     * @return
+     * @throws IOException
+     * @author Mark Ringer
+     */
     public static Game getInstance() throws IOException {
         if(instance != null) return  instance;
         else {

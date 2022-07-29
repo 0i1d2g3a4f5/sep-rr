@@ -5,6 +5,12 @@ import gamelogic.Direction;
 public class LaserBeam extends GameElement {
     int numberBeams;
     Direction direction;
+
+    /**
+     * Constructor
+     * @param direction
+     * @param numberBeams
+     */
     public LaserBeam(Direction direction, int numberBeams){
 
         super(ElementName.LASERBEAM);
