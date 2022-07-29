@@ -14,9 +14,6 @@ If you're a first-timer, please find the rules attached.
 5. Enjoy!
 
 
-#addition: desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar is a newer Version but not as much tested as desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar. Pls use older the older Version only
-if you run into severe Problems with the newer Version
-
 ## Authors and Acknowledgement
 This project was created by Vivian Kafadar, Sarp Erdogan, Mark Ringer, Isabel Muhm and Qinyi Hui for the Software Engineering Practical Course at LMU Munich, rooted in the BSc Computer Science degree programme. Supervised by Nicolas Brauner in the Summer Semester 2022.
 

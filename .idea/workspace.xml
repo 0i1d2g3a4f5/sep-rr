@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="javadoc clientside-game logic">
-      <change afterPath="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="created newer server Jar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abgabe/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/abgabe/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -369,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659082938540</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="created newer server Jar">
+      <created>1659085972747</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1659085972747</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
     <MESSAGE value="ALLAH IS BACK AT WORK" />
     <MESSAGE value="day 1 : a small beginning to prevent bugs" />
@@ -429,6 +434,7 @@
     <MESSAGE value="Changes by vivian (commenting everything)" />
     <MESSAGE value="commented/javadocs and clean code with vivian" />
     <MESSAGE value="javadoc clientside-game logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc clientside-game logic" />
+    <MESSAGE value="created newer server Jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="created newer server Jar" />
   </component>
 </project>
