@@ -29,6 +29,16 @@ import java.util.ArrayList;
  */
 
 public class JavaFXGridHandler {
+
+    /**
+     * allocates cases from enums to handling classes
+     *
+     * @param desmondBind
+     * @param x
+     * @param y
+     * @param pute
+     * @param qwerty
+     */
     public void applesAndBananas(GridPane desmondBind, int x, int y, GameBoard pute, int qwerty){
         GameField hurricaneCatcher = pute.getGameField(y, x);
         StackPane orangutanKebab= (StackPane) desmondBind.getChildren().get(y*desmondBind.getColumnCount() + x);
@@ -99,25 +109,12 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Mark Ringer, Sarp Cagin Erdogan
-     * @param imageView
-     * @param direction
+     *
+     *
+     * @param cardList
+     * @param type
+     * @return
      */
-    void rotateAnimated(ImageView imageView,int direction){
-        for (int i = 0; i < 90; i++) {
-            imageView.setRotate(imageView.getRotate()+direction);
-            try {
-                wait(10);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public void updateAll(){
-
-    }
-
     public GridPane gridPaneFromCards(ArrayList<Card> cardList, int type){
         try {
             return gridPaneFromCardList(cardList, type);
@@ -126,16 +123,13 @@ public class JavaFXGridHandler {
         }
     }
 
-    /*
-    public ListView<String> listViewFromCards(ArrayList<Card> cardList) {
-        try {
-            return constructCardsList(cardList);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    */
-
+    /**
+     *
+     *
+     * @param gameBoard
+     * @param ownFigure
+     * @return
+     */
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard, int ownFigure){
         GridPane temp = null;
         try {
@@ -147,6 +141,14 @@ public class JavaFXGridHandler {
         temp.setScaleY(0.2);
         return temp;
     }
+
+    /**
+     * sets proper picture of robot depending on its figure number
+     *
+     * @param figure
+     * @return
+     * @author Isabel Muhm, Sarp
+     */
     public ImageView robotPic(int figure){
         switch (figure){
             case 1 -> {
@@ -173,6 +175,13 @@ public class JavaFXGridHandler {
         return null;
     }
 
+    /**
+     * sizes imageview with different destinations in gamescene and adds it to given stackpane
+     *
+     * @param stackPane
+     * @param imageView
+     * @param type
+     */
     private void addToPane(StackPane stackPane,ImageView imageView, int type){
 
         switch (type){
@@ -203,7 +212,7 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * creates gridpane with cards (card set/not set) by reading a booolean Array (true for card set, false for card not set)
+     * creates gridpane of others clients registers with cards (card set/not set) by reading a booolean Array (true for card set, false for card not set)
      *
      * @param boolList
      * @param name
@@ -295,10 +304,11 @@ public class JavaFXGridHandler {
     } */
 
     /**
-     * @author Mark Ringer, Sarp Cagin Erdogan
      * constructs the Map as JavaFX content
+     *
      * @return
      * @throws IOException
+     * @author Mark Ringer, Sarp Cagin Erdogan
      */
 
     private GridPane updateGameBoard(GameBoard gameBoard, int ownFigure) throws IOException {
@@ -389,6 +399,11 @@ public class JavaFXGridHandler {
         return input;
     }
 
+    /**
+     * handles EnergyCube case in game constructing by adding the right image to stackPane
+     *
+     * @param stackPane
+     */
     private void caseEnergyCube(StackPane stackPane) {
         ImageView imageView11 = new ImageView(new Image("/EnergyCube.png"));
         stackPane.getChildren().add(imageView11);
@@ -396,20 +411,15 @@ public class JavaFXGridHandler {
         return;
     }
 
-    /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
-     * @param gameBoard
-     * @return
-     */
-
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * handles RestartPoint case in game constructing by adding the right image to stackPane
+     *
+     * @author Sarp Cagin Erdogan
      * @param stackPane
      */
     private static void caseRestartPoint(StackPane stackPane) {
         ImageView imageView10 = Images.REBOOT_ELEMENT.toImageView();
-        //new ImageView(new Image("/Reboot.png"));
         stackPane.getChildren().add(imageView10);
         stackPane.setAlignment(imageView10, Pos.CENTER);
         return;
@@ -447,7 +457,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer, Isabel
+     * handles  case in game constructing by adding the right image to stackPane
+     *
+     * @author Sarp Cagin Erdogan, Isabel
      * @param stackPane
      * @param gameElement
      */
@@ -495,9 +507,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * handles
+     * handles Wall case in game constructing by adding the right image to stackPane
      *
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * @author Sarp Cagin Erdogan
      * @param stackPane
      * @param gameElement
      */
@@ -531,7 +543,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * handles StartPoint case in game constructing by adding the right image to stackPane
+     *
+     * @author Sarp Cagin Erdogan
      * @param stackPane
      */
     private void caseStartPoint(StackPane stackPane) {
@@ -542,7 +556,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * handles Pit case in game constructing by adding the right image to stackPane
+     *
+     * @author Sarp Cagin Erdogan, Qinyi
      * @param stackPane
      */
     private void casePit(StackPane stackPane) {
@@ -553,7 +569,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * handles PushPanel case in game constructing by adding the right image to stackPane
+     *
+     * @author Sarp Cagin Erdogan, Isabel Muhm, Mark Ringer
      * @param stackPane
      * @param gameElement
      */
@@ -615,6 +633,8 @@ public class JavaFXGridHandler {
         }
 
     /**
+     * handles gear case in game constructing by adding the right image to stackPane
+     *
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      * @param gameElement
@@ -637,6 +657,8 @@ public class JavaFXGridHandler {
     }
 
     /**
+     * handles EnergySpace case in game constructing by adding the right image to stackPane
+     *
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      */
@@ -650,6 +672,8 @@ public class JavaFXGridHandler {
     }
 
     /**
+     * handles conveyorbelt case in game constructing by adding the right image to stackPane
+     *
      * @author Isabel Muhm
      * @param stackPane
      * @param gameElement
@@ -995,7 +1019,9 @@ public class JavaFXGridHandler {
     }
 
     /**
-     * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
+     * handles checkpoint case in game constructing by adding the right image to stackPane
+     * 
+     * @author Sarp Cagin Erdogan, Isabel Muhm
      * @param stackPane
      * @param gameElement
      */
@@ -1032,6 +1058,8 @@ public class JavaFXGridHandler {
     }
 
     /**
+     * handles laser case in game constructing by adding the right image to stackPane
+     * 
      * @author Sarp Cagin Erdogan, Qinyi, Mark Ringer
      * @param stackPane
      * @param gameElement
@@ -1062,6 +1090,13 @@ public class JavaFXGridHandler {
         return;
     }
 
+    /**
+     * handles LaserBeam case in game constructing by adding the right image to stackPane
+     *
+     * @param stackPane
+     * @param gameElement
+     * @author Qinyi Hui
+     */
     private void caseLaserBeam(StackPane stackPane, GameElement gameElement) {
         switch (gameElement.orientations.get(0)){
             case LEFT,RIGHT -> {
