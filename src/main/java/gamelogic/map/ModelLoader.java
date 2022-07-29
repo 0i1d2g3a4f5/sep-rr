@@ -15,6 +15,8 @@ public class ModelLoader {
     String jsonString;
     JsonObject mapJson;
     /**
+     * loads a GameBoard from a Json File
+     *
      * @author Ringer
      * @param mapName
      * @return
@@ -45,7 +47,12 @@ public class ModelLoader {
         return board;
     }
 
-    public String readFile(String fileName){
+    /**
+     * can read a json File
+     * @param fileName
+     * @return
+     */
+    private String readFile(String fileName){
         String filePath;
 
         switch (fileName){
@@ -71,9 +78,7 @@ public class ModelLoader {
         return new JsonReader().readFile(filePath);
     }
 
-    public static void main(String[] args) throws IOException {
 
-    }
 
 
 

@@ -59,7 +59,7 @@ public class EnergySpace extends GameElement implements Activatable {
         return jsonObject;
     }
 
-    /**
+    /**activates element
      * @author Ringer
      */
     @Override
@@ -75,6 +75,11 @@ public class EnergySpace extends GameElement implements Activatable {
         return activationOrder;
     }
 
+    /**
+     *
+     * @param o the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(Activatable o) {
         if(getActivationOrder()>o.getActivationOrder()) return -1;

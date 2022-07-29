@@ -23,6 +23,13 @@ public enum ElementName {
         return name;
     }
 
+    /**
+     * parses String to ElementName
+     * @param nameString
+     * @return
+     * @throws IOException
+     * @author Mark Ringer
+     */
     public static ElementName parseElementName(String nameString) throws IOException {
         for (ElementName elementName:ElementName.values()) {
             if(elementName.toString().equalsIgnoreCase(nameString)) return elementName;

@@ -80,7 +80,10 @@ public class Player{
         this.robot = robot;
     }
 
-
+    /**
+     * uthor Mark Ringer
+     * @return
+     */
     private Stack<Card> buildDeck(){
         Stack<Card> deck = new Stack<>();
         for (int i = 0; i < 2; i++) {
@@ -168,6 +171,11 @@ public class Player{
         return false;
     }
 
+    /**
+     * player draws spam cards
+     * @param count
+     * @authorm Mark Ringer
+     */
     public void drawSpam(int count){
         for (int i = 0; i < count; i++) {
             Card card = game.getSpamDrawPile().pop();
@@ -177,6 +185,12 @@ public class Player{
         }
 
     }
+
+    /**
+     * player draws Virus
+     * @param count
+     * @author Mark Ringer
+     */
     public void drawVirus(int count){
         for (int i = 0; i < count; i++) {
             discardPile.add(game.getVirusDrawPile().pop());
@@ -184,7 +198,11 @@ public class Player{
     }
 
 
-
+    /**
+     * removes a card from register
+     * @param position
+     * @return
+     */
     public boolean removeCard(int position){
         Card card = register[position];
         if(card != null){
@@ -218,13 +236,20 @@ public class Player{
 
     }
 
+    /**
+     * returns register at position
+     * @param position
+     * @return
+     * @author Mark Ringer
+     */
     public Card getRegister(int position){
         return register[position];
     }
 
     /**
-     * @author Ringer
      * moves all cards from registry to discardPile
+     * @author Ringer
+     *
      */
     public void clearAllRegister(){
         Server.serverLogger.debug("Before ClearAllRegisters: \n" +
@@ -307,7 +332,7 @@ public class Player{
     }
 
 
-    /**
+    /**places robot at position
      * @author Ringer
      */
     public boolean placeRobot(Position position) {
@@ -319,7 +344,7 @@ public class Player{
         return false;
     }
 
-    /**
+    /**player draws a full hand
      * @author Ringer
      */
     public void drawCards() {
@@ -351,6 +376,8 @@ public class Player{
                 "   DiscardPile: "+ discardPile);
     }
     /**
+     * player draws a single card
+     *
      * @author Ringer
      */
     public Card drawCard(){

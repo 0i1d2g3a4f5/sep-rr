@@ -28,6 +28,8 @@ public class MapCreator {
                 board.addElement(y,x,new Empty());
             }
         }
+
+        //board.addField(0,0,new ConveyorBelt(GREEN,EAST));
         board.addElement(0,2,new ConveyorBelt(GREEN, RIGHT));
         board.addElement(0,4,new ConveyorBelt(BLUE, BOTTOM));
         board.addElement(0,6,new ConveyorBelt(BLUE, BOTTOM));

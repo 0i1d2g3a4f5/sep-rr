@@ -16,7 +16,10 @@ public class MoveTwo extends ProgrammingCard {
     public void discard() {
 
     }
-
+    /**
+     * activates the CardEffect
+     * @author Ringer
+     */
     @Override
     public void activateCard() {
         // Move your robot two spaces in the direction it is facing.

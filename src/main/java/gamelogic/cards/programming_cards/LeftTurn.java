@@ -16,7 +16,10 @@ public class LeftTurn extends ProgrammingCard{
     public void discard() {
 
     }
-
+    /**
+     * activates the CardEffect
+     * @author Ringer
+     */
     @Override
     public void activateCard() {
         Server.serverLogger.info("LeftTurn");

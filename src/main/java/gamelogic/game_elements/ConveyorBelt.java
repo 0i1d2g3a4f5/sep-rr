@@ -24,6 +24,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
     int speed;
 
     /**
+     * Constructor
+     *
      * @author Ringer
      */
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
@@ -42,6 +44,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
         else throw new IOException("Color not found");
     }
     /**
+     * Constructor
+     *
      * @author Ringer
      */
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
@@ -55,6 +59,8 @@ public class ConveyorBelt extends GameElement implements Activatable {
     }
 
     /**
+     * Constructor
+     *
      * @author Ringer
      */
     public ConveyorBelt(Color color,Direction targetDirection) throws IOException {
@@ -68,8 +74,11 @@ public class ConveyorBelt extends GameElement implements Activatable {
     }
 
     /**
-     * @author Ringer
+     * Constructor
      * builds an Object from a JsonObject
+     *
+     * @author Ringer
+     *
      * @param jsonObject
      * @return
      * @throws IOException

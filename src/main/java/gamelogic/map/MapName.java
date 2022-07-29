@@ -1,5 +1,8 @@
 package gamelogic.map;
 
+/**
+ * enum with Map Names
+ */
 public enum MapName {
     DIZZY_HIGHWAY("dizzy_highway"),
     DEATH_TRAP("death_trap"),
