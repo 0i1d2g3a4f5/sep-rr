@@ -12,10 +12,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 public class BasicServer extends Server {
-
 
     public BasicServer(ServerApplication serverApplication, int nonAI, int aI){
         super(serverApplication);
@@ -27,12 +26,17 @@ public class BasicServer extends Server {
         setStartingNonAIAmount(nonAI);
         setStartingAIAmount(aI);
     }
+
     Runnable shutDownActions = new Runnable() {
         @Override
         public void run() {
             shutDownServer();
         }
     };
+
+    /**
+     * Setting of current clients when the game hasn't started yet
+     */
     Runnable waitForClients = new Runnable() {
         @Override
         public void run() {
@@ -58,17 +62,16 @@ public class BasicServer extends Server {
             }
         }
     };
+
     void shutDownServer(){
         isTerminated=true;
         while(getClientList().size()>0){
             sClientList.get(0).disconnect();
             sClientList.remove(0);
             serverApplication.serverSelectionControllerVM.updateServerList();
-
         }
-
-
     }
+
     @Override
     public void startServerSocket(){
         try {
@@ -83,8 +86,11 @@ public class BasicServer extends Server {
         Thread thread = new Thread(waitForClients);
         thread.setDaemon(true);
         thread.start();
-
     }
+
+    /**
+     * Check if a client has selected whether they are ready or not
+     */
     @Override
     public void checkReady(){
         Runnable runnable = new Runnable() {
@@ -102,20 +108,6 @@ public class BasicServer extends Server {
                 if(aiCount>=startingAIAmount && nonAiCount>=startingNonAIAmount){
                     mapSelect();
                 }
-                /*boolean allAI = true;
-                for(SClient client : getClientList()){
-                    if(!client.getIsAI()){
-                        allAI=false;
-                    }
-                }
-                if(!allAI){
-                    if(getReadyList().size()==getClientList().size() && getReadyList().size()>= startingNonAIAmount){
-                        mapSelect();
-                    }
-                }
-                else if(getClientList().size()> getStartingNonAIAmount()){
-                    //TRIGGER START
-                }*/
             }
         };
         Thread thread = new Thread(runnable);

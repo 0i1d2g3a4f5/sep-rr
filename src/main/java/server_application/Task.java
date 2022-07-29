@@ -10,12 +10,10 @@ public class Task {
     TaskContent taskContent;
 
     public Task(TaskType taskType, TaskContent taskContent){
-        this.taskType=taskType;
-        this.taskContent=taskContent;
+        this.taskType = taskType;
+        this.taskContent = taskContent;
         Server.serverLogger.info("Task type and content set");
     }
 
-    public Task() {
-
-    }
+    public Task() {}
 }

@@ -19,21 +19,27 @@ import java.util.Properties;
 
 /**
  * @author Sarp Cagin Erdogan
+ * includes
+ *      launcher methods for all the server-side windows
+ *      activation methods for all user inputs (e.g. starting point, register cards, etc.)
  */
 public class ServerApplication extends Application{
 
     public static void main(String[] args){
         launch(args);
     }
-
     private BasicServer basicServer;
     private boolean isBasic;
     private List<Task> taskList;
     private TaskHandler taskHandler;
-
     public ServerSelectionController serverSelectionController;
     public ServerSelectionControllerVM serverSelectionControllerVM;
 
+    /**
+     * server launch
+     * @param stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -43,6 +49,10 @@ public class ServerApplication extends Application{
         launchBeginning();
     }
 
+    /**
+     * add task to taskHandler queue by adding to taskList, execute task and consequently remove from taskList
+     * @param task
+     */
     public void addAndExecuteTask(Task task){
         this.taskList.add(task);
         Platform.runLater(new Runnable() {
@@ -51,7 +61,6 @@ public class ServerApplication extends Application{
                 while (0 < taskList.size()) {
                     taskHandler.handleTask(taskList.get(0));
                     taskList.remove(0);
-                    //TODO (Vivian): ask Mark if this is correct usage
                     Server.serverLogger.info("Task executed");
                 }
             }
@@ -75,17 +84,6 @@ public class ServerApplication extends Application{
         }
 
     }
-    /* GETTER SETTER
-    *
-    *
-    *
-    *
-    *
-    *
-    *
-     */
-
-
 
     public boolean isBasic() {
         return isBasic;

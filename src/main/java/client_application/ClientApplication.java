@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Sarp Cagin Erdogan, Mark Ringer
  * includes
- *      launcher methods for all the client-based windows
+ *      launcher methods for all the client-side windows
  *      activation methods for all user inputs (e.g. starting point, register cards, etc.)
  */
 public class ClientApplication extends Application {

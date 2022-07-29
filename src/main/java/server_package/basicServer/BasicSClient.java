@@ -21,89 +21,27 @@ import static utility.GlobalParameters.PROTOCOL_VERSION;
  */
 public class BasicSClient extends SClient {
 
+    /**
+     * @param server
+     * @param id
+     * @param socket
+     */
     public BasicSClient(BasicServer server, int id, Socket socket){
         super(server, id, socket, true);
         setNamed(false);
         setListening(false);
         setReady(false);
     }
-    /*Runnable listener = new Runnable() {
-        @Override
-        public void run() {
-            int counter = 0;
-            while(getIsListening() && !getServer().getIsTerminated()  ){
-                try {
-                    TimeUnit.MILLISECONDS.sleep(10);
-                    counter++;
-                    if(counter>=500){
-                        sendSelf(new MessageAlive());
-                        counter=0;
-                    }
-                    String inputString = "";
-                    boolean isEnded = false;
-                    int i=0;
-                    BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
-                    DataInputStream dataInputStream= new DataInputStream(bufferedInputStream);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(dataInputStream));
 
-                    int readChars =dataInputStream.available();
-
-                    while(!isEnded && readChars>0){
-                        String input = reader.readLine();
-                        if(input.equals("\n" )|| input.equals("")){
-                            isEnded = true;
-                        }
-
-                        else
-                            inputString += input;
-                        readChars--;
-                    }
-
-                    if(inputString !="")
-                    *//*
-                    while (!isEnded && dataInputStream.available() > 0) {
-                        char a = (char)dataInputStream.readInt();
-                        if((int) a == 10){
-                            isEnded=true;
-                        }
-                        inputString+=String.valueOf(a);
-                    }
-
-                     *//*
-                    if(!inputString.equals("")){
-
-                            String[] strings = inputString.split("\n");
-                            for (String string :strings
-                            ) {
-                                Server.serverLogger.info("Listener received" + inputString);
-                                JsonObject jsonObject =  new Gson().fromJson(string, JsonObject.class);
-                                process(jsonObject, true);
-                            }
-
-                        isEnded=false;
-
-                    }
-                }
-                catch (InterruptedException | IOException e) {
-                    throw new RuntimeException(e);
-                } catch (ClientNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        }
-    };
-    @Override
-    public void listen(){
-        setListening(true);
-        Thread thread = new Thread(listener);
-        thread.setDaemon(true);
-        thread.start();
-    }*/
+    /**
+     * Listener checks if there are messages in the input stream,
+     *      if this is the case, they get added to our received messages
+     */
     @Override
     public void listen() {
         setListening(true);
         Thread listenerThread = new Thread(new Runnable(){
+            // When the listener is listening we check the input stream every 10 milliseconds for content
             @Override
             public void run() {
                 BufferedReader bufferedReader;
@@ -120,15 +58,15 @@ public class BasicSClient extends SClient {
                     }
                     try {
                         while(bufferedReader.ready()) {
+                            // If there is content in the input stream we add this content to our received messages
                             String received = bufferedReader.readLine();
                             receivedMessages.add(received);
-                            Server.serverLogger.info("Recevied message: " + received);
+                            Server.serverLogger.info("Received message: " + received);
                         }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                     handleReceivedMessages();
-
 
                 }
             }
@@ -136,13 +74,12 @@ public class BasicSClient extends SClient {
         listenerThread.start();
 
     }
+
+    /**
+     * If the amount of received messages is greater zero we want to remove the jsonObject in the 0th position
+     */
     public void handleReceivedMessages(){
         while (receivedMessages.size()>0){
-            /*String text ="\nCurrent messages:\n";
-            for(int i=0; i<receivedMessages.size(); i++){
-                text+=(i + " : " + receivedMessages.get(i) + "\n");
-            }
-            getLogger().info(text);*/
             String string = receivedMessages.get(0);
             JsonObject jsonObject = new Gson().fromJson(string, JsonObject.class);
             try {
@@ -155,10 +92,15 @@ public class BasicSClient extends SClient {
             receivedMessages.remove(0);
         }
     }
+
     @Override
     public void sendProtocolCheck(){
         sendSelf(new MessageHelloClient(PROTOCOL_VERSION));
     }
+
+    /**
+     * Disconnect player and in return also disable listener for said player
+     */
     @Override
     public void disconnect(){
         if(getIsListening()) {
@@ -170,8 +112,10 @@ public class BasicSClient extends SClient {
             }
         }
         getServer().getClientList().remove(this);
-        for(int i=0; i<Game.getInstance().getPlayerList().size(); i++){
-            if(Game.getInstance().getPlayerList().get(i).getClient().getId()==this.getId()){
+        // Check if there are any players on the player list
+        for(int i = 0; i < Game.getInstance().getPlayerList().size(); i++){
+            // Remove player off player list
+            if(Game.getInstance().getPlayerList().get(i).getClient().getId() == this.getId()){
                 Game.getInstance().getPlayerList().remove(i);
                 break;
             }
@@ -179,11 +123,13 @@ public class BasicSClient extends SClient {
         server.getServerApplication().serverSelectionControllerVM.updateServerList();
         getServer().setCurrentClients(getServer().getCurrentClients()-1);
     }
+
     @Override
     public void removeClientFromList(){
         getServer().setCurrentClients(getServer().getCurrentClients()-1);
         getServer().getClientList().remove(this);
     }
+
     @Override
     public void shutDownClient(){
         disconnect();
@@ -195,6 +141,11 @@ public class BasicSClient extends SClient {
         super.process(jsonObject);
     }
 
+    /**
+     * Setting of clients in game and selected figure in boolean values
+     * @param name
+     * @param figure
+     */
     @Override
     public void checkValues(String name, int figure){
         boolean available = true;
@@ -218,6 +169,7 @@ public class BasicSClient extends SClient {
             Server.serverLogger.error("Chosen figure already taken");
         }
     }
+
     @Override
     public void sendPreviousInfo(){
         for(SClient sClient : getServer().getClientList()){
