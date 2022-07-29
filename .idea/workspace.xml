@@ -4,98 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="comments in ClientApplication class from vivian">
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameFinishedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameFinishedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientLobbyBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientLobbyBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientMapBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientMapBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientStartBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientStartBasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskBoolean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardUnknown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardUnknown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/DeckSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/DeckSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/PlayableInRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/PlayableInRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/DamageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/DamageCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/TrojanHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/TrojanHorse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Virus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Worm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/BackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/BackUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/LeftTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/LeftTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveThree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveThree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveTwo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/PowerUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/ProgrammingCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/ProgrammingCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/RightTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/RightTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/UTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/UTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/EnergyRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/EnergyRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/RepeatRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/RepeatRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SandboxRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SandboxRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpecialCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpecialCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpeedRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpeedRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/upgrade_cards/UpgradeCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/upgrade_cards/UpgradeCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/DeckSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/DeckSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/PlayableInRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/PlayableInRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/ProgrammingCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/ProgrammingCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/SandboxRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/SandboxRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/WeaselRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/WeaselRoutine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardPlayed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerValues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageRebootDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageRebootDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedDamage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectionFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectionFinished.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSendChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSendChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/HashFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/HashFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="commented/javadocs and clean code with vivian">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abgabe/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/abgabe/README.md" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
-    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian">
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" afterDir="false" />
-    </list>
+    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian (commenting everything)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -429,7 +344,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659052117076</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Changes by vivian (commenting everything)">
+      <created>1659064574421</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659064574421</updated>
+    </task>
+    <task id="LOCAL-00027" summary="commented/javadocs and clean code with vivian">
+      <created>1659064650312</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659064650312</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,8 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i have das Projekt gefickst" />
-    <MESSAGE value="Game is buggy but playable" />
     <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
@@ -489,6 +416,8 @@
     <MESSAGE value="pom" />
     <MESSAGE value="added Jars" />
     <MESSAGE value="changed directory to abgabe" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed directory to abgabe" />
+    <MESSAGE value="Changes by vivian (commenting everything)" />
+    <MESSAGE value="commented/javadocs and clean code with vivian" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented/javadocs and clean code with vivian" />
   </component>
 </project>
