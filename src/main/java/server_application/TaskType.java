@@ -1,7 +1,7 @@
 package server_application;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 public enum TaskType {
     ERROR;
