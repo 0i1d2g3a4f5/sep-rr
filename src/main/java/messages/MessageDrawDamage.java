@@ -61,7 +61,6 @@ public class MessageDrawDamage extends Message {
      * @throws IOException
      */
     public void MessageDrawDamage(JsonObject jsonObject) throws IOException {
-        //TODO check if correct - please fix
         JsonArray jsonArray = jsonObject.get("damageCards").getAsJsonArray();
         ArrayList<Card> damageCards = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
@@ -69,8 +68,6 @@ public class MessageDrawDamage extends Message {
             damageCards.add(cardFactory.createCard(CardName.valueOf(jsonArray.get(i).getAsString())));
         }
         this.damageCards = damageCards;
-
-        //Server.serverLogger.info("Created DrawDamage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

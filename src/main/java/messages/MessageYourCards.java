@@ -20,7 +20,10 @@ public class MessageYourCards extends Message{
     public CardName cardsInHand[];
 
     /**
+     * converts message to json
+     *
      * @param cardsInHand
+     * @author Isabel Muhm
      */
     public MessageYourCards(CardName[] cardsInHand) {
         this.cardsInHand = cardsInHand;
@@ -33,11 +36,13 @@ public class MessageYourCards extends Message{
 
         jsonObject.add("cardsInHand",jsonArray);
         content = jsonObject;
-        //Server.serverLogger.info("Created Your Cards Message: " + this);
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel
      */
     public MessageYourCards(JsonObject jsonObject){
         super(jsonObject);
@@ -46,8 +51,6 @@ public class MessageYourCards extends Message{
         for (int i = 0; i < cardsJArray.size(); i++) {
             cardsInHand[i] =CardName.parseCardName(cardsJArray.get(i).getAsString());
         }
-
-        //Server.serverLogger.info("Created Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -61,50 +64,31 @@ public class MessageYourCards extends Message{
     }
 
     /**
+     * informs client about their new available programming cards
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-            /*System.out.println("GOT YOURCARDS. CARDS ARE: ");*/
             for(int i=0; i<cardsInHand.length; i++){
                 client.getPlayer().getAvailableCardsOwn().set(i, new CardFactory().createCard(client_package.client_gamelogic.cards.CardName.parseCardName(cardsInHand[i].toString())));
             }
-            /*for(int i=0; i<client.getPlayer().getAvailableCardsOwn().size(); i++){
-                System.out.println("Card " + i + " is " + client.getPlayer().getAvailableCardsOwn().get(i).getCardName().toString());
-            }*/
             client.getClientApplication().activateAvailableProgrammingSelection(true);
             client.getClientApplication().activateRegisterSelection(true);
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
             client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEOTHERSREGISTERS, new TaskContent()));
-            /*
-            Thread thread = new Thread(){
-            @Override
-            public void run() {
-                client.getClientApplication().activateCardSelection(true);
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_HANDCARDS, new TaskContent()));
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
-            }
-        };
-        thread.setDaemon(true);
-        thread.start();
-             */
+       }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+    /**
+     * informs AI about their new available programming cards
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         for(int i=0; i<cardsInHand.length; i++){

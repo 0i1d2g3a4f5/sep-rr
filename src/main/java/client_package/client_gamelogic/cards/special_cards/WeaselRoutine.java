@@ -6,15 +6,7 @@ public class WeaselRoutine extends SpecialCard {
 
     public WeaselRoutine(){super(WEASEL_ROUTINE);}
 
-    public void discard(){
+    public void discard(){}
 
-    }
-
-    /** Choose one of the following actions to perform this register:
-     * Turn Left,
-     * Turn Right,
-     * U-Turn
-     */
-    public void activateCard(){
-    }
+    public void activateCard(){}
 }

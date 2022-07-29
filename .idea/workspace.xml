@@ -4,26 +4,166 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="comments in ClientApplication class from vivian">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="comments on rest of GridHandler class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/CardName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Spam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/Again.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/RightTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/RightTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/UTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/upgrade_cards/temporary/SpamBlocker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/upgrade_cards/temporary/SpamBlocker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ElementName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/ElementName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/MapCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/MapCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/map/ModelLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardSelected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardsYouGotNow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointMoved.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointReached.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCheckPointReached.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageConnectionUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCurrentPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageEnergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageEnergy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageFigureUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageFigureUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameFinished.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageGameStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHashedCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHashedCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHelloClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageHelloServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageHelloServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerTurning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageShuffleCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageShuffleCoding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageStartingPointTaken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTimerEnded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTimerEnded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTimerStarted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTimerStarted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageTypeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageValuesAccepted.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageValuesAccepted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageWelcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageWrongName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageWrongName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageWrongPass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageWrongPass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageYourCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sarpLovesJavaFX/JavaFXGridHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
-    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian">
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionControllerVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerSelectionControllerVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskContent.java" afterDir="false" />
+    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian (create javadocs for server application and server package)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientGameFinishedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientGameFinishedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientLobbyBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientLobbyBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientMapBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientMapBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientNameBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientStartBasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientStartBasicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/TaskBoolean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/TaskBoolean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/basicClient/BasicClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardUnknown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardUnknown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/DeckSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/DeckSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/PlayableInRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/PlayableInRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/DamageCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/DamageCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/TrojanHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/TrojanHorse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Worm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/BackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/BackUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/LeftTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/LeftTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveThree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveThree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/ProgrammingCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/ProgrammingCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/RightTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/RightTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/UTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/UTurn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/EnergyRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/EnergyRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/RepeatRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/RepeatRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SandboxRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SandboxRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpecialCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpecialCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpeedRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpeedRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/upgrade_cards/UpgradeCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/upgrade_cards/UpgradeCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/DeckSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/DeckSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/PlayableInRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/PlayableInRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/TrojanHorse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Virus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/damage_card/Worm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/ProgrammingCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/programming_cards/ProgrammingCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/SandboxRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/SandboxRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/WeaselRoutine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/cards/special_cards/WeaselRoutine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageCardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageCardPlayed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageNotYourCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessagePlayerValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReboot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageRebootDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageRebootDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReceivedChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReconnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageReplaceCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectedDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSelectionFinished.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSelectionFinished.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSendChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSendChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStartingPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/messages/MessageSetStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskString1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskString1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskString2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskString2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/TaskType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/basicServer/BasicServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/HashFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/HashFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/Images.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +187,251 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/messages/MessagePickDamage.java">
+      <ranges>
+        <range start1="30" end1="31" start2="30" end2="30" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="44" end1="45" start2="43" end2="43" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="55" end1="56" start2="53" end2="53" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="60" end1="61" start2="57" end2="57" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="63" end1="65" start2="59" end2="59" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/server_package/Server.java">
+      <ranges>
+        <range start1="15" end1="16" start2="15" end2="16" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="22" end1="32" start2="22" end2="22" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="41" end1="42" start2="31" end2="31" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="56" end1="58" start2="45" end2="45" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="68" end1="68" start2="55" end2="56" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="71" end1="82" start2="59" end2="59" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="91" end1="92" start2="68" end2="68" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java">
+      <ranges>
+        <range start1="114" end1="114" start2="114" end2="119" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="229" end1="230" start2="234" end2="234" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="15" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="14" end1="15" start2="17" end2="17" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="19" end1="20" start2="21" end2="22" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="27" end1="28" start2="29" end2="29" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="33" end1="34" start2="34" end2="34" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="38" end1="39" start2="38" end2="38" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="41" end1="41" start2="40" end2="45" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="43" end1="44" start2="47" end2="47" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="45" end1="46" start2="48" end2="48" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="47" end1="48" start2="49" end2="49" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="50" end1="54" start2="51" end2="52" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/damage_card/Spam.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="7" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="10" end1="13" start2="13" end2="13" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="19" end1="20" start2="19" end2="19" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/WeaselRoutine.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="9" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="8" end1="9" start2="13" end2="14" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="10" end1="19" start2="15" end2="16" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/utility/Images.java">
+      <ranges>
+        <range start1="10" end1="11" start2="10" end2="11" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="13" end1="19" start2="13" end2="13" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="154" end1="154" start2="148" end2="149" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="160" end1="161" start2="155" end2="157" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="163" end1="166" start2="159" end2="159" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="167" end1="167" start2="160" end2="165" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="178" end1="179" start2="176" end2="176" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="181" end1="181" start2="178" end2="179" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="184" end1="184" start2="182" end2="183" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="190" end1="190" start2="189" end2="197" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="197" end1="197" start2="204" end2="211" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="199" end1="200" start2="213" end2="213" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="205" end1="205" start2="218" end2="225" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="207" end1="208" start2="227" end2="227" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="210" end1="211" start2="229" end2="229" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="226" end1="230" start2="244" end2="244" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/Again.java">
+      <ranges>
+        <range start1="4" end1="10" start2="4" end2="8" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="15" end1="16" start2="13" end2="13" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="18" end1="21" start2="15" end2="15" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/special_cards/SpamFolder.java">
+      <ranges>
+        <range start1="7" end1="9" start2="7" end2="12" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="17" end1="21" start2="20" end2="20" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_application/ClientGameBasicController.java">
+      <ranges>
+        <range start1="115" end1="115" start2="115" end2="116" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="125" end1="126" start2="126" end2="126" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="152" end1="152" start2="152" end2="153" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="201" end1="205" start2="202" end2="202" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="396" end1="396" start2="393" end2="399" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="496" end1="496" start2="499" end2="503" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/programming_cards/MoveOne.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="8" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="6" end1="10" start2="10" end2="10" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="13" end1="16" start2="13" end2="14" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="19" end1="20" start2="17" end2="17" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="9" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="68" end1="70" start2="71" end2="71" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="71" end1="71" start2="72" end2="78" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="72" end1="77" start2="79" end2="81" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="79" end1="80" start2="83" end2="84" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="81" end1="81" start2="85" end2="86" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="84" end1="84" start2="89" end2="90" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="87" end1="89" start2="93" end2="93" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/messages/MessageDrawDamage.java">
+      <ranges>
+        <range start1="30" end1="31" start2="30" end2="30" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="63" end1="64" start2="62" end2="62" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="71" end1="73" start2="69" end2="69" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/messages/MessageNameUnavailable.java">
+      <ranges>
+        <range start1="28" end1="29" start2="28" end2="28" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="40" end1="41" start2="39" end2="39" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Antenna.java">
+      <ranges>
+        <range start1="9" end1="9" start2="9" end2="10" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="12" end1="13" start2="13" end2="13" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="14" end1="16" start2="14" end2="14" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="20" end1="21" start2="18" end2="18" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="23" end1="24" start2="20" end2="20" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="25" end1="26" start2="21" end2="21" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="39" end1="40" start2="34" end2="34" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="41" end1="44" start2="35" end2="35" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="45" end1="46" start2="36" end2="36" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java">
+      <ranges>
+        <range start1="63" end1="64" start2="63" end2="63" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="204" end1="206" start2="203" end2="203" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="225" end1="226" start2="222" end2="222" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="241" end1="242" start2="237" end2="237" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="250" end1="253" start2="245" end2="245" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="290" end1="295" start2="282" end2="282" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/messages/MessageMapSelected.java">
+      <ranges>
+        <range start1="34" end1="35" start2="34" end2="34" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="46" end1="47" start2="45" end2="45" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="57" end1="58" start2="55" end2="55" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="60" end1="61" start2="57" end2="57" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="72" end1="73" start2="68" end2="68" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="75" end1="77" start2="70" end2="70" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="80" end1="89" start2="73" end2="74" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="90" end1="93" start2="75" end2="76" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientClient.java">
+      <ranges>
+        <range start1="22" end1="22" start2="22" end2="25" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="30" end1="30" start2="33" end2="39" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="35" end1="36" start2="44" end2="44" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="39" end1="42" start2="47" end2="51" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="62" end1="63" start2="71" end2="74" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="91" end1="93" start2="102" end2="102" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="97" end1="98" start2="106" end2="106" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="99" end1="99" start2="107" end2="111" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="101" end1="106" start2="113" end2="113" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="112" end1="112" start2="119" end2="125" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="144" end1="146" start2="157" end2="163" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="164" end1="165" start2="181" end2="181" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="167" end1="167" start2="183" end2="184" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="174" end1="175" start2="191" end2="191" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/gamelogic/Game.java">
+      <ranges>
+        <range start1="122" end1="123" start2="122" end2="122" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="129" end1="130" start2="128" end2="128" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="144" end1="148" start2="142" end2="142" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="151" end1="152" start2="145" end2="145" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="153" end1="155" start2="146" end2="146" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="161" end1="162" start2="152" end2="152" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="164" end1="166" start2="154" end2="154" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="183" end1="195" start2="171" end2="171" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="199" end1="200" start2="175" end2="175" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="201" end1="203" start2="176" end2="176" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="208" end1="233" start2="181" end2="181" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="264" end1="266" start2="212" end2="212" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="267" end1="269" start2="213" end2="213" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="270" end1="271" start2="214" end2="214" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="280" end1="285" start2="223" end2="223" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="349" end1="350" start2="287" end2="287" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="376" end1="377" start2="313" end2="313" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="523" end1="524" start2="459" end2="459" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="539" end1="582" start2="474" end2="474" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java">
+      <ranges>
+        <range start1="29" end1="29" start2="29" end2="30" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="30" end1="30" start2="31" end2="32" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="31" end1="31" start2="33" end2="34" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="32" end1="32" start2="35" end2="36" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="35" end1="36" start2="39" end2="39" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="37" end1="38" start2="40" end2="40" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="47" end1="62" start2="49" end2="49" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="66" end1="68" start2="53" end2="53" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="86" end1="87" start2="71" end2="71" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="90" end1="92" start2="74" end2="74" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java">
+      <ranges>
+        <range start1="12" end1="13" start2="12" end2="13" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="16" end1="25" start2="16" end2="16" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="26" end1="27" start2="17" end2="17" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="38" end1="38" start2="28" end2="33" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/gamelogic/game_elements/robot/Robot.java">
+      <ranges>
+        <range start1="163" end1="164" start2="163" end2="163" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="182" end1="183" start2="181" end2="181" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="202" end1="203" start2="200" end2="200" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="231" end1="232" start2="228" end2="228" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="258" end1="259" start2="254" end2="254" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="266" end1="267" start2="261" end2="261" changelist="a37e9269-7e59-4b07-b136-0e73cf326181" />
+        <range start1="420" end1="424" start2="414" end2="414" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="425" end1="425" start2="415" end2="416" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="454" end1="455" start2="445" end2="445" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+        <range start1="551" end1="552" start2="541" end2="541" changelist="1c69446a-d821-42bb-a32c-5d1262b0afcb" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -108,13 +493,13 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)">
-    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server_application.ServerApplication" />
+  <component name="RunManager" selected="Application.ClientApplication">
+    <configuration name="ClientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client_application.ClientApplication" />
       <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server_application.*" />
+          <option name="PATTERN" value="client_application.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,7 +524,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.ServerApplication" />
+      <item itemvalue="Application.ClientApplication" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
@@ -147,11 +532,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientApplication" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Application.ServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +743,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659052117076</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="comments on rest of GridHandler class">
+      <created>1659056075302</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659056075302</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Changes by vivian (create javadocs for server application and server package)">
+      <created>1659056138317</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659056138317</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +779,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Uncorrupted_branch_pushes_only_after_pull" />
+                        <option value="origin/abgabe" />
                       </list>
                     </value>
                   </entry>
@@ -393,8 +792,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i have das Projekt gefickst" />
-    <MESSAGE value="Game is buggy but playable" />
     <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
@@ -418,6 +815,8 @@
     <MESSAGE value="pom" />
     <MESSAGE value="added Jars" />
     <MESSAGE value="changed directory to abgabe" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed directory to abgabe" />
+    <MESSAGE value="comments on rest of GridHandler class" />
+    <MESSAGE value="Changes by vivian (create javadocs for server application and server package)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by vivian (create javadocs for server application and server package)" />
   </component>
 </project>

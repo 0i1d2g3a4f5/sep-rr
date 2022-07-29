@@ -27,7 +27,6 @@ public class MessagePlayCard extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("card", new JsonPrimitive(card));
         content = jsonObject;
-        //Server.serverLogger.info("Created Play Card Message: " + this);
     }
 
     /**
@@ -39,7 +38,6 @@ public class MessagePlayCard extends Message{
     public MessagePlayCard(JsonObject jsonObject){
         super(jsonObject);
         card = content.get("card").getAsString();
-        //Server.serverLogger.info("Created Play Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Erdogan
- * replaces image paths with enums
+ * Replaces image paths with enums
  */
 public enum Images {
     /*
@@ -152,19 +152,23 @@ public enum Images {
     public String string;
     public ImageView imageView;
     public String type;
+
     Images(String string, ImageView imageView, String type) {
         this.string = string;
         this.imageView = imageView;
         this.type = type;
     }
 
-    public String toString(){
+    public String toString()
+    {
         return this.string;
     }
-    public ImageView toAvailableCardsView(){
-        return null;
-    }
 
+    /**
+     * converts image types to image view and outsources size handling in own classes
+     *
+     * @return
+     */
     public ImageView toImageView() {
         switch (this.type){
             case "MapElement" ->{
@@ -176,18 +180,27 @@ public enum Images {
             default -> {
                 return new ImageView(new Image(this.toString()));
             }
-
         }
     }
+    
     public ImageView toImageView(Direction direction) {
         return handleRobot(new ImageView(new Image(string)), direction);
     }
+    
     public ImageView handleCard(ImageView imageView){
         imageView.setSmooth(true);
         imageView.setFitHeight(100);
         imageView.setFitWidth(65);
         return imageView;
     }
+
+    /**
+     * @author Vivian Kafadar
+     * @param imageView
+     * @return
+     *
+     * Sets size of MapElement imageViews
+     */
     public ImageView handleMapElement(ImageView imageView){
         imageView.setSmooth(true);
         imageView.setFitHeight(297);
@@ -195,20 +208,31 @@ public enum Images {
         return imageView;
     }
 
+    /**
+     * @author Vivian Kafadar
+     * @param imageView
+     * @return
+     *
+     * Sets size of Map ImageView
+     */
     public ImageView handleMap(ImageView imageView){
         imageView.setSmooth(true);
-        // TODO set appropriate height & width - is this even needed @Sarp? (Vivian)
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
         return imageView;
     }
 
+    /**
+     * loads image of turned robot
+     *
+     * @param imageView
+     * @param direction
+     * @return
+     */
     public ImageView handleRobot(ImageView imageView, Direction direction){
         switch (direction){
-
             case TOP -> {
                 imageView.setRotate(270);
-
             }
             case BOTTOM -> {
                 imageView.setRotate(90);
@@ -224,8 +248,4 @@ public enum Images {
         imageView.setFitWidth(297);
         return imageView;
     }
-
-    //others
-    //TODO check importance of, increase and add other images to the class
-
 }

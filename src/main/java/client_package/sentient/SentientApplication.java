@@ -3,6 +3,10 @@ package client_package.sentient;
 import java.util.Scanner;
 
 public class SentientApplication {
+
+    /**
+     * starts AI
+     */
     public void start(){
         SentientController sentientController = new SentientController();
         boolean manual = this.getInfo();
@@ -11,10 +15,14 @@ public class SentientApplication {
         }
         else{
             sentientController.start("DD AI", "localhost" , 1234, "DesperateDrosseln");
-            //sentientController.start("DisabledDegenerate", "sep21.dbs.ifi.lmu.de" , 52020, "DesperateDrosseln");
-
         }
     }
+
+    /**
+     * gets if ai shall be createt automatic (to already launched localhost server) or manual (e.g. to another server)
+     *
+     * @return
+     */
     public boolean getInfo(){
         System.out.println("Type m for manual and a for auto.");
         Scanner scanner = new Scanner(System.in);

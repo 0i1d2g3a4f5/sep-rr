@@ -31,7 +31,6 @@ public class MessageGameFinished extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Game Finished Message: " + this);
     }
 
     /**
@@ -43,7 +42,6 @@ public class MessageGameFinished extends Message{
     public MessageGameFinished(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //Server.serverLogger.info("Created Game Finished Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

@@ -36,7 +36,6 @@ public class MessageEnergy extends Message{
         jsonObject.add("count", new JsonPrimitive(count));
         jsonObject.add("source", new JsonPrimitive(source));
         content = jsonObject;
-        //Server.serverLogger.info("Created Energy Message: " + this);
     }
 
     /**
@@ -50,7 +49,6 @@ public class MessageEnergy extends Message{
         clientID = content.get("clientID").getAsInt();
         count = content.get("count").getAsInt();
         source = content.get("source").getAsString();
-        // Server.serverLogger.info("Created Energy Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

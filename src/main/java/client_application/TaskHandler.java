@@ -18,6 +18,12 @@ public class TaskHandler {
     public TaskHandler(ClientApplication clientApplication){
         this.clientApplication=clientApplication;
     }
+
+    /**
+     * handles task enums by realizing changes in client application
+     *
+     * @param task
+     */
     public void handleTask(Task task){
         switch (task.taskType){
             case FAILEDSOCKET -> {
@@ -56,7 +62,6 @@ public class TaskHandler {
                 TaskJsonArray taskJsonArray = new TaskJsonArray(task);
                 clientApplication.launchBasicMap();
                 clientApplication.clientMapBasicController.initializeMaps(taskJsonArray.jsonArray);
-
             }
             case TRIGGERSTART -> {
                 clientApplication.stageBasicLobby.close();
@@ -64,15 +69,8 @@ public class TaskHandler {
                     clientApplication.stageBasicMap.close();
                 }
                 clientApplication.launchBasicGame();
-
             }
-
             case TRIGGERFINISH -> {
-                /*
-                if(!Game.getInstance().getContinueGame()){
-                    clientApplication.clientGameBasicController.triggerGameFinishedScene();
-                }*/
-
             }
             case UPDATEFULLGAMEBOARD -> {
                 try {
@@ -87,23 +85,18 @@ public class TaskHandler {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
             }
             case UPDATEGAMEBOARDPARTS -> {
                 ArrayList<Position> tomorrowPower = clientApplication.getClient().getHighSlumber();
                 JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
                 while (tomorrowPower.size()>0){
                     Position opportunity = tomorrowPower.get(0);
-                    javaFXGridHandler.applesAndBananas(clientApplication.clientGameBasicController.getGameBoardContent(), opportunity.getX(), opportunity.getY(), clientApplication.getClient().getGame().getMap(), clientApplication.getClient().getFigure() );
+                    javaFXGridHandler.handleGameElementEnum(clientApplication.clientGameBasicController.getGameBoardContent(), opportunity.getX(), opportunity.getY(), clientApplication.getClient().getGame().getMap(), clientApplication.getClient().getFigure() );
                     tomorrowPower.remove(0);
                 }
-
-
             }
             case UPDATE_HANDCARDS -> {
                 clientApplication.clientGameBasicController.updateHandCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getAvailableCardsOwn(), 1) );
-
-
             }
             case UPDATE_PROGCARDS -> {
                 clientApplication.clientGameBasicController.updateProgrammingCards(gridPaneFromCardList(clientApplication.getClient().getPlayer().getRegisterCardsOwn(), 2));
@@ -133,56 +126,26 @@ public class TaskHandler {
                 clientApplication.clientGameBasicController.setStartingChooseVisualActive(true);
             }
             case ERROR -> {
-
             }
             case REBOOTDIRECTION ->{
                 clientApplication.clientGameBasicController.startChoosingDirection();
             }
-
             case WIN -> {
                 clientApplication.clientGameBasicController.startWinnerScene();
             }
-
             case LOSE -> {
                 clientApplication.clientGameBasicController.startLoserScene();
             }
-
             default -> {
 
             }
         }
     }
-    public ArrayList<Card> fromArrayToList(Card[] inp){
-        ArrayList<Card> bla = new ArrayList<>();
-        for(int i=0; i<inp.length; i++){
-            bla.add(null);
-            if(inp[i]!=null) {
-                bla.set(i, inp[i]);
-            }
-        }
-        return bla;
-    }
+
     public GridPane gridPaneFromGameBoard(GameBoard gameBoard, int ownFigure){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
         return javaFXGridHandler.gridPaneFromGameBoard(gameBoard, ownFigure);
     }
-
-    /*
-    public ListView<String> listViewFromCardList(Task task) {
-        TaskJsonArray taskJsonArray = new TaskJsonArray(task);
-        ArrayList<Card> cardArrayList = new ArrayList<>();
-        CardFactory cardFactory = new CardFactory();
-        for(int i = 0; i<taskJsonArray.jsonArray.size(); i++){
-            try {
-                cardArrayList.add(cardFactory.createCard(CardName.parseCardName(taskJsonArray.jsonArray.get(i).getAsString())));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
-        return javaFXGridHandler.listViewFromCards(cardArrayList);
-    }
-    */
 
     public GridPane gridPaneFromCardList(ArrayList<Card> cardArrayList, int type){
         JavaFXGridHandler javaFXGridHandler = new JavaFXGridHandler();
@@ -201,7 +164,5 @@ public class TaskHandler {
             }
         }
         return result;
-
     }
-
 }

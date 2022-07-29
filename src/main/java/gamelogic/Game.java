@@ -347,7 +347,6 @@ public class  Game {
         while(programmingPhase){
 
             TimeUnit.SECONDS.sleep(1);
-            //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
             Server.serverLogger.debug("GameLoop still alive - ProgrammingPhase" + programmingPhase);
 
 

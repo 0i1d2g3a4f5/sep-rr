@@ -28,7 +28,6 @@ public class MessagePickDamage extends Message {
      * @author Isabel Muhm
      */
     public MessagePickDamage(int remainingToDraw, ArrayList<String> availablePiles) {
-        //TODO check if correct
         this.remainingToDraw = remainingToDraw;
         type = "PickDamage";
         JsonObject jsonObject = new JsonObject();
@@ -53,16 +52,12 @@ public class MessagePickDamage extends Message {
      * @author Isabel Muhm
      */
     public void MessagePickDamage(JsonObject jsonObject) throws IOException {
-        //TODO check if correct - please fix
         JsonArray jsonArray = jsonObject.get("availablePiles").getAsJsonArray();
         ArrayList<String> availablePiles = new ArrayList<>();
         CardFactory cardFactory = new CardFactory();
         for (int i = 0; i < availablePiles.size(); i++) {
-            // availablePiles.add(cardFactory.createCard(CardName.valueOf(jsonArray.get(i).getAsString())));
         }
         this.availablePiles = availablePiles;
-
-        //Server.serverLogger.info("Created Pick Damage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override

@@ -112,6 +112,11 @@ public class CPlayer {
     public void selectToBeRemovedCardOwn(int position){
         ownToBeRemovedCard = new Pair<>(position, registerCardsOwn.get(position));
     }
+
+    /**
+     * returns indexes of cards that are free to choose to register
+     * @return
+     */
     public ArrayList<Integer> availableIndexes(){
         ArrayList<Integer> result = new ArrayList<>();
         for(int i=0; i<availableCardsOwn.size(); i++){

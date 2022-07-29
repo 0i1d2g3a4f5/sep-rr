@@ -16,8 +16,11 @@ public class MessageValuesAccepted extends Message{
     public int figure;
 
     /**
+     * converts message to json
+     *
      * @param name
      * @param figure
+     * @author Isabel Muhm
      */
     public MessageValuesAccepted(String name, int figure){
         type="ValuesAccepted";
@@ -25,17 +28,18 @@ public class MessageValuesAccepted extends Message{
         jsonObject.add("Name", new JsonPrimitive(name));
         jsonObject.add("Figure", new JsonPrimitive(figure));
         content=jsonObject;
-        //Server.serverLogger.info("Created Values Accepted Message: " + this);
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageValuesAccepted(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
         figure=content.get("Figure").getAsInt();
-        //Server.serverLogger.info("Created Values Accepted Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

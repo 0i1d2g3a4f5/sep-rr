@@ -18,19 +18,6 @@ import java.util.Properties;
 
 public abstract class Message{
     public static Logger messageLogger = Logger.getLogger("Message");
-    /*
-    static {
-        try {
-            Properties properties= new Properties();
-            properties.load(new FileInputStream("log4j.properties"));
-            PropertyConfigurator.configure(properties);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-     */
     public String type;
     public JsonObject content;
     public MessageType messageType;
@@ -40,9 +27,6 @@ public abstract class Message{
         type = jsonObject.get("messageType").getAsString();
         messageType = new MessageTypeFactory().fromString(type);
         content = jsonObject.get("messageBody").getAsJsonObject();
-        /*messageLogger.info("New message fromJson: \n" +
-                "Type="+type + "\n" +
-                "Content="+content);*/
     }
     public abstract void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException;
     public abstract void activateMessageInFrontend(Client client) throws IOException, ClientNotFoundException, InterruptedException;

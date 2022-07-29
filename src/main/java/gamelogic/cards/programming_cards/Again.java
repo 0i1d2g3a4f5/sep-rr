@@ -40,7 +40,5 @@ Again extends ProgrammingCard {
         else{
             Server.serverLogger.error("Card Again could not be activated");
         }
-
-        //player.activateRegister(Game.getInstance().getActiveRegister()-1);
     }
 }

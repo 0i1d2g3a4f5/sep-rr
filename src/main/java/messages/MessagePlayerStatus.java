@@ -37,7 +37,6 @@ public class MessagePlayerStatus extends Message {
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("ready", new JsonPrimitive(ready));
         content = jsonObject;
-        //Server.serverLogger.info("Created Player Status Message: " + this);
     }
 
     /**
@@ -50,7 +49,6 @@ public class MessagePlayerStatus extends Message {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         ready = content.get("ready").getAsBoolean();
-        //Server.serverLogger.info("Created Player Status Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -85,6 +83,8 @@ public class MessagePlayerStatus extends Message {
     }
 
     /**
+     * informs ai about ready status
+     *
      * @throws IOException
      * @throws ClientNotFoundException
      */

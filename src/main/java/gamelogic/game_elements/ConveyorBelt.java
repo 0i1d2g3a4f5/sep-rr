@@ -167,7 +167,6 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
             GameField nextField = gameField.getNeighbor(orientations.get(0));
 
-            //checkPoint.setEnteredConveyorBelt(orientations.get(0).opposite());
             if(color ==Color.BLUE){
 
                 checkPoint.displace(orientations.get(0));
@@ -178,24 +177,12 @@ public class ConveyorBelt extends GameElement implements Activatable {
                     nextField = nextField.getNeighbor(nextBelt.orientations.get(0));
 
                     TimeUnit.MILLISECONDS.sleep(10);
-
-
-
-                    //checkPoint.setEnteredConveyorBelt(nextBelt.orientations.get(0).opposite());
                     checkPoint.displace(nextBelt.orientations.get(0));
-
-
-                } else {
-
-                    // checkPoint.displace(orientations.get(0));
                 }
             } else{
                 checkPoint.displace(orientations.get(0));
-
             }
-
         }
-
         if(gameField.contains(ElementName.ROBOT)){
             Server.serverLogger.info("activate "+ type +" "+color+ " at "+ gameField.getPosition());
             Server.serverLogger.debug("ConveyorBelt orientations: "+ orientations);
@@ -209,9 +196,6 @@ public class ConveyorBelt extends GameElement implements Activatable {
             GameField nextField = gameField.getNeighbor(orientations.get(0));
 
             handleConveyorTurnsRobot(robot, nextField);
-
-
-            //robot.setEnteredConveyorBelt(orientations.get(0).opposite());
             if(color ==Color.BLUE){
 
                 robot.displace(orientations.get(0));
@@ -222,8 +206,6 @@ public class ConveyorBelt extends GameElement implements Activatable {
                     nextField = nextField.getNeighbor(nextBelt.orientations.get(0));
 
                     handleConveyorTurnsRobot(robot, nextField);
-
-                    //robot.setEnteredConveyorBelt(nextBelt.orientations.get(0).opposite());
                     TimeUnit.MILLISECONDS.sleep(10);
                     robot.displace(nextBelt.orientations.get(0));
                     if((robot.getGameField().getElement(ElementName.CONVEYORBELT)) ==null){
@@ -232,13 +214,10 @@ public class ConveyorBelt extends GameElement implements Activatable {
 
                 } else {
                     robot.setEnteredConveyorBelt(null);
-                   // robot.displace(orientations.get(0));
                 }
             } else{
                 robot.displace(orientations.get(0));
-
             }
-
         }
         try {
             TimeUnit.MILLISECONDS.sleep(40);

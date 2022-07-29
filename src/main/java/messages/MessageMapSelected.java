@@ -32,7 +32,6 @@ public class MessageMapSelected extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("map", new JsonPrimitive(map));
         content = jsonObject;
-        //Server.serverLogger.info("Created Map Selected Message: " + this);
     }
 
     /**
@@ -44,7 +43,6 @@ public class MessageMapSelected extends Message{
     public MessageMapSelected(JsonObject jsonObject) {
         super(jsonObject);
         map = content.get("map").getAsString();
-        //Server.serverLogger.info("Created Map Selected Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -58,7 +56,6 @@ public class MessageMapSelected extends Message{
 
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-            //Game.getInstance().setMapName(MapName.valueOf(map));
         sClient.getServer().setGameStarted(true);
             ModelLoader modelLoader = new ModelLoader();
             GameBoard gameBoard = modelLoader.loadMap(map);
@@ -70,7 +67,6 @@ public class MessageMapSelected extends Message{
             Server.serverLogger.info("Received MAPSELECTEDMESSAGE. Map is : \n" + modelLoader.loadMap(map).toJson().toString());
             sClient.sendAll(this);
             sClient.getServer().setGameStarted(true);
-            //TODO select position, revert to get gameBoard
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
             Game.getInstance().setStartPoints();
 

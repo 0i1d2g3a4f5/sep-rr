@@ -61,7 +61,6 @@ public class GameBoard  {
                 JsonArray jsonArrayLVL3 = new JsonArray();
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
-                        //System.out.println("Element in Board.toJson: "+element);
                         jsonArrayLVL3.add(new JsonPrimitive(element.getType().toString()));
                     }
                 } else {

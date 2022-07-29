@@ -66,8 +66,6 @@ public enum CardName {
     UNKNOWN("Unknown"),
     NULL("Null");
 
-
-
     private String cardName;
     public static CardName parseCardName(String cardName) throws IOException {
         for (CardName  name:CardName.values()){
@@ -79,9 +77,11 @@ public enum CardName {
         }
         throw new IOException("Card "+cardName+" not found");
     }
+
     public String toString(){
         return cardName;
     }
+
     CardName(String cardName) {
         this.cardName = cardName;
     }

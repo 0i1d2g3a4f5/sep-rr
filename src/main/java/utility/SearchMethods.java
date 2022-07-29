@@ -14,15 +14,6 @@ import java.util.List;
  */
 public class SearchMethods {
 
-    public static int emptyArraySpaces(Object[] array){
-        int emptySpaces = 0;
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] == null){
-                emptySpaces++;
-            }
-        }
-        return emptySpaces;
-    }
     /**
      * @author Ringer
      * @param cardName

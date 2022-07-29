@@ -38,7 +38,6 @@ public class MessageHelloServer extends Message {
         jsonObject.add("isAI", new JsonPrimitive(isAI));
         jsonObject.add("protocol", new JsonPrimitive(protocol));
         content = jsonObject;
-        //Server.serverLogger.info("Created Hello Server Message: " + this);
     }
 
     /**
@@ -52,7 +51,6 @@ public class MessageHelloServer extends Message {
         group = content.get("group").getAsString();
         isAI = content.get("isAI").getAsBoolean();
         protocol = content.get("protocol").getAsString();
-        //Server.serverLogger.info("Created Hello Server Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

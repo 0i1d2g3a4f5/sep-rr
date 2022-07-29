@@ -15,10 +15,6 @@ public class SpamFolder extends SpecialCard {
 
     }
 
-    /**
-     * @author Qinyi
-     * Permanently discard an SPAM damage card from your discard pile to the SPAM damage card draw pile.
-     */
     @Override
     public void activateCard(){
     }

@@ -142,8 +142,12 @@ public class SentientClient extends Client {
         }
     }
 
-
-
+    /**
+     * receives json messages, lets them handle in message factory and activates their effect
+     *
+     * @param jsonObject
+     * @param client
+     */
     @Override
     public void process(JsonObject jsonObject, Client client) {
         Thread thread = new Thread(new Runnable() {

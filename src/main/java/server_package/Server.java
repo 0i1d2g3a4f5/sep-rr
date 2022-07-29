@@ -20,16 +20,6 @@ public abstract class Server {
 
     public static Logger serverLogger = Logger.getLogger("Server");
 
-    /*static {
-        try {
-            Properties properties= new Properties();
-            properties.load(Server.class.getResourceAsStream("log4j.properties"));
-            PropertyConfigurator.configure(properties);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
     protected boolean gameStarted;
     protected ServerApplication serverApplication;
     protected Game game = Game.getInstance();
@@ -38,7 +28,6 @@ public abstract class Server {
     protected List<SClient> readyList;
     protected boolean isTerminated, isBasic;
     protected ServerSocket serverSocket;
-
 
     public List<SClient> getClientList() {
         return sClientList;
@@ -66,6 +55,7 @@ public abstract class Server {
         }
         return null;
     }
+
     public abstract void checkReady();
     public abstract void startServerSocket();
     public abstract void mapSelect();
@@ -88,7 +78,6 @@ public abstract class Server {
     public void setServerApplication(ServerApplication serverApplication) {
         this.serverApplication = serverApplication;
     }
-
 
     public int getMaxClients() {
         return maxClients;

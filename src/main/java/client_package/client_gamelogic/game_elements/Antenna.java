@@ -21,7 +21,6 @@ public class Antenna extends GameElement implements Serializable {
 
     }
 
-
     /**
      * @author Ringer
      * builds an Object from a JsonObject

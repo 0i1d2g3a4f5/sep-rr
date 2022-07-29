@@ -15,15 +15,16 @@ public class MessageWrongPass extends Message{
         type = "WrongPass";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
-        //Server.serverLogger.info("Created Wrong Pass Message: " + this);
     }
 
     /**
+     * converts message to json
+     *
      * @param jsonObject
+     * @author Isbael Muhm
      */
     public MessageWrongPass(JsonObject jsonObject){
         super(jsonObject);
-        //Server.serverLogger.info("Created Wrong Pass Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

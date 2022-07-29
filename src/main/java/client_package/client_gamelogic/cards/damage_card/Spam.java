@@ -17,5 +17,4 @@ public class Spam extends DamageCard {
 
     public void activateCard(){
     }
-
 }

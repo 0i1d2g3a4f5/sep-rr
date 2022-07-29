@@ -19,7 +19,6 @@ public class RightTurn extends ProgrammingCard {
 
     @Override
     public void activateCard() {
-        // Turn your robot 90 degrees to the right. The robot remains in its current space.
         Server.serverLogger.info("Right Turn");
         player.getRobot().right();
     }

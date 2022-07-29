@@ -13,7 +13,6 @@ Again extends ProgrammingCard {
 
     @Override
     public void discard() {
-
     }
 
     /**

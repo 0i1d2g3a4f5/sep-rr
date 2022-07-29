@@ -113,6 +113,7 @@ public class ClientGameBasicController {
                 chooseProgrammingActive=true;
             }
         }
+
         if(chooseRegisterActive){
             chooseRegisterActive=false;
             Node requestedParent = stackOwnProgramming.getChildren().get(0);
@@ -123,7 +124,6 @@ public class ClientGameBasicController {
             }
 
             boolean inside = true;
-
 
             while (clicked != null && clicked.getParent() != null && !clicked.getParent().equals(requestedParent)) {
                 inside=false;
@@ -150,6 +150,7 @@ public class ClientGameBasicController {
                 chooseRegisterActive=true;
             }
         }
+
         if(chooseStartActive){
             chooseStartActive=false;
             Node requestedParent = scrollPaneGameBoard.getContent();
@@ -198,10 +199,6 @@ public class ClientGameBasicController {
         }
 
 
-    }
-
-    public void setStartingChooseVisualActive(boolean bool){
-        chooseStartActive=bool;
     }
 
     @FXML
@@ -394,6 +391,12 @@ public class ClientGameBasicController {
     public void sendStartPoint(Position position){
         clientApplication.basicClient.sendSelf(new MessageSetStartingPoint(position));
     }
+
+    public void setStartingChooseVisualActive(boolean bool)
+    {
+        chooseStartActive=bool;
+    }
+
 
     public void resetSubmitStartingPoint(){
         startingCoordinates.setText("");

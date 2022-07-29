@@ -1,5 +1,7 @@
 package messages;
 /**
+ * turns types of Messages to message enums
+ *
  * @author Sarp Cagin Erdogan, Mark Ringer
  */
 

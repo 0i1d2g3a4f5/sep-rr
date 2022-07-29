@@ -24,7 +24,6 @@ public class MessageFigureUnavailable extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Figure", new JsonPrimitive(i));
         content = jsonObject;
-        //Server.serverLogger.info("Created Figure Unavailable Message: " + this);
     }
 
     /**
@@ -36,7 +35,6 @@ public class MessageFigureUnavailable extends Message{
     public MessageFigureUnavailable(JsonObject jsonObject){
         super(jsonObject);
         figure=content.get("Figure").getAsInt();
-        //Server.serverLogger.info("Created Figure Unavailable Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

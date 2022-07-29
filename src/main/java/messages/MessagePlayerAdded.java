@@ -42,7 +42,6 @@ public class MessagePlayerAdded extends Message{
         jsonObject.add("name", new JsonPrimitive(name));
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
-        //Server.serverLogger.info("Created Player Added Message: " + this);
     }
 
     /**
@@ -56,7 +55,6 @@ public class MessagePlayerAdded extends Message{
         clientID = content.get("clientID").getAsInt();
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
-        //Server.serverLogger.info("Created Player Added Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

@@ -26,7 +26,6 @@ public class MessageHashedCode extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("HashedCode", new JsonPrimitive(hashedCode));
         content=jsonObject;
-        //Server.serverLogger.info("Created Hashed Code Message: " + this);
     }
 
     /**
@@ -38,7 +37,6 @@ public class MessageHashedCode extends Message{
     public MessageHashedCode(JsonObject jsonObject){
         super(jsonObject);
         hashedCode=content.get("HashedCode").getAsString();
-        //Server.serverLogger.info("Created Hashed Code Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

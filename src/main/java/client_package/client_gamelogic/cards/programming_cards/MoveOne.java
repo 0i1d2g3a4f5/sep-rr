@@ -4,10 +4,6 @@ import static client_package.client_gamelogic.cards.CardName.MOVEI;
 
 public class MoveOne extends ProgrammingCard {
 
-    /**
-     * @author Kafadar
-     */
-
     public MoveOne() {super(MOVEI);}
 
     @Override

@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class Checkpoint extends GameElement {
 
-
     int count;
     public Checkpoint(int count){
         super(ElementName.CHECKPOINT);

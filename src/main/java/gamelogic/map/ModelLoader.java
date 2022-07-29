@@ -68,9 +68,6 @@ public class ModelLoader {
                 throw new IllegalArgumentException();
             }
         }
-        //String resourceName = "dizzy_highway";
-        //String filePath = getClass().getResource(resourceName).getFile();
-        //System.out.println("FILEPATH" + filePath);
         return new JsonReader().readFile(filePath);
     }
 
