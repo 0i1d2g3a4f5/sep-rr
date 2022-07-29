@@ -7,7 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 public class ClientStartBasicController {
     ClientApplication clientApplication;
@@ -36,6 +36,7 @@ public class ClientStartBasicController {
             checkIfNumber();
         }
     }
+
     void checkIfNumber(){
         if(active){
             if (groupInput.getText().trim() == "") {
@@ -55,24 +56,25 @@ public class ClientStartBasicController {
                 }
             }
         }
-
     }
+
     void connect(String ip, int port){
         active=false;
         clientApplication.basicClient.startClient(ip, port, groupInput.getText().trim());
         clientApplication.basicClient.setGroup(groupInput.getText().trim());
     }
+
     void failedReset(){
         ipInput.setText("");
         portInput.setText("");
         feedBack.setText("Socket couldn't be created.");
         active=true;
     }
+
     void createdSocket(){
         clientApplication.stageBasicStart.close();
         clientApplication.launchBasicChat();
         clientApplication.launchBasicName();
-
     }
 
 

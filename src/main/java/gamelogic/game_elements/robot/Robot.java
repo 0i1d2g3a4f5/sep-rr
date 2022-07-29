@@ -53,7 +53,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         return activationOrder;
     }
 
-
     public void setPosition(Position position) {
         this.position = position;
         gameField = game.getBoard().getField(position);
@@ -67,7 +66,7 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @param position
      * @param direction
      * @author Ringer
-     *
+     * update the location of the robot
      */
     public Robot (Game game,Position position, Direction direction){
         super(ElementName.ROBOT);
@@ -127,7 +126,12 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 aviablePiles.add("Worm");
             }
             player.sendMessage(new MessagePickDamage(remainingToDraw,aviablePiles));
+
         }
+
+
+
+
     }
 
     /**
@@ -174,7 +178,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean left(){
-        //if(rebootedThisTurn) return false;
         Direction oldDirection = directionFacing;
         directionFacing = directionFacing.left();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"counterclockwise"));
@@ -193,7 +196,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return boolean
      */
     public boolean right(){
-        //if(rebootedThisTurn) return false;
         Direction oldDirection = directionFacing;
         directionFacing = directionFacing.right();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
@@ -214,7 +216,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      */
 
     public boolean uTurn(){
-        //if(rebootedThisTurn) return false;
         directionFacing = directionFacing.opposite();
         game.sendToAllPlayers(new MessagePlayerTurning(player.getClient().getId(),"clockwise"));
         try {
@@ -246,7 +247,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return
      */
     public boolean forward(int distance){
-        //if(rebootedThisTurn) return false;
         Position oldPos = position.clone();
         boolean success = true;
 
@@ -273,7 +273,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
      * @return
      */
     public boolean backward(int distance){
-        //if(rebootedThisTurn) return false;
         Position oldPos = position.clone();
         boolean success = true;
         for (int i = 0;i<distance;i++){
@@ -281,7 +280,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
                 success = false;
             }
         }
-        //game.sendToAllPlayers(new MessageMovement(player.getClient().getId(), position.getX() - oldPos.getX(), position.getY() - oldPos.getY()));
         return success;
     }
 
@@ -444,10 +442,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-
-        //TODO case not answered
-
     }
 
     /**
@@ -494,7 +488,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
         isOnBoard = gameField.getIsOnBoard();
         Server.serverLogger.debug("Robot "+getPlayer().getClient().getFigure()+ " IsOnBoard: "+isOnBoard);
-        //TODO case field blocked
         GameElement restartingPoint= null;
         for (RestartPoint restartPoint:game.getBoard().restartPoints) {
             if(isOnBoard.equals(restartPoint.getIsOnBoard())){
@@ -596,7 +589,6 @@ public class Robot extends GameElement implements RobotMovement, Activatable {
 
         System.out.println("activate "+type);
         laserMovement(gameField.getNeighbor(directionFacing));
-        //TODO activate Robot Lasers
     }
 
     /**

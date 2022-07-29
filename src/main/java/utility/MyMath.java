@@ -3,7 +3,7 @@ package utility;
 import gamelogic.Position;
 
 /**
- * @author Ringer
+ * @author Mark Ringer
  */
 public class MyMath {
     public static double pythagoras(Position pos1, Position pos2){

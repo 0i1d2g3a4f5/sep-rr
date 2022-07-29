@@ -12,7 +12,7 @@ import client_package.client_gamelogic.cards.upgrade_cards.temporary.*;
 import java.io.IOException;
 
 /**
- * @author Mark Ringer, Qinyi
+ * @author Mark Ringer, Vivian Kafadar, Qinyi Hui
  */
 public class CardFactory {
 

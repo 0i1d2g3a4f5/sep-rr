@@ -9,6 +9,9 @@ import com.google.gson.JsonPrimitive;
 
 import java.util.Objects;
 
+/**
+ * @author Vivian Kafadar
+ */
 public abstract class Card{
     protected CardName cardName;
 
@@ -16,13 +19,15 @@ public abstract class Card{
     protected Game game;
 
     public void setPlayer(CPlayer player){
-        this.player =player;
+        this.player = player;
     }
-    public void setGame(Game game){this.game = game;}
+
+    public void setGame(Game game){
+        this.game = game;
+    }
 
     public Card(CardName cardName){
         this.cardName = cardName;
-
     }
 
     public CardName getCardName(){
@@ -30,8 +35,6 @@ public abstract class Card{
     }
 
     public abstract void discard();
-
-
 
     public abstract void activateCard();
 

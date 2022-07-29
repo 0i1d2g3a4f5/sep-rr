@@ -120,14 +120,12 @@ public class  Game {
      * @return
      */
     public Player join(SClient sClient) {
-        //TODO get Robot from player
         Player player = new Player(sClient,this);
         sClient.setPlayer(player);
         for (Player existingPlayer : playerList) {
             if (existingPlayer.getClient().getId() == sClient.getId()) {
                 return null;
             }
-
         }
         playerList.add(player);
         return player;
@@ -142,27 +140,17 @@ public class  Game {
         Server.serverLogger.info("Game Setup");
         this.mapName = mapName;
         sendToAllPlayers(new MessageActivePhase(0));
-        //DeckSerializer deckSerializer = new DeckSerializer();
-        //TODO initialize player decks
-        //select map
-        //System.out.println("ModelLoader");
         ModelLoader loader = new ModelLoader();
         try {
             System.out.println("load Map");
-            //Server.serverLogger.info("Load map");
             board = loader.loadMap(String.valueOf(mapName));
-            //System.out.println("Map: "+board.boardMap);
-            //Server.serverLogger.info("Map: " + board.boardMap);
             Server.serverLogger.info("Loaded map");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         Server.serverLogger.info("Map Loaded, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
-        //System.out.println("Map: "+board.boardMap);
         elementRegistry = board.getRegistry();
-
-        //TODO special cards
 
         //Setup Spam
         spamDrawPile = new Stack<Spam>();
@@ -181,56 +169,16 @@ public class  Game {
         for(int i = 0; i<6; i++)
             wormDrawPile.add(new Worm());
 
-        //setup upgradeWarehouse
-        //TODO upgrades
-        //upgradeWarehouse = deckSerializer.builtDeck(mapName.toString());
-
-        //setup upgradeShop
-        /*
-        upgradeShop = new ArrayList<Card>();
-        for(int i = 0;i< playerList.size();i++){
-            upgradeShop.add(upgradeWarehouse.pop());
-        }
-
-         */
         for (Activatable element: elementRegistry) {
             if(element instanceof EnergySpace){
                 ((EnergySpace) element).getGameField().addElement(new EnergyCube());
             }
-
         }
-
-
     }
 
     public void setStartPoints(){
         lastCurrentPlayer=0;
         playerList.get(lastCurrentPlayer).getClient().sendAll(new MessageCurrentPlayer(playerList.get(lastCurrentPlayer).getClient().getId()));
-        /*
-        for (Player player:playerList) {
-            player.getClient().sendAll(new MessageCurrentPlayer(player.getClient().getId()));
-            boolean allPlaced = true;
-            for (Player player2: playerList) {
-
-                if(!player2.getRobot().isPlaced()){
-                    allPlaced = false;
-                }
-            }
-
-            while (!ready_to_set_startpoint){
-                Server.serverLogger.debug("Waiting for Startpoint "+ ready_to_set_startpoint);
-                if(allPlaced)
-                    break;
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            if(allPlaced)
-                break;
-            ready_to_set_startpoint=false;
-        }*/
     }
 
     /**
@@ -262,13 +210,8 @@ public class  Game {
      */
     public void startGame() throws IOException, InterruptedException {
         Server.serverLogger.info("Game started, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
-
-        //sendToAllPlayers(new MessageActivePhase(2));
         continueGame=true;
-
-
         gameLoop();
-
     }
 
     /**
@@ -278,11 +221,6 @@ public class  Game {
     public void gameLoop() throws InterruptedException {
         Server.serverLogger.info("Game started, Number of Checkpoints: "+Checkpoint.numberOfCheckpoints);
         while (continueGame){
-
-            /*
-            will be added later on
-            upgradePhase();
-             */
             programmingPhase();
             activationPhase();
         }
@@ -347,7 +285,6 @@ public class  Game {
         while(programmingPhase){
 
             TimeUnit.SECONDS.sleep(1);
-            //System.out.println("GameLoop still alive- programmingPhase: "+ programmingPhase);
             Server.serverLogger.debug("GameLoop still alive - ProgrammingPhase" + programmingPhase);
 
 
@@ -374,7 +311,6 @@ public class  Game {
             player.discardAllHandCards();
 
             Card[] register = player.getAllRegisters();
-            //TODO Probably buggy
             ArrayList<Card> drawnCards = new ArrayList<>();
             for (int i = 0; i < register.length; i++) {
                 if(register[i]==null) {
@@ -521,7 +457,6 @@ public class  Game {
     public void endGame(Player winner){
         continueGame = false;
         sendToAllPlayers(new MessageGameFinished(winner.getClient().getId()));
-        //TODO javafx action
     }
 
     /**
@@ -536,49 +471,6 @@ public class  Game {
             player.sendMessage(message);
         }
     }
-
-    /**
-     * returns all possible commands to play with
-     *
-     * @param player
-     * @param commandNameString
-     * @return LobbyMessage
-     */
-    /*
-    public Message showHelp(ClientHandler player, String commandNameString) {
-        System.out.println("Show reference card");
-        Message message = new LobbyMessage(0, "/play (card name): play a card \n" +
-                "/select (player name): select a player \n" +
-                "/guess (card name): guess a players card \n" +
-                "/discardpile (player name): view a players discard pile \n" +
-                "/discardpile: view all players' discard piles \n" +
-                "/reference (card name): view the action of a card \n" +
-                "/reference: view the actions of all cards \n" +
-                "/score (player name): check how many tokens of affection a player has" +
-                "/score: check how many tokens of affection everyone has" +
-                "/active: check which players are in the round");
-        return message;
-    }
-
-     */
-
-    /**
-     * returns all players that are active at the moment
-     *
-     * @return LobbyMessage
-     */
-    /*
-    public Message showActivePlayers() {
-        System.out.println("Show active players");
-
-
-        StringBuilder outputString = new StringBuilder("Active player(s): \n");
-        for (CPlayer player : playerList) {
-            outputString.append(player.getClient().getClientName() + ", ");
-        }
-        return new LobbyMessage(0, outputString.toString());
-    }
-     */
 
     /**
      * check if the game continue or not

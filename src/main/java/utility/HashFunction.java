@@ -13,11 +13,10 @@ public class HashFunction {
     }
 
     /**
-     * @author Ringer
+     * @author Mark Ringer
      * @param string
      * @return String
-     * Hashes the string with a custom Key
-     * and returns a String
+     * Hashes the string with a custom key and returns a string
      */
     public String hash(String string){
         String out= "";

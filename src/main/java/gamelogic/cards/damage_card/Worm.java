@@ -5,7 +5,7 @@ import server_package.Server;
 import static gamelogic.cards.CardName.*;
 
 /**
- * @author Qinyi
+ * @author Qinyi Hui
  * When you program a worm damage card, you must immediately reboot your robot
  */
 public class Worm extends DamageCard {
@@ -21,7 +21,6 @@ public class Worm extends DamageCard {
      * @author Mark Ringer
      */
     public void activateCard(){
-        //TODO notify CPlayer
         player.getRobot().reboot();
         player.clearThisRegister(game.getActiveRegister());
         game.getWormDrawPile().add(this);

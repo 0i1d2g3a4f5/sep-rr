@@ -12,12 +12,13 @@ import java.io.IOException;
 /**
  * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
  */
-
 public class MessageRebootDirection extends Message{
 
     public String direction;
 
     /**
+     * converts message to json
+     *
      * @param direction
      */
     public MessageRebootDirection(String direction){
@@ -26,16 +27,16 @@ public class MessageRebootDirection extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("direction", new JsonPrimitive(direction));
         content = jsonObject;
-        //Server.serverLogger.info("Created Reboot Direction Message: " + this);
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
      */
     public MessageRebootDirection(JsonObject jsonObject){
         super(jsonObject);
         direction = content.get("direction").getAsString();
-        //Server.serverLogger.info("Created Reboot Direction Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -46,20 +47,14 @@ public class MessageRebootDirection extends Message{
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         Server.serverLogger.debug("RebootDirection");
-
             Direction direction = Direction.parseDirection(this.direction);
             sClient.getPlayer().getRobot().rotateTo(direction);
             Server.serverLogger.info("Rebooted Robot "+sClient.getFigure()+" wit Direction "+direction.toString());
-
-
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
 
-    }
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

@@ -16,10 +16,12 @@ import utility.JsonReader;
 import java.io.IOException;
 import java.util.Stack;
 
+/**
+ * @author Mark Ringer
+ */
 public class DeckSerializer {
-    //TODO create decks as json
+
     /**
-     * @auther Ringer
      * @param serializedCardJason
      * @param cardName
      * @return Card
@@ -60,30 +62,44 @@ public class DeckSerializer {
         return (Card) gson.fromJson(serializedCardJason,className);
     }
 
+    /**
+     * @param element
+     * @return
+     * @throws IOException
+     */
     public Stack<Card> deserializeDeck(JsonElement element) throws IOException {
-        //Mock
-
         JsonArray array = element.getAsJsonArray();
         Stack<Card> deck= new Stack<>();
-
         for (JsonElement jsonType:array) {
             deck.add(new CardFactory().createCard(CardName.parseCardName(jsonType.toString())));
         }
         return deck;
     }
 
+    /**
+     * @param mapName
+     * @return
+     * @throws IOException
+     */
     public Stack<Card> builtDeck(String mapName) throws IOException {
         Gson gson = new Gson();
         JsonElement element = gson.fromJson(readFile(mapName),JsonElement.class);
         return deserializeDeck(element);
     }
 
+    /**
+     * @param mapName
+     * @return
+     */
     private String readFile(String mapName){
         String filePath = "src/main/resources/DeckModels/"+mapName+".json";
         return new JsonReader().readFile(filePath);
     }
 
-
+    /**
+     * @param deck
+     * @return
+     */
     public JsonElement serializeDeck(Stack<Card> deck){
         JsonArray jsonArray = new JsonArray();
         for (Card card:deck) {
@@ -91,5 +107,4 @@ public class DeckSerializer {
         }
         return jsonArray;
     }
-
 }

@@ -5,8 +5,11 @@ import client_package.client_gamelogic.cards.CardName;
 
 import java.util.Stack;
 
-
-
+/**
+ * @author Qinyi Hui
+ * When this card is discarded, the player permanently discards a spam damage card from their discard pile
+ *      to the spam damage card draw pile
+ */
 public class SpamFolder extends SpecialCard {
     public SpamFolder(){
         super(CardName.SPAM_FOLDER);
@@ -15,10 +18,6 @@ public class SpamFolder extends SpecialCard {
 
     }
 
-    /**
-     * @author Qinyi
-     * Permanently discard an SPAM damage card from your discard pile to the SPAM damage card draw pile.
-     */
     @Override
     public void activateCard(){
     }

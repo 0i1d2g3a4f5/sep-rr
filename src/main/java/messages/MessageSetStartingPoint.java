@@ -24,6 +24,8 @@ public class MessageSetStartingPoint extends Message{
     public int y;
 
     /**
+     * turn message to json
+     *
      * @param x
      * @param y
      */
@@ -35,8 +37,13 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        //Server.serverLogger.info("Created Set Starting Point Message: " + this);
     }
+
+    /**
+     * turns json to message
+     *
+     * @param position
+     */
     public MessageSetStartingPoint(Position position) {
         this.x = position.getX();
         this.y = position.getY();
@@ -45,7 +52,6 @@ public class MessageSetStartingPoint extends Message{
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        //Server.serverLogger.info("Created Set Starting Point Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -64,7 +70,6 @@ public class MessageSetStartingPoint extends Message{
      */
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-        //TODO insert
         Position position = new Position(y,x);
 
         if(sClient.getPlayer().getGame().board.getField(position).contains(ElementName.ROBOT)){
@@ -73,18 +78,14 @@ public class MessageSetStartingPoint extends Message{
         }
 
         if(sClient.getPlayer().placeRobot(position)){
-
-                sClient.sendAll(new MessageStartingPointTaken(x, y, sClient.getId()));
-                if (sClient.getPlayer().getGame().getPlayerList().size() - 1 > sClient.getPlayer().getGame().getLastCurrentPlayer()) {
-                    sClient.getPlayer().getGame().setLastCurrentPlayer(sClient.getPlayer().getGame().getLastCurrentPlayer() + 1);
-                    sClient.sendAll(new MessageCurrentPlayer(sClient.getPlayer().getGame().getPlayerList().get(sClient.getPlayer().getGame().getLastCurrentPlayer()).getClient().getId()));
-                }
-
+            sClient.sendAll(new MessageStartingPointTaken(x, y, sClient.getId()));
+            if (sClient.getPlayer().getGame().getPlayerList().size() - 1 > sClient.getPlayer().getGame().getLastCurrentPlayer()) {
+                sClient.getPlayer().getGame().setLastCurrentPlayer(sClient.getPlayer().getGame().getLastCurrentPlayer() + 1);
+                sClient.sendAll(new MessageCurrentPlayer(sClient.getPlayer().getGame().getPlayerList().get(sClient.getPlayer().getGame().getLastCurrentPlayer()).getClient().getId()));
+            }
         }
 
-       // sClient.sendSelf(new MessageSendChat("Server: checking if you already placed your Robot", sClient.getId()));
         boolean allPlaced = true;
-
         ArrayList<Player> players = sClient.getPlayer().getGame().getPlayerList();
 
         for (Player player: players) {
@@ -94,33 +95,21 @@ public class MessageSetStartingPoint extends Message{
             }
         }
 
-        //sClient.sendSelf(new MessageSendChat("Server: all placed "+ allPlaced, sClient.getId()));
-
         if(allPlaced){
-
-
-                //sClient.sendSelf(new MessageSendChat("Server: Initializing Game", sClient.getId()));
-                Thread thread = new Thread(){
-                    @Override
-                    public void run() {
-                        try {
-                            sClient.getPlayer().getGame().startGame();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
+            Thread thread = new Thread(){
+                @Override
+                public void run() {
+                    try {
+                        sClient.getPlayer().getGame().startGame();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
-                };
-                thread.start();
-
-
+                    }
+            };
+            thread.start();
         }
-
-
-
-
-
     }
 
     /**
@@ -129,10 +118,7 @@ public class MessageSetStartingPoint extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-    }
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

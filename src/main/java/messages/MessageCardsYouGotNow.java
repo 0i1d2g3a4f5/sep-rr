@@ -43,7 +43,6 @@ public class MessageCardsYouGotNow extends Message{
         jsonObject.add("cards",jsonArray);
 
         content = jsonObject;
-        //Server.serverLogger.info("Created Cards You Got Know Message: " + this);
     }
 
     /**
@@ -61,8 +60,6 @@ public class MessageCardsYouGotNow extends Message{
         }
         this.names = names;
         this.cards = cards;
-
-        //Server.serverLogger.info("Created Cards You Got Know Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

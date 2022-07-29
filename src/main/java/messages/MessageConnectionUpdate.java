@@ -45,7 +45,6 @@ public class MessageConnectionUpdate extends Message{
         clientID = content.get("clientID").getAsInt();
         isConnected = content.get("isConnected").getAsBoolean();
         action = content.get("action").getAsString();
-        //Server.serverLogger.info("Created ConnectionUpdate Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

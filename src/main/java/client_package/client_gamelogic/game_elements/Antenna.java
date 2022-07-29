@@ -7,23 +7,18 @@ import gamelogic.Direction;
 
 import java.io.IOException;
 import java.io.Serializable;
+
 /**
  * @author Mark Ringer
  */
-
 public class Antenna extends GameElement implements Serializable {
-
-
     public Antenna(Direction direction){
         visualOrder = 1;
         type = ElementName.ANTENNA;
         orientations.add(direction);
-
     }
 
-
     /**
-     * @author Ringer
      * builds an Object from a JsonObject
      * @param jsonObject
      * @return
@@ -37,13 +32,8 @@ public class Antenna extends GameElement implements Serializable {
         if(orientations.size()>0){
             Direction direction = Direction.parseDirection(orientations.get(0).getAsString());
             this.orientations.add(direction);
-
         }
-
-
-
     }
-
 
     @Override
     public String toString() {

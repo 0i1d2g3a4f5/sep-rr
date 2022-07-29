@@ -15,7 +15,10 @@ import java.util.ArrayList;
 public class MessageTimerEnded extends Message{
 
     /**
+     * converts json to message
+     *
      * @param latePlayers
+     * @auhtor Isabel Muhm
      */
     public MessageTimerEnded(ArrayList<Player> latePlayers){
         super();
@@ -29,9 +32,6 @@ public class MessageTimerEnded extends Message{
         }
         jsonObject.add("clientIDs",jsonArray);
         content = jsonObject;
-        //System.out.println("Created StartTime Message: " + this);
-        //Server.serverLogger.info("Created Timer Ended Message: " + this);
-
     }
 
     /**
@@ -39,7 +39,6 @@ public class MessageTimerEnded extends Message{
      */
     public MessageTimerEnded(JsonObject jsonObject){
         super(jsonObject);
-        //Server.serverLogger.info("Created Timer Ended Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -53,6 +52,7 @@ public class MessageTimerEnded extends Message{
     }
 
     /**
+     * informs client gamecontroller about end of timer
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException

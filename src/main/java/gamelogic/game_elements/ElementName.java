@@ -31,7 +31,6 @@ public enum ElementName {
      * @author Mark Ringer
      */
     public static ElementName parseElementName(String nameString) throws IOException {
-        //ElementName elementName;
         for (ElementName elementName:ElementName.values()) {
             if(elementName.toString().equalsIgnoreCase(nameString)) return elementName;
         }

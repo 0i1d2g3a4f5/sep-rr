@@ -24,7 +24,6 @@ public class MessageShuffleCoding extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Shuffle Coding Message: " + this);
     }
 
     /**
@@ -33,7 +32,6 @@ public class MessageShuffleCoding extends Message{
     public MessageShuffleCoding(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //Server.serverLogger.info("Created Shuffle Coding Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

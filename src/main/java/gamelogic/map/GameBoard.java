@@ -242,7 +242,6 @@ public class GameBoard implements JsonSerializable {
      */
 
     public GameBoard(JsonObject json) throws IOException {
-        //TODO ?
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ElementFactory elementFactory = new ElementFactory();
@@ -258,15 +257,12 @@ public class GameBoard implements JsonSerializable {
         for (int i=0; i<arrayLVL1.getAsJsonArray().size();i++) {
             ArrayList<GameField> row = new ArrayList<GameField>();
             for (int j=0; j<arrayLVL1.get(i).getAsJsonArray().size(); j++) {
-                //System.out.println("Y :: " + j + " :: " + arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray().toString());
                 GameField gameField = new GameField(this,j,i);
 
                 for (JsonElement elementLVL3: arrayLVL1.get(i).getAsJsonArray().get(j).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
                     element.setGameField(gameField);
                     gameField.isOnBoard=element.getIsOnBoard();
-
-                    //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
 
                     if(element.getType() == ElementName.RESTARTPOINT){
@@ -283,8 +279,6 @@ public class GameBoard implements JsonSerializable {
             }
             boardMap.add(row);
         }
-        //System.out.println(toJson());
-
     }
 
 
@@ -305,8 +299,6 @@ public class GameBoard implements JsonSerializable {
                 JsonArray jsonArrayLVL3 = new JsonArray();
                 if(gameField.isActive()){
                     for (GameElement element:gameField.getElements()) {
-                        //System.out.println("Element in Board.toJson: "+element);
-                        //Server.serverLogger.info("Element in Board.toJson");
                         jsonArrayLVL3.add(element.toJson());
                     }
                 } else {

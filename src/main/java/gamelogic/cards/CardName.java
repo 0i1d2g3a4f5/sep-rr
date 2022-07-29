@@ -81,8 +81,6 @@ public enum CardName {
     public static CardName parseCardName(String cardName) {
         for (CardName  name:CardName.values()){
             cardName = cardName.replaceAll("\"","");
-            //Server.serverLogger.info("Wanted: " + cardName);
-            //Server.serverLogger.info("Actual: " + name.toString());
 
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }

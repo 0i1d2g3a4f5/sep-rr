@@ -37,7 +37,6 @@ public class MessageCheckPointMoved extends Message {
         jsonObject.add("x", new JsonPrimitive(x));
         jsonObject.add("y", new JsonPrimitive(y));
         content = jsonObject;
-        //Server.serverLogger.info("Created Movement Message: " + this);
     }
 
     /**
@@ -48,7 +47,6 @@ public class MessageCheckPointMoved extends Message {
         checkpointID = content.get("checkpointID").getAsInt();
         x= content.get("x").getAsInt();
         y = content.get("y").getAsInt();
-        //Server.serverLogger.info("Created Movement Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

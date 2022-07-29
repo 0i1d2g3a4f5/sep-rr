@@ -26,7 +26,6 @@ public class Spam extends DamageCard{
     public void activateCard(){
 
         Server.serverLogger.debug("Before Spam:");
-        //TODO notify CPlayer
         for (int i =0;i<player.getAllRegisters().length;i++) {
             if(player.getAllRegisters()[i]!=null){
                 if(player.getAllRegisters()[i].getCardName()==SPAM) {

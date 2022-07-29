@@ -2,11 +2,11 @@ package client_package.client_gamelogic.cards.programming_cards;
 
 import static client_package.client_gamelogic.cards.CardName.BACK_UP;
 
+/**
+ * @author Vivian Kafadar
+ * When the Back Up card is active, the respective robot moves one space back without changing the direction its facing
+ */
 public class BackUp extends ProgrammingCard {
-
-    /**
-     * @author Kafadar
-     */
 
     public BackUp() {super(BACK_UP);}
 
@@ -17,10 +17,6 @@ public class BackUp extends ProgrammingCard {
 
     @Override
     public void activateCard() {
-        /*
-        Move your robot one space back.
-        The robot does not change the direction it is facing.
-         */
         player.getRobot().backward(1);
     }
 }

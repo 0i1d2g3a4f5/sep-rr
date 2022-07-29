@@ -2,23 +2,18 @@ package client_package.client_gamelogic.cards.special_cards;
 
 import static client_package.client_gamelogic.cards.CardName.SANDBOX_ROUTINE;
 
+/**
+ * @author Qinyi Hui
+ * When this card is discarded, the player has to choose on of the following actions:
+ *      Move 1, 2, 3, Back Up, Turn Left, Turn Right, U-Turn
+ */
 public class SandboxRoutine extends SpecialCard {
 
     public SandboxRoutine(){super(SANDBOX_ROUTINE);}
 
-    public void discard(){
+    public void discard(){}
 
-    }
-
-    /** Choose one of the following actions to perform this register:
-     * Move1,2,or3,
-     * Back Up,
-     * Turn Left,
-     * Turn Right,
-     * U-Turn
-     */
     public void activateCard(){
-        //TODO player message, player choose a card
         switch (cardName){
             case MOVEI:
                 player.getRobot().forward(1);
@@ -43,6 +38,5 @@ public class SandboxRoutine extends SpecialCard {
                 player.getRobot().uTurn();
                 break;
         }
-
     }
 }

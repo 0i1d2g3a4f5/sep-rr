@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 /**
  * TBD
- * @author Qinyi
+ * @author Qinyi Hui
  */
 public class ClientGameFinishedController {
     @FXML

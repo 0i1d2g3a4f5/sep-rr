@@ -13,18 +13,14 @@ import java.io.IOException;
 
 public class MessageTimerStarted extends Message{
 
-    //public ArrayList<int> players;
-
     public MessageTimerStarted(){
         super();
         type = "TimerStarted";
         JsonObject jsonObject = new JsonObject();
         content = jsonObject;
-       // Server.serverLogger.info("Created Timer Started Message: " + this);
     }
 
     /**
-     *
      * @param jsonObject
      */
     public MessageTimerStarted(JsonObject jsonObject){
@@ -42,14 +38,16 @@ public class MessageTimerStarted extends Message{
     }
 
     /**
+     * informs game controller of client about start of 30 sec timer
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
+     * @author Isabel Muhm
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException, InterruptedException {
         client.getClientApplication().getGameController().startTimer();
-        System.out.println("startTimer in GameController activated");
     }
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {

@@ -35,7 +35,6 @@ public class MessagePlayerTurning extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("rotation", new JsonPrimitive(rotation));
         content = jsonObject;
-        //Server.serverLogger.info("Created Player Turning Message: " + this);
     }
 
     /**
@@ -45,7 +44,6 @@ public class MessagePlayerTurning extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         rotation = content.get("rotation").getAsString();
-        //Server.serverLogger.info("Created Player Turning Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

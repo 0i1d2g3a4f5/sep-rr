@@ -39,7 +39,7 @@ public class JavaFXGridHandler {
      * @param pute
      * @param qwerty
      */
-    public void applesAndBananas(GridPane desmondBind, int x, int y, GameBoard pute, int qwerty){
+    public void handleGameElementEnum(GridPane desmondBind, int x, int y, GameBoard pute, int qwerty){
         GameField hurricaneCatcher = pute.getGameField(y, x);
         StackPane orangutanKebab= (StackPane) desmondBind.getChildren().get(y*desmondBind.getColumnCount() + x);
         ImageView whatDaFuk = new ImageView(new Image("TBDtile.png"));
@@ -254,7 +254,6 @@ public class JavaFXGridHandler {
      */
     private GridPane gridPaneFromCardList(ArrayList<Card> cardList, int type) throws IOException {
         GridPane gridPane = new GridPane();
-        //Client.clientLogger.debug("CARDLISTSIZE: " + cardList.size());
         // get card list length, add image in gridpanes at needed locations
         for(int i=0; i<cardList.size(); i++){
                 if (cardList.get(i) != null) {
@@ -329,8 +328,6 @@ public class JavaFXGridHandler {
                 ImageView imageView= new ImageView(new Image("TBDtile.png"));
                 stackPane.getChildren().add(imageView);
                 stackPane.setAlignment(imageView, Pos.CENTER);
-
-                //Client.clientLogger.debug(temp.getPosition()+" :: "+temp.getElements());
 
                 for(int i=0; i<temp.getElements().size(); i++){
                     GameElement gameElement = temp.getElements().get(i);

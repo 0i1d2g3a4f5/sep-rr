@@ -1,5 +1,7 @@
 package messages;
 /**
+ * creates message enums
+ *
  * @author Sarp Cagin Erdogan, Vivian Kafadar
  */
 public enum MessageType {

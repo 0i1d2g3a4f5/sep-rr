@@ -2,11 +2,11 @@ package client_package.client_gamelogic.cards.programming_cards;
 
 import static client_package.client_gamelogic.cards.CardName.TURNLEFT;
 
+/**
+ * @author Vivian Kafadar
+ * When this card is active, the respective robot turns 90 degrees to the left while maintaining its current position
+ */
 public class LeftTurn extends ProgrammingCard {
-
-    /**
-     * @author Kafadar
-     */
 
     public LeftTurn() {super(TURNLEFT);}
 
@@ -17,10 +17,6 @@ public class LeftTurn extends ProgrammingCard {
 
     @Override
     public void activateCard() {
-        /*
-        Turn your robot 90 degrees to the left.
-        The robot remains in its current space.
-         */
         player.getRobot().left();
     }
 }

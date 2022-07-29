@@ -17,6 +17,9 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Sarp Cagin Erdogan
+ */
 public class SentientBehaviour {
     SentientClient sentientClient;
     boolean canChooseNext, allChosen, directionHandled, triedToHandle, canMoveForward;
@@ -29,6 +32,12 @@ public class SentientBehaviour {
         canMoveForward=true;
     }
 
+    /**
+     * starts manual AI
+     *
+     * @param name
+     * @param group
+     */
     public void start(String name, String group) {
         sentientClient.setGroup(group);
         int i = 1+ (int) ( Math.random() * 9999);
@@ -37,6 +46,15 @@ public class SentientBehaviour {
         createSocket();
         sentientClient.listen();
     }
+
+    /**
+     * starts automatic AI
+     *
+     * @param name
+     * @param string
+     * @param port
+     * @param group
+     */
     public void start(String name, String string, int port, String group){
         int i = 1+ (int) ( Math.random() * 9999);
         String str = String.valueOf(i);
@@ -45,6 +63,12 @@ public class SentientBehaviour {
         sentientClient.listen();
         sentientClient.setGroup(group);
     }
+
+    /**
+     * creates Socket connection to server (server ip and port will be given while processing)
+     *
+     * @return
+     */
     public boolean createSocket(){
         boolean result = false;
         String ip = scanIP();
@@ -63,12 +87,40 @@ public class SentientBehaviour {
         }
         return result;
     }
+
+    /**
+     * creates Socket connection to given sever (automatic)
+     *
+     * @return
+     */
+    public boolean createSocket(String ip, int port){
+        boolean result = false;
+        try {
+            sentientClient.setSocket(new Socket(ip, port));
+            result=true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    /**
+     * asks for ip adress of server to connect with in command line
+     *
+     * @return
+     */
     public String scanIP(){
         System.out.println("Please provide ip: ");
         Scanner scanner = new Scanner(System.in);
         String scannedIP = scanner.next();
         return scannedIP;
     }
+
+    /**
+     * asks for port of server to connect with in command line
+     *
+     * @return
+     */
     public int scanPort(){
         System.out.println("Please provide port: ");
         Scanner scanner = new Scanner(System.in);
@@ -82,16 +134,10 @@ public class SentientBehaviour {
         }
         return port;
     }
-    public boolean createSocket(String ip, int port){
-        boolean result = false;
-        try {
-            sentientClient.setSocket(new Socket(ip, port));
-            result=true;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return result;
-    }
+
+    /**
+     * initializes checkpoint positions of all checkpoints in game
+     */
     public void initializeCheckPoints(){
         while (sentientClient.getGame().getMap()==null){
             try {
@@ -112,16 +158,22 @@ public class SentientBehaviour {
             }
         }
     }
+
+    /**
+     * increase number of next checkpoint to reach with 1 after reaching a checkpoint
+     */
     public void nextCheckPoint(){
         sentientClient.currentGoal++;
     }
+
     public void sayHelloToServer(){
         sentientClient.sendSelf(new MessageHelloServer(sentientClient.getGroup(), true, sentientClient.getProtocolVersion()));
     }
+
     public void sendOwnInfo(){
         sentientClient.sendSelf(new MessagePlayerValues(sentientClient.getName(), sentientClient.lastTriedFigure));
-
     }
+
     public void retryFigure(){
         if(sentientClient.lastTriedFigure<7){
             sentientClient.lastTriedFigure++;
@@ -131,6 +183,12 @@ public class SentientBehaviour {
             sentientClient.getLogger().error("No figures available :(");
         }
     }
+
+    /**
+     * triggers game start and loads map
+     * @param jsonObject
+     * @throws IOException
+     */
     public void triggerGameStart(JsonObject jsonObject) throws IOException {
         Game game = Game.getInstance();
         game.setMap(new GameBoard(jsonObject));
@@ -139,7 +197,9 @@ public class SentientBehaviour {
         initializeCheckPoints();
     }
 
-
+    /**
+     * chooses Cards to play with
+     */
     public void chooseAllCards(){
         allChosen=sentientClient.getPlayer().registerFull();
         directionHandled=false;
@@ -167,17 +227,14 @@ public class SentientBehaviour {
                         System.out.println("trying to choose random");
                         chooseCardRandom();
                     }
-
                 }
-
-
             }
-
         }
     }
-    public void chooseCard(){
-        chooseCardRandom();
-    }
+
+    /**
+     * chooses random card from available cards
+     */
     public void chooseCardRandom(){
         ArrayList<Integer> chooseFrom = sentientClient.getPlayer().availableIndexes();
         int randomIndex = (int) ( Math.random() * chooseFrom.size());
@@ -185,6 +242,10 @@ public class SentientBehaviour {
         int emptyRegister = sentientClient.getPlayer().selectCardOwn(selectedIndex);
         sentientClient.sendSelf(new MessageSelectedCard(sentientClient.getPlayer().getOwnSelectedCard().getValue().toString(), emptyRegister));
     }
+
+    /**
+     * checks distance to next checkpoint (x and y) and handles lower one
+     */
     public void handleDirection(){
         Position currentPos = sentientClient.getPlayer().getRobot().getPosition();
         Position currentGoal = sentientClient.nextCheckPoints.get(sentientClient.currentGoal);
@@ -196,10 +257,13 @@ public class SentientBehaviour {
         else{
             handleYDiff(ydiff>0);
         }
-
     }
+
+    /**
+     * turns robot to x direction with shortest way to next checkpoint
+     * @param positive
+     */
     public void handleXDiff(boolean positive){
-        System.out.println("trying to not handle x");
         Direction direction = sentientClient.getPlayer().getRobot().getDirectionFacing();
         if(positive){
 
@@ -231,8 +295,12 @@ public class SentientBehaviour {
             }
         }
     }
+
+    /**
+     * turns robot to y direction with shortest way to next checkpoint
+     * @param positive
+     */
     public void handleYDiff(boolean positive){
-        System.out.println("trying to not handle y");
         Direction direction = sentientClient.getPlayer().getRobot().getDirectionFacing();
             if(positive){
                 if(direction.equals(Direction.BOTTOM)){
@@ -264,6 +332,11 @@ public class SentientBehaviour {
             }
         }
 
+    /**
+     * tries to find needed turning card in available cards
+     *
+     * @param cardName
+     */
     public void tryToTurn(CardName cardName){
         for(int i = 0; i<sentientClient.getPlayer().getAvailableCardsOwn().size(); i++){
             if(sentientClient.getPlayer().getAvailableCardsOwn().get(i) != null){
@@ -278,6 +351,10 @@ public class SentientBehaviour {
         canChooseNext=true;
         triedToHandle=true;
     }
+
+    /**
+     * tries to find move cards in available cards to move forward
+     */
     public void moveForward(){
         for(int i = 0; i<sentientClient.getPlayer().getAvailableCardsOwn().size(); i++){
             if(sentientClient.getPlayer().getAvailableCardsOwn().get(i) != null){
@@ -292,9 +369,14 @@ public class SentientBehaviour {
         canMoveForward=false;
     }
 
-    public void chooseRebootDirection(){
+    public void chooseRebootDirection()
+    {
         chooseRandomRebootDirection();
     }
+
+    /**
+     * chooses random reboot direction
+     */
     public void chooseRandomRebootDirection(){
         int randomIndex = (int) ( Math.random() * 4);
         Direction direction;
@@ -319,19 +401,18 @@ public class SentientBehaviour {
 
     }
 
-
-    public boolean isCanChooseNext() {
-        return canChooseNext;
-    }
-
+    /**
+     * gives AI the right to choose the next card in a register
+     * @param canChooseNext
+     */
     public void setCanChooseNext(boolean canChooseNext) {
         this.canChooseNext = canChooseNext;
     }
 
-    public boolean isAllChosen() {
-        return allChosen;
-    }
-
+    /**
+     * informs AI that all card are chosen
+     * @param allChosen
+     */
     public void setAllChosen(boolean allChosen) {
         this.allChosen = allChosen;
     }

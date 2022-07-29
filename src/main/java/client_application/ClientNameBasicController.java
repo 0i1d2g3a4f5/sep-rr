@@ -12,7 +12,7 @@ import messages.MessagePlayerValues;
 
 import java.util.List;
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 public class ClientNameBasicController {
     ClientApplication clientApplication;

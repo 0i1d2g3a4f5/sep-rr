@@ -19,6 +19,8 @@ public class MessageWelcome extends Message{
     public int clientID;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      */
     public MessageWelcome(int clientID) {
@@ -27,16 +29,15 @@ public class MessageWelcome extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Welcome Message: " + this);
     }
 
     /**
+     * converts json to message
      * @param jsonObject
      */
     public MessageWelcome(JsonObject jsonObject) {
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //Server.serverLogger.info("Created Welcome Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -50,6 +51,8 @@ public class MessageWelcome extends Message{
     }
 
     /**
+     * creates task to document own id
+     *
      * @param client
      * @throws IOException
      * @throws ClientNotFoundException
@@ -61,6 +64,8 @@ public class MessageWelcome extends Message{
     }
 
     /**
+     * documents own ID
+     *
      * @throws IOException
      * @throws ClientNotFoundException
      */
@@ -68,6 +73,6 @@ public class MessageWelcome extends Message{
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         sentientClient.setId(clientID);
         sentientClient.getSentientBehaviour().sendOwnInfo();
-
     }
+
 }

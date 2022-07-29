@@ -4,6 +4,9 @@ import server_package.Server;
 
 import java.io.IOException;
 
+/**
+ * @author Vivian Kafadar
+ */
 public enum CardName {
     // Damage Cards
     SPAM("Spam"),
@@ -66,25 +69,26 @@ public enum CardName {
     UNKNOWN("Unknown"),
     NULL("Null");
 
-
-
     private String cardName;
-    public static CardName parseCardName(String cardName) throws IOException {
-        for (CardName  name:CardName.values()){
-            cardName =cardName.replaceAll("\"","");
-            //Server.serverLogger.info("Wanted: " + cardName);
-            //Server.serverLogger.info("Actual: " + name.toString());
 
+    /**
+     * @param cardName
+     * @return
+     * @throws IOException
+     */
+    public static CardName parseCardName(String cardName) throws IOException {
+        for (CardName name:CardName.values()){
+            cardName = cardName.replaceAll("\"","");
             if(name.toString().equalsIgnoreCase(cardName)) return name;
         }
-        throw new IOException("Card "+cardName+" not found");
+        throw new IOException("Card " + cardName + " not found");
     }
+
     public String toString(){
         return cardName;
     }
+
     CardName(String cardName) {
         this.cardName = cardName;
     }
-
-
 }

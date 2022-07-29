@@ -10,21 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Ringer
+ * @author Mark Ringer
  */
 public class SearchMethods {
 
-    public static int emptyArraySpaces(Object[] array){
-        int emptySpaces = 0;
-        for (int i = 0; i < array.length; i++) {
-            if(array[i] == null){
-                emptySpaces++;
-            }
-        }
-        return emptySpaces;
-    }
     /**
-     * @author Ringer
      * @param cardName
      * @param list
      * @return
@@ -36,6 +26,11 @@ public class SearchMethods {
         return null;
     }
 
+    /**
+     * @param cardName
+     * @param list
+     * @return
+     */
     public static Card searchCard(CardName cardName,Card[] list){
         for (Card card:list) {
             if(card.getCardName()==cardName) return card;

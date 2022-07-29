@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="javadoc gamelogic" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="commented/javadocs and clean code with vivian">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abgabe/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/abgabe/README.md" afterDir="false" />
+    </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
-    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian" />
+    <list id="1c69446a-d821-42bb-a32c-5d1262b0afcb" name="Changes by vivian" comment="Changes by vivian (commenting everything)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,35 +94,9 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.SentientLauncher">
-    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_application.ClientMain" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client_application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SentientLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_package.sentient.SentientLauncher" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client_package.sentient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server_application.ServerMain" />
+  <component name="RunManager" selected="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)">
+    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server_application.ServerApplication" />
       <module name="desperate_drosseln_hp" />
       <extension name="coverage">
         <pattern>
@@ -135,24 +112,32 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/Jars/desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/Jars/desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/Jars/desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.ClientMain" />
-      <item itemvalue="Application.SentientLauncher" />
-      <item itemvalue="Application.ServerMain" />
+      <item itemvalue="Application.ServerApplication" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SentientLauncher" />
-        <item itemvalue="Application.ClientMain" />
-        <item itemvalue="Application.ServerMain" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.ServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -359,14 +344,21 @@
       <option name="project" value="LOCAL" />
       <updated>1659052117076</updated>
     </task>
-    <task id="LOCAL-00026" summary="javadoc gamelogic">
-      <created>1659061018321</created>
+    <task id="LOCAL-00026" summary="Changes by vivian (commenting everything)">
+      <created>1659064574421</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1659061018321</updated>
+      <updated>1659064574421</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="commented/javadocs and clean code with vivian">
+      <created>1659064650312</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659064650312</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Game is buggy but playable" />
     <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
@@ -425,7 +416,8 @@
     <MESSAGE value="pom" />
     <MESSAGE value="added Jars" />
     <MESSAGE value="changed directory to abgabe" />
-    <MESSAGE value="javadoc gamelogic" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc gamelogic" />
+    <MESSAGE value="Changes by vivian (commenting everything)" />
+    <MESSAGE value="commented/javadocs and clean code with vivian" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented/javadocs and clean code with vivian" />
   </component>
 </project>

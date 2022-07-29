@@ -22,9 +22,12 @@ public class MessageStartingPointTaken extends Message{
     public int clientID;
 
     /**
+     * converts message to json
+     *
      * @param x
      * @param y
      * @param clientID
+     * @author Isabel MUhm
      */
     public MessageStartingPointTaken(int x, int y, int clientID){
         this.x = x;
@@ -36,10 +39,10 @@ public class MessageStartingPointTaken extends Message{
         jsonObject.add("y", new JsonPrimitive(y));
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Starting Point Taken Message: " + this);
     }
 
     /**
+     * converts json to message
      * @param jsonObject
      */
     public MessageStartingPointTaken(JsonObject jsonObject) {
@@ -47,7 +50,6 @@ public class MessageStartingPointTaken extends Message{
         x = content.get("x"). getAsInt();
         y = content.get("y"). getAsInt();
         clientID = content.get("clientID"). getAsInt();
-        //Server.serverLogger.info("Created Starting Point Taken Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -81,32 +83,15 @@ public class MessageStartingPointTaken extends Message{
         client.removeStartingPoint(new Position(y, x));
         client.getHighSlumber().add(new Position(y, x));
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARDPARTS, new TaskContent()));
-
-
-
-        /*if(client.getId()==clientID) {
-            if(!client.getPlayer().getRobot().isPlaced()) {
-                client.getPlayer().getRobot().placeRobot(y, x);
-                client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
-                //TODO disable place Robot Field
-            }
-        } else {
-            Client.clientLogger.info("Setting other robot");
-            for (CPlayer player: client.getGame().getPlayerList()) {
-                Client.clientLogger.info("Checking client:" + player.getClientID());
-                if(player.getClientID() == clientID && clientID !=client.getId()){
-                    Client.clientLogger.info("Figure: " +player.getRobot().getFigure());
-
-                    player.getRobot().placeRobot(y,x);
-                    client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATEGAMEBOARD, new TaskContent()));
-
-
-                }
-
-            }
-        }*/
-
     }
+
+    /**
+     * playes robot
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
         if(clientID==sentientClient.getId()){

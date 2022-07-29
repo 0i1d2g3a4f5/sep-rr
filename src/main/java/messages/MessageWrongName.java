@@ -24,16 +24,17 @@ public class MessageWrongName extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("Name", new JsonPrimitive(name));
         content = jsonObject;
-        //Server.serverLogger.info("Created Wrong Name Message: " + this);
     }
 
     /**
+     * converts message to json
+     *
      * @param jsonObject
+     * @author Isabel Muhm
      */
     public MessageWrongName(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
-        //Server.serverLogger.info("Created Wrong Name Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -55,6 +56,13 @@ public class MessageWrongName extends Message{
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
 
     }
+
+    /**
+     *
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
 

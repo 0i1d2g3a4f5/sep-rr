@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  * @author Sarp Cagin Erdogan
  */
+
 public abstract class SClient {
     protected ArrayList<Message> toSendList = new ArrayList<>();
     public void addToSendList(Message message){
@@ -26,22 +27,26 @@ public abstract class SClient {
     protected ArrayList<String> receivedMessages = new ArrayList<>();
     protected boolean isReady, isListening, isNamed, isAI, isBasic;
 
-
     public SClient(Server server, int id, Socket socket, boolean isBasic){
         setServer(server);
         setId(id);
         setSocket(socket);
         setBasic(isBasic);
-
     }
-    public SClient(){
 
-    }
+    public SClient(){}
+
     public void sendSingle(SClient sClient, Message temp) {
         toSendList.add(temp);
         handleToBeSent(sClient);
     }
+
+    /**
+     * Create message from send list and send
+     * @param sClient
+     */
     public void handleToBeSent(SClient sClient){
+        // If there is content on the toSendList we take the content from the 0th position and add it as a new message
         while(toSendList.size()>0){
             Message message = toSendList.get(0);
             String string = message.toJSON().toString();
@@ -59,57 +64,6 @@ public abstract class SClient {
         }
     }
 
-    /*public void sendSingle(SClient sClient, Message temp){
-        addToSendList(temp);
-        while (toSendList.size() > 0){
-            Message message = toSendList.get(0);
-                synchronized (message) {
-
-
-                try {
-                    OutputStream outputStream = sClient.socket.getOutputStream();
-                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-                    DataOutputStream dataOutputStream = new DataOutputStream(bufferedOutputStream);
-                    String toSend = message.toJSON().toString().replaceAll("\n", "").trim() + "\n";
-
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream));
-
-                    writer.write(toSend);
-                    writer.write("\n");
-                    writer.flush();
-
-
-                    *//*
-                    char[] arr = toSend.toCharArray();
-                    String print = "";
-                    int count = 0;
-                    for (char c : arr) {
-                        dataOutputStream.writeInt((int) c);
-                        print += c;
-                        count++;
-                        dataOutputStream.flush();
-                    }
-
-                     *//*
-
-                    Server.serverLogger.info("Listener sent" + toSend);
-
-                    toSendList.remove(message);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                if (toSendList.size()>0) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
-
-    }*/
-
     public void setPlayer(Player player) {
         this.player = player;
     }
@@ -125,16 +79,6 @@ public abstract class SClient {
         }
     }
 
-    /* GETTER SETTER
-    *
-    *
-    *
-    *
-    *
-    *
-    *
-    *
-    */
     public int getFigure() {
         return figure;
     }
@@ -169,7 +113,6 @@ public abstract class SClient {
         return socket;
     }
 
-
     public boolean getIsNamed() {
         return isNamed;
     }
@@ -185,52 +128,36 @@ public abstract class SClient {
     public boolean getIsReady() {
         return isReady;
     }
-    public void setReady(boolean bool){
-        this.isReady=bool;
-
-    }
+    public void setReady(boolean bool){this.isReady=bool;}
     public boolean getIsAI() {
         return isAI;
     }
-    public void setAI(boolean bool){
-        this.isAI=bool;
-
-    }
-
+    public void setAI(boolean bool){this.isAI=bool;}
 
     public boolean isBasic() {
         return isBasic;
     }
-
     public void setBasic(boolean basic) {
         isBasic = basic;
     }
-
     public void setServer(Server server) {
         this.server = server;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public void setSocket(Socket socket) {
         this.socket = socket;
     }
 
     public abstract void listen();
-
     public abstract void sendProtocolCheck();
-
     public abstract void disconnect();
-
     public abstract void removeClientFromList();
-
     public abstract void shutDownClient();
-
     public abstract void checkValues(String name, int figure);
-
     public abstract void sendPreviousInfo();
+
     public void process(JsonObject jsonObject) throws ClientNotFoundException, IOException {
         MessageType messageType = new MessageTypeFactory().fromString(jsonObject.get("messageType").getAsString());
         Message message = new MessageFactory().createMessage(messageType, jsonObject);

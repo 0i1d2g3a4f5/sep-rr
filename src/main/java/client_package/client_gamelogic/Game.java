@@ -27,15 +27,17 @@ public class Game {
     }
 
     private int activeRegister, phase;
+
     private final ArrayList<CPlayer> playerList = new ArrayList<>();
+
     private GameBoard map;
+
     private Client client;
+
     private static Game instance;
 
     private Game() {
-
     }
-
 
     public static Game getInstance() throws IOException {
         if(instance != null) return  instance;
@@ -45,26 +47,9 @@ public class Game {
         }
     }
 
-
-   /* public void join(Client client){
-        if(!(client.getId()==this.client.getId())){
-            CPlayer player = new CPlayer(client,this);
-            client.setPlayer(player);
-            playerList.add(player);
-        } else {
-            Client thisClient = (Client) client;
-            CPlayer player = new CPlayer(thisClient,thisClient.getGame());
-
-            thisClient.setPlayer(player);
-            playerList.add(player);
-        }
-    }*/
-
     public ArrayList<CPlayer> getPlayerList() {
         return playerList;
     }
-
-
 
     public GameBoard getMap() {
         return map;
@@ -84,10 +69,7 @@ public class Game {
 
     private Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
-        //TODO check if needed: this.playerList = playerList;
         map = new GameBoard(mapJson);
     }
-
-
 
 }

@@ -16,7 +16,6 @@ public class WeaselRoutine extends SpecialCard {
      * U-Turn
      */
     public void activateCard(){
-        //TODO PlayerMessage, player choose a card
         switch (cardName){
             case TURNLEFT:
                 player.getRobot().left();

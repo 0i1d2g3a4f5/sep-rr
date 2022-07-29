@@ -20,6 +20,8 @@ public class MessageReboot extends Message{
     public int clientID;
 
     /**
+     * converts message to json
+     *
      * @param clientID
      */
     public MessageReboot(int clientID){
@@ -28,16 +30,16 @@ public class MessageReboot extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Robo Reboot Message: " + this);
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
      */
     public MessageReboot(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //Server.serverLogger.info("Created Robo Reboot Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -46,15 +48,7 @@ public class MessageReboot extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-        // Roboter wird nach oben / norden ausgerichtet
-        // Koordinaten des Rebootfeldes werden per "Movement"-Nachricht verschickt
-        // Client quittiert Nachricht mit der Richtung in d. d. Bot ausgerichtet werden soll (top, right, bottom, left)
-
-        // Startet ein Roboter auf Startfeld neu, während anderer auf Neustart Feld
-            // Neustartender Roboter schiebt Roboter der das Feld besetzt in Richtung des Pfeils auf dem Neustart-Feld weg
-            // Wenn Roboter zwischen Wand & Startfeld steht dann soll Roboter auf einem anderen freien Startfeld rebooten
-    }
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
     /**
      * @param client
@@ -63,15 +57,14 @@ public class MessageReboot extends Message{
      */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        if(clientID ==client.getId())
-
+        if(clientID == client.getId())
              client.getClientApplication().addAndExecuteTask(new Task(TaskType.REBOOTDIRECTION, new TaskContent()));
     }
+
     @Override
     public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-        if(clientID==sentientClient.getId()){
+        if(clientID == sentientClient.getId()){
             sentientClient.getSentientBehaviour().chooseRebootDirection();
         }
-
     }
 }

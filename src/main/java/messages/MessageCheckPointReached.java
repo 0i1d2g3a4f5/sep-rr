@@ -31,7 +31,6 @@ public class MessageCheckPointReached extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("number", new JsonPrimitive(number));
         content = jsonObject;
-        //Server.serverLogger.info("Created Check Point Reached Message: " + this);
     }
 
     /**
@@ -44,7 +43,6 @@ public class MessageCheckPointReached extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         number = content.get("number").getAsInt();
-        //Server.serverLogger.info("Created Check Point Reached Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
