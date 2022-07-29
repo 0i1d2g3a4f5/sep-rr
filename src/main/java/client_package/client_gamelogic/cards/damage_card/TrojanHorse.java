@@ -4,6 +4,9 @@ import client_package.client_gamelogic.Game;
 
 import static client_package.client_gamelogic.cards.CardName.TROJAN_HORSE;
 
+/**
+ * @author Qinyi Hui
+ */
 public class TrojanHorse extends DamageCard {
 
     public TrojanHorse(){
@@ -14,10 +17,6 @@ public class TrojanHorse extends DamageCard {
     public void discard() {
     }
 
-    /**
-     *
-     * if you discard a TrojanHorse, you will immediately get two Spam cards.
-     */
     public void activateCard(){
     }
 }

@@ -22,6 +22,8 @@ public class MessageReceivedChat extends Message{
     public boolean isPrivate;
 
     /**
+     * converts message to json
+     *
      * @param message
      * @param from
      * @param isPrivate
@@ -36,10 +38,11 @@ public class MessageReceivedChat extends Message{
         jsonObject.add("from", new JsonPrimitive(from));
         jsonObject.add("isPrivate", new JsonPrimitive(isPrivate));
         content = jsonObject;
-        //Server.serverLogger.info("Created Received Chat Message: " + this);
     }
 
     /**
+     * converts json to message
+     *
      * @param jsonObject
      */
     public MessageReceivedChat(JsonObject jsonObject){
@@ -47,7 +50,6 @@ public class MessageReceivedChat extends Message{
         message = content.get("message").getAsString();
         from = content.get("from").getAsInt();
         isPrivate = content.get("isPrivate").getAsBoolean();
-        //Server.serverLogger.info("Created Received Chat Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -56,9 +58,7 @@ public class MessageReceivedChat extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
     /**
      * @param client
@@ -68,6 +68,7 @@ public class MessageReceivedChat extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
             if(this.isPrivate){
+                // Private message
                 if(from!=client.getId())  {
                         if (client.clientFromId(from)==null) {
                             client.getClientApplication().addAndExecuteTask(new Task(TaskType.CHATMESSAGE, new TaskString1("[Private] " + this.from + " :: " + this.message)));
@@ -84,6 +85,7 @@ public class MessageReceivedChat extends Message{
                 }
             }
             else{
+                // Public message
                 if(from!=client.getId()) {
                     if (client.clientFromId(from)==null) {
                         client.getClientApplication().addAndExecuteTask(new Task(TaskType.CHATMESSAGE, new TaskString1(this.from + " :: " + this.message)));
@@ -99,10 +101,8 @@ public class MessageReceivedChat extends Message{
                     }
                 }
             }
-
     }
+
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

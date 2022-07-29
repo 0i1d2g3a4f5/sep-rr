@@ -41,7 +41,6 @@ public class MessagePickDamage extends Message {
         }
         jsonObject.add("availablePiles",jsonArray);
         content = jsonObject;
-        //Server.serverLogger.info("Created Pick Damage Message: " + this);
     }
 
     /**

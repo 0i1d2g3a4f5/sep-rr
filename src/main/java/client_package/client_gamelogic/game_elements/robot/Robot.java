@@ -14,47 +14,37 @@ import gamelogic.Position;
 import java.io.IOException;
 
 /**
- * @author Qinyi, Mark
+ * @author Mark Ringer, Qinyi Hui
  * creates a robot character for every player
  */
 public class Robot extends GameElement {
 
     private boolean isPlaced = false;
-
-    //private final Color color;
-
     public int figure;
     private Game game = Game.getInstance();
-
     public Direction getDirectionFacing() {
         return directionFacing;
     }
-
     public void setDirectionFacing(Direction directionFacing) {
         this.directionFacing = directionFacing;
     }
-
     private Direction directionFacing;
     private Position position;
     private String name;
     private CPlayer player;
-
     public Robot(int figure, CPlayer player) throws IOException {
         super(ElementName.ROBOT);
         visualOrder = 7;
         this.player = player;
         this.figure = figure;
         this.game = Game.getInstance();
-
     }
     public void setFigure(int f){
         this.figure=f;
     }
-
     public Position getPosition() {
         return position;
     }
-
     public boolean isPlaced() {
         return isPlaced;
     }
@@ -81,31 +71,23 @@ public class Robot extends GameElement {
      * @param y
      * @param x
      */
-
     public synchronized void moveRobotTo(int y, int x) throws IOException {
         if(position != null){
             Game.getInstance().getMap().getGameField(position.getY(),position.getX()).removeRobot();
         }
-
-        //Game.getInstance().getMap().getGameField(y,x).removeRobot();
         Game.getInstance().getMap().getGameField(y,x).addRobot(this);
         position = new Position(y,x);
-        //Server.serverLogger.info("Moved Robot "+this.figure + "to" +position);
-
-
     }
-
 
     private void setPosition(Position position) {
         this.position = position;
     }
 
-
     /**
+     * @author Mark Ringer
      * @param position
      * @param direction
      * @param figure
-     * @author Ringer
      * update the location of the robot
      */
     public Robot (Client client, Position position, Direction direction, int figure) throws IOException {
@@ -114,7 +96,6 @@ public class Robot extends GameElement {
         directionFacing = direction;
         this.position = position;
         this.orientations.add(direction);
-
     }
 
     public CPlayer getPlayer() {
@@ -126,41 +107,38 @@ public class Robot extends GameElement {
     }
 
     /**
-     * @author Ringer
+     * @author Mark Ringer
      * @return boolean
      */
     public boolean left(){
 
         Client.clientLogger.info("Robot "+figure+" turns left");
         Client.clientLogger.debug("Robot "+ figure+" direction before turn= "+directionFacing);
-        //TODO Animation
         directionFacing=directionFacing.left();
         Client.clientLogger.debug("Robot "+ figure+" direction after turn= "+directionFacing);
         return true;
     }
 
     /**
-     * @author Ringer
+     * @author Mark Ringer
      * @return boolean
      */
     public boolean right(){
-        Client.clientLogger.info("Robot "+figure+" turns right");
-        Client.clientLogger.debug("Robot "+ figure+" direction before turn= "+directionFacing);
-        //TODO Animation
-        directionFacing=directionFacing.right();
-        Client.clientLogger.debug("Robot "+ figure+" direction after turn= "+directionFacing);
+        Client.clientLogger.info("Robot " + figure + " turns right");
+        Client.clientLogger.debug("Robot " + figure+ " direction before turn= " + directionFacing);
+        directionFacing = directionFacing.right();
+        Client.clientLogger.debug("Robot " + figure + " direction after turn = " + directionFacing);
         return true;
     }
 
     /**
-     * @author Ringer
+     * @author Mark Ringer
      * @return boolean
      */
 
     public boolean uTurn(){
-        //TODO Animation
-        directionFacing=directionFacing.right();
-        directionFacing=directionFacing.right();
+        directionFacing = directionFacing.right();
+        directionFacing = directionFacing.right();
         return true;
     }
 
@@ -169,10 +147,7 @@ public class Robot extends GameElement {
     /**
      * @uthor Ringer
      */
-    public void reboot() {
-        //TODO Check rules if Register is continued
-        //TODO case not answered
-    }
+    public void reboot() {}
 
     /**
      * @return the name of the robot
@@ -184,6 +159,7 @@ public class Robot extends GameElement {
     public String toString(){
         return this.name;
     }
+
     /**
      * @return the max Lives of a robot
      */
@@ -191,11 +167,9 @@ public class Robot extends GameElement {
         return 3;
     }
 
-    public void backward(int i) {
-    }
+    public void backward(int i) {}
 
-    public void forward(int i) {
-    }
+    public void forward(int i) {}
 
     public int getFigure() {
         return figure;

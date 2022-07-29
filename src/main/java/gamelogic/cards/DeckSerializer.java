@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import java.util.Stack;
 
 public class DeckSerializer {
-    //TODO create decks as json
     /**
      * @auther Ringer
      * @param serializedCardJason

@@ -2,6 +2,9 @@ package client_package.client_gamelogic.cards.special_cards;
 
 import static client_package.client_gamelogic.cards.CardName.ENERGY_ROUTINE;
 
+/**
+ * @author Qinyi Hui
+ */
 public class EnergyRoutine extends SpecialCard {
 
     public EnergyRoutine(){
@@ -11,10 +14,6 @@ public class EnergyRoutine extends SpecialCard {
 
     }
 
-    /**
-     * @author Qinyi
-     * the player will take one energy cube.
-     */
     public void activateCard(){
 
     }

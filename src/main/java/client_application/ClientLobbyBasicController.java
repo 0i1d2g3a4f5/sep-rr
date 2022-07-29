@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import messages.MessageSetStatus;
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 public class ClientLobbyBasicController {
     ClientApplication clientApplication;

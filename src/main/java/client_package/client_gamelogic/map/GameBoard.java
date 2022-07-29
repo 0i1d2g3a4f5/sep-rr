@@ -201,8 +201,6 @@ public class GameBoard  {
      */
 
     public GameBoard (JsonObject json) throws IOException {
-        //TODO ?
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         ElementFactory elementFactory = new ElementFactory();
         boardMap = new ArrayList<ArrayList<GameField>>();
@@ -222,7 +220,6 @@ public class GameBoard  {
 
                 for (JsonElement elementLVL3: arrayLVL1.get(x).getAsJsonArray().get(y).getAsJsonArray()) {
                     GameElement element = elementFactory.createElement(gson.fromJson(elementLVL3, JsonObject.class));
-                    //System.out.println("Type after Factory: "+element.getType());
                     gameField.addElement(element);
                     element.setGameField(gameField);
                     if(element instanceof Laser){
@@ -238,7 +235,6 @@ public class GameBoard  {
             }
             boardMap.add(row);
         }
-        //System.out.println(this);
 
     }
 
@@ -246,9 +242,6 @@ public class GameBoard  {
         GameField gameField = getGameField(y,x);
         return gameField.getElements();
     }
-
-
-
 
     /**
      * @author Ringer
@@ -287,10 +280,5 @@ public class GameBoard  {
     public int hashCode() {
         return Objects.hash(dimensionY, dimensionX, boardMap);
     }
-
-
-
-
-
 
 }

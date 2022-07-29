@@ -8,14 +8,20 @@ import gamelogic.Direction;
 
 import java.io.IOException;
 
-
+/**
+ * @author Mark Ringer
+ */
 public class ConveyorBelt extends GameElement{
 
     private Color color;
     int speed;
 
     /**
-     * @author Ringer
+     * @param color
+     * @param targetDirection
+     * @param originDirection1
+     * @param originDirection2
+     * @throws IOException
      */
     public ConveyorBelt(Color color, Direction targetDirection, Direction originDirection1, Direction originDirection2) throws IOException {
         visualOrder = 1;
@@ -31,8 +37,12 @@ public class ConveyorBelt extends GameElement{
         }
         else throw new IOException("Color not found");
     }
+
     /**
-     * @author Ringer
+     * @param color
+     * @param targetDirection
+     * @param originDirection
+     * @throws IOException
      */
     public ConveyorBelt(Color color,Direction targetDirection, Direction originDirection) throws IOException {
         visualOrder = 1;
@@ -46,7 +56,9 @@ public class ConveyorBelt extends GameElement{
     }
 
     /**
-     * @author Ringer
+     * @param color
+     * @param targetDirection
+     * @throws IOException
      */
     public ConveyorBelt(Color color,Direction targetDirection) throws IOException {
         visualOrder = 1;
@@ -60,7 +72,6 @@ public class ConveyorBelt extends GameElement{
     }
 
     /**
-     * @author Ringer
      * builds an Object from a JsonObject
      * @param jsonObject
      * @return

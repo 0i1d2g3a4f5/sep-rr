@@ -31,7 +31,6 @@ public class MessageNotYourCards extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("cardsInHand", new JsonPrimitive(cardsInHand));
         content = jsonObject;
-        //Server.serverLogger.info("Created Not Your Cards Message: " + this);
     }
 
     /**
@@ -44,7 +43,6 @@ public class MessageNotYourCards extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         cardsInHand = content.get("cardsInHand").getAsInt();
-        //Server.serverLogger.info("Created Not Your Cards Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

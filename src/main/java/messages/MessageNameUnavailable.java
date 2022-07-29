@@ -26,7 +26,6 @@ public class MessageNameUnavailable extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("UnavailableName", new JsonPrimitive(string));
         content = jsonObject;
-        //Server.serverLogger.info("Created Name Unavailable Message: " + this);
     }
 
     /**

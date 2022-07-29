@@ -11,9 +11,6 @@ import java.io.IOException;
  * @author Vivian Kafadar
  */
 public class MessageSelectedDamage extends Message {
-
-    //TODO check if correct
-
     public String damage;
     public int register;
 
@@ -29,7 +26,6 @@ public class MessageSelectedDamage extends Message {
         jsonObject.add("damage", new JsonPrimitive(damage));
         jsonObject.add("register", new JsonPrimitive(register));
         content = jsonObject;
-        //Server.serverLogger.info("Created Selected Damage Message: " + this);
     }
 
     /**
@@ -39,22 +35,12 @@ public class MessageSelectedDamage extends Message {
         super(jsonObject);
         damage = content.get("damage").getAsString();
         register = content.get("register").getAsInt();
-        //Server.serverLogger.info("Created Selected Damage Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-
-        //TODO draw selected dmg cards (Mark)
-
-    }
-
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

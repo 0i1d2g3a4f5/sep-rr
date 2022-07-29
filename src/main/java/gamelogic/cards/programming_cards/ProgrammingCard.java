@@ -13,6 +13,5 @@ public abstract class ProgrammingCard extends Card implements PlayableInRegister
 
     @Override
     public void discard(){
-        //TODO Check if needed
     }
 }

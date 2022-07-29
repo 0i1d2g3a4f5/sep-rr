@@ -16,6 +16,8 @@ public class MessageReconnect extends Message{
     public String hash;
 
     /**
+     * from message to json
+     *
      * @param name
      * @param hash
      */
@@ -27,17 +29,17 @@ public class MessageReconnect extends Message{
         jsonObject.add("Name", new JsonPrimitive(name));
         jsonObject.add("Hash", new JsonPrimitive(hash));
         content = jsonObject;
-        //Server.serverLogger.info("Created Message Reconnect Message: " + this);
     }
 
     /**
+     * from json to message
+     *
      * @param jsonObject
      */
     public MessageReconnect(JsonObject jsonObject){
         super(jsonObject);
         name=content.get("Name").getAsString();
         hash=content.get("Hash").getAsString();
-        //Server.serverLogger.info("Created Message Reconnect Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -46,9 +48,7 @@ public class MessageReconnect extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
     /**
      * @param client
@@ -56,11 +56,8 @@ public class MessageReconnect extends Message{
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
 
-    }
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

@@ -28,7 +28,6 @@ public class MessageDrawDamage extends Message {
      * @param damageCards
      */
     public MessageDrawDamage(int clientID, ArrayList<CardName> damageCards) {
-        //TODO check if correct
         this.clientID = clientID;
         type = "DrawDamage";
         JsonObject messageContent = new JsonObject();

@@ -232,7 +232,6 @@ public class CPlayer {
     }
 
     public void drawDamage(){
-        //TODO draw Damage handeling
     }
 
 

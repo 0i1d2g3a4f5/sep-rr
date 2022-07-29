@@ -3,6 +3,7 @@ package client_application;
  * @author Sarp Cagin Erdogan
  */
 public class Task {
+
     TaskType taskType;
     TaskContent taskContent;
 
@@ -14,4 +15,5 @@ public class Task {
     public Task() {
 
     }
+
 }

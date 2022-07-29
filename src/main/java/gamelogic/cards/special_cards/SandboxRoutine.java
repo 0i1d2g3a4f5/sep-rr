@@ -17,7 +17,6 @@ public class SandboxRoutine extends SpecialCard {
      * U-Turn
      */
     public void activateCard(){
-        //TODO player message, player choose a card
         switch (cardName){
             case MOVEI:
                 player.getRobot().forward(1);

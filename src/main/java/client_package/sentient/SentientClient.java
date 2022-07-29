@@ -20,6 +20,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Sarp Erdogan
+ */
 public class SentientClient extends Client {
     HashMap<Integer, Position> nextCheckPoints;
 
@@ -28,18 +31,24 @@ public class SentientClient extends Client {
 
     int lastTriedFigure = 1;
     SentientController sentientController;
+
+
+    /**
+     * sets first goal of reaching first checkpoint
+     * @param sentientController
+     */
     public SentientClient(SentientController sentientController){
         this.currentGoal=1;
         nextCheckPoints = new HashMap<>();
         this.sentientController = sentientController;
         this.sentientBehaviour = new SentientBehaviour(this);
-
         getLogger().info("Created new SentientClient for this controller.");
     }
 
-
-
-
+    /**
+     * makes it possible for the ai to send Messages sendSelf
+     * @param temp
+     */
     @Override
     public void sendSelf(Message temp) {
         toSendList.add(temp);
@@ -60,7 +69,9 @@ public class SentientClient extends Client {
         }
     }
 
-
+    /**
+     * listens for incoming messages
+     */
     @Override
     public void listen() {
         setIsListening(true);
@@ -89,27 +100,29 @@ public class SentientClient extends Client {
                         throw new RuntimeException(e);
                     }
                     handleReceivedMessages();
-
-
                 }
             }
         });
         listenerThread.start();
-
     }
+
+    /**
+     * converts received messages and gives it to processor
+     */
     public void handleReceivedMessages(){
         while (receivedMessages.size()>0){
-            /*String text ="\nCurrent messages:\n";
-            for(int i=0; i<receivedMessages.size(); i++){
-                text+=(i + " : " + receivedMessages.get(i) + "\n");
-            }
-            getLogger().info(text);*/
             String string = receivedMessages.get(0);
             JsonObject jsonObject = new Gson().fromJson(string, JsonObject.class);
             process(jsonObject, this);
             receivedMessages.remove(0);
         }
     }
+
+    /**
+     * handles ready status by checking id of client with new status and setting it to true/false
+     * @param ready
+     * @param id
+     */
     public void handleReady(boolean ready, int id){
         if(ready){
             for(int i=0; i<clientList.size(); i++){
@@ -166,9 +179,9 @@ public class SentientClient extends Client {
         });
         thread.setDaemon(true);
         thread.start();
-
     }
 
+    //getter/setter
 
     public Logger getLogger() {
         return sentientController.getLogger();
@@ -176,7 +189,6 @@ public class SentientClient extends Client {
     public String getProtocolVersion() {
         return GlobalParameters.PROTOCOL_VERSION;
     }
-
     public SentientBehaviour getSentientBehaviour() {
         return sentientBehaviour;
     }

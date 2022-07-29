@@ -9,7 +9,7 @@ import server_package.Server;
 import java.io.IOException;
 
 /**
- * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
+ * @author Vivian Kafadar
  */
 
 
@@ -26,7 +26,6 @@ public class MessageSelectionFinished extends Message{
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Selection Finished Message: " + this);
     }
 
     /**
@@ -35,29 +34,10 @@ public class MessageSelectionFinished extends Message{
     public MessageSelectionFinished(JsonObject jsonObject){
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
-        //Server.serverLogger.info("Created Selection Finished Message: " + this + " from JSON: " + jsonObject);
     }
 
-    /**
-     * @author Ringer
-     * @param sClient
-     * @throws IOException
-     * @throws ClientNotFoundException
-     */
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-        /*
-        try {
-            if (sClient.getServer().getGame().programmingPlayers().size() == 0)
-                sClient.getServer().getGame().endProgrammingPhase();
-            sClient.getPlayer().isProgramming = false;
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-         */
-
-    }
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
     /**
      * @param client
@@ -67,10 +47,8 @@ public class MessageSelectionFinished extends Message{
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         Server.serverLogger.info("Server: Player " + clientID + " has finished programming. The others have 30 seconds left");
-
     }
+
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

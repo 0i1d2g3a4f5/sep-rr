@@ -13,12 +13,7 @@ public class TrojanHorse extends DamageCard {
 
     @Override
     public void discard() {
-        //TODO check game rules
         game.getTrojanHorseDrawPile().push(this);
-        /*
-        player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().push());
-        player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().push());
-         */
     }
 
     /**
@@ -28,12 +23,10 @@ public class TrojanHorse extends DamageCard {
     public void activateCard(){
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
         player.getDiscardPile().add(Game.getInstance().getSpamDrawPile().pop());
-        //TODO notify CPlayer
         player.clearThisRegister(game.getActiveRegister());
         game.getTrojanHorseDrawPile().add(this);
         player.placeCard(player.drawCard(), game.getActiveRegister());
         player.activateRegister(game.getActiveRegister());
-        //remove card from register and replace it with a new one.
         Server.serverLogger.info("Trojan Horse");
     }
 }

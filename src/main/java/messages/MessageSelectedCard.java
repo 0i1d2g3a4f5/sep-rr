@@ -12,16 +12,15 @@ import server_package.Server;
 import java.io.IOException;
 
 /**
- * @author Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
+ * @author Isabel Muhm, Sarp Cagin Erdogan, Mark Ringer
  */
-
-
 public class MessageSelectedCard extends Message {
-
     public String card;
     public int register;
 
     /**
+     * turn message to json
+     *
      * @param card
      * @param register
      */
@@ -33,23 +32,23 @@ public class MessageSelectedCard extends Message {
         jsonObject.add("card", new JsonPrimitive(card));
         jsonObject.add("register", new JsonPrimitive(register+1));
         content = jsonObject;
-        //Server.serverLogger.info("Created Selected Card Message: " + this);
     }
 
     /**
+     * turn json to message
+     *
      * @param jsonObject
      */
     public MessageSelectedCard(JsonObject jsonObject) {
         super(jsonObject);
         card = content.get("card").getAsString();
         register = content.get("register").getAsInt()-1;
-        //Server.serverLogger.info("Created Selected Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
-     * @author Ringer
+     * Answers according the function feedback
      *
-     * Answers according tho function feedback
+     * @author Mark Ringer
      * @param sClient
      * @throws IOException
      * @throws ClientNotFoundException
@@ -70,24 +69,10 @@ public class MessageSelectedCard extends Message {
             Card cardObject = utility.SearchMethods.searchCard(CardName.parseCardName(card),player.getHandCards());
             player.getAllRegisters()[register] = cardObject;
             sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
-
-            /*
-            if (player.removeCard(register)){
-                if (player.placeCard(CardName.valueOf(card), register))
-                    sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
-                else
-                    sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, false));
-            }else {
-                sClient.getServer().getGame().sendToAllPlayers(new MessageCardSelected(sClient.getId(), register, true));
-
-             */
-
-
         }
+
         Server.serverLogger.info("BISHER: ");
         boolean allFull = true;
-
-
             for(int i=0; i<5; i++){
                 allFull = true;
                 if(player.getRegister(i)!=null){
@@ -98,14 +83,12 @@ public class MessageSelectedCard extends Message {
                     break;
                 }
             }
-
         if(allFull){
             Server.serverLogger.info("Cards full");
             sClient.getPlayer().isProgramming = false;
             sClient.getPlayer().getGame().setProgrammingPhase(false);
             Server.serverLogger.info("Var programmingPhase: " + sClient.getPlayer().getGame().isProgramingPhase());
         }
-
     }
 
     /**
@@ -114,12 +97,7 @@ public class MessageSelectedCard extends Message {
      * @throws ClientNotFoundException
      */
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
-
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

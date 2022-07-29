@@ -11,12 +11,6 @@ import java.util.Objects;
  * Replaces image paths with enums
  */
 public enum Images {
-    /*
-    public void rotate(ImageView imageView, int direction){
-        imageView.setRotate(imageView.getRotate()+direction*90);
-    }
-    //TODO edit*/
-
     //cards
     YESCARD("/YesCard.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/YesCard.png")))), "Card"),
     NOCARD("/NoCard.png", new ImageView(new Image(Objects.requireNonNull(Images.class.getResourceAsStream("/NoCard.png")))), "Card"),

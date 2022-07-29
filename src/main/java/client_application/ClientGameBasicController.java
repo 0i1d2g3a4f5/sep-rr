@@ -497,6 +497,10 @@ public class ClientGameBasicController {
         rebootWindow.setVisible(false);
     }
 
+    /**
+     * @author Vivian Kafadar
+     * @param direction
+     */
     public void setRebootDirection(Direction direction){
         clientApplication.basicClient.sendSelf(new MessageRebootDirection(direction.toString()));
     }

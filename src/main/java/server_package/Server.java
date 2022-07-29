@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @author Sarp Cagin Erdogan
+ * @author Sarp Erdogan
  */
 
 public abstract class Server {
@@ -43,8 +43,6 @@ public abstract class Server {
         gameStarted=false;
     }
 
-
-
     public Game getGame() {
         return game;
     }
@@ -59,17 +57,6 @@ public abstract class Server {
     public abstract void checkReady();
     public abstract void startServerSocket();
     public abstract void mapSelect();
-    /* GETTER SETTER
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     */
-
 
     public ServerApplication getServerApplication() {
         return serverApplication;

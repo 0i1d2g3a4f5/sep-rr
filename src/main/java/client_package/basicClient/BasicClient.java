@@ -14,6 +14,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
+
 /**
  * @author Sarp Cagin Erdogan
  */
@@ -139,7 +140,7 @@ public class BasicClient extends Client {
                         while(bufferedReader.ready()) {
                             String received = bufferedReader.readLine();
                             receivedMessages.add(received);
-                            Client.clientLogger.info("Recevied message: " + received);
+                            Client.clientLogger.info("Received message: " + received);
                         }
                     } catch (IOException e) {
                         throw new RuntimeException(e);
@@ -155,11 +156,6 @@ public class BasicClient extends Client {
     }
     public void handleReceivedMessages(){
         while (receivedMessages.size()>0){
-            /*String text ="\nCurrent messages:\n";
-            for(int i=0; i<receivedMessages.size(); i++){
-                text+=(i + " : " + receivedMessages.get(i) + "\n");
-            }
-            getLogger().info(text);*/
             String string = receivedMessages.get(0);
             JsonObject jsonObject = new Gson().fromJson(string, JsonObject.class);
             process(jsonObject, this);

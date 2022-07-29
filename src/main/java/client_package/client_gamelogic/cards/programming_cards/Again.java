@@ -2,12 +2,10 @@ package client_package.client_gamelogic.cards.programming_cards;
 
 import static client_package.client_gamelogic.cards.CardName.AGAIN;
 
-public class
-Again extends ProgrammingCard {
-
-    /**
-     * @author Kafadar
-     */
+/**
+ * @author Vivian Kafadar
+ */
+public class Again extends ProgrammingCard {
 
     public Again() {super(AGAIN);}
 
@@ -15,9 +13,6 @@ Again extends ProgrammingCard {
     public void discard() {
     }
 
-    /**
-     * @author Ringer
-     */
     @Override
     public void activateCard() {
     }

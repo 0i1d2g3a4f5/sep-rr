@@ -128,7 +128,6 @@ public class Player{
 
 
     public Card[] getAllRegisters() {
-        //TODO ArrayList or Array?
         return register;
     }
 
@@ -217,7 +216,6 @@ public class Player{
     /**
      * @author Ringer
      */
-    //TODO Check use
     private void finishProgramming() throws InterruptedException {
         game.setProgrammingPhase(false);
     }

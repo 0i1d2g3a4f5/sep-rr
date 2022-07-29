@@ -6,12 +6,8 @@ public class CardUnknown extends Card{
     }
 
     @Override
-    public void discard() {
-
-    }
+    public void discard() {}
 
     @Override
-    public void activateCard() {
-
-    }
+    public void activateCard() {}
 }

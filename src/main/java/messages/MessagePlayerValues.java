@@ -23,7 +23,6 @@ public class MessagePlayerValues extends Message{
      *
      * @param name
      * @param figure
-     * @author Isabel Muhm
      */
     public MessagePlayerValues(String name, int figure) {
         this.name = name;
@@ -33,20 +32,17 @@ public class MessagePlayerValues extends Message{
         jsonObject.add("name", new JsonPrimitive(name));
         jsonObject.add("figure", new JsonPrimitive(figure));
         content = jsonObject;
-        //Server.serverLogger.info("Created Player Values Message: " + this);
     }
 
     /**
      * converts json to message
      *
      * @param jsonObject
-     * @author Isabel Muhm
      */
     public MessagePlayerValues(JsonObject jsonObject){
         super(jsonObject);
         name = content.get("name").getAsString();
         figure = content.get("figure").getAsInt();
-        //Server.serverLogger.info("Created Player Values Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**

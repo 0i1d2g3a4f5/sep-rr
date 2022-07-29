@@ -32,7 +32,6 @@ public class Virus extends DamageCard {
             }
 
         }
-        //TODO notify CPlayer
         player.clearThisRegister(game.getActiveRegister());
         game.getVirusDrawPile().add(this);
         player.placeCard(player.drawCard(), game.getActiveRegister());

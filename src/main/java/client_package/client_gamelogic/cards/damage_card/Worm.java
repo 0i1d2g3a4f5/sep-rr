@@ -3,7 +3,7 @@ package client_package.client_gamelogic.cards.damage_card;
 import static client_package.client_gamelogic.cards.CardName.WORM;
 
 /**
- * @author Qinyi
+ * @author Qinyi Hui
  * When you program a worm damage card, you must immediately reboot your robot
  */
 public class Worm extends DamageCard {

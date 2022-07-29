@@ -14,9 +14,10 @@ import server_package.SClient;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author Isabel Muhm, Sarp Erdogan
+ */
 public class MessageReplaceCard extends Message {
-
-
     public String card;
     public int register;
 
@@ -34,7 +35,6 @@ public class MessageReplaceCard extends Message {
         jsonObject.add("newCard", new JsonPrimitive(String.valueOf(card)));
         jsonObject.add("clientID",new JsonPrimitive(clientID));
         content = jsonObject;
-        //Server.serverLogger.info("Created Replace Card Message: " + this);
     }
 
     /**
@@ -44,15 +44,16 @@ public class MessageReplaceCard extends Message {
         super(jsonObject);
         card = content.get("newCard").getAsString();
         register = content.get("register").getAsInt();
-        //Server.serverLogger.info("Created Replace Card Message: " + this + " from JSON: " + jsonObject);
     }
 
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
-
-    }
-
+    /**
+     * @param client
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
         ArrayList<Card> registers = client.getPlayer().getRegisterCardsOwn();
@@ -61,11 +62,13 @@ public class MessageReplaceCard extends Message {
         registers.remove(register);
         registers.add(register,card);
         client.getClientApplication().addAndExecuteTask(new Task(TaskType.UPDATE_PROGCARDS, new TaskContent()));
-
-
     }
+
+    /**
+     * @param sentientClient
+     * @throws IOException
+     * @throws ClientNotFoundException
+     */
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

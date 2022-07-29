@@ -53,7 +53,6 @@ public class MessageMapSelected extends Message{
      * @throws ClientNotFoundException
      * @uthor Ringer
      */
-
     @Override
     public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
         sClient.getServer().setGameStarted(true);
@@ -69,22 +68,10 @@ public class MessageMapSelected extends Message{
             sClient.getServer().setGameStarted(true);
             sClient.sendAll(new MessageGameStarted(gameBoard.toJson(), false));
             Game.getInstance().setStartPoints();
-
-
     }
 
     @Override
-    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
-        /*TODO check if needed
-        client_package.client_gamelogic.map.ModelLoader modelLoader = new client_package.client_gamelogic.map.ModelLoader();
-        client.getGame().setMap(modelLoader.loadMap(map));
-
-         */
-
-
-    }
+    public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {}
     @Override
-    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {
-
-    }
+    public void activateMessageInAIFrontend(SentientClient sentientClient) throws IOException, ClientNotFoundException {}
 }

@@ -10,12 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Ringer
+ * @author Mark Ringer
  */
 public class SearchMethods {
 
     /**
-     * @author Ringer
      * @param cardName
      * @param list
      * @return
@@ -27,6 +26,11 @@ public class SearchMethods {
         return null;
     }
 
+    /**
+     * @param cardName
+     * @param list
+     * @return
+     */
     public static Card searchCard(CardName cardName,Card[] list){
         for (Card card:list) {
             if(card.getCardName()==cardName) return card;

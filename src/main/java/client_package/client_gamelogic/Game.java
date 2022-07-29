@@ -69,7 +69,6 @@ public class Game {
 
     private Game(Client client, ArrayList<CPlayer> playerList, JsonObject mapJson) throws IOException {
         this.client = client;
-        //TODO check if needed: this.playerList = playerList;
         map = new GameBoard(mapJson);
     }
 

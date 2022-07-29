@@ -31,7 +31,6 @@ public class MessageCardPlayed extends Message{
         jsonObject.add("clientID", new JsonPrimitive(clientID));
         jsonObject.add("card", new JsonPrimitive(card));
         content = jsonObject;
-        //Server.serverLogger.info("Created CardPlayed Message: " + this);
     }
 
     /**
@@ -44,7 +43,6 @@ public class MessageCardPlayed extends Message{
         super(jsonObject);
         clientID = content.get("clientID").getAsInt();
         card = content.get("card").getAsString();
-        //Server.serverLogger.info("Created CardPlayed Message: " + this + " from JSON: " + jsonObject);
     }
 
     /**
@@ -52,18 +50,7 @@ public class MessageCardPlayed extends Message{
      * @author Ringer
      */
     @Override
-    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {
-        /*
-        TBD
-        if (sClient != null) {
-            sClient.getPlayer().placeCard(CardName.parseCardName(card), 1);
-            // TODO check if okay
-        } else {
-            throw new ClientNotFoundException("SClient with ID = " + clientID + " not found");
-        }
-
-         */
-    }
+    public void activateMessageInBackend(SClient sClient) throws IOException, ClientNotFoundException {}
 
     @Override
     public void activateMessageInFrontend(client_package.Client client) throws IOException, ClientNotFoundException {
