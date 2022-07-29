@@ -4,35 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="commented/javadocs and clean code with vivian">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a37e9269-7e59-4b07-b136-0e73cf326181" name="Changes" comment="javadoc clientside-game logic">
+      <change afterPath="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_application/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_application/ClientMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/CPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/cards/CardName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Checkpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ConveyorBelt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ElementFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ElementFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ElementName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/ElementName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Empty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Empty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/EnergySpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/EnergySpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/GameElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/GameElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Gear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Laser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Laser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/LaserBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/LaserBeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/PushPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/game_elements/robot/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/GameField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/MapName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/MapName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/ModelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/client_gamelogic/map/ModelLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client_package/sentient/SentientLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server_application/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_application/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/MyMath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/SearchMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abgabe/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/abgabe/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server_package/SClient.java" afterDir="false" />
     </list>
     <list id="7adc4fde-b32a-46bd-b2ee-476339425771" name="Changes by Mark" comment="" />
     <list id="23c8ea4b-a7aa-48c9-95e2-9221fa88c84d" name="Changes by Sarp" comment="" />
@@ -118,9 +94,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:resolve" />
+      <command value="mvn CLEAN package" />
+      <command value="mvn clean package" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.SentientLauncher">
+  <component name="RunManager" selected="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client_application.ClientMain" />
       <module name="desperate_drosseln_hp" />
@@ -134,54 +112,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SentientLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_package.sentient.SentientLauncher" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client_package.sentient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server_application.ServerMain" />
-      <module name="desperate_drosseln_hp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server_application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/Jars/desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
     <configuration name="desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/abgabe/desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.ClientMain" />
-      <item itemvalue="Application.SentientLauncher" />
-      <item itemvalue="Application.ServerMain" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
       <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SentientLauncher" />
-        <item itemvalue="Application.ServerMain" />
-        <item itemvalue="Application.ClientMain" />
-        <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
         <item itemvalue="JAR Application.desperate_drosseln_hp-AI-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.desperate_drosseln_hp-Client-1.0-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.1-SNAPSHOT.jar" />
+        <item itemvalue="JAR Application.desperate_drosseln_hp-Server-1.0-SNAPSHOT.jar (1)" />
+        <item itemvalue="Application.ClientMain" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659064650312</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="javadoc clientside-game logic">
+      <created>1659082938540</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1659082938540</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +404,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Game is playable, problems with second client" />
     <MESSAGE value="Changes by vivian" />
     <MESSAGE value="2 players can be in 1 game together np, but other robot is not shown" />
     <MESSAGE value="ALLAH IS BACK AT WORK" />
@@ -462,6 +428,7 @@
     <MESSAGE value="changed directory to abgabe" />
     <MESSAGE value="Changes by vivian (commenting everything)" />
     <MESSAGE value="commented/javadocs and clean code with vivian" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented/javadocs and clean code with vivian" />
+    <MESSAGE value="javadoc clientside-game logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc clientside-game logic" />
   </component>
 </project>

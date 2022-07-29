@@ -60,7 +60,8 @@ public abstract class SClient {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            toSendList.remove(0);
+            if(toSendList.size()>0)
+                toSendList.remove(0);
         }
     }
 
