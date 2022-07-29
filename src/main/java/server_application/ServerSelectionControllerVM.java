@@ -10,15 +10,19 @@ import server_package.SClient;
 import server_package.Server;
 import server_package.basicServer.BasicServer;
 
+/**
+ * @author Vivian Kafadar
+ * view model for the ServerSelectionController class
+ */
 public class ServerSelectionControllerVM {
 
     public ServerSelectionController serverSelectionController;
     public ListView<String> serverPlayerListCopy;
     public Text textFieldCopy;
     public ServerSelectionControllerVM(ServerSelectionController serverSelectionController){
-        this.serverSelectionController=serverSelectionController;
-        this.serverPlayerListCopy=new ListView<String>();
-        this.textFieldCopy=new Text();
+        this.serverSelectionController = serverSelectionController;
+        this.serverPlayerListCopy = new ListView<String>();
+        this.textFieldCopy = new Text();
     }
 
     public boolean isActive() {

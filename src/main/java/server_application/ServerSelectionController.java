@@ -13,9 +13,8 @@ import server_package.Server;
 import server_package.basicServer.BasicServer;
 
 /**
- * @authors Isabel Muhm, Vivian Kafadar, Sarp Cagin Erdogan
+ * @authors Isabel Muhm, Vivian Kafadar, Sarp Erdogan
  */
-
 public class ServerSelectionController {
 
     public ServerSelectionControllerVM serverSelectionControllerVM;
@@ -34,8 +33,8 @@ public class ServerSelectionController {
     public Text textfield;
 
     /**
-     * checks if minimal amount of AI/nonAI players is set, if yes it launches the server
-     * @author Sarp, Isabel
+     * check if the minimum amount of AI and non-AI players is set, if this is the case the server is launched
+     * @author Sarp Erdogan, Isabel Muhm
      * @param event
      */
     @FXML
@@ -86,6 +85,10 @@ public class ServerSelectionController {
 
     }
 
+    /**
+     * @author Vivian Kafadar
+     * @param serverSelectionControllerVM
+     */
     void init(ServerSelectionControllerVM serverSelectionControllerVM) {
         this.serverSelectionControllerVM = serverSelectionControllerVM;
         this.textfield.textProperty().bindBidirectional(serverSelectionControllerVM.textFieldCopy.textProperty());
